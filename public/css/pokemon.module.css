@@ -1,0 +1,22 @@
+.card:hover {
+  @apply transform duration-500 scale-110;
+}
+
+.poke_wrap {
+  display: grid;
+  /* border: 1px solid #ddd; */
+  /* grid-auto-rows: 5em; */
+  grid-gap: 10px;
+  /* padding: 10px; */
+  margin: 1em 0 2em;
+  /* overflow: hidden; */
+  /* grid-gap: 10px; */
+  grid-template-columns: repeat(auto-fill, minmax(11.5vw, 1fr));
+  /* width: 96vw; */
+  /* margin: 0 auto; */
+}
+
+.poke_show_header {
+  width: 100vw;
+  margin: 0 calc(50% - 50vw);
+}
