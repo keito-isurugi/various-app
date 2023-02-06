@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/legacy/image';
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import Modal from '@mui/material/Modal';
@@ -81,12 +82,12 @@ export default function Home() {
 
   return (
     <>
-		<div className='px-5'>
-			<div className='mb-6 flex gap-6 justify-between'>
-				<p className='font-bold text-3xl'>ポケモン図鑑：{createPokeNomArray(generation)}　{datas.length.toLocaleString()}匹</p>
+		<div className='px-1 md:px-5 lg:px-5'>
+			<div className='mt-3 mb-3 flex gap-1 lg:gap-6 justify-between'>
+				<p className='font-bold text-xm lg:text-3xl'>ポケモン図鑑：{createPokeNomArray(generation)}　{datas.length.toLocaleString()}匹</p>
 				<select 
 					id="generation"
-					className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-3 font-bold"
+					className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-3 font-bold max-h-[50px]"
 					onChange={(e) => setPokeDatas(Number(e.target.value))}
 					>
 					<option value={999}>全世代</option>
@@ -104,10 +105,10 @@ export default function Home() {
 						onClick={() => router.push(`/pokemon/show/${index}`)}
 					>
 						<div className="w-full mx-auto bg-gray-300">
-							<img className="w-full" src={data.img} alt={data.name} />	
+							<img src={data.img} alt={data.name} />	
 						</div>
-						<div className="px-2 py-2">
-							<div className="font-bold text-x">{data.name}</div>
+						<div className="px-1 py-1 lg:px-2 lg:py-2">
+							<p className="font-bold text-xs lg:text-xl" >{data.name}</p>
 						</div>
 					</li>
 				))}
