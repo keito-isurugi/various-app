@@ -21,6 +21,7 @@ import AssuredWorkloadIcon from '@mui/icons-material/AssuredWorkload';
 import EngineeringIcon from '@mui/icons-material/Engineering';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
+import MenuBookIcon from '@mui/icons-material/MenuBook';
 
 export default function Sidebar() {
   const [state, setState] = React.useState({
@@ -47,16 +48,13 @@ export default function Sidebar() {
 	const iconStyle = { color: 'white' }
 
 	const menuIcon = (id: string) => {
-		if(id === 'article'){	
-			return <ArticleIcon style={iconStyle}/>
-		} else if(id === 'private_construction') {
-			return <EngineeringIcon style={iconStyle}/>
-		} else if(id === 'governor_permission') {
-			return <AssuredWorkloadIcon style={iconStyle}/>
-		} else if(id === 'bid') {
-			return <GavelIcon style={iconStyle}/>
-		} else if(id === 'maintenance') {
-			return <SettingsIcon style={iconStyle}/>
+		switch (id) {
+			case 'pokemon':
+				return <MenuBookIcon style={iconStyle}/>
+			case 'blog':
+				return <ArticleIcon style={iconStyle}/>
+			case 'under_development':
+				return <EngineeringIcon style={iconStyle}/>
 		}
 	}
 
@@ -70,8 +68,6 @@ export default function Sidebar() {
           color: '#fff' 
         }}
         role="presentation"
-        // onClick={() => setSideBarOpen(false)}
-        // onKeyDown={() => setSideBarOpen(false)}
       >
         <List
           sx={{
@@ -98,6 +94,26 @@ export default function Sidebar() {
             </Box>
           </Box>
           {menuData.map((data, index) => (
+						data.menus.length === 0 ? 
+						<ListItemButton
+                key={index} 
+                id={data.id} 
+                onClick={() => onClickMenu(data.url)}
+                sx={{
+                  ':hover':{backgroundColor: '#2D3748'}
+                }}
+                >
+                <ListItemIcon>
+                  {menuIcon(data.id)}
+                </ListItemIcon>
+                <ListItemText 
+                  primary={data.name} 
+                  primaryTypographyProps={{
+                      fontWeight: 'bold',
+                    }}
+                />
+            </ListItemButton>
+						:
             <>
               <ListItemButton
                 key={index} 
