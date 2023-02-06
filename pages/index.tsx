@@ -1,7 +1,10 @@
 import Head from 'next/head'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
+import styles from '@/public/css/pokemon.module.css'
 
 export default function Home() {
+  const router = useRouter()
   return (
     <>
       <Head>
@@ -11,9 +14,21 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div>
-        <h1 className="text-4xl font-bold mb-3">メニュー</h1>
-        <div className="p-10">
-          <ul className='list-disc flex gap-10'>
+        <h1 className="text-4xl font-bold mb-3">Menu</h1>
+        <div className="p-4">
+          <ul className='flex gap-10'>
+            <li className={`flex justify-center items-center gap-3 border py-3 px-5 rounded-lg shadow-xl cursor-pointer lg:w-[18%] md:w-[50%] sm:w-[100%] ${styles.card}`} onClick={() => router.push('/pokemon/json_data')}>
+              <div className='w-12'>
+                <img className="" src="/img/pokemon/ball.svg" alt="" />
+              </div>
+              <p className='font-bold text-xl'>ポケモン図鑑</p>
+            </li>
+            <li className={`flex justify-center items-center gap-3 border py-3 px-5 rounded-lg shadow-xl cursor-pointer lg:w-[18%] md:w-[50%] sm:w-[100%] ${styles.card}`} onClick={() => router.push('/blog')}>
+              <div className='w-12'>
+                <img className="" src="/img/notion-logo.svg" alt="" />
+              </div>
+              <p className='font-bold text-xl'>Notionブログ</p>
+            </li>
           </ul>
         </div>
       </div>
