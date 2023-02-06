@@ -9,7 +9,7 @@ export default function Home() {
 	const [pokeNum, setPokeNum] = useState(Array.from(Array(151).keys(), x => x + 1))
 	const [isLoading, setIsLoading] = useState(false)
 
-	const createPokeNomArray = (gen) => {
+	const createPokeNomArray = (gen: any) => {
 		switch (gen) {
 			case 1:
 				setPokeNum(Array.from(Array(151).keys(), x => x + 1))
@@ -47,7 +47,7 @@ export default function Home() {
 		}
 	}
 
-	const onClickSetGeneration = (num) => {
+	const onClickSetGeneration = (num: any) => {
 		setGeneration(num)
 		createPokeNomArray(num)
 	}
@@ -81,7 +81,7 @@ export default function Home() {
 		})
 	}
 
-	const fetchType = (url) => {
+	const fetchType = (url: any) => {
 		return new Promise((resolve, reject) => {
 			Axios
 				.get(`${url}`)
@@ -97,7 +97,7 @@ export default function Home() {
 	}
 	
 	const main = async() => {
-		let pokeDatas = [];
+		let pokeDatas: any[] = [];
 		setIsLoading(true)
 		await Promise.all(pokeNum.map(async(num, i) => {
 			// 日本語情報取得用データ
@@ -118,32 +118,32 @@ export default function Home() {
 		}).call([])
 	}
 
-	const pokeDatasSet = async(pokeDatas) => {
-		pokeDatas.sort((a, b) => a.no - b.no);
+	const pokeDatasSet = async(pokeDatas: any) => {
+		pokeDatas.sort((a: any, b: any) => a.no - b.no);
 		setDatas(pokeDatas)
 		setIsLoading(false)
 	}
 
-	const fetchPokeDetail  = async (i, pokeSpecies, poke) => {
+	const fetchPokeDetail  = async (i: any, pokeSpecies: any, poke: any) => {
 			// 図鑑番号
 			let pokeNo = i
 			// 名前
-			const name_ja =  pokeSpecies.names.filter((g) => g.language.name === "ja")
+			const name_ja =  pokeSpecies.names.filter((g: any) => g.language.name === "ja")
 			let name = name_ja[0].name
 			// ぶんるい
-			const genera_ja =  pokeSpecies.genera.filter((g) => g.language.name === "ja")
+			const genera_ja =  pokeSpecies.genera.filter((g: any) => g.language.name === "ja")
 			let classification = genera_ja[0]?.genus
 			// タイプ1
-			let type1_datas = await fetchType(poke.types[0].type.url)
-			let type1_data = type1_datas.names.filter((g) => g.language.name === "ja")
+			let type1_datas: any = await fetchType(poke.types[0].type.url)
+			let type1_data = type1_datas.names.filter((g: any) => g.language.name === "ja")
 			let type1 = type1_data[0].name
 			// タイプ２
-			let type2_datas = ""
-			let type2_data = ""
-			let type2 = ""
+			let type2_datas: any = ""
+			let type2_data: any = ""
+			let type2: any = ""
 			if(poke.types[1] !== undefined) {
 				type2_datas = await fetchType(poke.types[1]?.type.url)
-				type2_data = type2_datas.names.filter((g) => g.language.name === "ja")
+				type2_data = type2_datas.names.filter((g: any) => g.language.name === "ja")
 				type2 = type2_data[0].name
 			}
 			// 高さ
@@ -151,7 +151,7 @@ export default function Home() {
 			// 重さ
 			let weight = poke.weight
 			// 図鑑
-			const flavor_text_entries_ja =  pokeSpecies?.flavor_text_entries.filter((g) => g.language.name === "ja")
+			const flavor_text_entries_ja =  pokeSpecies?.flavor_text_entries.filter((g: any) => g.language.name === "ja")
 			let flavor_text = flavor_text_entries_ja[0]?.flavor_text
 			// 種族値(HP、攻撃、防御、特攻、特防、素早さ)
 			let hp = poke.stats[0].base_stat

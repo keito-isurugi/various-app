@@ -10,15 +10,15 @@ import { usePokeInfoHooks } from '@/hooks/pokemon/usePokeInfoHooks'
 
 export default function Home() {
 	const router = useRouter()
-	const [datas, setDatas] = useState<any[]>(pokemonJson)
-	const [pokeNum, setPokeNum] = useState<Number>(0)
-	const [generation, setGeneration] = useState<Number>(999)
+	const [datas, setDatas] = useState(pokemonJson)
+	const [pokeNum, setPokeNum] = useState(0)
+	const [generation, setGeneration] = useState(999)
 	const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 	const [ typeImage ] = usePokeInfoHooks()
 	const style = {
-		position: 'absolute' as 'absolute',
+		position: 'absolute',
 		top: '50%',
 		left: '50%',
 		transform: 'translate(-50%, -50%)',

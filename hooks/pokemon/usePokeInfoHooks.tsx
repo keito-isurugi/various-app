@@ -1,6 +1,6 @@
 export const usePokeInfoHooks = () => {
 
-	const typeImage = (type: string) => {
+	const typeImage = (type: any): any => {
 		switch (type) {
 			case "ノーマル":
 				return "/img/pokemon/icon_type_1.svg"
@@ -41,7 +41,7 @@ export const usePokeInfoHooks = () => {
 		}
 	}
 
-	const statusName = (key: string) => {
+	const statusName = (key: any): any => {
 		switch (key) {
 			case "hp":
 				return "HP"
@@ -58,7 +58,7 @@ export const usePokeInfoHooks = () => {
 		}
 	}
 
-	const statusBarIsValue = (status: number = 15) => {
+	const statusBarIsValue = (status: any = 15): any => {
 		let statusRatio = Math.round(status / 15) !== 0 ? Math.round(status / 15) : 1
 		if(statusRatio >= 15) {
 			return Array.from(Array(15).keys(), x => x)
@@ -67,7 +67,7 @@ export const usePokeInfoHooks = () => {
 		}
 	}	
 
-	const statusBarNonValue = (status: number = 15) => {
+	const statusBarNonValue = (status: any = 15): any => {
 		console.log(status)
 		let statusRatio = Math.round(status / 15) !== 0 ? 15 - Math.round(status / 15) : 14
 		console.log(statusRatio)

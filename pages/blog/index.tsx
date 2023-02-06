@@ -6,7 +6,7 @@ import styles from "./index.module.css";
 
 export const databaseId = process.env.NOTION_DATABASE_ID;
 
-export default function Home({ posts }) {
+export default function Home({ posts }: any) {
   // console.log(posts[0])
   // console.log(posts[0].properties["名前"].title[0].plain_text
   // )
@@ -58,7 +58,7 @@ export default function Home({ posts }) {
 
         <h2 className={styles.heading}>All Posts</h2>
         <ol className={styles.posts}>
-          {posts.map((post) => {
+          {posts.map((post: any) => {
             const date = new Date(post.last_edited_time).toLocaleString(
               "en-US",
               {

@@ -7,14 +7,14 @@ import db from "@/lib/firabase"
 import { collection, getDocs, doc, onSnapshot, setDoc, query, where, orderBy, limit } from "firebase/firestore";
 
 export default function Home() {
-	const [datas, setDatas] = useState<any[]>([])
-	const [pokeNum, setPokeNum] = useState<Number>(0)
-	const [generation, setGeneration] = useState<Number>(999)
+	const [datas, setDatas] = useState([])
+	const [pokeNum, setPokeNum] = useState(0)
+	const [generation, setGeneration] = useState(999)
 	const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 	const style = {
-		position: 'absolute' as 'absolute',
+		position: 'absolute',
 		top: '50%',
 		left: '50%',
 		transform: 'translate(-50%, -50%)',
