@@ -1,3 +1,3 @@
-import { createTheme } from '@material-ui/core';
+import { createTheme } from '@mui/material/styles';
 const Theme = createTheme();
 export default Theme;
