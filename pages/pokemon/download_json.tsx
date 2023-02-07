@@ -168,12 +168,12 @@ export default function Home() {
 			let poke_json = {
 				no: pokeNo,
 				name: name,
-				classification: classification,
+				classification: classification !== undefined ? classification : "",
 				type1: type1,
 				type2: type2,
 				height: height,
 				weight: weight,
-				flavor_text: flavor_text,
+				flavor_text: flavor_text !== undefined ? flavor_text : "",
 				status: {
 					hp: hp,
 					attack: attack,
@@ -200,6 +200,8 @@ export default function Home() {
 		link.click();
 		setIsLoading(false)
 	}
+
+	console.log(datas)
 
   return (
     <>
