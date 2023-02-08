@@ -43,7 +43,6 @@ export default function Index() {
         loadMore={loadMore}    //項目を読み込む際に処理するコールバック関数
         hasMore={hasMore}         //読み込みを行うかどうかの判定
         loader={loader}>      {/* 読み込み最中に表示する項目 */}
-
           {items}             {/* 無限スクロールで表示する項目 */}
       </InfiniteScroll>
     </div>
