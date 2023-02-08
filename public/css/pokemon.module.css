@@ -2,11 +2,29 @@
   @apply transform duration-500 scale-110;
 }
 
+.ball {
+  animation: rotate-anime 2.5s steps(100) infinite;
+  transform: rotateZ(45deg);
+}
+@keyframes rotate-anime {
+  0%  {transform: rotate(0);}
+  100%  {transform: rotate(360deg);}
+}
+
+.ball_scroll {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+
 .poke_wrap {
   display: grid;
   grid-gap: 10px;
   margin: 1em 0 2em;
-  grid-template-columns: repeat(auto-fill, minmax(11.5vw, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(11.0vw, 1fr));
 }
 
 @media screen and (max-width: 900px) {
