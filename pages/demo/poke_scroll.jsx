@@ -7,7 +7,7 @@ import  BallSpinner from '@/components/parts/BallSpinner'
 export default function Home() {
 	const [datas, setDatas] = useState([])
 	const [isLoading, setIsLoading] = useState(false);
-	const [hasMore, setHasMore] = useState(true);  //再読み込み判定
+	const [hasMore, setHasMore] = useState(true);  //再読み込み判定    
 
 	const loadMore = async (page) => {
 		fetchPokemons(page, false)
@@ -35,9 +35,9 @@ export default function Home() {
 			})
 	}
 
-	useEffect(() => {
-		fetchPokemons(1, true)
-	}, [])
+	// useEffect(() => {
+	// 	fetchPokemons(1, true)
+	// }, [])
 
  //ロード中に表示する項目
  const loader = '';
