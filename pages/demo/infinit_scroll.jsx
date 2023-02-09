@@ -24,7 +24,7 @@ export default function Index() {
   //各スクロール要素
   const items = (
     <ul>
-      {list.map((value) => <li>{value}</li>)}
+      {list.map((value) => <li key={value}>{value}</li>)}
     </ul>
 	);
   

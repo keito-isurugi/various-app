@@ -4,7 +4,7 @@ import Button from '@mui/material/Button';
 import LoadingButton from '@mui/lab/LoadingButton';
 import db from "@/lib/firabase"
 import { collection, getDocs, doc, onSnapshot, setDoc } from "firebase/firestore"; 
-import pokemonJson from '@/lib/json/pokemon_demo.json';
+import pokemonJson from '@/lib/json/pokemon_999.json';
 
 export default function Home() {
 	const [datas, setDatas] = useState<any[]>(pokemonJson)

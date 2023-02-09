@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import Modal from '@mui/material/Modal';
 import pokemonJson from '@/lib/json/pokemon_999.json';
-import styels from '@/public/css/pokemon.module.css'
+import styles from '@/public/css/pokemon.module.css'
 import Button from '@mui/material/Button';
 import db from "@/lib/firabase"
 import { collection, getDocs, doc, onSnapshot, setDoc, query, where, orderBy, limit } from "firebase/firestore";
@@ -90,12 +90,12 @@ export default function Home() {
 
   return (
     <>
-		<div className='px-10'>
-			<div className='mb-6 flex gap-6 justify-between'>
-				<p className='font-bold text-3xl'>ポケモン図鑑：{createPokeNomArray(generation)}　{datas.length.toLocaleString()}匹</p>
+		<div className='px-1 md:px-5 lg:px-5'>
+			<div className='mt-3 mb-3 flex gap-1 lg:gap-6 justify-between'>
+				<p className='font-bold text-xm lg:text-3xl'>ポケモン図鑑：{createPokeNomArray(generation)}　{datas.length.toLocaleString()}匹</p>
 				<select 
 					id="generation"
-					className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-3 font-bold"
+					className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-3 font-bold max-h-[50px]"
 					onChange={(e) => setPokeDatas(Number(e.target.value))}
 					>
 					<option value={999}>全世代</option>
@@ -104,18 +104,23 @@ export default function Home() {
 					))}
 				</select>
 			</div>
-			<div className='flex gap-4 flex-wrap justify-between'>
+			
+			<ul className={`${styles.poke_wrap}`}>
 				{datas.map((data, index) => (
-					<div key={index} className={`w-1/6 rounded overflow-hidden shadow-lg cursor-pointer ${styels.card}`} onClick={() => setPokeDetail(index)}>
+					<div 
+						key={index} 
+						className={`rounded shadow-lg cursor-pointer ${styles.card}`} 
+						onClick={() => setPokeDetail(index)}
+					>
 						<div className="w-full mx-auto bg-gray-300">
-							<img className="w-full" src={data.img} alt={data.name} />	
+							<img src={data.img} alt={data.name} />	
 						</div>
-						<div className="px-2 py-2">
-							<div className="font-bold text-xl text-center">No.{data.no}：{data.name}</div>
+						<div className="px-1 py-1 lg:px-2 lg:py-2">
+							<p className="font-bold text-xs lg:text-xl" >{data.name}</p>
 						</div>
 					</div>
 				))}
-			</div>
+			</ul>
 		</div>
 			<Modal
         open={open}
