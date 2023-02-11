@@ -138,7 +138,7 @@ export default function Home() {
 							id={data.no}
 							key={index} 
 							className={`rounded shadow-lg cursor-pointer ${styles.card}`}
-							onClick={() => router.push(`/pokemon/show/${index}`)}
+							onClick={() => router.push(`/pokemon/show/${data.no}`)}
 							>
 							<div className="w-full mx-auto bg-gray-300">
 								<img src={data.img} alt={data.name} />	

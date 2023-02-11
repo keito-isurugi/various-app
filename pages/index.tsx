@@ -17,7 +17,7 @@ export default function Home() {
         <h1 className="text-4xl font-bold mb-3">Menu</h1>
         <div className="p-4">
           <ul className='flex gap-10'>
-            <li className={`flex justify-center items-center gap-3 border py-3 px-5 rounded-lg shadow-xl cursor-pointer lg:w-[18%] md:w-[50%] sm:w-[100%] ${styles.card}`} onClick={() => router.push('/pokemon/json_data')}>
+            <li className={`flex justify-center items-center gap-3 border py-3 px-5 rounded-lg shadow-xl cursor-pointer lg:w-[18%] md:w-[50%] sm:w-[100%] ${styles.card}`} onClick={() => router.push('/pokemon/')}>
               <div className='w-12'>
                 <img className="" src="/img/pokemon/ball.svg" alt="" />
               </div>

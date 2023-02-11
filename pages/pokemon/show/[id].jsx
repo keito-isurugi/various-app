@@ -2,12 +2,12 @@ import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 // import type { NextPage } from 'next'
-import pokemonJson from '@/lib/json/pokemon_999.json';
 import styles from '@/public/css/pokemon.module.css'
 import { usePokeInfoHooks } from '@/hooks/pokemon/usePokeInfoHooks'
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import db from "@/lib/firabase"
 import { collection, getDocs, doc, onSnapshot, setDoc, query, where} from "firebase/firestore";
+import  BallSpinner from '@/components/parts/BallSpinner'
 
 
 
