@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { useRouter } from 'next/router'
 import Modal from '@mui/material/Modal';
 import InfiniteScroll  from "react-infinite-scroller"
 import pokemonJson from '@/lib/json/pokemon_999.json';
@@ -21,6 +22,7 @@ const style = {
 };
 
 export default function Home() {
+	const router = useRouter()
 	const [datas, setDatas] = useState([])
 	const [pokeNum, setPokeNum] = useState(0)
 	const [generation, setGeneration] = useState(999)
@@ -132,9 +134,11 @@ export default function Home() {
 				>
 					{hasMore === false && <BallSpinner />}
 					{datas.map((data, index) => (
-						<div 
+						<div
+							id={data.no}
 							key={index} 
-							className={`rounded shadow-lg cursor-pointer ${styles.card}`} 
+							className={`rounded shadow-lg cursor-pointer ${styles.card}`}
+							onClick={() => router.push(`/pokemon/show/${index}`)}
 							>
 							<div className="w-full mx-auto bg-gray-300">
 								<img src={data.img} alt={data.name} />	
