@@ -12,8 +12,12 @@ body {
   display: grid;
   grid-template-rows: 1fr auto;
 }
+main{
+  padding: 0 !important;
+}
 header {
   width: 100%;
+  z-index: 4;
 }
 footer {
   grid-row-start: 2;

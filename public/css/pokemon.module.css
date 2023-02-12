@@ -29,3 +29,228 @@
   width: 100vw;
   margin: 0 calc(50% - 50vw);
 }
+
+/* スライダー */
+.pickup_cover {
+  padding-bottom: 45px;
+  overflow: hidden;
+  padding-bottom: calc((100vw / 750 ) * 60 );
+}
+.pickup_wrap {
+  background: #f2f2f2;
+  height: calc((100vw / 750 ) * 360 );
+  position: relative;
+  padding-top: calc((100vw / 750 ) * 40 );
+}
+.pickup_bg {
+  background-position: bottom 10px left 9px;
+  border-radius: 10px;
+  position: absolute;
+  top: calc((100vw / 750 ) * 30 );
+  border-radius: 2.6666vw;
+  background: #fff url(/img/pokemon/slider_back.png) repeat-x;
+  background-position: bottom 0.78125vw left 0.703125vw;
+  background-size: calc((100vw / 750 ) * 300 ) auto;
+  box-shadow: calc((100vw / 750 ) * 14 ) calc((100vw / 750 ) * 10 ) 0 #d9d9d9;
+  transform: skewX(-4deg) rotate(-4deg);
+  height: calc((100vw / 750 ) * 330 );
+  width: calc((100vw / 750 ) * 730 );
+  left: calc((100vw / 750 ) * 40 );
+}
+.pickup_bg::before {
+  content: "";
+  display: block;
+  background: linear-gradient(to bottom,#fff 0%,#fff 20%,rgba(255,255,255,0) 100%);
+  width: 100%;
+  height: 100%;
+}
+.pickup_title {
+  line-height: 1;
+  width: 300px;
+  top: 30px;
+  position: absolute;
+  z-index: 5;
+  width: calc((100vw / 750 ) * 238.5 );
+  top: calc((100vw / 750 ) * 30 );
+  left: calc((100vw / 750 ) * 30 );
+}
+.pickup_slider {
+
+}
+.slick-initialized {
+
+}
+.slick-slider {
+
+}
+.slick-slide {
+  float: left;
+  height: 100%;
+  min-height: 1px;
+  display: block;
+}
+.slick-dotted{
+
+}
+.inner__pickup {
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  width: 100%;
+  margin: 0 auto;
+  height: 100%;
+  padding: 0 0 0 10vw;
+}
+.img__pickup {
+  width: calc((100vw / 750 ) * 320 );
+  text-align: right;
+}
+.content__pickup {
+  padding-left: 30px;
+  width: calc((100vw / 750 ) * 240 );
+}
+
+/* ポケモン */
+/* スライダーのリスト */
+.slick_list {
+  position: relative !important;
+  display: block !important;
+  overflow: hidden !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+.pickup_inner {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  width: calc((100vw / 750 ) * 510 );
+  margin: 0 auto;
+}
+.pickup_img{
+  display: block;
+}
+.pickup_content {
+  /* padding-left: 30px;
+  width: 50%; */
+}
+.pickup_content_title {
+  font-size: 2.0rem;
+  font-weight: bold;
+}
+.pickup_content_title_no {
+  font-size: 20px;
+  margin-bottom: 0;
+}
+.pickup_content_title_subname {
+  margin-top: 10px;
+  display: block;
+  color: #999;
+}
+
+.pickup_content_img {
+  margin-top: 0px;
+  display: flex;
+  margin-top: calc((100vw / 750 ) * 40 );
+}
+.pickup_content_label {
+  font-size: 12px;
+  font-size: 1.2rem;
+  margin-right: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-right: calc((100vw / 750 ) * 10 );
+  font-size: calc( (100vw / 750 ) * 20 );
+}
+.pickup_content_label_img {
+  width: calc(( 40 / 1280 ) *100vw );
+  max-width: 40px;
+}
+
+
+
+@media screen and (min-width: 768px) {
+  .pickup_cover {
+    padding-bottom: calc(( 55 / 1280 ) *100vw );
+  }
+  .pickup_wrap {
+    padding-top: 0;
+    height: calc(( 305 / 1280 ) *100vw );
+  }
+  .pickup_bg {
+    top: 0;
+    background-size: calc(( 220 / 1280 ) *100vw );
+    box-shadow: 14px 10px 0 #d9d9d9;
+    width: calc(( 1145 / 1280 ) *100vw );
+    height: calc(( 290 / 1280 ) *100vw );
+    left: calc(( 145 / 1280 ) *100vw );
+    border-radius: 0.78125vw;
+  }
+  .pickup_title {
+    top: calc(( 30 / 1280 ) *100vw );
+    left: calc(( 90 / 1280 ) *100vw );
+    width: calc(( 300 / 1280 ) *100vw );
+  }
+  .inner__pickup {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    width: calc((100vw / 750 ) * 510 );
+    margin: 0 auto;
+  }
+  .img__pickup {
+    width: 50%;
+  }
+  .content__pickup {
+    width: 50%;
+    padding-left: calc(( 30 / 1280 ) *100vw );
+  }
+
+  /* ポケモン */
+  .pickup_inner {
+    /* justify-content: flex-start; */
+    width: 100%;
+    /* margin: 0 auto; */
+    /* height: 100%; */
+    /* padding: 0 0 0 10vw; */
+  }
+  .pickup_img{
+    /* width: calc(( 305 / 1280 ) *100vw ); */
+    width: 340px;
+    height: 340px;
+    /* height: calc(( 305 / 1280 ) *100vw ); */
+    margin: 0 0 0 auto;
+  }
+  .pickup_content {
+    /* width: 50%; */
+  }
+  .pickup_content_title {
+    font-size: calc(( 28 / 1280 ) *100vw );
+  }
+  .pickup_content_title_no {
+    font-size: calc(( 20 / 1280 ) *100vw );
+    /* margin-bottom: calc(( 10 / 1280 ) *100vw ); */
+    display: block;
+  }
+  .pickup_content_img {
+    margin-top: 10px;
+    font-size: 12px;
+    font-size: 1.2rem;
+  }
+  .pickup_content_label {
+    font-size: 12px;
+    margin-right: calc(( 10 / 1280 ) *100vw );
+  }
+  .pickup_content_label_img {
+    width: calc(( 40 / 1280 ) *100vw );
+    max-width: 40px;
+  }  
+}
+

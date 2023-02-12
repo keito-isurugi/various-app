@@ -33,7 +33,7 @@ const PokeShowPage = () => {
 				{/* 左矢印 */}
 				<div className='border-2 rounded w-[20px] h-[90px] lg:w-[30px] lg:h-[136px] bg-white border-gray-400 absolute  top-[35%] left-[10px] lg:top-[25%] lg:left-[30px] cursor-pointer flex justify-center items-center hover:bg-gray-50' onClick={() => router.push(`/pokemon/show/${Number(pokeId) - 1}`)}>
 					<img className='transform rotate-[90deg]' src="/img/pokemon/arrow.svg" alt="" />
-				</div>
+			</div>
 				{/* 画像と名前 */}
 				<div className="w-[80%] lg:w-[60%] gap-0 lg:gap-10 flex flex-col lg:flex-row mx-auto max-w-[1000px]">
 

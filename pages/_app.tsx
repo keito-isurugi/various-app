@@ -6,6 +6,7 @@ import { StylesProvider } from '@mui/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import Theme from '@/components/Theme';
 import '@/styles/globals.css'
+import '@/styles/pokeslider.css'
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
