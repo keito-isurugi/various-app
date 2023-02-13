@@ -34,7 +34,7 @@ export default function Home() {
 	const NUM_PER_PAGE = 64 // 1ページあたりの取得数
 
 	const loadMore = async (page) => {
-		// fetchPokemons(page, false)
+		fetchPokemons(page, false)
 	}
 
 	const fetchPokemons = async (page, lodaing = true) => {
@@ -109,7 +109,7 @@ export default function Home() {
 
   return (
     <>
-		{/* <PokeSlider /> */}
+		<PokeSlider />
 		<div className='px-1 md:px-5 lg:px-5'>
 			<div className='mt-3 mb-3 flex gap-1 lg:gap-6 justify-between'>
 				<p className='font-bold text-xm lg:text-3xl'>ポケモン図鑑(一覧のみ)
