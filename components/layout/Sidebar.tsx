@@ -52,9 +52,9 @@ export default function Sidebar() {
 			case 'top':
 				return <MenuBookIcon style={iconStyle}/>
 			case 'pokemon':
-				return <MenuBookIcon style={iconStyle}/>
+				return <img width='24' className="" src="/img/pokemon/ball-white.svg" alt="" />
 			case 'blog':
-				return <ArticleIcon style={iconStyle}/>
+				return <img width='24' className="" src="/img/notion-logo-white.svg" alt="" />
 			case 'under_development':
 				return <EngineeringIcon style={iconStyle}/>
 		}
@@ -122,7 +122,7 @@ export default function Sidebar() {
                 id={data.id} 
                 onClick={(e) => menuClick(e)}
                 sx={{
-                  ':hover':{backgroundColor: '#2D3748'}
+                    ':hover':{backgroundColor: '#2D3748'}
                 }}
                 >
                 <ListItemIcon>
