@@ -2,6 +2,9 @@ import Head from 'next/head'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import styles from '@/public/css/pokemon.module.css'
+import TopWorks from '@/components/organisms/TopWorks'
+import About from '@/components/templates/top/About'
+import ContentWrap from '@/components/templates/top/ContentWrap'
 
 export default function Home() {
   const router = useRouter()
@@ -14,23 +17,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="lg:w-[100%] md:w-[80%] sm:w-[80%]">
-        <div className="p-4">
-          <ul className='flex gap-10 font-bold 
-            lg:text-xl md:text-x text-[14px]'
-          >
-            <li className={`flex justify-center items-center gap-3 border py-3 px-5 rounded-lg shadow-xl cursor-pointer lg:w-[18%] md:w-[50%] sm:w-[250px] max-w-[250px] ${styles.card}`} onClick={() => router.push('/pokemon/')}>
-              <div className='w-12'>
-                <img className="" src="/img/pokemon/ball.svg" alt="" />
-              </div>
-              <p className=''>ポケモン図鑑</p>
-            </li>
-            <li className={`flex justify-center items-center gap-3 border py-3 px-5 rounded-lg shadow-xl cursor-pointer lg:w-[18%] md:w-[50%] sm:w-[250px] max-w-[250px] ${styles.card}`} onClick={() => router.push('/blog')}>
-              <div className='w-12'>
-                <img className="" src="/img/notion-logo.svg" alt="" />
-              </div>
-              <p className=''>Notionブログ</p>
-            </li>
-          </ul>
+        <div className="p-4 max-w-[1300px] mx-auto my-10">
+          <ContentWrap><About /></ContentWrap>
+          <ContentWrap><TopWorks /></ContentWrap>
         </div>
       </div>
     </>

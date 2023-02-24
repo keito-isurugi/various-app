@@ -76,7 +76,7 @@ export default function Home() {
 		const dataCp = pokemonJson.filter((data) => data.generation === num)
 		setDatas(dataCp)
 		setGeneration(num)
-	}
+}
 
 	const chageGenerationGetPoke = (num) => {
 		const pokeDatas = collection(db, "pokemon")
