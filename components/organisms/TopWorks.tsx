@@ -17,10 +17,10 @@ const TopWorks = () => {
 			<ul className='flex gap-10 font-bold 
 				lg:text-xl md:text-x text-[14px] px-5'
 				>
-				<MenuLinkButton linkPath='/pokemon' imgPath='/img/pokemon/ball.svg'>
+				<MenuLinkButton linkPath='/pokemon' imgPath='/img/pokemon/ball.svg' externalLink={false}>
 					ポケモン図鑑
 				</MenuLinkButton>
-				<MenuLinkButton linkPath='/blog' imgPath='/img/notion-logo-black.svg'>
+				<MenuLinkButton linkPath='/blog' imgPath='/img/notion-logo-black.svg' externalLink={false}>
 					Notionブログ
 				</MenuLinkButton>
 			</ul>

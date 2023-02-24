@@ -13,7 +13,7 @@ const About = () => {
 			<Headline icon={icon}>このサイトについて</Headline>
 			<ul className='font-bold px-5'>
 				<li className='mb-2 text-xl'>Next.jsとTypeScriptの学習用で作ったサイトです。</li>
-				<MenuLinkButton linkPath='/blog' imgPath='/img/github-icon.svg'>
+				<MenuLinkButton linkPath='https://github.com/keito-isurugi' imgPath='/img/github-icon.svg' externalLink={true}>
 					ソースコード
 				</MenuLinkButton>
 			</ul>
