@@ -15,7 +15,7 @@ const PokeShowPage = () => {
 // const PokeShowPage: NextPage = () => {
   const router = useRouter()
   const pokeId = Number(router.query.id)
-	const [ typeImage, statusBarIsValue, statusBarNonValue, statusName ] = usePokeInfoHooks()
+	const { typeImage, statusBarIsValue, statusBarNonValue, statusName } = usePokeInfoHooks()
 	const [data, setData] = useState([])
 
 	useEffect(() => {

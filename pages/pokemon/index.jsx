@@ -9,6 +9,7 @@ import db from "@/lib/firabase"
 import { collection, getDocs, doc, onSnapshot, setDoc, query, where, orderBy, limit, startAfter } from "firebase/firestore";
 import  BallSpinner from '@/components/parts/BallSpinner'
 import PokeSlider from '@/components/templates/PokeSlider'
+import { usePokeInfoHooks } from '@/hooks/pokemon/usePokeInfoHooks'
 
 const style = {
 	position: 'absolute',
@@ -23,6 +24,7 @@ const style = {
 
 export default function Home() {
 	const router = useRouter()
+	const { generationName, typeImage, statusBarIsValue, statusBarNonValue, statusName } = usePokeInfoHooks()
 	const [datas, setDatas] = useState([])
 	const [pokeNum, setPokeNum] = useState(0)
 	const [generation, setGeneration] = useState(999)
@@ -33,6 +35,11 @@ export default function Home() {
   const handleClose = () => setOpen(false);
 	const NUM_PER_PAGE = 64 // 1ページあたりの取得数
 
+
+	// 世代を切り替えたときの制御案
+	// pageをstateとして管理する
+	// loadMoreの中でif
+	// satetPageの切り替えで
 	const loadMore = async (page) => {
 		fetchPokemons(page, false)
 	}
@@ -41,37 +48,12 @@ export default function Home() {
 		setIsLoading(lodaing)
 		const offset = (page - 1) * NUM_PER_PAGE
 		const pokeDatas = collection(db, "pokemon")
-		return new Promise((resolve, reject) => {
-			getDocs(query(pokeDatas, orderBy('no'), limit(NUM_PER_PAGE), startAfter(offset))).then((snapShot) => {
-				setDatas([...datas, ...snapShot.docs.map((doc) => ({ ...doc.data() }))])
+		if(generation === 999) {
+			return new Promise((resolve, reject) => {
+				getDocs(query(pokeDatas, orderBy('no'), limit(NUM_PER_PAGE), startAfter(offset))).then((snapShot) => {
+					setDatas([...datas, ...snapShot.docs.map((doc) => ({ ...doc.data() }))])
+				})
 			})
-		})
-	}
-
-	const createPokeNomArray = (gen) => {
-		switch (gen) {
-			case 1:
-				return "赤・緑・青"
-			case 2:
-				return "金・銀"
-			case 3:
-				return "ルビー・サファイア"
-			case 4:
-				return "ダイヤモンド・パール"
-			case 5:
-				return "ブラック・ホワイト"
-			case 6:
-				return "X・Y"
-			case 7:
-				return "Uサン・Uムーン"
-			case 8:
-				return "ソード・シールド"
-			case 9:
-				return "スカーレット・ヴァイオレット"
-			case 999:
-				return "全世代"
-			default:
-				return "全世代"
 		}
 	}
 	
@@ -112,19 +94,19 @@ export default function Home() {
 		<PokeSlider />
 		<div className='px-1 md:px-5 lg:px-5'>
 			<div className='mt-3 mb-3 flex gap-1 lg:gap-6 justify-between'>
-				<p className='font-bold text-xm lg:text-3xl'>ポケモン図鑑(一覧のみ)
-				{/* ：{createPokeNomArray(generation)}　{datas.length.toLocaleString()}匹 */}
+				<p className='font-bold text-xm lg:text-3xl'>ポケモン図鑑
+				{/* ：{generationName(generation)}　{datas.length.toLocaleString()}匹 */}
 				</p>
-				{/* <select 
+				<select 
 					id="generation"
 					className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-3 font-bold max-h-[50px]"
 					onChange={(e) => setPokeDatas(Number(e.target.value))}
 					>
 					<option value={999}>全世代</option>
 					{[...Array(9)].map((num, i) => (
-						<option key={i + 1} value={i + 1}>{createPokeNomArray(i + 1)}</option>
+						<option key={i + 1} value={i + 1}>{generationName(i + 1)}</option>
 					))}
-				</select> */}
+				</select>
 			</div>
 		
 			<InfiniteScroll

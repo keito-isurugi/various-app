@@ -13,21 +13,22 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div>
-        <h1 className="text-4xl font-bold mb-3">Menu</h1>
+      <div className="lg:w-[100%] md:w-[80%] sm:w-[80%]">
         <div className="p-4">
-          <ul className='flex gap-10'>
-            <li className={`flex justify-center items-center gap-3 border py-3 px-5 rounded-lg shadow-xl cursor-pointer lg:w-[18%] md:w-[50%] sm:w-[100%] ${styles.card}`} onClick={() => router.push('/pokemon/')}>
+          <ul className='flex gap-10 font-bold 
+            lg:text-xl md:text-x text-[14px]'
+          >
+            <li className={`flex justify-center items-center gap-3 border py-3 px-5 rounded-lg shadow-xl cursor-pointer lg:w-[18%] md:w-[50%] sm:w-[250px] max-w-[250px] ${styles.card}`} onClick={() => router.push('/pokemon/')}>
               <div className='w-12'>
                 <img className="" src="/img/pokemon/ball.svg" alt="" />
               </div>
-              <p className='font-bold text-xl'>ポケモン図鑑</p>
+              <p className=''>ポケモン図鑑</p>
             </li>
-            <li className={`flex justify-center items-center gap-3 border py-3 px-5 rounded-lg shadow-xl cursor-pointer lg:w-[18%] md:w-[50%] sm:w-[100%] ${styles.card}`} onClick={() => router.push('/blog')}>
+            <li className={`flex justify-center items-center gap-3 border py-3 px-5 rounded-lg shadow-xl cursor-pointer lg:w-[18%] md:w-[50%] sm:w-[250px] max-w-[250px] ${styles.card}`} onClick={() => router.push('/blog')}>
               <div className='w-12'>
                 <img className="" src="/img/notion-logo.svg" alt="" />
               </div>
-              <p className='font-bold text-xl'>Notionブログ</p>
+              <p className=''>Notionブログ</p>
             </li>
           </ul>
         </div>

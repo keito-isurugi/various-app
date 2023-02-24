@@ -1,5 +1,32 @@
 export const usePokeInfoHooks = () => {
 
+		const generationName = (num: any) => {
+		switch (num) {
+			case 1:
+				return "赤・緑・青"
+			case 2:
+				return "金・銀"
+			case 3:
+				return "ルビー・サファイア"
+			case 4:
+				return "ダイヤモンド・パール"
+			case 5:
+				return "ブラック・ホワイト"
+			case 6:
+				return "X・Y"
+			case 7:
+				return "Uサン・Uムーン"
+			case 8:
+				return "ソード・シールド"
+			case 9:
+				return "スカーレット・ヴァイオレット"
+			case 999:
+				return "全世代"
+			default:
+				return "全世代"
+		}
+	}
+
 	const typeImage = (type: any): any => {
 		switch (type) {
 			case "ノーマル":
@@ -78,8 +105,9 @@ export const usePokeInfoHooks = () => {
 		}
 	}
 
-	return [
-		typeImage, statusBarIsValue, statusBarNonValue, statusName
-	];
+	return {
+		generationName, typeImage, statusBarIsValue, statusBarNonValue, statusName
+	}
+	
 }
 

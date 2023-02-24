@@ -49,6 +49,8 @@ export default function Sidebar() {
 
 	const menuIcon = (id: string) => {
 		switch (id) {
+			case 'top':
+				return <MenuBookIcon style={iconStyle}/>
 			case 'pokemon':
 				return <MenuBookIcon style={iconStyle}/>
 			case 'blog':

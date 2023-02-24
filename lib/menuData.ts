@@ -1,7 +1,13 @@
 const menuData = [
   {
+    name: 'トップページ',
+    url: '/',
+    id: 'top',
+    menus: []
+  },
+  {
     name: 'ポケモン図鑑',
-    url: '/pokemon/json_data',
+    url: '/pokemon',
     id: 'pokemon',
     menus: []
   },

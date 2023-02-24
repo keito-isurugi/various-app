@@ -8,7 +8,7 @@ import { collection, getDocs, doc, onSnapshot, setDoc, query, where, orderBy, li
 import { usePokeInfoHooks } from '@/hooks/pokemon/usePokeInfoHooks'
 import  BallSpinner from '@/components/parts/BallSpinner'
 
-const [ typeImage, statusBarIsValue, statusBarNonValue, statusName ] = usePokeInfoHooks()
+const { typeImage } = usePokeInfoHooks()
 
 const PokeSlider = () => {
 	const defaultData = {
