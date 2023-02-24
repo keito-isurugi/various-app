@@ -17,7 +17,7 @@ export default function Home() {
 	const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-	const [ typeImage ] = usePokeInfoHooks()
+	const { typeImage } = usePokeInfoHooks()
 	const style = {
 		position: 'absolute',
 		top: '50%',
