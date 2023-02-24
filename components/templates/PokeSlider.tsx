@@ -7,10 +7,12 @@ import db from "@/lib/firabase"
 import { collection, getDocs, doc, onSnapshot, setDoc, query, where, orderBy, limit, startAfter } from "firebase/firestore";
 import { usePokeInfoHooks } from '@/hooks/pokemon/usePokeInfoHooks'
 import  BallSpinner from '@/components/parts/BallSpinner'
+import Link from 'next/link';
 
-const { typeImage } = usePokeInfoHooks()
 
 const PokeSlider = () => {
+	const { typeImage } = usePokeInfoHooks()
+	
 	const defaultData = {
 		no: "",
 		name: "",
@@ -75,14 +77,14 @@ const PokeSlider = () => {
 											<small className='block text-xl'>No.{data?.no}</small>{data?.name}
 										</h3>
 										<p className={`${styles.pickup_content_img}`}>
-											<a href="/?type%5B%5D=15" className={`${styles.pickup_content_label}`}>
+											<div className={`${styles.pickup_content_label}`}>
 												<img src={typeImage(data?.type1)} alt={data?.type1} className={`${styles.pickup_content_label_img}`} />
 												{data?.type1}
-											</a>
-											<a href="/?type%5B%5D=6" className={`${styles.pickup_content_label}`}>
+											</div>
+											<div className={`${styles.pickup_content_label}`}>
 												<img src={typeImage(data?.type2)} alt={data?.type2} className={`${styles.pickup_content_label_img}`} />
 												{data?.type2}
-											</a>
+											</div>
 										</p>
 									</div>
 								</div>
