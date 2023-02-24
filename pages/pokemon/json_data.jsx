@@ -78,8 +78,6 @@ export default function Home() {
 		setGeneration(num)
 	}
 
-	console.log(generation)
-
   return (
     <>
 		<div className='px-1 md:px-5 lg:px-5'>
@@ -98,7 +96,7 @@ export default function Home() {
 			</div>
 
 			<ul className={`${styles.poke_wrap}`}>
-				{datas.map((data, index) => (
+				{datas?.map((data, index) => (
 					<li 
 						key={index} 
 						className={`rounded shadow-lg cursor-pointer ${styles.card}`} 
