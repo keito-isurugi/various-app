@@ -1,3 +1,4 @@
+# https://various-gamma.vercel.app/
 # 概要・目的
 - Next.jsとTypeScriptの勉強＆Vercelで公開用のリポジトリ
 # やったこと
