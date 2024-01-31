@@ -55,6 +55,8 @@ export default function Sidebar() {
 				return <img width='24' className="" src="/img/pokemon/ball-white.svg" alt="" />
 			case 'blog':
 				return <img width='24' className="" src="/img/notion-logo-white.svg" alt="" />
+			case 'image_download':
+				return <img width='24' className="" src="/img/notion-logo-white.svg" alt="" />
 			case 'under_development':
 				return <EngineeringIcon style={iconStyle}/>
 		}
