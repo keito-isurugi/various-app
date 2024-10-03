@@ -12,7 +12,17 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
+          cache: 'npm'
 
+      - run: npm install
+
+      - run: node scripts/notion-to-markdown.js 
+      
       - name: Set current datetime as env variable
         env:
           TZ: 'Asia/Tokyo' 
