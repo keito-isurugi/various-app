@@ -11,18 +11,37 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      # リポジトリのコードをチェックアウト
+      - name: Check out repository
+        uses: actions/checkout@v3
       
+      # Node.jsをセットアップ
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '18.x'
           cache: 'npm'
 
-      - run: npm install
+      # キャッシュ
+      - name: Cache NPM dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
 
-      - run: node scripts/notion-to-markdown.js 
-      
+      # パッケージをインストール
+      - name: Install dependencies
+        run: npm install
+
+      # スクリプトを実行
+      - name: Run Notion script
+        env:
+            NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+            NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
+        run: node scripts/notion-to-markdown.js
+
       - name: Set current datetime as env variable
         env:
           TZ: 'Asia/Tokyo' 
@@ -34,5 +53,5 @@ jobs:
           git config --global user.name ${{ secrets.USER_NAME }}
           echo -e ${{ env.CURRENT_DATETIME }} >> commit_log.txt
           git add commit_log.txt
-          git commit -m "[add] 自動コミット:${{ env.CURRENT_DATETIME }}"
+          git commit -m "[add] Notionのページファイルを自動保存:${{ env.CURRENT_DATETIME }}"
           git push origin main          
