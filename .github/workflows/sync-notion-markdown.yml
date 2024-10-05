@@ -1,4 +1,4 @@
-name: auto-commit
+name: Notion-to-GitHub Auto Commit
 
 on:
   workflow_dispatch:
