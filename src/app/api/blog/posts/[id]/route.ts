@@ -10,11 +10,11 @@ export async function GET(
     block_id: params.id
   })
 
-  const mdblocks = await n2m.pageToMarkdown(params.id);
-  const mdString = n2m.toMarkdownString(mdblocks);
-  console.log(mdString.parent);
+  // const mdblocks = await n2m.pageToMarkdown(params.id);
+  // const mdString = n2m.toMarkdownString(mdblocks);
+  // console.log(mdString.parent);
 
-  saveMarkdownFile(params.id)
+  // saveMarkdownFile(params.id)
  const post: any = response.results
   return Response.json({ post })
 }

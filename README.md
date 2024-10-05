@@ -35,7 +35,9 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 
-## Notionページ一覧のデータ構造例
+## Notion API(ページ一覧取得、ページ詳細取得、マークダウン形式のファイルを保存)
+- 公式ドキュメント：https://developers.notion.com/docs/getting-started
+- ページ詳細のデータ構造
 ```
 {
   object: 'page',
@@ -71,3 +73,9 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
   public_url: null
 }
 ```
+
+## Qiita API(投稿)
+- 使用ライブラリ：[qiita](https://github.com/increments/qiita-js/tree/master)
+- 公式ドキュメント：https://qiita.com/api/v2/docs#%E6%8A%95%E7%A8%BF
+## Zenn API(投稿)
+- 作成中
