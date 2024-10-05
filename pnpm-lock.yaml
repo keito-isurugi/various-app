@@ -23,6 +23,9 @@ importers:
       path:
         specifier: ^0.12.7
         version: 0.12.7
+      qiita-js:
+        specifier: ^0.4.3
+        version: 0.4.3
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -2185,6 +2188,9 @@ packages:
 
   pure-rand@6.1.0:
     resolution: {integrity: sha512-bVWawvoZoBYpp6yIoQtQXHZjmz35RSVHnUOTefl8Vcjr8snTPY1wnpSPMWekcFwbxI6gtmT7rSYPFvz71ldiOA==}
+
+  qiita-js@0.4.3:
+    resolution: {integrity: sha512-ZLEIWGvo4PqMWWeQlLk5xBTBNn35aLJFINKriett4fhAgZDHK2cMXrMGhxSS5/yDY0JxGN+tuvOXaEdLkiSy/Q==}
 
   querystringify@2.2.0:
     resolution: {integrity: sha512-FIqgj2EUvTa7R50u0rGsyTftzjYmv/a3hO345bZNrqabNqjtgiDMgmo4mkUjd+nzU5oF3dClKqFIPUKybUyqoQ==}
@@ -5445,6 +5451,8 @@ snapshots:
   punycode@2.3.1: {}
 
   pure-rand@6.1.0: {}
+
+  qiita-js@0.4.3: {}
 
   querystringify@2.2.0: {}
 

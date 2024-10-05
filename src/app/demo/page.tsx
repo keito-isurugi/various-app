@@ -8,7 +8,7 @@ import { oneDark } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 
 const Home = () => {
   // マークダウンファイルのパス
-  const filePath = path.join(process.cwd(), 'files/blog_posts/20240930', '70944115-c006-4432-ab91-81b4a5a04f5f.md');
+  const filePath = path.join(process.cwd(), 'files/blog_posts/', '70944115-c006-4432-ab91-81b4a5a04f5f_2024-09-29-17-50-00-000.md');
   // ファイルを読み込み
   const markdownString = fs.readFileSync(filePath, 'utf8');
 
