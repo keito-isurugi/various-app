@@ -118,8 +118,8 @@ async function saveMarkdownFile(pageId) {
     const filePath = path.join(relativePath, `${pageId}.md`);
 
     // 保存先ディレクトリが存在しない場合、再帰的に作成
-    if (!fs.existsSync(dirPath)) {
-      fs.mkdirSync(dirPath, { recursive: true });
+    if (!fs.existsSync(relativePath)) {
+      fs.mkdirSync(relativePath, { recursive: true });
     }    
 
     // Markdownファイルを保存 (同期処理を非同期に変更)
