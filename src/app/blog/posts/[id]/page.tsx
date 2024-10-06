@@ -7,11 +7,9 @@ import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import rehypeRaw from "rehype-raw";
 import remarkGfm from "remark-gfm";
 
-export default function Home({
-	params,
-}: {
-	params: { id: string };
-}) {
+export default function Home(props: any) {
+	const {params, searchParams } = props;
+	
 	// マークダウンファイルのパス
 	const filePath = path.join(
 		process.cwd(),
@@ -23,7 +21,7 @@ export default function Home({
 
 	return (
 		<div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-			<h1>ブログ詳細</h1>
+			<h1>{searchParams.title}</h1>
 			<ReactMarkdown
 				remarkPlugins={[remarkGfm]}
 				rehypePlugins={[rehypeRaw]}
