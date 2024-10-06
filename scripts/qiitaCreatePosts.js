@@ -48,7 +48,8 @@ Qiita.setEndpoint('https://qiita.com');
 async function postToQiita(pageId, title, tags) {
   try {
     // Markdownファイル読み込み
-    const markdownFilePath = path.join(path.dirname(process.cwd()), 'files', 'blog_posts', `${pageId}.md`);
+    const relativePath = '../files/blog_posts';
+    const markdownFilePath = path.join(relativePath, `${pageId}.md`);
     const markdownContent = fs.readFileSync(markdownFilePath, 'utf8');
 
     // 投稿する記事の内容
@@ -78,7 +79,8 @@ async function postToQiita(pageId, title, tags) {
 async function updateToQiita(qiitaPageId, notionPageId, title, tags) {
   try {
     // Markdownファイル読み込み
-    const markdownFilePath = path.join(path.dirname(process.cwd()), 'files', 'blog_posts', `${notionPageId}.md`);
+    const relativePath = '../files/blog_posts';
+    const markdownFilePath = path.join(relativePath, `${notionPageId}.md`);
     const markdownContent = fs.readFileSync(markdownFilePath, 'utf8');
     
     // 更新する記事の内容

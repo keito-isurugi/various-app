@@ -16,7 +16,8 @@ require('dotenv').config({ path: '../.env.local' });
 
 (async function main() {
   // notionの記事更新履歴を取得
-  const notionHistoryFilePath = path.join(path.dirname(process.cwd()), 'files', 'blog_posts', 'notion_update_history.json');
+  const relativePath = '../files/blog_posts';
+  const notionHistoryFilePath = path.join(relativePath, 'notion_update_history.json');
   console.log("更新履歴ファイル", notionHistoryFilePath)
 
   const notionHistoryData = getHistory(notionHistoryFilePath)
@@ -73,7 +74,7 @@ require('dotenv').config({ path: '../.env.local' });
       saveHistory(notionHistoryFilePath, updateNotionHistory)
 
       // Qiitaの記事更新履歴データを取得
-      const qiitaHistoryFilePath = path.join(path.dirname(process.cwd()), 'files', 'blog_posts', 'qiita_update_history.json');
+      const qiitaHistoryFilePath = path.join(relativePath, 'qiita_update_history.json');
       const qiitaHistoryData = getHistory(qiitaHistoryFilePath)
 
       // qiita_updated_history.jsonでIDにqiitaの記事IDを取得する
@@ -113,8 +114,7 @@ async function saveMarkdownFile(pageId) {
     const mdString = n2m.toMarkdownString(mdBlocks);
 
     // 保存先ディレクトリ、保存ファイル名を生成
-    const dirPath = path.join(path.dirname(process.cwd()), 'files', 'blog_posts');
-    const filePath = path.join(dirPath, `${pageId}.md`);
+    const filePath = path.join(relativePath, `${pageId}.md`);
 
     // 保存先ディレクトリが存在しない場合、再帰的に作成
     if (!fs.existsSync(dirPath)) {
