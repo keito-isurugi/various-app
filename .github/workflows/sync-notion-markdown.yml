@@ -59,5 +59,12 @@ jobs:
           echo -e ${{ env.CURRENT_DATETIME }} >> commit_log.txt
           git add ../files/blog_posts/
           git add ../articles/
+          
+          # 変更がなければコミット・プッシュをスキップする
+          if git diff --cached --exit-code; then
+            echo "No changes to commit."
+            exit 0
+          fi
+
           git commit -m "[add] Notionのページファイル、Zenn更新用のファイルを自動保存:${{ env.CURRENT_DATETIME }}"
           git push origin main
