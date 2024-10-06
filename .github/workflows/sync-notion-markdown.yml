@@ -40,7 +40,7 @@ jobs:
         env:
             NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
             NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
-        run: node scripts/notion-to-markdown.js
+        run: node scripts/notionToMarkdown.js
 
       - name: Set current datetime as env variable
         env:
@@ -52,6 +52,7 @@ jobs:
           git config --global user.email ${{ secrets.USER_EMAIL }}
           git config --global user.name ${{ secrets.USER_NAME }}
           echo -e ${{ env.CURRENT_DATETIME }} >> commit_log.txt
-          git add commit_log.txt
-          git commit -m "[add] Notionのページファイルを自動保存:${{ env.CURRENT_DATETIME }}"
-          git push origin main          
+          git add files/blog_posts
+          git add articles/
+          git commit -m "[add] Notionのページファイル、Zenn更新用のファイルを自動保存:${{ env.CURRENT_DATETIME }}"
+          git push origin main
