@@ -1,5 +1,5 @@
-const fs = require('node:fs');
-const path = require('path');
+const fs = require("node:fs");
+const path = require("path");
 
 /**
  * Zenn用のMarkdownファイルを生成する関数
@@ -22,8 +22,8 @@ const path = require('path');
  * generateZennMarkdownFile(notionID, title, tags);
  */
 function generateZennMarkdownFile(notionID, title, tags) {
-  // 先頭に挿入する文字列
-  const header = `---
+	// 先頭に挿入する文字列
+	const header = `---
 title: "${title}"
 emoji: ""
 type: "tech" # tech: 技術記事 / idea: アイデア
@@ -32,22 +32,22 @@ published: true
 ---
 `;
 
-  // 出力するMarkdownファイルのパスを生成
-  const fileName = `${notionID}.md`; // notionIDをファイル名として使用
-  const relativePath = '../files/blog_posts';
-  const sourceFilePath = path.join(relativePath, fileName);
-  const outputFilePath = path.join('../articles', fileName);
+	// 出力するMarkdownファイルのパスを生成
+	const fileName = `${notionID}.md`; // notionIDをファイル名として使用
+	const relativePath = "../files/blog_posts";
+	const sourceFilePath = path.join(relativePath, fileName);
+	const outputFilePath = path.join("../articles", fileName);
 
-  // 元のMarkdownファイルの内容を読み込む
-  const markdownContent = fs.readFileSync(sourceFilePath, 'utf8');
+	// 元のMarkdownファイルの内容を読み込む
+	const markdownContent = fs.readFileSync(sourceFilePath, "utf8");
 
-  // 新しいMarkdownファイルを作成し、ヘッダーと元の内容を結合して書き込む
-  const fullContent = header + markdownContent;
-  fs.writeFileSync(outputFilePath, fullContent, 'utf8');
-  
-  console.log(`Markdownファイルが作成されました: ${outputFilePath}`);
+	// 新しいMarkdownファイルを作成し、ヘッダーと元の内容を結合して書き込む
+	const fullContent = header + markdownContent;
+	fs.writeFileSync(outputFilePath, fullContent, "utf8");
+
+	console.log(`Markdownファイルが作成されました: ${outputFilePath}`);
 }
 
 module.exports = {
-  generateZennMarkdownFile
+	generateZennMarkdownFile,
 };

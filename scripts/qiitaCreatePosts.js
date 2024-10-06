@@ -1,13 +1,13 @@
-require('dotenv').config({ path: '../.env.local' });
-const path = require('path');
-const fs = require('node:fs');
+require("dotenv").config({ path: "../.env.local" });
+const path = require("path");
+const fs = require("node:fs");
 
 // require in commonjs env
-const Qiita = require('qiita-js');
+const Qiita = require("qiita-js");
 
 // set your token
 Qiita.setToken(process.env.QIITA_ACCESS_TOKEN);
-Qiita.setEndpoint('https://qiita.com');
+Qiita.setEndpoint("https://qiita.com");
 
 /**
  * Qiitaに記事を投稿する関数
@@ -17,27 +17,27 @@ Qiita.setEndpoint('https://qiita.com');
  * @returns {Promise<string>} - 投稿したQiitaの記事ID
  */
 async function postToQiita(pageId, title, tags) {
-  try {
-    // Markdownファイル読み込み
-    const relativePath = '../files/blog_posts';
-    const markdownFilePath = path.join(relativePath, `${pageId}.md`);
-    const markdownContent = fs.readFileSync(markdownFilePath, 'utf8');
+	try {
+		// Markdownファイル読み込み
+		const relativePath = "../files/blog_posts";
+		const markdownFilePath = path.join(relativePath, `${pageId}.md`);
+		const markdownContent = fs.readFileSync(markdownFilePath, "utf8");
 
-    // 投稿する記事の内容
-    const postdata = {
-      title: title,
-      body: markdownContent,
-      private: false,
-      tags: tags.map(tag => ({ name: tag }))
-    };
+		// 投稿する記事の内容
+		const postdata = {
+			title: title,
+			body: markdownContent,
+			private: false,
+			tags: tags.map((tag) => ({ name: tag })),
+		};
 
-    // Qiitaに記事投稿
-    const result = await Qiita.Resources.Item.create_item(postdata);
-    return result.id;
-  } catch (error) {
-    console.error('Error posting to Qiita:', error);
-    throw error;
-  }
+		// Qiitaに記事投稿
+		const result = await Qiita.Resources.Item.create_item(postdata);
+		return result.id;
+	} catch (error) {
+		console.error("Error posting to Qiita:", error);
+		throw error;
+	}
 }
 
 /**
@@ -48,26 +48,26 @@ async function postToQiita(pageId, title, tags) {
  * @param {Array} tags - Notionのページのタグの配列
  */
 async function updateToQiita(qiitaPageId, notionPageId, title, tags) {
-  try {
-    // Markdownファイル読み込み
-    const relativePath = '../files/blog_posts';
-    const markdownFilePath = path.join(relativePath, `${notionPageId}.md`);
-    const markdownContent = fs.readFileSync(markdownFilePath, 'utf8');
-    
-    // 更新する記事の内容
-    const postdata = {
-      title: title,
-      body: markdownContent,
-      private: true,
-      tags: tags.map(tag => ({ name: tag }))
-    };
+	try {
+		// Markdownファイル読み込み
+		const relativePath = "../files/blog_posts";
+		const markdownFilePath = path.join(relativePath, `${notionPageId}.md`);
+		const markdownContent = fs.readFileSync(markdownFilePath, "utf8");
 
-    // Qiitaの記事更新
-    await Qiita.Resources.Item.update_item(qiitaPageId, postdata);
-  } catch (error) {
-    console.error('Error posting to Qiita:', error);
-    throw error; // エラーを再スローする
-  }
+		// 更新する記事の内容
+		const postdata = {
+			title: title,
+			body: markdownContent,
+			private: true,
+			tags: tags.map((tag) => ({ name: tag })),
+		};
+
+		// Qiitaの記事更新
+		await Qiita.Resources.Item.update_item(qiitaPageId, postdata);
+	} catch (error) {
+		console.error("Error posting to Qiita:", error);
+		throw error; // エラーを再スローする
+	}
 }
 
 // モジュールエクスポート

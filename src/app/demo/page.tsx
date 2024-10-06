@@ -1,45 +1,48 @@
-import fs from 'fs';
-import path from 'path';
-import ReactMarkdown from 'react-markdown';
-import remarkGfm from 'remark-gfm';
+import fs from "node:fs";
+import path from "path";
+import ReactMarkdown from "react-markdown";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { oneDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import rehypeRaw from "rehype-raw";
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { oneDark } from 'react-syntax-highlighter/dist/cjs/styles/prism';
+import remarkGfm from "remark-gfm";
 
 const Home = () => {
-  // マークダウンファイルのパス
-  const filePath = path.join(process.cwd(), 'files/blog_posts/', '70944115-c006-4432-ab91-81b4a5a04f5f_2024-09-29-17-50-00-000.md');
-  // ファイルを読み込み
-  const markdownString = fs.readFileSync(filePath, 'utf8');
+	// マークダウンファイルのパス
+	const filePath = path.join(
+		process.cwd(),
+		"files/blog_posts/",
+		"117872c8-f4a6-800e-a897-ddabf9a2d6a8.md",
+	);
+	// ファイルを読み込み
+	const markdownString = fs.readFileSync(filePath, "utf8");
 
-  return (
-    <ReactMarkdown
-    remarkPlugins={[remarkGfm]}
-    rehypePlugins={[rehypeRaw]}
-      components={{
-        code({ node, inline, className, children, ...props }) {
-          const match = /language-(\w+)/.exec(className || '');
-          return !inline && match ? (
-            <SyntaxHighlighter
-              style={oneDark}
-              language={match[1]}
-              PreTag="div"
-              {...props}
-            >
-              {String(children).replace(/\n$/, '')}
-            </SyntaxHighlighter>
-          ) : (
-            <code className={className} {...props}>
-              {children}
-            </code>
-          );
-        },
-      }}
-    >
-      {markdownString}
-    </ReactMarkdown>
-
-  );
+	return (
+		<ReactMarkdown
+			remarkPlugins={[remarkGfm]}
+			rehypePlugins={[rehypeRaw]}
+			components={{
+				code({ node, inline, className, children, ...props }) {
+					const match = /language-(\w+)/.exec(className || "");
+					return !inline && match ? (
+						<SyntaxHighlighter
+							style={oneDark}
+							language={match[1]}
+							PreTag="div"
+							{...props}
+						>
+							{String(children).replace(/\n$/, "")}
+						</SyntaxHighlighter>
+					) : (
+						<code className={className} {...props}>
+							{children}
+						</code>
+					);
+				},
+			}}
+		>
+			{markdownString}
+		</ReactMarkdown>
+	);
 };
 
 export default Home;

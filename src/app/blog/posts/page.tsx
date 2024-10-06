@@ -1,8 +1,8 @@
 "use client";
 
+import Link from "next/link";
 import React from "react";
 import { useEffect, useState } from "react";
-import Link from "next/link";
 
 export default function Home() {
 	const [posts, setPosts] = useState([]);
@@ -12,17 +12,19 @@ export default function Home() {
 			const res = await fetch("/api/blog/posts");
 			const data = await res.json();
 			setPosts(data.posts);
-			console.log(data.posts)
+			console.log(data.posts);
 		}
 		getPosts();
 		async function getPost() {
-			const res = await fetch("/api/blog/posts/70944115c0064432ab9181b4a5a04f5f");
+			const res = await fetch(
+				"/api/blog/posts/70944115c0064432ab9181b4a5a04f5f",
+			);
 			const data = await res.json();
-			console.log(data)
+			console.log(data);
 		}
-		getPost()
+		getPost();
 	}, []);
-  
+
 	return (
 		<div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
 			<h1>ブログ一覧</h1>
