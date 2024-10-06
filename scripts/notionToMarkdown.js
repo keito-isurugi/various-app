@@ -17,6 +17,8 @@ require('dotenv').config({ path: '../.env.local' });
 (async function main() {
   // notionの記事更新履歴を取得
   const notionHistoryFilePath = path.join(path.dirname(process.cwd()), 'files', 'blog_posts', 'notion_update_history.json');
+  console.log("更新履歴ファイル", notionHistoryFilePath)
+
   const notionHistoryData = getHistory(notionHistoryFilePath)
   console.log(notionHistoryData)
 
@@ -129,7 +131,6 @@ async function saveMarkdownFile(pageId) {
 
 // 更新履歴データを取得する関数
 function getHistory(historyFilePath) {
-    console.log("更新履歴データを取得する関数", historyFilePath)
     // 履歴ファイルを読み込む
     if (!fs.existsSync(historyFilePath)) {
       console.warn('History file not found, exiting script.');
