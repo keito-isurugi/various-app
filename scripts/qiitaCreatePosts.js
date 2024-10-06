@@ -56,7 +56,7 @@ async function postToQiita(pageId, title, tags) {
     const postdata = {
       title: title,
       body: markdownContent,
-      private: true,
+      private: false,
       tags: tags.map(tag => ({ name: tag }))
     };
 
