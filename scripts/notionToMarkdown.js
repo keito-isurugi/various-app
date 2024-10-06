@@ -4,9 +4,11 @@
  */
 console.log("これはNotionのページ内容をMarkdownファイルで保存するスクリプトです")
 
-const { notion, n2m } = require('./notionAPI');
 const path = require('path');
 const fs = require('fs');
+const { notion, n2m } = require('./notionAPI');
+const { postToQiita, updateToQiita } = require('./qiitaCreatePosts');
+const { generateZennMarkdownFile } = require('./generateZennMarkdownFile');
 
 // ローカル環境で動作確認する際に使用。GitHubActionsで実行する際はRepository secretsに環境変数を設定しておく
 require('dotenv').config({ path: '../.env.local' });
@@ -14,9 +16,9 @@ require('dotenv').config({ path: '../.env.local' });
 
 (async function main() {
   // notionの記事更新履歴を取得
-  const historyFilePath = path.join(path.dirname(process.cwd()), 'files', 'blog_posts', 'notion_update_history.json');
-  const historyData = getHistory(historyFilePath)
-  console.log(historyData)
+  const notionHistoryFilePath = path.join(path.dirname(process.cwd()), 'files', 'blog_posts', 'notion_update_history.json');
+  const notionHistoryData = getHistory(notionHistoryFilePath)
+  console.log(notionHistoryData)
 
   // notionのページ一覧を取得。必要なデータを配列格納(ページ詳細取得、ファイル保存に必要)
   const posts = []
@@ -25,23 +27,20 @@ require('dotenv').config({ path: '../.env.local' });
       database_id: process.env.NOTION_DATABASE_ID || "",
     })
     const results = response.results
+
     results.forEach((post, index) => {
       const id = post.id
-      const last_edited_time = post.last_edited_time
-      // .replace(/[:T.]/g, '-').replace('Z', '') // 2024-01-01-23-59-59-000
-      // console.log(post.last_edited_time, last_edited_time)
-      const title =  post.properties.title.title[0].plain_text
-      // const fileName = `${id}_${last_edited_time}`
-      // console.log(index, id, last_edited_time, title)
-      
-      // notion_updated_history.jsonでIDに紐づく最終更新日を取得
-      const lastHistoryUpdate = historyData[id];
+      const lastEditedTime = post.last_edited_time
 
-      // file/blog_posts/notion_updated_history.jsonを読み込む
-      // idに紐づく最終更新日を比較して異なれば配列に情報を追加
-      // 最終更新日が異なる場合、またはhistoryDataにIDが存在しない場合は配列に追加
-      if (!lastHistoryUpdate || new Date(last_edited_time) > new Date(lastHistoryUpdate)) {
-        posts.push({id, last_edited_time, title})
+      // notion_updated_history.jsonでIDに紐づく最終更新日を取得
+      const lastHistoryUpdate = notionHistoryData[id];
+
+      // 最終更新日が異なる場合、またはnotionHistoryDataにIDが存在しない場合は配列に追加
+      if (!lastHistoryUpdate || new Date(post.lastEditedTime) > new Date(lastHistoryUpdate)) {
+        const title =  post.properties.title.title[0].plain_text
+        const tags = post.properties.tag.multi_select.map((tag) => { return tag.name })
+
+        posts.push({id, lastEditedTime, title, tags})
       }
     })
   } catch (error) {
@@ -59,12 +58,36 @@ require('dotenv').config({ path: '../.env.local' });
    */
   for (const post of posts) {
     try {
+      const notionPageId = post.id
+      const notionPageTitle = post.title
+      const notionPageTags = post.tags
+      const notionPageLastEditedTime = post.lastEditedTime
+
       // Markdown形式でファイルを保存
-      await saveMarkdownFile(post.id);
-      
-      // 更新履歴データを保存
-      const updateHistory = {...historyData, [post.id]: post.last_edited_time}
-      saveHistory(historyFilePath, updateHistory)
+      await saveMarkdownFile(notionPageId);
+
+      // Notionの更新履歴データを保存
+      const updateNotionHistory = {...notionHistoryData, [notionPageId]: notionPageLastEditedTime}
+      saveHistory(notionHistoryFilePath, updateNotionHistory)
+
+      // Qiitaの記事更新履歴データを取得
+      const qiitaHistoryFilePath = path.join(path.dirname(process.cwd()), 'files', 'blog_posts', 'qiita_update_history.json');
+      const qiitaHistoryData = getHistory(qiitaHistoryFilePath)
+
+      // qiita_updated_history.jsonでIDにqiitaの記事IDを取得する
+      const qiitaID = qiitaHistoryData[notionPageId];
+
+      // qiitaの記事IDが存在すれば更新。存在しなければ新規登録
+      if (qiitaID) {
+        await updateToQiita(qiitaID, notionPageId, notionPageTitle, notionPageTags)  
+      } else {
+        const createdQiitaID = await postToQiita(notionPageId, notionPageTitle, notionPageTags)  
+        const updateQiitaHistory = {...qiitaHistoryData, [notionPageId]: createdQiitaID} 
+        saveHistory(qiitaHistoryFilePath, updateQiitaHistory)
+      }
+
+      // Zenn用のMarkdownファイルを更新
+      generateZennMarkdownFile(notionPageId, notionPageTitle, notionPageTags)
     } catch (error) {
       console.error('Error fetching or saving markdown:', error);
     }
