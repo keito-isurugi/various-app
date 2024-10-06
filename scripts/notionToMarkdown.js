@@ -5,7 +5,7 @@
 console.log("これはNotionのページ内容をMarkdownファイルで保存するスクリプトです")
 
 const path = require('path');
-const fs = require('fs');
+const fs = require('node:fs');
 const { notion, n2m } = require('./notionAPI');
 const { postToQiita, updateToQiita } = require('./qiitaCreatePosts');
 const { generateZennMarkdownFile } = require('./generateZennMarkdownFile');

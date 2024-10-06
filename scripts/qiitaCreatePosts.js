@@ -1,6 +1,6 @@
 require('dotenv').config({ path: '../.env.local' });
 const path = require('path');
-const fs = require('fs');
+const fs = require('node:fs');
 
 // require in commonjs env
 const Qiita = require('qiita-js');
@@ -8,35 +8,6 @@ const Qiita = require('qiita-js');
 // set your token
 Qiita.setToken(process.env.QIITA_ACCESS_TOKEN);
 Qiita.setEndpoint('https://qiita.com');
-
-// Markdownファイルのパス
-// const markdownFilePath = path.join(path.dirname(process.cwd()), 'files', 'blog_posts', '116872c8-f4a6-803f-8a5f-cff9b2043833.md');
-
-// try {
-//   // Markdownファイルの内容を読み込む
-//   const markdownContent = fs.readFileSync(markdownFilePath, 'utf8');
-  
-//   // 記事の内容
-//   const postdata = {
-//     title: 'テスト投稿:更新してみました',
-//     body: markdownContent,
-//     private: true,
-//     tags: [{ name: 'test' }]
-//   };
-
-//   // 記事投稿
-//   Qiita.Resources.Item.update_item("c4a6e98fbbfcb8779163", postdata)
-//     .then((result) => {
-//       console.log(result);
-//     })
-//     .catch((error) => {
-//       console.error('Error posting to Qiita:', error);
-//     });
-
-// } catch (error) {
-//   console.error('Error reading the markdown file:', error);
-// }
-// c4a6e98fbbfcb8779163
 
 /**
  * Qiitaに記事を投稿する関数
