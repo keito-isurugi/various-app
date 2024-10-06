@@ -27,7 +27,7 @@ function generateZennMarkdownFile(notionID, title, tags) {
 title: "${title}"
 emoji: ""
 type: "tech" # tech: 技術記事 / idea: アイデア
-topics: ${tags}
+topics: ${JSON.stringify(tags)}
 published: true
 ---
 `;
