@@ -12,17 +12,8 @@ export default function Home() {
 			const res = await fetch("/api/blog/posts");
 			const data = await res.json();
 			setPosts(data.posts);
-			console.log(data.posts);
 		}
 		getPosts();
-		async function getPost() {
-			const res = await fetch(
-				"/api/blog/posts/70944115c0064432ab9181b4a5a04f5f",
-			);
-			const data = await res.json();
-			console.log(data);
-		}
-		getPost();
 	}, []);
 
 	return (
