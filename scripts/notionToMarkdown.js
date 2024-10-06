@@ -114,6 +114,7 @@ async function saveMarkdownFile(pageId) {
     const mdString = n2m.toMarkdownString(mdBlocks);
 
     // 保存先ディレクトリ、保存ファイル名を生成
+    const relativePath = '../files/blog_posts';
     const filePath = path.join(relativePath, `${pageId}.md`);
 
     // 保存先ディレクトリが存在しない場合、再帰的に作成
