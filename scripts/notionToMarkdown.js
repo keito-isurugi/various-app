@@ -129,6 +129,7 @@ async function saveMarkdownFile(pageId) {
 
 // 更新履歴データを取得する関数
 function getHistory(historyFilePath) {
+    console.log("更新履歴データを取得する関数", historyFilePath)
     // 履歴ファイルを読み込む
     if (!fs.existsSync(historyFilePath)) {
       console.warn('History file not found, exiting script.');
