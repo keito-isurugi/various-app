@@ -8,12 +8,12 @@ import rehypeRaw from "rehype-raw";
 import remarkGfm from "remark-gfm";
 
 export default function Home(props: any) {
-	const {params, searchParams } = props;
-	
+	const { params, searchParams } = props;
+
 	// マークダウンファイルのパス
 	const filePath = path.join(
 		process.cwd(),
-		"files/blog_posts/",
+		"files/blog-posts/tech",
 		`${params.id}.md`,
 	);
 	// ファイルを読み込み

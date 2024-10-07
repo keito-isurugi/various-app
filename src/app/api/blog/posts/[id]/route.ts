@@ -39,7 +39,8 @@ async function saveMarkdownFile(pageId: string) {
 		const dirPath = path.join(
 			process.cwd(),
 			"files",
-			"blog_posts",
+			"blog-posts",
+			"tech",
 			formattedDate,
 		);
 		const filePath = path.join(dirPath, `${pageId}.md`);

@@ -17,7 +17,7 @@ require("dotenv").config({ path: "../.env.local" });
 
 (async function main() {
 	// notionの記事更新履歴を取得
-	const relativePath = "../files/blog_posts";
+	const relativePath = "../files/blog-posts/tech";
 	const notionHistoryFilePath = path.join(
 		relativePath,
 		"notion_update_history.json",
@@ -141,7 +141,7 @@ async function saveMarkdownFile(pageId) {
 		const mdString = n2m.toMarkdownString(mdBlocks);
 
 		// 保存先ディレクトリ、保存ファイル名を生成
-		const relativePath = "../files/blog_posts";
+		const relativePath = "../files/blog-posts/tech";
 		const filePath = path.join(relativePath, `${pageId}.md`);
 
 		// 保存先ディレクトリが存在しない場合、再帰的に作成

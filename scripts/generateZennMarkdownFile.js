@@ -34,7 +34,7 @@ published: true
 
 	// 出力するMarkdownファイルのパスを生成
 	const fileName = `${notionID}.md`; // notionIDをファイル名として使用
-	const relativePath = "../files/blog_posts";
+	const relativePath = "../files/blog-posts/tech";
 	const sourceFilePath = path.join(relativePath, fileName);
 	const outputFilePath = path.join("../articles", fileName);
 
