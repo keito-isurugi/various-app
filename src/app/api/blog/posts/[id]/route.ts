@@ -58,7 +58,3 @@ async function saveMarkdownFile(pageId: string) {
 		console.error("Error saving Markdown file:", error);
 	}
 }
-
-// // ページIDを指定してMarkdownファイルを保存
-// const pageId = params.id; // ここでNotionページのIDを指定
-// saveMarkdownFile(pageId);
