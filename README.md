@@ -77,5 +77,5 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 ## Qiita API(投稿)
 - 使用ライブラリ：[qiita](https://github.com/increments/qiita-js/tree/master)
 - 公式ドキュメント：https://qiita.com/api/v2/docs#%E6%8A%95%E7%A8%BF
-## Zenn API(投稿)
+## Zenn自動投稿
 - 作成中
