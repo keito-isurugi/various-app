@@ -45,7 +45,7 @@ require("dotenv").config({ path: "../.env.local" });
 			// 最終更新日が異なる場合、またはnotionHistoryDataにIDが存在しない場合は配列に追加
 			if (
 				!lastHistoryUpdate ||
-				new Date(post.lastEditedTime) > new Date(lastHistoryUpdate)
+				new Date(lastEditedTime) > new Date(lastHistoryUpdate)
 			) {
 				const title = post.properties.title.title[0].plain_text;
 				const tags = post.properties.tag.multi_select.map((tag) => {
