@@ -11,7 +11,7 @@ import { notion } from "@/libs/notion/notionAPI";
 export default async function Home(props: any) {
 	const { params, searchParams } = props;
   
-  const response = await notion.pages.retrieve({ page_id: params.id });
+  const response: any = await notion.pages.retrieve({ page_id: params.id });
   const title = response.properties.title.title[0].plain_text
   const updatedAt = response.properties.updated_at.last_edited_time
   const tags = response.properties.tag.multi_select
