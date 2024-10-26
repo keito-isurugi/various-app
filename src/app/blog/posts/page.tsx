@@ -16,7 +16,7 @@ export default async function Home() {
         <ul>
           {posts?.map((post: any) => (
             <li key={post.id} className="!mb-4">
-              <Link href={`/blog/posts/${post.id}?title=${post.properties.title.title[0].plain_text}`}>
+              <Link href={`/blog/posts/${post.id}`}>
                 <p className="!my-0">タイトル：{post.properties.title.title[0].plain_text}</p>
               </Link>
               <p className="!my-0">更新日：{post.properties.updated_at.last_edited_time}</p>
