@@ -7,6 +7,7 @@ import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import rehypeRaw from "rehype-raw";
 import remarkGfm from "remark-gfm";
 import { notion } from "@/libs/notion/notionAPI";
+import { formatDateToJapanese } from "@/utils/date"
 
 export default async function Home(props: any) {
 	const { params, searchParams } = props;
@@ -29,7 +30,7 @@ export default async function Home(props: any) {
     <div className="grid place-items-center min-h-screen py-20">
       <article className="prose dark:prose-invert prose-sm sm:prose lg:prose-lg xl:prose-xl">
         <h1 className="!mb-0">{title}</h1>
-        <p className="!my-0">更新日：{updatedAt}</p>
+        <p className="!my-0">更新日：{formatDateToJapanese(updatedAt)}</p>
         <p className="!my-0">
           タグ：
           {tags.length === 0

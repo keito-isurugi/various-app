@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import { notion } from "@/libs/notion/notionAPI";
+import { formatDateToJapanese } from "@/utils/date"
 
 export default async function Home() {
 	// notionAPIでページ一覧取得
@@ -19,7 +20,7 @@ export default async function Home() {
               <Link href={`/blog/posts/${post.id}`}>
                 <p className="!my-0">タイトル：{post.properties.title.title[0].plain_text}</p>
               </Link>
-              <p className="!my-0">更新日：{post.properties.updated_at.last_edited_time}</p>
+              <p className="!my-0">更新日：{formatDateToJapanese(post.properties.updated_at.last_edited_time)}</p>
               <p className="!my-0">
                 タグ：
                 {post.properties.tag.multi_select.length === 0
