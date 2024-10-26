@@ -53,3 +53,6 @@
 ## Zenn自動投稿
 - /articles内のファイルが更新が本リポジトリにcommitされることで自動投稿される
 - 公式：https://zenn.dev/zenn/articles/connect-to-github
+
+## X自動投稿
+- 公式：https://github.com/PLhery/node-twitter-api-v2
