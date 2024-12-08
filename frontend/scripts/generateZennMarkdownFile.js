@@ -36,7 +36,7 @@ published: true
 	const fileName = `${notionID}.md`; // notionIDをファイル名として使用
 	const relativePath = "../files/blog-posts/tech";
 	const sourceFilePath = path.join(relativePath, fileName);
-	const outputFilePath = path.join("../articles", fileName);
+	const outputFilePath = path.join("../../articles", fileName);
 
 	// 元のMarkdownファイルの内容を読み込む
 	const markdownContent = fs.readFileSync(sourceFilePath, "utf8");
