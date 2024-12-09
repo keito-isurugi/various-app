@@ -15,15 +15,13 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v3
 
-      - name: Change Directory
-        run: cd frontend
-
       # Node.jsをセットアップ
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: "18.x"
           cache: "npm"
+          cache-dependency-path: frontend/package-lock.json
 
       # キャッシュ
       - name: Cache NPM dependencies
