@@ -59,7 +59,7 @@ jobs:
           git config --global user.name ${{ secrets.USER_NAME }}
           echo -e ${{ env.CURRENT_DATETIME }} >> commit_log.txt
           git add ../files/blog-posts/tech
-          git add ../articles/
+          git add ../../articles/
 
           # 変更がなければコミット・プッシュをスキップする
           if git diff --cached --exit-code; then
