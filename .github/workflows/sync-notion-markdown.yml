@@ -12,7 +12,7 @@ jobs:
 
     defaults:
       run:
-        working-directory: frontend/scripts
+        working-directory: frontend
 
     steps:
       # リポジトリのコードをチェックアウト
