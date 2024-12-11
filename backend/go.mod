@@ -1,3 +1,3 @@
-module github.com/keito-isurugi/next-go-project
+module github.com/keito-isurugi/kei-talk
 
-go 1.23.0
+go 1.23.4
