@@ -1,0 +1,46 @@
+version: "3.9"
+services:
+  app:
+    container_name: api
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    volumes:
+      - ./backend:/app
+    ports:
+      - ${SERVER_PORT}:${SERVER_PORT}
+    env_file:
+      - .env
+    networks:
+      - kei-talk-network
+  db:
+    container_name: kei-talk-db
+    image: postgres:14.5
+    ports:
+      - ${POSTGRES_PORT}:${POSTGRES_PORT}
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DATABASE}
+    volumes:
+      - ./backend/persist/postgres:/var/lib/postgresql/data
+      - ./backend/DDL:/docker-entrypoint-initdb.d
+    networks:
+      - kei-talk-network
+  pgadmin:
+    container_name: kei-talk-pgadmin
+    image: dpage/pgadmin4
+    ports:
+      - 5050:80
+    volumes:
+      - ./backend/persist/pgadmin:/var/lib/pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
+    depends_on:
+      - db
+    networks:
+      - kei-talk-network
+networks:
+  kei-talk-network:
+    driver: bridge
