@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 
+	"github.com/keito-isurugi/kei-talk/infra/env"
 	"github.com/keito-isurugi/kei-talk/server"
 )
 
@@ -12,6 +13,11 @@ import (
 // TODO S3初期化
 func main() {
 	fmt.Println("Hello World")
-	router := server.SetupRouter()
+	ev, err := env.NewValue()
+	if err != nil {
+		fmt.Println(err.Error())
+	}
+
+	router := server.SetupRouter(ev)
 	router.Start(":8080")
 }

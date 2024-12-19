@@ -3,11 +3,12 @@ package server
 import (
 	"net/http"
 
+	"github.com/keito-isurugi/kei-talk/infra/env"
 	"github.com/labstack/echo/v4"
 	echoMiddleware "github.com/labstack/echo/v4/middleware"
 )
 
-func SetupRouter() *echo.Echo {
+func SetupRouter(env *env.Values) *echo.Echo {
 	e := echo.New()
 	e.Use(echoMiddleware.CORSWithConfig(echoMiddleware.CORSConfig{
 		AllowOrigins: []string{"*"},
