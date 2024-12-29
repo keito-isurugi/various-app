@@ -15,23 +15,26 @@ import (
 // TODO logger初期化
 // TODO S3初期化
 func main() {
-	fmt.Println("Hello World")
+	// 環境変数初期化
 	ev, err := env.NewValue()
 	if err != nil {
 		fmt.Println(err.Error())
 	}
 
+	// ロガー初期化
 	zapLogger, err := logger.NewLogger(ev.Debug)
 	if err != nil {
 		fmt.Println(err.Error())
 	}
 	defer func() { _ = zapLogger.Sync() }()
 
+	// dbクライアント初期化
 	dbClient, err := db.NewClient(&ev.DB, zapLogger)
 	if err != nil {
 		zapLogger.Error(err.Error())
 	}
 
+	// awsクライアント初期化
 	awsClient, err := aws.NewS3Client(ev)
 	if err != nil {
 		zapLogger.Error(err.Error())

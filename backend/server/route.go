@@ -12,17 +12,22 @@ import (
 )
 
 func SetupRouter(ev *env.Values, dbClient db.Client, _ *zap.Logger, awsClient s3iface.S3API) *echo.Echo {
-	e := echo.New()
-	e.Use(echoMiddleware.CORSWithConfig(echoMiddleware.CORSConfig{
+	echo := echo.New()
+	eecho.Use(echoMiddleware.CORSWithConfig(echoMiddleware.CORSConfig{
 		AllowOrigins: []string{"*"},
 		AllowHeaders: []string{"*"},
 	}))
 
-	e.GET("/health", func(c echo.Context) error {
+	// ヘルスチェック
+	echo.GET("/health", func(c echo.Context) error {
 		return c.JSON(http.StatusOK, map[string]string{"status": "ok"})
 	})
 
-	imageGroup := e.Group("/images")
+	func imageRouter(e *echo.Echo) {
+		imageRepository := repository.
+	}
+
+	imageGroup := echo.Group("/images")
 	imageGroup.GET("", func(c echo.Context) error {
 		return c.JSON(http.StatusOK, "Hello World!")
 	})
