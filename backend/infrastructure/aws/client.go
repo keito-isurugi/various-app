@@ -6,7 +6,7 @@ import (
 	"github.com/aws/aws-sdk-go/service/s3"
 	"github.com/aws/aws-sdk-go/service/s3/s3iface"
 
-	"github.com/keito-isurugi/kei-talk/infra/env"
+	"github.com/keito-isurugi/kei-talk/infrastructure/env"
 )
 
 func NewS3Client(ev *env.Values) (s3iface.S3API, error) {

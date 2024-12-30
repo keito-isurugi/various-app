@@ -8,7 +8,7 @@ import (
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 
-	"github.com/keito-isurugi/kei-talk/infra/env"
+	"github.com/keito-isurugi/kei-talk/infrastructure/env"
 )
 
 type Client interface {
