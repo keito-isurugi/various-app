@@ -16,4 +16,4 @@ COMMENT ON COLUMN images.image_path IS '画像パス';
 COMMENT ON COLUMN images.display_flag IS '表示フラグ';
 COMMENT ON COLUMN images.created_at IS '登録日時';
 COMMENT ON COLUMN images.updated_at IS '更新日時';
-COMMENT ON COLUMN images.updated_at IS '削除日時';
+COMMENT ON COLUMN images.deleted_at IS '削除日時';
