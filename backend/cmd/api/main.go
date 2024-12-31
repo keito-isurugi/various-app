@@ -3,17 +3,13 @@ package main
 import (
 	"fmt"
 
-	"github.com/keito-isurugi/kei-talk/infra/env"
-	"github.com/keito-isurugi/kei-talk/infra/logger"
-	"github.com/keito-isurugi/kei-talk/infra/db"
-	"github.com/keito-isurugi/kei-talk/infra/aws"
+	"github.com/keito-isurugi/kei-talk/infrastructure/aws"
+	"github.com/keito-isurugi/kei-talk/infrastructure/postgresql"
+	"github.com/keito-isurugi/kei-talk/infrastructure/env"
+	"github.com/keito-isurugi/kei-talk/infrastructure/logger"
 	"github.com/keito-isurugi/kei-talk/server"
 )
 
-// TODO envファイル読み込み
-// TODO db初期化
-// TODO logger初期化
-// TODO S3初期化
 func main() {
 	// 環境変数初期化
 	ev, err := env.NewValue()
