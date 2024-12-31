@@ -19,7 +19,7 @@ type imageHnadler struct {
 	listImagesUseCase imageApp.ListImagesUseCase
 }
 
-func NewTodoHandler(
+func NewImageHandler(
 	listImagesUseCase imageApp.ListImagesUseCase,
 ) ImageHandler {
 	return &imageHnadler{
@@ -33,12 +33,12 @@ func (ih *imageHnadler) ListImages(c echo.Context) error {
 		return err
 	}
 
-	res := make([]imageResponseModel, len(li))
-	for i := range li {
+	res := make([]imageResponseModel, len(*li))
+	for i, img := range *li {
 		res[i] = imageResponseModel{
-			ID:          li[i].ID,
-			ImagePath:   li[i].ImagePath,
-			DisplayFlag: li[i].DisplayFlag,
+			ID:          img.ID,
+			ImagePath:   img.ImagePath,
+			DisplayFlag: img.DisplayFlag,
 		}
 	}
 
