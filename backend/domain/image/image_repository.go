@@ -6,5 +6,5 @@ import (
 )
 
 type ImageRepository interface {
-	ListImages(ctx context.Context) (ListImages, error)
+	ListImages(ctx context.Context) (*ListImages, error)
 }

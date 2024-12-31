@@ -28,3 +28,15 @@ func NewImage(
 		UpdatedAt:   updatedAt,
 	}
 }
+
+// func (i *Image) ID() int {
+// 	return i.id
+// }
+
+// func (i *Image) ImagePath() string {
+// 	return i.imagePath
+// }
+
+// func (i *Image) DisplayFlag() bool {
+// 	return i.displayFlag
+// }
