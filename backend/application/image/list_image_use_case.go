@@ -6,8 +6,14 @@ import (
 	imageDomain "github.com/keito-isurugi/kei-talk/domain/image"
 )
 
+type ImageUseCaseDto struct {
+	ID          int
+	ImagePath   string
+	DisplayFlag bool
+}
+
 type ListImagesUseCase interface {
-	Exec(c echo.Context) (imageDomain.ListImages, error)
+	Exec(c echo.Context) (*[]ImageUseCaseDto, error)
 }
 
 type listImagesUseCase struct {
@@ -20,11 +26,20 @@ func NewListImagesUseCase(imageRepo imageDomain.ImageRepository) ListImagesUseCa
 	}
 }
 
-func (ltuc *listImagesUseCase) Exec(c echo.Context) (imageDomain.ListImages, error) {
-	lt, err := ltuc.imageRepo.ListImages(c.Request().Context())
+func (ltuc *listImagesUseCase) Exec(c echo.Context) (*[]ImageUseCaseDto, error) {
+	images, err := ltuc.imageRepo.ListImages(c.Request().Context())
 	if err != nil {
-		return imageDomain.ListImages{}, err
+		return nil, err
 	}
 
-	return lt, nil
+	dto := make([]ImageUseCaseDto, len(*images))
+	for i, img := range *images {
+		dto[i] = ImageUseCaseDto{
+			ID: img.ID,
+			ImagePath: img.ImagePath,
+			DisplayFlag: img.DisplayFlag,
+		}
+	}
+
+	return &dto, nil
 }
