@@ -7,4 +7,5 @@ import (
 
 type ImageRepository interface {
 	ListImages(ctx context.Context) (*ListImages, error)
+	GetImage(ctx context.Context, id int) (*Image, error)
 }

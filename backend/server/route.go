@@ -36,11 +36,10 @@ func imageRouter(eg *echo.Group, dbClient db.Client) {
 	imageRepo := repository.NewImageRepository(dbClient)
 	h := imagePre.NewImageHandler(
 		imageApp.NewListImagesUseCase(imageRepo),
+		imageApp.NewGetImageUseCase(imageRepo),
 	)
 
 	imageGroup := eg.Group("/images")
 	imageGroup.GET("", h.ListImages)
-	// imageGroup.GET("", func(c echo.Context) error {
-	// 	return c.JSON(http.StatusOK, "Hello World!")
-	// })
+	imageGroup.GET("/:id", h.GetImage)
 }

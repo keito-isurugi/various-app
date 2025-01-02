@@ -20,7 +20,7 @@ func NewImageRepository(dbClient db.Client) image.ImageRepository {
 
 func (ir *imageRepository) ListImages(ctx context.Context) (*image.ListImages, error) {
 	var lt image.ListImages
-	if err := ir.dbClient.Conn(ctx).Find(&lt).Error; err != nil {
+	if err := ir.dbClient.Conn(ctx).Where("display_flag", true).Find(&lt).Error; err != nil {
 		return nil, err
 	}
 
@@ -28,16 +28,16 @@ func (ir *imageRepository) ListImages(ctx context.Context) (*image.ListImages, e
 	return &lt, nil
 }
 
-// func (ir *imageRepository) GetTodo(ctx context.Context, id int) (image.Image, error) {
-// 	var t image.Image
-// 	if err := ir.dbClient.Conn(ctx).
-// 		Where("id", id).
-// 		First(&t).Error; err != nil {
-// 		return image.Image{}, err
-// 	}
+func (ir *imageRepository) GetImage(ctx context.Context, id int) (*image.Image, error) {
+	var img image.Image
+	if err := ir.dbClient.Conn(ctx).
+		Where("id", id).
+		First(&img).Error; err != nil {
+		return nil, err
+	}
 
-// 	return t, nil
-// }
+	return &img, nil
+}
 
 // func (ir *imageRepository) RegisterTodo(ctx context.Context, todo *image.Image) (int, error) {
 // 	if err := ir.dbClient.Conn(ctx).
