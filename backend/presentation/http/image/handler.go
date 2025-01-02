@@ -15,20 +15,24 @@ const (
 type ImageHandler interface {
 	ListImages(c echo.Context) error
 	GetImage(c echo.Context) error
+	DeleteImage(c echo.Context) error
 }
 
 type imageHnadler struct {
 	listImagesUseCase imageApp.ListImagesUseCase
 	getImageUseCase imageApp.GetImageUseCase
+	deleteImageUseCase imageApp.DeleteImageUseCase
 }
 
 func NewImageHandler(
 	listImagesUseCase imageApp.ListImagesUseCase,
 	getImageUseCase imageApp.GetImageUseCase,
+	deleteImageUseCase imageApp.DeleteImageUseCase,
 ) ImageHandler {
 	return &imageHnadler{
 		listImagesUseCase: listImagesUseCase,
 		getImageUseCase: getImageUseCase,
+		deleteImageUseCase: deleteImageUseCase,
 	}
 }
 
@@ -68,4 +72,18 @@ func (ih *imageHnadler) GetImage(c echo.Context) error {
 	}
 
 	return c.JSON(http.StatusOK, res)
+}
+
+func (ih *imageHnadler) DeleteImage(c echo.Context) error {
+	id, err := strconv.Atoi(c.Param("id"))
+	if err != nil {
+		return err
+	}
+
+	err = ih.deleteImageUseCase.Exec(c, id)
+	if err != nil {
+		return err
+	}
+
+	return c.JSON(http.StatusOK, nil)
 }

@@ -66,17 +66,17 @@ func (ir *imageRepository) GetImage(ctx context.Context, id int) (*image.Image, 
 // 	return nil
 // }
 
-// func (ir *imageRepository) DeleteTodo(ctx context.Context, id int) error {
-// 	var t image.Image
-// 	if err := ir.dbClient.Conn(ctx).Where("id", id).First(&t).Error; err != nil {
-// 		return err
-// 	}
+func (ir *imageRepository) DeleteImage(ctx context.Context, id int) error {
+	var img image.Image
+	if err := ir.dbClient.Conn(ctx).Where("id", id).First(&img).Error; err != nil {
+		return err
+	}
 
-// 	if err := ir.dbClient.Conn(ctx).
-// 		Delete(t).
-// 		Error; err != nil {
-// 		return err
-// 	}
+	if err := ir.dbClient.Conn(ctx).
+		Delete(img).
+		Error; err != nil {
+		return err
+	}
 
-// 	return nil
-// }
+	return nil
+}

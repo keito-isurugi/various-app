@@ -32,14 +32,15 @@ func SetupRouter(ev *env.Values, dbClient db.Client, _ *zap.Logger, awsClient s3
 }
 
 func imageRouter(eg *echo.Group, dbClient db.Client) {
-	// imageRepo
 	imageRepo := repository.NewImageRepository(dbClient)
 	h := imagePre.NewImageHandler(
 		imageApp.NewListImagesUseCase(imageRepo),
 		imageApp.NewGetImageUseCase(imageRepo),
+		imageApp.NewDeleteImageUseCase(imageRepo),
 	)
 
 	imageGroup := eg.Group("/images")
 	imageGroup.GET("", h.ListImages)
 	imageGroup.GET("/:id", h.GetImage)
+	imageGroup.DELETE("/:id", h.DeleteImage)
 }
