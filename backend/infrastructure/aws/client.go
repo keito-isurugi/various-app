@@ -16,8 +16,8 @@ func NewS3Client(ev *env.Values) (s3iface.S3API, error) {
 	}
 
 	// エンドポイント設定がある場合のみ、エンドポイントを設定
-	if ev.AwsEndpoint != "" {
-		awsConfig.Endpoint = aws.String(ev.AwsEndpoint)
+	if ev.AwsS3Endpoint != "" {
+		awsConfig.Endpoint = aws.String(ev.AwsS3Endpoint)
 	}
 
 	awsSession := session.Must(session.NewSession(awsConfig))

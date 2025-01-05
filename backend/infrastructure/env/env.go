@@ -38,12 +38,12 @@ type TestDB struct {
 }
 
 type AWS struct {
-	AwsRegion          string `required:"true" split_words:"true"`
-	AwsAccessKeyID     string `split_words:"true"`
-	AwsSecretAccessKey string `split_words:"true"`
-	AwsEndpoint        string `split_words:"true"`
-	AwsEndpointLocal   string `split_words:"true"`
-	AwsS3BucketName    string `required:"true" split_words:"true"`
+	AwsRegion             string `required:"true" split_words:"true"`
+	AwsAccessKeyID        string `split_words:"true"`
+	AwsSecretAccessKey    string `split_words:"true"`
+	AwsS3Endpoint         string `split_words:"true"`
+	AwsS3EndpointExternal string `split_words:"true"`
+	AwsS3BucketName       string `required:"true" split_words:"true"`
 }
 
 func NewValue() (*Values, error) {
