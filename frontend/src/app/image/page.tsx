@@ -7,6 +7,8 @@ async function fetchImages() {
 
 export default async function Home() {
   const images = await fetchImages();
+  const s3Path = `${process.env.AWS_S3_ENDPOINT_EXTERNAL}/${process.env.AWS_S3_BUCKET_NAME}`;
+
 
 	return (
     <div className="grid place-items-center min-h-screen py-20">
@@ -16,7 +18,7 @@ export default async function Home() {
           {images.map((image: any) => (
             <li key={image.id}>
               {/* biome-ignore lint/a11y/useAltText: <explanation> */}
-              <img src={image.image_path} />
+              <img src={`${s3Path}/${image.image_path}`} />
             </li>
           ))}
         </ul>
