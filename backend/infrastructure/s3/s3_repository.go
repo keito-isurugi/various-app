@@ -67,7 +67,7 @@ func (s3r *s3Repository) PutObject(file *multipart.FileHeader, bucketName, objec
 	}
 
 	// アップロードされたオブジェクトのURLを生成
-	url := fmt.Sprintf("%s/%s/%s", s3r.ev.AwsEndpoint, bucketName, objectKey)
+	url := fmt.Sprintf("%s/%s/%s", s3r.ev.AwsS3Endpoint, bucketName, objectKey)
 
 	return url, nil
 }
