@@ -20,6 +20,7 @@ require (
 
 require (
 	github.com/aws/aws-sdk-go v1.55.5
+	github.com/google/uuid v1.6.0
 	github.com/kelseyhightower/envconfig v1.4.0
 	github.com/labstack/echo v3.3.10+incompatible
 	github.com/labstack/gommon v0.4.2 // indirect
