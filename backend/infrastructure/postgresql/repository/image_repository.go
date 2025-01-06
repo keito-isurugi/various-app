@@ -39,15 +39,14 @@ func (ir *imageRepository) GetImage(ctx context.Context, id int) (*image.Image, 
 	return &img, nil
 }
 
-// func (ir *imageRepository) RegisterTodo(ctx context.Context, todo *image.Image) (int, error) {
-// 	if err := ir.dbClient.Conn(ctx).
-// 		Create(todo).
-// 		Error; err != nil {
-// 		return 0, err
-// 	}
-
-// 	return todo.ID, nil
-// }
+func (ir *imageRepository) RegisterImage(ctx context.Context, img *image.Image) (string, error) {
+	if err := ir.dbClient.Conn(ctx).
+		Create(img).
+		Error; err != nil {
+		return "", err
+	}
+	return img.ImagePath, nil
+}
 
 // func (ir *imageRepository) UpdateTodo(ctx context.Context, todo *image.Image) error {
 // 	var t image.Image
