@@ -26,21 +26,25 @@ func SetupRouter(ev *env.Values, dbClient db.Client, _ *zap.Logger, awsClient s3
 		return c.JSON(http.StatusOK, map[string]string{"status": "ok"})
 	})
 
-	imageRouter(api, dbClient)
+	imageRouter(ev, awsClient, api, dbClient)
 
 	return e
 }
 
-func imageRouter(eg *echo.Group, dbClient db.Client) {
+func imageRouter(ev *env.Values, awsClient s3iface.S3API, eg *echo.Group, dbClient db.Client) {
 	imageRepo := repository.NewImageRepository(dbClient)
 	h := imagePre.NewImageHandler(
+		ev,
+		awsClient,
 		imageApp.NewListImagesUseCase(imageRepo),
 		imageApp.NewGetImageUseCase(imageRepo),
 		imageApp.NewDeleteImageUseCase(imageRepo),
+		imageApp.NewRegisterImageUseCase(imageRepo),
 	)
 
 	imageGroup := eg.Group("/images")
 	imageGroup.GET("", h.ListImages)
 	imageGroup.GET("/:id", h.GetImage)
 	imageGroup.DELETE("/:id", h.DeleteImage)
+	imageGroup.PUT("", h.RegisterImage)
 }
