@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS images
     updated_at TIMESTAMP           NOT NULL DEFAULT CURRENT_TIMESTAMP,
     deleted_at TIMESTAMP           NULL
 
-    CONSTRAINT chk_image_path CHECK (image_path <> ''),   -- 空文字禁止
+    CONSTRAINT chk_image_path CHECK (image_path <> '')
 );
 
 COMMENT ON TABLE images IS '画像テーブル';
