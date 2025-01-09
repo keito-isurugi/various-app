@@ -4,11 +4,11 @@ import (
 	"net/http"
 
 	"github.com/aws/aws-sdk-go/service/s3/s3iface"
+	imageApp "github.com/keito-isurugi/kei-talk/application/image"
 	"github.com/keito-isurugi/kei-talk/infrastructure/env"
 	"github.com/keito-isurugi/kei-talk/infrastructure/postgresql"
 	"github.com/keito-isurugi/kei-talk/infrastructure/postgresql/repository"
 	imagePre "github.com/keito-isurugi/kei-talk/presentation/http/image"
-	imageApp "github.com/keito-isurugi/kei-talk/application/image"
 	"github.com/labstack/echo/v4"
 	echoMiddleware "github.com/labstack/echo/v4/middleware"
 	"go.uber.org/zap"
@@ -47,4 +47,5 @@ func imageRouter(ev *env.Values, awsClient s3iface.S3API, eg *echo.Group, dbClie
 	imageGroup.GET("/:id", h.GetImage)
 	imageGroup.DELETE("/:id", h.DeleteImage)
 	imageGroup.PUT("", h.RegisterImage)
+	imageGroup.PUT("/multi", h.RegisterImages)
 }
