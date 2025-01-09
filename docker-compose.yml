@@ -1,7 +1,7 @@
 version: "3.9"
 services:
-  app:
-    container_name: api
+  api:
+    container_name: kei-talk-api
     build:
       context: ./backend
       dockerfile: Dockerfile
