@@ -5,11 +5,13 @@ import (
 
 	"github.com/aws/aws-sdk-go/service/s3/s3iface"
 	imageApp "github.com/keito-isurugi/kei-talk/application/image"
+	imageTagApp "github.com/keito-isurugi/kei-talk/application/image_tag"
 	tagApp "github.com/keito-isurugi/kei-talk/application/tag"
 	"github.com/keito-isurugi/kei-talk/infrastructure/env"
 	"github.com/keito-isurugi/kei-talk/infrastructure/postgresql"
 	"github.com/keito-isurugi/kei-talk/infrastructure/postgresql/repository"
 	imagePre "github.com/keito-isurugi/kei-talk/presentation/http/image"
+	imageTagPre "github.com/keito-isurugi/kei-talk/presentation/http/image_tag"
 	tagPre "github.com/keito-isurugi/kei-talk/presentation/http/tag"
 	"github.com/labstack/echo/v4"
 	echoMiddleware "github.com/labstack/echo/v4/middleware"
@@ -77,12 +79,13 @@ func imageTagRouter(ev *env.Values, eg *echo.Group, dbClient db.Client) {
     h := imageTagPre.NewImageTagHandler(
         ev,
         imageTagApp.NewListImageTagsUseCase(imageTagRepo),
+        imageTagApp.NewGetImageTagUseCase(imageTagRepo),
         imageTagApp.NewRegisterImageTagUseCase(imageTagRepo),
         imageTagApp.NewDeleteImageTagUseCase(imageTagRepo),
     )
 
     imageTagGroup := eg.Group("/image-tags")
-    imageTagGroup.GET("", h.ListImageTags)               // 画像とタグの関連リストを取得
-    imageTagGroup.POST("", h.RegisterImageTag)           // 画像にタグを紐づける
-    imageTagGroup.DELETE("/:id", h.DeleteImageTag)       // 紐づけを削除する
+    imageTagGroup.GET("", h.ListImageTags)               
+    imageTagGroup.POST("", h.RegisterImageTag)           
+    imageTagGroup.DELETE("/:id", h.DeleteImageTag)       
 }
