@@ -7,29 +7,28 @@ import (
 )
 
 type ImageTagUseCaseInputDto struct {
-	ID      int
 	ImageID int
 	TagID   int
 }
 
-type RegisterImageUseCase interface {
-	Exec(c echo.Context, imageTag ImageTagUseCaseInputDto) (int, error)
+type RegisterImageTagUseCase interface {
+	Exec(c echo.Context, input ImageTagUseCaseInputDto) (int, error)
 }
 
 type registerImageUseCase struct {
 	imageTagRepo imageTagDomain.ImageTagRepository
 }
 
-func NewRegisterImageUseCase(imageTagRepo imageTagDomain.ImageTagRepository) RegisterImageUseCase {
+func NewRegisterImageTagUseCase(imageTagRepo imageTagDomain.ImageTagRepository) RegisterImageTagUseCase {
 	return &registerImageUseCase{
 		imageTagRepo: imageTagRepo,
 	}
 }
 
-func (uc *registerImageUseCase) Exec(c echo.Context, imageTag ImageTagUseCaseInputDto) (int, error) {
+func (uc *registerImageUseCase) Exec(c echo.Context, input ImageTagUseCaseInputDto) (int, error) {
 	img := imageTagDomain.ImageTag{
-		ImageID: imageTag.ImageID,
-		TagID: imageTag.TagID,
+		ImageID: input.ImageID,
+		TagID: input.TagID,
 	}
 
 	id, err := uc.imageTagRepo.RegisterImageTag(c.Request().Context(), &img)

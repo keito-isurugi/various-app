@@ -6,21 +6,21 @@ import (
 	imageTagDomain "github.com/keito-isurugi/kei-talk/domain/image_tag"
 )
 
-type DeleteImageUseCase interface {
+type DeleteImageTagUseCase interface {
 	Exec(c echo.Context, id int) error
 }
 
-type deleteImageUseCase struct {
+type deleteImageTagUseCase struct {
 	imageTagRepo imageTagDomain.ImageTagRepository
 }
 
-func NewDeleteImageUseCase(imageTagRepo imageTagDomain.ImageTagRepository) DeleteImageUseCase {
-	return &deleteImageUseCase{
+func NewDeleteImageTagUseCase(imageTagRepo imageTagDomain.ImageTagRepository) DeleteImageTagUseCase {
+	return &deleteImageTagUseCase{
 		imageTagRepo: imageTagRepo,
 	}
 }
 
-func (uc *deleteImageUseCase) Exec(c echo.Context, id int) error {
+func (uc *deleteImageTagUseCase) Exec(c echo.Context, id int) error {
 	err := uc.imageTagRepo.DeleteImageTag(c.Request().Context(), id)
 	if err != nil {
 		return err
