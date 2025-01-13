@@ -7,7 +7,7 @@ import (
 
 type ImageTagRepository interface {
 	ListImageTags(ctx context.Context) (*ListImageTags, error)
-	GetImageTag(ctx context.Context, imgTag *ImageTag) (*ImageTag, error)
-	DeleteImageTag(ctx context.Context, imgTag *ImageTag) error
+	GetImageTag(ctx context.Context, id int) (*ImageTag, error)
+	DeleteImageTag(ctx context.Context, id int) error
 	RegisterImageTag(ctx context.Context, imgTag *ImageTag) (int, error)
 }
