@@ -2,7 +2,10 @@ module github.com/keito-isurugi/kei-talk
 
 go 1.23.4
 
-require github.com/labstack/echo/v4 v4.13.2
+require (
+	github.com/labstack/echo/v4 v4.13.2
+	gorm.io/gorm v1.25.12
+)
 
 require (
 	github.com/jackc/pgpassfile v1.0.0 // indirect
@@ -15,14 +18,12 @@ require (
 	go.uber.org/multierr v1.10.0 // indirect
 	golang.org/x/sync v0.10.0 // indirect
 	golang.org/x/time v0.8.0 // indirect
-	gorm.io/gorm v1.25.12 // indirect
 )
 
 require (
 	github.com/aws/aws-sdk-go v1.55.5
 	github.com/google/uuid v1.6.0
 	github.com/kelseyhightower/envconfig v1.4.0
-	github.com/labstack/echo v3.3.10+incompatible
 	github.com/labstack/gommon v0.4.2 // indirect
 	github.com/mattn/go-colorable v0.1.13 // indirect
 	github.com/mattn/go-isatty v0.0.20 // indirect

@@ -32,6 +32,7 @@ func SetupRouter(ev *env.Values, dbClient db.Client, _ *zap.Logger, awsClient s3
 
 	imageRouter(ev, awsClient, api, dbClient)
 	tagRouter(ev, api, dbClient)
+	imageTagRouter(ev, api, dbClient)
 
 	return e
 }
@@ -75,17 +76,21 @@ func tagRouter(ev *env.Values, eg *echo.Group, dbClient db.Client) {
 }
 
 func imageTagRouter(ev *env.Values, eg *echo.Group, dbClient db.Client) {
-    imageTagRepo := repository.NewImageTagRepository(dbClient)
-    h := imageTagPre.NewImageTagHandler(
-        ev,
-        imageTagApp.NewListImageTagsUseCase(imageTagRepo),
-        imageTagApp.NewGetImageTagUseCase(imageTagRepo),
-        imageTagApp.NewRegisterImageTagUseCase(imageTagRepo),
-        imageTagApp.NewDeleteImageTagUseCase(imageTagRepo),
-    )
+	imageTagRepo := repository.NewImageTagRepository(dbClient)
+	h := imageTagPre.NewImageTagHandler(
+		ev,
+		imageTagApp.NewListImageTagsUseCase(imageTagRepo),
+		imageTagApp.NewGetImageTagUseCase(imageTagRepo),
+		imageTagApp.NewRegisterImageTagUseCase(imageTagRepo),
+		imageTagApp.NewDeleteImageTagUseCase(imageTagRepo),
+		imageTagApp.NewRegisterMultipleImageTagsUseCase(imageTagRepo),
+		imageTagApp.NewDeleteMultipleImageTagsUseCase(imageTagRepo),
+	)
 
-    imageTagGroup := eg.Group("/image-tags")
-    imageTagGroup.GET("", h.ListImageTags)               
-    imageTagGroup.POST("", h.RegisterImageTag)           
-    imageTagGroup.DELETE("/:id", h.DeleteImageTag)       
+	imageTagGroup := eg.Group("/image-tags")
+	imageTagGroup.GET("", h.ListImageTags)
+	imageTagGroup.POST("", h.RegisterImageTag)
+	imageTagGroup.DELETE("/:id", h.DeleteImageTag)
+	imageTagGroup.POST("/multi", h.RegisterMultipleImageTags)
+	imageTagGroup.DELETE("/multi", h.DeleteMultipleImageTags)
 }
