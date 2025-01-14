@@ -5,7 +5,7 @@ type registerImageTagRequest struct {
 	TagID   int `param:"tag_id" example:"タグ名" ja:"タグID" validate:"required"`
 }
 
-type updateImageTagRequest struct {
-	ID   int    `param:"id" example:"1" ja:"タグID" validate:"required"`
-	Name string `json:"name" example:"タグ名" ja:"タグ名" validate:"required,max=255"`
+type updateMultipleImageTagsRequest struct {
+	ImageIDs []int `json:"image_ids" example:"[1, 2, 3]" ja:"画像IDのリスト" validate:"required,min=1"`
+	TagIDs   []int `json:"tag_ids" example:"[10, 20, 30]" ja:"タグIDのリスト" validate:"required,min=1"`
 }
