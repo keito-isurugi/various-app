@@ -14,14 +14,18 @@ type ImageTagHandler interface {
 	GetImageTag(c echo.Context) error
 	DeleteImageTag(c echo.Context) error
 	RegisterImageTag(c echo.Context) error
+	RegisterMultipleImageTags(c echo.Context) error
+	DeleteMultipleImageTags(c echo.Context) error
 }
 
 type imageTagHandler struct {
-	ev                   *env.Values
-	listImageTagsUseCase    imageTagApp.ListImageTagsUseCase
-	getImageTagUseCase      imageTagApp.GetImageTagUseCase
-	deleteImageTagUseCase   imageTagApp.DeleteImageTagUseCase
-	registerImageTagUseCase imageTagApp.RegisterImageTagUseCase
+	ev                              *env.Values
+	listImageTagsUseCase            imageTagApp.ListImageTagsUseCase
+	getImageTagUseCase              imageTagApp.GetImageTagUseCase
+	deleteImageTagUseCase           imageTagApp.DeleteImageTagUseCase
+	registerImageTagUseCase         imageTagApp.RegisterImageTagUseCase
+	registerMultipleImageTagUseCase imageTagApp.RegisterMultipleImageTagsUseCase
+	deleteMultipleImageTagUseCase   imageTagApp.DeleteMultipleImageTagsUseCase
 }
 
 func NewImageTagHandler(
@@ -30,13 +34,17 @@ func NewImageTagHandler(
 	getImageTagUseCase imageTagApp.GetImageTagUseCase,
 	registerImageTagUseCase imageTagApp.RegisterImageTagUseCase,
 	deleteImageTagUseCase imageTagApp.DeleteImageTagUseCase,
+	registerMultipleImageTagUseCase imageTagApp.RegisterMultipleImageTagsUseCase,
+	deleteMultipleImageTagUseCase imageTagApp.DeleteMultipleImageTagsUseCase,
 ) ImageTagHandler {
 	return &imageTagHandler{
-		ev:                   ev,
-		listImageTagsUseCase:    listImageTagsUseCase,
-		getImageTagUseCase:      getImageTagUseCase,
-		registerImageTagUseCase: registerImageTagUseCase,
-		deleteImageTagUseCase:   deleteImageTagUseCase,
+		ev:                              ev,
+		listImageTagsUseCase:            listImageTagsUseCase,
+		getImageTagUseCase:              getImageTagUseCase,
+		registerImageTagUseCase:         registerImageTagUseCase,
+		deleteImageTagUseCase:           deleteImageTagUseCase,
+		registerMultipleImageTagUseCase: registerMultipleImageTagUseCase,
+		deleteMultipleImageTagUseCase:   deleteMultipleImageTagUseCase,
 	}
 }
 
@@ -49,9 +57,9 @@ func (h *imageTagHandler) ListImageTags(c echo.Context) error {
 	res := make([]imageTagResponseModel, len(*lit))
 	for i, it := range *lit {
 		res[i] = imageTagResponseModel{
-			ID:          it.ID,
+			ID:      it.ID,
 			ImageID: it.ImageID,
-			TagID: it.TagID,
+			TagID:   it.TagID,
 		}
 	}
 
@@ -70,9 +78,9 @@ func (h *imageTagHandler) GetImageTag(c echo.Context) error {
 	}
 
 	res := imageTagResponseModel{
-		ID:          it.ID,
+		ID:      it.ID,
 		ImageID: it.ImageID,
-		TagID: it.TagID,
+		TagID:   it.TagID,
 	}
 
 	return c.JSON(http.StatusOK, res)
@@ -100,7 +108,7 @@ func (h *imageTagHandler) RegisterImageTag(c echo.Context) error {
 
 	input := imageTagApp.ImageTagUseCaseInputDto{
 		ImageID: req.ImageID,
-		TagID: req.TagID,
+		TagID:   req.TagID,
 	}
 
 	id, err := h.registerImageTagUseCase.Exec(c, input)
@@ -109,4 +117,42 @@ func (h *imageTagHandler) RegisterImageTag(c echo.Context) error {
 	}
 
 	return c.JSON(http.StatusOK, id)
+}
+
+func (h *imageTagHandler) RegisterMultipleImageTags(c echo.Context) error {
+	var req updateMultipleImageTagsRequest
+	if err := c.Bind(&req); err != nil {
+		return err
+	}
+
+	input := imageTagApp.UpdateMultipleImageTagsUseCaseInputDto{
+		ImageIDs: req.ImageIDs,
+		TagIDs:   req.TagIDs,
+	}
+
+	ids, err := h.registerMultipleImageTagUseCase.Exec(c, input)
+	if err != nil {
+		return err
+	}
+
+	return c.JSON(http.StatusOK, ids)
+}
+
+func (h *imageTagHandler) DeleteMultipleImageTags(c echo.Context) error {
+	var req updateMultipleImageTagsRequest
+	if err := c.Bind(&req); err != nil {
+		return err
+	}
+
+	input := imageTagApp.UpdateMultipleImageTagsUseCaseInputDto{
+		ImageIDs: req.ImageIDs,
+		TagIDs:   req.TagIDs,
+	}
+
+	err := h.deleteMultipleImageTagUseCase.Exec(c, input)
+	if err != nil {
+		return err
+	}
+
+	return c.JSON(http.StatusOK, nil)
 }
