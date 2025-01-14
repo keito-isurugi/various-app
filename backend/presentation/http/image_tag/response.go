@@ -9,3 +9,7 @@ type imageTagResponseModel struct {
 	ImageID int `json:"image_id"`
 	TagID   int `json:"tag_id"`
 }
+
+type registerMultipleImageTagsResponse struct {
+	ImageTagIDs []int `json:"image_tag_ids"`
+}
