@@ -65,9 +65,9 @@ func (ir *imageRepository) RegisterImage(ctx context.Context, img *image.Image) 
 // 	return nil
 // }
 
-func (ir *imageRepository) DeleteImage(ctx context.Context, id int) error {
+func (ir *imageRepository) DeleteImage(ctx context.Context, path string) error {
 	var img image.Image
-	if err := ir.dbClient.Conn(ctx).Where("id", id).First(&img).Error; err != nil {
+	if err := ir.dbClient.Conn(ctx).Where("image_path", path).First(&img).Error; err != nil {
 		return err
 	}
 
