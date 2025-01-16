@@ -7,7 +7,7 @@ import (
 )
 
 type DeleteImageUseCase interface {
-	Exec(c echo.Context, id int) error
+	Exec(c echo.Context, path string) error
 }
 
 type deleteImageUseCase struct {
@@ -20,8 +20,8 @@ func NewDeleteImageUseCase(imageRepo imageDomain.ImageRepository) DeleteImageUse
 	}
 }
 
-func (uc *deleteImageUseCase) Exec(c echo.Context, id int) error {
-	err := uc.imageRepo.DeleteImage(c.Request().Context(), id)
+func (uc *deleteImageUseCase) Exec(c echo.Context, path string) error {
+	err := uc.imageRepo.DeleteImage(c.Request().Context(), path)
 	if err != nil {
 		return err
 	}
