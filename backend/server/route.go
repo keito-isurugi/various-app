@@ -51,9 +51,9 @@ func imageRouter(ev *env.Values, awsClient s3iface.S3API, eg *echo.Group, dbClie
 	imageGroup := eg.Group("/images")
 	imageGroup.GET("", h.ListImages)
 	imageGroup.GET("/:id", h.GetImage)
-	imageGroup.DELETE("/:id", h.DeleteImage)
+	imageGroup.DELETE("/:path", h.DeleteImage)
 	imageGroup.PUT("", h.RegisterImage)
-	imageGroup.PUT("/multi", h.RegisterImages)
+	imageGroup.POST("/multi", h.RegisterImages)
 }
 
 func tagRouter(ev *env.Values, eg *echo.Group, dbClient db.Client) {
