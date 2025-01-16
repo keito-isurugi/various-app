@@ -90,17 +90,24 @@ func (ih *imageHandler) GetImage(c echo.Context) error {
 }
 
 func (ih *imageHandler) DeleteImage(c echo.Context) error {
-	id, err := strconv.Atoi(c.Param("id"))
+	path := c.Param("path")
+
+	_, err := ih.awsClient.DeleteObject(&s3.DeleteObjectInput{
+		Bucket: aws.String(ih.ev.AwsS3BucketName),
+		Key:    aws.String(path),
+	})
 	if err != nil {
-		return err
+		log.Printf("failed to delete file from S3: %v\n", err)
+		return c.JSON(http.StatusInternalServerError, map[string]string{"error": "failed to delete image from S3"})
 	}
 
-	err = ih.deleteImageUseCase.Exec(c, id)
+	// DBから削除処理
+	err = ih.deleteImageUseCase.Exec(c, path)
 	if err != nil {
-		return err
+		return c.JSON(http.StatusInternalServerError, map[string]string{"error": "failed to delete image from database"})
 	}
 
-	return c.JSON(http.StatusOK, nil)
+	return c.JSON(http.StatusOK, map[string]string{"status": "image deleted successfully"})
 }
 
 func (ih *imageHandler) RegisterImage(c echo.Context) error {
