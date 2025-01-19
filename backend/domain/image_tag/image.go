@@ -3,9 +3,9 @@ package image_tag
 import "time"
 
 type ImageTag struct {
-	ID        int
-	ImageID   int
-	TagID     int
+	ID        int `gorm:"primaryKey"`
+	ImageID   int `gorm:"column:image_id"`
+	TagID     int `gorm:"column:tag_id"`
 	CreatedAt time.Time
 	UpdatedAt time.Time
 	DeletedAt *time.Time
