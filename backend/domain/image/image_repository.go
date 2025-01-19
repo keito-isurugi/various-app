@@ -10,4 +10,6 @@ type ImageRepository interface {
 	GetImage(ctx context.Context, id int) (*Image, error)
 	DeleteImage(ctx context.Context, path string) error
 	RegisterImage(ctx context.Context, img *Image) (string, error)
+	GetUntaggedImagesByTags(ctx context.Context, tagIDs *ListImagesNoTaggedTags) (*ListImages, error)
+	GetTaggedImagesByTags(ctx context.Context, tagIDs []int) (*ListImages, error)
 }
