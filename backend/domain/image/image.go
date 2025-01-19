@@ -1,14 +1,18 @@
 package image
 
-import "time"
+import (
+	tagDomain "github.com/keito-isurugi/kei-talk/domain/tag"
+	"time"
+)
 
 type Image struct {
-	ID          int
-	ImagePath   string
-	DisplayFlag bool
+	ID          int    `gorm:"primaryKey"`
+	ImagePath   string `gorm:"column:image_path"`
+	DisplayFlag bool   `gorm:"column:display_flag"`
 	CreatedAt   time.Time
 	UpdatedAt   time.Time
 	DeletedAt   *time.Time
+	Tags        []tagDomain.Tag `gorm:"many2many:image_tags;joinForeignKey:ImageID;JoinReferences:TagID"`
 }
 
 type ListImages []Image
@@ -29,14 +33,6 @@ func NewImage(
 	}
 }
 
-// func (i *Image) ID() int {
-// 	return i.id
-// }
-
-// func (i *Image) ImagePath() string {
-// 	return i.imagePath
-// }
-
-// func (i *Image) DisplayFlag() bool {
-// 	return i.displayFlag
-// }
+type ListImagesNoTaggedTags struct {
+	TagIDs []int
+}
