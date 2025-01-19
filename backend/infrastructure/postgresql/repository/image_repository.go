@@ -3,6 +3,8 @@ package repository
 import (
 	"context"
 	"fmt"
+	imageDomain "github.com/keito-isurugi/kei-talk/domain/image"
+	imageTagDomain "github.com/keito-isurugi/kei-talk/domain/image_tag"
 
 	"github.com/keito-isurugi/kei-talk/domain/image"
 	"github.com/keito-isurugi/kei-talk/infrastructure/postgresql"
@@ -20,7 +22,10 @@ func NewImageRepository(dbClient db.Client) image.ImageRepository {
 
 func (ir *imageRepository) ListImages(ctx context.Context) (*image.ListImages, error) {
 	var lt image.ListImages
-	if err := ir.dbClient.Conn(ctx).Where("display_flag", true).Find(&lt).Error; err != nil {
+	if err := ir.dbClient.Conn(ctx).
+		Where("display_flag", true).
+		Preload("Tags").
+		Find(&lt).Error; err != nil {
 		return nil, err
 	}
 
@@ -78,4 +83,45 @@ func (ir *imageRepository) DeleteImage(ctx context.Context, path string) error {
 	}
 
 	return nil
+}
+
+func (ir *imageRepository) GetUntaggedImagesByTags(ctx context.Context, tagIDs *imageDomain.ListImagesNoTaggedTags) (*image.ListImages, error) {
+	var untaggedImages image.ListImages
+
+	// サブクエリ: すべての tagIDs に紐づいている image_id を計算
+	subQuery := ir.dbClient.Conn(ctx).
+		Model(&imageTagDomain.ImageTag{}).
+		Select("image_id").
+		Where("tag_id IN ?", tagIDs.TagIDs).
+		Group("image_id").
+		Having("COUNT(DISTINCT tag_id) = ?", len(tagIDs.TagIDs)) // 指定されたすべてのタグに紐づいている image_id
+
+	// メインクエリ: 上記サブクエリに含まれない画像を取得し、Tags を Preload でロード
+	if err := ir.dbClient.Conn(ctx).
+		Where("id NOT IN (?)", subQuery).
+		Preload("Tags"). // Tags情報をロード
+		Find(&untaggedImages).Error; err != nil {
+		return nil, err
+	}
+
+	return &untaggedImages, nil
+}
+
+func (ir *imageRepository) GetTaggedImagesByTags(ctx context.Context, tagIDs []int) (*image.ListImages, error) {
+	var taggedImages image.ListImages
+
+	// サブクエリを作成して、指定された tagIDs に紐づく image_id を取得
+	subQuery := ir.dbClient.Conn(ctx).
+		Model(&imageTagDomain.ImageTag{}).
+		Select("image_id").
+		Where("tag_id IN ?", tagIDs)
+
+	// images テーブルで、そのような image_id を持つレコードを取得
+	if err := ir.dbClient.Conn(ctx).
+		Where("id IN (?)", subQuery).
+		Find(&taggedImages).Error; err != nil {
+		return nil, err
+	}
+
+	return &taggedImages, nil
 }
