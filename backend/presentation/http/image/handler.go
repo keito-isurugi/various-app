@@ -22,15 +22,17 @@ type ImageHandler interface {
 	DeleteImage(c echo.Context) error
 	RegisterImage(c echo.Context) error
 	RegisterImages(c echo.Context) error
+	GetUntaggedImagesByTags(c echo.Context) error
 }
 
 type imageHandler struct {
-	ev                   *env.Values
-	awsClient            s3iface.S3API
-	listImagesUseCase    imageApp.ListImagesUseCase
-	getImageUseCase      imageApp.GetImageUseCase
-	deleteImageUseCase   imageApp.DeleteImageUseCase
-	registerImageUseCase imageApp.RegisterImageUseCase
+	ev                        *env.Values
+	awsClient                 s3iface.S3API
+	listImagesUseCase         imageApp.ListImagesUseCase
+	getImageUseCase           imageApp.GetImageUseCase
+	deleteImageUseCase        imageApp.DeleteImageUseCase
+	registerImageUseCase      imageApp.RegisterImageUseCase
+	listImagesNoTaggedUseCase imageApp.ListImagesNoTaggedUseCase
 }
 
 func NewImageHandler(
@@ -40,14 +42,16 @@ func NewImageHandler(
 	getImageUseCase imageApp.GetImageUseCase,
 	deleteImageUseCase imageApp.DeleteImageUseCase,
 	registerImageUseCase imageApp.RegisterImageUseCase,
+	listImagesNoTaggedUseCase imageApp.ListImagesNoTaggedUseCase,
 ) ImageHandler {
 	return &imageHandler{
-		ev:                   ev,
-		awsClient:            awsClient,
-		listImagesUseCase:    listImagesUseCase,
-		getImageUseCase:      getImageUseCase,
-		deleteImageUseCase:   deleteImageUseCase,
-		registerImageUseCase: registerImageUseCase,
+		ev:                        ev,
+		awsClient:                 awsClient,
+		listImagesUseCase:         listImagesUseCase,
+		getImageUseCase:           getImageUseCase,
+		deleteImageUseCase:        deleteImageUseCase,
+		registerImageUseCase:      registerImageUseCase,
+		listImagesNoTaggedUseCase: listImagesNoTaggedUseCase,
 	}
 }
 
@@ -59,10 +63,21 @@ func (ih *imageHandler) ListImages(c echo.Context) error {
 
 	res := make([]imageResponseModel, len(*li))
 	for i, img := range *li {
+		// Tags をレスポンスモデルに変換
+		tags := make([]tagResponseModel, len(img.Tags)) // img.Tags をフロント用に変換
+		for j, tag := range img.Tags {
+			tags[j] = tagResponseModel{
+				ID:   tag.ID,
+				Name: tag.Name,
+			}
+		}
+
+		// 画像情報 + Tags をレスポンスにセット
 		res[i] = imageResponseModel{
 			ID:          img.ID,
 			ImagePath:   img.ImagePath,
 			DisplayFlag: img.DisplayFlag,
+			Tags:        tags,
 		}
 	}
 
@@ -231,4 +246,42 @@ func (ih *imageHandler) RegisterImages(c echo.Context) error {
 
 	// 全てのファイルのパスをまとめて返す
 	return c.JSON(http.StatusOK, uploadedPaths)
+}
+
+func (ih *imageHandler) GetUntaggedImagesByTags(c echo.Context) error {
+	var req getUntaggedImagesByTagsRequest
+	if err := c.Bind(&req); err != nil {
+		return err
+	}
+
+	input := imageApp.ListImagesNoTaggedInputDto{
+		TagIDs: req.TagIDs,
+	}
+
+	li, err := ih.listImagesNoTaggedUseCase.Exec(c, input)
+	if err != nil {
+		return err
+	}
+
+	res := make([]imageResponseModel, len(*li))
+	for i, img := range *li {
+		// Tags をレスポンスモデルに変換
+		tags := make([]tagResponseModel, len(img.Tags)) // img.Tags をフロント用に変換
+		for j, tag := range img.Tags {
+			tags[j] = tagResponseModel{
+				ID:   tag.ID,
+				Name: tag.Name,
+			}
+		}
+
+		// 画像情報 + Tags をレスポンスにセット
+		res[i] = imageResponseModel{
+			ID:          img.ID,
+			ImagePath:   img.ImagePath,
+			DisplayFlag: img.DisplayFlag,
+			Tags:        tags,
+		}
+	}
+
+	return c.JSON(http.StatusOK, res)
 }
