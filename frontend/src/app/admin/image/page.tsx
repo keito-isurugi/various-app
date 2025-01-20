@@ -51,13 +51,27 @@ export default function ImagesPage() {
             {/* 画像グリッドを表示 */}
             <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
                 {images.map((image) => (
-                    <div key={image.id} className="relative">
+                    <div key={image.id} className="relative bg-white rounded shadow-lg p-4">
                         {/* 画像表示 */}
                         <img
                             src={`${s3Path}/${image.image_path}`}
                             alt="uploaded image"
-                            className="w-full h-40 object-cover rounded shadow"
+                            className="w-full h-40 object-cover rounded"
                         />
+                        {/* タグ表示 */}
+                        <div className="mt-3">
+                            <p className="text-sm font-semibold text-black">タグ:</p>
+                            <div className="flex flex-wrap gap-2 mt-1">
+                                {image.tags.map((tag) => (
+                                    <span
+                                        key={tag.id}
+                                        className="bg-blue-100 text-blue-600 text-xs font-medium px-2 py-1 rounded"
+                                    >
+                                        {tag.name}
+                                    </span>
+                                ))}
+                            </div>
+                        </div>
                         {/* 削除ボタン */}
                         <button
                             onClick={() => deleteImage(image.image_path)}
