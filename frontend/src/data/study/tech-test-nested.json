@@ -1,0 +1,1133 @@
+{
+  "title": "技術面接問題集",
+  "sections": [
+    {
+      "category": "DSA",
+      "subcategory": "DSA - Technical Question",
+      "questions": [
+        {
+          "id": "Q1",
+          "question": "ArrayList/list/dynamic arrayとappend操作の時間計算量を説明してください",
+          "answer": "ほとんどの配列の実装では、アイテムを挿入するのに利用可能なスロットがない場合より大きなサイズ（通常は2倍）の新しい配列が作成されます[3]。アイテムは、古いArrayListから新しいArrayListにコピーされます[3]。配列は使用状況に応じて大きくなったり小さくなったりするため、動的であり、メモリ使用量も効率的です[3]。配列への挿入操作の時間的複雑さはO(1)です[3]。ただし、配列の容量が最大になり、拡張とコピーが必要になった場合は別です[3]。これはO(n)の処理です[3]。したがって、挿入操作の時間的複雑さを正しく表現するには、次のようになります。最大容量に達したときに：O(n), 各挿入操作のならし計算・償却（amortized）時間：O(1)[3]。",
+          "referenceLink": "JAVA ARRAYLISTとLINKEDLIST"
+        },
+        {
+          "id": "Q2",
+          "question": "ハッシュマップのルックアップの時間計算量を説明してください。また一般的なユースケースを説明してください。",
+          "answer": "ハッシュマップの検索にかかる平均時間はO(1)、最悪の場合はO(n)です[4]。ハッシュ関数によって、異なるキーが同じハッシュ値を持つ場合がありますが、この場合、ハッシュマップは、別のデータ構造（例えば、リスト）を使用して、キーの衝突を解決します[4]。平均的には、ハッシュ関数が均等に分布する場合、キーの衝突は少なくなり、ルックアップの時間計算量はO(1)になります[5]。ただし、ハッシュ関数が悪い場合、キーの衝突が多くなり、ルックアップの時間計算量はO(n)になる可能性があります[5]。一般的なユースケースとしては、データの高速な検索が挙げられます[5]。例えば、データベースのインデックスや、キャッシュの実装などがあります[5]。",
+          "referenceLink": "Javaハッシュマップは本当にO（1）ですか？"
+        },
+        {
+          "id": "Q3",
+          "question": "二分探索木（Binary search tree）のルックアップの時間計算量を説明してください。また一般的なユースケースを説明してください。",
+          "answer": "二分探索木（Binary search tree）、ルックアップ操作にO(log n)を必要とし、大規模なデータセットを効率的に検索するのに有効であります[6]。ただし、二分探索木は、データの挿入や削除が頻繁になると平衡状態が保たれない実装を行うと偏った二分探索木になるため、最悪の場合検索が線形オーダーになります[6]。この場合、ルックアップの時間計算量がO(n)に近づく可能性があります[7]。効率を上げるためには、データの挿入や削除を行う際に、木の回転という操作を行い、常に平衡状態を保つAVL木や赤黒木を利用すると、検索・追加・削除が常にO(log n)となります[7]。",
+          "referenceLink": "うさぎでもわかる2分探索木　前編　2分探索木の基礎（表現・追加・削除）"
+        },
+        {
+          "id": "Q4",
+          "question": "キューとスタック、それぞれの使い分けについて説明してください",
+          "answer": "キューとスタックは、いずれも要素が順番に格納される線形データ構造である[8]。キューは先入れ先出し（FIFO）方式、スタックは後入れ先出し（LIFO）方式で運用されます[8, 9]。キューは、タスクの処理や、リクエストの処理など、順序が重要な場合に使用されます[8]。スタックは、関数の呼び出しや、履歴の管理など、最近の要素が重要な場合に使用されます[9]。",
+          "referenceLink": "【データ構造】キューとスタックの使い方を解説！【実用例たっぷり】"
+        },
+        {
+          "id": "Q5",
+          "question": "データベースのインデックスはどのようなデータ構造を使用するのが最適なのか",
+          "answer": "データ構造の選択は使用ケースに依存します[10]。例えば、多くのユニークな値を持つ大きなテーブルのインデックスにはB-treeが最適かもしれませんが、少数の異なる値を持つ小さなテーブルのインデックスにはビットマップがより効率的かもしれません[10]。主なデータ構造として、B-tree、ハッシュテーブル、ビットマップ、トライ（Trie）が挙げられます[10-12]。",
+          "referenceLink": "インデックスとは？仕組みをわかりやすく解説"
+        },
+        {
+          "id": "Q6",
+          "question": "グラフの探索アルゴリズム（BFS/DFS）について説明してください",
+          "answer": "グラフ探索には主にBFS（幅優先探索）とDFS（深さ優先探索）の2つのアルゴリズムがあります。BFSはキューを使用して、始点から近いノードから順に探索していきます。最短経路を求める問題に適しており、時間計算量はO(V+E)（V: 頂点数、E: 辺数）、空間計算量はO(V)です。DFSはスタック（または再帰）を使用して、できるだけ深くまで探索してからバックトラックします。トポロジカルソート、連結成分の検出、サイクル検出などに適しています。時間計算量はO(V+E)、空間計算量はO(V)です。",
+          "referenceLink": "グラフの探索 - BFS/DFS"
+        },
+        {
+          "id": "Q7",
+          "question": "ヒープ（優先度付きキュー）のデータ構造と時間計算量を説明してください",
+          "answer": "ヒープは完全二分木に基づくデータ構造で、最大値または最小値を効率的に取得できます。最小ヒープでは親ノードが子ノードより常に小さく、最大ヒープでは親ノードが子ノードより常に大きくなります。挿入と削除の時間計算量はO(log n)、最大/最小値の取得はO(1)です。",
+          "referenceLink": "ヒープとは？データ構造の基本を学ぼう"
+        },
+        {
+          "id": "Q8",
+          "question": "主要なソートアルゴリズムの時間計算量と使い分けを説明してください",
+          "answer": "クイックソート：平均O(n log n)、最悪O(n²)。マージソート：常にO(n log n)、安定ソート。ヒープソート：常にO(n log n)、追加メモリO(1)。バケットソート/基数ソート：O(n)で動作可能だがデータ分布に依存。JavaScriptのArray.prototype.sort()はTimSortを使用。",
+          "referenceLink": "ソートアルゴリズムまとめ"
+        },
+        {
+          "id": "Q9",
+          "question": "Big-O記法（計算量の分析）について説明してください",
+          "answer": "Big-O記法は、アルゴリズムの効率を入力サイズnに対する計算量の上界として表現する方法です。O(1)：定数時間、O(log n)：対数時間、O(n)：線形時間、O(n log n)：線形対数時間、O(n²)：二次時間、O(2^n)：指数時間。",
+          "referenceLink": "計算量オーダーの求め方を総整理"
+        }
+      ]
+    },
+    {
+      "category": "Backend",
+      "subcategory": "Networking",
+      "questions": [
+        {
+          "id": "Q1",
+          "question": "ブラウザでURLを開くと何が起こるのでしょうか？",
+          "answer": "DNSを通じて、クライアント（ブラウザ）はURLのホスト名を宛先サーバーのIPアドレスに解決します。そして、3ウェイハンドシェイクによりTCP接続を確立します。TCP接続の上に、TLSハンドシェイクによってTLS接続を確立し、暗号化されたデータのみがネットワーク上で送信されるようにします。クライアントはHTTPプロトコルを使用して、ヘッダーとリクエストペイロードを含むリクエストを送信先のサーバーに送信します。サーバーは、ステータスコード、ヘッダー、レスポンスペイロードで応答します。",
+          "referenceLink": "GitHub - tetz-akaneya/what-happens-when-JA"
+        },
+        {
+          "id": "Q2",
+          "question": "HTTP/2とHTTP/1.1の違いを教えてください",
+          "answer": "HTTP/2は複数のHTTPリクエストとレスポンスが1つのTCP接続上で同時に送受信できるようにします。HTTP/1.1では、各リクエストと応答は1つのTCP接続で送受信されます。HTTP/2がバイナリフレーミングレイヤーを使用しているのに対し、HTTP/1.1はプレーンテキスト形式です。HTTP/2は、サーバーがPUSHフレームを使用してクライアントにデータをプッシュすることもできます。",
+          "referenceLink": "HTTP/2対HTTP/1.1：Webパフォーマンスにどのように影響するのか？"
+        },
+        {
+          "id": "Q3",
+          "question": "TCPとUDPの違いを説明してください。",
+          "answer": "TCPは、パケットの到着順序を正しくすること、パケットを失った場合の再送、IPパケットの重複処理など、UDPにはない信頼性の高い接続を確立しています。UDPはTCPよりも高速で効率的なプロトコルです。TCPはウェブサービスのような信頼性の高い接続を必要とするアプリケーションでよく使われ、UDPはマルチプレイヤーゲームや音声/ビデオ通話などパケットロスを許容できるアプリケーションでよく使われます。",
+          "referenceLink": "TCP/IPとは？ | Cloudflare、UDPとは？ | Cloudflare"
+        },
+        {
+          "id": "Q4",
+          "question": "TCPの3ウェイ・ハンドシェイクとは何ですか？",
+          "answer": "接続確立時、クライアントはSYNビットを立てたパケットをサーバーに送信してハンドシェイクの開始を示します。サーバーはSYNを受信し、ACKを返します。クライアントはサーバーからの返信を確認し、両者はデータを転送するためにTCP接続を確立します。接続を閉じるために、送信側はFINパケットを送信します。",
+          "referenceLink": "Three Way Handshake"
+        },
+        {
+          "id": "Q5",
+          "question": "TLS証明書は何のために使われるのですか？",
+          "answer": "TLS証明書は、ブラウザ、Webサイト、Webサイトのサーバー間で送信されるデータを暗号化することによって、インターネット接続を保護するために使用されます。データが改ざん、紛失、盗難されないように保証します。",
+          "referenceLink": "What is TLS、SSL/TLSサーバー証明書の基礎知識"
+        },
+        {
+          "id": "Q6",
+          "question": "TLSハンドシェイクとは何ですか？",
+          "answer": "TLSハンドシェイク中、クライアントとサーバーは以下を行います：使用するTLSのバージョンを指定する、使用する暗号スイートを決定する、サーバーの正体を認証する、セッションキーを生成する。",
+          "referenceLink": "SSL/TLSハンドシェイク"
+        },
+        {
+          "id": "Q7",
+          "question": "自己署名証明書と認証局発行の証明書の違いを教えてください。",
+          "answer": "自己署名証明書は、認証局（CA）などの第三者が関与することなく、個人または団体自身が作成し認証するものです。認証局が発行する証明書は、信頼できる第三者機関によって認証されます。",
+          "referenceLink": "Difference between Self Signed SSL & Certificate Authority"
+        },
+        {
+          "id": "Q8",
+          "question": "SNI(Server Name Indication)とは何ですか？",
+          "answer": "SNIを使用すると、複数のサイトを1つのサーバーでホストし、1つのIPアドレスを共有できます。TLS SNI拡張機能を使用すると、クライアントはTLSハンドシェイク中にウェブサイトのホスト名を指定できるため、正しいSSL証明書で接続できます。",
+          "referenceLink": "SNIとは"
+        },
+        {
+          "id": "Q9",
+          "question": "mTLS（相互TLS)とは何ですか？",
+          "answer": "mTLSは、クライアントとサーバーの両方が本人であることを保証するものです。認証されたCAが署名したサーバー証明書に加えて、認証されたCAが署名したクライアント証明書が必要です。",
+          "referenceLink": "mutual-TLS(mTLS, 2way TLS)相互認証の仕組み"
+        },
+        {
+          "id": "Q10",
+          "question": "DNS（名前解決）とは何ですか",
+          "answer": "DNSとは、Domain Name Systemの略で、ドメイン名をIPアドレスに変換するプロセスです。DNSリゾルバがDNSサーバーに問い合わせて、ドメイン名に関連付けられたIPアドレスを取得します。",
+          "referenceLink": "What is Domain Name Resolution?"
+        },
+        {
+          "id": "Q11",
+          "question": "Connection reset by peerとConnection refusedの違いは何ですか？",
+          "answer": "Connection reset by peerは、相手側がデータをすべて読み取らずに接続を閉じた場合に発生します（TCP RST）。Connection refusedは、サーバーが指定されたポートで新しい接続を受け入れない場合に発生します。",
+          "referenceLink": "What does \"connection reset by peer\" mean?"
+        },
+        {
+          "id": "Q12",
+          "question": "HTTP/3とQUICプロトコルについて説明してください",
+          "answer": "HTTP/3はTCPの代わりにUDPベースのQUICプロトコルを使用します。QUICはUDP上で独立したストリームを実装するため、Head-of-Line Blocking問題を解決します。接続確立が高速（0-RTTも可能）で、コネクションマイグレーション機能も備えています。",
+          "referenceLink": "HTTP/3 とは？ | Cloudflare"
+        },
+        {
+          "id": "Q13",
+          "question": "RESTful APIの設計原則について説明してください",
+          "answer": "ステートレス性、リソース指向（URLは名詞、HTTPメソッドで操作を表現）、統一インターフェース、適切なHTTPステータスコード、HATEOASなどが主要な原則です。",
+          "referenceLink": "RESTful API 設計のベストプラクティス"
+        },
+        {
+          "id": "Q14",
+          "question": "WebSocketとSSE（Server-Sent Events）の違いを説明してください",
+          "answer": "WebSocketはクライアントとサーバー間の双方向通信を可能にするプロトコルです。SSEはサーバーからクライアントへの一方向のデータストリームを提供します。SSEはWebSocketよりもシンプルで、既存のHTTPインフラとの互換性が高いのが利点です。",
+          "referenceLink": "WebSocket - Web API | MDN, Server-Sent Events - Web API | MDN"
+        }
+      ]
+    },
+    {
+      "category": "Backend",
+      "subcategory": "Operating Systems",
+      "questions": [
+        {
+          "id": "Q1",
+          "question": "プロセスとスレッドの違いとは？",
+          "answer": "プロセスとは、プログラムを実行するための環境で、レジスタ、メモリアドレス空間、ファイルディスクリプタ、スレッドスタックで構成されています。スレッドは実行可能なコンテキストであり、プロセスには1つ以上のスレッドが含まれています。プロセス内の各スレッドは独自のスタックを持っていますが、ヒープは共有されています。",
+          "referenceLink": "プロセスとスレッドの概要"
+        },
+        {
+          "id": "Q2",
+          "question": "プロセスを終了する方法を教えてください",
+          "answer": "killプログラムを使ってSIGKILLまたはSIGTERMシグナルを送信します。データの喪失リスクを避けるために、綺麗にプロセスを終了させるSIGTERMが推奨されます。",
+          "referenceLink": "SIGTERM vs SIGKILL"
+        },
+        {
+          "id": "Q3",
+          "question": "CPUとGPUの違いとは？",
+          "answer": "CPUは幅広いタスクを処理するように設計されており、GPUは同時タスクを効率的に処理するように設計されています。GPUはビデオレンダリングや機械学習などの高度に並列なコンピューティングタスクで使われます。",
+          "referenceLink": "CPU と GPU の比較"
+        },
+        {
+          "id": "Q4",
+          "question": "システムコール（syscall）とは何ですか？",
+          "answer": "システムコールは、カーネルシステムへの唯一のエントリーポイントです。例：open()（ファイルを開く）、read()（データを読み取る）。",
+          "referenceLink": "SYSCALLS"
+        },
+        {
+          "id": "Q5",
+          "question": "カーネルモードとユーザーモードの違いを説明してください。",
+          "answer": "カーネルモードではデバイスへのフルアクセスや特権命令の実行が可能です。ユーザープログラムはユーザーモードで動作し、システムコールを介してカーネルに特権的な操作を要求します。",
+          "referenceLink": "カーネルモードとユーザモード ドライバの違い"
+        },
+        {
+          "id": "Q6",
+          "question": "OSの仮想メモリについて説明してください",
+          "answer": "仮想メモリとは、物理メモリ（RAM）を補完するために使用される、ディスクストレージ上の一部分です。実際のRAM容量以上のメモリをプログラムに提供できますが、アクセス速度は物理メモリより遅くなります。",
+          "referenceLink": "【図解】仮想記憶(仮想メモリ)の本質や仕組み、メリット"
+        },
+        {
+          "id": "Q7",
+          "question": "デッドロックとは何ですか？また、その回避方法を説明してください",
+          "answer": "デッドロックとは、2つ以上のプロセスが互いに相手が保持しているリソースの解放を待ち続け、どちらも先に進めなくなる状態です。4条件：相互排他、保持と待機、非横取り、循環待ち。回避方法：リソースの取得順序を統一、タイムアウト設定、ロック粒度を小さくする等。",
+          "referenceLink": "デッドロック | Wikipedia"
+        },
+        {
+          "id": "Q8",
+          "question": "コンテキストスイッチとは何ですか？",
+          "answer": "CPUが現在実行中のプロセスの状態を保存し、別のプロセスの状態を復元して実行を切り替える処理のことです。プロセス間のスイッチはスレッド間よりもコストが高くなります。",
+          "referenceLink": "コンテキストスイッチ | Wikipedia"
+        }
+      ]
+    },
+    {
+      "category": "Backend",
+      "subcategory": "File Systems",
+      "questions": [
+        {
+          "id": "Q1",
+          "question": "ランダムI/OとシーケンシャルI/Oについて説明してください。",
+          "answer": "シーケンシャルI/Oでは各操作は前のI/Oの終わりでオフセットが開始されます。ランダムI/Oではオフセットがランダムに変更されます。ディスクの断片化が発生するとパフォーマンスの問題が生じます。",
+          "referenceLink": "シーケンシャルとランダム"
+        },
+        {
+          "id": "Q2",
+          "question": "inodeのデータ構造について説明してください。",
+          "answer": "inodeは各ファイルをインデックス化するために使用されるデータ構造です。ユーザID、グループID、ファイルサイズ、ファイルタイプ、日時情報など、ファイルのメタデータを含みます。データブロックへの直接または間接的なポインタが含まれます。",
+          "referenceLink": "Linuxの「inode」とは？"
+        },
+        {
+          "id": "Q3",
+          "question": "シンボリックリンクとハードリンクについて説明してください",
+          "answer": "ハードリンクは同じinodeを指します。シンボリックリンクはファイルを指すポインタ（ショートカット）です。シンボリックリンクはプログラムのバージョン管理に、ハードリンクはバックアップに役立ちます。",
+          "referenceLink": "【Linux】シンボリックリンクとハードリンクの違いとは？"
+        },
+        {
+          "id": "Q4",
+          "question": "ブロッキングI/OとノンブロッキングI/Oについて説明してください",
+          "answer": "ブロッキングI/Oでは結果が返されるまでアプリケーションが待機します。ノンブロッキングI/OはI/Oを非同期に発行し、現在のスレッドをブロックしません（例：Node.js）。",
+          "referenceLink": "ブロッキングとノンブロッキングの概要"
+        }
+      ]
+    },
+    {
+      "category": "Backend",
+      "subcategory": "Database",
+      "questions": [
+        {
+          "id": "Q1",
+          "question": "ACIDについて教えてください",
+          "answer": "ACIDは原子性（Atomicity）、一貫性（Consistency）、分離性（Isolation）、耐久性（Durability）を表します。原子性はトランザクション失敗時の全更新取消を保証。一貫性はデータの有効性を保証。分離性はトランザクション間の分離を保証。耐久性はクラッシュ後のデータ永続性を保証。",
+          "referenceLink": "トランザクション処理がデータの整合性を保証してくれる"
+        },
+        {
+          "id": "Q2",
+          "question": "データベーストランザクションの分離レベルについて説明してください。",
+          "answer": "読み取りコミットは汚れた読み取り・書き込みを防止する基本的な分離レベル。繰り返し読み取り/スナップショット分離は読み取りスキューを防止。シリアライザブルは競合条件がないことを保証する最も強力な分離レベル。",
+          "referenceLink": "トランザクション処理がデータの整合性を保証してくれる"
+        },
+        {
+          "id": "Q3",
+          "question": "データベースインデックスとは何ですか？",
+          "answer": "インデックスはデータベースがデータを効率的に取得するのを助けるデータ構造です。ハッシュインデックス、B-Tree、ログ構造マージツリーなどがあります。",
+          "referenceLink": "DBのインデックスとは"
+        },
+        {
+          "id": "Q4",
+          "question": "データベースインデックスによって書き込み性能が低下するのは何故ですか？",
+          "answer": "データとインデックスの両方を更新する必要があり、不可分操作を保証するためにロックが必要になるためです。",
+          "referenceLink": "データベースを遅くするための８つの方法"
+        },
+        {
+          "id": "Q5",
+          "question": "プライマリキーについて説明してください",
+          "answer": "テーブル内の行を識別するためのものです。UNIQUE制約を含み、NULL値を含むことができず、1テーブルにつき1つのみ存在します。",
+          "referenceLink": ""
+        },
+        {
+          "id": "Q6",
+          "question": "データベースレプリケーションを説明してください。",
+          "answer": "データを複製する理由：読み取りクエリの処理増加、ユーザーに近いデータコピー、バックアップ。同期レプリケーションはデータ整合性が高いが遅い。非同期レプリケーションは速いがデータ整合性に問題が生じうる。",
+          "referenceLink": "データベースのレプリケーション"
+        },
+        {
+          "id": "Q7",
+          "question": "RDBMSの障害復旧においてできることは何ですか？",
+          "answer": "バックアップとリカバリー、ログファイルによるロールフォワード。より良いRPO/RTOのためにレプリケーションで別のアベイラビリティゾーンにデプロイ。",
+          "referenceLink": "ロールバックとロールフォワードの違いを学ぼう！"
+        },
+        {
+          "id": "Q8",
+          "question": "共有ロックと排他ロックの違いについて説明して下さい",
+          "answer": "排他ロックは他のトランザクションの読み書きを防止。共有ロックは書き込みロックを禁止するが読み取りロックは許可。2相ロック（2PL）で直列化可能性を保証。",
+          "referenceLink": "SQL ロックの種類(共有ロック/排他ロック)"
+        },
+        {
+          "id": "Q9",
+          "question": "楽観ロックと悲観ロックの違いについて説明してください",
+          "answer": "楽観ロックは競合が少ない前提でVersion番号等で検証。悲観ロックは競合が多い前提で明示的にロック。楽観ロックの方がオーバーヘッドが少ない。",
+          "referenceLink": "Optimistic vs. Pessimistic locking"
+        },
+        {
+          "id": "Q10",
+          "question": "マテリアライズド・ビューとは",
+          "answer": "クエリ仕様から派生した事前計算されたデータセットで、クエリは高速だがストレージ・計算リソースの追加コストが発生。",
+          "referenceLink": "マテリアライズドビューの使用"
+        },
+        {
+          "id": "Q11",
+          "question": "SQLインジェクションとは？また、それを対策する方法を教えてください。",
+          "answer": "不正なSQL文を送信する攻撃手法。対策：プリペアドステートメント、入力値の制限、特殊文字のエスケープ。",
+          "referenceLink": "SQL Injection Prevention Cheat Sheet"
+        },
+        {
+          "id": "Q12",
+          "question": "正規化について教えてください",
+          "answer": "データの重複をなくすためにデータを分割・整理すること。第一正規形（単一値）、第二正規形（完全関数従属）、第三正規形（推移的関数従属の排除）。",
+          "referenceLink": "第1正規形から第3正規形まで簡単にまとめてみた"
+        },
+        {
+          "id": "Q13",
+          "question": "N+1問題とは何ですか？",
+          "answer": "ORMでデータ取得時にN+1回のクエリが発行されるパフォーマンス問題。解決：Eager Loading、バッチ処理、DataLoader。",
+          "referenceLink": "N+1問題とは？原因と解決方法"
+        },
+        {
+          "id": "Q14",
+          "question": "シャーディングとパーティショニングの違いを説明してください",
+          "answer": "パーティショニングは1つのDB内でテーブルを分割。シャーディングはデータを複数の独立したDBサーバーに分散配置。",
+          "referenceLink": "データベースシャーディングとは | AWS"
+        },
+        {
+          "id": "Q15",
+          "question": "スロークエリの分析方法を教えてください",
+          "answer": "スロークエリログの有効化、EXPLAIN/EXPLAIN ANALYZEで実行計画確認。改善：インデックス追加、クエリ書き換え、SELECT *の排除。",
+          "referenceLink": "EXPLAIN の読み方 - PostgreSQL"
+        }
+      ]
+    },
+    {
+      "category": "Backend",
+      "subcategory": "Distributed system",
+      "questions": [
+        {
+          "id": "Q1",
+          "question": "コンシステントハッシュ法とは何ですか",
+          "answer": "複数のノードに負荷を均等に分散させるための方法。modulosハッシュと比較してリバランスのオーバーヘッドが小さくスケールに優れている。",
+          "referenceLink": "コンシステント・ハッシュ法"
+        },
+        {
+          "id": "Q2",
+          "question": "分散合意アルゴリズムを教えてください",
+          "answer": "Zab、raft、Paxosなど。障害や攻撃があっても分散システム内のすべてのノードが単一の状態に同意することを保証する。",
+          "referenceLink": "分散合意アルゴリズム Raft を理解する"
+        },
+        {
+          "id": "Q3",
+          "question": "split brainについて教えてください",
+          "answer": "複数のノードが自分がリーダーだと思い込んでいる状態。データが破損する可能性がある。",
+          "referenceLink": "雰囲気で分散システム使ってるやついる!?"
+        },
+        {
+          "id": "Q4",
+          "question": "メッセージキューの目的と使い方を教えてください",
+          "answer": "異なるコンポーネント間の非同期通信に使われ、スケーラビリティ、信頼性、耐障害性を向上させる。長時間リクエストの回避、柔軟な再試行、ワークロードの負荷分散が利点。",
+          "referenceLink": "Kafkaとは？"
+        },
+        {
+          "id": "Q5",
+          "question": "CAP定理とは何ですか？",
+          "answer": "分散システムではネットワーク障害時に一貫性と可用性のどちらかを選択する必要がある。銀行は一貫性、Google Docsは可用性を選択する例。",
+          "referenceLink": "12年後のCAP定理"
+        },
+        {
+          "id": "Q6",
+          "question": "マイクロサービス・アーキテクチャについて教えてください",
+          "answer": "疎結合なサービスで高速・頻繁・信頼性の高いリリースを可能にする。欠点：ネットワーク通信の不安定さ、テストの困難さ、トランザクション実現の難しさ。",
+          "referenceLink": "マイクロサービスのトレードオフ"
+        },
+        {
+          "id": "Q7",
+          "question": "マイクロサービス間の一貫性を確保する方法",
+          "answer": "2相コミット（Two-Phase Commit）やSagaパターンが代表的。Sagaは長時間トランザクションを小さなトランザクションに分割し、補償トランザクションで失敗時にロールバック。",
+          "referenceLink": "saga 分散トランザクション パターン"
+        },
+        {
+          "id": "Q8",
+          "question": "サーキットブレーカーパターンとは何ですか？",
+          "answer": "障害の連鎖的な伝播を防ぐデザインパターン。Closed（正常）、Open（遮断）、Half-Open（半開）の3状態を持つ。",
+          "referenceLink": "サーキット ブレーカー パターン | Microsoft Learn"
+        }
+      ]
+    },
+    {
+      "category": "Backend",
+      "subcategory": "Programming Language",
+      "questions": [
+        {
+          "id": "Q1",
+          "question": "GCとは何ですか。GCの仕組みを説明してください。",
+          "answer": "JVMのGCは世代別ガベージコレクション。「新世代領域」「旧世代領域」「永続領域」の3つに分けて管理。C++にはGCがなくnew/deleteで手動管理、スマートポインタで安全性を向上。",
+          "referenceLink": "古典的Javaガベージコレクションを理解する"
+        },
+        {
+          "id": "Q2",
+          "question": "シングルトンとは何ですか",
+          "answer": "クラスのインスタンス化を制限するデザインパターン。ロギングやDB接続など正確に1つのオブジェクトが必要な場合に有効。",
+          "referenceLink": "Singleton"
+        },
+        {
+          "id": "Q3",
+          "question": "DI（依存性注入）とは何ですか",
+          "answer": "オブジェクトのインスタンス化とその利用を分離するデザインパターン。DIコンテナはDIを実現するフレームワーク。テスト容易性・リファクタリング容易性が向上。",
+          "referenceLink": "DI(依存性注入)について"
+        },
+        {
+          "id": "Q4",
+          "question": "ORM（Object-Relational Mapping）とは何ですか",
+          "answer": "SQLを直接使用せずにDBと対話する技術。SQLインジェクション防止、ユニットテスト容易化などのメリット。",
+          "referenceLink": "Activeレコードの基本"
+        },
+        {
+          "id": "Q5",
+          "question": "並行処理と並列処理の違いについて説明する。",
+          "answer": "並行処理は一度に多くのことを「扱う」プログラミングパターン。並列処理は一度に多くのことを「行う」ハードウェアの特性。",
+          "referenceLink": "Goでの並行処理を徹底解剖！"
+        },
+        {
+          "id": "Q6",
+          "question": "SOLID原則について説明してください",
+          "answer": "SRP（単一責任）、OCP（開放閉鎖）、LSP（リスコフの置換）、ISP（インターフェース分離）、DIP（依存性逆転）の5原則。保守性・テスト容易性・拡張性の高いコードを実現。",
+          "referenceLink": "SOLID | Wikipedia"
+        }
+      ]
+    },
+    {
+      "category": "Backend",
+      "subcategory": "Virtualization",
+      "questions": [
+        {
+          "id": "Q1",
+          "question": "仮想マシン（VM）とコンテナの違いを教えてください",
+          "answer": "VMはカーネルを含むOS全体を実行。コンテナはLinuxの名前空間とcgroupsを使用し、カーネルは1つのみ。コンテナは起動が早くリソース制御がきめ細かいが、カーネル共有による安全性の問題がある。",
+          "referenceLink": "コンテナと VM"
+        },
+        {
+          "id": "Q2",
+          "question": "Linuxの名前空間について教えてください",
+          "answer": "カーネルリソースを分割してプロセスの可視範囲を制御するLinuxカーネルの機能。プロセスID、マウントポイント、ネットワーク、ユーザーID等の名前空間がある。",
+          "referenceLink": "namespaces - Linux 名前空間の概要"
+        },
+        {
+          "id": "Q3",
+          "question": "ルートレスコンテナとは何ですか",
+          "answer": "ホスト上の非rootユーザーIDをコンテナ内のrootユーザーにマッピングしたもの。攻撃者がコンテナから脱出してもroot権限を持てないためセキュリティが強化される。",
+          "referenceLink": "Rootlessコンテナ"
+        },
+        {
+          "id": "Q4",
+          "question": "noisy neighborとは何ですか？",
+          "answer": "一人のユーザーのリソース消費が同じシステムの他のユーザーの体験に悪影響を及ぼす状況。マルチテナント環境で特に関連がある。",
+          "referenceLink": "うるさい隣人のアンチパターン"
+        }
+      ]
+    },
+    {
+      "category": "Backend",
+      "subcategory": "Scalability/Performance/Reliability",
+      "questions": [
+        {
+          "id": "Q1",
+          "question": "水平スケーリングと垂直スケーリングについて教えてください",
+          "answer": "垂直スケーリング（スケールアップ）はCPU、メモリ等を1台のマシンに追加。水平スケーリング（スケールアウト）はマシンを追加してリクエストに対応。水平はロードバランサーが必要でレスポンス時間が増加する可能性がある。",
+          "referenceLink": "水平方向のスケーリングと垂直方向のスケーリングの違いとは？"
+        },
+        {
+          "id": "Q2",
+          "question": "バックエンドシステムのパフォーマンスをどのように確保するのか？",
+          "answer": "可観測性（メトリクス監視）、負荷テスト、最適化（キャッシュ、ロードバランシング、クエリ最適化）、スケーラブルなアーキテクチャの実装。",
+          "referenceLink": ""
+        },
+        {
+          "id": "Q3",
+          "question": "L4ロードバランサーとL7ロードバランサーの違い",
+          "answer": "L4はトランスポートレイヤーで動作し高速。L7はアプリケーション層でURL/Cookieベースの高度なルーティングが可能だが低速。",
+          "referenceLink": "Elastic Load Balancing の特徴"
+        },
+        {
+          "id": "Q4",
+          "question": "SLI、SLO、SLAとは何ですか？",
+          "answer": "SLI：サービス性能の計測値。SLO：SLIに設定する目標（例：99%稼働率）。SLA：サービスプロバイダーと顧客の正式な合意。",
+          "referenceLink": "SLI、SLA、SLO の比較"
+        },
+        {
+          "id": "Q5",
+          "question": "キャッシュ戦略について説明してください",
+          "answer": "Cache-Aside（最も一般的）、Write-Through（一貫性高・書き込み遅い）、Write-Behind（高速だがデータ損失リスク）、Read-Through。TTLや無効化戦略も重要。",
+          "referenceLink": "キャッシュ戦略 | AWS"
+        },
+        {
+          "id": "Q6",
+          "question": "レート制限（Rate Limiting）の実装方法",
+          "answer": "トークンバケット（最も広く使用）、リーキーバケット、固定ウィンドウカウンター、スライディングウィンドウ。Redisなどで実装。",
+          "referenceLink": "Rate Limiting パターン | Microsoft Learn"
+        }
+      ]
+    },
+    {
+      "category": "Frontend",
+      "subcategory": "HTML",
+      "questions": [
+        {
+          "id": "Q1",
+          "question": "HTMLのDOCTYPE宣言とは何ですか？",
+          "answer": "DOCTYPEはHTMLファイルの先頭に記述し、HTMLファイルのバージョンをブラウザに伝えるものです。HTML5では<!DOCTYPE html>と宣言します。",
+          "referenceLink": "<!DOCTYPE> - とほほのWWW入門"
+        },
+        {
+          "id": "Q2",
+          "question": "多言語のWebサイトを作成する上でHTMLにおいて気をつけるべき事は何ですか？",
+          "answer": "lang属性でページの言語を指定。ISO 639-1 Language CodesまたはISO 3166-1 Country Codesを使用。dir属性でright-to-leftの言語に対応。",
+          "referenceLink": ""
+        },
+        {
+          "id": "Q3",
+          "question": "HTMLセマンティック要素とは何か、なぜこれを使いたいのですか？",
+          "answer": "その意味をブラウザと開発者に明確に伝える要素。SEO、アクセシビリティ（読み上げソフト）、開発者へのコンテンツの意味伝達を可能にする。",
+          "referenceLink": "Semantic HTML (web.dev)"
+        },
+        {
+          "id": "Q4",
+          "question": "SNSに共有した時に画像とTitleとDescriptionが表示されない場合の修正方法",
+          "answer": "Open Graph ProtocolのプロパティをHTMLのメタタグに設定する（og:title等）。",
+          "referenceLink": ""
+        },
+        {
+          "id": "Q5",
+          "question": "Webのアクセシビリティに関して気をつけるべき事は何ですか？",
+          "answer": "代替テキスト（Alt）の設定、ラベルとフォームコントロールの関連付け、セマンティック要素の正しい使用、キーボード操作対応。",
+          "referenceLink": "WCAG Checklist - Wuhcag"
+        },
+        {
+          "id": "Q6",
+          "question": "<script>、<script async>、<script defer>の違い",
+          "answer": "<script>は同期的に読み込み・実行。<script async>は非同期読み込み後すぐに実行。<script defer>は非同期読み込み後、HTMLパース完了後に実行。",
+          "referenceLink": "<script> タグに async / defer を付けた場合のタイミング - Qiita"
+        },
+        {
+          "id": "Q7",
+          "question": "画像タグでsrcset属性を使用する理由は何ですか？",
+          "answer": "デバイスの解像度によって最適な画像を表示するため。Retinaディスプレイ等の高精細解像度に対応。",
+          "referenceLink": "レスポンシブ画像 - MDN"
+        }
+      ]
+    },
+    {
+      "category": "Frontend",
+      "subcategory": "CSS",
+      "questions": [
+        {
+          "id": "Q1",
+          "question": "CSSの詳細度（Specificity）とは何ですか？",
+          "answer": "複数のCSSルールが同じ要素に指定された時にどのルールを適用するかを決定するアルゴリズム。重み：IDセレクタ > CLASSセレクタ > TYPEセレクタ。",
+          "referenceLink": "詳細度 - CSS | MDN"
+        },
+        {
+          "id": "Q2",
+          "question": "CSSボックスモデルとは何ですか？",
+          "answer": "全てのHTML要素はボックス（Content, Padding, Border, Margin）に納められているという考え。",
+          "referenceLink": "ボックスモデル (web.dev)"
+        },
+        {
+          "id": "Q3",
+          "question": "CSSのbox-sizingとは何ですか？",
+          "answer": "要素の幅と高さの計算方法を指定。border-boxはContent+Padding+Borderを含む。content-boxはContentのみ。",
+          "referenceLink": "ボックスモデル (web.dev)"
+        },
+        {
+          "id": "Q4",
+          "question": "block、inline、inline-blockの違い",
+          "answer": "block：常に改行。inline：改行なし、幅高さ指定不可。inline-block：改行なし、幅高さ指定可能。",
+          "referenceLink": "Block vs Inline Level Elements"
+        },
+        {
+          "id": "Q5",
+          "question": "FlexboxとGridの違い",
+          "answer": "Flexbox：一次元（行or列）レイアウト向け。Grid：二次元（行と列）レイアウト向け。",
+          "referenceLink": "フレックスボックス - MDN, グリッド - MDN"
+        },
+        {
+          "id": "Q6",
+          "question": "Flexboxで横と縦に並べるプロパティ",
+          "answer": "flex-direction: row（横）、flex-direction: column（縦）。",
+          "referenceLink": "flex-direction - CSS | MDN"
+        },
+        {
+          "id": "Q7",
+          "question": "flex-flowとは何ですか？",
+          "answer": "Flexアイテムの並びの向きと折り返しをコントロール。例：flex-flow: row wrap;",
+          "referenceLink": "flex-flow - CSS | MDN"
+        },
+        {
+          "id": "Q8",
+          "question": "flex-growとは何ですか？",
+          "answer": "Flexコンテナの余白がある場合のFlexアイテムの伸び率を指定。",
+          "referenceLink": "flex-grow - CSS | MDN"
+        },
+        {
+          "id": "Q9",
+          "question": "flex-basisとは何ですか？",
+          "answer": "Flexアイテムの初期の主軸方向サイズを決定。widthとの違いはflex-directionに依存する点。",
+          "referenceLink": "flex-basis - CSS | MDN"
+        },
+        {
+          "id": "Q10",
+          "question": "emとremの違いは何ですか？",
+          "answer": "emは親要素のサイズに相対。remはroot要素のサイズに相対。",
+          "referenceLink": "GitHub - fed/css-interview-questions"
+        },
+        {
+          "id": "Q11",
+          "question": ":nth-childと:nth-of-typeの違い",
+          "answer": ":nth-childは親のn番目の要素。:nth-of-typeは親のn番目の指定した型の要素。",
+          "referenceLink": ":nth-child() - CSS | MDN"
+        },
+        {
+          "id": "Q12",
+          "question": "CSSの擬似要素とは何ですか？",
+          "answer": "選択された要素の特定部分をスタイル付けするキーワード。::beforeと::afterで前後に内容を追加可能。",
+          "referenceLink": "擬似要素 - CSS | MDN"
+        },
+        {
+          "id": "Q13",
+          "question": "Responsive Web Designとは何ですか？",
+          "answer": "デバイスに応じてレイアウトやデザインを自動調整するWebデザイン手法。メディアクエリやフルードグリッドを使用。",
+          "referenceLink": "HTML Responsive Web Design (w3schools.com)"
+        },
+        {
+          "id": "Q14",
+          "question": "CSSのBEMとは何ですか？",
+          "answer": "Block, Element, Modifierの略。block__element--modifierの命名規則でCSS構造をわかりやすくする設計思想。",
+          "referenceLink": "【CSS設計】ゼロからわかるBEM超入門 (zenn.dev)"
+        }
+      ]
+    },
+    {
+      "category": "Frontend",
+      "subcategory": "JavaScript",
+      "questions": [
+        {
+          "id": "Q1",
+          "question": "DOMとは何ですか？",
+          "answer": "DOM（Document Object Model）はブラウザ内のAPIで、HTML/XMLドキュメントの構造をオブジェクトのツリー構造として表現し、Webページの動的な操作を可能にする。",
+          "referenceLink": "DOM の紹介 - Web API | MDN"
+        },
+        {
+          "id": "Q2",
+          "question": "const、var、letの違いは何ですか？",
+          "answer": "constは再代入不可。varは巻き上げ（ホイスティング）が行われグローバルスコープに追加される。let/constはブロックスコープが適用される。",
+          "referenceLink": "Var、Let、Const – その違いとは？ (freecodecamp.org)"
+        },
+        {
+          "id": "Q3",
+          "question": "\"use strict\";とは何ですか？",
+          "answer": "JavaScriptのコードをstrict mode（厳格モード）で実行する宣言。変数宣言前の代入禁止等の制限がかかる。ES Modulesでは常に厳格モード。",
+          "referenceLink": "JavaScript \"use strict\" (w3schools.com)"
+        },
+        {
+          "id": "Q4",
+          "question": "プロトタイプチェーンとは何ですか？",
+          "answer": "既存のオブジェクトを基に新しいオブジェクトを構築する仕組み。各オブジェクトはプロトタイプへのリンクを持ち、nullに到達するまでチェーンが続く。",
+          "referenceLink": "継承とプロトタイプチェーン - JavaScript | MDN"
+        },
+        {
+          "id": "Q5",
+          "question": "== と === の違いは何ですか？",
+          "answer": "==は型変換を行ってから比較。===はデータ型と値の両方を比較。実務では===の使用を推奨。",
+          "referenceLink": "等価性の比較と同一性 - JavaScript | MDN"
+        },
+        {
+          "id": "Q6",
+          "question": "プリミティブ型とオブジェクト型の違いは？",
+          "answer": "プリミティブ型はイミュータブルで値渡し。オブジェクト型は参照渡しで変更が元のオブジェクトに反映。同じプロパティのオブジェクト同士の比較はfalse。",
+          "referenceLink": "【JavaScript】プリミティブ型とオブジェクト型を理解したい - Qiita"
+        },
+        {
+          "id": "Q7",
+          "question": "First-class Function（第一級関数）とは何ですか？",
+          "answer": "関数が他の変数と同様に扱われること。関数を引数として渡したり、戻り値として返したり、変数に代入できる。",
+          "referenceLink": "First-class Function (第一級関数) - MDN"
+        },
+        {
+          "id": "Q8",
+          "question": "高階関数とは何ですか？",
+          "answer": "他の関数を引数として受け付けたり、関数を戻り値として返す関数。",
+          "referenceLink": "First-class Function - MDN"
+        },
+        {
+          "id": "Q9",
+          "question": "関数のカリー化とは何ですか？",
+          "answer": "複数の引数を持つ関数を、単一の引数を持つ複数の関数に順次変換する手法。固定した別の関数を作成することは部分適用と言う。",
+          "referenceLink": "What is currying function in JavaScript? - GeeksforGeeks"
+        },
+        {
+          "id": "Q10",
+          "question": "純粋関数とは何ですか？",
+          "answer": "同じ引数が渡されると常に同じ結果を返す関数。外部状態に依存せず、入力引数にのみ依存する。",
+          "referenceLink": "そのJavaScriptの関数は本当に純粋関数？ | POSTD"
+        },
+        {
+          "id": "Q11",
+          "question": "クロージャ(Closures)とは何ですか？",
+          "answer": "自分を囲むスコープにある変数を参照できる関数。ローカルスコープ、外側の関数スコープ、グローバルスコープの3つのスコープチェーンがある。",
+          "referenceLink": "クロージャ - JavaScript | MDN"
+        },
+        {
+          "id": "Q12",
+          "question": "nullとundefinedの違いは何ですか？",
+          "answer": "undefinedは「値が代入されていないため値がない」。nullは「代入すべき値が存在しないため値がない」。nullは自然発生しない。",
+          "referenceLink": "null - JavaScript | MDN, undefined - JavaScript | MDN"
+        },
+        {
+          "id": "Q13",
+          "question": "NaNとは何ですか？",
+          "answer": "Not-a-Numberの略。実数にならない数値演算時に返される。グローバルオブジェクトプロパティ。",
+          "referenceLink": "NaN - JavaScript | MDN"
+        },
+        {
+          "id": "Q14",
+          "question": "イベントバブリングとは何ですか？",
+          "answer": "要素がイベントを受け取ると、DOMツリー内で親要素へ順にイベントハンドラが実行される。event.stopPropagationで停止可能。3フェーズ：キャプチャリング→ターゲット→バブリング。",
+          "referenceLink": "バブリング と キャプチャリング (javascript.info)"
+        },
+        {
+          "id": "Q15",
+          "question": ".call()と.apply()の違いは何ですか？",
+          "answer": "両方とも関数を呼び出し、第1引数でthisを指定。.call()はカンマ区切りの引数、.apply()は配列で引数を渡す。",
+          "referenceLink": "Function.prototype.apply() - JavaScript | MDN"
+        },
+        {
+          "id": "Q16",
+          "question": "thisキーワードはどのように動作するか",
+          "answer": "オブジェクトメソッドではそのオブジェクト、グローバルではwindow、Strictモードではundefined、イベントハンドラではHTML要素、apply/call/bindでは引数のオブジェクトを指す。",
+          "referenceLink": "JavaScript this (w3schools.com)"
+        },
+        {
+          "id": "Q17",
+          "question": "アロー関数（=>）のユースケース",
+          "answer": "構文の簡素化とfunctionキーワードの省略。通常の関数と違いレキシカルスコープのthisを参照する。",
+          "referenceLink": "アロー関数とthisのスコープ (zenn.dev)"
+        },
+        {
+          "id": "Q18",
+          "question": "JavaScriptのイベントループとは？",
+          "answer": "シングルスレッドのJavaScriptで非同期プログラミングを実現する仕組み。コールスタック、ヒープ、タスクキュー、Web APIs、マイクロタスクキューで構成。",
+          "referenceLink": "What is an event loop in JavaScript?"
+        },
+        {
+          "id": "Q19",
+          "question": "JavaScriptのSymbolとは何か？",
+          "answer": "プリミティブ型のユニークな識別子。オブジェクトのプロパティキーとして使用しプライベート化できる。",
+          "referenceLink": "A quick overview of JavaScript symbols (freecodecamp.org)"
+        },
+        {
+          "id": "Q20",
+          "question": "document loadとDOMContentLoadedイベントの違い",
+          "answer": "DOMContentLoadedはDOMツリー生成完了時に発生。loadはスタイルシートや画像等のサブリソース読み込み完了時に発生。",
+          "referenceLink": "Window: load イベント - MDN"
+        },
+        {
+          "id": "Q21",
+          "question": "Promiseの利点と欠点",
+          "answer": "利点：コールバック地獄回避、読みやすい非同期処理、Promise.allによる並列処理、容易なエラーハンドリング。欠点：古いブラウザではpolyfillが必要。",
+          "referenceLink": ""
+        },
+        {
+          "id": "Q22",
+          "question": "debounceとthrottleの違い",
+          "answer": "debounceはイベントが止まるまで関数実行を遅延。throttleは一定時間内の実行回数を制限。debounceはテキスト入力に、throttleはスクロールイベントに適用。",
+          "referenceLink": "throttleとdebounce (aloerina01.github.io)"
+        },
+        {
+          "id": "Q23",
+          "question": "Cookie、sessionStorage、localStorageの違い",
+          "answer": "Cookie：有効期限あり、HTTPリクエストと共にサーバーに送信。sessionStorage：ブラウザ閉じると削除。localStorage：永続的に残る。",
+          "referenceLink": "Cookie, localStorage, sessionStorageの違い - Qiita"
+        },
+        {
+          "id": "Q24",
+          "question": "CommonJSとES Modulesの違い",
+          "answer": "CommonJS：require()/module.exports、同期的読み込み。ES Modules：import/export、非同期的読み込み。",
+          "referenceLink": "CommonJSとES Modulesについてまとめる (zenn.dev)"
+        },
+        {
+          "id": "Q25",
+          "question": "V8エンジンはどのように動作していますか？",
+          "answer": "ソースコード→パース→AST生成→Ignitionでバイトコード生成→プロファイリング→TurboFanで最適化コンパイル（デオプティマイズも行う）。",
+          "referenceLink": "jsエンジンはソースコードをどう実行しているのか (zenn.dev)"
+        },
+        {
+          "id": "Q26",
+          "question": "async/awaitの仕組みとPromiseとの関係",
+          "answer": "Promiseベースの構文糖衣。async関数は常にPromiseを返す。awaitはPromise解決まで実行を一時停止。try/catchでエラーハンドリング可能。独立した非同期処理はPromise.allで並列実行すべき。",
+          "referenceLink": "async function - JavaScript | MDN"
+        },
+        {
+          "id": "Q27",
+          "question": "TypeScriptの型システムの基本概念",
+          "answer": "ジェネリクス：型をパラメータ化する仕組み。Union型：複数の型のいずれか。型ガード：typeof、instanceof、is等で型を絞り込む。コンパイル時にバグ検出可能。",
+          "referenceLink": "TypeScript Handbook"
+        }
+      ]
+    },
+    {
+      "category": "Frontend",
+      "subcategory": "React",
+      "questions": [
+        {
+          "id": "Q1",
+          "question": "JSXとは何ですか？",
+          "answer": "XMLのようなJavaScriptの構文拡張。React.createElement()のシンタックスシュガーでHTMLのようなテンプレート構文とJavaScriptの表現力を備えている。",
+          "referenceLink": ""
+        },
+        {
+          "id": "Q2",
+          "question": "Reactの仮想DOMとは何ですか？",
+          "answer": "インメモリに保持された仮想のUI表現が実際のDOMと同期されるプログラミング上の概念。差分検出処理（reconciliation）と呼ばれる。React 16からReact Fiberが実装。",
+          "referenceLink": "仮想 DOM と内部処理 – React"
+        },
+        {
+          "id": "Q3",
+          "question": "key propとは何ですか？",
+          "answer": "リスト項目の変更・追加・削除を識別し、無駄なレンダリングを防ぐ。indexではなくIDのような一意なキーを指定すべき。",
+          "referenceLink": "Rendering Lists – React"
+        },
+        {
+          "id": "Q4",
+          "question": "Functional Componentの利点",
+          "answer": "thisキーワード不要、記述量が少ない、カスタムフックでロジックとプレゼンテーションを分離しやすい。",
+          "referenceLink": "Differences between Functional Components and Class Components - GeeksforGeeks"
+        },
+        {
+          "id": "Q5",
+          "question": "Reactフックとは何ですか？",
+          "answer": "Functional Componentに状態管理やライフサイクル機能を提供する関数。以前はClass Componentでしか利用できなかった機能を関数コンポーネントでも使えるようにした。",
+          "referenceLink": ""
+        },
+        {
+          "id": "Q6",
+          "question": "useStateは何でどのような時に使用しますか？",
+          "answer": "状態を管理するフック。コンポーネント外に保存され、呼ばれるたびに現在の状態で再レンダリングされて新しいUIスナップショットが生成される。",
+          "referenceLink": "useState – React, State as a Snapshot – React"
+        },
+        {
+          "id": "Q7",
+          "question": "useEffectとuseLayoutEffectの違い",
+          "answer": "useEffectはレンダリング後に副作用を実行。useLayoutEffectはブラウザ描画前に同期的に処理。基本的にはuseEffectを使用すべき。",
+          "referenceLink": "useEffect – React, useLayoutEffect – React"
+        },
+        {
+          "id": "Q8",
+          "question": "useCallbackの用途",
+          "answer": "コールバック関数をメモ化するフック。useEffectの依存配列やReact.memoコンポーネントのpropとして渡す時に関数参照を固定化する。",
+          "referenceLink": "useCallback – React"
+        },
+        {
+          "id": "Q9",
+          "question": "useMemoの用途",
+          "answer": "関数の返り値をメモ化するフック。依存配列の値が変更した時にのみ計算することで高コストな再計算を防ぐ。",
+          "referenceLink": "useMemo – React"
+        },
+        {
+          "id": "Q10",
+          "question": "useRefの用途",
+          "answer": "レンダリングに不要な値を参照するフック。値の変更時に再レンダリングを引き起こさない。DOM操作にも使用。",
+          "referenceLink": "useRef – React"
+        },
+        {
+          "id": "Q11",
+          "question": "useTransitionの用途",
+          "answer": "UIをブロックせずに状態を更新するフック。レンダリングに高コストを要する場合やサスペンドを避けたい場合に使用。",
+          "referenceLink": "useTransition – React"
+        },
+        {
+          "id": "Q12",
+          "question": "useDeferredValueの用途",
+          "answer": "UIの一部の更新を遅延させるフック。propsやカスタムフックの値に応答してトランジションを開始したい場合に使用。",
+          "referenceLink": "useDeferredValue – React"
+        },
+        {
+          "id": "Q13",
+          "question": "Reactコンテクストとは何ですか？",
+          "answer": "コンポーネントツリー内でデータを共有する仕組み。プロパティを渡さずに深くにデータを渡せるが、利用コンポーネント全体が再レンダリングされる点に注意。",
+          "referenceLink": "Passing Data Deeply with Context – React"
+        },
+        {
+          "id": "Q14",
+          "question": "React Server Componentとは何ですか？",
+          "answer": "サーバーサイドでレンダリングするReactコンポーネント。バンドルサイズ減少、サーバーサイドデータフェッチの簡素化、サーバー専用リソースへのアクセスが利点。",
+          "referenceLink": "React Server Components 総まとめ (zenn.dev)"
+        },
+        {
+          "id": "Q15",
+          "question": "React.Suspenseとは何ですか？",
+          "answer": "子要素の読み込みが終わるまでフォールバックを表示するコンポーネント。データフェッチ時のローディング表示やuseDeferredValueとの組み合わせに使用。",
+          "referenceLink": "<Suspense> – React"
+        },
+        {
+          "id": "Q16",
+          "question": "Error Boundaryとは何ですか？",
+          "answer": "子コンポーネントツリーのJavaScriptエラーをキャッチしフォールバックを表示するReactコンポーネント。イベントハンドラ、非同期コード、SSR、自身のエラーは補足しない。",
+          "referenceLink": "Component – React, Error Boundary – React"
+        },
+        {
+          "id": "Q17",
+          "question": "Reactでコードを分割する手法",
+          "answer": "import()によるWebpackの自動コード分割。React.lazyとimport()の組み合わせで動的コンポーネントレンダリング。",
+          "referenceLink": "lazy – React, Dynamic imports (javascript.info)"
+        },
+        {
+          "id": "Q18",
+          "question": "Hydrationとは何ですか？",
+          "answer": "SSRで生成された静的HTMLにクライアントサイドでイベントハンドラーをアタッチしてインタラクティブにする方法。",
+          "referenceLink": "ハイドレーションとは何か？ (zenn.dev)"
+        },
+        {
+          "id": "Q19",
+          "question": "React.memoとは何ですか？",
+          "answer": "コンポーネントをメモ化するHOC。propsが変更されない限り再レンダリングをスキップ。プロファイリングで問題確認された箇所に使用すべき。",
+          "referenceLink": "memo – React"
+        },
+        {
+          "id": "Q20",
+          "question": "useReducerの使い分け",
+          "answer": "複雑な状態ロジック、次の状態が前の状態に依存する場合、複数の関連する状態値の管理に適している。単純な値の管理にはuseState。",
+          "referenceLink": "useReducer – React"
+        },
+        {
+          "id": "Q21",
+          "question": "Next.jsのSSR、SSG、ISRの違い",
+          "answer": "SSR：リクエストごとにHTML生成、常に最新。SSG：ビルド時にHTML生成、最も高速。ISR：SSGの拡張で指定時間間隔でバックグラウンド再生成。App RouterではServer Componentsがデフォルト。",
+          "referenceLink": "Rendering | Next.js"
+        }
+      ]
+    },
+    {
+      "category": "Frontend",
+      "subcategory": "Browser Networking",
+      "questions": [
+        {
+          "id": "Q1",
+          "question": "ブラウザでURLを開くと何が起こるのでしょうか？",
+          "answer": "DNS解決→TCP 3ウェイハンドシェイク→TLSハンドシェイク→HTTPリクエスト送信→サーバーがステータスコード、ヘッダー、レスポンスペイロードで応答。",
+          "referenceLink": "GitHub - tetz-akaneya/what-happens-when-JA"
+        },
+        {
+          "id": "Q2",
+          "question": "HTTP/2とHTTP/1.1の違い",
+          "answer": "HTTP/2は1つのTCP接続で複数リクエスト/レスポンスを同時送受信可能。バイナリフレーミングレイヤー使用。サーバープッシュ機能あり。",
+          "referenceLink": "HTTP/2対HTTP/1.1"
+        },
+        {
+          "id": "Q3",
+          "question": "TCPとUDPの違い",
+          "answer": "TCPは信頼性高い（順序保証、再送、重複処理）が遅い。UDPは高速だがパケットロスを許容。TCPはWeb、UDPはゲーム/通話に適用。",
+          "referenceLink": "TCP/IPとは？ | Cloudflare"
+        },
+        {
+          "id": "Q4",
+          "question": "TCPの3ウェイ・ハンドシェイク",
+          "answer": "クライアント→SYN→サーバー、サーバー→SYN+ACK→クライアント、クライアント→ACK→サーバーで接続確立。終了時はFIN/ACKで切断。",
+          "referenceLink": "Three Way Handshake"
+        },
+        {
+          "id": "Q5",
+          "question": "TLS証明書の用途",
+          "answer": "データの暗号化によりインターネット接続を保護。データの改ざん・紛失・盗難を防止し、非公開での送信を保証。",
+          "referenceLink": "What is TLS"
+        },
+        {
+          "id": "Q6",
+          "question": "DNS（名前解決）とは何ですか",
+          "answer": "Domain Name Systemの略。ドメイン名をIPアドレスに変換するプロセス。DNSリゾルバがDNSサーバーに問い合わせる。",
+          "referenceLink": "What is Domain Name Resolution?"
+        },
+        {
+          "id": "Q7",
+          "question": "GraphQLとは何ですか？",
+          "answer": "API向けクエリ言語。1つのエンドポイントで要求した特定のデータのみを受け取る。イントロスペクションによるスキーマ情報取得も可能。",
+          "referenceLink": "GraphQL | A query language for your API"
+        }
+      ]
+    },
+    {
+      "category": "Frontend",
+      "subcategory": "Web Performance Optimization",
+      "questions": [
+        {
+          "id": "Q1",
+          "question": "ブラウザがHTMLをダウンロード完了してから画面に描画されるまでのステップ",
+          "answer": "1.DOM作成 2.CSSOMを作成 3.scriptタグの処理 4.レンダーツリー作成 5.レイアウト（リフロー） 6.ペイント・描画",
+          "referenceLink": "Webブラウザのレンダリングの仕組みを理解する (zenn.dev)"
+        },
+        {
+          "id": "Q2",
+          "question": "クリティカルレンダリングパスとは何ですか？",
+          "answer": "ブラウザがHTML/CSS/JSを画面上のピクセルに変換するステップ。最適化：クリティカルリソース数の削減、パスの短縮、バイトの最小化。",
+          "referenceLink": "Critical rendering path - MDN"
+        },
+        {
+          "id": "Q3",
+          "question": "Web Vitalsとは何か？",
+          "answer": "Web品質シグナル。Core Web Vitals：LCP（読み込み速度）、INP（インタラクティブ性）、CLS（視覚的安定性）の3指標。2024年3月にFIDからINPに置き換え。",
+          "referenceLink": "Web Vitals (web.dev)"
+        },
+        {
+          "id": "Q4",
+          "question": "RAILモデルとは何ですか？",
+          "answer": "Webアプリのパフォーマンスを評価するユーザー中心モデル。Response（応答）、Animation（アニメーション）、Idle（アイドル）、Load（読み込み）の4指標。",
+          "referenceLink": "RAILモデルでパフォーマンスを評価する (web.dev)"
+        },
+        {
+          "id": "Q5",
+          "question": "requestAnimationFrameとは何ですか？",
+          "answer": "画面の描画毎にコールバックを繰り返し実行するAPI。リフレッシュレートに合わせた滑らかなアニメーションを実現。",
+          "referenceLink": "Window.requestAnimationFrame() - MDN"
+        },
+        {
+          "id": "Q6",
+          "question": "Performance Budgetとは何ですか？",
+          "answer": "Webサイトを高速に保つためのパフォーマンスの予算を設定する考え方。SpeedCurve等で管理。",
+          "referenceLink": "Performance budgets 101 (web.dev)"
+        },
+        {
+          "id": "Q7",
+          "question": "Cache-Controlヘッダーとは何ですか？",
+          "answer": "ブラウザや共有キャッシュにおけるファイルのキャッシュの扱いを指定するHTTPヘッダー。有効期限や再検証の必要性をディレクティブで設定。",
+          "referenceLink": "HTTP キャッシュ - HTTP | MDN"
+        },
+        {
+          "id": "Q8",
+          "question": "Resource Hintsとは何ですか？",
+          "answer": "link要素でブラウザにリソースを事前に伝える方法。dns-prefetch、preconnect、prefetch、prerenderの4タイプ。誤使用は逆効果。",
+          "referenceLink": "Web パフォーマンスのための HTML 最適化 | メルカリエンジニアリング"
+        },
+        {
+          "id": "Q9",
+          "question": "フロントエンドのパフォーマンス計測方法",
+          "answer": "シンセティックモニタリング（Lighthouse等でシミュレーション計測）とRUM（実ユーザーのNavigation Timing API等で計測）の両方が必要。",
+          "referenceLink": "Synthetic monitoring - MDN"
+        },
+        {
+          "id": "Q10",
+          "question": "ページ表示速度・UI操作の改善方法",
+          "answer": "パフォーマンス分析→画像最適化→アセット圧縮→JS最適化（Tree shaking、コード分割）→CSS最適化→HTTP/2→キャッシュ→CDN→Resource Hints→UI簡素化→仮想化リスト",
+          "referenceLink": "フロントエンドのパフォーマンスチューニングを俯瞰する"
+        }
+      ]
+    },
+    {
+      "category": "Frontend",
+      "subcategory": "Web Security",
+      "questions": [
+        {
+          "id": "Q1",
+          "question": "XSS（クロスサイトスクリプティング）とは？対策方法",
+          "answer": "悪意のコードをHTMLに挿入して実行する攻撃。対策：出力エンコード（.textContent使用）、HTMLサニタイズ（DOMPurify推奨）。",
+          "referenceLink": "Cross Site Scripting Prevention Cheat Sheet | OWASP"
+        },
+        {
+          "id": "Q2",
+          "question": "CORSとは何ですか？",
+          "answer": "オリジン間リソース共有。異なるオリジンからのアクセスを許可する仕組み。サーバー側でHTTPヘッダーを設定。",
+          "referenceLink": "オリジン間リソース共有 (CORS) - HTTP | MDN"
+        },
+        {
+          "id": "Q3",
+          "question": "CSRF（クロスサイトリクエストフォージェリ）とは？対策方法",
+          "answer": "被害者のブラウザを利用して意図しないリクエストを送信させる攻撃。対策：CSRFトークン、SameSite Cookie属性、Originヘッダー検証。",
+          "referenceLink": "Cross-Site Request Forgery Prevention Cheat Sheet | OWASP"
+        },
+        {
+          "id": "Q4",
+          "question": "Same-Origin Policyとは何ですか？",
+          "answer": "あるオリジンから読み込まれたドキュメントが異なるオリジンのリソースにアクセスすることを制限するブラウザのセキュリティメカニズム。",
+          "referenceLink": "同一オリジンポリシー - Web セキュリティ | MDN"
+        },
+        {
+          "id": "Q5",
+          "question": "CSP（Content Security Policy）とは何ですか？",
+          "answer": "XSSやデータインジェクション攻撃を軽減するセキュリティレイヤー。HTTPレスポンスヘッダーでリソースのソースを制限。",
+          "referenceLink": "Content Security Policy (CSP) - HTTP | MDN"
+        },
+        {
+          "id": "Q6",
+          "question": "JWT（JSON Web Token）の仕組みと注意点",
+          "answer": "Header+Payload+Signatureの3パートからなるトークン規格。注意：Payloadは暗号化されていない、失効管理が困難、localStorageにはXSSリスク。",
+          "referenceLink": "JSON Web Token Introduction - jwt.io"
+        }
+      ]
+    },
+    {
+      "category": "Frontend",
+      "subcategory": "JS Coding",
+      "questions": [
+        {
+          "id": "Q1",
+          "question": "fooとbarの値は何になりますか？\nvar foo = '' + 1 + 0;\nvar bar = '2' * '3';",
+          "answer": "foo = \"10\", bar = 6。+演算子は片方が文字列なら文字列結合。乗算はオペランドを数値に変換。",
+          "referenceLink": "演算子 (javascript.info)"
+        },
+        {
+          "id": "Q2",
+          "question": "console.log(0.1 + 0.2 == 0.3); の出力は？",
+          "answer": "false。JavaScriptはIEEE 754の浮動小数点数を2進数で表現するため、特定の10進数を正確に表現できない。",
+          "referenceLink": "Number - JavaScript | MDN"
+        },
+        {
+          "id": "Q3",
+          "question": "for (var i = 0; i < 3; i++) { setTimeout(() => console.log(i), 0); } の出力は？",
+          "answer": "3, 3, 3。setTimeoutはイベントキューに追加されループ後に実行。varはホイスティングによりループ後の値(3)が参照される。",
+          "referenceLink": ""
+        },
+        {
+          "id": "Q4",
+          "question": "console.log('one'); setTimeout(function(){console.log('two');}, 0); Promise.resolve().then(function(){console.log('three');}); console.log('four'); の出力は？",
+          "answer": "one, four, three, two。同期処理→マイクロタスク（Promise）→タスクキュー（setTimeout）の順。",
+          "referenceLink": "タスクキューとマイクロタスクキュー (zenn.dev)"
+        },
+        {
+          "id": "Q5",
+          "question": "Promise.resolve(1).then((value) => console.log(value * 2)).then(() => { throw new Error('Oh No!'); }).catch((error) => 3).finally(() => console.log(4)).then(console.log); console.log(7); の出力は？",
+          "answer": "7, 2, 4, 3",
+          "referenceLink": ""
+        }
+      ]
+    }
+  ]
+}

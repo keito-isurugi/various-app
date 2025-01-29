@@ -1,0 +1,1344 @@
+[
+  {
+    "Group": "DSA",
+    "Category": "DSA - Technical Question",
+    "Japanese_Question": "ArrayList/list/dynamic arrayとappend操作の時間計算量を説明してください",
+    "English_Question": "Explain ArrayList/list/dynamic array and the complexity of append operation",
+    "Japanese_Answer": "ほとんどの配列の実装では、アイテムを挿入するのに利用可能なスロットがない場合より大きなサイズ（通常は2倍）の新しい配列が作成されます[3]。アイテムは、古いArrayListから新しいArrayListにコピーされます[3]。配列は使用状況に応じて大きくなったり小さくなったりするため、動的であり、メモリ使用量も効率的です[3]。配列への挿入操作の時間的複雑さはO(1)です[3]。ただし、配列の容量が最大になり、拡張とコピーが必要になった場合は別です[3]。これはO(n)の処理です[3]。したがって、挿入操作の時間的複雑さを正しく表現するには、次のようになります。最大容量に達したときに：O(n), 各挿入操作のならし計算・償却（amortized）時間：O(1)[3]。",
+    "English_Answer": "In most implementation, when an ArrayList have no slots available, a new ArrayList will be created with a larger size (normally double)[3]。Items are copied from the old ArrayList to the new ArrayList[3]。The ability of an array to grow and shrink according to usage makes it dynamic, and it’s efficient for memory footprint[4]。Time complexity for an insert operation into array is a O(1), except that when the array has hit the max capacity and it needs to expand and copy[4]。This is an O(n) operation[4]。So the correct way to describe the time complexity of an insert operation will be when the max capacity has been hit: O(n), amortized time for each insert operation: O(1)[4]。",
+    "Related_Link": "JAVA ARRAYLISTとLINKEDLIST"
+  },
+  {
+    "Group": "DSA",
+    "Category": "DSA - Technical Question",
+    "Japanese_Question": "ハッシュマップのルックアップの時間計算量を説明してください。また一般的なユースケースを説明してください。",
+    "English_Question": "Explain the time complexity for a lookup in a hashmap. Explain some of their use cases",
+    "Japanese_Answer": "ハッシュマップの検索にかかる平均時間はO(1)、最悪の場合はO(n)です[4]。ハッシュ関数によって、異なるキーが同じハッシュ値を持つ場合がありますが、この場合、ハッシュマップは、別のデータ構造（例えば、リスト）を使用して、キーの衝突を解決します[4]。平均的には、ハッシュ関数が均等に分布する場合、キーの衝突は少なくなり、ルックアップの時間計算量はO(1)になります[5]。ただし、ハッシュ関数が悪い場合、キーの衝突が多くなり、ルックアップの時間計算量はO(n)になる可能性があります[5]。一般的なユースケースとしては、データの高速な検索が挙げられます[5]。例えば、データベースのインデックスや、キャッシュの実装などがあります[5]。",
+    "English_Answer": "The average time to search a hashmap is O(1), worst case O(n)[5]。Depending on the hash function, different keys may have the same hash value, in which case the hashmap will use a different data structure (e.g., a list) to resolve key collisions[5]。On average, if the hash functions are evenly distributed, there will be fewer key collisions and the time complexity of the lookup will be O(1)[5]。However, if the hash function is bad, there will be more key collisions and the lookup time complexity may be O(n)[5]。A common use case is fast data retrieval[6]。Examples include database indexing and cache implementations[6]。",
+    "Related_Link": "Javaハッシュマップは本当にO（1）ですか？"
+  },
+  {
+    "Group": "DSA",
+    "Category": "DSA - Technical Question",
+    "Japanese_Question": "二分探索木（Binary search tree）のルックアップの時間計算量を説明してください。また一般的なユースケースを説明してください。",
+    "English_Question": "Explain the time complexity for a lookup in a binary search tree. Explain some of their use cases",
+    "Japanese_Answer": "二分探索木（Binary search tree）、ルックアップ操作にO(log n)を必要とし、大規模なデータセットを効率的に検索するのに有効であります[6]。ただし、二分探索木は、データの挿入や削除が頻繁になると平衡状態が保たれない実装を行うと偏った二分探索木になるため、最悪の場合検索が線形オーダーになります[6]。この場合、ルックアップの時間計算量がO(n)に近づく可能性があります[7]。効率を上げるためには、データの挿入や削除を行う際に、木の回転という操作を行い、常に平衡状態を保つAVL木や赤黒木を利用すると、検索・追加・削除が常にO(log n)となります[7]。",
+    "English_Answer": "Binary search trees, which require O(log n) lookup operations, are effective for efficiently searching large data sets[7]。However, binary search trees can be implemented in such a way that frequent data insertions and deletions do not maintain equilibrium, resulting in a biased binary search tree, which in the worst case results in a linear order of search[7]。In this case, the time complexity of the lookup may approach O(n)[8]。To increase efficiency, it’s common to use a more advanced data structure such as an AVL tree or a red-black tree that always self-balancing by performing tree rotation when inserting or deleting data, so that lookups, additions, and deletions are always O(log n)[8]。",
+    "Related_Link": "うさぎでもわかる2分探索木　前編　2分探索木の基礎（表現・追加・削除）"
+  },
+  {
+    "Group": "DSA",
+    "Category": "DSA - Technical Question",
+    "Japanese_Question": "キューとスタック、それぞれの使い分けについて説明してください",
+    "English_Question": "Explain queue vs stack and their use case",
+    "Japanese_Answer": "キューとスタックは、いずれも要素が順番に格納される線形データ構造である[8]。キューは先入れ先出し（FIFO）方式、スタックは後入れ先出し（LIFO）方式で運用されます[8, 9]。キューは、タスクの処理や、リクエストの処理など、順序が重要な場合に使用されます[8]。スタックは、関数の呼び出しや、履歴の管理など、最近の要素が重要な場合に使用されます[9]。",
+    "English_Answer": "Both queues and stacks are linear data structures in which elements are stored in sequence[9]。Queues operate in a first-in, first-out (FIFO) fashion, while stacks operate in a last-in, first-out (LIFO) fashion[9]。Queues are used when order is important, such as when processing tasks or processing requests[9]。Stacks are used when recent elements are important, such as function calls and history management[9]。",
+    "Related_Link": "【データ構造】キューとスタックの使い方を解説！【実用例たっぷり】"
+  },
+  {
+    "Group": "DSA",
+    "Category": "DSA - Technical Question",
+    "Japanese_Question": "データベースのインデックスはどのようなデータ構造を使用するのが最適なのか",
+    "English_Question": "What data structures are best used to maintain a database index",
+    "Japanese_Answer": "データ構造の選択は使用ケースに依存します[10]。例えば、多くのユニークな値を持つ大きなテーブルのインデックスにはB-treeが最適かもしれませんが、少数の異なる値を持つ小さなテーブルのインデックスにはビットマップがより効率的かもしれません[10]。主なデータ構造として、B-tree、ハッシュテーブル、ビットマップ、トライ（Trie）が挙げられます[10-12]。B-treeは、検索、挿入、削除の操作を効率的に行うことができる自己平衡型の木構造データ構造で、特に大量のデータを保存するのに有効で、データが多数のディスクブロックに分散している場合でも高速アクセスが可能です[10, 11]。ハッシュテーブルは、キーが既知の場合、データへのアクセスがO(1)であります[10]。ビットマップは、少数の異なる値を持つカラムのインデックス付けに特に有効です[11, 12]。トライ（Trie）は、ツリー状のデータ構造で、特に文字列データの索引付けに有効です[11, 12]。",
+    "English_Answer": "Common data structures for a database index are: B-tree: self-balancing tree data structure for efficient searching, insertion, and deletion. Useful for storing large amounts of data and in databases for fast access to distributed data[10]。Hash table: constant-time access when key is known. Useful for indexing unique or almost-unique values. Less efficient than B-trees for range queries or partial matches[10]。Bitmap: useful for indexing columns with a small number of distinct values[12]。Trie: useful for indexing string data. Fast searching, insertion, and deletion operations. Can support prefix and suffix matching[12]。Choose the best data structure for the specific requirements of the index and the use case[12]。",
+    "Related_Link": "インデックスとは？仕組みをわかりやすく解説"
+  },
+  {
+      "Group": "Backend",
+      "Category": "Networking",
+      "Japanese_Question": "ブラウザでURLを開くと何が起こるのでしょうか？",
+      "English_Question": "What will happen when you open an URL in a browser?",
+      "Japanese_Answer": "DNSを通じて、クライアント（ブラウザ）はURLのホスト名を宛先サーバーのIPアドレスに解決します。そして、3ウェイハンドシェイクによりTCP接続を確立します。TCP接続の上に、TLSハンドシェイクによってTLS接続を確立し、暗号化されたデータのみがネットワーク上で送信されるようにします。クライアントはHTTPプロトコルを使用して、ヘッダーとリクエストペイロードを含むリクエストを送信先のサーバーに送信します。サーバーは、ステータスコード、ヘッダー、レスポンスペイロードで応答します。",
+      "English_Answer": "Through DNS, client (the browser) will resolve hostname of the URL to an IP address of the destination server. Then it establishes a TCP connection through a three-way handshake. On top of TCP connection, it establishes TLS connection though TLS handshake, so that only encrypted data is sent over the network. The client uses HTTP Protocol to send a request which contains headers and request payload to the destination server. The server responds with a status code, headers and response payload.",
+      "Related_Link": "GitHub - tetz-akaneya/what-happens-when-JA"
+    },
+    {
+      "Group": "Backend",
+      "Category": "Networking",
+      "Japanese_Question": "HTTP/2とHTTP/1.1の違いを教えてください",
+      "English_Question": "How is HTTP/2 different from HTTP/1.1",
+      "Japanese_Answer": "HTTP/2は複数のHTTPリクエストとレスポンスが1つのTCP接続上で同時に送受信できるようにします。HTTP/1.1 では、各リクエストと応答は1つのTCP接続で送受信されます。これにより、HTTP/2は帯域幅が限られているネットワークでは、パフォーマンスが大幅に向上する可能性があります。HTTP/2がバイナリフレーミングレイヤーを使用しているのに対し、HTTP/1.1はすべてのリクエストとレスポンスをプレーンテキスト形式で保持していることです。HTTP/2は、メッセージをバイナリ形式に変換してカプセル化することで、HTTPの効率を向上させています。HTTP/2は、サーバーがPUSHフレームを使用してクライアントにデータをプッシュすることができる点でも異なります",
+      "English_Answer": "HTTP/2 allows multiple HTTP requests and responses to be sent and received simultaneously over a single TCP connection; in HTTP/1.1, each request and response is sent and received over a single TCP connection. This allows HTTP/2 to provide potentially significant performance gains in networks with limited bandwidth. The difference is that HTTP/2 uses a binary framing layer, whereas HTTP/1.1 keeps all requests and responses in plain text format. HTTP/2 improves the efficiency of HTTP by converting and encapsulating messages into binary format. HTTP/2 also differs in that it allows servers to push data to clients using PUSH frames.",
+      "Related_Link": "HTTP/2対HTTP/1.1：Webパフォーマンスにどのように影響するのか？, What is HTTP/2 and how is it different from HTTP/1?"
+    },
+    {
+      "Group": "Backend",
+      "Category": "Networking",
+      "Japanese_Question": "TCPとUDPの違いを説明してください。",
+      "English_Question": "Explain TCP vs UDP",
+      "Japanese_Answer": "TCPは、パケットの到着順序を正しくすること、パケットを失った場合の再送、IPパケットの重複処理など、UDPにはない信頼性の高い接続を確立しています。とはいえ、UDPはTCPよりも高速で効率的なプロトコルです。TCPはウェブサービスのような信頼性の高い接続を必要とするアプリケーションでよく使われ、UDPはマルチプレイヤーゲームや音声/ビデオ通話などパケットロスを許容できるアプリケーションでよく使われます。",
+      "English_Answer": "TCP connection is established using a reliable connection by providing correct order of packet arrival, retransmission in case of lost packet, duplicated IP packet handling which UDP does not. That said, UDP is a faster and efficient protocol than TCP. TCP is commonly used by application that needs reliable connection such as web service while UDP is commonly used by application can tolerate packet loss such as multiplayer gaming, voice/video call.",
+      "Related_Link": "TCP/IPとは？ | Cloudflare、UDPとは？ | Cloudflare"
+    },
+    {
+      "Group": "Backend",
+      "Category": "Networking",
+      "Japanese_Question": "TCPの3ウェイ・ハンドシェイクとは何ですか？",
+      "English_Question": "What is TCP three-way handshake",
+      "Japanese_Answer": "接続確立時、クライアントは SYN ビットを立てたパケットをサーバーに送信してハンドシェイクの開始を示します。サーバーは SYN を受信し、送信されたパケットの確認を示す ACK を返します。クライアントはサーバーからの返信を確認し、両者はデータを転送するために TCP 接続を確立します。(ボーナス) 接続を閉じるために、送信側 (クライアント/サーバー) は FIN パケットを送信します。受信側は FIN を受信し、確認を示す ACK を返します。送信側はその後 ACK で確認します。",
+      "English_Answer": "When a connection is established, the client sends a packet with the SYN bit up to the server to indicate the start of the handshake. The server receives the SYN and returns an ACK indicating acknowledgement of the packet sent. The client acknowledges the reply from the server and both parties establish a TCP connection to transfer data. (Bonus) To close the connection, the sender (client/server) sends a FIN packet. The receiving end receives the FIN and returns an ACK indicating confirmation. The sender then confirms with an ACK",
+      "Related_Link": "Three Way Handshake"
+    },
+    {
+      "Group": "Backend",
+      "Category": "Networking",
+      "Japanese_Question": "TLS証明書は何のために使われるのですか？",
+      "English_Question": "What is TLS Certificates for ?",
+      "Japanese_Answer": "TLS証明書は、ブラウザ、Webサイト、Webサイトのサーバー間で送信されるデータを暗号化することによって、インターネット接続を保護するために使用されます。TLS証明書は、データが改ざん、紛失、盗難されないように保証し、データが非公開で送信されることを保証します。TLS証明書は、電子メールや電子データの暗号化による保護にも使用されます。TLS証明書は、自分自身の身元を証明するだけでなく、電子メールや電子データの捺印にも使用されます",
+      "English_Answer": "TLS certificates are used to protect your Internet connection by encrypting data transmitted between your browser, the Web site, and the Web site's server. TLS certificates are also used to protect email and electronic data through encryption; TLS certificates are used to seal email and electronic data as well as to prove one's identity.",
+      "Related_Link": "What is TLS、SSL/TLSサーバー証明書の基礎知識"
+    },
+    {
+      "Group": "Backend",
+      "Category": "Networking",
+      "Japanese_Question": "TLSハンドシェイクとは何ですか？",
+      "English_Question": "What is TLS handshake ?",
+      "Japanese_Answer": "TLSハンドシェイク中、クライアントとサーバーは以下を行います：使用するTLSのバージョン（TLS 1.0、1.2、1.3など）を指定する。使用する暗号スイートを決定する。SSL CA（証明書認証局）のデジタル署名とサーバーの公開鍵によって、サーバーの正体を認証する。ハンドシェイク完了後に対称暗号化に使用するセッションキーを生成する。",
+      "English_Answer": "During the TLS handshake, both the client and server will: Specify which version of TLS (TLS 1.0, 1.2, 1.3, etc.) they will use. Decide which cipher suites they will use. Authenticate the identity of the server via the server's public key and the SSL CA (certificate authority's) digital signature. Generate session keys to use symmetric encryption after the handshake is complete.",
+      "Related_Link": "SSL/TLSハンドシェイク"
+    },
+    {
+      "Group": "Backend",
+      "Category": "Networking",
+      "Japanese_Question": "自己署名証明書と認証局発行の証明書の違いを教えてください。",
+      "English_Question": "What is the difference between a self-signed certificate and a certificate issued by a certificate authority",
+      "Japanese_Answer": "自己署名証明書は、認証局（CA）などの第三者が関与することなく、個人または団体自身が作成し、認証するものである。自己署名証明書は、通常、ユーザーの秘密鍵で署名され、所有者はこれらの鍵を知っています。一方、認証局が発行する証明書は、他の当事者が使用するデジタル証明書を発行する、信頼できる第三者機関によって認証されます。認証局は、証明書を要求するエンティティの身元を確認し、そのエンティティの公開鍵といくつかの情報を含むデジタル証明書を発行します。",
+      "English_Answer": "A self-signed certificate is created and authenticated by an individual or entity themselves without the involvement of third parties such as Certificate Authorities (CAs). Self-signed certificates are usually signed with a user’s private key, and the owner knows these keys. On the other hand, a certificate issued by a Certificate Authority is authenticated by a trusted third-party entity that issues digital certificates for use by other parties. The CA verifies the identity of the entity requesting the certificate and issues a digital certificate containing the public key of the entity and some information.",
+      "Related_Link": "Difference between Self Signed SSL & Certificate Authority"
+    },
+    {
+      "Group": "Backend",
+      "Category": "Networking",
+      "Japanese_Question": "SNI(Server Name Indication)とは何ですか？",
+      "English_Question": "What is SNI (Server Name Indication) ?",
+      "Japanese_Answer": "SNIを使用すると、複数のサイトを1つのサーバーでホストし、1つのIPアドレスを共有できます。各ウェブサイトには独自のSSL証明書があります。クライアントがHTTPs経由でサーバーに接続しようとすると、サーバーはどのSSL証明書を表示するかわからなくなり、「共通名不一致エラー」というSSLエラーが発生する可能性があります。 TLS SNI拡張機能を使用すると、クライアントはTLSハンドシェイク中にウェブサイトのホスト名またはドメイン名を指定できるため、正しいウェブサイトに接続できます。",
+      "English_Answer": "SNI allows us to host multiple sites a server and share a single IP address, and each website has its own SSL certificate. When a client tries to connect to a server via HTTPs, the server may not know which SSL certificate to show and it might lead to SSL error such as \"common name mismatch error\". With TLS SNI extension, client is able to specify the hostname, or domain name, of the website during the TLS handshake so that it could connect to the correct website",
+      "Related_Link": "SNIとは"
+    },
+    {
+      "Group": "Backend",
+      "Category": "Networking",
+      "Japanese_Question": "mTLS（相互TLS)とは何ですか？",
+      "English_Question": "What is a mutual TLS (mTLS)",
+      "Japanese_Answer": "mTLSは、クライアントとサーバーの両方が本人であることを保証するものです。そのためには、認証されたCAが署名したサーバー証明書（TLS）に加えて、認証されたCAが署名したクライアント証明書が必要です。",
+      "English_Answer": "During non mutual TLS connection, only client validates the identity of the server, but the server doesn't validate the identity of the client. mTLS ensures that both client and server are who they claim to be. To do this, in addition to a server certificate that is signed by authorized CA (TLS), wa client certificate that is signed by authorized CA is also required.",
+      "Related_Link": "GopherCon 2018: Liz Rice - The Go Programmer's Guide to Secure Connections, mutual-TLS(mTLS, 2way TLS)相互認証の仕組み"
+    },
+    {
+      "Group": "Backend",
+      "Category": "Networking",
+      "Japanese_Question": "DNS（名前解決）とは何ですか",
+      "English_Question": "What is DNS resolution",
+      "Japanese_Answer": "DNSとは、Domain Name Systemの略で、ドメイン名をIPアドレスに変換するプロセスです。このプロセスにより、ユーザーはURLを通してウェブサイトにアクセスすることができます。DNS解決は、ドメインネームシステム（DNS）によって実行され、IPアドレスをパブリックまたはプライベートインターネットに接続されたホストにマッピングします。DNS解決では、検索を実行したいプログラムがDNSリゾルバにリクエストを送信し、DNSリゾルバはDNSサーバーに問い合わせて、ドメイン名に関連付けられたIPアドレスを取得します。",
+      "English_Answer": "DNS resolution is the process of translating a domain name into an IP address. This process allows users to access websites through their URLs. DNS resolution is performed by the Domain Name System (DNS), which maps IP addresses to hosts connected to either the public or private internet. During DNS resolution, the program that wishes to perform the lookup sends a request to a DNS resolver, which then queries the DNS server to obtain the IP address associated with the domain name.",
+      "Related_Link": "What is Domain Name Resolution?"
+    },
+    {
+      "Group": "Backend",
+      "Category": "Networking",
+      "Japanese_Question": "Connection reset by peerとConnection refusedの違いは何ですか？",
+      "English_Question": "What are the differences between Connection reset by peer and Connection refused?",
+      "Japanese_Answer": "\"Connection reset by peer \"は、相手側またはサーバーが、クライアントから送信されたデータをすべて読み取らずに接続を閉じた場合に発生します。このエラーは、TCP RST（リセット）を受信したときに発生し、コネクションが閉じられます。一方、\"Connection refused \"は、サーバーが指定されたポートで新しい接続を受け入れない場合に発生します。このエラーは、オペレーティングシステムがクライアントからTCP SYN（同期）パケットを受信したが、指定されたポートでリッスンしているプロセスが見つからない場合に発生します。",
+      "English_Answer": "\"Connection reset by peer\" occurs when the other end or server closes the connection without reading all the data sent by the client. This error is generated when a TCP RST (reset) is received, and the connection is closed. On the other hand, \"Connection refused\" occurs when the server is not accepting new connections on the specified port. This error is generated when the operating system receives a TCP SYN (synchronize) packet from the client but does not find any process listening on the specified port",
+      "Related_Link": "What does \"connection reset by peer\" mean?, java.net.ConnectException: Connection refused"
+    },
+    {
+      "Group": "Backend",
+      "Category": "Operating Systems",
+      "Japanese_Question": "プロセスとスレッドの違いとは？",
+      "English_Question": "Explain process vs thread (kernel perspective)",
+      "Japanese_Answer": "プロセスとは、プログラムを実行するための環境で、次で構成されています。レジスタ、メモリアドレス空間、ファイルディスクリプタ、スレッドスタック。プロセスは、1つのシステム上で同時に実行でき、それぞれのプロセスには一意の識別子（プロセスID（PID）と呼ぶ）が含まれています。スレッドは実行可能なコンテキストであり、プロセスには1つ以上のスレッドが含まれています。プロセス内の各スレッドは独自のスタックを持っていますが、ヒープは共有されています。",
+      "English_Answer": "A process is an environment for executing a program. It consists registers, memory address space, file descriptors, thread stack. Processes can be executed concurrently on a single system, and each process contains a unique identifier that we call process ID (PID). A thread is an executable context and a process contains one or more thread. Each thread in the process consists its own stack but they shares the heap.",
+      "Related_Link": "プロセスとスレッドの概要"
+    },
+    {
+      "Group": "Backend",
+      "Category": "Operating Systems",
+      "Japanese_Question": "プロセスを終了する方法を教えてください",
+      "English_Question": "How to terminate a process",
+      "Japanese_Answer": "プロセスIDが分かれば、killプログラムを使ってプロセスを終了させることができます。内部では、プロセスに対してSIGKILLまたはSIGTERMシグナルが送信されます。どちらもプロセスを終了させることができますが、データの喪失などのリスクを避けるために、綺麗にプロセスを終了させるSIGTERMが推奨されます。",
+      "English_Answer": "If we know the process ID, we can use kill program to terminate a process. Under the hood, it sends SIGKILL or SIGTERM signal to the process. While both can terminate a process, SIGTERM should be preferred as it terminates a process gracefully, to avoid the risk such as data lost.",
+      "Related_Link": "SIGTERM vs SIGKILL"
+    },
+    {
+      "Group": "Backend",
+      "Category": "Operating Systems",
+      "Japanese_Question": "CPUとGPUの違いとは？",
+      "English_Question": "Explain CPU vs GPU. What are some GPU use cases",
+      "Japanese_Answer": "CPUは幅広いタスクを処理するように設計されており、GPUは同時タスクを効率的に処理するように設計されています。GPUの使用例には、ビデオレンダリングや機械学習などの高度に並列なコンピューティングタスクが必要とされている所で使われます。",
+      "English_Answer": "CPU is designed to handle a wide-range of tasks and GPU is designed to handle concurrent task efficiently. Some GPU use cases are video rendering, machine learning which required highly-parallel computing tasks",
+      "Related_Link": "CPU と GPU の比較"
+    },
+    {
+      "Group": "Backend",
+      "Category": "Operating Systems",
+      "Japanese_Question": "システムコール（syscall）とは何ですか？例をいくつか挙げてください。",
+      "English_Question": "What is a system call (syscall)? Can you give some examples of them",
+      "Japanese_Answer": "システムコールは、カーネルシステムへの唯一のエントリーポイントであり、リソースを必要とするすべてのプログラムはシステムコールを使用する必要があります。システムコールの例には、以下が含まれます：open(): ファイルを開き、ファイルディスクリプタを返します, read(): ファイルディスクリプタからデータを読み取ります",
+      "English_Answer": "System calls are the only entry points into the kernel system, and all programs needing resources must use system calls. System calls offer the services of the operating system to the user programs via an Application Programming Interface (API). Some examples of system calls include: open(): opens a file and returns a file descriptor, read(): reads data from a file descriptor",
+      "Related_Link": "SYSCALLS、チュートリアル – システムコールの書き方"
+    },
+    {
+      "Group": "Backend",
+      "Category": "Operating Systems",
+      "Japanese_Question": "カーネルモードとユーザーモードの違いを説明してください。",
+      "English_Question": "Explain kernel vs user modes",
+      "Japanese_Answer": "カーネルモードでは、プログラムはデバイスへのフルアクセスや特権命令の実行が可能です。ユーザープログラムはユーザーモードで動作し、システムコールを介してカーネルに特権的な操作を要求することができます。カーネルモードは高速に動作しますが、バグがあるとオペレーティングシステムが停止する可能性があります",
+      "English_Answer": "In a kernel mode, a program has full access to devices and the execution of privileged instructions. User programs run in user mode, and they can request privileged operations from the kernel via system calls. Kernel mode is fast, but a bug can bring the operating system to a halt which is a bigger risk.",
+      "Related_Link": "カーネルモードとユーザモード ドライバの違い"
+    },
+    {
+      "Group": "Backend",
+      "Category": "Operating Systems",
+      "Japanese_Question": "OSの仮想メモリについて説明してください",
+      "English_Question": "Explain virtual memory in OS",
+      "Japanese_Answer": "仮想メモリとは、コンピュータシステムにおいて、物理メモリ（RAM）を補完するために使用される、ディスクストレージ上の一部分です。仮想メモリを利用することで、実際のRAM容量以上のメモリをプログラムやアプリケーションに提供できるようになります。仮想メモリは、物理メモリが不足しているときに、一時的にデータをハードディスクまたはSSDなどの補助記憶装置に退避させ、必要な時に再びRAMに読み込むことで、アプリケーションが動作するために必要なメモリを確保します。ただし、仮想メモリは物理メモリよりもアクセス速度が遅いため、仮想メモリに頼りすぎるとシステムのパフォーマンスが低下することがあります。したがって、仮想メモリはあくまで物理メモリの補完として使われるべきです。",
+      "English_Answer": "Virtual memory is a portion of disk storage in a computer system that is used to supplement physical memory (RAM). By utilizing virtual memory, programs and applications can be provided with more memory than the actual RAM capacity. Virtual memory works by temporarily offloading data to a hard disk or SSD (Solid State Drive) when there is insufficient physical memory (RAM), then reloading it back into RAM when needed, ensuring that applications have the memory they require to operate. However, virtual memory is slower to access than physical memory, so relying too heavily on virtual memory can result in reduced system performance. Therefore, virtual memory should be used primarily as a supplement to physical memory.",
+      "Related_Link": "【図解】仮想記憶(仮想メモリ)の本質や仕組み、メリット　スワップ、MMU、ページングテーブルについて"
+    },
+    {
+      "Group": "Backend",
+      "Category": "File Systems",
+      "Japanese_Question": "ランダムI/OとシーケンシャルI/Oについて説明してください。",
+      "English_Question": "Explain random vs sequential I/O",
+      "Japanese_Answer": "シーケンシャルI/Oでは、各操作は前のI/Oの終わりでI/Oオフセットが開始されます。ランダムI/Oでは、各操作は前のI/Oを認識せず、オフセットがランダムに変更されます。ファイルシステムは、ディスクアクセスがシーケンシャルI/Oで達成できるように、ファイルデータをディスク上に逐次的に配置することを最善とします。これができないと、ディスクの断片化が発生し、パフォーマンスの問題が生じます。",
+      "English_Answer": "With sequential I/O, each operation begins its I/O offset at the end of the previous I/O. With random I/O, each operation is not aware of the previous I/O, and the offset changes randomly. A file system will try its best to place file data on disk sequentially so that disk access can be achieved with sequential I/O. The failure to do this will lead to disk fragmentation, which will cause performance issue.",
+      "Related_Link": "シーケンシャルとランダム"
+    },
+    {
+      "Group": "Backend",
+      "Category": "File Systems",
+      "Japanese_Question": "inodeのデータ構造について説明してください。",
+      "English_Question": "Explain the data structure inode",
+      "Japanese_Answer": "inodeは、オペレーティングシステムの中で各ファイルをインデックス化するために使用されるデータ構造です。ユーザID、グループID、ファイルサイズ、ファイルタイプ、日時情報など、ファイルのメタデータを含みます。inodeを使用することで、OSは、ファイルの権限、およびハードドライブ上のデータの物理的な場所など、ファイルに関する情報を取得できます。inodeには、データブロックへの直接または間接的なポインタが含まれます。直接ブロックとは、inodeが実際のファイルデータを含むブロックのブロック番号を含むことを意味します。間接ブロックとは、inodeがブロック番号を含むブロックのブロック番号を含んでいることを意味します。これにより、さらにデータを読み取ることができます。",
+      "English_Answer": "Inode is a data structure used to index each file in operating system. It contains metadata of a file such as owner UID, owner Gid, size of the file, file type and date time information. With an inode, the OS can retrieve information about the file such as permission privileges and the physical location of the data on the hard drive to access the file. An Inode can contain direct or indirect points to blocks of data. Direct block means that the inode contains the block number of a block that contains the actual file data. Indirect block means that the inode contains the block number of a block that then contains further block numbers to read data from",
+      "Related_Link": "Linuxの「inode」とは？概要や確認方法をご紹介"
+    },
+    {
+      "Group": "Backend",
+      "Category": "File Systems",
+      "Japanese_Question": "シンボリックリンクとハードリンクについて説明してください",
+      "English_Question": "Explain symbolic link vs hard link",
+      "Japanese_Answer": "ファイル（file.txt）に対してハードリンクを作成すると、ファイル（file.txt）の同じinodeを指します。ファイルに対してソフトリンクを作成すると、ファイル（file.txt）を指します。ハードリンクはファイルの正確なコピーであり、シンボリックリンクは単なるポインタまたは「ショートカット」です。シンボリックリンクは、/usr/bin/java のようなプログラムに役立ちます。JavaにはSun JRE、OpenJDKなど多くのソースがあります。シンボリックリンクを使用すると、システムはデフォルトバージョンを指し示し、各バージョンを独自のディレクトリに保持できます。ハードリンクを作成すると、追加のディスクスペースを使用せずに、ファイルの別の場所に「バックアップ」を作成できます。別のユーザーが誤ってファイルを削除、移動、または名前を変更した場合、そのファイルのハードリンクバックアップにアクセスできます。",
+      "English_Answer": "Creating a hard link to a file (file.txt) will point to the same inode of the file (file.txt). Creating a soft link to a file will point to the file (file.txt). Hard links are exact copies of the file while symbolic link are mere pointers or “shortcuts”. Symbolic link is useful for program like /usr/bin/java . Java can have many sources such as Sun JRE, OpenJDK. Using a symlink lets the system point to a default version, while keeping each version in its own directory. A hard link will allow you to make a “backup” of the data elsewhere on the filesystem, without using any additional disk space. If another user accidentally deletes, moves, or renames your files in its primary location, you can access the hard link backup of that file.",
+      "Related_Link": "【Linux】シンボリックリンクとハードリンクの違いとは？作成方法とiノード(index)"
+    },
+    {
+      "Group": "Backend",
+      "Category": "File Systems",
+      "Japanese_Question": "ブロッキングI/OとノンブロッキングI/Oについて説明してください",
+      "English_Question": "Explain blocking vs non-blocking I/O",
+      "Japanese_Answer": "ファイルシステムI/Oの一部は、結果が返されるまでアプリケーションが待機する必要があります。その例として、ディスクデバイスI/Oがあります。待機中、アプリケーションスレッドはブロックされ、CPUを離れます。OSは、ブロックされたスレッドを待つ間に他のタスクを実行するために追加のスレッドを作成します。これはブロッキングI/Oと呼ばれます。非ブロッキングI/Oを実現する方法の1つは、I/Oを非同期に発行し、現在のスレッドをブロックしないことです（Node.js）。",
+      "English_Answer": "Some file system I/O will require application to wait before the result is returned. An example of that is disk device I/O. During the wait, the application thread will block and leave CPU. OS will create additional threads to execute other tasks while it waits for the blocked thread. This is called blocking I/O. One of the way to achieve non-blocking I/O is to issue I/O asynchronously, without blocking the current thread (Node.js).",
+      "Related_Link": "ブロッキングとノンブロッキングの概要"
+    },
+    {
+      "Group": "Backend",
+      "Category": "Database",
+      "Japanese_Question": "ACIDについて教えてください",
+      "English_Question": "Explain ACID",
+      "Japanese_Answer": "ACIDについて説明すると、ACIDは原子性（Atomicity）、一貫性（Consistency）、分離性（Isolation）、耐久性（Durability）を表します。原子性は、トランザクションが失敗した場合には、データベース内のすべての更新が取り消され、再試行が安全であることを保証します。一貫性は、すべてのデータが定義されたルールに従って有効であることを保証します。分離性は、すべてのトランザクションが互いに分離され、同じデータに同時にアクセスすることがないようにします。耐久性は、データベースがクラッシュまたは再起動した場合でも、書き込まれたデータが失われないことを保証します。",
+      "English_Answer": "ACID stands for Atomicity, Consistency, Isolation, Durability. Atomicity ensures that if a transaction failed, nothing in the database would be updated and it is safe to retry. Consistency ensures that all data will be valid according to defined rules. Isolation ensures that every transaction is isolated from each other so that no multiple transaction access the same data simultaneously. Durability ensures that any data written will not be lost, even if a database crashes or restarts.",
+      "Related_Link": "トランザクション処理がデータの整合性を保証してくれる"
+    },
+    {
+      "Group": "Backend",
+      "Category": "Database",
+      "Japanese_Question": "データベーストランザクションの分離レベルについて説明してください。",
+      "English_Question": "Explain database transaction isolation levels",
+      "Japanese_Answer": "分離レベルは、2つのトランザクションが同じデータにアクセスしている場合に、データ競合を防止するために使用されます。理想的な世界では、すべてのトランザクションを直列実行することが最良の方法ですが、性能のコストがかかります。そのため、多くのデータベースでは、パフォーマンスが向上するように、より弱い分離レベルを採用している場合があります。読み取りコミットは、汚れた読み取りと汚れた書き込みがないことを保証する、最も基本的な分離レベルです。繰り返し読み取り/スナップショット分離は、読み取りスキューを防止する、より強力な分離レベルです。各トランザクションは、一貫したスナップショットから読み取り、スナップショット内のデータはトランザクション内で一定に保たれます。繰り返し読み取りを実装するための技術の1つは、MVCC（マルチバージョン並行制御）を使用することです。シリアライザブルは、競合条件がないことを保証する、最も強力な分離レベルであり、通常は2段階ロック（MySQL InnoDB、SQL Server）、実際のシリアル実行（Redis）、およびシリアライザブルスナップショット分離（PostgreSQL）で実装されます。",
+      "English_Answer": "Isolation is used to prevent data race when two transactions are accessing the same data. In an ideal world, the best way to prevent data race is to run every transaction serially but with a performance cost. So a lot of databases chose to have a weaker isolation level to prevent some concurrency issues with a better performance. Read committed is the most basic level of isolation that guarantees no dirty reads and no dirty writes. Repeatable read / Snapshot isolation is a stronger level of isolation that prevents read skew. Each transaction reads from a consistent snapshot and the data in the snapshot will stay constant within the transaction. One of the technique to implement repeatable read is to use MVCC (multi-version concurrency control) Serializable is the strongest isolation level that guarantee prevents race conditions. The implementation of this is usually Two-Phase Locking (MySQL InnoDB, SQL Server), Actual Serial Execution (Redis) and Serializable Snapshot Isolation (PostgreSQL).",
+      "Related_Link": "トランザクション処理がデータの整合性を保証してくれる, トランザクションの分離性（isolation）の概要 - Qiita"
+    },
+    {
+      "Group": "Backend",
+      "Category": "Database",
+      "Japanese_Question": "データベースインデックスとは何ですか？",
+      "English_Question": "What is database index?",
+      "Japanese_Answer": "インデックスは、データベースがデータを効率的に取得するのを助けるデータ構造です。現在、データベースでよく使用されるデータ構造には、ハッシュインデックス、B-Tree（PostgreSQL、MySQL）およびログ構造マージツリー（SQLite、HBase）があります。",
+      "English_Answer": "An index is a data structure that helps a database retrieve data efficiently. Some common data structure that database use today are hash indexes, B-Tree (PostgreSQL, MySQL) and log-structured merge-tree (SQLite, HBase)",
+      "Related_Link": "DBのインデックスとは"
+    },
+    {
+      "Group": "Backend",
+      "Category": "Database",
+      "Japanese_Question": "データベースインデックスによって書き込み性能が低下するのは何故ですか？",
+      "English_Question": "Why does database index decrease write performance?",
+      "Japanese_Answer": "テーブルに新しいデータが追加されたり更新されたりすると、データベースはデータそのものと、関連するインデックスを更新しなければなりません。この操作自体が複数回の書き込みであるだけでなく、データベースはデータとインデックスが不可分操作（atomic operation）されることを保証する必要があります。不可分操作が実行されると、データベースは影響を受けるデータやインデックスに対してロックを取得し、トランザクションがコミットまたはロールバックされるまで、他のトランザクションがそれらにアクセスしたり変更したりできないようにすることがあります。データベースのロックは、以下を引き起こす可能性があります。同じロックがかかっているときに、他のトランザクションの待ち時間が発生して遅くなる, ロックの取得と解放のためのCPUとI/Oリソースの増加",
+      "English_Answer": "When a new data is added or updated to a table, the database must update the data itself as well as any associated indexes. Not only that the operation itself is a multiple writes, the database also have to ensure that the data and indexes are updated atomically. When an atomic operation is executed, the database may acquire locks on the affected data or indexes to prevent other transactions from accessing or modifying them until the transaction is committed or rolled back. Locking of database might cause other transaction to slow down when content with the same lock due to waiting time, increased CPU and I/O resources for acquiring and releasing locks",
+      "Related_Link": "データベースを遅くするための８つの方法"
+    },
+    {
+      "Group": "Backend",
+      "Category": "Database",
+      "Japanese_Question": "リレーショナルデータベース（MySQLなど）におけるプライマリキーについて説明してください",
+      "English_Question": "Explain primary key in relational database such as MySQL",
+      "Japanese_Answer": "リレーショナルデータベース（MySQLなど）におけるプライマリキーとは、テーブル内の行を識別するためのものです。データを効率的に取得するために、関連するインデックスがあります。プライマリキーのいくつかの特徴は以下の通りです。UNIQUE制約を含まなければなりません。NULL値を含むことができません。1つのテーブルにつき1つのプライマリキーしか存在しません。",
+      "English_Answer": "A primary key identifies a row in a table. It has an associated index to retrieve data efficiently. Some characteristics of a primary key are must contain UNIQUE constraints, non NULL value, one primary key per table",
+      "Related_Link": ""
+    },
+    {
+      "Group": "Backend",
+      "Category": "Database",
+      "Japanese_Question": "データベースレプリケーションを説明してください。",
+      "English_Question": "Explain database replication.",
+      "Japanese_Answer": "データを複製（レプリケーション）する理由はいくつかあります。より多くの読み取りクエリを処理するため、ユーザーに近いデータのコピーを持つため、バックアップ。書き込み先ログWALを使用してレプリカを構築できます（MySQLではbinary logを使う）。リーダーデータベースで書き込み操作が発生すると、ログをディスクに書き込み、ネットワークを介してフォロワーデータベースにログを送信します。ログがネットワークを介して送信されるため、遅延が発生する場合があり、これをレプリケーション遅延と呼びます。また、レプリケーションには同期レプリケーションと非同期レプリケーションがあります。同期レプリケーションは複製先からの応答を待ってから、複製元の処理を完了するレプリケーションです。複製先と複製元のデータが常に同期しているためデータ整合性が高く、データ損失が少ない。しかし、複製先からの応答を待つため、処理速度が遅くなるというデメリットがあります。一方で、非同期レプリケーションは複製先からの応答を待たずに、複製元の処理を完了するレプリケーションです。複製先と複製元のデータが同期していないため、データ整合性に問題が生じることがあるが処理速度が速くなるというのがメリットです。",
+      "English_Answer": "There are a few reasons to replicate data to serve more read queries, to have a copy of data closer to user, back up. Write-ahead log (WAL) could be used to build a replica(binary log is used in MySQL). When a write operation happened on leader database, it writes the log to disk and send the log to its followers database across the network. Because the log are sent over the network, a delay might happen and this called replication lag. There are also two types of replication: synchronous replication and asynchronous replication. Synchronous replication is replication that waits for a response from the replication target before completing the process. Data consistency is high and data loss is low because the data of the destination and source are always synchronized. However, it has a disadvantage of slow processing speed because it has to wait for a response from the replication destination. On the other hand, asynchronous replication is a replication that completes processing of the replication source without waiting for a response from the replication target. The target and destination of replication might not be always synchronized, which may cause data integrity problems, but the processing speed is faster.",
+      "Related_Link": "データベースのレプリケーション"
+    },
+    {
+      "Group": "Backend",
+      "Category": "Database",
+      "Japanese_Question": "RDBMSの障害復旧においてできることは何ですか？",
+      "English_Question": "What can be done for disaster recovery in an RDBMS?",
+      "Japanese_Answer": "一般的に、バックアップとリカバリーを使用することです。これは、定期的なバックアップ、オフサイトストレージ、復旧手順のテストが必要になります。データベースのバックアップは重いので頻繁に行われているわけでもなく復旧時にバックアップとともにログファイル（REDOログ、トランサクションログなど）でロールフォワードを使ったりします。しかし、この戦略では、回復ポイント目標（RPO）と回復時間目標（RTO）を0で達成することはできません。より良いRPOとRTOを達成するために、レプリケーションで別のノードを異なるアベイラビリティゾーンにデプロイすると達成できます。",
+      "English_Answer": "One common strategy is to use backup and recovery. This will need regular backups, offsite storage, and testing of your recovery procedures. Database backups are not frequent because they are time and cost consuming, so it’s common to use log files (redo logs, transaction logs, etc.) to do recovery along with the backup. However, this strategy does not promise 0 recovery point objective (RPO) and 0 recovery time objectives (RTO). To achieve better RPO and RTO we can enable replication in another node across different availability zones.",
+      "Related_Link": "Azure Cosmos DB を使用して高可用性を実現する、ロールバックとロールフォワードの違いを学ぼう！"
+    },
+    {
+      "Group": "Backend",
+      "Category": "Database",
+      "Japanese_Question": "共有ロックと排他ロックの違いについて説明して下さい",
+      "English_Question": "Explain differences between Shared Lock and Exclusive Lock",
+      "Japanese_Answer": "排他ロック（書き込みロックともいう）は、データベースの書き込みトランザクション内で使用され、他のトランザクションがデータから読み取ったり、データに書き込んだりするのを防止する。共有ロック（読み取りロックとも呼ばれる）は、他のプロセスがデータの指定された部分に対して書き込みロックを要求することを禁止します。ただし、他のプロセスは読み取りロックを要求することができます。この2種類のロックは、直列化可能性を保証するために2相ロック（2PL）を使用します。",
+      "English_Answer": "Exclusive lock (also called write lock) is used within a database write transaction to prevent other transactions from reading from and writing to the data. A shared (also called read lock) prohibits any other process from requesting a write lock on the specified part of the data. However, other processes can request read locks. These 2 types of lock typically uses two-phase locking (2PL) to guarantees serializability.",
+      "Related_Link": "SQL ロックの種類(共有ロック/排他ロック)"
+    },
+    {
+      "Group": "Backend",
+      "Category": "Database",
+      "Japanese_Question": "楽観ロックと悲観ロックの違いについて説明してください",
+      "English_Question": "Explain differences between an optimistic lock and pessimistic lock",
+      "Japanese_Answer": "楽観ロックとは、他のトランザクションとの競合が起こりにくいという前提のもとで、データを更新する前にデータが取得した時と同じ状態であるかを確認し、更新することでデータの整合性を保証する方式です。楽観ロックでは、データ自体にはロックを掛けず、更新対象のデータがデータ取得時と同じ状態であることを判断するために、Version番号やタイムスタンプ等を使用することが一般的です。一方、悲観ロックは、他のトランザクションとの競合が起こりやすいという前提のもとで、データを更新する前に明示的にロックを掛けることで他のトランザクションからアクセスできないようにします。悲観ロックでは、データ更新後はロックの解放を必ず行う必要があります。楽観ロックは競合が少ない場合に有効であり、悲観ロックは競合が多い場合に有効です。また、楽観ロックはデータ自体にはロックを掛けず、悲観ロックは明示的にロックを掛けるため、楽観ロックの方がオーバーヘッドが少なくなります。",
+      "English_Answer": "Optimistic locking is a strategy where you read a record, take note of a version number (other methods to do this involve dates, timestamps or checksums/hashes) and check that the version hasn't changed before you write the record back. When you write the record back you filter the update on the version to make sure it's atomic. (i.e. hasn't been updated between when you check the version and write the record to the disk) and update the version in one hit. If the record is dirty (i.e. different version to yours) you abort the transaction and the user can re-start it. This strategy assumes that conflicts between transactions are rare, and it allows multiple transactions to read and write the same data simultaneously without locking it, resulting in higher throughput. Pessimistic Locking is when you lock the record for your exclusive use until you have finished with it. It has much better integrity than optimistic locking but requires you to be careful with your application design to avoid deadlocks. Also it blocks other users from accessing the locked data until the lock is released, resulting in a lower throughput.",
+      "Related_Link": "Optimistic vs. Pessimistic locking"
+    },
+    {
+      "Group": "Backend",
+      "Category": "Database",
+      "Japanese_Question": "マテリアライズド・ビューとは",
+      "English_Question": "What is a materialized views",
+      "Japanese_Answer": "マテリアライズド・ビューは、クエリ仕様（ビュー定義のSELECT）から派生した事前計算されたデータセットで、後で使用するために保存されます。データは事前に計算されているため、マテリアライズド・ビューのクエリは、ビューのベース・テーブルに対するクエリを実行するよりも高速になります。しかし、中間結果を実体化することで、ストレージや計算リソースなどの追加リソースが発生するのがデメリットです。",
+      "English_Answer": "A materialized view is a pre-computed data set derived from a query specification (the SELECT in the view definition) and stored for later use. Because the data is pre-computed, querying a materialized view is faster than executing a query against the base table of the view. However, materializing intermediate results incurs additional resources such as storage and compute resources",
+      "Related_Link": "マテリアライズドビューの使用"
+    },
+    {
+      "Group": "Backend",
+      "Category": "Database",
+      "Japanese_Question": "SQLインジェクションとは？また、それを対策する方法を教えてください。",
+      "English_Question": "What is SQL injection ? How to prevent SQL Injection ?",
+      "Japanese_Answer": "SQLインジェクションとは、Webアプリケーションが使用するデータベースに不正なSQL文を送信（注入）する攻撃手法です。攻撃が成功すると、任意なSQL文が実行される可能性発生します。SQLインジェクションを防ぐためにはプリペアドステートメント（パラメタライズドクエリ付き）を使うこと、入力値を制限させる：入力値をそのままSQL文に埋め込むではなくそれを特定な値に変換する。例えばソートの構文を order by count {$USER_INPUT} ではなくorder by count {$USER_INPUT ? “ASC”: “DESC”} のように変換しておく、入力データに含まれる特殊文字（', \", \\\\など）をエスケープすることなどが挙げられます",
+      "English_Answer": "SQL injection is an attack technique that sends (injects) malformed SQL statements into the database used by a web application. Successful attacks can result in the execution of arbitrary SQL statements. Use prepared statements (with parameterized queries), Limit the input values: do not just embed the input values in the SQL statement, but convert them to specific values. For example, instead of using order by count {$USER_INPUT} for the sort syntax, use order by count {$USER_INPUT ? \"ASC\": \"DESC\"} instead of *order by count {$USER_INPUT ? Escaping special characters (', \", \\{}}, etc.) in the input data, and so on.",
+      "Related_Link": "プリペアドステートメント（PHPのbindParam、SQLite)、SQL Injection Prevention Cheat Sheet"
+    },
+    {
+      "Group": "Backend",
+      "Category": "Database",
+      "Japanese_Question": "正規化について教えてください",
+      "English_Question": "Explain database normalization.",
+      "Japanese_Answer": "正規化とは、データベース設計の工程において同一テーブル内のデータの重複をなくすために、適宜データを分割・整理することです。正規化のメリットはデータの信頼性が高まる、データの更新が効率化される、データの冗長性が減り、データベースの容量が節約される、です。正規化には第一正規形、第二正規形、第三正規形などがあります。以下にそれぞれの定義を簡単に説明します：第一正規形: 同じ種類のデータが1つのカラムに格納されている表を分割し、各カラムには単一の値しか格納しないようにする。(リレーショナルデータベースでは既に第1正規形を満たす形式になっています)第二正規形: 第一正規形を満たし、かつ主キー（Primary Key）以外のカラムが主キーに完全に依存していない表を分割し、関連するカラムをグループ化する。第三正規形: 第二正規形を満たし、かつ非主キーのカラム間で推移的関数従属が存在しないようにする。",
+      "English_Answer": "Normalization is the process of dividing and organizing data as appropriate in the database design process to eliminate duplication of data in the same table. The benefits of normalization are Increased data reliability, Data updates are more efficient, Reduces data redundancy and saves database space. Normalization includes first, second, and third normalization forms. The definitions of each are briefly explained below: First Normalization: splits a table in which the same type of data is stored in a single column, so that each column stores only a single value. (Relational databases already have a form that satisfies the first normal form.) Second Normal Form: Split a table that satisfies the first normal form and whose columns other than the primary key are not completely dependent on the primary key, and group related columns. Third Normal Form: Satisfies the Second Normal Form and ensures that there are no transitive functional dependencies among non-primary key columns.",
+      "Related_Link": "第1正規形から第3正規形まで簡単にまとめてみた"
+    },
+    {
+      "Group": "Backend",
+      "Category": "Distributed system",
+      "Japanese_Question": "コンシステントハッシュ法とは何ですか",
+      "English_Question": "How does consistent hashing work?",
+      "Japanese_Answer": "コンシステントハッシュとは、ロードバランサー、KVデータベース（redis, Cassandra）のような複数のノードに負荷を均等に分散させるための方法である。負荷（例えばHTTPリクエスト）に基づいてハッシュを生成し、それを常にノードに割り当てています。新しいノードが追加されたり、ノードが削除されたりすると、システムはハッシュを再計算して、あるノードから別のノードに負荷を移動させる必要があり、これをリバランスと呼びます。複数のノードに負荷を均等に分散させるための方法ならmodulosハッシュもあるがリバランスのオーバーヘッドが大きいので（全てのノードのハッシュ値を再計算しないといけないから）コンシステントハッシュの方がスケールに優れています。",
+      "English_Answer": "Consistent hashing is a way to distribute evenly across multiple nodes system such as a load balancer, KV database（redis, Cassandra）. It generate a hash based on the work load (for example, an HTTP request) and assign it to a node constantly. When a new node is added or a node is removed, the system has to recalculate the hash and move the load from one node to another, and this is called rebalancing. There is also modulos hashing if you want to distribute the load evenly across multiple nodes, but because of the rebalancing overhead (because you have to recalculate hash values for all nodes), consistent hashing is a more scalable way.",
+      "Related_Link": "コンシステント・ハッシュ法"
+    },
+    {
+      "Group": "Backend",
+      "Category": "Distributed system",
+      "Japanese_Question": "分散システムにおける分散合意アルゴリズムを教えてください？また、それらの用途についても教えてください",
+      "English_Question": "What consensus algorithm in distributed system do you know? What are they used for?",
+      "Japanese_Answer": "コンセンサスアルゴリズムには、Zab、raft、Paxosなどいくつかのものがある。これらのコンセンサス・アルゴリズムは、障害や攻撃があっても、分散システム内のすべてのノードが単一の状態に同意することを保証するために使用されます。例えば、RaftはCockroachDBで、データを安全に保存し、一貫性を確保するために使用されています。",
+      "English_Answer": "There are a few consensus algorithms such as Zab, raft and Paxos etc. Consensus algorithm ensures that within a certain period, the system will only have one leader. This is particularly useful when we need to allocate a workload to a single node (for example database write).",
+      "Related_Link": "分散合意アルゴリズム Raft を理解する"
+    },
+    {
+      "Group": "Backend",
+      "Category": "Distributed system",
+      "Japanese_Question": "分散システムにおけるsplit brainについて教えてください。",
+      "English_Question": "What is a split brain in a distributed system",
+      "Japanese_Answer": "分散システムにおいて、複数のノードが自分がリーダーだと思い込んでいる状態をスプリットブレインといいます。データベースのようなシステムで複数のリーダーを持つと、データが破損する可能性があります。",
+      "English_Answer": "In a distributed system, split brain is a situation when more than one node believe that they are the leader. Having multiple leaders in system like a database could result in corrupted data.",
+      "Related_Link": "雰囲気で分散システム使ってるやついる!?"
+    },
+    {
+      "Group": "Backend",
+      "Category": "Distributed system",
+      "Japanese_Question": "メッセージキューの目的とバックエンドシステムでの使い方を教えてください",
+      "English_Question": "What is the purpose of a message queue and how would you use it in a backend system?",
+      "Japanese_Answer": "メッセージキューは、異なるコンポーネント間の非同期通信に使われます。これによりコンポーネントを互いに切り離すことができ、スケーラビリティ、信頼性、耐障害性を向上させることができる。メッセージキューは、イベント駆動型アーキテクチャでよく使われ、システム内のコンポーネントがイベントの送信や受信を行うことができます。このパターンの利点は、長時間のクライアントリクエストを回避できること（ノンブロッキング）、より柔軟な方法で再試行できること、ワークロードの負荷分散ができることなどがあります。",
+      "English_Answer": "A message queue is used for asynchronous communication between different components. It allows components to be decoupled from each other, thus improving scalability, reliability and resilience. Message queue is commonly used in event-driven architecture, where components within the system can publish and subscribe to events. Some advantages of this pattern is can avoid long running client request (non-blocking), ability to retry in a more flexible way and ability to load balance workload.",
+      "Related_Link": "Kafkaとは？"
+    },
+    {
+      "Group": "Backend",
+      "Category": "Distributed system",
+      "Japanese_Question": "CAP定理とは何ですか？",
+      "English_Question": "What is CAP Theorem?",
+      "Japanese_Answer": "分散システムでは、ネットワークが正常に動作しない場合、システム設計者は一貫性と可用性のどちらかを選択する必要があります。例えば、銀行のシステムは可用性よりも一貫性を選ぶかもしれません。そのため、ネットワークが正常に動作しない場合、ユーザー向けのシステムを停止することがあります（可用性なし）。一方、ブラウザ上で動作するGoogle Docsのようなソフトウェアでは、一貫性よりも可用性を選択し、ネットワークが正常に動作していない場合でも、オフラインの間はクライアント永続ストレージを使用し、ネットワークが復旧したときにデータベースと同期することがあります。",
+      "English_Answer": "In a distributed system, at times when the network is not working correctly, the system designer has to choose between either consistency or availability. For example, bank system might choose consistency over availability so when the network is not working correctly it might shut down the user facing system (no availability). On the other hand, a Google Docs like software on browser might choose availability over consistency so when the network is not working correctly, it might still use client persistent storage during offline, and sync with the database when the network is fixed.",
+      "Related_Link": "12年後のCAP定理: \"法則\"はどのように変わったか"
+    },
+    {
+      "Group": "Backend",
+      "Category": "Distributed system",
+      "Japanese_Question": "マイクロサービス・アーキテクチャについてやそのトレードオフを教えてください",
+      "English_Question": "Explain microservice architecture and it’s tradeoffs",
+      "Japanese_Answer": "マイクロサービス・アーキテクチャは、アプリケーションの高速、頻繁かつ信頼性の高いリリースを可能にします。各マイクロサービスは疎結合であり、ネットワーク接続を介して互いに通信します。各マイクロサービスは、通常、小さなチームによって所有され、各自のパースでサービスをデプロイし、テストすることができる。欠点は、以下のような複雑さです。ネットワーク上の通信はより不安定になる、テストしにくい、サービス間のトランザクションを実現するのは難しい",
+      "English_Answer": "Microservice architecture enables fast, frequent and reliable delivery of applications. Each microservice is loosely coupled, and talk to each other over network connection. Each microservice is usually owned by a small team, which allow them to deploy and test the microservice independently. The drawbacks are complexity such as communication over network is less reliable, harder to test, transaction between services is hard to achieve",
+      "Related_Link": "マイクロサービスのトレードオフ"
+    },
+    {
+      "Group": "Backend",
+      "Category": "Distributed system",
+      "Japanese_Question": "マイクロサービス間の一貫性を確保する方法を教えてください",
+      "English_Question": "How to ensure consistency between microservice ?",
+      "Japanese_Answer": "2相コミット（Two-Phase Commit）やSagaパターンが代表的なアプローチです。2相コミット：2相コミットは、複数のノードにまたがるトランザクションを調整する分散アルゴリズムで、すべてのノードが一貫してトランザクションをコミットまたはアボートすることを保証します。Saga パターン：長時間実行されるトランザクションは一連の小さなトランザクションに分割され、それぞれのトランザクションは単一のマイクロサービスによって実行される。各トランザクションには、失敗した場合にトランザクションの影響を取り消すことができる補償トランザクションが関連付けられています。",
+      "English_Answer": "2 popular approaches are the Two-Phase Commit (2PC) protocol and the Saga pattern. Two-Phase Commit (2PC) Protocol: The Two-Phase Commit (2PC) protocol is a distributed algorithm that coordinates transactions across multiple nodes, ensuring that all nodes commit or abort the transaction consistently. Saga Pattern: In the Saga pattern, a long-running transaction is broken down into a series of smaller transactions, each of which is executed by a single microservice. Each transaction is associated with a compensating transaction that can undo the effects of the transaction in case of failure. The 2PC protocol is suitable for short transactions where all participants can be reached easily, while the Saga pattern is suitable for long-running transactions that involve multiple microservices",
+      "Related_Link": "saga 分散トランザクション パターン"
+    },
+    {
+      "Group": "Backend",
+      "Category": "Programming Language",
+      "Japanese_Question": "GCとは何ですか。また一番馴染みのあるプログラミングにおけるGCの仕組みを説明してください。",
+      "English_Question": "What is a garbage collector? Explain garbage collection in your most familiar programming language",
+      "Japanese_Answer": "(JVM）JVM の GC は、世代別ガベージコレクションです。メモリ領域を「新世代領域」「旧世代領域」「永続領域」の 3 つに分けて管理します。新世代領域には新しく作成されたオブジェクトが配置され、旧世代領域には古いオブジェクトが配置されます。永続領域にはクラスや静的フィールドなどの永続的なデータが配置されます。ガベージコレクタは、新世代領域を頻繁に掃除し、旧世代領域は定期的に掃除します。JVM の GC は、プログラマーの負担を軽減し、メモリリークを防ぐことができます。ただし、GC には、パフォーマンスの低下やガベージコレクションのタイミングによってはプログラムが停止するなどの問題もあります。JVM の GC には、いくつかの種類があります。最も一般的な GC は「マーク・コピー GC」です。マーク・コピー GC では、ガベージコレクタがまず使用されているオブジェクトをマークし、その後、マークされていないオブジェクトを解放します。(C++) C++ にはガベージ・コレクターがないためメモリ管理はプログラマによって手動で行う必要があります。メモリを管理する方法はいくつかありますが一般的な方法のひとつは、new と delete キーワードを使用することです。new キーワードはヒープ上にメモリーを割り当て、delete キーワードはメモリーを解放します。ガベージ・コレクターがないためオブジェクトが必要なくなったらメモリーを解放しないとメモリーリークが発生する可能性があります。また、動的確保したリソースを扱う場合、ポインタを扱う上での危険性（delete忘れたり、同じリソースを複数回deleteしたり）や負担を下げるために、 C++ ではスマートポインタという仕組みが存在します。",
+      "English_Answer": "(Java) The JVM's GC is a generational garbage collection. It divides the memory space into three areas: the young generation, the old generation, and the permanent generation. The young generation is where newly created objects are allocated, the old generation is where older objects are allocated, and the permanent generation is where permanent data such as classes and static fields are allocated. The garbage collector cleans the young generation frequently and the old generation periodically. The JVM's GC can help to reduce the burden on programmers and prevent memory leaks. However, GC can also have some negative effects, such as reducing performance and causing programs to stop, depending on when the garbage collection occurs. There are several different types of GC in the JVM. The most common GC is the mark-copy GC. In mark-copy GC, the garbage collector first marks the objects that are in use and then frees the objects that are not marked. (C++) C++ does not have a garbage collector, so memory management must be done manually by the programmer. There are several ways to manage memory, but one of the most common is to use the new and delete keywords: the new keyword allocates memory on the heap, and the delete keyword deallocates memory. Since there is no garbage collector, memory leaks can occur if memory is not released when an object is no longer needed. In addition, when dealing with dynamically allocated resources, there is a mechanism called smart pointers in C++ to reduce the risk and burden of handling pointers (forgetting to delete, deleting the same resource multiple times, etc.).",
+      "Related_Link": "古典的Javaガベージコレクションを理解する"
+    },
+    {
+      "Group": "Backend",
+      "Category": "Programming Language",
+      "Japanese_Question": "シングルトンとは何ですか",
+      "English_Question": "What is a singleton",
+      "Japanese_Answer": "シングルトンは、クラスのインスタンス化を制限するデザインパターンです。ロギングやデータベースへのアクセスなど、処理中に正確に1つのオブジェクトが必要な場合に有効です。",
+      "English_Answer": "Singleton is a design pattern that restricts the instantiation of a class. It’s useful when exactly one object is needed during the process, such as logging and accessing database.",
+      "Related_Link": "Singleton"
+    },
+    {
+      "Group": "Backend",
+      "Category": "Programming Language",
+      "Japanese_Question": "DI（依存性注入）とは何ですか。またDIコンテナについても説明してください",
+      "English_Question": "Explain dependency injection",
+      "Japanese_Answer": "DI（依存性注入）は、オブジェクトのインスタンス化とその利用を分離することを目的としたデザインパターンである。懸念を分離することで、ユニットテストやリファクタリングを容易にすることができる。DIコンテナは、DIを実現するためのフレームワークです。Springなどのフレームワークでは、属性（アノテーション）を付与することで自動でDIコンテナから実体インスタンスを与えられる構成としています。しかし、インターフェース数が増えることや、学習コストの問題もあるため、デメリットもあります。",
+      "English_Answer": "Dependency injection is a design pattern that aims to separate object instantiation and using them. The separation of concerns could lead to easier unit testing and refactoring. A DI container is a framework for implementing DI; frameworks such as Spring are configured to automatically give an entity instance from a DI container by assigning attributes (annotations). However, there are some disadvantages, such as an increase in the number of interfaces and learning costs.",
+      "Related_Link": "DI(依存性注入)について"
+    },
+    {
+      "Group": "Backend",
+      "Category": "Programming Language",
+      "Japanese_Question": "Object-Relational Mapping (ORM)とは何ですか。またORMを使うメリットを教えてください",
+      "English_Question": "What is the purpose of an Object-Relational Mapping (ORM) and what are their benefit ?",
+      "Japanese_Answer": "ORMは、開発者がSQLを直接使用せずにデータベースと対話するアプリケーションコードを書くことを可能にする技術である。ORMは抽象化されたレベルを提供し、必要なコードの量を減らすことができます。ORMを使用する利点は以下の通りです。ORMは、入力データを自動的にエスケープすることにより、SQLインジェクションを引き起こすコードを回避することができるため、セキュリティが向上します。ORMは、静的データを返すダミーデータベースを含む様々なタイプのデータベースを扱うことができるので、ユニットテストが容易になり、ユニットテスト中に非常に便利です。",
+      "English_Answer": "ORM is a technique to allow developers to write application code that interact with database without using SQL directly. It provides a level of abstraction that reduce the amount of code needed. Some benefits of using ORM are improved security since ORMs help to avoid code that can introduce SQL injection by automatically escaping input data, easier unit test since ORM can work with different types of databases including dummy database that return static data and it’s very useful during unit test",
+      "Related_Link": "Activeレコードの基本、サルでもわかる Core Data 入門【概念編】"
+    },
+    {
+      "Group": "Backend",
+      "Category": "Programming Language",
+      "Japanese_Question": "並行処理と並列処理の違いについて説明する。",
+      "English_Question": "Explain difference between concurrency and parallelism",
+      "Japanese_Answer": "並行処理はプログラミングのパターンであり一度に多くのことを「扱う」ことです。一方で並列処理はハードウェアの特性であり一度に多くのことを「行う」ことです。",
+      "English_Answer": "Concurrency is a programming pattern that deal with a lots of things at once while parallelism is a hardware feature, achievable through concurrency that enable doing lots of things at once.",
+      "Related_Link": "Goでの並行処理を徹底解剖！、 What is the difference between concurrency and parallelism?"
+    },
+    {
+      "Group": "Backend",
+      "Category": "Virtualization",
+      "Japanese_Question": "仮想マシン（VM）とコンテナの違いを教えてください",
+      "English_Question": "Explain virtual machine vs container virtualization",
+      "Japanese_Answer": "仮想マシンは、カーネルを含むオペレーティングシステム全体を実行します。仮想マシンは、ハイパーバイザーや仮想マシン・マネージャーによって管理される。コンテナは、Linuxの名前空間とcgroupsを使用して作成されます。仮想マシンとの主な違いは、カーネルが1つしか実行されないことです。仮想マシンと比較して、コンテナはより起動が早い、リソース共有のきめ細かな制御（cgroups)という利点がありますが、以下のようなデメリットもあります。ロックやキャッシュなどのカーネルリソースの競合が増える（マルチテナンシー）、カーネルパニックはすべてのゲストに影響する、すべてのコンテナがカーネルを共有するため、安全性が低い",
+      "English_Answer": "Virtual machine runs an entire operating system including kernel. A VM is managed by hypervisors or virtual machine manager. Container is created using Linux namespaces and cgroups. The key difference from virtual machine is that only one kernel is running. Compared to virtual machine, container is more faster to boot, fine-grained control of resource sharing (cgroups). But also come with disadvantages like Increased contention for kernel resources such as locks, caches (multitenancy), kernel panic affects all guest, less secure because all containers share a kernel",
+      "Related_Link": "コンテナと VM"
+    },
+    {
+      "Group": "Backend",
+      "Category": "Virtualization",
+      "Japanese_Question": "Linuxの名前空間について教えてください。また名前空間を例を挙げてみてください",
+      "English_Question": "What is a Linux namespace. Can you give some example of them ?",
+      "Japanese_Answer": "Linuxの名前空間は、カーネルリソースを分割して、プロセスが見ることができるものを制御するLinuxカーネルの機能である。Linuxでは、以下のような名前空間がサポートされています：プロセスID、マウントポイント、ネットワーク、ユーザーID、グループID、Unix Timesharing System (UTS)、コントロールグループ（cgroups）。ユーザーID、グループIDは名前空間（namespace）ごとに独自のユーザーとグループIDの独自の視点を持つことができます。これにより、コンテナはホスト上の非ルートユーザーをコンテナ内のルートユーザーにマッピングすることができ、セキュリティが強化される。",
+      "English_Answer": "A linux namespace is a feature of the Linux kernel that partitions kernel resources to control what a process can see. Linux supports namespaces such as: Process IDs, Mount points, Network, User and group IDs, Unix Timesharing System (UTS), Control groups (cgroups). A namespace such as user namespace allows processes to have their own perspective of user and group IDs. This allow the container to map non-root user on host to a root user within a container which is a security enhancement.",
+      "Related_Link": "namespaces - Linux 名前空間の概要"
+    },
+    {
+      "Group": "Backend",
+      "Category": "Virtualization",
+      "Japanese_Question": "ルートレスコンテナとは何ですか",
+      "English_Question": "What is a rootless container ?",
+      "Japanese_Answer": "ルートレスコンテナは、ホスト上の非rootユーザーIDをコンテナ内のrootユーザーにマッピングしたものです。コンテナから見ると、プロセスはrootとして実行されているように見えるが、ホストから見ると非rootユーザーであることがわかる。ルートレスコンテナは、セキュリティを強化するために設計されています。攻撃者がコンテナからの脱出に成功した場合、ルートレスコンテナは、攻撃者がroot権限を持つことを防ぐことができます。ルートレスコンテナの短所は、複雑さです。例えば、ルートレスコンテナは、ユーザーの再マッピングがなければ、必ずしも期待通りのファイルパーミッションを持つとは限りません。",
+      "English_Answer": "A rootless container mapped a non-root user ID on the host to root user inside the container. From the container’s perspective, the process appears to be running as root but from host’s perspective it’s a non-root user. Rootless container is designed to enchance security. If an attacker successfully escape a container, rootless container can prevent the attacker from having a root privileges. The cons of rootless container is complexity. For example, rootless container doesn’t necessarily have the same file permission as it’s expected to be without user remapping.",
+      "Related_Link": "Rootlessコンテナ"
+    },
+    {
+      "Group": "Backend",
+      "Category": "Virtualization",
+      "Japanese_Question": "マルチテナントで発生するnoisy neighborとは何ですか？",
+      "English_Question": "What is noisy neighbours caused by multi-tenancy ?",
+      "Japanese_Answer": "「noisy neighbor」という用語は、一人のユーザーのリソース消費が同じシステムの他のユーザーの体験に悪影響を及ぼす状況を指します。この概念は、テナントが共有リソースを消費し、ワークロードが予測不可能であるパブリッククラウドのようなマルチテナント環境において特に関連があります。",
+      "English_Answer": "The term \"noisy neighbour\" refers to a situation where one user's resource consumption can negatively impact the experience of other users of the same system. This concept is especially relevant in multi-tenant environments like public cloud where tenants are consuming shared resources, and workloads can be unpredictable.",
+      "Related_Link": "うるさい隣人のアンチパターン"
+    },
+    {
+      "Group": "Backend",
+      "Category": "Scalability/Performance/Reliability",
+      "Japanese_Question": "水平スケーリングと垂直スケーリングについて教えてください",
+      "English_Question": "What is the difference between horizontal and vertical scaling?",
+      "Japanese_Answer": "水平スケーリングと垂直スケーリングの目的は、システムがより多くのトラフィック、負荷またはユーザーを処理できるようにすることである。両者の主な違いは、スケーリングする方向である：垂直スケーリングは、スケールアップとも呼ばれ、CPU、メモリ、ストレージ、ネットワーク帯域幅などのリソースを1台のマシンに追加して、より多くのリクエストを処理する能力を高めることです。しかし、より強力なマシンは常に高価であり、スケールアップできる上限があります。水平スケーリングは、スケールアウトとも呼ばれ、より多くのマシンやノードをシステムに追加して、増加するリクエストに対応します。この方法では、システムに追加された新しいマシンはそれぞれ他のマシンと並行して動作するように設計されており、ロードバランサーがトラフィックを均等に分散させるのが一般的です。バーティカル・スケーリングよりも拡張できる反面、ロードバランサーを追加することは、ネットワーク上のホップを増やすことを意味し、レスポンスの時間が余計にかかることになる。",
+      "English_Answer": "The purpose of horizontal scaling and vertical scaling is to enable the system to handle more traffic, load or users. The main difference between the two is the direction in which they scale: Vertical Scaling, also known as scaling up involves adding more resources such as CPU, memory, storage or network bandwidth to a single machine to increase its capacity to handle more requests. However, a more powerful machine is always more expensive, and there is a ceiling at which it can scale to. Horizontal Scaling, also known as scaling out involves adding more machines or nodes to the system to handle increased requests. In this approach, each new machine added to the system is designed to work in parallel with the others, and it’s common to have a load balancer distributing the traffic evenly among them. While it can scale more than vertical scaling, adding a load balancer means an extra hop in the network, which will add extra time of the response.",
+      "Related_Link": "水平方向のスケーリングと垂直方向のスケーリングの違いとは？分かりやすく解説!"
+    },
+    {
+      "Group": "Backend",
+      "Category": "Scalability/Performance/Reliability",
+      "Japanese_Question": "バックエンドシステムのパフォーマンスをどのように確保するのか？",
+      "English_Question": "How do you ensure the performance of a backend system?",
+      "Japanese_Answer": "バックエンドシステムの性能を確保するための一般的なアプローチをいくつか紹介します：可観測性： CPU使用率、メモリ使用率、ネットワーク遅延、データベースクエリなどのシステムメトリクスを観測可能なツールを使用して把握し、最適化が可能な箇所を特定する。負荷テスト： 本番環境でのトラフィックをシミュレートする負荷テストを実施し、高負荷時のシステム性能の問題を把握します。これにより、本番環境に導入する前にボトルネックを特定することができます。最適化を行う： システムのアーキテクチャ、コード、データベースクエリを最適化し、パフォーマンスを向上させる。これには、キャッシュ、ロードバランシング、コードプロファイリング、クエリの最適化などの技術が含まれます。スケーラビリティ（拡張性）： スケーラブルなアーキテクチャを実装することで、システムが負荷の増加に対応できるようにします。負荷が増加した場合に、システムがスケールアウト（水平方向）できるようにすることが方法の一つです。",
+      "English_Answer": "A few general approaches to ensure the performance of a backend system: Observability: Use observability tools to understand system metrics such as CPU usage, memory usage, network latency, and database queries to determine where optimizations can be made. Load testing: Conduct load testing to simulate production traffic to understand system's performance issues under heavy load. This helps to identify the bottleneck before deploying to production. Optimization: Optimize the system's architecture, code, and database queries to improve performance. This can include techniques such as caching, load balancing, code profiling, and query optimization. Scalability: Ensure the system can handle increased load by implementing a scalable architecture. One of the method is to make sure system can scale out (horizontally) when load increases",
+      "Related_Link": ""
+    },
+    {
+      "Group": "Backend",
+      "Category": "Scalability/Performance/Reliability",
+      "Japanese_Question": "L4ロードバランサーとL7ロードバランサーの違いについて説明する。",
+      "English_Question": "Explain the difference between L4 (Network) and L7 (Application) load balancer.",
+      "Japanese_Answer": "L4のロードバランシングはトランスポートレイヤーで動作し、コンテンツを読み込むことなくネットワークパケットをただ転送します。L7のロードバランシングはアプリケーション層で動作し、メッセージの実際のコンテンツを読み込むことで、より多くの方法でネットワークトラフィックを転送することができます。L7ロードバランサーは、URLやクッキーなどのメッセージの内容に基づいて負荷分散を決定することができます。L7ロードバランサーは、ネットワークトラフィックを終了させ、メッセージを読み、選択されたアップストリームサーバーに新しいTCPコネクションを作成します。L4ロードバランサーは、ネットワークトラフィックに基づく単純なルーティングの決定を高速かつ効率的に行うことができ、L7ロードバランサーはより高度で、各メッセージの内容に基づく負荷分散の決定を行うことができますが、追加の処理が必要なため低速です。したがって、両者の選択は、アプリケーションの特定のニーズと、速度と機能の間のトレードオフに依存します。",
+      "English_Answer": "L4 load balancing operates at the transport layer and forwards network packets without inspecting the content. L7 load balancing operates at the application layer and can route network traffic in a more sophisticated way by inspecting the actual content of each message. L7 load balancers can make load-balancing decisions based on the content of the message, such as the URL or cookie. They terminate the network traffic, read the message, and make a new TCP connection to the selected upstream server. L4 load balancers are faster and more efficient for simple routing decisions based on network traffic, while L7 load balancers are more sophisticated and can make load-balancing decisions based on the content of each message, but are slower due to the additional processing required. Therefore, the choice between the two depends on the specific needs of the application and the tradeoff between speed and functionality.",
+      "Related_Link": "Elastic Load Balancing の特徴"
+    },
+    {
+      "Group": "Backend",
+      "Category": "Scalability/Performance/Reliability",
+      "Japanese_Question": "サービスレベル指標（SLI）、サービスレベル目標（SLO）、サービスレベル合意（SLA）とは何ですか？",
+      "English_Question": "What is Service Level Indicator (SLI) vs Service Level Objective (SLO) vs Service Level Agreement(SLA) ?",
+      "Japanese_Answer": "SLI：通常、成功のリクエスト率やシステムの稼働率（uptime）など。サービスの性能を計測する値である。SLO：SLIに設定する目標です。あるサービスに対して達成したいパフォーマンスのレベルです。例えば、特定のシステムに対して99％のuptimeというSLOを設定することは、そのシステムが99％の時間利用可能であることを望むということです。SLA：サービスプロバイダーとその顧客との間の正式な合意で、提供されるサービスのレベルを概説する。これには、稼働時間や応答時間などの具体的な指標や、サービスプロバイダーが合意されたサービスレベルを満たせなかった場合に課される可能性のある罰則や補償が含まれます。",
+      "English_Answer": "SLI: Usually expressed as percentage, such as success request rate, percentage of uptime for a system. It’s a measurement measures the performance of a service. SLO: A target that you set for your SLI. It's the level of performance you want to achieve for a service. For example, setting an SLO of 99% uptime for a particular system means that you want the system to be available 99% of the time. SLA: Formal agreement between a service provider and its customers that outlines the level of service that will be provided. This includes specific metrics, such as uptime and response time, as well as penalties or compensation that may be imposed if the service provider fails to meet the agreed-upon levels of service.",
+      "Related_Link": "SLI、SLA、SLO の比較"
+    },
+    {
+      "Group": "Frontend",
+      "Category": "HTML",
+      "Japanese_Question": "HTMLのDOCTYPE宣言とは何ですか？",
+      "English_Question": "What is DOCTYPE declaration in HTML?",
+      "Japanese_Answer": "DOCTYPEはDocument Typeの略で、HTMLファイルの先頭に記述します。DOCTYPEはタグではなく、HTMLファイルのバージョンをブラウザに伝えるものです。現在ではHTML5のみ使用されていますが、以下のようにシンプルに宣言します。\\n<!DOCTYPE html>\\nHTML5のDoctype宣言",
+      "English_Answer": "DOCTYPE stands for Document Type and is written at the beginning of the HTML file. DOCTYPE is not a tag and tells the browser the version of the HTML file. Currently in HTML5, it is simply declared as follows\\n<!DOCTYPE html>\\nHTML5",
+      "Related_Link": "<!DOCTYPE> - ドキュメントタイプ - とほほのWWW入門 (tohoho-web.com) <https://www.tohoho-web.com/html/doctype.htm>, HTML Standard (whatwg.org) <https://html.spec.whatwg.org/multipage/syntax.html#the-doctype>"
+    },
+    {
+      "Group": "Frontend",
+      "Category": "HTML",
+      "Japanese_Question": "多言語のWebサイトを作成する上でHTMLにおいて気をつけるべき事は何ですか？",
+      "English_Question": "What should we be careful about in HTML when designing a multilingual website?",
+      "Japanese_Answer": "- lang属性を使用し、ブラウザにページの言語を教える [1]\\n- lang属性にはISO 639-1 Language Codes <https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes>もしくは*I* <https://en.wikipedia.org/wiki/ISO_3166-1>SO 3166-1 Country Codes <https://en.wikipedia.org/wiki/ISO_3166-1>も付け加えたものを指定する [1]\\n- dir属性を使用しright-to-leftの言語（アラビア語等）に対応する [1]\\n例\\n<html lang=\\ja\\\">\\n...\\n</html>\\nLanguage Codeの例\\n<html lang=\\\"ja-JP\\\">\\n...\\n</html>\\nLanguage Code + Country Codeの例\\n<html lang=\\\"ar\\\" dir=\\\"rtl\\\">\\n...\\n</html>\\nアラビア語のサイトの対応\"",
+      "English_Answer": "\\- Use the lang attribute to tell the browser the language of the page [2]\\n- Specify the lang attribute with ISO 639-1 Language Codes <https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes> or *I* <https://en.wikipedia.org/wiki/ISO_3166-1>SO 3166-1 Country Codes <https://en.wikipedia.org/wiki/ISO_3166-1>. [2]\\n- Use the dir attribute to support right-to-left languages (e.g. Arabic). [2]\\nExample\\n<html lang=\\ja\\\">\\n...\\n</html>\\nLanguage Codeの例\\n<html lang=\\\"ja-JP\\\">\\n...\\n</html>\\nLanguage Code + Country Codeの例\\n<html lang=\\\"ar\\\" dir=\\\"rtl\\\">\\n...\\n</html>\\nアラビア語のサイトの対応\"",
+      "Related_Link": ""
+    },
+    {
+      "Group": "Frontend",
+      "Category": "HTML",
+      "Japanese_Question": "HTMLセマンティック要素とは何か、なぜこれを使いたいのですか？",
+      "English_Question": "What are HTML semantic elements, and why would we like to use them?",
+      "Japanese_Answer": "HTMLのセマンティック要素は、その意味をブラウザと開発者の双方に明確に伝える重要な役割を果たしています。 例えば、<article> や <aside> 等はHTML5で新しく登場したセマンティック要素です。 <article> は独立した、自己完結型のコンテンツに対して利用します。対して <div> や <span> は非セマンティック要素と呼ばれ、そのコンテンツには何も意味をなしません [3]。\\nセマンティックなHTMLを書くことでSEO、アクセシビリティ（読み上げソフト）、開発者等にコンテンツの意味を伝える事を可能にします [4]",
+      "English_Answer": "The semantic elements in HTML play an important role in clearly conveying their meaning to both the browser and developers. For example, <article> and <aside> are new semantic elements introduced in HTML5. <article> is used for independent, self-contained content, while <div> and <span> are called non-semantic elements and have no meaning for their content [4].\\nWriting semantic HTML makes it possible to convey the meaning of content to SEO, accessibility (screen reader software), developers, and others [4]",
+      "Related_Link": "Semantic HTML (web.dev) <https://web.dev/learn/html/semantic-html/>, Semantics (セマンティクス) - MDN Web Docs 用語集: ウェブ関連用語の定義 | MDN (mozilla.org) <https://developer.mozilla.org/ja/docs/Glossary/Semantics>"
+    },
+    {
+      "Group": "Frontend",
+      "Category": "HTML",
+      "Japanese_Question": "WebページのリンクをTwiiterのようなSNSに共有した時に画像とTitleとDescriptionが表示されなかった。どのように修正しますか？",
+      "English_Question": "When you shared a web page link to SNS like Twitter, the image, title, and description did not appear. How will you fix this?",
+      "Japanese_Answer": "TwitterのようなSNSではOpen Graph Protocolをプロパティを読んでページの情報を表示します。もしSNSに表示されていないのならHTMLのメタタグに og:title 等の情報が書かれているかを確認しなければいけません。\\nOGPサンプル\\n<head>\\n<meta property=\\og:title\\\" content=\\\"GoToInterview.io\\\" />\\n<meta property=\\\"og:image\\\" content=\\\"https://www.gotointerview.io/images/logo.png\\\" />\\n<meta property=\\\"og:url\\\" content=\\\"https://www.gotointerview.io\\\" />\\n<meta property=\\\"og:site_name\\\" content=\\\"GoToInterview.io\\\" />\\n</head>\"",
+      "English_Answer": "In SNS like Twitter, the Open Graph Protocol reads properties to display information about the page. If it's not displayed on the SNS, you need to check whether information such as og:title is written in the HTML meta tag.\\nOGP Sample\\n<head>\\n<meta property=\\og:title\\\" content=\\\"GoToInterview.io\\\" />\\n<meta property=\\\"og:image\\\" content=\\\"https://www.gotointerview.io/images/logo.png\\\" />\\n<meta property=\\\"og:url\\\" content=\\\"https://www.gotointerview.io\\\" />\\n<meta property=\\\"og:site_name\\\" content=\\\"GoToInterview.io\\\" />\\n</head>\"",
+      "Related_Link": ""
+    },
+    {
+      "Group": "Frontend",
+      "Category": "HTML",
+      "Japanese_Question": "Webのアクセシビリティに関して気をつけるべき事は何ですか？",
+      "English_Question": "What should we be aware of regarding web accessibility?",
+      "Japanese_Answer": "Webのアクセシビリティに関して気をつけるべき事はいくつかあります。その一部は、\\n- 画像などの代替えテキスト（Alt）を設定する\\n- ラベルを用いてフォームコントロールと関連付け\\n- HTMLセマンティック要素を正しく使う\\n- 全ての機能がキーボードで操作出来るようにする",
+      "English_Answer": "There are several things to be aware of regarding web accessibility. Some of them are:\\n- Set alternative text (Alt) for images, etc.\\n- Use labels to associate with form controls.\\n- Use HTML semantic elements correctly\\n- Ensure that all functions are keyboard-controlled",
+      "Related_Link": "WCAG Checklist - Free and simple guides to WCAG 2.2 | Wuhcag <https://www.wuhcag.com/wcag-checklist/>"
+    },
+    {
+      "Group": "Frontend",
+      "Category": "HTML",
+      "Japanese_Question": "<script>、<script async> 、 <script defer>の違いについて説明して下さい",
+      "English_Question": "Explain the difference between <script>, <script async> and <script defer>.",
+      "Japanese_Answer": "\\- <script>は、HTMLのパースを一時停止して、スクリプトの読み込みと実行を同期的に行います。\\n- <script async>は、スクリプトの読み込みを非同期的に行い、読み込みが完了したらHTMLのパースを一時停止して、スクリプトの実行を行います。\\n- <script defer>は、スクリプトの読み込みを非同期的に行い、HTMLのパースが完了した後に、スクリプトの実行を行います。",
+      "English_Answer": "\\- <script> temporarily pauses HTML parsing and synchronously loads and executes the script.\\n- <script async> asynchronously loads the script and temporarily pauses HTML parsing. When the loading is complete, then execute the script.\\n- <script defer> asynchronously loads the script and executes it after HTML parsing is complete.",
+      "Related_Link": "<script> タグに async / defer を付けた場合のタイミング - Qiita <https://qiita.com/phanect/items/82c85ea4b8f9c373d684>"
+    },
+    {
+      "Group": "Frontend",
+      "Category": "HTML",
+      "Japanese_Question": "画像タグでsrcset属性を使用する理由は何ですか？",
+      "English_Question": "Why use the srcset attribute in image tags?",
+      "Japanese_Answer": "srcset属性を設定すると、デバイスの解像度によって最適な画像を表示してくれます。例えばRetinaディスプレイの高精細な解像度で最適な画像を表示する事ができます。",
+      "English_Answer": "When you set the srcset attribute, it will display the optimal image according to the device's resolution. For example, it can display the optimal image with high-definition resolution on a Retina display.",
+      "Related_Link": "レスポンシブ画像 - ウェブ開発を学ぶ | MDN (mozilla.org) <https://developer.mozilla.org/ja/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images>"
+    },
+    {
+      "Group": "Frontend",
+      "Category": "CSS",
+      "Japanese_Question": "CSSの詳細度（Specificity）とは何ですか？",
+      "English_Question": "What is CSS Specificity?",
+      "Japanese_Answer": "CSSの詳細度（Specificity）は、複数のCSSのルールが同じ要素に指定されている時に、最も詳細度 = スコアを計算し競合するCSS宣言の中からどのルールをHTML要素に適用するかを決定するアルゴリズムの事です。例えば重みのスコアはIDセレクタ > CLASSセレクタ > TYPEセレクタの順になっています。",
+      "English_Answer": "The specificity of CSS refers to the algorithm that calculates a score for competing CSS declarations that target the same element when multiple CSS rules are specified. This algorithm determines which rule should be applied to an HTML element. For example, the weight score of the specificity is in the order of ID selector > CLASS selector > TYPE selector.",
+      "Related_Link": "詳細度 - CSS: カスケーディングスタイルシート | MDN <https://developer.mozilla.org/ja/docs/Web/CSS/Specificity>"
+    },
+    {
+      "Group": "Frontend",
+      "Category": "CSS",
+      "Japanese_Question": "CSSボックスモデルとは何ですか？",
+      "English_Question": "What is CSS Box Model?",
+      "Japanese_Answer": "CSSのボックスモデルとは、全てのHTML要素はボックスと呼ばれる四角形領域に納められているという考えです。次のような要素から構成されています。\\n- *Content: *要素の内容\\n- *Padding:* 要素の内側の余白\\n- *Border: *要素の枠線\\n- *Margin: *要素の外側の余白",
+      "English_Answer": "The CSS box model is the concept that all HTML elements are contained within rectangular areas called boxes. It is composed of the following elements:\\n- *Content:* The element's content.\\n- *Padding:* The inner padding of the element.\\n- *Border:* The border of the element.\\n- *Margin:* The outer margin of the element.",
+      "Related_Link": "ボックスモデル (web.dev) <https://web.dev/learn/css/box-model/>"
+    },
+    {
+      "Group": "Frontend",
+      "Category": "CSS",
+      "Japanese_Question": "CSSのbox-sizingとは何ですか？",
+      "English_Question": "What is box-sizing in CSS?",
+      "Japanese_Answer": "CSSのbox-sizingはHTML要素の全体の幅と高さをどのように計算するするCSSプロパティです。\\n- border-box: HTML要素の幅と高さの計算にContent、Padding、Borderを各領域として含みます。\\n- content-box: デフォルト値でHTML要素の幅と高さの計算にContentのみを領域として含みます。",
+      "English_Answer": "The CSS property box-sizing determines how the overall width and height of an HTML element are calculated in CSS.\\n- border-box includes the content, padding, and border as part of the calculation of the width and height of the HTML element.\\n- content-box is the default value and includes only the content area as part of the calculation of the width and height of the HTML element.",
+      "Related_Link": "ボックスモデル (web.dev) <https://web.dev/learn/css/box-model/>"
+    },
+    {
+      "Group": "Frontend",
+      "Category": "CSS",
+      "Japanese_Question": "CSSのblockとinlineとinline-blockの違いを説明してください。",
+      "English_Question": "Explain the difference between block, inline, and inline-block in CSS.",
+      "Japanese_Answer": "\\- block: 常に改行され、ブラウザは自動的にウェブページ上の左右にスペースを追加します。\\n- inline: 改行されず必要な分だけ幅を取ります。他の特性として幅と高さを指定する事はできず、パディング、マージンは左右に適用できますが、上下には適用できません。\\n- inline-block: 両方の特性を組み合わせたもので、改行はされませんが、パディング、マージンは上下左右に適用できます。",
+      "English_Answer": "\\- block: always starts on a new line, and the browser automatically adds space to the left and right on the web page.\\n- inline: do not start on a new line and only take up the necessary width. Other characteristics include not being able to specify width and height, and padding and margin can be applied to the left and right, but not to the top and bottom.\\n- inline-block: combine the characteristics of both, without starting on a new line, and padding and margin can be applied to the top, bottom, left, and right.",
+      "Related_Link": "Practice Top JavaScript and TypeScript Front End Interview Questions with Solutions | GreatFrontEnd (hubspot.com) <https://blog.hubspot.com/website/block-level-elements-vs-inline-level-elements>"
+    },
+    {
+      "Group": "Frontend",
+      "Category": "CSS",
+      "Japanese_Question": "CSSのFlexboxとGridの違いを説明して下さい",
+      "English_Question": "Explain the difference between Flexbox and Grid in CSS.",
+      "Japanese_Answer": "FlexboxとGridは、ウェブデザインにおいて要素の配置と整列を制御するためのCSSのレイアウトモジュールですが、それぞれ特定のシナリオに向いています。\\n- *Flexbox*は、一次元（行または列）のレイアウトを対象として設計されています。Flexboxは、特にナビゲーション、ヘッダー、フッター、サイドバー、カードレイアウトなどのコンポーネントレベルのレイアウトに適しています。\\n- *Grid*は、二次元（行と列）のレイアウトを対象として設計されています。Gridは、ページ全体のレイアウト設計に向いており、特定の行と列に要素を配置することが可能です。",
+      "English_Answer": "Flexbox and Grid are layout modules in CSS that control the placement and alignment of elements in web design, each suited to specific scenarios.\\n- *Flexbox* is designed for one-dimensional layouts, that is, either rows or columns. Flexbox is particularly suitable for component-level layouts such as navigation, headers, footers, sidebars, and card layouts.\\n- *Grid* is designed for two-dimensional layouts, encompassing both rows and columns. Grid is suitable for designing the layout of an entire page, with the ability to place elements on specific rows and columns.",
+      "Related_Link": "フレックスボックス - ウェブ開発を学ぶ | MDN (mozilla.org) <https://developer.mozilla.org/ja/docs/Learn/CSS/CSS_layout/Flexbox>, グリッド - ウェブ開発を学ぶ | MDN (mozilla.org) <https://developer.mozilla.org/ja/docs/Learn/CSS/CSS_layout/Grids>"
+    },
+    {
+      "Group": "Frontend",
+      "Category": "CSS",
+      "Japanese_Question": "Flexboxで横と縦に並べるにはどのCSSのプロパティを使いますか？",
+      "English_Question": "Which CSS property should you use to align horizontally and vertically in flexbox?",
+      "Japanese_Answer": "Flexコンテナ内でFlexアイテムの主軸の方向を変えるには。flex-directionを利用します\\n- 横に並べる: flex-direction: row;\\n- 縦に並べる: flex-direction: column;",
+      "English_Answer": "To change the main axis direction of Flex items within a Flex container, use the flex-direction property.\\n- To arrange them horizontally: flex-direction: row;\\n- To arrange them vertically: flex-direction: column;",
+      "Related_Link": "flex-direction - CSS: カスケーディングスタイルシート | MDN (mozilla.org) <https://developer.mozilla.org/ja/docs/Web/CSS/flex-direction>"
+    },
+    {
+      "Group": "Frontend",
+      "Category": "CSS",
+      "Japanese_Question": "flex-flowとは何ですか？",
+      "English_Question": "What is flex-flow?",
+      "Japanese_Answer": "flex-flowを使う事でFlexコンテナ内でFlexアイテムの並びの向きと折り返しの動作についてコントロールできます。\\n- flex-flow: row wrap;だとアイテムを横に並べ、コンテナ内を超えた場合は折り返されます\\n- flex-flow: row nowrap;だとアイテムを横に並べ、コンテナ内を超えた場合でも折り返されません",
+      "English_Answer": "By using flex-flow, you can control the direction and wrapping behavior of Flex items within a Flex container.\\n- \\flex-flow: row wrap;\\\": The items will be arranged horizontally and wrapped if they exceed the container's width.\\n- \\\"flex-flow: row nowrap;\\\": The items will still be arranged horizontally but will not wrap even if they exceed the container's width.\"",
+      "Related_Link": "flex-flow - CSS: カスケーディングスタイルシート | MDN (mozilla.org) <https://developer.mozilla.org/ja/docs/Web/CSS/flex-flow>"
+    },
+    {
+      "Group": "Frontend",
+      "Category": "CSS",
+      "Japanese_Question": "flex-growとは何ですか？",
+      "English_Question": "What is flex-grow?",
+      "Japanese_Answer": "flex-growではFlexコンテナの主軸の幅に余白がある場合のFlexアイテムの伸び率を指定できます。下のコードの場合は2番目の要素は3倍の長さとなります。",
+      "English_Answer": "Using flex-grow, you can specify the expansion ratio of Flex items when there is space available in the main axis of the Flex container. In the code below, the second item will be three times as long as the others.",
+      "Related_Link": "flex-grow - CSS: カスケーディングスタイルシート | MDN (mozilla.org) <https://developer.mozilla.org/ja/docs/Web/CSS/flex-grow>"
+    },
+    {
+      "Group": "Frontend",
+      "Category": "CSS",
+      "Japanese_Question": "flex-basisとは何ですか？",
+      "English_Question": "What is flex-basis?",
+      "Japanese_Answer": "flex-growはFlexアイテムの長さを決定します。 flex-basis: 200px; と書いた場合にはそのアイテムの幅は200pxとなります。",
+      "English_Answer": "flex-grow determines the length of a Flex item. If you write flex-basis: 200px;, the width of that item will be 200px.",
+      "Related_Link": "flex-basis - CSS: カスケーディングスタイルシート | MDN (mozilla.org) <https://developer.mozilla.org/ja/docs/Web/CSS/flex-basis>"
+    },
+    {
+      "Group": "Frontend",
+      "Category": "CSS",
+      "Japanese_Question": "emとremの違いは何ですか？",
+      "English_Question": "What's the difference between em and rem?",
+      "Japanese_Answer": "emとremはどちらも相対的なサイズを指しますが、emは親要素のサイズによって相対的に変わるのに対して、remはroot要素のサイズによって相対的に変わります。",
+      "English_Answer": "Both em and rem refer to relative sizes, but em changes relative to the size of the parent element, while rem changes relative to the size of the root element.",
+      "Related_Link": "GitHub - fed/css-interview-questions: CSS Interview Questions 👨‍🏫 <https://github.com/fed/css-interview-questions#whats-the-difference-between-em-and-rem>"
+    },
+    {
+      "Group": "Frontend",
+      "Category": "CSS",
+      "Japanese_Question": ":nth-child と :nth-of-typeの違いは何ですか？",
+      "English_Question": "What’s the difference between :nth-child and :nth-of-type",
+      "Japanese_Answer": ":nth-child は親要素のn番目の要素を適用するセレクタなのに対して、:nth-of-type は親要素のn番目の指定した要素を適用するセレクタになります。例えば p:nth-child(2) は親から2番目の要素なのに対して、p:nth-of-type(2) は親から2番目の p 要素に対してのみ適用されます。",
+      "English_Answer": "While :nth-child is a selector that applies to the n-th element of the parent element, :nth-of-type is a selector that applies to the n-th specified element of the parent element. For example, p:nth-child(2) applies to the second element from the parent, whereas p:nth-of-type(2) applies only to the second p element from the parent.",
+      "Related_Link": "\\:nth-child() - CSS: カスケーディングスタイルシート | MDN (mozilla.org) <https://developer.mozilla.org/ja/docs/Web/CSS/:nth-child>, :nth-of-type() - CSS: カスケーディングスタイルシート | MDN (mozilla.org) <https://developer.mozilla.org/ja/docs/Web/CSS/:nth-of-type>"
+    },
+    {
+      "Group": "Frontend",
+      "Category": "CSS",
+      "Japanese_Question": "CSSの擬似要素とは何ですか？",
+      "English_Question": "What are Pseudo-elements?",
+      "Japanese_Answer": "CSS疑似要素（Pseudo-element）とは、セレクタに追加で書かれるキーワードで、選択された要素の特定の部分をスタイル付けできるようにします。擬似要素は、セレクタに「::」をつけて記述します。例えば、::beforeと::afterは、要素の前後に擬似的な内容を追加することができます。",
+      "English_Answer": "A CSS Pseudo-element is a keyword added to a selector that lets you style a specific part of the selected elements. Pseudo-elements are written using the *::* notation in selectors. For example, ::before and ::after can be used to add pseudo content before or after an element.",
+      "Related_Link": "擬似要素 - CSS: カスケーディングスタイルシート | MDN (mozilla.org) <https://developer.mozilla.org/ja/docs/Web/CSS/Pseudo-elements>"
+    },
+    {
+      "Group": "Frontend",
+      "Category": "CSS",
+      "Japanese_Question": "Responsive Web Designとは何ですか？",
+      "English_Question": "What is Responsive Web Design?",
+      "Japanese_Answer": "Responsive Web Designとは、様々なデバイスに対応できるように、Webページのレイアウトやデザインを自動的に調整することができるWebデザインの手法です。CSSのメディアクエリ（Media Query）やフルードグリッド（Fluid Grid）などを使って、画面のサイズや解像度に応じて、コンテンツの表示を最適化します。Responsive Web Designのメリットは、一つのWebページでPCやスマホなどのデバイスに対応できることや、ユーザー体験を向上させることなどです。",
+      "English_Answer": "Responsive Web Design is a web design technique that can automatically adjust the layout and design of web pages to suit various devices. It uses CSS media queries, fluid grids, and other techniques to optimize the display of content according to the screen size and resolution. The benefits of Responsive Web Design are that it can accommodate different devices such as PCs and smartphones with one web page, which can improve the user experience.",
+      "Related_Link": "HTML Responsive Web Design (w3schools.com) <https://www.w3schools.com/html/html_responsive.asp>"
+    },
+    {
+      "Group": "Frontend",
+      "Category": "CSS",
+      "Japanese_Question": "CSSのBEMとは何ですか？",
+      "English_Question": "What is BEM in CSS?",
+      "Japanese_Answer": "CSSのBEMとは、Block, Element, Modifierの略で、CSSのクラス名を決めるための設計思想です。BEMでは、HTMLの要素をBlock（独立したコンポーネント）、Element（Blockの一部分）、Modifier（BlockやElementの状態や見た目の変化）に分けて、それぞれに「block__element–modifier」のような命名規則を適用します [5]。BEMのメリットは、CSSの構造がわかりやすくなり、再利用性やメンテナンス性が向上することなどです [5]。",
+      "English_Answer": "CSS BEM is an abbreviation for Block, Element, Modifier, and it is a design philosophy for deciding CSS class names. BEM divides HTML elements into Block (independent component), Element (part of Block), Modifier (state or appearance change of Block or Element), and applies a naming rule like “block__element–modifier” to each of them. The benefits of BEM are that it makes the structure of CSS easier to understand, which improves reusability and maintainability.",
+      "Related_Link": "【CSS設計】ゼロからわかるBEM超入門 (zenn.dev) <https://zenn.dev/nagan/articles/dac6fa662f4dab>"
+    },
+    {
+      "Group": "Frontend",
+      "Category": "JavaScript",
+      "Japanese_Question": "DOMとは何ですか？",
+      "English_Question": "What is DOM?",
+      "Japanese_Answer": "DOM（Document Object Model）は、ブラウザ内のAPIで、HTMLやXMLドキュメントの構造をオブジェクトの論理的ツリー構造として表現し、その中の各オブジェクトはノード（Node）として表現されます。ノードはDOMの基本的な単位であり、ドキュメント内の要素（Element）、テキスト(Text)などを表します。DOMを通じてWebページの要素の追加、削除、更新などの操作が可能であり、ユーザーの入力や外部からのデータの取得に応じてWebページを動的に変化させることができます。",
+      "English_Answer": "The DOM (Document Object Model) is an API within web browsers that represents the structure of HTML or XML documents as a logical tree structure of objects, with each object represented as a Node. Node is the basic unit of the DOM and represents elements, text, and other types of content in the document. Through the DOM, it is possible to manipulate web page elements, such as adding, deleting, or updating them, and dynamically change web pages based on user input or external data.",
+      "Related_Link": "DOM の紹介 - Web API | MDN (mozilla.org) <https://developer.mozilla.org/ja/docs/Web/API/Document_Object_Model/Introduction>"
+    },
+    {
+      "Group": "Frontend",
+      "Category": "JavaScript",
+      "Japanese_Question": "JavaScriptのconst、var、letの違いは何ですか？",
+      "English_Question": "What is the difference between const, var, and let in JavaScript?",
+      "Japanese_Answer": "まず const とそれ以外の違いですが、constで宣言された変数には再代入する事はできません [6, 7]。続いて var で宣言された変数は巻き上げ（*ホイスティング*）が行われて、その変数がまだ宣言されていない場合でも、そのスコープ内のどこからでも参照する事はできます [6, 8]。またトップレベルに書かれた var は*グローバルスコープ*（Windowオブジェクト）に変数が追加されるのでES6以前は非常に問題を抱えていました [6]。一方で letもしくはconstを使った場合には通常のブロックスコープが適用されるので、そのブロック内でのみ変数が有効となります [8]。",
+      "English_Answer": "First, the difference between *const* and other declarations is that variables declared with *const* cannot be reassigned [7]. Next, variables declared with *var* are hoisted (*Hosting*), meaning that they can be referenced from anywhere within their scope even if they have not yet been declared [9]. Additionally, variables declared with *var* written at the top level are added to the global scope (the *Window* object), which caused many issues prior to ES6 [9]. On the other hand, using *let* or *const* applies normal block scope, so the variable is only valid within that block [9].",
+      "Related_Link": "Var、Let、Const – その違いとは？ (freecodecamp.org) <https://www.freecodecamp.org/japanese/news/var-let-and-const-whats-the-difference/>"
+    },
+    {
+      "Group": "Frontend",
+      "Category": "JavaScript",
+      "Japanese_Question": "\\use strict\\\"; とは何ですか？\"",
+      "English_Question": "What is \\use strict\\\";?\"",
+      "Japanese_Answer": "“use strict\\; はJavaScript のコードが \\\"strict mode\\\" (厳格モード) で実行されることを定義します。\\\"strict mode\\\" ではより厳格なJavaScriptコードを書くことが強制される事になります。例えば変数宣言前に値を代入できなかったり、 deleteを変数に使用できないなどの制限がかかります。なお、ES2015から使用できるES Modulesにおいては常に厳格モードになっています。 [10",
+      "English_Answer": " 11]\"",
+      "Related_Link": "“use strict”; defines that JavaScript code is executed in “strict mode”. In “strict mode”, you are forced to write more strict JavaScript code. For example, you cannot assign a value before declaring a variable, or use delete for a variable, etc. Note that ES Modules available from ES2015 are always in strict mode [12].",
+      "null": [
+        "厳格モード - JavaScript | MDN (mozilla.org) <https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Strict_mode>"
+      ]
+    },
+    {
+      "Group": "Frontend",
+      "Category": "JavaScript",
+      "Japanese_Question": "プロトタイプチェーンとは何ですか？",
+      "English_Question": "What is a prototype chain?",
+      "Japanese_Answer": "プロトタイプチェーンは、既存のオブジェクトを基に新しいタイプのオブジェクトを構築するために使用されます。これは、クラスベースの言語における継承に似た概念になっています [13]。各オブジェクトは、*プロトタイプ*と呼ばれる別のオブジェクトへのリンクを持つプライベートプロパティを持っています [13]。そのプロトタイプオブジェクト自身もプロトタイプを持ち、プロトタイプがnullであるオブジェクトに到達するまで、そのプロトタイプは続きます [13]。オブジェクトの連結リストを想像する事がイメージしやすいと思います。これらがチェーンのように繋がっているのでプロトタイプチェーンと呼ばれます [13]。",
+      "English_Answer": "The prototype chain is used to build objects of a new type based on existing objects. This concept is similar to inheritance in class-based languages [14]. Each object has a private property called its *prototype*, which is a link to another object [13]. The prototype object itself also has a prototype, and this chain continues until an object with a null prototype is reached [13]. It's helpful to imagine this as a linked list of objects, with each object connected to its prototype like a chain, hence the term \\prototype chain\\\" [14",
+      "Related_Link": " 15].\"",
+      "null": [
+        "継承とプロトタイプチェーン - JavaScript | MDN (mozilla.org) <https://developer.mozilla.org/ja/docs/Web/JavaScript/Inheritance_and_the_prototype_chain>"
+      ]
+    },
+    {
+      "Group": "Frontend",
+      "Category": "JavaScript",
+      "Japanese_Question": "演算子 == と === の違いは何ですか？",
+      "English_Question": "What is the difference between == and === operators?",
+      "Japanese_Answer": "JavaScriptにおいて、厳密等価 (===)と等価(==) の大きな違いは、 == 演算子がオペランドの型変換を行ってから比較するのに対し、 === 演算子はオペランドのデータ型だけでなく値も比較することです [16]。例えば 1 == “1” の時には文字列型を数値型に変換してから、値を比較する事になる。実務のコーディングでは === 演算子をなるべく利用する事をオススメします [16, 17]。",
+      "English_Answer": "In JavaScript, the major difference between Strict Equality (===) and Equality (==) is that the == operator performs type conversion on the operands before comparing them, whereas the === operator compares not only the data type of the operands but also their values [17]. For example, when comparing 1 == \\1\\\"",
+      "Related_Link": " the string type is converted to a numeric type before comparing their values. In practical coding",
+      "null": [
+        " it is recommended to use the === operator as much as possible [17",
+        " 18].\"",
+        "厳密等価 (===) - JavaScript | MDN (mozilla.org) <https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/Strict_equality>, 等価 (==) - JavaScript | MDN (mozilla.org) <https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/Equality>, JavaScript Triple Equals Sign VS Double Equals Sign – Comparison Operators Explained with Examples (freecodecamp.org) <https://www.freecodecamp.org/news/javascript-triple-equals-sign-vs-double-equals-sign-comparison-operators-explained-with-examples/>"
+      ]
+    },
+    {
+      "Group": "Frontend",
+      "Category": "JavaScript",
+      "Japanese_Question": "プリミティブ型とオブジェクト型の違いは何ですか？",
+      "English_Question": "What is the difference between Primitives and Objects?",
+      "Japanese_Answer": "プリミティブ型はイミュータブル（immutable）で値そのものを格納していますが、オブジェクト型はデフォルトではイミュータブルではなく、プロパティを後から変更できます [19]。関数の引数に渡す際もプリミティブ型は値がコピーされて渡されますが、オブジェクトは参照渡しとなり、関数内で変更した場合は元のオブジェクトに変更が反映されるようになります [19]。また比較する際もプリミティブ型が同じ値（例: const color = ‘blue’）の場合は trueを返しますが、オブジェクトの場合は同じプロパティの値を持った2つのオブジェクト同士を比較しても、異なる参照をしているので falseを返します [20]。",
+      "English_Answer": "Primitive types store the value itself and are immutable, while objects are not immutable by default and can have their properties changed later [20]. When passing a primitive type as an argument to a function, the value is copied and passed, but objects are passed by reference, so changes made to the object within the function will be reflected in the original object [20]. Also, when comparing, if two primitive types have the same value (e.g. *const color = 'blue'*), it will return *true*, but if comparing two objects with the same property values, it will return *false* because they have different references [20].",
+      "Related_Link": "【JavaScript】プリミティブ型とオブジェクト型を理解したい - Qiita <https://qiita.com/ta1fukumoto/items/effaa42cd296a2648d41>, プリミティブ型 (primitive types) | TypeScript入門『サバイバルTypeScript』 (typescriptbook.jp) <https://typescriptbook.jp/reference/values-types-variables/primitive-types>"
+    },
+    {
+      "Group": "Frontend",
+      "Category": "JavaScript",
+      "Japanese_Question": "First-class Function (第一級関数)とは何ですか？",
+      "English_Question": "What is a First-class Function",
+      "Japanese_Answer": "Javascriptでは、関数はファーストクラスのオブジェクトになっています。ファーストクラス関数とは、その言語において関数が他の変数と同様に扱われることを意味します。例えば、関数を他の関数に引数として渡したり、他の関数から返したり、変数に値を代入したりすることが可能となっています。",
+      "English_Answer": "In JavaScript, functions are first-class objects. A first-class function means that functions are treated like any other variable in the language. For example, it is possible to pass a function as an argument to another function, return a function from another function, or assign a function to a variable.",
+      "Related_Link": "First-class Function (第一級関数) - MDN Web Docs 用語集: ウェブ関連用語の定義 | MDN (mozilla.org) <https://developer.mozilla.org/ja/docs/Glossary/First-class_Function>"
+    },
+    {
+      "Group": "Frontend",
+      "Category": "JavaScript",
+      "Japanese_Question": "高階関数とは何ですか？",
+      "English_Question": "What is a Higher-order function",
+      "Japanese_Answer": "高階関数とは、他の関数を引数として受け付けたり、または関数を戻り値として返す関数、もしくはその両方を指す関数です [21]。",
+      "English_Answer": "A higher-order function is a function that accepts other functions as arguments and/or returns a function as its result [21].",
+      "Related_Link": "First-class Function (第一級関数) - MDN Web Docs 用語集: ウェブ関連用語の定義 | MDN (mozilla.org) <https://developer.mozilla.org/ja/docs/Glossary/First-class_Function>"
+    },
+    {
+      "Group": "Frontend",
+      "Category": "JavaScript",
+      "Japanese_Question": "関数のカリー化とは何ですか？",
+      "English_Question": "What is currying function?",
+      "Japanese_Answer": "関数型プログラミングの手法の一つで、複数の引数を持つ関数を、単一の引数を持つ複数の関数に順次変換することである [22]。またカリー化された関数に任意の固定した別の関数を作成することは*部分適用*と言います [22]。",
+      "English_Answer": "One of the techniques in functional programming is to convert a function with multiple arguments into a sequence of functions with a single argument each. This is called *currying*. Creating a new function by fixing a certain number of arguments of a curried function is called *partial application* [23].",
+      "Related_Link": "What is currying function in JavaScript ? - GeeksforGeeks <https://www.geeksforgeeks.org/what-is-currying-function-in-javascript/>"
+    },
+    {
+      "Group": "Frontend",
+      "Category": "JavaScript",
+      "Japanese_Question": "純粋関数とは何ですか？",
+      "English_Question": "What is a pure function?",
+      "Japanese_Answer": "純粋関数とは、同じ引数が渡されると常に同じ結果を返す関数です [23]。プログラムの実行中に状態やデータが変化しても結果に影響を与えず、入力引数にのみ依存します [23]。",
+      "English_Answer": "A pure function is a function that always returns the same result when given the same arguments [24]. It does not depend on any state or data that may change during the program's execution and only relies on its input arguments [24].",
+      "Related_Link": "そのJavaScriptの関数は本当に純粋関数？ | POSTD <https://postd.cc/httpstaltz-comis-your-javascript-function-actually-pure/>"
+    },
+    {
+      "Group": "Frontend",
+      "Category": "JavaScript",
+      "Japanese_Question": "クロージャ(Closures)とは何ですか？",
+      "English_Question": "What are closures?",
+      "Japanese_Answer": "クロージャは，自分を囲むスコープにある変数を参照できる関数の事を言います [25]。クロージャには3つのスコープチェーンがあり、\\n- ローカルスコープ（独自のスコープ）\\n- 外側の関数スコープ\\n- グローバルスコープ [25]",
+      "English_Answer": "A closure refers to a function that can access variables in the scope surrounding it [26]. Closures have three scope chains:\\n- Local scope (its own scope)\\n- Outer function scope\\n- Global scope [26]",
+      "Related_Link": "クロージャ - JavaScript | MDN (mozilla.org) <https://developer.mozilla.org/ja/docs/Web/JavaScript/Closures>"
+    },
+    {
+      "Group": "Frontend",
+      "Category": "JavaScript",
+      "Japanese_Question": "nullとundefinedの違いは何ですか？",
+      "English_Question": "What is the difference between null and undefined?",
+      "Japanese_Answer": "undefinedとnull「値がない」ことを意味する点は共通していますが [27]。意味的な違いは、undefinedは「値が代入されていないため、値がない」、nullは「代入すべき値が存在しないため、値がない」という微妙な違いがあります [27]。言語仕様上ではnullは自然発生することはなく、対してundefinedは開発者が意図しなくとも自動的に設定されます [27]。",
+      "English_Answer": "Both undefined and null indicate \\no value\\\"",
+      "Related_Link": " but they have subtle semantic differences [27]. undefined means \\\"no value has been assigned\\\"",
+      "null": [
+        " while null means \\\"there is no value to assign.\\\" [27] According to language specifications",
+        " null never occurs naturally",
+        " whereas undefined is automatically set even if the developer does not intend to do [27].\"",
+        "undefinedとnullの違い | TypeScript入門『サバイバルTypeScript』 (typescriptbook.jp) <https://typescriptbook.jp/reference/values-types-variables/undefined-vs-null>"
+      ]
+    },
+    {
+      "Group": "Frontend",
+      "Category": "JavaScript",
+      "Japanese_Question": "NaNとは何ですか？",
+      "English_Question": "What is NaN?",
+      "Japanese_Answer": "NaNは”Not-a-Number”の略で結果が実数にならない数値演算等をした際に返されます [28]。またNaNは*グローバルオブジェクト*プロパティです [28]。言い換えれば、グローバルスコープにある変数です [28]。",
+      "English_Answer": "NaN stands for \\Not-a-Number\\\" and is returned when performing numerical operations that result in a non-real number [29]. NaN is also a global object property [29]. In other words",
+      "Related_Link": " it is a variable in the global scope [29].\"",
+      "null": [
+        "NaN - JavaScript | MDN (mozilla.org) <https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/NaN>"
+      ]
+    },
+    {
+      "Group": "Frontend",
+      "Category": "JavaScript",
+      "Japanese_Question": "イベントバブリングとは何ですか？",
+      "English_Question": "What is Event Bubbling?",
+      "Japanese_Answer": "イベントバブリングとは、DOM（Document Object Model）の概念の一つで、ある要素がイベントを受け取ると、そのイベントがDOMツリー内で最初にその要素上のハンドラが実行され、次にその親要素のハンドラが実行され、さらに他の祖先のハンドラを実行します [29, 30]。例えば form > div > p と言うDOMツリーが構成されている中で、pをクリックすると。p, div, formの順番でonclickのイベンドハンドラが呼ばれます [30]。バブリングイベントは<html>まで到達するまで続きますが、 event.stopPropagationのメソッドを呼ぶことでバブリングを止める事ができます [30]。またブラウザのイベンドライフサイクル以下のフェーズで実行されていきます。\\n1. キャプチャリングフェーズ – イベントが要素へ下りていきます。\\n2. ターゲットフェーズ – イベントがターゲット要素に到達しました。\\n3. バブリングフェーズ – イベントが要素から上にバブルします [30]。",
+      "English_Answer": "Event bubbling is a concept in the Document Object Model (DOM), when an element receives an event, the event's handler is executed first on that element in the DOM tree, then on its parent element, and then on other ancestor elements [30]. Bubbling events continue until they reach the <html> element, but you can stop bubbling by calling the *event.stopPropagation* method [30]. In addition, it goes through the following phases in the browser event lifecycle:\\n1. Capturing phase - The event descends to the element.\\n2. Target phase - The event has reached the target element.\\n3. Bubbling phase - The event bubbles up from the element [31].",
+      "Related_Link": "バブリング と キャプチャリング (javascript.info) <https://ja.javascript.info/bubbling-and-capturing>"
+    },
+    {
+      "Group": "Frontend",
+      "Category": "JavaScript",
+      "Japanese_Question": ".call()と.apply()の違いは何ですか？",
+      "English_Question": "What is the difference between .call() and .apply()?",
+      "Japanese_Answer": "両方のメソッド、.call()と.apply()は、関数を呼び出すために使用されます [32]。最初のパラメーターが関数内のthisの値を決定します [32]。ただし、.call()は次の引数としてカンマ区切りの引数を取りますが、.apply()は次の引数として引数の配列を取ります [32]。",
+      "English_Answer": "Both the methods .call() and .apply() are used to invoke functions, with the first parameter determining the value of this within the function [32]. However, .call() takes in comma-separated arguments as the next arguments, whereas .apply() takes in an array of arguments as the next argument [32].",
+      "Related_Link": "Function.prototype.apply() - JavaScript | MDN (mozilla.org) <https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Function/apply>, Function.prototype.call() - JavaScript | MDN (mozilla.org) <https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Function/call>"
+    },
+    {
+      "Group": "Frontend",
+      "Category": "JavaScript",
+      "Japanese_Question": "JavaScriptでのthisキーワードはどのように動作するか説明してください",
+      "English_Question": "Explain how the keyword ‘this’ works in JavaScript?",
+      "Japanese_Answer": "JavaScriptでは、thisキーワードはオブジェクトの事を指します [33]。どのオブジェクトを指すかは、thisがどのように呼び出されるかに依存します [33]。\\n- オブジェクトメソッド obj.method() では、これはオブジェクト obj を指します。\\n- グローバルコンテキストで呼ぶと、グローバルオブジェクトを指します。ブラウザ上では windowを指します。\\n- 関数コンテキストで呼ぶと、グローバルオブジェクトがデフォルトでバインディングされます。ブラウザ上では windowを指します。なお、Strictモードでは undefinedとなります。\\n- イベンドハンドラの中では、イベントを受け取った HTML 要素（HTMLElement）を指します。\\n- apply, call, bind で関数（例えばfunc.call(obj)）を呼ぶと、引数として渡されるオブジェクト obj を指します [34]。",
+      "English_Answer": "In JavaScript, the this keyword refers to an object [34]. Which object it refers to depends on how this is called [34]:\\n- In an object method obj.method(), it refers to the object obj.\\n- When called in a global context, it refers to the global object. In a browser, it refers to the window object.\\n- When called in a function context, the global object is bound by default. In a browser, it refers to the window object. Note that in strict mode, it becomes undefined.\\n- Inside an event handler, it refers to the HTML element (HTMLElement) that received the event.\\n- When using apply, call, or bind to call a function (for example, func.call(obj)), it refers to the object obj passed as an argument [34, 35].",
+      "Related_Link": "JavaScript this (w3schools.com) <https://www.w3schools.com/js/js_this.asp>"
+    },
+    {
+      "Group": "Frontend",
+      "Category": "JavaScript",
+      "Japanese_Question": "アロー関数（=>）構文のユースを教えて下さい",
+      "English_Question": "Provide a use case of the arrow function (=>) syntax?",
+      "Japanese_Answer": "アロー関数の明確な利点の1つは、関数を作成するために必要な構文を簡素化し、functionというキーワードを省略できる事です [35]。さらに、アロー関数は、呼び出しオブジェクトによってthisが変わる通常の関数と違い、レキシカルスコープ <https://developer.mozilla.org/ja/docs/Web/JavaScript/Closures#%E3%83%AC%E3%82%AD%E3%82%B7%E3%82%AB%E3%83%AB%E3%82%B9%E3%82%B3%E3%83%BC%E3%83%97>のthisを参照します [36]。",
+      "English_Answer": "One clear advantage of arrow functions is that they simplify the syntax required to create a function, allowing you to omit the keyword function [36]. Furthermore, unlike regular functions where this changes depending on the calling object, arrow functions refer to the lexical scope's this [36].",
+      "Related_Link": "Vue インスタンスの methods にアロー関数を使ったら動作しない理由を this のスコープで説明します (zenn.dev) <https://zenn.dev/luvmini511/articles/ebc182cb9f6177>"
+    },
+    {
+      "Group": "Frontend",
+      "Category": "JavaScript",
+      "Japanese_Question": "JavaScriptのイベントループとは？",
+      "English_Question": "What is an event loop in JavaScript?",
+      "Japanese_Answer": "イベントループは、JavaScriptの非同期プログラミングを実現している仕組みです [37]。JavaScriptはすべての処理をシングルスレッドで実行しますが、*コールスタック(Call Stack)*、*ヒープ(Heap)*、*タスクキュー(Task Queue)*、*Web APIs*を使ってマルチスレッドのように振る舞います [37]。\\n- *コールスタック:* 実行される全ての関数を辿る役割を果たしています。関数が実行されるたびにスタックから取り出される\\n- *ヒープ:* オブジェクトや関数が確保されているメモリ。\\n- *タスクキュー: *実行する関数をコールスタックに送る役割を果たしています。\\n- *Web APIs*: ブラウザから提供される標準の非同期呼び出しのAPI（例、addEventListener、setTimeout） [37]。また、マイクロタスクキューという *Promise*の*then*や*async/await*などの非同期処理がスケジュールされるものもあります [37]。",
+      "English_Answer": "The event loop is a mechanism that enables asynchronous programming in JavaScript [38]. Although JavaScript runs all processes on a single thread, it behaves like a multi-threaded system using the *call stack*, *heap*, *task(event) queue*, and *Web APIs* [38].\\n- *Call Stack:* It plays a role in tracking all the functions being executed. Whenever a function is executed, it is taken out of the stack [38].\\n- *Heap:* The memory where objects and functions are allocated [39].\\n- *Task(Event) Queue:* It plays a role in sending functions to be executed to the call stack [39].\\n- *Web APIs*: Standard asynchronous call APIs provided by the browser (e.g., addEventListener, setTimeout) [39]. In addition, there is something called a microtask queue, where asynchronous processes such as Promise's then and async/await are scheduled [39].",
+      "Related_Link": "What is an event loop in JavaScript? <https://www.educative.io/answers/what-is-an-event-loop-in-javascript>, タスクキューとマイクロタスクキュー <https://zenn.dev/estra/books/js-async-promise-chain-event-loop/viewer/d-epasync-task-microtask-queues>, JavaScriptのイベントループを理解する <https://qiita.com/hirokikondo86/items/226905890944603dba39>"
+    },
+    {
+      "Group": "Frontend",
+      "Category": "JavaScript",
+      "Japanese_Question": "JavaScriptのSymbolとは何か？",
+      "English_Question": "What is Symbol in Javascript",
+      "Japanese_Answer": "JavaScriptのSymbolはプリミティブ型のユニークな識別子です [40]。ユースケースとしては、オブジェクトのプロパティをプライベートにする上でキーとして使用できます [40]。",
+      "English_Answer": "JavaScript's Symbol is a unique identifier of primitive type [41]. As a use case, it can be used as a key to make object properties private [41].",
+      "Related_Link": "A quick overview of JavaScript symbols (freecodecamp.org) <https://www.freecodecamp.org/news/how-did-i-miss-javascript-symbols-c1f1c0e1874a/>"
+    },
+    {
+      "Group": "Frontend",
+      "Category": "JavaScript",
+      "Japanese_Question": "document load イベントとdocument DOMContentLoaded イベントの違いは何？",
+      "English_Question": "What is the difference between document load event and document DOMContentLoaded event?",
+      "Japanese_Answer": "DOMContentLoaded イベントは、HTMLドキュメントが読み込まれてパースが完了しDOMツリーが生成された時に発生するイベントです [41]。一方で loadイベントはスタイルシートが画像などのサブリソースが読み込みが完了した時に発生するイベントです [41]。",
+      "English_Answer": "DOMContentLoaded event is an event that occurs when an HTML document has been loaded, parsed, and the DOM tree has been created [42]. On the other hand, load event is an event that occurs when stylesheets, images, and other subresources have finished loading [42].",
+      "Related_Link": "Window: load イベント - Web API | MDN (mozilla.org) <https://developer.mozilla.org/ja/docs/Web/API/Window/load_event>, Document: DOMContentLoaded イベント - Web API | MDN (mozilla.org) <https://developer.mozilla.org/ja/docs/Web/API/Document/DOMContentLoaded_event>"
+    },
+    {
+      "Group": "Frontend",
+      "Category": "JavaScript",
+      "Japanese_Question": "コールバックの代わりにPromiseを使用することの利点と欠点は何ですか？",
+      "English_Question": "What are the pros and cons of using Promises instead of callbacks?",
+      "Japanese_Answer": "利点\\n- コールバック地獄を回避できる\\n- 非同期処理を読みやすい形で書ける\\n- Promise.allにより並列な非同期処理を書ける\\n- エラーハンドリングが容易\\n欠点\\n- ES2015をサポートしてない古いブラウザではpolyfillが必要 [42, 43]",
+      "English_Answer": "Advantages\\n- Can avoid callback hell\\n- Can write asynchronous processing in an easy-to-read format\\n- Can write parallel asynchronous processing using Promise.all\\n- Error handling is easier\\nDisadvantages\\n- In older browsers that do not support ES2015, a polyfill is needed [43]",
+      "Related_Link": ""
+    },
+    {
+      "Group": "Frontend",
+      "Category": "JavaScript",
+      "Japanese_Question": "debounceとthrottleの違いは？",
+      "English_Question": "What is the difference between debounce and throttle?",
+      "Japanese_Answer": "debounceは、*連続して発生するイベントに対して、特定の期間（ウェイトタイム）の間イベントが発生しなくなるまで関数の実行を遅延させる方法です [44]。* throttleは、*関数が一定時間内に一定回数以上実行されないように制限する方法です* [44]。debounceはテキスト入力やウィンドウリサイズに、throttleはスクロールイベントやマウス移動に用いられます [44, 45]。",
+      "English_Answer": "Debounce is a method that *delays the execution of a function until a certain period (wait time) has passed without any new events occurring [45]*. Throttle is a method that *limits the execution of a function so that it does not occur more than a certain number of times within a specific time frame [45]*. Debounce is useful for text input/window resizing, while Throttle is used for scroll events/mouse movements [45].",
+      "Related_Link": "throttleとdebounce (aloerina01.github.io) <https://aloerina01.github.io/blog/2017-08-03-1>, Rate-limiting in RxJS - debounceTime vs throttleTime (reactive.how) <https://reactive.how/throttletime>, simple debounce function (codepen.io) <https://codepen.io/jpkempf/pen/MbePGB>, Smooth scrolling + highlight links (codepen.io) <https://codepen.io/rpora/pen/wBaLPp>"
+    },
+    {
+      "Group": "Frontend",
+      "Category": "JavaScript",
+      "Japanese_Question": "Cookie、sessionStorage、localStorageの違いについて説明して下さい",
+      "English_Question": "Explain the difference between a cookie, sessionStorage , and localStorage.",
+      "Japanese_Answer": "\\- *Cookies*: 小さなテキストファイルで、ユーザー設定やセッション追跡に使用されます [46]。有効期限があり、各HTTPリクエストとともにサーバーに送信されるため、オーバーヘッドが高いです [47]。\\n- *sessionStorage*: Web Storage APIの一部で、単一のブラウジングセッションの間だけ利用可能です。ブラウザを閉じるとデータは削除されます。サーバーに送信されないためパフォーマンス効率が高いです [47]。\\n- *localStorage*: Web Storage APIの一部で、データは永続的に残ります。複数のセッションにわたって利用可能ですが、機密性の高いデータの保存には適していません [48]。",
+      "English_Answer": "\\- *Cookies*: Small text files used for user preferences and session tracking [48]. They have an expiration date and are sent with every HTTP request, leading to higher overhead [49].\\n- *sessionStorage*: Part of the Web Storage API, available only for a single browsing session. Data is deleted when the browser is closed. More performance efficient as it's not sent to the server [49].\\n- *localStorage*: Part of the Web Storage API, where data persists across sessions. Not suitable for highly confidential data due to persistence [49, 50].",
+      "Related_Link": "【JavaScript】Cookie , localStorage, sessionStorageの違い - Qiita <https://qiita.com/terufumi1122/items/76bafb9eed7cfc77b798>, Cookies vs Local Storage vs Session Storage - DEV Community <https://dev.to/iggredible/cookies-vs-local-storage-vs-session-storage-3gp3>"
+    },
+    {
+      "Group": "Frontend",
+      "Category": "JavaScript",
+      "Japanese_Question": "CommonJSとES Modulesの違いは何ですか？",
+      "English_Question": "What is the differences between CommonJS and ES Module",
+      "Japanese_Answer": "\\- CommonJS: Node.jsのデフォルトモジュールシステム [50]。*require()*と*module.exports*を使用し [51]、同期的でモジュールを読み込みます [51]。\\n- ES Modules: ECMAScript標準で定義されたモジュールシステム [51]。*import*と*export*を使用し [51]、非同期的でモジュールを読み込みます [52]。",
+      "English_Answer": "\\- CommonJS: Default module system for Node.js [51]. Uses *require()* and *module.exports* [51]. Loads modules synchronously [51].\\n- ES Modules: Module system defined by ECMAScript standard [51]. Uses *import* and *export* [52]. Loads modules asynchronously [52].",
+      "Related_Link": "CommonJSとES Modulesについてまとめる (zenn.dev) <https://zenn.dev/yodaka/articles/596f441acf1cf3>"
+    },
+    {
+      "Group": "Frontend",
+      "Category": "JavaScript",
+      "Japanese_Question": "JavaScriptエンジンのV8はどのように動作していますか？",
+      "English_Question": "What is the differences between CommonJS and ES Module",
+      "Japanese_Answer": "V8は以下のステップで動作します。\\n1. *JavaScript source*: ソースコードがV8エンジンに提供される [52]。\\n2. *Parse it*: パーサーによりソースコードが解析されトークンに分解される [53]。\\n3. *AST (Abstract Syntax Tree)*: パーサーがトークンを組み合わせてASTを生成する [53]。\\n4. *Generate Bytecode*: インタープリターIgnitionがASTを低レベルのバイトコードに変換する [53]。\\n5. *Get feedback (Profiling)*: バイトコード実行中に実行情報（HotSpotなど）を収集する [53]。\\n6. *Optimize and Compile it*: JITコンパイラTurboFanがフィードバックを元にコードを最適化する（最適化の仮定が間違っていた場合はデオプティマイズも行う） [53]。",
+      "English_Answer": "V8 engine works as follows:\\n1. *JavaScript source*: Provides the source code [54].\\n2. *Parse it*: Parser breaks down the code into tokens [54].\\n3. *AST (Abstract Syntax Tree)*: Parser generates an AST [54].\\n4. *Generate Bytecode*: Ignition interpreter converts AST into low-level bytecode [55].\\n5. *Get feedback (Profiling)*: Collects execution information (HotSpots, type info) [55].\\n6. *Optimize and Compile it*: TurboFan JIT compiler optimizes code based on feedback (and deoptimizes if assumptions are wrong) [55].",
+      "Related_Link": "jsエンジンはソースコードをどう実行しているのか〜バイトコード、JITコンパイル〜 (zenn.dev) <https://zenn.dev/canalun/articles/exec_javascript_beyond_ast>"
+    },
+    {
+      "Group": "Frontend",
+      "Category": "React",
+      "Japanese_Question": "JSXとは何ですか？",
+      "English_Question": "What is JSX?",
+      "Japanese_Answer": "JSXとは、XMLのようなJavaScriptの構文の拡張です [56]。React.createElement() のシンタックスシュガーでHTMLのようなテンプレート構文に加え、JavaScriptのような表現力を備えています [56]。",
+      "English_Answer": "JSX is an extension of JavaScript syntax that resembles XML [57]. It serves as syntactic sugar for React.createElement() and provides an HTML-like template syntax, while also offering the expressiveness of JavaScript [57].",
+      "Related_Link": ""
+    },
+    {
+      "Group": "Frontend",
+      "Category": "React",
+      "Japanese_Question": "Reactの仮想DOMとは何ですか？",
+      "English_Question": "What is Virtual DOM in React?",
+      "Japanese_Answer": "仮想DOMとは、インメモリに保持された仮想のUI表現が、実際のDOMと同期されるというプログラミング上の概念です [57]。このプロセスは差分検出処理 (reconciliation)と呼ばれます [57]。またReact 16からはReact Fiberと呼ばれるインクリメンタルなレンダリングを可能にする新たな差分検出処理アルゴリズムが実装されました [58]。",
+      "English_Answer": "The virtual DOM is a programming concept in which a virtual UI representation held in memory is synchronized with the actual DOM [58]. This process is called reconciliation [58]. Starting from React 16, a new reconciliation algorithm called React Fiber has been implemented, enabling incremental rendering [58].",
+      "Related_Link": "仮想 DOM と内部処理 – React (reactjs.org) <https://ja.legacy.reactjs.org/docs/faq-internals.html>"
+    },
+    {
+      "Group": "Frontend",
+      "Category": "React",
+      "Japanese_Question": "key propとは何ですか？また使う事の利点は何ですか？",
+      "English_Question": "What is key prop and what is the benefit of using it?",
+      "Japanese_Answer": "key propはリスト項目どの要素が変更されたか、追加されたか、削除されたかを識別するのに役立ちます [58]。これにより仮想DOMのどの子要素に差分が出たのかをReactに伝える事ができるので、無駄なレンダリングを防ぐ事が可能です [58]。key にはindexではなく、IDのような一意なキーを指定すべきです [59]。",
+      "English_Answer": "The key prop helps to identify which elements in a list item have been modified, added, or deleted [59]. This allows React to know which child elements of the virtual DOM have differences, thus preventing unnecessary rendering [59]. You should assign a unique key like an ID to the key, not the index [59].",
+      "Related_Link": "Rendering Lists – React <https://react.dev/learn/rendering-lists#why-does-react-need-keys>"
+    },
+    {
+      "Group": "Frontend",
+      "Category": "React",
+      "Japanese_Question": "Class ComponentではなくFunctional Componentを使う利点は何ですか？",
+      "English_Question": "What is the advantage of using Functional Component instead of Class Component?",
+      "Japanese_Answer": "Functional Componentを使う利点は\\n- JavaScriptのthisキーワードを使わなくてもよい\\n- 記述量が少なくなる\\n- カスタムフックを用いる事でロジックとプレゼンテーションを分離しやすくなる [59, 60]",
+      "English_Answer": "The benefits of using Functional Components are:\\n- You don't need to use the 'this' keyword in JavaScript.\\n- They require less code.\\n- Using custom hooks makes it easier to separate logic and presentation [60].",
+      "Related_Link": "Differences between Functional Components and Class Components in React - GeeksforGeeks <https://www.geeksforgeeks.org/differences-between-functional-components-and-class-components-in-react/>"
+    },
+    {
+      "Group": "Frontend",
+      "Category": "React",
+      "Japanese_Question": "Reactフックとは何ですか？",
+      "English_Question": "What is React Hooks?",
+      "Japanese_Answer": "フック（Hooks）はFunctional Componentに対して状態管理やライフサイクルといった機能と提供するための関数です [61]。以前は、Reactの状態管理やライフサイクル機能は、Class Componentでしか利用できませんでしたが、フックの導入により、関数コンポーネントでもこれらの機能を使えるようになりました [61]。",
+      "English_Answer": "Hooks are functions that provide state management and lifecycle features for Functional Components [61]. Previously, state management and lifecycle features in React were only available in Class Components, but with the introduction of Hooks, these features can now be used in functional components as well [61].",
+      "Related_Link": ""
+    },
+    {
+      "Group": "Frontend",
+      "Category": "React",
+      "Japanese_Question": "useStateは何でどのような時に使用しますか？またReactのstateとレンダリングの関連性について教えてください。",
+      "English_Question": "What is useState, and when is it used?",
+      "Japanese_Answer": "useStateは状態を管理するためのフック関数の一つです [62]。コンポーネントに内部で保持すべき状態がある場合に使用します [62]。またuseStateで生成された状態は通常の変数とは異なり、コンポーネント外に保存されています [62]。useStateが呼ばれるたびに現在の状態で再レンダリングされて新しいUIがスナップショットとして生成されます [62]。",
+      "English_Answer": "useState is one of the hook functions used to manage state [62]. It is used when a component has internal state that should be maintained [62]. In addition, the state created by useState is different from regular variables, as it is stored outside of the component [62]. Every time useState is called, the component is re-rendered with the current state, and a new UI snapshot is created [62].",
+      "Related_Link": "useState – React <https://react.dev/reference/react/useState>, State as a Snapshot – React <https://react.dev/learn/state-as-a-snapshot>"
+    },
+    {
+      "Group": "Frontend",
+      "Category": "React",
+      "Japanese_Question": "useEffectとuseLayoutEffectは何でどのような時に使用しますか？",
+      "English_Question": "What are useEffect and useLayoutEffect, and when are they used?",
+      "Japanese_Answer": "useEffectはコンポーネントがレンダリングされた後に副作用を実行するフック関数の一つです [63]。活用例としては、APIからデータを取得し表示する時、タイマー処理などを行う時に使用します [64]。useLayoutEffectとuseEffectの違いはブラウザが描画する前のタイミングで同期的に処理されます [64]。パフォーマンスの観点から、基本的にはuseEffectを使用する事が推奨されています [64]。",
+      "English_Answer": "useEffect is one of the hook functions that execute side effects after a component is rendered [64]. For example, it is used when fetching and displaying data from an API or when handling timers [64]. The difference between useLayoutEffect and useEffect is that the former is processed synchronously before the browser renders [64]. From a performance standpoint, it is generally recommended to use useEffect [64].",
+      "Related_Link": "useEffect – React <https://react.dev/reference/react/useEffect>, useLayoutEffect – React <https://react.dev/reference/react/useLayoutEffect>, 【React】useEffect の標準動作は「依存配列の中身が変わると実行」ではない - Qiita <https://qiita.com/honey32/items/62edf5165aced7d0c4bf>, エフェクトは必要ないかもしれない – React <https://ja.react.dev/learn/you-might-not-need-an-effect> ← 不必要にuseEffectを使わない方法"
+    },
+    {
+      "Group": "Frontend",
+      "Category": "React",
+      "Japanese_Question": "useCallbackは何でどのような時に使用しますか？",
+      "English_Question": "What is useCallback, and when is it used?",
+      "Japanese_Answer": "useCallbackはコールバック関数をメモ化するフック関数の一つです [65]。例えば、メモ化されたコールバック関数をuseEffectの依存配列にわたす時、メモ化（React.memo）されたコンポーネントにpropとして渡す時など、関数の参照を固定化する場合に使用します [66]。",
+      "English_Answer": "useCallback is one of the hook functions used for memoizing a callback function [66]. For example, it is used when passing a memoized callback function to the dependency array of useEffect, or when passing it as a prop to a memoized (React.memo) component, in cases where you want to fix the reference of the function [66]。",
+      "Related_Link": "useCallback – React <https://react.dev/reference/react/useCallback>"
+    },
+    {
+      "Group": "Frontend",
+      "Category": "React",
+      "Japanese_Question": "useMemoは何でどのような時に使用しますか？",
+      "English_Question": "What is useMemo, and when is it used?",
+      "Japanese_Answer": "useMemoは関数の返り値をメモ化するフック関数の一つです [67]。例えば、何度もレンダリングされる際に同じ高コストな計算がされないように、依存配列に渡された値が変更した時にのみ計算するようにメモ化しておきます [67]。",
+      "English_Answer": "useMemo is one of the hook functions that memoizes the return value of a function [67]. For example, to prevent the same high-cost calculations from being performed repeatedly during rendering, it memoizes the calculations to be performed only when the values passed in the dependency array have changed [67].",
+      "Related_Link": "useMemo – React <https://react.dev/reference/react/useMemo>"
+    },
+    {
+      "Group": "Frontend",
+      "Category": "React",
+      "Japanese_Question": "useRefは何でどのような時に使用しますか？",
+      "English_Question": "What is useRef, and when is it used?",
+      "Japanese_Answer": "useRefはレンダリングに不要な値を参照するフック関数の一つです [68]。例えば、レンダリングしない値を保持（例: setIntervalの返り値）や、DOMを操作する時などに使用します [68]。useStateとの使い分けは、値の変更時に再レンダリングを引き起こしたい場合にはuseRefではなくuseStateを使います [68]。",
+      "English_Answer": "useRef is one of the hook functions used to reference values that are not needed for rendering [68]. For example, it is used to hold values that do not need to be rendered (such as the return value of setInterval) or when manipulating the DOM [68]. In terms of distinguishing between useState and useRef, you would use useState rather than useRef when you want to cause a re-render upon value changes [69].",
+      "Related_Link": "useRef – React <https://react.dev/reference/react/useRef#referencing-a-value-with-a-ref>"
+    },
+    {
+      "Group": "Frontend",
+      "Category": "React",
+      "Japanese_Question": "useTransitionは何でどのような時に使用しますか？",
+      "English_Question": "What is useTransition, and when is it used?",
+      "Japanese_Answer": "useTransitionはUIをブロックする事なく状態の更新するフック関数の一つです [69]。例えば、レンダリングに高コストを要する場合にUIがブロックされるのを防ぎたい時や、画面遷移する際にサスペンドしてフォールバックを表示する代わりに現在の状態を表示し続けたい場合などに使用します [70]。",
+      "English_Answer": "useTransition is one of the hook functions that updates the state without blocking the UI [70]. For example, it is used when you don't want to block the UI in cases where the initial rendering requires high cost, or when you want to continue displaying the current state instead of suspending and showing a fallback during screen transitions [70].",
+      "Related_Link": "useTransition – React <https://react.dev/reference/react/useTransition>, useTransition() vs useDeferredValue | React 18 - YouTube <https://www.youtube.com/watch?v=lDukIAymutM>"
+    },
+    {
+      "Group": "Frontend",
+      "Category": "React",
+      "Japanese_Question": "useDeferredValueは何でどのような時に使用しますか？",
+      "English_Question": "What is useDeferredValue, and when is it used?",
+      "Japanese_Answer": "useDeferredValueはUIの一部の更新を遅延させるフック関数の一つです [70]。ユースケースはuseTranstionと同じですが、useTranstionとの使い分けとしてはpropsやカスタムフックの値に応答してトランジションを開始したい場合に使用すべきです [71]。",
+      "English_Answer": "useDeferredValue is one of the hook functions that delays some updates to the UI [71]. The use case is similar to useTransition, but it should be used when you want to start a transition in response to props or custom hook values [71].",
+      "Related_Link": "useDeferredValue – React <https://react.dev/reference/react/useDeferredValue>, useTransition() vs useDeferredValue | React 18 - YouTube <https://www.youtube.com/watch?v=lDukIAymutM>"
+    },
+    {
+      "Group": "Frontend",
+      "Category": "React",
+      "Japanese_Question": "Reactコンテクストとは何でどのような時に使用しますか？",
+      "English_Question": "What is React Context, and when is it used?",
+      "Japanese_Answer": "Reactコンテクストとは、コンポーネントツリー内でデータを共有するための仕組みです [71]。コンテクストを使うと、プロパティを下に渡すことなくコンテクストの現在値にアクセスできるので、コンポーネントツリーの深くにデータを渡す事ができます [72]。例えば、ユーザー情報などを複数のコンポーネントからアクセスしたい場合Reactコンテクストにユーザー情報を保存します [72]。またReactコンテクストを使う事で、そのコンテクストを利用しているコンポーネントがすべて再レンダリングされてしまうので、コンテクストを分けたり、どうしても難しい場合にはReact.memoなどを活用するべきです [72]。",
+      "English_Answer": "React Context is a mechanism for sharing data within a component tree [72]. By using Context, you can access the current value of the context without passing properties down, allowing you to pass data deep into the component tree [72]. For example, if you want to access user information from multiple components, you store the user information in React Context [72]. When using React Context, all components that utilize that Context end up being re-rendered [72]. Therefore, it's recommended to separate contexts or, when it's particularly challenging, to make use of features like React.memo [72].",
+      "Related_Link": "Passing Data Deeply with Context – React <https://react.dev/learn/passing-data-deeply-with-context>, React Contextの使い方 - Qiita <https://qiita.com/ryokkkke/items/dc25111fcf52ea579d58>"
+    },
+    {
+      "Group": "Frontend",
+      "Category": "React",
+      "Japanese_Question": "React Server Componentとは何ですか？",
+      "English_Question": "What is React Server Component?",
+      "Japanese_Answer": "React Server Componentとは、Reactコンポーネントをサーバーサイドでレンダリングする仕組みです [73]。クライアントサイドアプリの豊富なインタラクティビティと、従来のサーバーレンダリングの高いパフォーマンスを組み合わせることができます [73]。React Server Componentのメリットは\\n- バンドルサイズの減少\\n- サーバーサイドでデータを取得することで、クライアントサイドでのデータフェッチングの複雑さを減らせます\\n- サーバーサイドでのみ使えるライブラリやデータベースにアクセスできます [74]",
+      "English_Answer": "React Server Components are a mechanism for rendering React components on the server side [74]. They allow for combining the rich interactivity of client-side apps with the high performance of traditional server rendering [74]. The benefits of React Server Components include:\\n- Reduced bundle size\\n- Simplified client-side data fetching by obtaining data on the server side\\n- Access to server-side-only libraries and databases [74]",
+      "Related_Link": "React Server Components 総まとめ (zenn.dev) <https://zenn.dev/g4rds/articles/287c53498d17a1>"
+    },
+    {
+      "Group": "Frontend",
+      "Category": "React",
+      "Japanese_Question": "React.Suspenseとは何ですか？",
+      "English_Question": "What is React.Suspense?",
+      "Japanese_Answer": "React.Suspenseを使うと子要素のコンポーネントの読み込みが終わるまでフォールバックを表示することができます [75]。例えば、データを非同期にフェッチする際にロード中のコンポーネントを表示したり、useDeferredValueと組み合わせる事でコンテンツがロード中に以前のコンテンツを表示し続けたい場合などに使用います [75]。",
+      "English_Answer": "Using React.Suspense allows you to display a fallback while waiting for a child component to finish loading [76]. For example, you can use it to display a loading component while asynchronously fetching data or in combination with useDeferredValue to continue displaying previous content while new content is loading [76].",
+      "Related_Link": "<Suspense> – React <https://react.dev/reference/react/Suspense>"
+    },
+    {
+      "Group": "Frontend",
+      "Category": "React",
+      "Japanese_Question": "ReactのError Boundaryとは何ですか？",
+      "English_Question": "What is React Error Boundary?",
+      "Japanese_Answer": "Error Boundaryは自身の子コンポーネントツリーで発生した JavaScript エラーをキャッチし、クラッシュしたコンポーネントツリーの代わりにフォールバックを表示する Reactコンポーネントです [76]。Error Boundaryを使うと、コンポーネント内でエラーが発生して画面全体が真っ白になるのを防ぐことができます [76]。またError Boundaryが補足しないエラーとしては\\n- イベントハンドラ（詳細 <https://ja.legacy.reactjs.org/docs/error-boundaries.html#how-about-event-handlers>）\\n- 非同期コード（例：setTimeout や requestAnimationFrame のコールバック）\\n- サーバサイドレンダリング\\n- （子コンポーネントではなく）error boundary 自身がスローしたエラーなどがあります [77]。",
+      "English_Answer": "Error Boundary is a React component that catches JavaScript errors occurring in its own child component tree and displays a fallback instead of the crashed component tree [77]. By using Error Boundary, you can prevent the entire screen from turning completely white even if an error occurs within a component [77]. In addition, there are some errors that Error Boundaries do not catch, including:\\n- Event handlers (*details* <https://ja.legacy.reactjs.org/docs/error-boundaries.html#how-about-event-handlers>)\\n- Asynchronous code (for example, callbacks for *setTimeout* or *requestAnimationFrame*)\\n- Server-side rendering\\n- Errors thrown by the Error Boundary itself (not its child components) [78].",
+      "Related_Link": "Component – React <https://react.dev/reference/react/Component#catching-rendering-errors-with-an-error-boundary>, Error Boundary – React (reactjs.org) <https://ja.legacy.reactjs.org/docs/error-boundaries.html>"
+    },
+    {
+      "Group": "Frontend",
+      "Category": "React",
+      "Japanese_Question": "Reactでコードを分割する手法を幾つか上げて下さい",
+      "English_Question": "List some methods to do code-splitting in React.",
+      "Japanese_Answer": "\\- import() を使う事でWebpackが自動的にコードを分割します。特定のページでしか必要のない処理を分割するのに役に立ちます。\\n- React.lazyとimport() を組み合わせる事で動的にコンポーネントをレンダリングできます [79]。",
+      "English_Answer": "\\- By using import(), webpack automatically splits the code. This is useful for splitting processes that are only needed on specific pages.\\n- By combining React.lazy and import(), you can dynamically render components [80].",
+      "Related_Link": "lazy – React <https://react.dev/reference/react/lazy>, Dynamic imports (javascript.info) <https://javascript.info/modules-dynamic-imports>"
+    },
+    {
+      "Group": "Frontend",
+      "Category": "React",
+      "Japanese_Question": "Hydrationとは何ですか？",
+      "English_Question": "What is Hydration?",
+      "Japanese_Answer": "Hydrationとは、サーバーサイドレンダリング（SSR）などで生成された静的なHTMLコンテンツに、クライアントサイドでイベントハンドラーをHTML要素にアタッチすることによってインタラクティブな状態にする方法 [80, 81]。",
+      "English_Answer": "Hydration is the method of making static HTML content, generated through techniques like server-side rendering (SSR), interactive on the client side by attaching event handlers to HTML elements [81].",
+      "Related_Link": "ハイドレーションとは何か？ (zenn.dev) <https://zenn.dev/hisasann/articles/what-is-hidration>"
+    },
+    {
+      "Group": "Frontend",
+      "Category": "Browser Networking",
+      "Japanese_Question": "ブラウザでURLを開くと何が起こるのでしょうか？",
+      "English_Question": "What will happen when you open an URL in a browser?",
+      "Japanese_Answer": "DNSを通じて、クライアント（ブラウザ）はURLのホスト名を宛先サーバーのIPアドレスに解決します [81]。そして、3ウェイハンドシェイクによりTCP接続を確立します [81]。TCP接続の上に、TLSハンドシェイクによってTLS接続を確立し、暗号化されたデータのみがネットワーク上で送信されるようにします [82]。クライアントはHTTPプロトコルを使用して、ヘッダーとリクエストペイロードを含むリクエストを送信先のサーバーに送信します [82]。サーバーは、ステータスコード、ヘッダー、レスポンスペイロードで応答します [82]。",
+      "English_Answer": "Through DNS, client (the browser) will resolve hostname of the URL to an IP address of the destination server [82]. Then it establishes a TCP connection through a three-way handshake [82]. On top of TCP connection, it establishes TLS connection though TLS handshake, so that only encrypted data is sent over the network [82]. The client uses HTTP Protocol to send a request which contains headers and request payload to the destination server [82]. The server responds with a status code, headers and response payload [82].",
+      "Related_Link": "GitHub - tetz-akaneya/what-happens-when-JA <https://github.com/tetz-akaneya/what-happens-when-JA>"
+    },
+    {
+      "Group": "Frontend",
+      "Category": "Browser Networking",
+      "Japanese_Question": "HTTP/2とHTTP/1.1の違いを教えてください",
+      "English_Question": "How is HTTP/2 different from HTTP/1.1",
+      "Japanese_Answer": "\\- HTTP/2は複数のHTTPリクエストとレスポンスが1つのTCP接続上で同時に送受信できるようにします [83]。HTTP/1.1 では、各リクエストと応答は1つのTCP接続で送受信されます。これにより、HTTP/2は帯域幅が限られているネットワークでは、パフォーマンスが大幅に向上する可能性があります [84]。\\n- HTTP/2がバイナリフレーミングレイヤーを使用しているのに対し、HTTP/1.1はすべてのリクエストとレスポンスをプレーンテキスト形式で保持していることです [84]。HTTP/2は、メッセージをバイナリ形式に変換してカプセル化することで、HTTPの効率を向上させています [85]。\\n- HTTP/2は、サーバーがPUSHフレームを使用してクライアントにデータをプッシュすることができる点でも異なります [84]。",
+      "English_Answer": "\\- HTTP/2 allows multiple HTTP requests and responses to be sent and received simultaneously over a single TCP connection; in HTTP/1.1, each request and response is sent and received over a single TCP connection. This allows HTTP/2 to provide potentially significant performance gains in networks with limited bandwidth [84].\\n- The difference is that HTTP/2 uses a binary framing layer, whereas HTTP/1.1 keeps all requests and responses in plain text format [85]. HTTP/2 improves the efficiency of HTTP by converting and encapsulating messages into binary format [85].\\n- HTTP/2 also differs in that it allows servers to push data to clients using PUSH frames [85].",
+      "Related_Link": "HTTP/2対HTTP/1.1：Webパフォーマンスにどのように影響するのか？ <https://www.cloudflare.com/ja-jp/learning/performance/http2-vs-http1.1/>, What is HTTP/2 and how is it different from HTTP/1? <https://www.wallarm.com/what/what-is-http-2-and-how-is-it-different-from-http-1>"
+    },
+    {
+      "Group": "Frontend",
+      "Category": "Browser Networking",
+      "Japanese_Question": "TCPとUDPの違いを説明してください。",
+      "English_Question": "Explain TCP vs UDP",
+      "Japanese_Answer": "TCPは、パケットの到着順序を正しくすること、パケットを失った場合の再送、IPパケットの重複処理など、UDPにはない信頼性の高い接続を確立しています [86]。とはいえ、UDPはTCPよりも高速で効率的なプロトコルです [86]。TCPはウェブサービスのような信頼性の高い接続を必要とするアプリケーションでよく使われ、UDPはマルチプレイヤーゲームや音声/ビデオ通話などパケットロスを許容できるアプリケーションでよく使われます [86]。",
+      "English_Answer": "TCP connection is established using a reliable connection by providing correct order of packet arrival, retransmission in case of lost packet, duplicated IP packet handling which UDP does not [86]. That said, UDP is a faster and efficient protocol than TCP [87]. TCP is commonly used by application that needs reliable connection such as web service while UDP is commonly used by application can tolerate packet loss such as multiplayer gaming, voice/video call [87].",
+      "Related_Link": "TCP/IPとは？ | Cloudflare、 <https://www.cloudflare.com/learning/ddos/glossary/tcp-ip/>, UDPとは？ | Cloudflare <https://www.cloudflare.com/learning/ddos/glossary/user-datagram-protocol-udp/>"
+    },
+    {
+      "Group": "Frontend",
+      "Category": "Browser Networking",
+      "Japanese_Question": "TCPの3ウェイ・ハンドシェイクとは何ですか？",
+      "English_Question": "What is TCP three-way handshake",
+      "Japanese_Answer": "\\- 接続確立時、クライアントは SYN ビットを立てたパケットをサーバーに送信してハンドシェイクの開始を示します [87]。\\n- サーバーは SYN を受信し、送信されたパケットの確認を示す ACK を返します [88]。\\n- クライアントはサーバーからの返信を確認し、両者はデータを転送するために TCP 接続を確立します [88]。\\n- (ボーナス) 接続を閉じるために、送信側 (クライアント/サーバー) は FIN パケットを送信します。受信側は FIN を受信し、確認を示す ACK を返します。送信側はその後 ACK で確認します [88]。",
+      "English_Answer": "\\- When a connection is established, the client sends a packet with the SYN bit up to the server to indicate the start of the handshake [88].\\n- The server receives the SYN and returns an ACK indicating acknowledgement of the packet sent [88].\\n- The client acknowledges the reply from the server and both parties establish a TCP connection to transfer data [88].\\n- (Bonus) To close the connection, the sender (client/server) sends a FIN packet. The receiving end receives the FIN and returns an ACK indicating confirmation. The sender then confirms with an ACK [89].",
+      "Related_Link": "Three Way Handshake <https://hpbn.co/building-blocks-of-tcp/#three-way-handshake>"
+    },
+    {
+      "Group": "Frontend",
+      "Category": "Browser Networking",
+      "Japanese_Question": "TLS証明書は何のために使われるのですか？",
+      "English_Question": "What is TLS Certificates for ?",
+      "Japanese_Answer": "TLS証明書は、ブラウザ、Webサイト、Webサイトのサーバー間で送信されるデータを暗号化することによって、インターネット接続を保護するために使用されます [89, 90]。TLS証明書は、データが改ざん、紛失、盗難されないように保証し、データが非公開で送信されることを保証します [90]。TLS証明書は、電子メールや電子データの暗号化による保護にも使用されます [90]。TLS証明書は、自分自身の身元を証明するだけでなく、電子メールや電子データの捺印にも使用されます [90]。",
+      "English_Answer": "TLS certificates are used to protect your Internet connection by encrypting data transmitted between your browser, the Web site, and the Web site's server [90]. TLS certificates are also used to protect email and electronic data through encryption; TLS certificates are used to seal email and electronic data as well as to prove one's identity [90].",
+      "Related_Link": "What is TLS <https://www.cloudflare.com/learning/ssl/transport-layer-security-tls/>, SSL/TLSサーバー証明書の基礎知識 <https://www.cybertrust.co.jp/blog/ssl/knowledge/ssl-basics.html>"
+    },
+    {
+      "Group": "Frontend",
+      "Category": "Browser Networking",
+      "Japanese_Question": "DNS（名前解決）とは何ですか",
+      "English_Question": "What is DNS resolution",
+      "Japanese_Answer": "DNSとは、Domain Name Systemの略で、ドメイン名をIPアドレスに変換するプロセスです [91]。このプロセスにより、ユーザーはURLを通してウェブサイトにアクセスすることができます [91]。DNS解決は、ドメインネームシステム（DNS）によって実行され、IPアドレスをパブリックまたはプライベートインターネットに接続されたホストにマッピングします [91]。DNS解決では、検索を実行したいプログラムがDNSリゾルバにリクエストを送信し、DNSリゾルバはDNSサーバーに問い合わせて、ドメイン名に関連付けられたIPアドレスを取得します [91]。",
+      "English_Answer": "DNS resolution is the process of translating a domain name into an IP address [91]. This process allows users to access websites through their URLs [91]. DNS resolution is performed by the Domain Name System (DNS), which maps IP addresses to hosts connected to either the public or private internet [91]. During DNS resolution, the program that wishes to perform the lookup sends a request to a DNS resolver, which then queries the DNS server to obtain the IP address associated with the domain name [92].",
+      "Related_Link": "What is Domain Name Resolution? <https://www.cloudns.net/blog/domain-name-resolution/>"
+    },
+    {
+      "Group": "Frontend",
+      "Category": "Browser Networking",
+      "Japanese_Question": "GraphQLとは何ですか？",
+      "English_Question": "What is GraphQL?",
+      "Japanese_Answer": "GraphQLとは、API向けに作られたクエリ言語、およびその実装（ランタイム）を指します [92]。REST APIとの比較でよく検討されますが、GraphQLの魅力として、すべてのデータが1 つのエンドポイントで提供され、要求された「特定のデータのみ」を受け取ること [92]。これにより、アプリケーションと一緒にAPIを拡張することが容易になります [92]。また、GraphQLイントロスペクションにより利用できるスキーマの情報を取得する事が可能で、自動でドキュメントを作成する時などで活用できます [93]。",
+      "English_Answer": "GraphQL is a query language designed for APIs, as well as its implementation (runtime) [93]. It is often compared with REST APIs, but one of the appealing features of GraphQL is that all data is provided through a single endpoint, and only the requested \\specific data\\\" is received [93]. This makes it easier to extend the API along with the application [93]. Additionally",
+      "Related_Link": " GraphQL introspection allows you to retrieve information about the available schema",
+      "null": [
+        " which can be utilized when creating documentation automatically",
+        " for other use cases [93].\"",
+        "GraphQLとRESTの比較─知っておきたい両者の違い (kinsta.com) <https://kinsta.com/jp/blog/graphql-vs-rest/>, GraphQL とは - 特徴、メリットとデメリット | Red Hat <https://www.redhat.com/ja/topics/api/what-is-graphql>"
+      ]
+    },
+    {
+      "Group": "Frontend",
+      "Category": "Web Performance Optimization",
+      "Japanese_Question": "ブラウザがHTMLをダウンロードを完了してから画面に描画されるまでのステップを説明してください",
+      "English_Question": "Explain the steps from when a browser finishes downloading HTML to when it is rendered on the screen",
+      "Japanese_Answer": "1. HTMLをパースしながらDocument Object Model（DOM）を作成 [94]。2. 途中に<link>タグに出会った場合、非同期でCSSをダウンロードしCSSOMCSS Object Model（CSSOM）を作成 [94]。3. 途中で<script>タグに出会った場合、同期的にロードされ評価される。HTMLのパースが止まるの注意(async/deferで非同期にする事も可能) [94]。4. DOMとCSSOMが揃ったタイミングでレンダーツリーを作成 [94]。5. レイアウト（リフロー）によりレンダーツリーの各要素の位置や幅・高さなどが決定 [94]。6. 各要素を画面にペイントし画面に描画される [94]。",
+      "English_Answer": "1. Create the Document Object Model (DOM) while parsing the HTML [94]. 2. When encountering a <link> tag, asynchronously download the CSS and create the CSS Object Model (CSSOM) [94]. 3. When encountering a <script> tag, it is loaded and evaluated synchronously, pausing the parsing of the HTML [95]. 4. Create the Render Tree when both the DOM and CSSOM are ready [95]. 5. Determine the position, width, height, etc., of each element in the Render Tree through Layout (Reflow) [95]. 6. Paint each element onto the screen and render it [95].",
+      "Related_Link": "Webブラウザのレンダリングの仕組みを理解する (zenn.dev) <https://zenn.dev/oreo2990/articles/280d39a45c203e>, Web パフォーマンスのための HTML 最適化 | メルカリエンジニアリング (mercari.com) <https://engineering.mercari.com/blog/entry/html-optimization-for-web-performance/>"
+    },
+    {
+      "Group": "Frontend",
+      "Category": "Web Performance Optimization",
+      "Japanese_Question": "クリティカルレンダリングパスとは何ですか？",
+      "English_Question": "What is Critical Rendering Path?",
+      "Japanese_Answer": "クリティカルレンダリングパスとは、ブラウザがHTML、CSS、JavaScriptを画面上のピクセルに変換するために辿る一連のステップのことです [96]。クリティカルレンダリングパスには、Document Object Model（DOM）、CSS Object Model（CSSOM）、レンダーツリー、レイアウトが含まれます [96]。クリティカルレンダリングパスを最適化するには\\n- クリティカルリソースの数を減らす：重要でないリソースのダウンロードを延期したり、削除する\\n- クリティカルパスの長さを短縮：重要なリソースのダウンロードを優先することで順序を最適化する\\n- クリティカルバイトの最小化：リソースの数を減らし（排除するか、重要でないものにする）、各リソースを圧縮・最適化することで転送サイズを最小化する [96, 97]。",
+      "English_Answer": "The critical rendering path refers to a series of steps that a browser follows to convert HTML, CSS, and JavaScript into pixels displayed on the screen [97]. Optimizing the critical rendering path improves rendering performance [97]. The critical rendering path includes the Document Object Model (DOM), CSS Object Model (CSSOM), render tree, and layout [97]. To optimize the critical rendering path:\\n- Reduce the number of critical resources: Defer or remove the download of non-essential resources\\n- Shorten the length of the critical path: Optimize the order by prioritizing the download of important resources\\n- Minimize critical bytes: Reduce the number of resources (either by eliminating them or designating them as non-essential), and minimize the transfer size by compressing and optimizing each resource [97].",
+      "Related_Link": "Critical rendering path - Web performance | MDN (mozilla.org) <https://developer.mozilla.org/en-US/docs/Web/Performance/Critical_rendering_path>, Optimizing the Critical Rendering Path (web.dev) <https://web.dev/critical-rendering-path-optimizing-critical-rendering-path/>, Populating the page: how browsers work - Web performance | MDN (mozilla.org) <https://developer.mozilla.org/en-US/docs/Web/Performance/How_browsers_work>"
+    },
+    {
+      "Group": "Frontend",
+      "Category": "Web Performance Optimization",
+      "Japanese_Question": "Webのパフォーマンスを測定する上で重要なWeb Vitialsとは何か？",
+      "English_Question": "What are Web Vitials, which are important for measuring Web performance?",
+      "Japanese_Answer": "Web Vitalsとは、Webで優れたUX（ユーザー体験）を実現するための品質シグナルのことです [98]。Core Web Vitalsは、LCP（Largest Contentful Paint）、FID（First Input Delay）、CLS（Cumulative Layout Shift）の3つの指標で構成されており、それぞれWebページの読み込み速度、インタラクティブ性、視覚的な安定性を測定します [98]。補足としてFIDを改善した指標のINP（Interaction to Next Paint） <https://web.dev/inp-cwv/>がアナウンスされています [98]。",
+      "English_Answer": "Web Vitals refers to quality signals for achieving an excellent user experience (UX) on the web [98]. Core Web Vitals consist of three metrics: LCP (Largest Contentful Paint), FID (First Input Delay), and CLS (Cumulative Layout Shift) [98]. These metrics respectively measure the loading speed, interactivity, and visual stability of a web page [98]. As additional information, an announcement has been made regarding INP (Interaction to Next Paint), an improved metric of FID [99].",
+      "Related_Link": "Web Vitals <https://web.dev/vitals/>, Google Developers Japan: Web Vitals の概要: サイトの健全性を示す重要指標 (googleblog.com) <https://developers-jp.googleblog.com/2020/05/web-vitals.html>"
+    },
+    {
+      "Group": "Frontend",
+      "Category": "Web Performance Optimization",
+      "Japanese_Question": "RAILモデルとは何ですか？",
+      "English_Question": "What is RAIL model?",
+      "Japanese_Answer": "RAILモデルとは、Webアプリケーションのパフォーマンスを評価するためのユーザー中心のモデルです [100]。RAILは、Response（応答）、Animation（アニメーション）、Idle（アイドル）、Load（読み込み）の頭文字をとったもので、ユーザーの体験を重要なアクションに分けて、それぞれにパフォーマンスの目標を設定することを助けます [100]。",
+      "English_Answer": "The RAIL model is a user-centric model for evaluating the performance of web applications [100]. RAIL stands for Response, Animation, Idle, and Load, which are the initial letters of the key aspects of user experience [100]. The model helps set performance goals for each important action, such as tapping, scrolling, and loading [100].",
+      "Related_Link": "RAILモデルでパフォーマンスを評価する (web.dev) <https://web.dev/rail/>"
+    },
+    {
+      "Group": "Frontend",
+      "Category": "Web Performance Optimization",
+      "Japanese_Question": "requestAnimationFrameとは何ですか？",
+      "English_Question": "What is requestAnimationFrame?",
+      "Japanese_Answer": "requestAnimationFrame()は画面の描画毎に指定したコールバックを繰り返し実行するAPIです [101]。requestAnimationFrame()の利点は画面のリフレッシュレート（1秒あたりの描画切り替え回数）に合わせて繰り返されるので、リフレッシュレートに沿った滑らかアニメーションが実現できます [101]。",
+      "English_Answer": "The requestAnimationFrame() is an API that repeatedly executes a specified callback with each screen redraw [102]. The advantage of requestAnimationFrame() is that it repeats according to the screen's refresh rate (the number of redraws per second), allowing for smooth animations that follow the refresh rate [102].",
+      "Related_Link": "Window.requestAnimationFrame() - Web API | MDN (mozilla.org) <https://developer.mozilla.org/ja/docs/Web/API/Window/requestAnimationFrame>, requestAnimationFrame を使いつつ FPS を調整する | おいもログ (oimo.io) <https://blog.oimo.io/2021/06/06/adjust-fps/>"
+    },
+    {
+      "Group": "Frontend",
+      "Category": "Web Performance Optimization",
+      "Japanese_Question": "Performance Budgetとは何ですか？",
+      "English_Question": "What is Performance Budget?",
+      "Japanese_Answer": "Performance Budgetとは、Webサイトを高速に保つための利用する考え方です [102]。「Budget ＝予算」という言葉が表す通り、パフォーマンスに関する予算を決めることでサイトのパフォーマンスを維持します [103]。UX上重要、運用しやすいものを予算として定義すると良いと思います [103]。SpeedCurveなどのサービスを利用すると簡単にPerformance budgetsを管理できます [103]。",
+      "English_Answer": "Performance Budget is a concept used to maintain the speed of a website [103]. As the word \\budget\\\" implies",
+      "Related_Link": " it involves setting a performance-related budget to maintain the site's performance [103]. It's a good idea to define a budget that focuses on the most important aspects of user experience and ease of operation [103]. Services like SpeedCurve make it easy to manage Performance Budget [103].\"",
+      "null": [
+        "Google Developers Japan: パフォーマンスバジェットのご紹介 - ウェブパフォーマンスのための予算管理 (googleblog.com) <https://developers-jp.googleblog.com/2019/03/blog-post_15.html>"
+      ]
+    },
+    {
+      "Group": "Frontend",
+      "Category": "Web Performance Optimization",
+      "Japanese_Question": "Cache-Controlヘッダーとは何ですか？",
+      "English_Question": "What is Cache-Control Header?",
+      "Japanese_Answer": "Cache-Controlヘッダーとは、HTTPのヘッダーフィールドの一つで、ブラウザや共有キャッシュ（プロキシーやCDNなど）において、送信したファイルのキャッシュの扱いを指定するものです [104]。例えば、キャッシュの有効期限や再検証の必要性などをディレクティブとして設定できます [104]。",
+      "English_Answer": "The Cache-Control header is one of the HTTP header fields that specifies how to handle the cache of transmitted files in browsers and shared caches (such as proxies and CDNs) [105]. For example, you can set directives such as the cache's expiration and the need for revalidation [105].",
+      "Related_Link": "HTTP キャッシュ - HTTP | MDN (mozilla.org) <https://developer.mozilla.org/ja/docs/Web/HTTP/Caching>"
+    },
+    {
+      "Group": "Frontend",
+      "Category": "Web Performance Optimization",
+      "Japanese_Question": "Resource Hintsとは何ですか？",
+      "English_Question": "What are Resource Hints?",
+      "Japanese_Answer": "Resource Hints（リソースヒント）は、link要素を利用してWebページに必要なリソースをブラウザに事前に伝える方法です [106]。リソースヒントは、Webページのパフォーマンスや速度を改善するのに役立ちます [106]。リソースヒントには4つのタイプがあります。\\n- dns-prefetch：リクエストする前にリソースのドメイン名を解決するようブラウザに伝える\\n- preconnect：リクエストする前にリソースとの接続を確立するようブラウザに伝える\\n- prefetch：リクエストする前にリソースを取得するようブラウザに伝える\\n- prerender：リクエストする前にページ全体をレンダリングするようブラウザに伝える [107]。リソースヒントは、誤った使用をすると負の影響を与えるため、慎重に選択的に使用する必要があります [107]。",
+      "English_Answer": "Resource Hints is a way to tell the browser about the resources that will be needed for the web page in advance, using the link element [107]. Resource Hints can help improve the performance and speed of the web page [107]. There are four types of Resource Hints:\\n- dns-prefetch: This hint tells the browser to resolve the domain name of a resource before it is requested.\\n- preconnect: This hint tells the browser to establish a connection to a resource before it is requested.\\n- prefetch: This hint tells the browser to fetch a resource before it is requested.\\n- prerender: This hint tells the browser to render a whole page before it is requested [108]. Resource Hints should be used carefully and selectively, as they can have negative effects if used incorrectly [109].",
+      "Related_Link": "Web パフォーマンスのための HTML 最適化 | メルカリエンジニアリング (mercari.com) <https://engineering.mercari.com/blog/entry/html-optimization-for-web-performance/>"
+    },
+    {
+      "Group": "Frontend",
+      "Category": "Web Performance Optimization",
+      "Japanese_Question": "フロントエンドのパフォーマンスを計測する時には何をしますか？",
+      "English_Question": "What do you do when measuring front-end performance?",
+      "Japanese_Answer": "パフォーマンスを計測するときにはシンセティックモニタリング（Synthetic Monitoring）とリアルユーザーモニタリング（RUM）の両方の計測が必要です [109, 110]。\\n- *シンセティックモニタリング*: WebPageTest <https://webpagetest.org/>やLighthouse <https://developers.google.com/web/tools/lighthouse/>などのツールを活用して、シミュレートした環境での性能を計測します [110]。\\n- *リアルユーザーモニタリング（RUM）*: 実際にWebサイトやアプリケーションに訪れたユーザーの操作やイベントの情報から性能を計測します [110]。データはNavigation Timing APIやユーザーのブラウザの情報などから収集され、アナリティクスサーバーに非同期でデータを送信する事で実際にユーザー直面しているパフォーマンスの情報を知る事ができます [110]。",
+      "English_Answer": "When measuring performance, it's essential to use both Synthetic Monitoring and Real User Monitoring (RUM) for comprehensive results [111].\\n- *Synthetic Monitoring*: Utilize tools like *WebPageTest* <https://webpagetest.org/> and *Lighthouse* <https://developers.google.com/web/tools/lighthouse/> to measure performance in simulated environments [111].\\n- *Real User Monitoring (RUM)*: Measure the interactions and events of actual users visiting your website or application [112]. Data is collected from sources such as the Navigation Timing API and user browser information, then asynchronously sent to analytics servers [112]. This allows you to gain insights into the performance issues that real users are facing [112].",
+      "Related_Link": "Synthetic monitoring (合成モニタリング) - MDN Web Docs 用語集: ウェブ関連用語の定義 | MDN (mozilla.org) <https://developer.mozilla.org/ja/docs/Glossary/Synthetic_monitoring>, リアルユーザモニタリング（RUM） vs 合成モニタリング: 顧客体験を改善するにはどうしたらいいか | New Relic <https://newrelic.com/jp/blog/how-to-relic/synthetic-versus-real-user-monitoring>"
+    },
+    {
+      "Group": "Frontend",
+      "Category": "Web Performance Optimization",
+      "Japanese_Question": "Webアプリケーションのページ表示速度や遅くUI操作も重いと言われました。あなたは何をして改善しますか？",
+      "English_Question": "You were told that the page speed of the web application is slow, and the UI operation was also heavy. What would you do to improve it?",
+      "Japanese_Answer": "Webアプリケーションのページ表示速度を向上させ、UI操作の重さを軽減するために、以下の手順を実行できます。\\n1. *パフォーマンスを分析する: *パフォーマンス分析ツール（Google Lighthouseなど）を使用して、ボトルネックを特定する [113, 114]。\\n2. *画像を最適化する: *画像を圧縮しWebPやAVIFのような適切な形式で提供する。画像を遅延ロードする [114]。\\n3. *アセットを最小化および圧縮する: *HTML、CSS、JavaScriptファイルの圧縮を行い [114]、サーバーでGZIPまたはBrotli圧縮を有効にする [115]。\\n4. *JavaScriptを最適化する: *使用されていないコードを削除（Tree shaking）、非クリティカルなJSを遅延、大きなファイルを分割する [115]。\\n5. *CSSを最適化する: *使用されていないCSSを削除し、初期レンダリングに必要なスタイルをインライン化する [115]。\\n6. *HTTP/2を使用する: *ストリームの多重化やHPACK圧縮アルゴリズムを活用する [115]。\\n7. *ブラウザーキャッシングを活用する: *適切なキャッシュヘッダーを設定し、必要ならService Workerを活用する [115]。\\n8. *Content Delivery Network（CDN）を使用する: *CDNを使用して、ユーザーに近いサーバーから静的アセットを提供する [115]。\\n9. *Resource Hintsおよび103 Early Hintsを使用する: *重要なリソースを事前に読み込みまたはフェッチし、コネクションを確立する [116]。\\n10. *UIを簡素化する: *UI要素、アニメーション、トランジションの数を減らし、レンダリングオーバーヘッドを最小限に抑える [116]。\\n11. *仮想化ページネーションされたリストを使用する: *大規模なリストを扱う場合、仮想化またはページネーションを実装する [116]。",
+      "English_Answer": "To improve the page speed and reduce the heaviness of the UI operation, you can follow these steps:\\n1. *Analyze performance*: Use performance analysis tools to identify bottlenecks [116, 117].\\n2. *Optimize images*: Compress images (WebP/AVIF) and implement lazy-loading [117].\\n3. *Minify and compress assets*: Minify HTML/CSS/JS [117] and enable GZIP or Brotli compression [118].\\n4. *Optimize JavaScript*: Remove unused code (Tree shaking), defer non-critical JS, and break large files into smaller modules [118].\\n5. *Optimize CSS*: Remove unused CSS and inline essential styles [118].\\n6. *Use HTTP/2*: Leverage parallel processing and HPACK compression [118].\\n7. *Leverage browser caching*: Set cache headers and use service workers [119].\\n8. *Use Content Delivery Network (CDN)*: Serve assets from servers near the user [119].\\n9. *Use Resource Hints and 103 Early Hints*: Use them to allow the browser to preload and prefetch critical resources [119].\\n10. *Simplify the UI*: Reduce UI elements, animations, and transitions [120].\\n11. *Use virtualized or paginated lists*: Implement virtualization or pagination for large lists [120].",
+      "Related_Link": "フロントエンドのパフォーマンスチューニングを俯瞰する - 30歳からのプログラミング (hatenablog.com) <https://numb86-tech.hatenablog.com/entry/2021/05/05/224611>, Reactのパフォーマンス改善を勉強会で開催しました - JX通信社エンジニアブログ (jxpress.net) <https://tech.jxpress.net/entry/2021/08/04/140249>, ReFlowの原因とマークアップの最適化 (linecorp.com) <https://engineering.linecorp.com/ja/blog/reflow-and-markup-optimization>, Service worker caching and HTTP caching (web.dev) <https://web.dev/service-worker-caching-and-http-caching/>, Best practices for fonts (web.dev) <https://web.dev/font-best-practices/>, サーバープッシュを超える解決策 : 103 Early Hints ステータスコードを使った実験 | Fastly <https://www.fastly.com/jp/blog/beyond-server-push-experimenting-with-the-103-early-hints-status-code>, react-virtualized <https://github.com/bvaughn/react-virtualized>"
+    },
+    {
+      "Group": "Frontend",
+      "Category": "Web Security",
+      "Japanese_Question": "クロスサイトスクリプティング（XSS）とは？また、それを対策する方法を教えてください。",
+      "English_Question": "What is Cross Site Scripting (XSS)? How to prevent XSS ?",
+      "Japanese_Answer": "XSS攻撃を成功させるためには、攻撃者がHTMLに悪意のコードを挿入して実行する必要があります [121]。防ぐには、HTMLに出力される変数を処理する必要があります [121]。具体的には\\n- 出力エンコード：JavaScriptの場合は.textContentを使ってHTMLエンコードを行う [121]\\n- HTMLでのサニタイズ：変数から危険なHTMLを取り除き、安全なHTMLの文字列を返します。OWASPは、HTMLサニタイズにDOMPurify <https://github.com/cure53/DOMPurify>を推奨しています [121]。",
+      "English_Answer": "For an XSS attack to succeed, the attacker must insert and execute malicious code [122]. To prevent this, you need to handle variables that are displayed in HTML [122]\\n- Output encoding: In order to add a variable to a HTML context safely, use HTML entity encoding for that variable. If you are using JavaScript, use .textContent to encode the HTML [122]\\n- HTML Sanitization: Use it when you really want to output HTML (e.g. WYSIWYG editors). It remove dangerous HTML from the variable and return a safe HTML string. OWASP recommends DOMPurify <https://github.com/cure53/DOMPurify> for HTML Sanitization [122].",
+      "Related_Link": "Cross Site Scripting Prevention Cheat Sheet <https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html#html-sanitization>"
+    },
+    {
+      "Group": "Frontend",
+      "Category": "Web Security",
+      "Japanese_Question": "CORSとは何ですか？",
+      "English_Question": "What is CORS?",
+      "Japanese_Answer": "CORSとは、オリジン間リソース共有 (Cross-Origin Resource Sharing) の略で、異なるオリジンからのアクセスを許可する仕組みです [123]。CORSがなければ、ブラウザーはセキュリティ上の理由でリクエストを拒否します [123]。CORSを有効にするには、サーバー側でアクセスを許可するオリジンやメソッドなどを指定するHTTPヘッダーを返す事が必要です [124]。",
+      "English_Answer": "CORS stands for Cross-Origin Resource Sharing, which is a mechanism that allows access from different origins [124]. Without CORS, the browser will reject the request for security reasons [124]. To enable CORS, the server needs to return specific HTTP headers specifying the allowed origins, methods, etc [124].",
+      "Related_Link": "オリジン間リソース共有 (CORS) - HTTP | MDN (mozilla.org) <https://developer.mozilla.org/ja/docs/Web/HTTP/CORS>"
+    },
+    {
+      "Group": "Frontend",
+      "Category": "JS Coding",
+      "Japanese_Question": "fooのとbar値は何になりますか？\\nvar foo = '' + 1 + 0;\\nvar bar = '2' * '3';",
+      "English_Question": "What is the value of foo andbar?\\nvar foo = '' + 1 + 0;\\nvar bar = '2' * '3';",
+      "Japanese_Answer": "答え: foo = “10”, bar = 6\\n- 二項演算子 +が文字列に適用された場合は片方のオペランドが文字列の場合、もう片方が数値でも文字列に変換される。\\n- 乗算の場合、オペランドは常に数値に変換されます。また減算、除算等の場合でもオペランドは数値に変換されてる事を注意してください。また’’は数値に変換されると0になります [125]。",
+      "English_Answer": "Answer: foo = “10”, bar = 6\\n- When the binary operator *+* is applied to a string, if one operand is a string, the other is converted to a string even if it is a number.\\n- In the case of multiplication, operands are always converted to numbers. Also, please note that operands are converted to numbers even in subtraction, division, and other operations. Additionally, the empty string ('') becomes 0 when converted to a number [125, 126].",
+      "Related_Link": "演算子 (javascript.info) <https://ja.javascript.info/operators>"
+    },
+    {
+      "Group": "Frontend",
+      "Category": "JS Coding",
+      "Japanese_Question": "次の出力は何になりますか？\\nconsole.log(0.1 + 0.2 == 0.3);",
+      "English_Question": "What is the next output?\\nconsole.log(0.1 + 0.2 == 0.3);",
+      "Japanese_Answer": "答え: false\\nJavaScriptで0.1 + 0.2 ≠ 0.3となるのは、JavaScriptが浮動小数点数を2進数で表現しているため、特定の10進数を表現できないからです [126, 127]。JavaScriptはIEEE 754の規格に従って、JavaScriptは浮動小数点数について約 17 桁の精度しか保持できません [127]。",
+      "English_Answer": "Answer: false\\nIn JavaScript, 0.1 + 0.2 does not equal 0.3 because JavaScript represents floating-point numbers in binary, which cannot accurately represent certain decimal numbers [127]. JavaScript follows the IEEE 754 standard, which means it can only hold approximately 17 digits of precision for floating-point numbers [127].",
+      "Related_Link": "Number - JavaScript | MDN (mozilla.org) <https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Number>"
+    },
+    {
+      "Group": "Frontend",
+      "Category": "JS Coding",
+      "Japanese_Question": "次の出力は何になりますか？\\nfor (var i = 0; i < 3; i++) {\\nsetTimeout(() => console.log(i), 0);\\n}",
+      "English_Question": "What is the next output?\\nfor (var i = 0; i < 3; i++) {\\nsetTimeout(() => console.log(i), 0);\\n}",
+      "Japanese_Answer": "答え: 3, 3, 3\\nsetTimeout()関数はイベントキューに追加され、ループを抜けた後で実行されます [128]。変数iはvarで宣言されているため、巻き上げ（*ホイスティング*）が起き、ループを抜けた後の値（3）が参照されます [128]。",
+      "English_Answer": "Answer: 3, 3, 3\\nThe setTimeout() function is added to the event queue and executed after the loop is exited [128]. Because the variable i is declared with var, *hoisting* occurs, and the value of i after the loop (3) is referenced [128].",
+      "Related_Link": ""
+    },
+    {
+      "Group": "Frontend",
+      "Category": "JS Coding",
+      "Japanese_Question": "次の出力は何になりますか？\\nconsole.log('one');\\nsetTimeout(function() {\\nconsole.log('two');\\n}, 0);\\nPromise.resolve().then(function() {\\nconsole.log('three');\\n})\\nconsole.log('four');",
+      "English_Question": "What is the next output?\\nconsole.log('one');\\nsetTimeout(function() {\\nconsole.log('two');\\n}, 0);\\nPromise.resolve().then(function() {\\nconsole.log('three');\\n})\\nconsole.log('four');",
+      "Japanese_Answer": "答え: one, four, three, two\\n同期処理（'one', 'four'）が最初に実行されます [129]。次にマイクロタスクキュー（*Promise*.then）のタスクが実行され（'three'） [130, 131]、最後にタスクキュー（*setTimeout*）のタスクが実行されます（'two'） [130, 131]。",
+      "English_Answer": "Answer: one, four, three, two\\nSynchronous logs ('one', 'four') are executed first [129]. Then the microtask queue (*Promise*.then) is executed ('three') [131, 132], and finally the task queue (*setTimeout*) is executed ('two') [131].",
+      "Related_Link": "タスクキューとマイクロタスクキュー｜イベントループとプロミスチェーンで学ぶJavaScriptの非同期処理 (zenn.dev) <https://zenn.dev/estra/books/js-async-promise-chain-event-loop/viewer/d-epasync-task-microtask-queues>"
+    },
+    {
+      "Group": "Frontend",
+      "Category": "JS Coding",
+      "Japanese_Question": "次の出力は何になりますか？\\nPromise.resolve(1)\\n.then(\\n(value) => console.log(value * 2),\\n)\\n.then(() => { throw new Error('Oh No!'); })\\n.catch((error) => 3)\\n.finally(() => console.log(4))\\n.then(console.log);\\nconsole.log(7);",
+      "English_Question": "What is the next output?\\nPromise.resolve(1)\\n.then(\\n(value) => console.log(value * 2),\\n)\\n.then(() => { throw new Error('Oh No!'); })\\n.catch((error) => 3)\\n.finally(() => console.log(4))\\n.then(console.log);\\nconsole.log(7);",
+      "Japanese_Answer": "答え: 7, 2, 4, 3",
+      "English_Answer": "Answer: 7, 2, 4, 3",
+      "Related_Link": ""
+    }
+]
