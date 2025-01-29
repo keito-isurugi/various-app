@@ -50,7 +50,7 @@ if (process.env.NEXT_PUBLIC_USE_FIREBASE_EMULATOR === "true") {
  * tech-test.json を読み込む
  */
 function loadTechTestData(): TechTestQuestion[] {
-	const filePath = resolve(__dirname, "../tech-test.json");
+	const filePath = resolve(__dirname, "../src/data/study/tech-test.json");
 	const fileContent = readFileSync(filePath, "utf-8");
 	return JSON.parse(fileContent) as TechTestQuestion[];
 }

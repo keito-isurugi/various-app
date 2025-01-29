@@ -46,7 +46,7 @@ export async function POST() {
 		const db = initializeFirebase();
 
 		// tech-test.jsonを読み込み
-		const filePath = resolve(process.cwd(), "tech-test.json");
+		const filePath = resolve(process.cwd(), "src/data/study/tech-test.json");
 		const fileContent = readFileSync(filePath, "utf-8");
 		const questions = JSON.parse(fileContent) as TechTestQuestion[];
 

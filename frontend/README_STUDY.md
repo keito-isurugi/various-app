@@ -124,7 +124,11 @@ frontend/
 │       └── study.ts                  # 型定義
 ├── scripts/
 │   └── importQuestions.ts            # インポートスクリプト
-└── tech-test.json                    # 問題データ
+├── src/data/study/
+│   ├── tech-test.json                # 問題データ
+│   ├── tech-test-old.json            # 旧問題データ
+│   ├── tech-test.md                  # 問題ドキュメント
+│   └── tech-test-review.md           # レビュードキュメント
 ```
 
 ## Firestoreデータ構造
