@@ -1,5 +1,7 @@
 // "use client";
-
+export default function TagAdminPage() {
+    return <div>TagAdminPage</div>;
+}
 // import { useState, useEffect } from "react";
 
 // // タグデータ型
