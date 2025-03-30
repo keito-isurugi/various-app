@@ -7,6 +7,7 @@ type ImageData = {
     id: string;
     image_path: string;
     display_flag: boolean;
+    tags: any;
 };
 
 export default function ImagesPage() {
@@ -62,7 +63,7 @@ export default function ImagesPage() {
                         <div className="mt-3">
                             <p className="text-sm font-semibold text-black">タグ:</p>
                             <div className="flex flex-wrap gap-2 mt-1">
-                                {image.tags.map((tag) => (
+                                {image.tags.map((tag: any) => (
                                     <span
                                         key={tag.id}
                                         className="bg-blue-100 text-blue-600 text-xs font-medium px-2 py-1 rounded"
