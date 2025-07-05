@@ -1,7 +1,7 @@
 "use client";
 export default function ImageRegisterAdminPage() {
-    return <div>ImageRegisterAdminPage</div>;
-  }
+	return <div>ImageRegisterAdminPage</div>;
+}
 // import React, { useState } from "react";
 // import { useDropzone } from "react-dropzone";
 // import axios from "axios";

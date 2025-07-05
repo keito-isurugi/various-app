@@ -1,6 +1,6 @@
 // 'use client';
 export default function ImageAdminPage() {
-    return <div>ImageAdminPage</div>;
+	return <div>ImageAdminPage</div>;
 }
 // import React, { useState } from 'react';
 // import axios from 'axios';

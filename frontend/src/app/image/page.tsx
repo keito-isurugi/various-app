@@ -1,6 +1,6 @@
 // import apiClient from "@/libs/apiClient";
 export default function ImageTagAdminPage() {
-  return <div>ImageTagAdminPage</div>;
+	return <div>ImageTagAdminPage</div>;
 }
 // async function fetchImages() {
 //   const response = await apiClient.get("/images");
@@ -10,7 +10,6 @@ export default function ImageTagAdminPage() {
 // export default async function Home() {
 //   const images = await fetchImages();
 //   const s3Path = `${process.env.AWS_S3_ENDPOINT_EXTERNAL}/${process.env.AWS_S3_BUCKET_NAME}`;
-
 
 // 	return (
 //     <div className="grid place-items-center min-h-screen py-20">

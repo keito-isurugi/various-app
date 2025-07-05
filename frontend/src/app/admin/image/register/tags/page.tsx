@@ -1,7 +1,7 @@
-'use client';
+"use client";
 export default function ImageTagAdminPage() {
-    return <div>ImageTagAdminPage</div>;
-  }
+	return <div>ImageTagAdminPage</div>;
+}
 // import React, { useState, useEffect } from 'react';
 // import axios from 'axios';
 

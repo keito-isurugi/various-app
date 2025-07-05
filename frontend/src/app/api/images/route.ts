@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from "next/server";
+import { type NextRequest, NextResponse } from "next/server";
 // import apiClient from "@/libs/apiClient";
 
 // export async function GET() {
@@ -11,5 +11,5 @@ import { NextRequest, NextResponse } from "next/server";
 // }
 // is not a module.を回避するためのダミーコード
 export async function GET(req: NextRequest) {
-  return NextResponse.json({ message: "Hello, world!" });
+	return NextResponse.json({ message: "Hello, world!" });
 }
