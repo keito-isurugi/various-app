@@ -1,6 +1,7 @@
 import type React from "react";
 import { Footer } from "../footer/Footer";
 import { Header } from "../header/Header";
+import { ScrollToTop } from "./ScrollToTop";
 
 interface RootLayoutProps {
 	children: React.ReactNode;
@@ -16,6 +17,7 @@ export const AppLayout: React.FC<RootLayoutProps> = ({ children }) => {
 			<Header />
 			<main className="flex-grow">{children}</main>
 			<Footer />
+			<ScrollToTop />
 		</div>
 	);
 };
