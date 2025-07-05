@@ -34,6 +34,7 @@ describe("Header", () => {
 		// 各ナビゲーションリンクの存在を確認
 		expect(screen.getByRole("link", { name: "Home" })).toBeInTheDocument();
 		expect(screen.getByRole("link", { name: "Blog" })).toBeInTheDocument();
+		expect(screen.getByRole("link", { name: "BIG3" })).toBeInTheDocument();
 		expect(screen.getByRole("link", { name: "About" })).toBeInTheDocument();
 		expect(screen.getByRole("link", { name: "Contact" })).toBeInTheDocument();
 	});
@@ -48,6 +49,10 @@ describe("Header", () => {
 		expect(screen.getByRole("link", { name: "Blog" })).toHaveAttribute(
 			"href",
 			"/blog/posts",
+		);
+		expect(screen.getByRole("link", { name: "BIG3" })).toHaveAttribute(
+			"href",
+			"/big3",
 		);
 		expect(screen.getByRole("link", { name: "About" })).toHaveAttribute(
 			"href",

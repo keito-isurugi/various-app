@@ -9,6 +9,7 @@ export const Header: React.FC = () => {
 	const navItems = [
 		{ href: "/", label: "Home" },
 		{ href: "/blog/posts", label: "Blog" },
+		{ href: "/big3", label: "BIG3" },
 		{ href: "/about", label: "About" },
 		{ href: "/contact", label: "Contact" },
 	];
