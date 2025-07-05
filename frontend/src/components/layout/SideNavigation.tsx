@@ -18,6 +18,7 @@ export const SideNavigation: React.FC<SideNavigationProps> = ({ isOpen, onClose 
 		{ href: "/", label: "ホーム", icon: "🏠" },
 		{ href: "/blog/posts", label: "ブログ", icon: "📝" },
 		{ href: "/big3", label: "BIG3計算", icon: "💪" },
+		{ href: "/calculator", label: "物理計算", icon: "🔬" },
 		{ href: "/playground", label: "Playground", icon: "🚀" },
 		{ href: "/about", label: "私について", icon: "👤" },
 		{ href: "/contact", label: "お問い合わせ", icon: "📧" },
