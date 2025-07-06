@@ -2,7 +2,7 @@
 . "$(dirname -- "$0")/_/husky.sh"
 
 # Validate commit message format
-commit_regex='^(feat|fix|docs|style|refactor|test|chore)(\(.+\))?: .{1,50}'
+commit_regex='^(feat|fix|docs|style|refactor|test|chore)(\(.+\))?: .+'
 
 if ! grep -qE "$commit_regex" "$1"; then
     echo ""
@@ -11,6 +11,7 @@ if ! grep -qE "$commit_regex" "$1"; then
     echo "Expected format: <type>(<scope>): <description>"
     echo "Types: feat, fix, docs, style, refactor, test, chore"
     echo "Example: feat(calculator): add celestial body selector"
+    echo "Example: chore: delete coverage files"
     echo ""
     exit 1
 fi
