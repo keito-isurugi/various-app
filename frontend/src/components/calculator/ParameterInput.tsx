@@ -25,7 +25,12 @@ export const ParameterInput: React.FC<ParameterInputProps> = ({
 	disabled = false,
 	error: externalError,
 }) => {
-	const [inputValue, setInputValue] = useState(parameter.value.toExponential());
+	const [inputValue, setInputValue] = useState(() => {
+		if (typeof parameter.value === "number" && !isNaN(parameter.value)) {
+			return parameter.value.toExponential();
+		}
+		return parameter.value.toString();
+	});
 	const [localError, setLocalError] = useState<string>("");
 	const inputId = useId();
 	const errorId = useId();
@@ -71,14 +76,20 @@ export const ParameterInput: React.FC<ParameterInputProps> = ({
 	 * フォーカス時の処理（指数表記をそのまま表示）
 	 */
 	const handleFocus = () => {
-		setInputValue(parameter.value.toString());
+		if (typeof parameter.value === "number" && !isNaN(parameter.value)) {
+			setInputValue(parameter.value.toString());
+		}
 	};
 
 	/**
 	 * ブラー時の処理（指数表記に戻す）
 	 */
 	const handleBlur = () => {
-		if (!hasError) {
+		if (
+			!hasError &&
+			typeof parameter.value === "number" &&
+			!isNaN(parameter.value)
+		) {
 			setInputValue(parameter.value.toExponential());
 		}
 	};
@@ -128,7 +139,7 @@ export const ParameterInput: React.FC<ParameterInputProps> = ({
 							? "bg-gray-50 dark:bg-gray-800 text-gray-500 dark:text-gray-400 cursor-not-allowed"
 							: "bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100"
 					}`}
-					placeholder={`例: ${parameter.value.toExponential()}`}
+					placeholder={`例: ${typeof parameter.value === "number" && !isNaN(parameter.value) ? parameter.value.toExponential() : parameter.value}`}
 				/>
 
 				{/* 単位表示 */}

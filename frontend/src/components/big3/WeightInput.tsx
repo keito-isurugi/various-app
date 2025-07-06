@@ -77,7 +77,9 @@ export const WeightInput: React.FC<WeightInputProps> = ({
 						focus:ring-2 focus:ring-blue-500 focus:border-transparent 
 						transition-colors font-medium
 						${
-							hasError ? "border-red-300 focus:ring-red-500" : "border-gray-300 dark:border-gray-600"
+							hasError
+								? "border-red-300 focus:ring-red-500"
+								: "border-gray-300 dark:border-gray-600"
 						}
 						${
 							disabled

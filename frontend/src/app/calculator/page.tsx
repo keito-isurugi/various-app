@@ -45,9 +45,7 @@ export default function CalculatorPage() {
 				// 質量パラメータを更新
 				setParameters((prev) =>
 					prev.map((param) =>
-						param.id === "mass"
-							? { ...param, value: body.mass }
-							: param,
+						param.id === "mass" ? { ...param, value: body.mass } : param,
 					),
 				);
 			}
