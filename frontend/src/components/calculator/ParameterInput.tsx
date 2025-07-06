@@ -86,15 +86,15 @@ export const ParameterInput: React.FC<ParameterInputProps> = ({
 	return (
 		<div className="space-y-2">
 			{/* ラベル */}
-			<label htmlFor={inputId} className="block text-sm font-medium text-gray-700">
+			<label htmlFor={inputId} className="block text-sm font-medium text-gray-700 dark:text-gray-300">
 				{parameter.name}
-				{parameter.required && <span className="text-red-500 ml-1">*</span>}
-				<span className="text-gray-500 ml-2">({parameter.unit})</span>
+				{parameter.required && <span className="text-red-500 dark:text-red-400 ml-1">*</span>}
+				<span className="text-gray-500 dark:text-gray-400 ml-2">({parameter.unit})</span>
 			</label>
 
 			{/* 説明 */}
 			{parameter.description && (
-				<p className="text-sm text-gray-600">{parameter.description}</p>
+				<p className="text-sm text-gray-600 dark:text-gray-400">{parameter.description}</p>
 			)}
 
 			{/* 入力フィールド */}
@@ -110,27 +110,27 @@ export const ParameterInput: React.FC<ParameterInputProps> = ({
 					aria-label={`${parameter.name} (${parameter.unit})`}
 					aria-describedby={hasError ? errorId : undefined}
 					aria-invalid={hasError}
-					className={`w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ${
+					className={`w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 focus:border-blue-500 dark:focus:border-blue-400 transition-colors ${
 						hasError
-							? "border-red-500"
-							: "border-gray-300"
+							? "border-red-500 dark:border-red-400"
+							: "border-gray-300 dark:border-gray-600"
 					} ${
 						disabled
-							? "bg-gray-50 text-gray-500 cursor-not-allowed"
-							: "bg-white"
+							? "bg-gray-50 dark:bg-gray-800 text-gray-500 dark:text-gray-400 cursor-not-allowed"
+							: "bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100"
 					}`}
 					placeholder={`例: ${parameter.value.toExponential()}`}
 				/>
 				
 				{/* 単位表示 */}
 				<div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
-					<span className="text-gray-500 text-sm">{parameter.unit}</span>
+					<span className="text-gray-500 dark:text-gray-400 text-sm">{parameter.unit}</span>
 				</div>
 			</div>
 
 			{/* エラーメッセージ */}
 			{hasError && (
-				<p id={errorId} className="text-sm text-red-600 flex items-center">
+				<p id={errorId} className="text-sm text-red-600 dark:text-red-400 flex items-center">
 					<svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
 						<path
 							fillRule="evenodd"
@@ -144,7 +144,7 @@ export const ParameterInput: React.FC<ParameterInputProps> = ({
 
 			{/* 範囲情報 */}
 			{(parameter.min !== undefined || parameter.max !== undefined) && (
-				<p className="text-xs text-gray-500">
+				<p className="text-xs text-gray-500 dark:text-gray-400">
 					範囲: {parameter.min ?? "無制限"} ～ {parameter.max ?? "無制限"}
 				</p>
 			)}

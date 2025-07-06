@@ -21,14 +21,14 @@ export const Header: React.FC = () => {
 	];
 
 	return (
-		<header className="bg-white shadow-sm border-b border-gray-200">
+		<header className="bg-white dark:bg-gray-900 shadow-sm border-b border-gray-200 dark:border-gray-700 transition-colors">
 			<div className="container mx-auto px-4 sm:px-6 lg:px-8">
 				<div className="flex items-center h-16">
 					{/* ハンバーガーメニューボタン */}
 					<button
 						type="button"
 						onClick={() => setIsSideNavOpen(!isSideNavOpen)}
-						className="p-2 rounded-md text-gray-600 hover:text-gray-900 hover:bg-gray-100 transition-all duration-300 mr-4"
+						className="p-2 rounded-md text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300 mr-4"
 						aria-label={isSideNavOpen ? "メニューを閉じる" : "メニューを開く"}
 					>
 						<div className="w-6 h-6 flex flex-col justify-center items-center">
@@ -58,7 +58,7 @@ export const Header: React.FC = () => {
 					<div className="flex-1">
 						<Link
 							href="/"
-							className="text-2xl font-bold text-gray-900 hover:text-gray-700 transition-colors"
+							className="text-2xl font-bold text-gray-900 dark:text-white hover:text-gray-700 dark:hover:text-gray-300 transition-colors"
 						>
 							kei-talk
 						</Link>
