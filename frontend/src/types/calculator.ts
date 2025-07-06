@@ -132,8 +132,9 @@ export const PHYSICAL_CONSTANTS = {
 /** 計算タイプの列挙 */
 export const CALCULATION_TYPES = {
 	SCHWARZSCHILD_RADIUS: "schwarzschild_radius",
-	// 将来的に追加される計算タイプ
 	ESCAPE_VELOCITY: "escape_velocity",
+	MASS_ENERGY: "mass_energy",
+	// 将来的に追加される計算タイプ
 	ORBITAL_VELOCITY: "orbital_velocity",
 	TIME_DILATION: "time_dilation",
 } as const;

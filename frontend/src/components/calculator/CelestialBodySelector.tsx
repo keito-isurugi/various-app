@@ -113,6 +113,16 @@ export const CelestialBodySelector: React.FC<CelestialBodySelectorProps> = ({
 											{formatMass(selectedBody.mass)}
 										</span>
 									</div>
+									{selectedBody.radius && (
+										<div className="text-sm">
+											<span className="font-medium text-foreground">半径:</span>{" "}
+											<span className="font-bold text-primary">
+												{selectedBody.radius >= 1e6
+													? `${(selectedBody.radius / 1e6).toFixed(2)} × 10⁶ m`
+													: `${selectedBody.radius.toExponential(2)} m`}
+											</span>
+										</div>
+									)}
 									<div className="text-sm text-muted-foreground">
 										<span className="font-medium">比較:</span>{" "}
 										{getMassComparison(selectedBody.mass).description}

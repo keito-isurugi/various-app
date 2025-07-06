@@ -20,6 +20,8 @@ export const SideNavigation: React.FC<SideNavigationProps> = ({
 	const navItems = [
 		{ href: "/", label: "ホーム", icon: "🏠" },
 		{ href: "/blog/posts", label: "ブログ", icon: "📝" },
+		{ href: "/algorithms", label: "アルゴリズム学習", icon: "🔍" },
+		{ href: "/accounting", label: "会計解説", icon: "💼" },
 		{ href: "/big3", label: "BIG3計算", icon: "💪" },
 		{ href: "/calculator", label: "物理計算", icon: "🔬" },
 		{ href: "/playground", label: "Playground", icon: "🚀" },
@@ -57,8 +59,16 @@ export const SideNavigation: React.FC<SideNavigationProps> = ({
 			{/* オーバーレイ */}
 			{isOpen && (
 				<div
-					className="fixed inset-0 bg-black bg-opacity-50 dark:bg-opacity-70 z-40 lg:hidden"
+					className="fixed inset-0 bg-black bg-opacity-50 dark:bg-opacity-70 z-40 xl:hidden"
 					onClick={onClose}
+					onKeyDown={(e) => {
+						if (e.key === "Escape") {
+							onClose();
+						}
+					}}
+					role="button"
+					tabIndex={0}
+					aria-label="メニューを閉じる"
 				/>
 			)}
 
@@ -89,6 +99,7 @@ export const SideNavigation: React.FC<SideNavigationProps> = ({
 							stroke="currentColor"
 							viewBox="0 0 24 24"
 						>
+							<title>閉じる</title>
 							<path
 								strokeLinecap="round"
 								strokeLinejoin="round"

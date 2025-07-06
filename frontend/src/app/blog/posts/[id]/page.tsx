@@ -44,6 +44,7 @@ export default async function Home(props: any) {
 								stroke="currentColor"
 								viewBox="0 0 24 24"
 							>
+								<title>更新日</title>
 								<path
 									strokeLinecap="round"
 									strokeLinejoin="round"
@@ -64,6 +65,7 @@ export default async function Home(props: any) {
 								stroke="currentColor"
 								viewBox="0 0 24 24"
 							>
+								<title>タグ</title>
 								<path
 									strokeLinecap="round"
 									strokeLinejoin="round"
@@ -91,7 +93,7 @@ export default async function Home(props: any) {
 					</div>
 
 					{/* 区切り線 */}
-					<div className="w-full h-px bg-gradient-to-r from-transparent via-gray-300 dark:via-gray-600 to-transparent mb-8"></div>
+					<div className="w-full h-px bg-gradient-to-r from-transparent via-gray-300 dark:via-gray-600 to-transparent mb-8" />
 				</header>
 
 				{/* ブログコンテンツ */}

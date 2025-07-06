@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useMemo } from "react";
+import { CalculationExplanation } from "../../components/calculator/CalculationExplanation";
 import { CelestialBodySelector } from "../../components/calculator/CelestialBodySelector";
 import { ParameterInput } from "../../components/calculator/ParameterInput";
 import { ResultDisplay } from "../../components/calculator/ResultDisplay";
@@ -10,15 +11,34 @@ import type {
 	CalculationResult,
 	ValidationResult,
 } from "../../types/calculator";
+import type { Calculator } from "../../types/calculator";
+import { EscapeVelocityCalculator } from "../../utils/calculators/escape-velocity";
+import { MassEnergyCalculator } from "../../utils/calculators/mass-energy";
 import { SchwarzschildRadiusCalculator } from "../../utils/calculators/schwarzschild-radius";
+import { getExplanationData } from "../../utils/explanation-provider";
 
 /**
  * 計算ページのメインコンポーネント
- * 将来的に複数の計算機能をサポートする拡張可能な設計
+ * 複数の計算機能をサポートする拡張可能な設計
  */
 export default function CalculatorPage() {
-	// 現在は1つの計算機のみサポート
-	const calculator = new SchwarzschildRadiusCalculator();
+	// 利用可能な計算機一覧
+	const availableCalculators: Calculator[] = useMemo(
+		() => [
+			new SchwarzschildRadiusCalculator(),
+			new EscapeVelocityCalculator(),
+			new MassEnergyCalculator(),
+		],
+		[],
+	);
+
+	// 現在選択されている計算機
+	const [selectedCalculatorId, setSelectedCalculatorId] = useState(
+		availableCalculators[0].type,
+	);
+	const calculator =
+		availableCalculators.find((calc) => calc.type === selectedCalculatorId) ||
+		availableCalculators[0];
 
 	// 状態管理
 	const [parameters, setParameters] = useState<CalculationParameter[]>(
@@ -44,13 +64,24 @@ export default function CalculatorPage() {
 			if (body) {
 				// 質量パラメータを更新
 				setParameters((prev) =>
-					prev.map((param) =>
-						param.id === "mass" ? { ...param, value: body.mass } : param,
-					),
+					prev.map((param) => {
+						if (param.id === "mass") {
+							return { ...param, value: body.mass };
+						}
+						// 脱出速度計算機の場合は半径も更新
+						if (
+							param.id === "radius" &&
+							body.radius &&
+							selectedCalculatorId === "escape_velocity"
+						) {
+							return { ...param, value: body.radius };
+						}
+						return param;
+					}),
 				);
 			}
 		},
-		[],
+		[selectedCalculatorId],
 	);
 
 	/**
@@ -89,7 +120,9 @@ export default function CalculatorPage() {
 			}
 
 			// 計算実行
-			const calculationResults = calculator.calculate(parameters);
+			const calculationResults = await Promise.resolve(
+				calculator.calculate(parameters),
+			);
 			setResults(calculationResults);
 		} catch (error) {
 			console.error("計算エラー:", error);
@@ -107,6 +140,26 @@ export default function CalculatorPage() {
 			setIsCalculating(false);
 		}
 	}, [calculator, parameters]);
+
+	/**
+	 * 計算機変更ハンドラー
+	 */
+	const handleCalculatorChange = useCallback(
+		(calculatorId: string) => {
+			setSelectedCalculatorId(calculatorId);
+			const newCalculator = availableCalculators.find(
+				(calc) => calc.type === calculatorId,
+			);
+			if (newCalculator) {
+				const exampleParams = newCalculator.getExampleParameters();
+				setParameters(exampleParams);
+				setValidationResult({ isValid: true, errors: [], warnings: [] });
+				setResults([]);
+				setSelectedCelestialBody(null);
+			}
+		},
+		[availableCalculators],
+	);
 
 	/**
 	 * 例の値を読み込み
@@ -128,20 +181,48 @@ export default function CalculatorPage() {
 						物理計算ツール
 					</h1>
 					<p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-						各種物理量の計算を行うことができます。現在はシュワルツシルト半径の計算をサポートしています。
+						各種物理量の計算を行うことができます。シュワルツシルト半径や脱出速度などの計算をサポートしています。
 					</p>
 				</header>
 
-				{/* 計算機選択（将来の拡張用） */}
+				{/* 計算機選択 */}
 				<section className="mb-8">
 					<h2 className="text-xl font-semibold text-gray-800 dark:text-gray-200 mb-4">
 						計算タイプ
 					</h2>
-					<div className="bg-gradient-to-r from-white to-gray-50 dark:from-gray-800 dark:to-gray-700 p-6 rounded-xl border border-gray-200 dark:border-gray-600 shadow-lg hover:shadow-xl transition-all duration-300">
-						<h3 className="font-medium text-lg text-gray-900 dark:text-gray-100 mb-2">
+					<div className="grid md:grid-cols-2 gap-4">
+						{availableCalculators.map((calc) => (
+							<button
+								type="button"
+								key={calc.type}
+								onClick={() => handleCalculatorChange(calc.type)}
+								className={`
+									p-6 rounded-xl border-2 transition-all duration-200 text-left
+									${
+										calc.type === selectedCalculatorId
+											? "border-blue-500 bg-blue-50 dark:bg-blue-900/20 ring-2 ring-blue-500 ring-opacity-20"
+											: "border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 hover:border-blue-300 dark:hover:border-blue-600"
+									}
+								`}
+							>
+								<h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2">
+									{calc.displayName}
+								</h3>
+								<p className="text-sm text-gray-600 dark:text-gray-400">
+									{calc.description}
+								</p>
+							</button>
+						))}
+					</div>
+				</section>
+
+				{/* 現在の計算機情報 */}
+				<section className="mb-8">
+					<div className="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/10 dark:to-purple-900/10 rounded-xl p-6 border border-blue-200 dark:border-blue-800">
+						<h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2">
 							{calculator.displayName}
 						</h3>
-						<p className="text-gray-600 dark:text-gray-300 text-sm">
+						<p className="text-gray-600 dark:text-gray-400">
 							{calculator.description}
 						</p>
 					</div>
@@ -191,7 +272,7 @@ export default function CalculatorPage() {
 								<div className="space-y-2">
 									{validationResult.errors.map((error, index) => (
 										<div
-											key={`error-${index}`}
+											key={`error-${error.slice(0, 50)}-${Date.now()}-${index}`}
 											className="flex items-center text-red-600 dark:text-red-400 text-sm bg-red-50 dark:bg-red-900/30 p-3 rounded-md border border-red-200 dark:border-red-700/50"
 										>
 											<svg
@@ -199,6 +280,7 @@ export default function CalculatorPage() {
 												fill="currentColor"
 												viewBox="0 0 20 20"
 											>
+												<title>エラー</title>
 												<path
 													fillRule="evenodd"
 													d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
@@ -210,7 +292,7 @@ export default function CalculatorPage() {
 									))}
 									{validationResult.warnings.map((warning, index) => (
 										<div
-											key={`warning-${index}`}
+											key={`warning-${warning.slice(0, 50)}-${Date.now()}-${index}`}
 											className="flex items-center text-yellow-600 dark:text-yellow-400 text-sm bg-yellow-50 dark:bg-yellow-900/30 p-3 rounded-md border border-yellow-200 dark:border-yellow-700/50"
 										>
 											<svg
@@ -218,6 +300,7 @@ export default function CalculatorPage() {
 												fill="currentColor"
 												viewBox="0 0 20 20"
 											>
+												<title>警告</title>
 												<path
 													fillRule="evenodd"
 													d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z"
@@ -243,7 +326,7 @@ export default function CalculatorPage() {
 							>
 								{isCalculating ? (
 									<div className="flex items-center justify-center">
-										<div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
+										<div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2" />
 										計算中...
 									</div>
 								) : (
@@ -275,6 +358,7 @@ export default function CalculatorPage() {
 											stroke="currentColor"
 											viewBox="0 0 24 24"
 										>
+											<title>計算機</title>
 											<path
 												strokeLinecap="round"
 												strokeLinejoin="round"
@@ -292,19 +376,19 @@ export default function CalculatorPage() {
 					</section>
 				</div>
 
-				{/* 補足情報 */}
-				<footer className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
-					<div className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/30 dark:to-indigo-900/30 rounded-xl p-6 border border-blue-200 dark:border-blue-700/50 shadow-lg">
-						<h3 className="font-semibold text-blue-900 dark:text-blue-100 mb-3 text-lg">
-							シュワルツシルト半径について
-						</h3>
-						<p className="text-blue-800 dark:text-blue-200 text-sm leading-relaxed">
-							シュワルツシルト半径は、ある質量の物体がブラックホールになる際の事象の地平面の半径です。
-							この半径以下に質量が圧縮されると、重力が非常に強くなり、光さえも脱出できなくなります。
-							計算式は Rs = 2GM/c² で表され、Gは重力定数、Mは質量、cは光速です。
-						</p>
-					</div>
-				</footer>
+				{/* 詳細解説セクション */}
+				<section className="mt-12">
+					{(() => {
+						const explanationData = getExplanationData(calculator.type);
+						return explanationData ? (
+							<CalculationExplanation
+								explanationData={explanationData}
+								defaultExpanded={false}
+								className="shadow-xl"
+							/>
+						) : null;
+					})()}
+				</section>
 			</div>
 		</div>
 	);

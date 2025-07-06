@@ -45,6 +45,7 @@ export default async function Home() {
 										stroke="currentColor"
 										viewBox="0 0 24 24"
 									>
+										<title>更新日</title>
 										<path
 											strokeLinecap="round"
 											strokeLinejoin="round"
@@ -67,6 +68,7 @@ export default async function Home() {
 										stroke="currentColor"
 										viewBox="0 0 24 24"
 									>
+										<title>タグ</title>
 										<path
 											strokeLinecap="round"
 											strokeLinejoin="round"

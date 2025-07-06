@@ -75,10 +75,13 @@ export class SchwarzschildRadiusCalculator implements Calculator {
 		// パラメータバリデーション
 		const validation = this.validateParameters(parameters);
 		if (!validation.isValid) {
-			throw new Error("パラメータが無効です: " + validation.errors.join(", "));
+			throw new Error(`パラメータが無効です: ${validation.errors.join(", ")}`);
 		}
 
-		const massParam = parameters.find((p) => p.id === "mass")!;
+		const massParam = parameters.find((p) => p.id === "mass");
+		if (!massParam) {
+			throw new Error("質量パラメータが見つかりません");
+		}
 		const mass = massParam.value;
 
 		// シュワルツシルト半径の計算: Rs = 2GM/c²
@@ -95,7 +98,8 @@ export class SchwarzschildRadiusCalculator implements Calculator {
 				name: "シュワルツシルト半径",
 				value: radius,
 				unit: "m",
-				description: `この質量の物体がブラックホールになった場合の事象の地平面の半径です。`,
+				description:
+					"この質量の物体がブラックホールになった場合の事象の地平面の半径です。",
 				formattedValue,
 			},
 		];
@@ -123,27 +127,32 @@ export class SchwarzschildRadiusCalculator implements Calculator {
 		if (radiusInMeters >= 1e9) {
 			// 1,000,000km以上：Gm単位
 			return `${(radiusInMeters / 1e9).toExponential(2)} Gm`;
-		} else if (radiusInMeters >= 1e6) {
+		}
+		if (radiusInMeters >= 1e6) {
 			// 1,000km以上：Mm単位
 			return `${(radiusInMeters / 1e6).toFixed(2)} Mm`;
-		} else if (radiusInMeters >= 1e3) {
+		}
+		if (radiusInMeters >= 1e3) {
 			// 1km以上：km単位
 			return `${(radiusInMeters / 1e3).toFixed(2)} km`;
-		} else if (radiusInMeters >= 1) {
+		}
+		if (radiusInMeters >= 1) {
 			// 1m以上：m単位
 			return `${radiusInMeters.toFixed(2)} m`;
-		} else if (radiusInMeters >= 1e-3) {
+		}
+		if (radiusInMeters >= 1e-3) {
 			// 1mm以上：mm単位
 			return `${(radiusInMeters * 1e3).toFixed(2)} mm`;
-		} else if (radiusInMeters >= 1e-6) {
+		}
+		if (radiusInMeters >= 1e-6) {
 			// 1μm以上：μm単位
 			return `${(radiusInMeters * 1e6).toFixed(2)} μm`;
-		} else if (radiusInMeters >= 1e-9) {
+		}
+		if (radiusInMeters >= 1e-9) {
 			// 1nm以上：nm単位
 			return `${(radiusInMeters * 1e9).toFixed(2)} nm`;
-		} else {
-			// それ以下：指数表記
-			return `${radiusInMeters.toExponential(2)} m`;
 		}
+		// それ以下：指数表記
+		return `${radiusInMeters.toExponential(2)} m`;
 	}
 }

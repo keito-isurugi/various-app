@@ -3,6 +3,7 @@ export interface CelestialBody {
 	name: string;
 	nameJa: string;
 	mass: number; // kg
+	radius?: number; // m (半径)
 	category: "solar_system" | "star";
 	description?: string;
 }
@@ -14,6 +15,7 @@ export const celestialBodies: CelestialBody[] = [
 		name: "Sun",
 		nameJa: "太陽",
 		mass: 1.989e30,
+		radius: 6.96e8,
 		category: "solar_system",
 		description: "太陽系の中心星",
 	},
@@ -22,6 +24,7 @@ export const celestialBodies: CelestialBody[] = [
 		name: "Mercury",
 		nameJa: "水星",
 		mass: 3.3011e23,
+		radius: 2.4397e6,
 		category: "solar_system",
 		description: "太陽系で最も小さい惑星",
 	},
@@ -30,6 +33,7 @@ export const celestialBodies: CelestialBody[] = [
 		name: "Venus",
 		nameJa: "金星",
 		mass: 4.8675e24,
+		radius: 6.0518e6,
 		category: "solar_system",
 		description: "太陽系で最も高温の惑星",
 	},
@@ -38,6 +42,7 @@ export const celestialBodies: CelestialBody[] = [
 		name: "Earth",
 		nameJa: "地球",
 		mass: 5.972e24,
+		radius: 6.371e6,
 		category: "solar_system",
 		description: "私たちの故郷",
 	},
@@ -46,6 +51,7 @@ export const celestialBodies: CelestialBody[] = [
 		name: "Mars",
 		nameJa: "火星",
 		mass: 6.4171e23,
+		radius: 3.3972e6,
 		category: "solar_system",
 		description: "赤い惑星",
 	},
@@ -54,6 +60,7 @@ export const celestialBodies: CelestialBody[] = [
 		name: "Jupiter",
 		nameJa: "木星",
 		mass: 1.8982e27,
+		radius: 6.9911e7,
 		category: "solar_system",
 		description: "太陽系最大の惑星",
 	},
@@ -62,6 +69,7 @@ export const celestialBodies: CelestialBody[] = [
 		name: "Saturn",
 		nameJa: "土星",
 		mass: 5.6834e26,
+		radius: 5.8232e7,
 		category: "solar_system",
 		description: "美しい環を持つ惑星",
 	},
@@ -70,6 +78,7 @@ export const celestialBodies: CelestialBody[] = [
 		name: "Uranus",
 		nameJa: "天王星",
 		mass: 8.681e25,
+		radius: 2.5362e7,
 		category: "solar_system",
 		description: "横倒しに回転する惑星",
 	},
@@ -78,6 +87,7 @@ export const celestialBodies: CelestialBody[] = [
 		name: "Neptune",
 		nameJa: "海王星",
 		mass: 1.02413e26,
+		radius: 2.4622e7,
 		category: "solar_system",
 		description: "太陽系最外の惑星",
 	},
@@ -86,6 +96,7 @@ export const celestialBodies: CelestialBody[] = [
 		name: "Moon",
 		nameJa: "月",
 		mass: 7.342e22,
+		radius: 1.737e6,
 		category: "solar_system",
 		description: "地球の衛星",
 	},

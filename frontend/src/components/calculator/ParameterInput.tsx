@@ -26,7 +26,7 @@ export const ParameterInput: React.FC<ParameterInputProps> = ({
 	error: externalError,
 }) => {
 	const [inputValue, setInputValue] = useState(() => {
-		if (typeof parameter.value === "number" && !isNaN(parameter.value)) {
+		if (typeof parameter.value === "number" && !Number.isNaN(parameter.value)) {
 			return parameter.value.toExponential();
 		}
 		return parameter.value.toString();
@@ -48,7 +48,7 @@ export const ParameterInput: React.FC<ParameterInputProps> = ({
 		// 数値変換とバリデーション
 		const numericValue = Number.parseFloat(rawValue);
 
-		if (isNaN(numericValue)) {
+		if (Number.isNaN(numericValue)) {
 			setLocalError("有効な数値を入力してください");
 			return;
 		}
@@ -76,7 +76,7 @@ export const ParameterInput: React.FC<ParameterInputProps> = ({
 	 * フォーカス時の処理（指数表記をそのまま表示）
 	 */
 	const handleFocus = () => {
-		if (typeof parameter.value === "number" && !isNaN(parameter.value)) {
+		if (typeof parameter.value === "number" && !Number.isNaN(parameter.value)) {
 			setInputValue(parameter.value.toString());
 		}
 	};
@@ -88,7 +88,7 @@ export const ParameterInput: React.FC<ParameterInputProps> = ({
 		if (
 			!hasError &&
 			typeof parameter.value === "number" &&
-			!isNaN(parameter.value)
+			!Number.isNaN(parameter.value)
 		) {
 			setInputValue(parameter.value.toExponential());
 		}
@@ -139,7 +139,7 @@ export const ParameterInput: React.FC<ParameterInputProps> = ({
 							? "bg-gray-50 dark:bg-gray-800 text-gray-500 dark:text-gray-400 cursor-not-allowed"
 							: "bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100"
 					}`}
-					placeholder={`例: ${typeof parameter.value === "number" && !isNaN(parameter.value) ? parameter.value.toExponential() : parameter.value}`}
+					placeholder={`例: ${typeof parameter.value === "number" && !Number.isNaN(parameter.value) ? parameter.value.toExponential() : parameter.value}`}
 				/>
 
 				{/* 単位表示 */}
@@ -157,6 +157,7 @@ export const ParameterInput: React.FC<ParameterInputProps> = ({
 					className="text-sm text-red-600 dark:text-red-400 flex items-center"
 				>
 					<svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+						<title>エラー</title>
 						<path
 							fillRule="evenodd"
 							d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"

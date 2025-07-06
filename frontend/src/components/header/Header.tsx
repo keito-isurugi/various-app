@@ -37,7 +37,7 @@ export const Header: React.FC = () => {
 					<button
 						type="button"
 						onClick={() => setIsSideNavOpen(!isSideNavOpen)}
-						className="relative p-2 rounded-xl bg-white/50 dark:bg-gray-900/50 border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-800 hover:border-gray-400 dark:hover:border-gray-500 transition-all duration-300 lg:hidden group"
+						className="relative p-2 rounded-xl bg-white/50 dark:bg-gray-900/50 border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-800 hover:border-gray-400 dark:hover:border-gray-500 transition-all duration-300 xl:hidden group"
 						aria-label={isSideNavOpen ? "メニューを閉じる" : "メニューを開く"}
 					>
 						<div className="w-6 h-6 flex flex-col justify-center items-center">
@@ -80,9 +80,11 @@ export const Header: React.FC = () => {
 					</div>
 
 					{/* デスクトップナビゲーション */}
-					<nav className="hidden lg:flex items-center space-x-1">
+					<nav className="hidden xl:flex items-center space-x-1">
 						<NavLink href="/" label="Home" />
 						<NavLink href="/blog/posts" label="Blog" />
+						<NavLink href="/algorithms" label="Algorithms" />
+						<NavLink href="/accounting" label="Accounting" />
 						<NavLink href="/calculator" label="Calculator" />
 						<NavLink href="/big3" label="BIG3" />
 						<NavLink href="/playground" label="Playground" />

@@ -413,12 +413,11 @@ export function validateHTML(html: string): ValidationResult {
 		// パースエラーをチェック
 		const parserErrors = doc.getElementsByTagName("parsererror");
 		if (parserErrors.length > 0) {
-			errors.push("HTML構文エラー: " + parserErrors[0].textContent);
+			errors.push(`HTML構文エラー: ${parserErrors[0].textContent}`);
 		}
 	} catch (error) {
 		errors.push(
-			"HTML解析エラー: " +
-				(error instanceof Error ? error.message : "不明なエラー"),
+			`HTML解析エラー: ${error instanceof Error ? error.message : "不明なエラー"}`,
 		);
 	}
 
@@ -477,8 +476,7 @@ export function validateCSS(css: string): ValidationResult {
 		}
 	} catch (error) {
 		errors.push(
-			"CSS解析エラー: " +
-				(error instanceof Error ? error.message : "不明なエラー"),
+			`CSS解析エラー: ${error instanceof Error ? error.message : "不明なエラー"}`,
 		);
 	}
 
@@ -505,11 +503,10 @@ export function validateJavaScript(js: string): ValidationResult {
 		new Function(js);
 	} catch (error) {
 		if (error instanceof SyntaxError) {
-			errors.push("JavaScript構文エラー: " + error.message);
+			errors.push(`JavaScript構文エラー: ${error.message}`);
 		} else {
 			errors.push(
-				"JavaScript解析エラー: " +
-					(error instanceof Error ? error.message : "不明なエラー"),
+				`JavaScript解析エラー: ${error instanceof Error ? error.message : "不明なエラー"}`,
 			);
 		}
 	}
