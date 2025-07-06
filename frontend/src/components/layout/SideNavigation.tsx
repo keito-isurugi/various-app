@@ -29,7 +29,7 @@ export const SideNavigation: React.FC<SideNavigationProps> = ({
 		{ href: "/contact", label: "お問い合わせ", icon: "📧" },
 	];
 
-	// エスケープキーでメニューを閉じる
+	// エスケープキーでメニューを閉じる、フォーカス管理
 	useEffect(() => {
 		const handleKeyDown = (event: KeyboardEvent) => {
 			if (event.key === "Escape" && isOpen) {
@@ -37,7 +37,17 @@ export const SideNavigation: React.FC<SideNavigationProps> = ({
 			}
 		};
 
-		document.addEventListener("keydown", handleKeyDown);
+		if (isOpen) {
+			document.addEventListener("keydown", handleKeyDown);
+			// メニューが開いた時に最初の要素にフォーカス
+			const firstFocusableElement = document.querySelector(
+				'nav[aria-label="サイドナビゲーション"] a',
+			) as HTMLElement;
+			if (firstFocusableElement) {
+				firstFocusableElement.focus();
+			}
+		}
+
 		return () => document.removeEventListener("keydown", handleKeyDown);
 	}, [isOpen, onClose]);
 
@@ -57,24 +67,26 @@ export const SideNavigation: React.FC<SideNavigationProps> = ({
 	return (
 		<>
 			{/* オーバーレイ */}
-			{isOpen && (
-				<div
-					className="fixed inset-0 bg-black bg-opacity-50 dark:bg-opacity-70 z-40 xl:hidden"
-					onClick={onClose}
-					onKeyDown={(e) => {
-						if (e.key === "Escape") {
-							onClose();
-						}
-					}}
-					role="button"
-					tabIndex={0}
-					aria-label="メニューを閉じる"
-				/>
-			)}
+			<div
+				className={`fixed inset-0 bg-black transition-opacity duration-300 ease-in-out z-[60] xl:hidden ${
+					isOpen
+						? "bg-opacity-50 dark:bg-opacity-70"
+						: "bg-opacity-0 pointer-events-none"
+				}`}
+				onClick={onClose}
+				onKeyDown={(e) => {
+					if (e.key === "Escape") {
+						onClose();
+					}
+				}}
+				role="button"
+				tabIndex={0}
+				aria-label="メニューを閉じる"
+			/>
 
 			{/* サイドメニュー */}
 			<div
-				className={`fixed top-0 left-0 h-full w-80 bg-white dark:bg-gray-900 shadow-lg transform transition-transform duration-300 ease-in-out z-50 ${
+				className={`fixed top-0 left-0 h-full w-80 bg-white dark:bg-gray-900 shadow-lg transform transition-transform duration-300 ease-in-out z-[70] xl:hidden ${
 					isOpen ? "translate-x-0" : "-translate-x-full"
 				}`}
 			>
@@ -111,7 +123,7 @@ export const SideNavigation: React.FC<SideNavigationProps> = ({
 				</div>
 
 				{/* ナビゲーションメニュー */}
-				<nav className="px-6 py-4">
+				<nav className="px-6 py-4" aria-label="サイドナビゲーション">
 					<ul className="space-y-2">
 						{navItems.map((item) => (
 							<li key={item.href}>
