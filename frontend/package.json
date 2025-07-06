@@ -8,6 +8,9 @@
 		"start": "next start",
 		"test": "jest",
 		"format": "biome check --apply *",
+		"lint": "biome check *",
+		"typecheck": "tsc --noEmit",
+		"prepare": "husky",
 		"debug": "NODE_OPTIONS='--inspect' next dev"
 	},
 	"dependencies": {
@@ -51,12 +54,23 @@
 		"@types/react": "^18.3.14",
 		"@types/react-dom": "^18.3.2",
 		"@types/react-syntax-highlighter": "^15.5.13",
+		"husky": "^9.1.7",
 		"jest": "^29.7.0",
 		"jest-environment-jsdom": "^29.7.0",
+		"lint-staged": "^16.1.2",
 		"postcss": "^8.4.49",
 		"tailwindcss": "^3.4.16",
 		"ts-jest": "^29.4.0",
 		"ts-node": "^10.9.2",
 		"typescript": "^5.7.2"
+	},
+	"lint-staged": {
+		"*.{ts,tsx,js,jsx}": [
+			"biome check --apply",
+			"biome check"
+		],
+		"*.{ts,tsx}": [
+			"tsc --noEmit"
+		]
 	}
 }
