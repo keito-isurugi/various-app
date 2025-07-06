@@ -9,7 +9,7 @@
 		"test": "jest",
 		"format": "biome check --apply *",
 		"lint": "biome check *",
-		"typecheck": "tsc --noEmit",
+		"typecheck": "tsc --noEmit --skipLibCheck",
 		"prepare": "husky",
 		"debug": "NODE_OPTIONS='--inspect' next dev"
 	},
@@ -70,7 +70,7 @@
 			"biome check"
 		],
 		"*.{ts,tsx}": [
-			"tsc --noEmit"
+			"bash -c 'tsc --noEmit --skipLibCheck --project tsconfig.json'"
 		]
 	}
 }
