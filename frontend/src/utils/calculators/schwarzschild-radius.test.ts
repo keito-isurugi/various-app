@@ -1,6 +1,6 @@
-import { describe, expect, it, beforeEach } from "@jest/globals";
-import { SchwarzschildRadiusCalculator } from "./schwarzschild-radius";
+import { beforeEach, describe, expect, it } from "@jest/globals";
 import { CALCULATION_TYPES, PHYSICAL_CONSTANTS } from "../../types/calculator";
+import { SchwarzschildRadiusCalculator } from "./schwarzschild-radius";
 
 describe("SchwarzschildRadiusCalculator", () => {
 	let calculator: SchwarzschildRadiusCalculator;
@@ -31,12 +31,14 @@ describe("SchwarzschildRadiusCalculator", () => {
 
 	describe("パラメータバリデーション", () => {
 		it("有効な質量でバリデーション成功", () => {
-			const parameters = [{
-				id: "mass",
-				name: "質量",
-				value: 1.989e30, // 太陽質量
-				unit: "kg"
-			}];
+			const parameters = [
+				{
+					id: "mass",
+					name: "質量",
+					value: 1.989e30, // 太陽質量
+					unit: "kg",
+				},
+			];
 
 			const result = calculator.validateParameters(parameters);
 			expect(result.isValid).toBe(true);
@@ -44,12 +46,14 @@ describe("SchwarzschildRadiusCalculator", () => {
 		});
 
 		it("負の質量でバリデーション失敗", () => {
-			const parameters = [{
-				id: "mass",
-				name: "質量",
-				value: -1,
-				unit: "kg"
-			}];
+			const parameters = [
+				{
+					id: "mass",
+					name: "質量",
+					value: -1,
+					unit: "kg",
+				},
+			];
 
 			const result = calculator.validateParameters(parameters);
 			expect(result.isValid).toBe(false);
@@ -57,12 +61,14 @@ describe("SchwarzschildRadiusCalculator", () => {
 		});
 
 		it("ゼロ質量でバリデーション失敗", () => {
-			const parameters = [{
-				id: "mass",
-				name: "質量",
-				value: 0,
-				unit: "kg"
-			}];
+			const parameters = [
+				{
+					id: "mass",
+					name: "質量",
+					value: 0,
+					unit: "kg",
+				},
+			];
 
 			const result = calculator.validateParameters(parameters);
 			expect(result.isValid).toBe(false);
@@ -76,27 +82,33 @@ describe("SchwarzschildRadiusCalculator", () => {
 		});
 
 		it("非常に小さい質量で警告", () => {
-			const parameters = [{
-				id: "mass",
-				name: "質量",
-				value: 1e-30, // 非常に小さい質量
-				unit: "kg"
-			}];
+			const parameters = [
+				{
+					id: "mass",
+					name: "質量",
+					value: 1e-30, // 非常に小さい質量
+					unit: "kg",
+				},
+			];
 
 			const result = calculator.validateParameters(parameters);
 			expect(result.isValid).toBe(true);
-			expect(result.warnings).toContain("非常に小さい質量です。計算結果が非常に小さくなります。");
+			expect(result.warnings).toContain(
+				"非常に小さい質量です。計算結果が非常に小さくなります。",
+			);
 		});
 	});
 
 	describe("計算実行", () => {
 		it("太陽質量のシュワルツシルト半径を正しく計算", () => {
-			const parameters = [{
-				id: "mass",
-				name: "質量",
-				value: 1.989e30, // 太陽質量
-				unit: "kg"
-			}];
+			const parameters = [
+				{
+					id: "mass",
+					name: "質量",
+					value: 1.989e30, // 太陽質量
+					unit: "kg",
+				},
+			];
 
 			const results = calculator.calculate(parameters);
 			expect(Array.isArray(results)).toBe(true);
@@ -106,7 +118,7 @@ describe("SchwarzschildRadiusCalculator", () => {
 			expect(result.id).toBe("schwarzschild_radius");
 			expect(result.name).toBe("シュワルツシルト半径");
 			expect(result.unit).toBe("m");
-			
+
 			// 太陽質量のシュワルツシルト半径は約2.95km
 			expect(result.value).toBeCloseTo(2954, 0);
 			expect(result.formattedValue).toContain("2.95");
@@ -114,43 +126,53 @@ describe("SchwarzschildRadiusCalculator", () => {
 		});
 
 		it("地球質量のシュワルツシルト半径を正しく計算", () => {
-			const parameters = [{
-				id: "mass",
-				name: "質量",
-				value: 5.972e24, // 地球質量
-				unit: "kg"
-			}];
+			const parameters = [
+				{
+					id: "mass",
+					name: "質量",
+					value: 5.972e24, // 地球質量
+					unit: "kg",
+				},
+			];
 
 			const results = calculator.calculate(parameters);
 			const result = results[0];
-			
+
 			// 地球質量のシュワルツシルト半径は約8.87mm
 			expect(result.value).toBeCloseTo(0.00887, 5);
 			expect(result.formattedValue).toContain("mm");
 		});
 
 		it("無効なパラメータで計算実行時にエラー", () => {
-			const parameters = [{
-				id: "mass",
-				name: "質量",
-				value: -1,
-				unit: "kg"
-			}];
+			const parameters = [
+				{
+					id: "mass",
+					name: "質量",
+					value: -1,
+					unit: "kg",
+				},
+			];
 
-			expect(() => calculator.calculate(parameters)).toThrow("パラメータが無効です");
+			expect(() => calculator.calculate(parameters)).toThrow(
+				"パラメータが無効です",
+			);
 		});
 
 		it("計算結果に適切な説明が含まれる", () => {
-			const parameters = [{
-				id: "mass",
-				name: "質量",
-				value: 1.989e30,
-				unit: "kg"
-			}];
+			const parameters = [
+				{
+					id: "mass",
+					name: "質量",
+					value: 1.989e30,
+					unit: "kg",
+				},
+			];
 
 			const results = calculator.calculate(parameters);
 			const result = results[0];
-			expect(result.description).toContain("この質量の物体がブラックホールになった場合の");
+			expect(result.description).toContain(
+				"この質量の物体がブラックホールになった場合の",
+			);
 		});
 	});
 
@@ -166,20 +188,23 @@ describe("SchwarzschildRadiusCalculator", () => {
 	describe("物理的妥当性", () => {
 		it("シュワルツシルト半径の公式が正しい", () => {
 			const mass = 1; // 1kg
-			const parameters = [{
-				id: "mass",
-				name: "質量",
-				value: mass,
-				unit: "kg"
-			}];
+			const parameters = [
+				{
+					id: "mass",
+					name: "質量",
+					value: mass,
+					unit: "kg",
+				},
+			];
 
 			const results = calculator.calculate(parameters);
 			const result = results[0];
 
 			// Rs = 2GM/c² の公式
-			const expectedRadius = (2 * PHYSICAL_CONSTANTS.GRAVITATIONAL_CONSTANT * mass) / 
-				(PHYSICAL_CONSTANTS.SPEED_OF_LIGHT ** 2);
-			
+			const expectedRadius =
+				(2 * PHYSICAL_CONSTANTS.GRAVITATIONAL_CONSTANT * mass) /
+				PHYSICAL_CONSTANTS.SPEED_OF_LIGHT ** 2;
+
 			expect(result.value).toBeCloseTo(expectedRadius, 15);
 		});
 	});

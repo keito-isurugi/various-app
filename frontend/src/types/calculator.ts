@@ -88,22 +88,26 @@ export interface Calculator {
 	/** 計算の説明 */
 	readonly description: string;
 	/** サポートするパラメータ定義 */
-	readonly supportedParameters: ReadonlyArray<Omit<CalculationParameter, "value">>;
-	
+	readonly supportedParameters: ReadonlyArray<
+		Omit<CalculationParameter, "value">
+	>;
+
 	/**
 	 * パラメータのバリデーション
 	 * @param parameters 検証するパラメータ
 	 * @returns バリデーション結果
 	 */
 	validateParameters(parameters: CalculationParameter[]): ValidationResult;
-	
+
 	/**
 	 * 計算実行
 	 * @param parameters 計算パラメータ
 	 * @returns 計算結果またはエラー
 	 */
-	calculate(parameters: CalculationParameter[]): Promise<CalculationResult[]> | CalculationResult[];
-	
+	calculate(
+		parameters: CalculationParameter[],
+	): Promise<CalculationResult[]> | CalculationResult[];
+
 	/**
 	 * 計算例の取得
 	 * @returns サンプルパラメータ
@@ -116,7 +120,7 @@ export const PHYSICAL_CONSTANTS = {
 	/** 光速 (m/s) */
 	SPEED_OF_LIGHT: 299792458,
 	/** 重力定数 (m³/kg/s²) */
-	GRAVITATIONAL_CONSTANT: 6.67430e-11,
+	GRAVITATIONAL_CONSTANT: 6.6743e-11,
 	/** プランク定数 (J⋅s) */
 	PLANCK_CONSTANT: 6.62607015e-34,
 	/** ボルツマン定数 (J/K) */
@@ -134,4 +138,5 @@ export const CALCULATION_TYPES = {
 	TIME_DILATION: "time_dilation",
 } as const;
 
-export type CalculationType = typeof CALCULATION_TYPES[keyof typeof CALCULATION_TYPES];
+export type CalculationType =
+	(typeof CALCULATION_TYPES)[keyof typeof CALCULATION_TYPES];

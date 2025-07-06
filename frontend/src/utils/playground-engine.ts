@@ -1,7 +1,7 @@
-import type { 
-	ExecutionError, 
-	ConsoleLog, 
-	ValidationResult 
+import type {
+	ConsoleLog,
+	ExecutionError,
+	ValidationResult,
 } from "../types/playground";
 
 /**
@@ -74,9 +74,11 @@ class PlaygroundEngineImpl implements PlaygroundEngine {
 		const log: ConsoleLog = {
 			id: `log-${Date.now()}-${Math.random()}`,
 			level,
-			message: args.map(arg => 
-				typeof arg === "object" ? JSON.stringify(arg, null, 2) : String(arg)
-			).join(" "),
+			message: args
+				.map((arg) =>
+					typeof arg === "object" ? JSON.stringify(arg, null, 2) : String(arg),
+				)
+				.join(" "),
 			args,
 			timestamp: new Date(),
 		};
@@ -93,7 +95,7 @@ class PlaygroundEngineImpl implements PlaygroundEngine {
 		file?: "html" | "css" | "javascript",
 		line?: number,
 		column?: number,
-		stack?: string
+		stack?: string,
 	): ExecutionError {
 		return {
 			id: `error-${Date.now()}-${Math.random()}`,
@@ -118,19 +120,20 @@ class PlaygroundEngineImpl implements PlaygroundEngine {
 		try {
 			// 安全性チェック: 危険なタグを除去
 			const sanitizedHTML = this.sanitizeHTML(html);
-			
+
 			// HTMLをコンテナに挿入
 			this.container.innerHTML = sanitizedHTML;
-
 		} catch (error) {
-			errors.push(this.createError(
-				"runtime",
-				error instanceof Error ? error.message : "HTML実行エラー",
-				"html",
-				undefined,
-				undefined,
-				error instanceof Error ? error.stack : undefined
-			));
+			errors.push(
+				this.createError(
+					"runtime",
+					error instanceof Error ? error.message : "HTML実行エラー",
+					"html",
+					undefined,
+					undefined,
+					error instanceof Error ? error.stack : undefined,
+				),
+			);
 		}
 
 		const executionTime = Date.now() - startTime;
@@ -178,16 +181,17 @@ class PlaygroundEngineImpl implements PlaygroundEngine {
 			// CSSを適用
 			this.styleElement.textContent = css;
 			document.head.appendChild(this.styleElement);
-
 		} catch (error) {
-			errors.push(this.createError(
-				"runtime",
-				error instanceof Error ? error.message : "CSS実行エラー",
-				"css",
-				undefined,
-				undefined,
-				error instanceof Error ? error.stack : undefined
-			));
+			errors.push(
+				this.createError(
+					"runtime",
+					error instanceof Error ? error.message : "CSS実行エラー",
+					"css",
+					undefined,
+					undefined,
+					error instanceof Error ? error.stack : undefined,
+				),
+			);
 		}
 
 		const executionTime = Date.now() - startTime;
@@ -226,8 +230,8 @@ class PlaygroundEngineImpl implements PlaygroundEngine {
 
 			// サンドボックス化されたコンテキストでJavaScriptを実行
 			const sandboxedFunction = new Function(
-				"document", 
-				"window", 
+				"document",
+				"window",
 				"console",
 				`
 				try {
@@ -235,37 +239,47 @@ class PlaygroundEngineImpl implements PlaygroundEngine {
 				} catch (error) {
 					throw error;
 				}
-				`
+				`,
 			);
 
 			// 制限されたグローバルオブジェクトを提供
 			const sandboxDocument = {
 				// 基本的なDOM操作メソッド
 				getElementById: (id: string) => this.container.querySelector(`#${id}`),
-				querySelector: (selector: string) => this.container.querySelector(selector),
-				querySelectorAll: (selector: string) => this.container.querySelectorAll(selector),
+				querySelector: (selector: string) =>
+					this.container.querySelector(selector),
+				querySelectorAll: (selector: string) =>
+					this.container.querySelectorAll(selector),
 				createElement: document.createElement.bind(document),
-				
+
 				// イベントリスナー関連
-				addEventListener: (event: string, handler: EventListener, options?: boolean | AddEventListenerOptions) => {
+				addEventListener: (
+					event: string,
+					handler: EventListener,
+					options?: boolean | AddEventListenerOptions,
+				) => {
 					// DOMContentLoadedイベントは即座に実行
-					if (event === 'DOMContentLoaded') {
+					if (event === "DOMContentLoaded") {
 						// タイムアウトを使って非同期で実行
-						setTimeout(() => handler(new Event('DOMContentLoaded')), 0);
+						setTimeout(() => handler(new Event("DOMContentLoaded")), 0);
 					} else {
 						// その他のイベントは通常通りコンテナに追加
 						this.container.addEventListener(event, handler, options);
 					}
 				},
-				removeEventListener: (event: string, handler: EventListener, options?: boolean | EventListenerOptions) => {
+				removeEventListener: (
+					event: string,
+					handler: EventListener,
+					options?: boolean | EventListenerOptions,
+				) => {
 					this.container.removeEventListener(event, handler, options);
 				},
-				
+
 				// よく使用されるプロパティ
 				body: this.container,
 				documentElement: this.container,
 				head: document.head, // headは安全なので実際のものを使用
-				
+
 				// その他の便利メソッド
 				createTextNode: document.createTextNode.bind(document),
 				createDocumentFragment: document.createDocumentFragment.bind(document),
@@ -283,22 +297,23 @@ class PlaygroundEngineImpl implements PlaygroundEngine {
 			};
 
 			sandboxedFunction.call(
-				this.container, 
-				sandboxDocument, 
-				sandboxWindow, 
-				console
+				this.container,
+				sandboxDocument,
+				sandboxWindow,
+				console,
 			);
-
 		} catch (error) {
 			const errorType = error instanceof SyntaxError ? "syntax" : "runtime";
-			errors.push(this.createError(
-				errorType,
-				error instanceof Error ? error.message : "JavaScript実行エラー",
-				"javascript",
-				undefined,
-				undefined,
-				error instanceof Error ? error.stack : undefined
-			));
+			errors.push(
+				this.createError(
+					errorType,
+					error instanceof Error ? error.message : "JavaScript実行エラー",
+					"javascript",
+					undefined,
+					undefined,
+					error instanceof Error ? error.stack : undefined,
+				),
+			);
 		}
 
 		const executionTime = Date.now() - startTime;
@@ -372,7 +387,9 @@ class PlaygroundEngineImpl implements PlaygroundEngine {
 /**
  * Playgroundエンジンのファクトリー関数
  */
-export function createPlaygroundEngine(container: HTMLElement): PlaygroundEngine {
+export function createPlaygroundEngine(
+	container: HTMLElement,
+): PlaygroundEngine {
 	return new PlaygroundEngineImpl(container);
 }
 
@@ -392,14 +409,17 @@ export function validateHTML(html: string): ValidationResult {
 	try {
 		const parser = new DOMParser();
 		const doc = parser.parseFromString(html, "text/html");
-		
+
 		// パースエラーをチェック
 		const parserErrors = doc.getElementsByTagName("parsererror");
 		if (parserErrors.length > 0) {
 			errors.push("HTML構文エラー: " + parserErrors[0].textContent);
 		}
 	} catch (error) {
-		errors.push("HTML解析エラー: " + (error instanceof Error ? error.message : "不明なエラー"));
+		errors.push(
+			"HTML解析エラー: " +
+				(error instanceof Error ? error.message : "不明なエラー"),
+		);
 	}
 
 	return {
@@ -432,7 +452,7 @@ export function validateCSS(css: string): ValidationResult {
 				break;
 			}
 		}
-		
+
 		if (braceCount > 0) {
 			errors.push("CSS構文エラー: 開きブラケット '{' が閉じられていません");
 		}
@@ -447,15 +467,19 @@ export function validateCSS(css: string): ValidationResult {
 					const props = declarations.split(";");
 					for (const prop of props) {
 						if (prop.trim() && !prop.includes(":")) {
-							warnings.push(`CSS警告: プロパティ '${prop.trim()}' にコロンがありません`);
+							warnings.push(
+								`CSS警告: プロパティ '${prop.trim()}' にコロンがありません`,
+							);
 						}
 					}
 				}
 			}
 		}
-
 	} catch (error) {
-		errors.push("CSS解析エラー: " + (error instanceof Error ? error.message : "不明なエラー"));
+		errors.push(
+			"CSS解析エラー: " +
+				(error instanceof Error ? error.message : "不明なエラー"),
+		);
 	}
 
 	return {
@@ -483,7 +507,10 @@ export function validateJavaScript(js: string): ValidationResult {
 		if (error instanceof SyntaxError) {
 			errors.push("JavaScript構文エラー: " + error.message);
 		} else {
-			errors.push("JavaScript解析エラー: " + (error instanceof Error ? error.message : "不明なエラー"));
+			errors.push(
+				"JavaScript解析エラー: " +
+					(error instanceof Error ? error.message : "不明なエラー"),
+			);
 		}
 	}
 

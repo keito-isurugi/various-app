@@ -34,9 +34,7 @@ export const Header: React.FC = () => {
 						<div className="w-6 h-6 flex flex-col justify-center items-center">
 							<span
 								className={`block h-0.5 w-6 bg-current transition-all duration-300 ease-out ${
-									isSideNavOpen
-										? "rotate-45 translate-y-1"
-										: "-translate-y-0.5"
+									isSideNavOpen ? "rotate-45 translate-y-1" : "-translate-y-0.5"
 								}`}
 							/>
 							<span

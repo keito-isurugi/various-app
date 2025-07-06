@@ -1,7 +1,7 @@
-import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "@jest/globals";
-import { ResultDisplay } from "./ResultDisplay";
+import { render, screen } from "@testing-library/react";
 import type { CalculationResult } from "../../types/calculator";
+import { ResultDisplay } from "./ResultDisplay";
 
 describe("ResultDisplay", () => {
 	const mockResult: CalculationResult = {
@@ -10,7 +10,8 @@ describe("ResultDisplay", () => {
 		value: 2954.123,
 		unit: "m",
 		formattedValue: "2.95 km",
-		description: "この質量の物体がブラックホールになった場合の事象の地平面の半径です。",
+		description:
+			"この質量の物体がブラックホールになった場合の事象の地平面の半径です。",
 	};
 
 	describe("表示", () => {
@@ -26,7 +27,9 @@ describe("ResultDisplay", () => {
 
 		it("説明が表示される", () => {
 			render(<ResultDisplay result={mockResult} />);
-			expect(screen.getByText(/この質量の物体がブラックホールになった場合の/)).toBeInTheDocument();
+			expect(
+				screen.getByText(/この質量の物体がブラックホールになった場合の/),
+			).toBeInTheDocument();
 		});
 
 		it("生の値と単位も表示される", () => {
@@ -59,10 +62,10 @@ describe("ResultDisplay", () => {
 
 			render(
 				<div>
-					{results.map(result => (
+					{results.map((result) => (
 						<ResultDisplay key={result.id} result={result} />
 					))}
-				</div>
+				</div>,
 			);
 
 			expect(screen.getByText("シュワルツシルト半径")).toBeInTheDocument();

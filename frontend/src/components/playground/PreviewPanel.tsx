@@ -1,6 +1,6 @@
 import type React from "react";
-import { useEffect, useRef, useState, useCallback } from "react";
-import type { ExecutionError, ConsoleLog } from "../../types/playground";
+import { useCallback, useEffect, useRef, useState } from "react";
+import type { ConsoleLog, ExecutionError } from "../../types/playground";
 import { createPlaygroundEngine } from "../../utils/playground-engine";
 
 interface PreviewPanelProps {
@@ -58,7 +58,9 @@ export const PreviewPanel: React.FC<PreviewPanelProps> = ({
 	className = "",
 }) => {
 	const frameRef = useRef<HTMLDivElement>(null);
-	const engineRef = useRef<ReturnType<typeof createPlaygroundEngine> | null>(null);
+	const engineRef = useRef<ReturnType<typeof createPlaygroundEngine> | null>(
+		null,
+	);
 	const [deviceType, setDeviceType] = useState<DeviceType>("desktop");
 	const [isFullscreen, setIsFullscreen] = useState(false);
 	const [lastUpdate, setLastUpdate] = useState<Date>(new Date());
@@ -89,17 +91,25 @@ export const PreviewPanel: React.FC<PreviewPanelProps> = ({
 			// HTML → CSS → JavaScript の順で実行し、JavaScriptは少し遅延
 			const htmlResult = engineRef.current.executeHTML(html);
 			const cssResult = engineRef.current.executeCSS(css);
-			
+
 			// JavaScriptの実行を少し遅延させる
 			setTimeout(() => {
 				if (!engineRef.current) return;
-				
+
 				const jsResult = engineRef.current.executeJavaScript(javascript);
-				
+
 				// 全ての結果をまとめて処理
-				const allErrors = [...htmlResult.errors, ...cssResult.errors, ...jsResult.errors];
-				const allLogs = [...htmlResult.consoleLogs, ...cssResult.consoleLogs, ...jsResult.consoleLogs];
-				
+				const allErrors = [
+					...htmlResult.errors,
+					...cssResult.errors,
+					...jsResult.errors,
+				];
+				const allLogs = [
+					...htmlResult.consoleLogs,
+					...cssResult.consoleLogs,
+					...jsResult.consoleLogs,
+				];
+
 				// エラーがあれば報告
 				if (allErrors.length > 0 && onError) {
 					for (const error of allErrors) {
@@ -121,7 +131,8 @@ export const PreviewPanel: React.FC<PreviewPanelProps> = ({
 				onError({
 					id: `preview-error-${Date.now()}`,
 					type: "runtime",
-					message: error instanceof Error ? error.message : "プレビュー実行エラー",
+					message:
+						error instanceof Error ? error.message : "プレビュー実行エラー",
 					timestamp: new Date(),
 				});
 			}
@@ -227,18 +238,19 @@ export const PreviewPanel: React.FC<PreviewPanelProps> = ({
 		</div>
 	);
 
-
 	// デバイス設定の取得
 	const currentDevice = deviceConfigs[deviceType];
-	const frameStyle = responsive ? {
-		width: `${currentDevice.width}px`,
-		height: `${currentDevice.height}px`,
-		transform: `scale(${zoom / 100})`,
-		transformOrigin: "top left",
-	} : {
-		transform: `scale(${zoom / 100})`,
-		transformOrigin: "top left",
-	};
+	const frameStyle = responsive
+		? {
+				width: `${currentDevice.width}px`,
+				height: `${currentDevice.height}px`,
+				transform: `scale(${zoom / 100})`,
+				transformOrigin: "top left",
+			}
+		: {
+				transform: `scale(${zoom / 100})`,
+				transformOrigin: "top left",
+			};
 
 	return (
 		<div
@@ -314,19 +326,24 @@ export const PreviewPanel: React.FC<PreviewPanelProps> = ({
 			<div className="flex-1 relative overflow-auto">
 				{isLoading && (
 					<div className="absolute inset-0 bg-white bg-opacity-80 flex flex-col items-center justify-center z-10">
-						<div data-testid="loading-spinner" className="text-3xl animate-spin mb-3">
+						<div
+							data-testid="loading-spinner"
+							className="text-3xl animate-spin mb-3"
+						>
 							⭐
 						</div>
 						<div className="text-sm text-gray-600">読み込み中...</div>
 					</div>
 				)}
-				
+
 				<div className="p-5 overflow-auto">
 					<div
 						data-testid="preview-frame"
 						ref={frameRef}
 						className={`w-full min-h-96 bg-white border border-gray-200 rounded overflow-auto ${
-							deviceType === "mobile" ? "border-2 border-gray-800 rounded-2xl" : ""
+							deviceType === "mobile"
+								? "border-2 border-gray-800 rounded-2xl"
+								: ""
 						}`}
 						style={frameStyle}
 					/>
@@ -335,18 +352,29 @@ export const PreviewPanel: React.FC<PreviewPanelProps> = ({
 				{/* エラー表示 */}
 				{errors.length > 0 && (
 					<div className="bg-red-50 border-t border-red-200 p-3 max-h-48 overflow-y-auto">
-						<h4 className="text-sm font-semibold text-red-900 mb-2">⚠️ エラー</h4>
+						<h4 className="text-sm font-semibold text-red-900 mb-2">
+							⚠️ エラー
+						</h4>
 						{errors.map((error) => (
-							<div key={error.id} className={`mb-2 p-2 bg-white border rounded ${
-								error.type === "syntax" ? "border-l-4 border-l-yellow-500" :
-								error.type === "runtime" ? "border-l-4 border-l-red-500" :
-								"border-gray-200"
-							}`}>
+							<div
+								key={error.id}
+								className={`mb-2 p-2 bg-white border rounded ${
+									error.type === "syntax"
+										? "border-l-4 border-l-yellow-500"
+										: error.type === "runtime"
+											? "border-l-4 border-l-red-500"
+											: "border-gray-200"
+								}`}
+							>
 								<div className="flex gap-2 mb-1 text-xs">
 									<span className="font-semibold text-red-600">
-										{error.type === "syntax" ? "構文エラー" : 
-										 error.type === "runtime" ? "実行エラー" : 
-										 error.type === "network" ? "ネットワークエラー" : "エラー"}
+										{error.type === "syntax"
+											? "構文エラー"
+											: error.type === "runtime"
+												? "実行エラー"
+												: error.type === "network"
+													? "ネットワークエラー"
+													: "エラー"}
 									</span>
 									{error.file && (
 										<span className="bg-gray-100 px-2 py-0.5 rounded text-gray-600">
@@ -363,7 +391,6 @@ export const PreviewPanel: React.FC<PreviewPanelProps> = ({
 					</div>
 				)}
 			</div>
-
 		</div>
 	);
 };

@@ -34,20 +34,42 @@ export default async function Home(props: any) {
 					<h1 className="text-4xl font-bold text-gray-900 dark:text-gray-100 mb-4 leading-tight">
 						{title}
 					</h1>
-					
+
 					<div className="flex flex-wrap items-center gap-6 text-sm text-gray-600 dark:text-gray-400 mb-6">
 						{/* 更新日 */}
 						<div className="flex items-center gap-2">
-							<svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-								<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+							<svg
+								className="w-5 h-5"
+								fill="none"
+								stroke="currentColor"
+								viewBox="0 0 24 24"
+							>
+								<path
+									strokeLinecap="round"
+									strokeLinejoin="round"
+									strokeWidth={2}
+									d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+								/>
 							</svg>
-							<span className="font-medium">{formatDateToJapanese(updatedAt)}</span>
+							<span className="font-medium">
+								{formatDateToJapanese(updatedAt)}
+							</span>
 						</div>
-						
+
 						{/* タグ */}
 						<div className="flex items-center gap-2">
-							<svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-								<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
+							<svg
+								className="w-5 h-5"
+								fill="none"
+								stroke="currentColor"
+								viewBox="0 0 24 24"
+							>
+								<path
+									strokeLinecap="round"
+									strokeLinejoin="round"
+									strokeWidth={2}
+									d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"
+								/>
 							</svg>
 							<div className="flex flex-wrap gap-2">
 								{tags.length === 0 ? (
@@ -67,7 +89,7 @@ export default async function Home(props: any) {
 							</div>
 						</div>
 					</div>
-					
+
 					{/* 区切り線 */}
 					<div className="w-full h-px bg-gradient-to-r from-transparent via-gray-300 dark:via-gray-600 to-transparent mb-8"></div>
 				</header>
@@ -89,23 +111,25 @@ export default async function Home(props: any) {
 												PreTag="div"
 												customStyle={{
 													margin: 0,
-													borderRadius: '0.75rem',
-													boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+													borderRadius: "0.75rem",
+													boxShadow:
+														"0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
 												}}
 											>
 												{String(children).replace(/\n$/, "")}
 											</SyntaxHighlighter>
 										</div>
 									) : (
-										<code className={`${className} bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 px-1.5 py-0.5 rounded text-sm font-mono`} {...props}>
+										<code
+											className={`${className} bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 px-1.5 py-0.5 rounded text-sm font-mono`}
+											{...props}
+										>
 											{children}
 										</code>
 									);
 								},
 								pre: ({ children }) => (
-									<div className="overflow-x-auto">
-										{children}
-									</div>
+									<div className="overflow-x-auto">{children}</div>
 								),
 								blockquote: ({ children }) => (
 									<blockquote className="border-l-4 border-blue-500 dark:border-blue-400 bg-blue-50 dark:bg-blue-900/20 pl-4 py-2 my-4 italic text-gray-700 dark:text-gray-300">

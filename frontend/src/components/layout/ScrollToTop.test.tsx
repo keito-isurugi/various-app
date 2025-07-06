@@ -1,5 +1,12 @@
-import { render, screen, fireEvent } from "@testing-library/react";
-import { describe, expect, it, beforeEach, afterEach, jest } from "@jest/globals";
+import {
+	afterEach,
+	beforeEach,
+	describe,
+	expect,
+	it,
+	jest,
+} from "@jest/globals";
+import { fireEvent, render, screen } from "@testing-library/react";
 import { ScrollToTop } from "./ScrollToTop";
 
 describe("ScrollToTop", () => {

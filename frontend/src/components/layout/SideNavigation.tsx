@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import type React from "react";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
 interface SideNavigationProps {
 	isOpen: boolean;
@@ -13,7 +13,10 @@ interface SideNavigationProps {
  * サイドナビゲーションコンポーネント
  * ハンバーガーメニューで開閉するスライドメニュー
  */
-export const SideNavigation: React.FC<SideNavigationProps> = ({ isOpen, onClose }) => {
+export const SideNavigation: React.FC<SideNavigationProps> = ({
+	isOpen,
+	onClose,
+}) => {
 	const navItems = [
 		{ href: "/", label: "ホーム", icon: "🏠" },
 		{ href: "/blog/posts", label: "ブログ", icon: "📝" },

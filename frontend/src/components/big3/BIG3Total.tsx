@@ -1,7 +1,11 @@
 import type React from "react";
 import type { BIG3TotalData, WeightLevel } from "../../types/big3";
+import {
+	getLevelBgColor,
+	getLevelColor,
+	validateBodyWeight,
+} from "../../utils/big3-calculator";
 import { calculateBIG3Total } from "../../utils/big3-total-calculator";
-import { getLevelBgColor, getLevelColor, validateBodyWeight } from "../../utils/big3-calculator";
 
 interface BIG3TotalProps {
 	/** 体重 (kg) */
@@ -99,9 +103,7 @@ export const BIG3Total: React.FC<BIG3TotalProps> = ({ bodyWeight }) => {
 				{/* 合計値 */}
 				<div className="border-t border-gray-300 pt-3">
 					<div className="flex justify-between items-center">
-						<span className="text-base font-bold text-gray-900">
-							合計
-						</span>
+						<span className="text-base font-bold text-gray-900">合計</span>
 						<span className={`text-xl font-bold ${getLevelColor(level)}`}>
 							{data.total}kg
 						</span>
@@ -115,9 +117,7 @@ export const BIG3Total: React.FC<BIG3TotalProps> = ({ bodyWeight }) => {
 		<div className="space-y-6">
 			{/* ヘッダー */}
 			<div className="text-center">
-				<h2 className="text-2xl font-bold text-gray-900 mb-2">
-					BIG3合計値
-				</h2>
+				<h2 className="text-2xl font-bold text-gray-900 mb-2">BIG3合計値</h2>
 				<p className="text-gray-600">
 					体重 {bodyWeight}kg における各レベルの目標重量と合計値
 				</p>
@@ -126,7 +126,7 @@ export const BIG3Total: React.FC<BIG3TotalProps> = ({ bodyWeight }) => {
 			{/* レベル別カード */}
 			<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
 				{Object.entries(totalData).map(([level, data]) =>
-					renderLevelCard(level as WeightLevel, data)
+					renderLevelCard(level as WeightLevel, data),
 				)}
 			</div>
 
@@ -137,17 +137,12 @@ export const BIG3Total: React.FC<BIG3TotalProps> = ({ bodyWeight }) => {
 				</h4>
 				<ul className="text-sm text-blue-800 space-y-1">
 					<li>
-						• BIG3合計値は、ベンチプレス + スクワット + デッドリフトの合計重量です
+						• BIG3合計値は、ベンチプレス + スクワット +
+						デッドリフトの合計重量です
 					</li>
-					<li>
-						• この数値は体重別の一般的な指標であり、個人差があります
-					</li>
-					<li>
-						• 次のレベルの合計値を目標にトレーニング計画を立てましょう
-					</li>
-					<li>
-						• 無理な重量への挑戦は避け、段階的に向上を目指してください
-					</li>
+					<li>• この数値は体重別の一般的な指標であり、個人差があります</li>
+					<li>• 次のレベルの合計値を目標にトレーニング計画を立てましょう</li>
+					<li>• 無理な重量への挑戦は避け、段階的に向上を目指してください</li>
 				</ul>
 			</div>
 		</div>

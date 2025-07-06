@@ -3,12 +3,12 @@
 import React, { useState, useCallback } from "react";
 import { CodeEditor } from "../../components/playground/CodeEditor";
 import { PreviewPanel } from "../../components/playground/PreviewPanel";
-import type { 
-	PlaygroundLanguage, 
-	ExecutionError, 
+import type {
 	ConsoleLog,
 	EditorSettings,
-	PlaygroundProject
+	ExecutionError,
+	PlaygroundLanguage,
+	PlaygroundProject,
 } from "../../types/playground";
 
 export default function PlaygroundPage() {
@@ -140,54 +140,64 @@ if (button && result) {
 	/**
 	 * ファイル内容の更新
 	 */
-	const handleFileChange = useCallback((content: string) => {
-		console.log('Playground: ファイル変更が呼び出されました:', { activeFile, content: content.slice(0, 50) + '...' });
-		setProject(prev => {
-			const updatedProject = { ...prev };
-			
-			switch (activeFile) {
-				case "html":
-					updatedProject.htmlFile = {
-						...prev.htmlFile,
-						content,
-						lastModified: new Date(),
-					};
-					break;
-				case "css":
-					updatedProject.cssFile = {
-						...prev.cssFile,
-						content,
-						lastModified: new Date(),
-					};
-					break;
-				case "javascript":
-					updatedProject.jsFile = {
-						...prev.jsFile,
-						content,
-						lastModified: new Date(),
-					};
-					break;
-			}
-			
-			updatedProject.updatedAt = new Date();
-			console.log('Playground: プロジェクトが更新されました:', updatedProject);
-			return updatedProject;
-		});
-	}, [activeFile]);
+	const handleFileChange = useCallback(
+		(content: string) => {
+			console.log("Playground: ファイル変更が呼び出されました:", {
+				activeFile,
+				content: content.slice(0, 50) + "...",
+			});
+			setProject((prev) => {
+				const updatedProject = { ...prev };
+
+				switch (activeFile) {
+					case "html":
+						updatedProject.htmlFile = {
+							...prev.htmlFile,
+							content,
+							lastModified: new Date(),
+						};
+						break;
+					case "css":
+						updatedProject.cssFile = {
+							...prev.cssFile,
+							content,
+							lastModified: new Date(),
+						};
+						break;
+					case "javascript":
+						updatedProject.jsFile = {
+							...prev.jsFile,
+							content,
+							lastModified: new Date(),
+						};
+						break;
+				}
+
+				updatedProject.updatedAt = new Date();
+				console.log(
+					"Playground: プロジェクトが更新されました:",
+					updatedProject,
+				);
+				return updatedProject;
+			});
+		},
+		[activeFile],
+	);
 
 	/**
 	 * エラーハンドリング
 	 */
 	const handleError = useCallback((error: ExecutionError) => {
-		setErrors(prev => {
+		setErrors((prev) => {
 			// 重複エラーを防ぐ
-			const exists = prev.some(e => 
-				e.type === error.type && 
-				e.message === error.message && 
-				e.file === error.file
+			const exists = prev.some(
+				(e) =>
+					e.type === error.type &&
+					e.message === error.message &&
+					e.file === error.file,
 			);
 			if (exists) return prev;
-			
+
 			return [...prev.slice(-9), error]; // 最新10件を保持
 		});
 	}, []);
@@ -196,7 +206,7 @@ if (button && result) {
 	 * コンソールログハンドリング
 	 */
 	const handleConsoleLog = useCallback((log: ConsoleLog) => {
-		setConsoleLogs(prev => [...prev.slice(-49), log]); // 最新50件を保持
+		setConsoleLogs((prev) => [...prev.slice(-49), log]); // 最新50件を保持
 	}, []);
 
 	/**
@@ -234,10 +244,14 @@ if (button && result) {
 	// 現在のファイル情報を取得
 	const getCurrentFile = () => {
 		switch (activeFile) {
-			case "html": return project.htmlFile;
-			case "css": return project.cssFile;
-			case "javascript": return project.jsFile;
-			default: return project.htmlFile;
+			case "html":
+				return project.htmlFile;
+			case "css":
+				return project.cssFile;
+			case "javascript":
+				return project.jsFile;
+			default:
+				return project.htmlFile;
 		}
 	};
 
@@ -248,17 +262,21 @@ if (button && result) {
 			{/* ヘッダー */}
 			<header className="flex items-center justify-between px-3 md:px-5 py-3 bg-white border-b border-gray-200 shadow-sm">
 				<div className="flex items-center gap-2 md:gap-4 min-w-0 flex-1">
-					<h1 className="m-0 text-lg md:text-2xl font-bold text-gray-900 truncate">🚀 Code Playground</h1>
-					<span className="hidden sm:inline text-sm md:text-base font-medium text-gray-500 truncate">{project.name}</span>
+					<h1 className="m-0 text-lg md:text-2xl font-bold text-gray-900 truncate">
+						🚀 Code Playground
+					</h1>
+					<span className="hidden sm:inline text-sm md:text-base font-medium text-gray-500 truncate">
+						{project.name}
+					</span>
 				</div>
-				
+
 				<div className="flex gap-1 md:gap-2 flex-wrap">
 					<button
 						type="button"
 						onClick={togglePreview}
 						className={`px-2 md:px-4 py-2 text-xs md:text-sm font-medium rounded-md border transition-all duration-200 ${
-							showPreview 
-								? "bg-blue-600 text-white border-blue-600" 
+							showPreview
+								? "bg-blue-600 text-white border-blue-600"
 								: "bg-gray-100 text-gray-700 border-gray-300 hover:bg-gray-200"
 						}`}
 					>
@@ -269,13 +287,15 @@ if (button && result) {
 						type="button"
 						onClick={toggleConsole}
 						className={`px-2 md:px-4 py-2 text-xs md:text-sm font-medium rounded-md border transition-all duration-200 ${
-							showConsole 
-								? "bg-blue-600 text-white border-blue-600" 
+							showConsole
+								? "bg-blue-600 text-white border-blue-600"
 								: "bg-gray-100 text-gray-700 border-gray-300 hover:bg-gray-200"
 						}`}
 					>
 						<span className="md:hidden">📋 ({consoleLogs.length})</span>
-						<span className="hidden md:inline">📋 コンソール ({consoleLogs.length})</span>
+						<span className="hidden md:inline">
+							📋 コンソール ({consoleLogs.length})
+						</span>
 					</button>
 					{errors.length > 0 && (
 						<button
@@ -284,7 +304,9 @@ if (button && result) {
 							className="px-2 md:px-4 py-2 text-xs md:text-sm font-medium bg-red-50 text-red-600 border border-red-200 rounded-md hover:bg-red-100 transition-all duration-200"
 						>
 							<span className="md:hidden">⚠️ ({errors.length})</span>
-							<span className="hidden md:inline">⚠️ エラー ({errors.length})</span>
+							<span className="hidden md:inline">
+								⚠️ エラー ({errors.length})
+							</span>
 						</button>
 					)}
 				</div>
@@ -293,7 +315,9 @@ if (button && result) {
 			{/* メインコンテンツ */}
 			<main className="flex flex-1 overflow-hidden md:flex-row flex-col">
 				{/* エディターセクション */}
-				<section className={`flex flex-col bg-white md:border-r border-gray-200 ${showPreview ? "flex-1 md:h-auto h-1/2" : "flex-1"}`}>
+				<section
+					className={`flex flex-col bg-white md:border-r border-gray-200 ${showPreview ? "flex-1 md:h-auto h-1/2" : "flex-1"}`}
+				>
 					{/* ファイルタブ */}
 					<div className="flex bg-gray-50 border-b border-gray-200">
 						{[
@@ -326,7 +350,7 @@ if (button && result) {
 							theme={editorSettings.theme}
 							tabSize={editorSettings.tabSize}
 							showLineNumbers={editorSettings.lineNumbers}
-							error={errors.find(e => e.file === activeFile)}
+							error={errors.find((e) => e.file === activeFile)}
 						/>
 					</div>
 				</section>
@@ -355,7 +379,9 @@ if (button && result) {
 			{showConsole && (
 				<section className="h-64 bg-white border-t border-gray-200 flex flex-col">
 					<div className="flex items-center justify-between px-4 py-3 bg-gray-50 border-b border-gray-200">
-						<h3 className="m-0 text-base font-semibold text-gray-900">📋 コンソール</h3>
+						<h3 className="m-0 text-base font-semibold text-gray-900">
+							📋 コンソール
+						</h3>
 						<button
 							type="button"
 							onClick={clearConsoleLogs}
@@ -366,13 +392,20 @@ if (button && result) {
 					</div>
 					<div className="flex-1 overflow-y-auto p-2 font-mono text-sm leading-relaxed">
 						{consoleLogs.map((log) => (
-							<div key={log.id} className={`flex gap-2 px-2 py-1 rounded mb-1 ${
-								log.level === 'log' ? 'text-gray-900' :
-								log.level === 'info' ? 'text-blue-600 bg-blue-50' :
-								log.level === 'warn' ? 'text-yellow-600 bg-yellow-50' :
-								log.level === 'error' ? 'text-red-600 bg-red-50' : 
-								'text-gray-900'
-							}`}>
+							<div
+								key={log.id}
+								className={`flex gap-2 px-2 py-1 rounded mb-1 ${
+									log.level === "log"
+										? "text-gray-900"
+										: log.level === "info"
+											? "text-blue-600 bg-blue-50"
+											: log.level === "warn"
+												? "text-yellow-600 bg-yellow-50"
+												: log.level === "error"
+													? "text-red-600 bg-red-50"
+													: "text-gray-900"
+								}`}
+							>
 								<span className="text-gray-400 text-xs min-w-20">
 									{log.timestamp.toLocaleTimeString()}
 								</span>
@@ -390,7 +423,6 @@ if (button && result) {
 					</div>
 				</section>
 			)}
-
 		</div>
 	);
 }

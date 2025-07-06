@@ -1,15 +1,15 @@
 import {
-	Calculator,
-	CalculationParameter,
-	CalculationResult,
-	ValidationResult,
 	CALCULATION_TYPES,
+	type CalculationParameter,
+	type CalculationResult,
+	type Calculator,
 	PHYSICAL_CONSTANTS,
+	type ValidationResult,
 } from "../../types/calculator";
 
 /**
  * シュワルツシルト半径計算機
- * 
+ *
  * シュワルツシルト半径は、ある質量の物体がブラックホールになる臨界半径を表します。
  * 計算式: Rs = 2GM/c²
  * G: 重力定数, M: 質量, c: 光速
@@ -17,7 +17,8 @@ import {
 export class SchwarzschildRadiusCalculator implements Calculator {
 	readonly type = CALCULATION_TYPES.SCHWARZSCHILD_RADIUS;
 	readonly displayName = "シュワルツシルト半径";
-	readonly description = "与えられた質量の物体がブラックホールになる場合の事象の地平面の半径を計算します。";
+	readonly description =
+		"与えられた質量の物体がブラックホールになる場合の事象の地平面の半径を計算します。";
 
 	readonly supportedParameters = [
 		{
@@ -39,7 +40,7 @@ export class SchwarzschildRadiusCalculator implements Calculator {
 		const warnings: string[] = [];
 
 		// 質量パラメータの存在チェック
-		const massParam = parameters.find(p => p.id === "mass");
+		const massParam = parameters.find((p) => p.id === "mass");
 		if (!massParam) {
 			errors.push("質量パラメータが必要です");
 			return { isValid: false, errors, warnings };
@@ -77,12 +78,13 @@ export class SchwarzschildRadiusCalculator implements Calculator {
 			throw new Error("パラメータが無効です: " + validation.errors.join(", "));
 		}
 
-		const massParam = parameters.find(p => p.id === "mass")!;
+		const massParam = parameters.find((p) => p.id === "mass")!;
 		const mass = massParam.value;
 
 		// シュワルツシルト半径の計算: Rs = 2GM/c²
-		const radius = (2 * PHYSICAL_CONSTANTS.GRAVITATIONAL_CONSTANT * mass) / 
-			(PHYSICAL_CONSTANTS.SPEED_OF_LIGHT ** 2);
+		const radius =
+			(2 * PHYSICAL_CONSTANTS.GRAVITATIONAL_CONSTANT * mass) /
+			PHYSICAL_CONSTANTS.SPEED_OF_LIGHT ** 2;
 
 		// 適切な単位での表示
 		const formattedValue = this.formatRadius(radius);

@@ -1,10 +1,10 @@
-import { describe, expect, it, beforeEach, afterEach } from "@jest/globals";
-import { 
-	PlaygroundEngine, 
-	createPlaygroundEngine, 
-	validateHTML, 
-	validateCSS, 
-	validateJavaScript 
+import { afterEach, beforeEach, describe, expect, it } from "@jest/globals";
+import {
+	type PlaygroundEngine,
+	createPlaygroundEngine,
+	validateCSS,
+	validateHTML,
+	validateJavaScript,
 } from "./playground-engine";
 
 describe("PlaygroundEngine", () => {
@@ -16,7 +16,7 @@ describe("PlaygroundEngine", () => {
 		container = document.createElement("div");
 		container.id = "test-container";
 		document.body.appendChild(container);
-		
+
 		engine = createPlaygroundEngine(container);
 	});
 
@@ -76,7 +76,7 @@ describe("PlaygroundEngine", () => {
 
 			const element = container.querySelector(".test") as HTMLElement;
 			expect(element).toBeTruthy();
-			
+
 			// スタイルが適用されていることを確認
 			const styles = getComputedStyle(element);
 			expect(styles.color).toBe("red");
@@ -127,7 +127,9 @@ describe("PlaygroundEngine", () => {
 			const result = engine.executeJavaScript(js);
 
 			expect(result.success).toBe(true);
-			expect(container.querySelector("#output")).toHaveTextContent("Hello from JS");
+			expect(container.querySelector("#output")).toHaveTextContent(
+				"Hello from JS",
+			);
 		});
 
 		it("DOM操作が正しく動作する", async () => {
@@ -147,10 +149,10 @@ describe("PlaygroundEngine", () => {
 			const result = engine.executeJavaScript(js);
 
 			expect(result.success).toBe(true);
-			
+
 			// DOM操作の完了を待つ
-			await new Promise(resolve => setTimeout(resolve, 100));
-			
+			await new Promise((resolve) => setTimeout(resolve, 100));
+
 			expect(container.querySelectorAll("li")).toHaveLength(3);
 			expect(container.querySelector("li")).toHaveTextContent("Item 1");
 		});
@@ -204,7 +206,8 @@ describe("PlaygroundEngine", () => {
 	describe("組み合わせ実行", () => {
 		it("HTML + CSS + JavaScriptが連携して動作する", () => {
 			const html = "<button id='btn'>Click me</button><div id='result'></div>";
-			const css = "#btn { background: blue; color: white; } #result { color: green; }";
+			const css =
+				"#btn { background: blue; color: white; } #result { color: green; }";
 			const js = `
 				document.getElementById('btn').addEventListener('click', function() {
 					document.getElementById('result').textContent = 'Button clicked!';
@@ -223,7 +226,9 @@ describe("PlaygroundEngine", () => {
 			const button = container.querySelector("#btn") as HTMLButtonElement;
 			button.click();
 
-			expect(container.querySelector("#result")).toHaveTextContent("Button clicked!");
+			expect(container.querySelector("#result")).toHaveTextContent(
+				"Button clicked!",
+			);
 		});
 	});
 });

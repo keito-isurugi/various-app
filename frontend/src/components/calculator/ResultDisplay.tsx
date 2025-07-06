@@ -23,7 +23,10 @@ export const ResultDisplay: React.FC<ResultDisplayProps> = ({
 			className={`p-6 bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 border border-blue-200 dark:border-blue-700/50 rounded-xl shadow-sm dark:shadow-lg space-y-4 backdrop-blur-sm ${className}`}
 		>
 			{/* 結果名 */}
-			<h3 id={`result-${result.id}`} className="text-xl font-bold text-blue-900 dark:text-blue-100">
+			<h3
+				id={`result-${result.id}`}
+				className="text-xl font-bold text-blue-900 dark:text-blue-100"
+			>
 				{result.name}
 			</h3>
 
@@ -32,7 +35,7 @@ export const ResultDisplay: React.FC<ResultDisplayProps> = ({
 				<div className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400 bg-clip-text text-transparent mb-2">
 					{result.formattedValue}
 				</div>
-				
+
 				{/* 生の値と単位 */}
 				<div className="text-sm text-gray-600 dark:text-gray-400 font-mono">
 					({result.value} {result.unit})

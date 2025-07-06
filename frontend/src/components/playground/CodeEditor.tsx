@@ -1,5 +1,5 @@
 import type React from "react";
-import { useRef, useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { PlaygroundLanguage } from "../../types/playground";
 
 interface CodeEditorProps {
@@ -74,7 +74,7 @@ export const CodeEditor: React.FC<CodeEditorProps> = ({
 	 * テキストエリアの変更ハンドラー
 	 */
 	const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-		console.log('CodeEditor: 入力値が変更されました:', e.target.value);
+		console.log("CodeEditor: 入力値が変更されました:", e.target.value);
 		onChange(e.target.value);
 	};
 
@@ -85,7 +85,7 @@ export const CodeEditor: React.FC<CodeEditorProps> = ({
 	const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
 		if (e.key === "Tab") {
 			e.preventDefault();
-			
+
 			const textarea = textareaRef.current;
 			if (!textarea) return;
 
@@ -150,12 +150,16 @@ export const CodeEditor: React.FC<CodeEditorProps> = ({
 	return (
 		<div
 			data-testid="code-editor"
-			className={`h-full flex flex-col border border-gray-200 rounded-lg overflow-hidden bg-white ${theme === 'dark' ? 'bg-gray-900 border-gray-600 text-gray-200' : ''} ${className}`}
+			className={`h-full flex flex-col border border-gray-200 rounded-lg overflow-hidden bg-white ${theme === "dark" ? "bg-gray-900 border-gray-600 text-gray-200" : ""} ${className}`}
 		>
 			{/* エディターヘッダー */}
-			<div className={`flex items-center justify-between px-3 py-2 border-b ${theme === 'dark' ? 'bg-gray-800 border-gray-600' : 'bg-gray-50 border-gray-200'}`}>
+			<div
+				className={`flex items-center justify-between px-3 py-2 border-b ${theme === "dark" ? "bg-gray-800 border-gray-600" : "bg-gray-50 border-gray-200"}`}
+			>
 				<div className="flex items-center">
-					<span className={`text-xs font-semibold uppercase tracking-wide ${theme === 'dark' ? 'text-gray-300' : 'text-gray-500'}`}>
+					<span
+						className={`text-xs font-semibold uppercase tracking-wide ${theme === "dark" ? "text-gray-300" : "text-gray-500"}`}
+					>
 						{language.toUpperCase()}
 					</span>
 				</div>
@@ -164,13 +168,17 @@ export const CodeEditor: React.FC<CodeEditorProps> = ({
 			{/* エディター本体 */}
 			<div className="flex flex-1 overflow-hidden">
 				{showLineNumbers && (
-					<div className={`px-2 py-3 text-right font-mono text-sm select-none min-w-12 ${
-						theme === 'dark' ? 'bg-gray-800 border-gray-600 text-gray-400' : 'bg-gray-50 border-gray-200 text-gray-500'
-					} border-r`}>
+					<div
+						className={`px-2 py-3 text-right font-mono text-sm select-none min-w-12 ${
+							theme === "dark"
+								? "bg-gray-800 border-gray-600 text-gray-400"
+								: "bg-gray-50 border-gray-200 text-gray-500"
+						} border-r`}
+					>
 						{Array.from({ length: lineCount }, (_, i) => i + 1).map((line) => (
 							<div
 								key={line}
-								className={`leading-6 ${error?.line === line ? (theme === 'dark' ? 'bg-red-900 text-red-300' : 'bg-red-100 text-red-600') : ''}`}
+								className={`leading-6 ${error?.line === line ? (theme === "dark" ? "bg-red-900 text-red-300" : "bg-red-100 text-red-600") : ""}`}
 								style={{ fontSize: `${fontSize}px` }}
 							>
 								{line}
@@ -178,7 +186,7 @@ export const CodeEditor: React.FC<CodeEditorProps> = ({
 						))}
 					</div>
 				)}
-				
+
 				<div className="flex-1 relative">
 					<textarea
 						ref={textareaRef}
@@ -189,39 +197,46 @@ export const CodeEditor: React.FC<CodeEditorProps> = ({
 						disabled={readOnly}
 						placeholder={placeholder || getDefaultPlaceholder()}
 						className={`w-full h-full p-3 border-0 outline-none resize-none font-mono leading-6 bg-transparent focus:ring-0 focus:border-0 ${
-							theme === 'dark' ? 'text-gray-200 placeholder-gray-500' : 'text-gray-900 placeholder-gray-400'
-						} ${readOnly ? 'cursor-not-allowed opacity-50' : 'cursor-text'}`}
+							theme === "dark"
+								? "text-gray-200 placeholder-gray-500"
+								: "text-gray-900 placeholder-gray-400"
+						} ${readOnly ? "cursor-not-allowed opacity-50" : "cursor-text"}`}
 						style={{
 							fontSize: `${fontSize}px`,
 							tabSize: tabSize,
-							whiteSpace: 'pre',
-							overflowWrap: 'normal',
-							wordWrap: 'off',
-							pointerEvents: readOnly ? 'none' : 'auto',
+							whiteSpace: "pre",
+							overflowWrap: "normal",
+							wordWrap: "off",
+							pointerEvents: readOnly ? "none" : "auto",
 						}}
 						spellCheck={false}
 						autoComplete="off"
-						onFocus={() => console.log('CodeEditor: フォーカスされました')}
-						onBlur={() => console.log('CodeEditor: フォーカスが外れました')}
-						onClick={() => console.log('CodeEditor: クリックされました')}
-						onInput={(e) => console.log('CodeEditor: 入力イベント:', e.currentTarget.value)}
+						onFocus={() => console.log("CodeEditor: フォーカスされました")}
+						onBlur={() => console.log("CodeEditor: フォーカスが外れました")}
+						onClick={() => console.log("CodeEditor: クリックされました")}
+						onInput={(e) =>
+							console.log("CodeEditor: 入力イベント:", e.currentTarget.value)
+						}
 					/>
 				</div>
 			</div>
 
 			{/* エラー表示 */}
 			{error && (
-				<div className={`px-3 py-2 border-t ${theme === 'dark' ? 'bg-red-900 border-red-700' : 'bg-red-50 border-red-200'}`}>
+				<div
+					className={`px-3 py-2 border-t ${theme === "dark" ? "bg-red-900 border-red-700" : "bg-red-50 border-red-200"}`}
+				>
 					<div className="flex items-center gap-2 text-sm">
 						<span className="text-base">⚠️</span>
-						<span className={theme === 'dark' ? 'text-red-300' : 'text-red-600'}>
+						<span
+							className={theme === "dark" ? "text-red-300" : "text-red-600"}
+						>
 							{error.line && `行 ${error.line}: `}
 							{error.message}
 						</span>
 					</div>
 				</div>
 			)}
-
 		</div>
 	);
 };

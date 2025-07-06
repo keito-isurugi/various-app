@@ -1,5 +1,5 @@
-import { render, screen, fireEvent } from "@testing-library/react";
-import { describe, expect, it, beforeEach, jest } from "@jest/globals";
+import { beforeEach, describe, expect, it, jest } from "@jest/globals";
+import { fireEvent, render, screen } from "@testing-library/react";
 import { SideNavigation } from "./SideNavigation";
 
 // Next.js Linkのモック
@@ -123,7 +123,9 @@ describe("SideNavigation", () => {
 			render(<SideNavigation isOpen={true} onClose={mockOnClose} />);
 
 			expect(screen.getByText("© 2024 kei-talk")).toBeInTheDocument();
-			expect(screen.getByText("技術ブログとポートフォリオ")).toBeInTheDocument();
+			expect(
+				screen.getByText("技術ブログとポートフォリオ"),
+			).toBeInTheDocument();
 		});
 	});
 });

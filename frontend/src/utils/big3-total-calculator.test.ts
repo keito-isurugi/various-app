@@ -29,7 +29,7 @@ describe("BIG3合計値計算テスト", () => {
 
 					// 合計値が正しく計算されていることを確認
 					expect(levelData.total).toBe(
-						levelData.benchPress + levelData.squat + levelData.deadlift
+						levelData.benchPress + levelData.squat + levelData.deadlift,
 					);
 
 					// 各値が正の数であることを確認
@@ -86,7 +86,9 @@ describe("BIG3合計値計算テスト", () => {
 
 				// 合計値が正しく計算されていることを確認
 				expect(result.初心者.total).toBe(
-					result.初心者.benchPress + result.初心者.squat + result.初心者.deadlift
+					result.初心者.benchPress +
+						result.初心者.squat +
+						result.初心者.deadlift,
 				);
 			}
 		});
