@@ -13,9 +13,9 @@ interface RootLayoutProps {
  */
 export const AppLayout: React.FC<RootLayoutProps> = ({ children }) => {
 	return (
-		<div className="flex flex-col min-h-screen">
+		<div className="flex flex-col min-h-screen bg-background">
 			<Header />
-			<main className="flex-grow">{children}</main>
+			<main className="flex-grow pt-20 lg:pt-24">{children}</main>
 			<Footer />
 			<ScrollToTop />
 		</div>

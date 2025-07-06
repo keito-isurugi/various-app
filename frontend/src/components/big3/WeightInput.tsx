@@ -52,13 +52,14 @@ export const WeightInput: React.FC<WeightInputProps> = ({
 	const inputValue = value === "" ? "" : value.toString();
 
 	return (
-		<div className={`space-y-2 ${className}`}>
+		<div className={`space-y-3 ${className}`}>
 			{/* ラベル */}
 			<label
 				htmlFor="bodyWeight"
-				className="block text-sm font-semibold text-gray-900 dark:text-gray-100"
+				className="block text-sm font-semibold text-foreground flex items-center gap-2"
 			>
-				体重 <span className="text-red-500">*</span>
+				<span className="text-lg">⚖️</span>
+				体重 <span className="text-error-500">*</span>
 			</label>
 
 			{/* 入力フィールド */}
@@ -73,18 +74,16 @@ export const WeightInput: React.FC<WeightInputProps> = ({
 					min="0"
 					step="0.1"
 					className={`
-						w-full px-3 py-2 pr-10 border-2 rounded-lg 
-						focus:ring-2 focus:ring-blue-500 focus:border-transparent 
-						transition-colors font-medium
+						input pr-12 text-lg font-medium
 						${
 							hasError
-								? "border-red-300 focus:ring-red-500"
-								: "border-gray-300 dark:border-gray-600"
+								? "border-error-500 focus-visible:ring-error-500 bg-error-50 dark:bg-error-950/20"
+								: "border-border focus-visible:ring-primary"
 						}
 						${
 							disabled
-								? "bg-gray-100 dark:bg-gray-800 cursor-not-allowed text-gray-500 dark:text-gray-400"
-								: "bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
+								? "bg-secondary/50 cursor-not-allowed text-muted-foreground"
+								: "bg-background text-foreground"
 						}
 					`}
 					aria-invalid={hasError}
@@ -92,9 +91,13 @@ export const WeightInput: React.FC<WeightInputProps> = ({
 				/>
 
 				{/* 単位表示 */}
-				<div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+				<div className="absolute inset-y-0 right-0 pr-4 flex items-center pointer-events-none">
 					<span
-						className={`text-sm font-medium ${disabled ? "text-gray-400 dark:text-gray-500" : "text-gray-700 dark:text-gray-300"}`}
+						className={`text-sm font-bold px-2 py-1 rounded-md ${
+							disabled
+								? "text-muted-foreground bg-secondary/30"
+								: "text-primary bg-primary-50 dark:bg-primary-950/30"
+						}`}
 					>
 						kg
 					</span>
@@ -103,16 +106,25 @@ export const WeightInput: React.FC<WeightInputProps> = ({
 
 			{/* エラーメッセージ */}
 			{hasError && (
-				<p id="bodyWeight-error" className="text-sm text-red-600" role="alert">
-					{errorMessage}
-				</p>
+				<div className="flex items-center gap-2 p-3 bg-error-50 dark:bg-error-950/20 border border-error-200 dark:border-error-800 rounded-lg">
+					<span className="text-error-500">⚠️</span>
+					<output
+						id="bodyWeight-error"
+						className="text-sm text-error-600 dark:text-error-400 font-medium"
+					>
+						{errorMessage}
+					</output>
+				</div>
 			)}
 
 			{/* ヘルプテキスト */}
 			{!hasError && (
-				<p className="text-sm text-gray-600 dark:text-gray-400">
-					50kg〜140kgの範囲で入力してください
-				</p>
+				<div className="flex items-center gap-2 p-3 bg-secondary-50 dark:bg-secondary-950/20 border border-secondary-200 dark:border-secondary-800 rounded-lg">
+					<span className="text-secondary-500">💡</span>
+					<p className="text-sm text-muted-foreground">
+						50kg〜140kgの範囲で入力してください
+					</p>
+				</div>
 			)}
 		</div>
 	);

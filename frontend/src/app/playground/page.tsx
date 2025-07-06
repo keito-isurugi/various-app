@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import { CodeEditor } from "../../components/playground/CodeEditor";
 import { PreviewPanel } from "../../components/playground/PreviewPanel";
 import type {
@@ -12,6 +12,13 @@ import type {
 } from "../../types/playground";
 
 export default function PlaygroundPage() {
+	const [mounted, setMounted] = useState(false);
+
+	// クライアントサイドでのみマウントする
+	useEffect(() => {
+		setMounted(true);
+	}, []);
+
 	// プロジェクト状態
 	const [project, setProject] = useState<PlaygroundProject>({
 		id: "default",
@@ -37,7 +44,7 @@ export default function PlaygroundPage() {
     </div>
 </body>
 </html>`,
-			lastModified: new Date(),
+			lastModified: new Date("2024-01-01T00:00:00.000Z"),
 		},
 		cssFile: {
 			id: "css-1",
@@ -86,7 +93,7 @@ p {
     border-radius: 4px;
     min-height: 20px;
 }`,
-			lastModified: new Date(),
+			lastModified: new Date("2024-01-01T00:00:00.000Z"),
 		},
 		jsFile: {
 			id: "js-1",
@@ -105,7 +112,7 @@ if (button && result) {
         result.innerHTML = \`
             <h3>ボタンがクリックされました！</h3>
             <p>クリック回数: <strong>\${clickCount}</strong></p>
-            <p>現在時刻: \${new Date().toLocaleTimeString()}</p>
+            <p>最後のクリック: \${clickCount}回目</p>
         \`;
         
         console.log(\`ボタンがクリックされました（\${clickCount}回目）\`);
@@ -113,10 +120,10 @@ if (button && result) {
 } else {
     console.log('ボタンまたは結果表示エリアが見つかりません');
 }`,
-			lastModified: new Date(),
+			lastModified: new Date("2024-01-01T00:00:00.000Z"),
 		},
-		createdAt: new Date(),
-		updatedAt: new Date(),
+		createdAt: new Date("2024-01-01T00:00:00.000Z"),
+		updatedAt: new Date("2024-01-01T00:00:00.000Z"),
 	});
 
 	// UI状態
@@ -144,7 +151,7 @@ if (button && result) {
 		(content: string) => {
 			console.log("Playground: ファイル変更が呼び出されました:", {
 				activeFile,
-				content: content.slice(0, 50) + "...",
+				content: `${content.slice(0, 50)}...`,
 			});
 			setProject((prev) => {
 				const updatedProject = { ...prev };
@@ -154,26 +161,26 @@ if (button && result) {
 						updatedProject.htmlFile = {
 							...prev.htmlFile,
 							content,
-							lastModified: new Date(),
+							lastModified: new Date("2024-01-01T00:00:00.000Z"),
 						};
 						break;
 					case "css":
 						updatedProject.cssFile = {
 							...prev.cssFile,
 							content,
-							lastModified: new Date(),
+							lastModified: new Date("2024-01-01T00:00:00.000Z"),
 						};
 						break;
 					case "javascript":
 						updatedProject.jsFile = {
 							...prev.jsFile,
 							content,
-							lastModified: new Date(),
+							lastModified: new Date("2024-01-01T00:00:00.000Z"),
 						};
 						break;
 				}
 
-				updatedProject.updatedAt = new Date();
+				updatedProject.updatedAt = new Date("2024-01-01T00:00:00.000Z");
 				console.log(
 					"Playground: プロジェクトが更新されました:",
 					updatedProject,
@@ -258,14 +265,14 @@ if (button && result) {
 	const currentFile = getCurrentFile();
 
 	return (
-		<div className="flex flex-col h-screen bg-gray-50">
-			{/* ヘッダー */}
-			<header className="flex items-center justify-between px-3 md:px-5 py-3 bg-white border-b border-gray-200 shadow-sm">
+		<div className="flex flex-col h-[calc(100vh-5rem)] bg-gray-50 dark:bg-gray-900">
+			{/* ページヘッダー */}
+			<div className="flex items-center justify-between px-3 md:px-5 py-4 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 shadow-soft">
 				<div className="flex items-center gap-2 md:gap-4 min-w-0 flex-1">
-					<h1 className="m-0 text-lg md:text-2xl font-bold text-gray-900 truncate">
+					<h1 className="m-0 text-lg md:text-2xl font-bold text-gray-900 dark:text-white truncate">
 						🚀 Code Playground
 					</h1>
-					<span className="hidden sm:inline text-sm md:text-base font-medium text-gray-500 truncate">
+					<span className="hidden sm:inline text-sm md:text-base font-medium text-gray-500 dark:text-gray-400 truncate">
 						{project.name}
 					</span>
 				</div>
@@ -274,10 +281,10 @@ if (button && result) {
 					<button
 						type="button"
 						onClick={togglePreview}
-						className={`px-2 md:px-4 py-2 text-xs md:text-sm font-medium rounded-md border transition-all duration-200 ${
+						className={`px-2 md:px-4 py-2 text-xs md:text-sm font-medium rounded-lg transition-all duration-300 ${
 							showPreview
-								? "bg-blue-600 text-white border-blue-600"
-								: "bg-gray-100 text-gray-700 border-gray-300 hover:bg-gray-200"
+								? "bg-primary-500 text-white border border-primary-500 shadow-soft hover:bg-primary-600"
+								: "bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-600 hover:bg-gray-200 dark:hover:bg-gray-600"
 						}`}
 					>
 						<span className="md:hidden">👁️</span>
@@ -286,10 +293,10 @@ if (button && result) {
 					<button
 						type="button"
 						onClick={toggleConsole}
-						className={`px-2 md:px-4 py-2 text-xs md:text-sm font-medium rounded-md border transition-all duration-200 ${
+						className={`px-2 md:px-4 py-2 text-xs md:text-sm font-medium rounded-lg transition-all duration-300 ${
 							showConsole
-								? "bg-blue-600 text-white border-blue-600"
-								: "bg-gray-100 text-gray-700 border-gray-300 hover:bg-gray-200"
+								? "bg-primary-500 text-white border border-primary-500 shadow-soft hover:bg-primary-600"
+								: "bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-600 hover:bg-gray-200 dark:hover:bg-gray-600"
 						}`}
 					>
 						<span className="md:hidden">📋 ({consoleLogs.length})</span>
@@ -301,7 +308,7 @@ if (button && result) {
 						<button
 							type="button"
 							onClick={clearErrors}
-							className="px-2 md:px-4 py-2 text-xs md:text-sm font-medium bg-red-50 text-red-600 border border-red-200 rounded-md hover:bg-red-100 transition-all duration-200"
+							className="px-2 md:px-4 py-2 text-xs md:text-sm font-medium bg-error-50 dark:bg-error-950/20 text-error-600 dark:text-error-400 border border-error-200 dark:border-error-800 rounded-lg hover:bg-error-100 dark:hover:bg-error-950/30 transition-all duration-300"
 						>
 							<span className="md:hidden">⚠️ ({errors.length})</span>
 							<span className="hidden md:inline">
@@ -310,10 +317,10 @@ if (button && result) {
 						</button>
 					)}
 				</div>
-			</header>
+			</div>
 
 			{/* メインコンテンツ */}
-			<main className="flex flex-1 overflow-hidden md:flex-row flex-col">
+			<main className="flex flex-1 overflow-hidden md:flex-row flex-col min-h-0">
 				{/* エディターセクション */}
 				<section
 					className={`flex flex-col bg-white md:border-r border-gray-200 ${showPreview ? "flex-1 md:h-auto h-1/2" : "flex-1"}`}

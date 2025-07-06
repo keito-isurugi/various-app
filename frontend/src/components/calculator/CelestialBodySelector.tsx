@@ -37,59 +37,94 @@ export const CelestialBodySelector: React.FC<CelestialBodySelectorProps> = ({
 	};
 
 	return (
-		<div className="space-y-3">
+		<div className="space-y-4">
 			<label
 				htmlFor="celestial-body-selector"
-				className="block text-sm font-medium text-gray-700 dark:text-gray-300"
+				className="block text-sm font-semibold text-foreground flex items-center gap-2"
 			>
+				<span className="text-lg">🌌</span>
 				天体を選択
 			</label>
-			<select
-				id="celestial-body-selector"
-				value={selectedBodyId || ""}
-				onChange={handleSelectChange}
-				disabled={disabled}
-				className="w-full px-3 py-2 border-2 border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white dark:bg-gray-800 text-gray-900 dark:text-white font-medium disabled:opacity-50 disabled:cursor-not-allowed appearance-none"
-				style={{
-					backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e")`,
-					backgroundPosition: "right 0.5rem center",
-					backgroundRepeat: "no-repeat",
-					backgroundSize: "1.5em 1.5em",
-				}}
-			>
-				<option value="">手動で質量を入力</option>
-				<optgroup label="太陽系の天体">
-					{solarSystemBodies.map((body) => (
-						<option key={body.id} value={body.id}>
-							{body.nameJa} ({body.name})
-						</option>
-					))}
-				</optgroup>
-				<optgroup label="恒星">
-					{stars.map((body) => (
-						<option key={body.id} value={body.id}>
-							{body.nameJa} ({body.name})
-						</option>
-					))}
-				</optgroup>
-			</select>
+
+			<div className="relative">
+				<select
+					id="celestial-body-selector"
+					value={selectedBodyId || ""}
+					onChange={handleSelectChange}
+					disabled={disabled}
+					className="input appearance-none bg-background pr-12 text-lg font-medium cursor-pointer disabled:cursor-not-allowed hover:border-primary-400 transition-colors"
+				>
+					<option value="">🌟 手動で質量を入力</option>
+					<optgroup label="🪐 太陽系の天体">
+						{solarSystemBodies.map((body) => (
+							<option key={body.id} value={body.id}>
+								{body.nameJa} ({body.name})
+							</option>
+						))}
+					</optgroup>
+					<optgroup label="⭐ 恒星">
+						{stars.map((body) => (
+							<option key={body.id} value={body.id}>
+								{body.nameJa} ({body.name})
+							</option>
+						))}
+					</optgroup>
+				</select>
+
+				{/* Custom dropdown arrow */}
+				<div className="absolute inset-y-0 right-0 pr-4 flex items-center pointer-events-none">
+					<svg
+						className="w-5 h-5 text-muted-foreground"
+						fill="none"
+						stroke="currentColor"
+						viewBox="0 0 24 24"
+					>
+						<title>Dropdown arrow</title>
+						<path
+							strokeLinecap="round"
+							strokeLinejoin="round"
+							strokeWidth={2}
+							d="M19 9l-7 7-7-7"
+						/>
+					</svg>
+				</div>
+			</div>
+
 			{selectedBody && (
-				<div className="bg-blue-50 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-700/50 rounded-md p-3">
-					<div className="text-sm text-blue-800 dark:text-blue-200">
-						<div className="font-medium">
-							{selectedBody.nameJa} ({selectedBody.name})
-						</div>
-						<div className="text-xs mt-1 text-blue-600 dark:text-blue-300">
-							質量: {formatMass(selectedBody.mass)}
-						</div>
-						<div className="text-xs mt-1 text-blue-600 dark:text-blue-300 font-medium">
-							{getMassComparison(selectedBody.mass).description}
-						</div>
-						{selectedBody.description && (
-							<div className="text-xs mt-1 text-blue-600 dark:text-blue-300">
-								{selectedBody.description}
+				<div className="card bg-primary-50/50 dark:bg-primary-950/20 border-primary-200 dark:border-primary-800 animate-slide-up">
+					<div className="p-4">
+						<div className="flex items-start gap-3">
+							<div className="w-10 h-10 bg-gradient-to-br from-primary-500 to-primary-600 rounded-xl flex items-center justify-center flex-shrink-0">
+								<span className="text-white text-lg">
+									{selectedBody.category === "solar_system" ? "🪐" : "⭐"}
+								</span>
 							</div>
-						)}
+							<div className="flex-1 min-w-0">
+								<div className="font-bold text-foreground text-lg">
+									{selectedBody.nameJa}
+								</div>
+								<div className="text-sm text-muted-foreground mb-2">
+									{selectedBody.name}
+								</div>
+								<div className="space-y-1">
+									<div className="text-sm">
+										<span className="font-medium text-foreground">質量:</span>{" "}
+										<span className="font-bold text-primary">
+											{formatMass(selectedBody.mass)}
+										</span>
+									</div>
+									<div className="text-sm text-muted-foreground">
+										<span className="font-medium">比較:</span>{" "}
+										{getMassComparison(selectedBody.mass).description}
+									</div>
+									{selectedBody.description && (
+										<div className="text-sm text-muted-foreground mt-2 p-2 bg-secondary-50 dark:bg-secondary-950/30 rounded-lg">
+											{selectedBody.description}
+										</div>
+									)}
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 			)}

@@ -65,10 +65,7 @@
 		"typescript": "^5.7.2"
 	},
 	"lint-staged": {
-		"src/**/*.{ts,tsx,js,jsx}": [
-			"biome check --write",
-			"biome check"
-		],
+		"src/**/*.{ts,tsx,js,jsx}": ["biome check --write", "biome check"],
 		"src/**/*.{ts,tsx}": [
 			"bash -c 'tsc --noEmit --skipLibCheck --project tsconfig.json'"
 		]

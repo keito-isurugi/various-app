@@ -42,20 +42,21 @@ export const ScrollToTop: React.FC = () => {
 		<button
 			type="button"
 			onClick={scrollToTop}
-			className="fixed bottom-8 right-8 z-30 p-3 bg-blue-600 hover:bg-blue-700 text-white rounded-full shadow-lg transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+			className="fixed bottom-6 right-6 z-30 p-4 bg-primary/90 hover:bg-primary text-primary-foreground rounded-2xl shadow-strong hover:shadow-glow-lg transition-all duration-300 hover:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 backdrop-blur-sm border border-primary-300/20 group"
 			aria-label="ページトップへ戻る"
 		>
 			<svg
-				className="w-6 h-6"
+				className="w-6 h-6 group-hover:-translate-y-1 transition-transform duration-300"
 				fill="none"
 				stroke="currentColor"
 				viewBox="0 0 24 24"
 				xmlns="http://www.w3.org/2000/svg"
 			>
+				<title>上矢印アイコン</title>
 				<path
 					strokeLinecap="round"
 					strokeLinejoin="round"
-					strokeWidth={2}
+					strokeWidth={2.5}
 					d="M5 10l7-7m0 0l7 7m-7-7v18"
 				/>
 			</svg>
