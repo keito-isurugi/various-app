@@ -9,6 +9,11 @@ export type WeightLevel =
 	| "エリート";
 
 /**
+ * 性別タイプ
+ */
+export type Gender = "male" | "female";
+
+/**
  * BIG3の種目タイプ
  */
 export type ExerciseType = "ベンチプレス" | "スクワット" | "デッドリフト";

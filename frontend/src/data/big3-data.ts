@@ -1,10 +1,10 @@
 import type { BIG3Data, LevelConfig } from "../types/big3";
 
 /**
- * ウエイトトレーニングBIG3のレベル別重量データ
+ * ウエイトトレーニングBIG3のレベル別重量データ（男性用）
  * 体重50kg〜140kgまで5kg刻みでのデータ
  */
-export const BIG3_DATA: BIG3Data = {
+export const BIG3_DATA_MALE: BIG3Data = {
 	ベンチプレス: [
 		{
 			bodyWeight: 50,
@@ -470,9 +470,9 @@ export const BIG3_DATA: BIG3Data = {
 };
 
 /**
- * レベル判定の設定値
+ * レベル判定の設定値（男性用）
  */
-export const LEVEL_CONFIG: LevelConfig = {
+export const LEVEL_CONFIG_MALE: LevelConfig = {
 	minBodyWeight: 50,
 	maxBodyWeight: 140,
 	weightStep: 5,
@@ -488,3 +488,7 @@ export const LEVEL_ORDER = [
 	"上級者",
 	"エリート",
 ] as const;
+
+// 後方互換性のためのエクスポート
+export const BIG3_DATA = BIG3_DATA_MALE;
+export const LEVEL_CONFIG = LEVEL_CONFIG_MALE;

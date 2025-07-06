@@ -1,17 +1,19 @@
 import type React from "react";
 import { LEVEL_ORDER } from "../../data/big3-data";
-import type { ExerciseType } from "../../types/big3";
+import type { ExerciseType, Gender } from "../../types/big3";
+import { getLevelBgColor, getLevelColor } from "../../utils/big3-calculator";
 import {
-	calculateLevelWeights,
-	getLevelBgColor,
-	getLevelColor,
-	validateBodyWeight,
-} from "../../utils/big3-calculator";
+	calculateLevelWeightsByGender,
+	getWeightRangeMessageByGender,
+	validateBodyWeightByGender,
+} from "../../utils/big3-calculator-gender";
 import { BIG3Total } from "./BIG3Total";
 
 interface TargetWeightsProps {
 	/** 体重 (kg) */
 	bodyWeight: number | "";
+	/** 性別 */
+	gender: Gender;
 	/** コンパクト表示モード */
 	compact?: boolean;
 	/** 追加のCSSクラス */
@@ -24,6 +26,7 @@ interface TargetWeightsProps {
  */
 export const TargetWeights: React.FC<TargetWeightsProps> = ({
 	bodyWeight,
+	gender,
 	compact = false,
 	className = "",
 }) => {
@@ -48,7 +51,7 @@ export const TargetWeights: React.FC<TargetWeightsProps> = ({
 	}
 
 	// 体重バリデーション
-	const validation = validateBodyWeight(bodyWeight);
+	const validation = validateBodyWeightByGender(bodyWeight, gender);
 	if (!validation.isValid) {
 		return (
 			<div
@@ -60,7 +63,7 @@ export const TargetWeights: React.FC<TargetWeightsProps> = ({
 					</div>
 					<p>{validation.errorMessage}</p>
 					<p className="mt-1 text-sm">
-						体重は50kg〜140kgの範囲で入力してください
+						{getWeightRangeMessageByGender(gender)}
 					</p>
 				</div>
 			</div>
@@ -88,7 +91,11 @@ export const TargetWeights: React.FC<TargetWeightsProps> = ({
 			{/* 種目別目標重量カード */}
 			<div className="grid gap-6 md:grid-cols-3">
 				{exercises.map((exercise) => {
-					const levelWeights = calculateLevelWeights(bodyWeight, exercise);
+					const levelWeights = calculateLevelWeightsByGender(
+						bodyWeight,
+						exercise,
+						gender,
+					);
 
 					if (!levelWeights) {
 						return (
@@ -105,12 +112,11 @@ export const TargetWeights: React.FC<TargetWeightsProps> = ({
 					}
 
 					return (
-						<div
+						<fieldset
 							key={exercise}
 							className="bg-white border border-gray-200 rounded-lg shadow-sm p-4"
-							role="group"
-							aria-label={`${exercise}目標重量`}
 						>
+							<legend className="sr-only">{exercise}目標重量</legend>
 							{/* 種目名 */}
 							<h3
 								className={`font-bold text-gray-900 mb-4 text-center ${compact ? "text-base" : "text-lg"}`}
@@ -147,7 +153,7 @@ export const TargetWeights: React.FC<TargetWeightsProps> = ({
 									);
 								})}
 							</div>
-						</div>
+						</fieldset>
 					);
 				})}
 			</div>
@@ -162,7 +168,7 @@ export const TargetWeights: React.FC<TargetWeightsProps> = ({
 
 			{/* BIG3合計値セクション */}
 			<div className="mt-12">
-				<BIG3Total bodyWeight={bodyWeight} />
+				<BIG3Total bodyWeight={bodyWeight} gender={gender} />
 			</div>
 		</section>
 	);

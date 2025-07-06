@@ -2,20 +2,24 @@
 
 import React, { useState } from "react";
 import { DataTable } from "../../components/big3/DataTable";
+import { GenderSelector } from "../../components/big3/GenderSelector";
 import { TargetWeights } from "../../components/big3/TargetWeights";
 import { WeightInput } from "../../components/big3/WeightInput";
-import type { ExerciseType } from "../../types/big3";
-import { validateBodyWeight } from "../../utils/big3-calculator";
+import type { ExerciseType, Gender } from "../../types/big3";
+import { validateBodyWeightByGender } from "../../utils/big3-calculator-gender";
 
 type TabType = "target" | ExerciseType;
 
 export default function BIG3Page() {
 	const [bodyWeight, setBodyWeight] = useState<number | "">("");
 	const [activeTab, setActiveTab] = useState<TabType>("target");
+	const [selectedGender, setSelectedGender] = useState<Gender>("male");
 
 	// 体重バリデーション
 	const validation =
-		bodyWeight !== "" ? validateBodyWeight(bodyWeight) : { isValid: true };
+		bodyWeight !== ""
+			? validateBodyWeightByGender(bodyWeight, selectedGender)
+			: { isValid: true };
 
 	const tabs: { key: TabType; label: string }[] = [
 		{ key: "target", label: "目標重量" },
@@ -29,6 +33,15 @@ export default function BIG3Page() {
 	 */
 	const handleTabChange = (tabKey: TabType) => {
 		setActiveTab(tabKey);
+	};
+
+	/**
+	 * 性別変更ハンドラー（状態リセット機能付き）
+	 */
+	const handleGenderChange = (gender: Gender) => {
+		setSelectedGender(gender);
+		// 性別変更時に体重をリセット（バリデーション範囲が異なるため）
+		setBodyWeight("");
 	};
 
 	/**
@@ -50,14 +63,18 @@ export default function BIG3Page() {
 	 */
 	const renderTabContent = () => {
 		if (activeTab === "target") {
-			return <TargetWeights bodyWeight={bodyWeight} />;
+			return <TargetWeights bodyWeight={bodyWeight} gender={selectedGender} />;
 		}
 
 		// データテーブル表示
 		const highlightWeight =
 			bodyWeight !== "" && validation.isValid ? bodyWeight : undefined;
 		return (
-			<DataTable exercise={activeTab} highlightBodyWeight={highlightWeight} />
+			<DataTable
+				exercise={activeTab}
+				gender={selectedGender}
+				highlightBodyWeight={highlightWeight}
+			/>
 		);
 	};
 
@@ -75,26 +92,32 @@ export default function BIG3Page() {
 					</p>
 				</header>
 
-				{/* 体重入力セクション */}
+				{/* 性別選択と体重入力セクション */}
 				<section className="mb-8">
-					<div className="bg-white rounded-lg shadow-sm p-6 max-w-md mx-auto">
-						<WeightInput
-							value={bodyWeight}
-							onChange={setBodyWeight}
-							errorMessage={
-								!validation.isValid ? validation.errorMessage : undefined
-							}
-						/>
+					<div className="bg-white rounded-lg shadow-sm p-6 max-w-2xl mx-auto">
+						<div className="grid md:grid-cols-2 gap-6">
+							{/* 性別選択 */}
+							<GenderSelector
+								selectedGender={selectedGender}
+								onChange={handleGenderChange}
+							/>
+							{/* 体重入力 */}
+							<WeightInput
+								value={bodyWeight}
+								onChange={setBodyWeight}
+								gender={selectedGender}
+								errorMessage={
+									!validation.isValid ? validation.errorMessage : undefined
+								}
+							/>
+						</div>
 					</div>
 				</section>
 
 				{/* タブナビゲーション */}
 				<section className="mb-8">
 					<div className="flex justify-center">
-						<nav
-							role="tablist"
-							className="inline-flex space-x-2 bg-gray-200 p-1 rounded-lg"
-						>
+						<div className="inline-flex space-x-2 bg-gray-200 p-1 rounded-lg">
 							{tabs.map((tab) => (
 								<button
 									type="button"
@@ -108,45 +131,50 @@ export default function BIG3Page() {
 									{tab.label}
 								</button>
 							))}
-						</nav>
+						</div>
 					</div>
 				</section>
 
 				{/* タブコンテンツ */}
-				<main
-					role="tabpanel"
+				<section
 					id={`tabpanel-${activeTab}`}
 					aria-labelledby={`tab-${activeTab}`}
 					className="bg-white rounded-lg shadow-sm p-6"
 				>
 					{renderTabContent()}
-				</main>
+				</section>
 
 				{/* 使い方説明 */}
 				<section className="mt-12 bg-blue-50 rounded-lg p-6">
 					<h2 className="text-xl font-semibold text-blue-900 mb-4">使い方</h2>
 					<div className="grid md:grid-cols-2 gap-6 text-sm text-blue-800">
 						<div>
-							<h3 className="font-semibold mb-2">1. 体重を入力</h3>
+							<h3 className="font-semibold mb-2">1. 性別を選択</h3>
 							<p>
-								50kg〜140kgの範囲で現在の体重を入力してください。小数点も使用できます。
+								性別によって適用される基準値が異なります。正確な判定のため最初に選択してください。
 							</p>
 						</div>
 						<div>
-							<h3 className="font-semibold mb-2">2. タブを選択</h3>
+							<h3 className="font-semibold mb-2">2. 体重を入力</h3>
+							<p>
+								男性：50kg〜140kg、女性：40kg〜120kgの範囲で現在の体重を入力してください。
+							</p>
+						</div>
+						<div>
+							<h3 className="font-semibold mb-2">3. タブを選択</h3>
 							<p>
 								「目標重量」で全種目の目標を確認するか、個別の種目タブで詳細データを確認できます。
 							</p>
 						</div>
 						<div>
-							<h3 className="font-semibold mb-2">3. レベルを確認</h3>
+							<h3 className="font-semibold mb-2">4. レベルを確認</h3>
 							<p>
 								初心者から
 								エリートまで5段階でレベル分けされています。現在の挙上重量と比較してみましょう。
 							</p>
 						</div>
 						<div>
-							<h3 className="font-semibold mb-2">4. 目標設定</h3>
+							<h3 className="font-semibold mb-2">5. 目標設定</h3>
 							<p>
 								次のレベルの重量を目標にトレーニング計画を立ててください。安全第一で進めましょう。
 							</p>

@@ -1,22 +1,21 @@
 import type React from "react";
-import type { BIG3TotalData, WeightLevel } from "../../types/big3";
-import {
-	getLevelBgColor,
-	getLevelColor,
-	validateBodyWeight,
-} from "../../utils/big3-calculator";
-import { calculateBIG3Total } from "../../utils/big3-total-calculator";
+import type { BIG3TotalData, Gender, WeightLevel } from "../../types/big3";
+import { getLevelBgColor, getLevelColor } from "../../utils/big3-calculator";
+import { validateBodyWeightByGender } from "../../utils/big3-calculator-gender";
+import { calculateBIG3TotalByGender } from "../../utils/big3-total-calculator";
 
 interface BIG3TotalProps {
 	/** 体重 (kg) */
 	bodyWeight: number | "";
+	/** 性別 */
+	gender: Gender;
 }
 
 /**
  * BIG3合計値表示コンポーネント
  * レベル別のBIG3合計値とその内訳を表示する
  */
-export const BIG3Total: React.FC<BIG3TotalProps> = ({ bodyWeight }) => {
+export const BIG3Total: React.FC<BIG3TotalProps> = ({ bodyWeight, gender }) => {
 	// 体重が未入力の場合
 	if (bodyWeight === "") {
 		return (
@@ -37,7 +36,7 @@ export const BIG3Total: React.FC<BIG3TotalProps> = ({ bodyWeight }) => {
 	}
 
 	// 体重のバリデーション
-	const validation = validateBodyWeight(bodyWeight);
+	const validation = validateBodyWeightByGender(bodyWeight, gender);
 	if (!validation.isValid) {
 		return (
 			<div className="card text-center border-error-500/20 bg-error-50/50 dark:bg-error-950/20">
@@ -57,7 +56,7 @@ export const BIG3Total: React.FC<BIG3TotalProps> = ({ bodyWeight }) => {
 	}
 
 	// BIG3合計値を計算
-	const totalData = calculateBIG3Total(bodyWeight);
+	const totalData = calculateBIG3TotalByGender(bodyWeight, gender);
 	if (!totalData) {
 		return (
 			<div className="card text-center border-error-500/20 bg-error-50/50 dark:bg-error-950/20">

@@ -1,11 +1,14 @@
 import type React from "react";
-import { BIG3_DATA, LEVEL_ORDER } from "../../data/big3-data";
-import type { ExerciseType, WeightLevel } from "../../types/big3";
+import { LEVEL_ORDER } from "../../data/big3-data";
+import type { ExerciseType, Gender, WeightLevel } from "../../types/big3";
 import { getLevelColor } from "../../utils/big3-calculator";
+import { getBIG3DataByGender } from "../../utils/big3-calculator-gender";
 
 interface DataTableProps {
 	/** 表示する種目 */
 	exercise: ExerciseType;
+	/** 性別 */
+	gender: Gender;
 	/** ハイライトする体重 */
 	highlightBodyWeight?: number;
 	/** コンパクト表示モード */
@@ -20,11 +23,12 @@ interface DataTableProps {
  */
 export const DataTable: React.FC<DataTableProps> = ({
 	exercise,
+	gender,
 	highlightBodyWeight,
 	compact = false,
 	className = "",
 }) => {
-	const exerciseData = BIG3_DATA[exercise];
+	const exerciseData = getBIG3DataByGender(gender)[exercise];
 
 	/**
 	 * 指定した体重がハイライト対象かチェック

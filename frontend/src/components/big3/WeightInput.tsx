@@ -1,10 +1,14 @@
 import type React from "react";
+import type { Gender } from "../../types/big3";
+import { getWeightRangeMessageByGender } from "../../utils/big3-calculator-gender";
 
 interface WeightInputProps {
 	/** 体重の値 (kg) */
 	value: number | "";
 	/** 値が変更された時のコールバック */
 	onChange: (value: number | "") => void;
+	/** 性別 */
+	gender: Gender;
 	/** エラーメッセージ */
 	errorMessage?: string;
 	/** 無効化フラグ */
@@ -20,6 +24,7 @@ interface WeightInputProps {
 export const WeightInput: React.FC<WeightInputProps> = ({
 	value,
 	onChange,
+	gender,
 	errorMessage,
 	disabled = false,
 	className = "",
@@ -56,7 +61,7 @@ export const WeightInput: React.FC<WeightInputProps> = ({
 			{/* ラベル */}
 			<label
 				htmlFor="bodyWeight"
-				className="block text-sm font-semibold text-foreground flex items-center gap-2"
+				className="flex text-sm font-semibold text-foreground items-center gap-2"
 			>
 				<span className="text-lg">⚖️</span>
 				体重 <span className="text-error-500">*</span>
@@ -122,7 +127,7 @@ export const WeightInput: React.FC<WeightInputProps> = ({
 				<div className="flex items-center gap-2 p-3 bg-secondary-50 dark:bg-secondary-950/20 border border-secondary-200 dark:border-secondary-800 rounded-lg">
 					<span className="text-secondary-500">💡</span>
 					<p className="text-sm text-muted-foreground">
-						50kg〜140kgの範囲で入力してください
+						{getWeightRangeMessageByGender(gender)}
 					</p>
 				</div>
 			)}
