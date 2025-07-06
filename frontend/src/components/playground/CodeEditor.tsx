@@ -206,7 +206,7 @@ export const CodeEditor: React.FC<CodeEditorProps> = ({
 							tabSize: tabSize,
 							whiteSpace: "pre",
 							overflowWrap: "normal",
-							wordWrap: "off",
+							wordWrap: "normal",
 							pointerEvents: readOnly ? "none" : "auto",
 						}}
 						spellCheck={false}
