@@ -97,7 +97,7 @@ export const SideNavigation: React.FC<SideNavigationProps> = ({
 						className="text-xl font-bold text-gray-900 dark:text-white"
 						onClick={onClose}
 					>
-						kei-talk
+						Keito
 					</Link>
 					<button
 						type="button"
@@ -143,7 +143,7 @@ export const SideNavigation: React.FC<SideNavigationProps> = ({
 				{/* フッター情報 */}
 				<div className="absolute bottom-0 left-0 right-0 p-6 border-t border-gray-200 dark:border-gray-700">
 					<div className="text-center text-sm text-gray-500 dark:text-gray-400">
-						<p>&copy; 2024 kei-talk</p>
+						<p>&copy; 2024 Keito</p>
 						<p>技術ブログとポートフォリオ</p>
 					</div>
 				</div>

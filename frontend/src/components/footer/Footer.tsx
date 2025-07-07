@@ -25,7 +25,7 @@ export const Footer: React.FC = () => {
 				<div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
 					{/* コピーライト */}
 					<div className="text-gray-600 text-sm">
-						© {currentYear} kei-talk. All rights reserved.
+						© {currentYear} Keito. All rights reserved.
 					</div>
 
 					{/* フッターナビゲーション */}

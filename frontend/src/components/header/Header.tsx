@@ -77,7 +77,7 @@ export const Header: React.FC = () => {
 									<div className="absolute -top-1 -right-1 w-3 h-3 bg-gradient-to-br from-emerald-400 to-emerald-500 rounded-full animate-pulse-soft" />
 								</div>
 								<span className="text-xl font-bold gradient-text-primary group-hover:scale-105 transition-transform duration-300">
-									kei-talk
+									Keito
 								</span>
 							</Link>
 						</div>

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "../css/globals.css";
-import { AppLayout } from "../components/layout/RootLayout";
+import { ConditionalLayout } from "../components/layout/ConditionalLayout";
 
 const geistSans = localFont({
 	src: "./fonts/GeistVF.woff",
@@ -15,7 +15,7 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-	title: "kei-talk - 技術ブログとポートフォリオ",
+	title: "Keito - 技術ブログとポートフォリオ",
 	description: "プログラミングと技術に関する記事、開発実績を紹介するサイト",
 };
 
@@ -29,7 +29,7 @@ export default function RootLayout({
 			<body
 				className={`${geistSans.variable} ${geistMono.variable} antialiased`}
 			>
-				<AppLayout>{children}</AppLayout>
+				<ConditionalLayout>{children}</ConditionalLayout>
 			</body>
 		</html>
 	);
