@@ -31,6 +31,20 @@ export default function AlgorithmsPage() {
 			spaceComplexity: "O(1)",
 			difficulty: 2,
 		},
+		{
+			id: "bubble-sort",
+			name: "バブルソート",
+			description:
+				"隣接する要素を比較して交換を繰り返すシンプルなソートアルゴリズム",
+			category: "sort",
+			timeComplexity: {
+				best: "O(n)",
+				average: "O(n²)",
+				worst: "O(n²)",
+			},
+			spaceComplexity: "O(1)",
+			difficulty: 2,
+		},
 		// 将来追加予定のアルゴリズム
 		// {
 		// 	id: "quick-sort",
@@ -215,9 +229,9 @@ export default function AlgorithmsPage() {
 								さらなるアルゴリズム
 							</h3>
 							<p className="text-gray-500 dark:text-gray-500 text-sm">
-								クイックソート、DFS、BFS
+								クイックソート、マージソート
 								<br />
-								などを準備中...
+								DFS、BFSなどを準備中...
 							</p>
 						</div>
 					</div>

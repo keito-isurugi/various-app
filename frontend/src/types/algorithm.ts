@@ -24,7 +24,7 @@ export interface AlgorithmStep {
 	/** このステップでの操作内容 */
 	operation: string;
 	/** 現在の変数状態 */
-	variables?: Record<string, number | string>;
+	variables?: Record<string, number | string | number[]>;
 }
 
 /**
@@ -34,7 +34,7 @@ export interface AlgorithmResult {
 	/** 実行が成功したかどうか */
 	success: boolean;
 	/** 結果の値 */
-	result: number | boolean | string;
+	result: number | boolean | string | number[];
 	/** 実行ステップの履歴 */
 	steps: AlgorithmStep[];
 	/** 実行時間（ステップ数） */
