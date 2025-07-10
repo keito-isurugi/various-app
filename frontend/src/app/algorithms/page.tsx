@@ -45,6 +45,20 @@ export default function AlgorithmsPage() {
 			spaceComplexity: "O(1)",
 			difficulty: 2,
 		},
+		{
+			id: "linear-search",
+			name: "線形探索",
+			description:
+				"配列の先頭から順次要素を確認して目標値を探すシンプルな探索アルゴリズム",
+			category: "search",
+			timeComplexity: {
+				best: "O(1)",
+				average: "O(n/2)",
+				worst: "O(n)",
+			},
+			spaceComplexity: "O(1)",
+			difficulty: 1,
+		},
 		// 将来追加予定のアルゴリズム
 		// {
 		// 	id: "quick-sort",
