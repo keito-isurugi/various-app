@@ -59,6 +59,20 @@ export default function AlgorithmsPage() {
 			spaceComplexity: "O(1)",
 			difficulty: 1,
 		},
+		{
+			id: "selection-sort",
+			name: "選択ソート",
+			description:
+				"未ソート部分から最小値を見つけて先頭に移動する操作を繰り返すソートアルゴリズム",
+			category: "sort",
+			timeComplexity: {
+				best: "O(n²)",
+				average: "O(n²)",
+				worst: "O(n²)",
+			},
+			spaceComplexity: "O(1)",
+			difficulty: 2,
+		},
 		// 将来追加予定のアルゴリズム
 		// {
 		// 	id: "quick-sort",
