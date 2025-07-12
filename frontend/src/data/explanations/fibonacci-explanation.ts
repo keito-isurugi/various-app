@@ -5,7 +5,7 @@
  * プログラミング学習者向けのわかりやすい説明
  */
 
-import type { ExplanationData } from "../../components/calculator/CalculationExplanation";
+import type { ExplanationData } from "@/types/algorithm";
 
 /**
  * フィボナッチ数列（再帰）の解説データ

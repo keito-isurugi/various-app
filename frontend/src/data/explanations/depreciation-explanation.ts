@@ -5,7 +5,7 @@
  * 会計初心者向けのわかりやすい説明
  */
 
-import type { ExplanationData } from "../../components/calculator/CalculationExplanation";
+import type { ExplanationData } from "@/types/algorithm";
 
 /**
  * 減価償却の解説データ

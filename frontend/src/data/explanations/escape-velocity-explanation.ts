@@ -5,7 +5,7 @@
  * 日常的な例を使って理解しやすく説明
  */
 
-import type { ExplanationData } from "../../components/calculator/CalculationExplanation";
+import type { ExplanationData } from "@/types/algorithm";
 
 /**
  * 脱出速度の解説データ

@@ -4,7 +4,7 @@
  * 計算タイプに応じた解説データを提供するユーティリティ
  */
 
-import type { ExplanationData } from "../components/calculator/CalculationExplanation";
+import type { ExplanationData } from "@/types/algorithm";
 import { escapeVelocityExplanation } from "../data/explanations/escape-velocity-explanation";
 import { massEnergyExplanation } from "../data/explanations/mass-energy-explanation";
 import { schwarzschildExplanation } from "../data/explanations/schwarzschild-explanation";

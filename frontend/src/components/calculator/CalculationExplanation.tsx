@@ -9,33 +9,10 @@
 
 import type React from "react";
 import { useState } from "react";
-
-// 解説データの型定義
-export interface ExplanationSection {
-	/** セクションのID */
-	id: string;
-	/** セクションタイトル */
-	title: string;
-	/** 説明文 */
-	content: string;
-	/** 数式（LaTeX記法またはHTML） */
-	formula?: string;
-	/** 実例・具体例 */
-	examples?: string[];
-	/** 重要度（表示の優先順位） */
-	importance: "high" | "medium" | "low";
-}
-
-export interface ExplanationData {
-	/** 計算タイプ */
-	calculationType: string;
-	/** メインタイトル */
-	title: string;
-	/** 概要説明 */
-	overview: string;
-	/** 詳細セクション */
-	sections: ExplanationSection[];
-}
+import type {
+	ExplanationData,
+	ExplanationSection,
+} from "../../types/algorithm";
 
 interface CalculationExplanationProps {
 	/** 表示する解説データ */

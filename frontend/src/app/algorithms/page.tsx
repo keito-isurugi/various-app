@@ -198,6 +198,20 @@ export default function AlgorithmsPage() {
 			spaceComplexity: "O(V)",
 			difficulty: 3,
 		},
+		{
+			id: "breadth-first-search",
+			name: "幅優先探索（BFS）",
+			description:
+				"グラフや木構造を幅優先で探索する基本的なアルゴリズム。レベルごとに探索し、最短経路を保証",
+			category: "graph",
+			timeComplexity: {
+				best: "O(V + E)",
+				average: "O(V + E)",
+				worst: "O(V + E)",
+			},
+			spaceComplexity: "O(V)",
+			difficulty: 2,
+		},
 	];
 
 	/**
@@ -368,9 +382,9 @@ export default function AlgorithmsPage() {
 								さらなるアルゴリズム
 							</h3>
 							<p className="text-gray-500 dark:text-gray-500 text-sm">
-								DFS、BFS、ダイクストラ法
+								ダイクストラ法、動的プログラミング
 								<br />
-								動的プログラミングなどを準備中...
+								A*アルゴリズムなどを準備中...
 							</p>
 						</div>
 					</div>

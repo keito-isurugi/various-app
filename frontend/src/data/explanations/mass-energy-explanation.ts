@@ -5,7 +5,7 @@
  * アインシュタインの有名な式を一般向けに説明
  */
 
-import type { ExplanationData } from "../../components/calculator/CalculationExplanation";
+import type { ExplanationData } from "@/types/algorithm";
 
 /**
  * E=mc²の解説データ

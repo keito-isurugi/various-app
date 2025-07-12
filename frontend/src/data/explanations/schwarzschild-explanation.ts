@@ -5,7 +5,7 @@
  * 一般の方にもわかりやすい説明を提供
  */
 
-import type { ExplanationData } from "../../components/calculator/CalculationExplanation";
+import type { ExplanationData } from "@/types/algorithm";
 
 /**
  * シュワルツシルト半径の解説データ

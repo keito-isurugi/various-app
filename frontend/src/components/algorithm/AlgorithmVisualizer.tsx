@@ -22,6 +22,10 @@ interface AlgorithmVisualizerProps {
 	initialStep?: number;
 	/** 自動実行の速度（ミリ秒、デフォルト: 1000） */
 	autoPlaySpeed?: number;
+	/** 実行速度（旧互換性のため） */
+	speed?: number;
+	/** アルゴリズムのタイプ（配列系またはグラフ系） */
+	algorithmType?: "array" | "graph";
 	/** 追加のCSSクラス */
 	className?: string;
 }
@@ -34,6 +38,8 @@ export const AlgorithmVisualizer: React.FC<AlgorithmVisualizerProps> = ({
 	steps,
 	initialStep = 0,
 	autoPlaySpeed = 1000,
+	speed,
+	algorithmType = "array",
 	className = "",
 }) => {
 	// 実行状態の管理
@@ -41,7 +47,7 @@ export const AlgorithmVisualizer: React.FC<AlgorithmVisualizerProps> = ({
 		isRunning: false,
 		isPaused: false,
 		currentStep: initialStep,
-		speed: autoPlaySpeed,
+		speed: speed || autoPlaySpeed,
 		autoPlay: false,
 	});
 
@@ -52,7 +58,7 @@ export const AlgorithmVisualizer: React.FC<AlgorithmVisualizerProps> = ({
 	 * 配列要素を可視化用データに変換
 	 */
 	const getVisualizationElements = useCallback((): VisualizationElement[] => {
-		if (!currentStepData) return [];
+		if (!currentStepData || !currentStepData.array) return [];
 
 		return currentStepData.array.map((value, index) => {
 			let state: VisualizationElement["state"] = "normal";

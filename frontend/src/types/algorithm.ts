@@ -13,18 +13,26 @@ export interface AlgorithmStep {
 	id: number;
 	/** ステップの説明 */
 	description: string;
-	/** 現在の配列状態 */
-	array: number[];
+	/** 現在の配列状態（配列系アルゴリズム用） */
+	array?: number[];
 	/** 比較対象のインデックス */
 	comparing?: number[];
-	/** ハイライト対象のインデックス */
+	/** ハイライト対象のインデックス（グラフ系ではノードID） */
+	highlight?: string[] | number[];
+	/** ハイライト対象の要素（旧互換性のため） */
 	highlightedElements?: number[];
+	/** セカンダリハイライト要素 */
+	secondary?: string[];
 	/** 探索範囲（開始・終了インデックス） */
 	searchRange?: { start: number; end: number };
 	/** 見つかった要素のインデックス */
 	foundIndex?: number;
-	/** このステップでの操作内容 */
-	operation: string;
+	/** このステップでの詳細情報 */
+	details?: string;
+	/** このステップでの操作内容（旧互換性のため） */
+	operation?: string;
+	/** 現在のアルゴリズム状態 */
+	state?: Record<string, any>;
 	/** 現在の変数状態 */
 	variables?: Record<
 		string,
@@ -36,28 +44,47 @@ export interface AlgorithmStep {
  * アルゴリズムの実行結果
  */
 export interface AlgorithmResult {
-	/** 実行が成功したかどうか */
-	success: boolean;
-	/** 結果の値 */
-	result: number | boolean | string | number[];
 	/** 実行ステップの履歴 */
 	steps: AlgorithmStep[];
-	/** 実行時間（ステップ数） */
-	executionSteps: number;
-	/** 時間計算量 */
-	timeComplexity: string;
-	/** 空間計算量 */
-	spaceComplexity: string;
+	/** 実行結果のサマリー */
+	summary?: {
+		/** 比較回数 */
+		comparisons?: number;
+		/** 交換回数 */
+		swaps?: number;
+		/** 実行時間（ミリ秒） */
+		timeElapsed?: number;
+		/** 最終配列状態 */
+		finalArray?: any[];
+		/** その他の結果データ */
+		[key: string]: any;
+	};
+	/** 実行成功フラグ（旧互換性のため） */
+	success?: boolean;
+	/** 実行結果（旧互換性のため） */
+	result?: any;
+	/** 実行ステップ（旧互換性のため） */
+	executionSteps?: AlgorithmStep[];
+	/** 時間計算量（旧互換性のため） */
+	timeComplexity?: string;
 }
 
 /**
  * アルゴリズムの入力設定
  */
 export interface AlgorithmInput {
-	/** 対象となる配列 */
-	array: number[];
+	/** 対象となる配列（配列系アルゴリズム用） */
+	array?: number[];
 	/** 探索対象の値 */
 	target?: number;
+	/** グラフデータ（グラフ系アルゴリズム用） */
+	graph?: Record<string, string[]>;
+	/** 開始ノード（グラフ系アルゴリズム用） */
+	startNode?: string;
+	/** 目標ノード（グラフ系アルゴリズム用） */
+	targetNode?: string;
+	/** 実行方法 */
+	method?: string;
 	/** その他のパラメータ */
 	parameters?: Record<string, any>;
 }
@@ -169,4 +196,36 @@ export interface ExecutionState {
 	speed: number;
 	/** 自動実行中かどうか */
 	autoPlay: boolean;
+}
+
+/**
+ * アルゴリズム解説データの構造
+ */
+export interface ExplanationData {
+	/** 計算の種類 */
+	calculationType: string;
+	/** 解説のタイトル */
+	title: string;
+	/** 概要 */
+	overview: string;
+	/** 解説セクション */
+	sections: ExplanationSection[];
+}
+
+/**
+ * 解説セクションの構造
+ */
+export interface ExplanationSection {
+	/** セクションID */
+	id: string;
+	/** セクションタイトル */
+	title: string;
+	/** セクション内容 */
+	content: string;
+	/** 重要度 */
+	importance: "high" | "medium" | "low";
+	/** 例文 */
+	examples: string[];
+	/** 数式（オプション） */
+	formula?: string;
 }
