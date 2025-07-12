@@ -100,6 +100,20 @@ export default function AlgorithmsPage() {
 			spaceComplexity: "O(log n)",
 			difficulty: 3,
 		},
+		{
+			id: "merge-sort",
+			name: "マージソート",
+			description:
+				"分割統治法による安定なソートアルゴリズム。常にO(n log n)の性能を保証",
+			category: "sort",
+			timeComplexity: {
+				best: "O(n log n)",
+				average: "O(n log n)",
+				worst: "O(n log n)",
+			},
+			spaceComplexity: "O(n)",
+			difficulty: 3,
+		},
 	];
 
 	/**
