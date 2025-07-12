@@ -128,6 +128,20 @@ export default function AlgorithmsPage() {
 			spaceComplexity: "O(1)",
 			difficulty: 3,
 		},
+		{
+			id: "fibonacci-recursive",
+			name: "フィボナッチ数列（再帰）",
+			description:
+				"再帰アルゴリズムの代表例。関数が自分自身を呼び出して数列を計算し、指数的計算量の問題を学習",
+			category: "other",
+			timeComplexity: {
+				best: "O(2^n)",
+				average: "O(2^n)",
+				worst: "O(2^n)",
+			},
+			spaceComplexity: "O(n)",
+			difficulty: 3,
+		},
 	];
 
 	/**

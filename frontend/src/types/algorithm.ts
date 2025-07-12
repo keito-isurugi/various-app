@@ -26,7 +26,10 @@ export interface AlgorithmStep {
 	/** このステップでの操作内容 */
 	operation: string;
 	/** 現在の変数状態 */
-	variables?: Record<string, number | string | number[]>;
+	variables?: Record<
+		string,
+		number | string | number[] | string[] | boolean | undefined
+	>;
 }
 
 /**
