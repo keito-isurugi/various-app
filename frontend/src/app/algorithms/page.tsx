@@ -87,20 +87,19 @@ export default function AlgorithmsPage() {
 			spaceComplexity: "O(1)",
 			difficulty: 2,
 		},
-		// 将来追加予定のアルゴリズム
-		// {
-		// 	id: "quick-sort",
-		// 	name: "クイックソート",
-		// 	description: "分割統治法による効率的なソートアルゴリズム",
-		// 	category: "sort",
-		// 	timeComplexity: {
-		// 		best: "O(n log n)",
-		// 		average: "O(n log n)",
-		// 		worst: "O(n²)",
-		// 	},
-		// 	spaceComplexity: "O(log n)",
-		// 	difficulty: 3,
-		// },
+		{
+			id: "quick-sort",
+			name: "クイックソート",
+			description: "分割統治法による効率的なソートアルゴリズム",
+			category: "sort",
+			timeComplexity: {
+				best: "O(n log n)",
+				average: "O(n log n)",
+				worst: "O(n²)",
+			},
+			spaceComplexity: "O(log n)",
+			difficulty: 3,
+		},
 	];
 
 	/**
