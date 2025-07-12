@@ -17,8 +17,8 @@ export class BreadthFirstSearchAlgorithm implements Algorithm {
 			average: "O(V + E)",
 			worst: "O(V + E)",
 		},
-		spaceComplexity: "O(V)",
 		difficulty: 2,
+		spaceComplexity: "O(1)",
 	};
 
 	private steps: AlgorithmStep[] = [];

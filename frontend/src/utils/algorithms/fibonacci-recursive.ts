@@ -44,8 +44,8 @@ export class FibonacciRecursiveAlgorithm implements Algorithm {
 			average: "O(2^n)", // 常に指数的
 			worst: "O(2^n)", // 常に指数的
 		},
-		spaceComplexity: "O(n)", // 再帰の深さ
 		difficulty: 3, // 中級（概念は簡単だが、計算量の理解が重要）
+		spaceComplexity: "O(1)",
 	};
 
 	// クラス内で使用する変数
@@ -134,9 +134,8 @@ export class FibonacciRecursiveAlgorithm implements Algorithm {
 			success: true,
 			result: result,
 			steps: this.steps,
-			executionSteps: this.steps.length,
+			executionSteps: this.steps,
 			timeComplexity: this.info.timeComplexity.average,
-			spaceComplexity: this.info.spaceComplexity,
 		};
 	}
 

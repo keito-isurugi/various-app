@@ -45,8 +45,8 @@ export class ArrayReverseRecursiveAlgorithm implements Algorithm {
 			average: "O(n)", // 常に線形
 			worst: "O(n)", // 常に線形
 		},
-		spaceComplexity: "O(n)", // 再帰の深さ
 		difficulty: 2, // 初級〜中級（線形再帰で理解しやすい）
+		spaceComplexity: "O(1)",
 	};
 
 	// クラス内で使用する変数
@@ -143,9 +143,8 @@ export class ArrayReverseRecursiveAlgorithm implements Algorithm {
 			success: true,
 			result: [...this.currentArray],
 			steps: this.steps,
-			executionSteps: this.steps.length,
+			executionSteps: this.steps,
 			timeComplexity: this.info.timeComplexity.average,
-			spaceComplexity: this.info.spaceComplexity,
 		};
 	}
 

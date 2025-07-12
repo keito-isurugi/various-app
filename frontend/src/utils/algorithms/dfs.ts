@@ -56,8 +56,8 @@ export class DepthFirstSearchAlgorithm implements Algorithm {
 			average: "O(V + E)", // すべての場合で同じ
 			worst: "O(V + E)", // すべての場合で同じ
 		},
-		spaceComplexity: "O(V)", // 訪問済み管理とスタック
 		difficulty: 3, // 中級（グラフ理論とスタック/再帰の理解が必要）
+		spaceComplexity: "O(1)",
 	};
 
 	// クラス内で使用する変数
@@ -151,7 +151,6 @@ export class DepthFirstSearchAlgorithm implements Algorithm {
 				maxDepth: this.maxDepth,
 				method: method === "recursive" ? "再帰実装" : "反復実装",
 				timeComplexity: this.info.timeComplexity.average,
-				spaceComplexity: this.info.spaceComplexity,
 				efficiency: `${this.visitOrder.length}ノード訪問、最大深度${this.maxDepth}`,
 			},
 		});
@@ -160,9 +159,8 @@ export class DepthFirstSearchAlgorithm implements Algorithm {
 			success: true,
 			result: targetNode ? foundTarget : this.visitOrder,
 			steps: this.steps,
-			executionSteps: this.steps.length,
+			executionSteps: this.steps,
 			timeComplexity: this.info.timeComplexity.average,
-			spaceComplexity: this.info.spaceComplexity,
 		};
 	}
 

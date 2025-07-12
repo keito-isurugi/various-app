@@ -255,7 +255,7 @@ export default function LinearSearchPage() {
 										配列:
 									</span>
 									<div className="font-mono text-sm text-gray-900 dark:text-gray-100 mt-1">
-										[{input.array.join(", ")}]
+										[{input.array?.join(", ") ?? ""}]
 									</div>
 								</div>
 								<div>
@@ -385,7 +385,7 @@ export default function LinearSearchPage() {
 												実行ステップ数:
 											</span>
 											<span className="ml-2 font-mono font-bold text-gray-900 dark:text-gray-100">
-												{result.executionSteps}
+												{result.executionSteps?.length ?? 0}
 											</span>
 										</div>
 										<div>

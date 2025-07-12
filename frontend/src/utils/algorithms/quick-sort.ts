@@ -45,8 +45,8 @@ export class QuickSortAlgorithm implements Algorithm {
 			average: "O(n log n)", // 平均的な場合
 			worst: "O(n²)", // 最悪の場合：既にソート済みで最初/最後をピボットに選択
 		},
-		spaceComplexity: "O(log n)", // 再帰スタック空間
 		difficulty: 3, // 中級〜上級
+		spaceComplexity: "O(1)",
 	};
 
 	// クラス内で使用する変数
@@ -72,9 +72,8 @@ export class QuickSortAlgorithm implements Algorithm {
 				success: false,
 				result: [],
 				steps: [],
-				executionSteps: 0,
+				executionSteps: [],
 				timeComplexity: this.info.timeComplexity.best,
-				spaceComplexity: this.info.spaceComplexity,
 			};
 		}
 
@@ -126,9 +125,8 @@ export class QuickSortAlgorithm implements Algorithm {
 			success: true,
 			result: sortedArray,
 			steps: this.steps,
-			executionSteps: this.steps.length,
+			executionSteps: this.steps,
 			timeComplexity: this.info.timeComplexity.average,
-			spaceComplexity: this.info.spaceComplexity,
 		};
 	}
 

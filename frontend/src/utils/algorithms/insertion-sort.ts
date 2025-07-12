@@ -32,8 +32,8 @@ export class InsertionSortAlgorithm implements Algorithm {
 			average: "O(n²)", // 平均的な場合
 			worst: "O(n²)", // 最悪の場合：逆順
 		},
-		spaceComplexity: "O(1)", // 定数空間
 		difficulty: 2, // 初級〜中級
+		spaceComplexity: "O(1)",
 	};
 
 	/**
@@ -50,9 +50,8 @@ export class InsertionSortAlgorithm implements Algorithm {
 				success: false,
 				result: [],
 				steps: [],
-				executionSteps: 0,
+				executionSteps: [],
 				timeComplexity: this.info.timeComplexity.best,
-				spaceComplexity: this.info.spaceComplexity,
 			};
 		}
 
@@ -234,9 +233,8 @@ export class InsertionSortAlgorithm implements Algorithm {
 			success: true,
 			result: sortedArray,
 			steps: steps,
-			executionSteps: steps.length,
+			executionSteps: steps,
 			timeComplexity: this.info.timeComplexity.average,
-			spaceComplexity: this.info.spaceComplexity,
 		};
 	}
 

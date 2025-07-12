@@ -245,7 +245,7 @@ export default function HeapSortPage() {
 										配列:
 									</span>
 									<div className="font-mono text-sm text-gray-900 dark:text-gray-100 mt-1">
-										[{input.array.join(", ")}]
+										[{input.array?.join(", ") ?? ""}]
 									</div>
 								</div>
 								<div>
@@ -253,7 +253,7 @@ export default function HeapSortPage() {
 										要素数:
 									</span>
 									<div className="font-mono text-lg font-bold text-orange-600 dark:text-orange-400 mt-1">
-										{input.array.length}
+										{input.array?.length ?? 0}
 									</div>
 								</div>
 							</div>
@@ -362,7 +362,7 @@ export default function HeapSortPage() {
 												実行ステップ数:
 											</span>
 											<span className="ml-2 font-mono font-bold text-gray-900 dark:text-gray-100">
-												{result.executionSteps}
+												{result.executionSteps?.length ?? 0}
 											</span>
 										</div>
 										<div>

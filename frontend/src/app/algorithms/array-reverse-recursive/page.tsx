@@ -380,7 +380,7 @@ export default function ArrayReverseRecursivePage() {
 												実行ステップ数:
 											</span>
 											<span className="ml-2 font-mono font-bold text-gray-900 dark:text-gray-100">
-												{result.executionSteps}
+												{result.executionSteps?.length ?? 0}
 											</span>
 										</div>
 										<div>

@@ -32,8 +32,8 @@ export class MergeSortAlgorithm implements Algorithm {
 			average: "O(n log n)", // 平均的な場合：常に一定
 			worst: "O(n log n)", // 最悪の場合：常に一定
 		},
-		spaceComplexity: "O(n)", // 追加配列が必要
 		difficulty: 3, // 中級〜上級
+		spaceComplexity: "O(1)",
 	};
 
 	// クラス内で使用する変数
@@ -58,9 +58,8 @@ export class MergeSortAlgorithm implements Algorithm {
 				success: false,
 				result: [],
 				steps: [],
-				executionSteps: 0,
+				executionSteps: [],
 				timeComplexity: this.info.timeComplexity.best,
-				spaceComplexity: this.info.spaceComplexity,
 			};
 		}
 
@@ -109,9 +108,8 @@ export class MergeSortAlgorithm implements Algorithm {
 			success: true,
 			result: result,
 			steps: this.steps,
-			executionSteps: this.steps.length,
+			executionSteps: this.steps,
 			timeComplexity: this.info.timeComplexity.average,
-			spaceComplexity: this.info.spaceComplexity,
 		};
 	}
 

@@ -221,7 +221,7 @@ export default function SelectionSortPage() {
 										配列:
 									</span>
 									<div className="font-mono text-sm text-gray-900 dark:text-gray-100 mt-1">
-										[{input.array.join(", ")}]
+										[{input.array?.join(", ") ?? ""}]
 									</div>
 								</div>
 								<div>
@@ -229,7 +229,7 @@ export default function SelectionSortPage() {
 										要素数:
 									</span>
 									<div className="font-mono text-lg font-bold text-purple-600 dark:text-purple-400 mt-1">
-										{input.array.length}
+										{input.array?.length ?? 0}
 									</div>
 								</div>
 							</div>
@@ -324,7 +324,7 @@ export default function SelectionSortPage() {
 												実行ステップ数:
 											</span>
 											<span className="ml-2 font-mono font-bold text-gray-900 dark:text-gray-100">
-												{result.executionSteps}
+												{result.executionSteps?.length ?? 0}
 											</span>
 										</div>
 										<div>

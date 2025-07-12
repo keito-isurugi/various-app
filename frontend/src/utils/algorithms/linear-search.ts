@@ -32,8 +32,8 @@ export class LinearSearchAlgorithm implements Algorithm {
 			average: "O(n/2)", // 平均的な場合：配列の中央あたり
 			worst: "O(n)", // 最悪の場合：最後にある、または見つからない
 		},
-		spaceComplexity: "O(1)", // 定数空間
 		difficulty: 1, // 初級
+		spaceComplexity: "O(1)",
 	};
 
 	/**
@@ -50,9 +50,8 @@ export class LinearSearchAlgorithm implements Algorithm {
 				success: false,
 				result: -1,
 				steps: [],
-				executionSteps: 0,
+				executionSteps: [],
 				timeComplexity: this.info.timeComplexity.best,
-				spaceComplexity: this.info.spaceComplexity,
 			};
 		}
 
@@ -116,7 +115,7 @@ export class LinearSearchAlgorithm implements Algorithm {
 					success: true,
 					result: i,
 					steps: steps,
-					executionSteps: steps.length,
+					executionSteps: steps,
 					timeComplexity:
 						i === 0
 							? this.info.timeComplexity.best
@@ -125,7 +124,6 @@ export class LinearSearchAlgorithm implements Algorithm {
 								: i < (array.length * 3) / 4
 									? this.info.timeComplexity.average
 									: "O(3n/4)",
-					spaceComplexity: this.info.spaceComplexity,
 				};
 			}
 
@@ -163,9 +161,8 @@ export class LinearSearchAlgorithm implements Algorithm {
 			success: false,
 			result: -1,
 			steps: steps,
-			executionSteps: steps.length,
+			executionSteps: steps,
 			timeComplexity: this.info.timeComplexity.worst,
-			spaceComplexity: this.info.spaceComplexity,
 		};
 	}
 

@@ -31,8 +31,8 @@ export class BinarySearchAlgorithm implements Algorithm {
 			average: "O(log n)", // 平均的な場合
 			worst: "O(log n)", // 最悪の場合：最後まで探索
 		},
-		spaceComplexity: "O(1)", // 定数空間
 		difficulty: 2, // 初級〜中級
+		spaceComplexity: "O(1)",
 	};
 
 	/**
@@ -49,9 +49,8 @@ export class BinarySearchAlgorithm implements Algorithm {
 				success: false,
 				result: -1,
 				steps: [],
-				executionSteps: 0,
+				executionSteps: [],
 				timeComplexity: this.info.timeComplexity.worst,
-				spaceComplexity: this.info.spaceComplexity,
 			};
 		}
 
@@ -127,9 +126,8 @@ export class BinarySearchAlgorithm implements Algorithm {
 					success: true,
 					result: mid,
 					steps: steps,
-					executionSteps: steps.length,
+					executionSteps: steps,
 					timeComplexity: this.info.timeComplexity.best,
-					spaceComplexity: this.info.spaceComplexity,
 				};
 			}
 			if (midValue < target) {
@@ -182,9 +180,8 @@ export class BinarySearchAlgorithm implements Algorithm {
 			success: false,
 			result: -1,
 			steps: steps,
-			executionSteps: steps.length,
+			executionSteps: steps,
 			timeComplexity: this.info.timeComplexity.worst,
-			spaceComplexity: this.info.spaceComplexity,
 		};
 	}
 

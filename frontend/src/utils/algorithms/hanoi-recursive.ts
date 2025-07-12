@@ -71,8 +71,8 @@ export class HanoiRecursiveAlgorithm implements Algorithm {
 			average: "O(2^n)", // 常に指数的
 			worst: "O(2^n)", // 常に指数的
 		},
-		spaceComplexity: "O(n)", // 再帰の深さ
 		difficulty: 4, // 上級（概念は理解しやすいが、再帰と指数的複雑さの理解が必要）
+		spaceComplexity: "O(1)",
 	};
 
 	// クラス内で使用する変数
@@ -172,9 +172,8 @@ export class HanoiRecursiveAlgorithm implements Algorithm {
 			success: true,
 			result: `${this.totalMoves}回の移動で完了`,
 			steps: this.steps,
-			executionSteps: this.steps.length,
+			executionSteps: this.steps,
 			timeComplexity: this.info.timeComplexity.average,
-			spaceComplexity: this.info.spaceComplexity,
 		};
 	}
 
