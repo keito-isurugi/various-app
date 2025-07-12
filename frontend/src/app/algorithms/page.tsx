@@ -157,6 +157,20 @@ export default function AlgorithmsPage() {
 			difficulty: 2,
 		},
 		{
+			id: "subset-sum-dp",
+			name: "部分和問題（動的計画法）",
+			description:
+				"二次元DPテーブルを使った部分和問題の効率的な解法。配列の部分集合でターゲットの和を作れるかを判定",
+			category: "dynamic",
+			timeComplexity: {
+				best: "O(n×S)",
+				average: "O(n×S)",
+				worst: "O(n×S)",
+			},
+			spaceComplexity: "O(n×S)",
+			difficulty: 3,
+		},
+		{
 			id: "factorial-recursive",
 			name: "階乗の計算（再帰）",
 			description:
