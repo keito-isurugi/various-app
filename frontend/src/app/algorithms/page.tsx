@@ -240,6 +240,76 @@ export default function AlgorithmsPage() {
 			spaceComplexity: "O(V)",
 			difficulty: 2,
 		},
+		{
+			id: "stack-basic",
+			name: "スタック（基本操作）",
+			description:
+				"LIFO（Last In, First Out）原理に基づくスタックデータ構造の基本操作。push、pop、peek等の動作を可視化",
+			category: "data-structure",
+			timeComplexity: {
+				best: "O(1)",
+				average: "O(1)",
+				worst: "O(1)",
+			},
+			spaceComplexity: "O(n)",
+			difficulty: 1,
+		},
+		{
+			id: "array-basic",
+			name: "配列（基本操作）",
+			description:
+				"インデックスベースのランダムアクセスが可能な配列データ構造の基本操作。CRUD操作と線形検索を可視化",
+			category: "data-structure",
+			timeComplexity: {
+				best: "O(1)",
+				average: "O(n)",
+				worst: "O(n)",
+			},
+			spaceComplexity: "O(n)",
+			difficulty: 1,
+		},
+		{
+			id: "queue-basic",
+			name: "キュー（基本操作）",
+			description:
+				"FIFO（First In, First Out）原理に基づくキューデータ構造の基本操作。enqueue、dequeue等の動作を可視化",
+			category: "data-structure",
+			timeComplexity: {
+				best: "O(1)",
+				average: "O(1)",
+				worst: "O(1)",
+			},
+			spaceComplexity: "O(n)",
+			difficulty: 1,
+		},
+		{
+			id: "deque-basic",
+			name: "両端キュー（基本操作）",
+			description:
+				"両端からの追加・削除が可能な双方向キューデータ構造の基本操作。push/pop操作を前後両方向で実行可能",
+			category: "data-structure",
+			timeComplexity: {
+				best: "O(1)",
+				average: "O(1)",
+				worst: "O(1)",
+			},
+			spaceComplexity: "O(n)",
+			difficulty: 2,
+		},
+		{
+			id: "linked-list-basic",
+			name: "連結リスト（基本操作）",
+			description:
+				"ノードとポインタで構成される動的データ構造の基本操作。挿入・削除・検索の動作を詳細に可視化",
+			category: "data-structure",
+			timeComplexity: {
+				best: "O(1)",
+				average: "O(n)",
+				worst: "O(n)",
+			},
+			spaceComplexity: "O(n)",
+			difficulty: 3,
+		},
 	];
 
 	/**
@@ -262,6 +332,7 @@ export default function AlgorithmsPage() {
 			divide: "分割統治",
 			string: "文字列",
 			tree: "木構造",
+			"data-structure": "データ構造",
 			other: "その他",
 		};
 		return categoryMap[category] || category;
@@ -285,6 +356,8 @@ export default function AlgorithmsPage() {
 			string:
 				"bg-pink-100 text-pink-800 dark:bg-pink-900/30 dark:text-pink-300",
 			tree: "bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-300",
+			"data-structure":
+				"bg-cyan-100 text-cyan-800 dark:bg-cyan-900/30 dark:text-cyan-300",
 			other: "bg-gray-100 text-gray-800 dark:bg-gray-900/30 dark:text-gray-300",
 		};
 		return colorMap[category] || colorMap.other;

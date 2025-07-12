@@ -125,6 +125,7 @@ export type AlgorithmCategory =
 	| "divide" // 分割統治
 	| "string" // 文字列
 	| "tree" // 木構造
+	| "data-structure" // データ構造
 	| "other"; // その他
 
 /**
