@@ -184,6 +184,20 @@ export default function AlgorithmsPage() {
 			spaceComplexity: "O(n)",
 			difficulty: 2,
 		},
+		{
+			id: "depth-first-search",
+			name: "深さ優先探索（DFS）",
+			description:
+				"グラフや木構造を深く探索するアルゴリズム。可能な限り深く進んでからバックトラックして他の経路を探索",
+			category: "graph",
+			timeComplexity: {
+				best: "O(V + E)",
+				average: "O(V + E)",
+				worst: "O(V + E)",
+			},
+			spaceComplexity: "O(V)",
+			difficulty: 3,
+		},
 	];
 
 	/**
