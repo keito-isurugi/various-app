@@ -17,6 +17,8 @@ export interface AlgorithmStep {
 	array: number[];
 	/** 比較対象のインデックス */
 	comparing?: number[];
+	/** ハイライト対象のインデックス */
+	highlightedElements?: number[];
 	/** 探索範囲（開始・終了インデックス） */
 	searchRange?: { start: number; end: number };
 	/** 見つかった要素のインデックス */

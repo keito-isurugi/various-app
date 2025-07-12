@@ -114,6 +114,20 @@ export default function AlgorithmsPage() {
 			spaceComplexity: "O(n)",
 			difficulty: 3,
 		},
+		{
+			id: "heap-sort",
+			name: "ヒープソート",
+			description:
+				"ヒープデータ構造を利用したインプレースソートアルゴリズム。常にO(n log n)の性能を保証",
+			category: "sort",
+			timeComplexity: {
+				best: "O(n log n)",
+				average: "O(n log n)",
+				worst: "O(n log n)",
+			},
+			spaceComplexity: "O(1)",
+			difficulty: 3,
+		},
 	];
 
 	/**
@@ -284,9 +298,9 @@ export default function AlgorithmsPage() {
 								さらなるアルゴリズム
 							</h3>
 							<p className="text-gray-500 dark:text-gray-500 text-sm">
-								クイックソート、マージソート
+								DFS、BFS、ダイクストラ法
 								<br />
-								DFS、BFSなどを準備中...
+								動的プログラミングなどを準備中...
 							</p>
 						</div>
 					</div>
