@@ -142,6 +142,20 @@ export default function AlgorithmsPage() {
 			spaceComplexity: "O(n)",
 			difficulty: 3,
 		},
+		{
+			id: "factorial-recursive",
+			name: "階乗の計算（再帰）",
+			description:
+				"線形再帰アルゴリズムの基本例。数学的定義をそのまま実装し、効率的なO(n)の再帰構造を学習",
+			category: "other",
+			timeComplexity: {
+				best: "O(n)",
+				average: "O(n)",
+				worst: "O(n)",
+			},
+			spaceComplexity: "O(n)",
+			difficulty: 2,
+		},
 	];
 
 	/**
