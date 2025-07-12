@@ -73,6 +73,20 @@ export default function AlgorithmsPage() {
 			spaceComplexity: "O(1)",
 			difficulty: 2,
 		},
+		{
+			id: "insertion-sort",
+			name: "挿入ソート",
+			description:
+				"配列の各要素を既にソートされた部分の適切な位置に挿入するソートアルゴリズム",
+			category: "sort",
+			timeComplexity: {
+				best: "O(n)",
+				average: "O(n²)",
+				worst: "O(n²)",
+			},
+			spaceComplexity: "O(1)",
+			difficulty: 2,
+		},
 		// 将来追加予定のアルゴリズム
 		// {
 		// 	id: "quick-sort",

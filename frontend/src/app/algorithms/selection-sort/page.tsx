@@ -53,7 +53,7 @@ export default function SelectionSortPage() {
 	 * ランダムな配列を生成
 	 */
 	const generateRandomArray = useCallback(() => {
-		const size = Math.floor(Math.random() * 4) + 5; // 5-8個の要素
+		const size = Math.floor(Math.random() * 6) + 5; // 5-10個の要素
 		const array = SelectionSortAlgorithm.generateRandomArray(size, 50);
 
 		setInput({ array });
@@ -62,10 +62,10 @@ export default function SelectionSortPage() {
 	}, []);
 
 	/**
-	 * 逆順配列を生成（交換が最も多くなるケース）
+	 * 逆順配列を生成（最悪ケース）
 	 */
 	const generateReverseArray = useCallback(() => {
-		const size = Math.floor(Math.random() * 3) + 5; // 5-7個の要素
+		const size = Math.floor(Math.random() * 4) + 5; // 5-8個の要素
 		const array = SelectionSortAlgorithm.generateReverseArray(size);
 
 		setInput({ array });
@@ -74,23 +74,11 @@ export default function SelectionSortPage() {
 	}, []);
 
 	/**
-	 * ソート済み配列を生成（交換が最も少なくなるケース）
+	 * ソート済み配列を生成（最良ケース）
 	 */
 	const generateSortedArray = useCallback(() => {
-		const size = Math.floor(Math.random() * 3) + 5; // 5-7個の要素
+		const size = Math.floor(Math.random() * 4) + 5; // 5-8個の要素
 		const array = SelectionSortAlgorithm.generateSortedArray(size);
-
-		setInput({ array });
-		setCustomArray(array.join(", "));
-		setResult(null);
-	}, []);
-
-	/**
-	 * 重複要素を含む配列を生成（安定性の確認用）
-	 */
-	const generateDuplicateArray = useCallback(() => {
-		const size = Math.floor(Math.random() * 3) + 6; // 6-8個の要素
-		const array = SelectionSortAlgorithm.generateArrayWithDuplicates(size);
 
 		setInput({ array });
 		setCustomArray(array.join(", "));
@@ -118,8 +106,8 @@ export default function SelectionSortPage() {
 			});
 
 			// 配列のサイズ制限
-			if (array.length > 10) {
-				alert("配列のサイズは10個以下にしてください（可視化のため）");
+			if (array.length > 12) {
+				alert("配列のサイズは12個以下にしてください（可視化のため）");
 				return;
 			}
 
@@ -145,7 +133,7 @@ export default function SelectionSortPage() {
 					<div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
 						<Link
 							href="/algorithms"
-							className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors flex items-center gap-1"
+							className="hover:text-purple-600 dark:hover:text-purple-400 transition-colors flex items-center gap-1"
 						>
 							<svg
 								className="w-4 h-4"
@@ -172,19 +160,19 @@ export default function SelectionSortPage() {
 
 				{/* ページヘッダー */}
 				<header className="mb-8 text-center">
-					<h1 className="text-4xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400 bg-clip-text text-transparent mb-4">
+					<h1 className="text-4xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 dark:from-purple-400 dark:to-pink-400 bg-clip-text text-transparent mb-4">
 						選択ソートアルゴリズム
 					</h1>
 					<p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-						未ソート部分から最小値を選択して先頭に移動する操作を繰り返すソートアルゴリズムを学ぼう
+						最小値を選択して順番に並べるシンプルなソートアルゴリズムを学ぼう
 					</p>
 				</header>
 
 				{/* アルゴリズム情報カード */}
-				<div className="mb-8 bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-indigo-900/20 dark:to-purple-900/20 rounded-xl p-6 border border-indigo-200 dark:border-indigo-700">
+				<div className="mb-8 bg-gradient-to-r from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 rounded-xl p-6 border border-purple-200 dark:border-purple-700">
 					<div className="grid md:grid-cols-4 gap-4 text-center">
 						<div>
-							<div className="text-2xl font-bold text-indigo-600 dark:text-indigo-400">
+							<div className="text-2xl font-bold text-purple-600 dark:text-purple-400">
 								O(n²)
 							</div>
 							<div className="text-sm text-gray-600 dark:text-gray-400">
@@ -240,7 +228,7 @@ export default function SelectionSortPage() {
 									<span className="text-sm font-medium text-gray-600 dark:text-gray-400">
 										要素数:
 									</span>
-									<div className="font-mono text-lg font-bold text-indigo-600 dark:text-indigo-400 mt-1">
+									<div className="font-mono text-lg font-bold text-purple-600 dark:text-purple-400 mt-1">
 										{input.array.length}
 									</div>
 								</div>
@@ -253,7 +241,7 @@ export default function SelectionSortPage() {
 										htmlFor="custom-array"
 										className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
 									>
-										配列（カンマ区切り、最大10個）
+										配列（カンマ区切り、最大12個）
 									</label>
 									<input
 										id="custom-array"
@@ -261,13 +249,13 @@ export default function SelectionSortPage() {
 										value={customArray}
 										onChange={(e) => setCustomArray(e.target.value)}
 										placeholder="64, 25, 12, 22, 11"
-										className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 dark:bg-gray-700 dark:text-gray-100"
+										className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 dark:bg-gray-700 dark:text-gray-100"
 									/>
 								</div>
 								<button
 									type="button"
 									onClick={applyCustomInput}
-									className="w-full py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg transition-colors"
+									className="w-full py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg transition-colors"
 								>
 									適用
 								</button>
@@ -287,21 +275,14 @@ export default function SelectionSortPage() {
 									onClick={generateReverseArray}
 									className="w-full py-2 bg-red-500 hover:bg-red-600 text-white rounded-lg transition-colors"
 								>
-									📉 逆順配列（交換多）
+									📉 逆順配列（最悪ケース）
 								</button>
 								<button
 									type="button"
 									onClick={generateSortedArray}
 									className="w-full py-2 bg-green-500 hover:bg-green-600 text-white rounded-lg transition-colors"
 								>
-									📈 ソート済み（交換少）
-								</button>
-								<button
-									type="button"
-									onClick={generateDuplicateArray}
-									className="w-full py-2 bg-yellow-500 hover:bg-yellow-600 text-white rounded-lg transition-colors"
-								>
-									🔄 重複要素（安定性確認）
+									📈 ソート済み（最良ケース）
 								</button>
 							</div>
 
@@ -313,7 +294,7 @@ export default function SelectionSortPage() {
 								className={`w-full py-3 rounded-lg font-semibold transition-all duration-200 ${
 									isExecuting
 										? "bg-gray-400 text-gray-700 cursor-not-allowed"
-										: "bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white shadow-lg hover:shadow-xl"
+										: "bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white shadow-lg hover:shadow-xl"
 								}`}
 							>
 								{isExecuting ? "実行中..." : "🎯 選択ソート実行"}
@@ -350,7 +331,7 @@ export default function SelectionSortPage() {
 											<span className="text-gray-600 dark:text-gray-400">
 												時間計算量:
 											</span>
-											<span className="ml-2 font-mono font-bold text-indigo-600 dark:text-indigo-400">
+											<span className="ml-2 font-mono font-bold text-purple-600 dark:text-purple-400">
 												{result.timeComplexity}
 											</span>
 										</div>
@@ -400,16 +381,16 @@ export default function SelectionSortPage() {
     const sortedArray = [...arr]; // 元の配列を変更しない
     
     for (let i = 0; i < n - 1; i++) {
+        // 未ソート部分から最小値のインデックスを探す
         let minIndex = i;
         
-        // 未ソート部分から最小値を探す
         for (let j = i + 1; j < n; j++) {
             if (sortedArray[j] < sortedArray[minIndex]) {
                 minIndex = j;
             }
         }
         
-        // 最小値を正しい位置に交換
+        // 最小値を現在位置と交換
         if (minIndex !== i) {
             [sortedArray[i], sortedArray[minIndex]] = 
                 [sortedArray[minIndex], sortedArray[i]];
@@ -422,38 +403,7 @@ export default function SelectionSortPage() {
 // 使用例
 const unsortedArray = [64, 25, 12, 22, 11];
 const sortedArray = selectionSort(unsortedArray);
-console.log(sortedArray); // [11, 12, 22, 25, 64]
-
-// 交換回数を数える版
-function selectionSortWithStats(arr) {
-    const n = arr.length;
-    const sortedArray = [...arr];
-    let swapCount = 0;
-    let comparisonCount = 0;
-    
-    for (let i = 0; i < n - 1; i++) {
-        let minIndex = i;
-        
-        for (let j = i + 1; j < n; j++) {
-            comparisonCount++;
-            if (sortedArray[j] < sortedArray[minIndex]) {
-                minIndex = j;
-            }
-        }
-        
-        if (minIndex !== i) {
-            [sortedArray[i], sortedArray[minIndex]] = 
-                [sortedArray[minIndex], sortedArray[i]];
-            swapCount++;
-        }
-    }
-    
-    return { 
-        sorted: sortedArray, 
-        swaps: swapCount, 
-        comparisons: comparisonCount 
-    };
-}`}</code>
+console.log(sortedArray); // [11, 12, 22, 25, 64]`}</code>
 							</pre>
 						</div>
 					</div>
