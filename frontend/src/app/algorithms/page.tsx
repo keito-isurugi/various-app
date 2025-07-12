@@ -310,6 +310,20 @@ export default function AlgorithmsPage() {
 			spaceComplexity: "O(n)",
 			difficulty: 3,
 		},
+		{
+			id: "gcd-euclidean",
+			name: "最大公約数（ユークリッドの互除法）",
+			description:
+				"紀元前300年から続く古典的なアルゴリズムで二つの整数の最大公約数を効率的に求める手法",
+			category: "other",
+			timeComplexity: {
+				best: "O(1)",
+				average: "O(log(min(a, b)))",
+				worst: "O(log(min(a, b)))",
+			},
+			spaceComplexity: "O(1)",
+			difficulty: 2,
+		},
 	];
 
 	/**
