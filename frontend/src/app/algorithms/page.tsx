@@ -170,6 +170,20 @@ export default function AlgorithmsPage() {
 			spaceComplexity: "O(n)",
 			difficulty: 4,
 		},
+		{
+			id: "array-reverse-recursive",
+			name: "配列の逆順（再帰）",
+			description:
+				"再帰による配列の逆順操作。線形再帰パターンで分割統治の考え方を学習し、両端から中央に向かって要素を交換",
+			category: "other",
+			timeComplexity: {
+				best: "O(n)",
+				average: "O(n)",
+				worst: "O(n)",
+			},
+			spaceComplexity: "O(n)",
+			difficulty: 2,
+		},
 	];
 
 	/**
