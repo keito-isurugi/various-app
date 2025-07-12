@@ -143,6 +143,20 @@ export default function AlgorithmsPage() {
 			difficulty: 3,
 		},
 		{
+			id: "fibonacci-dp",
+			name: "フィボナッチ数列（動的計画法）",
+			description:
+				"動的計画法を使用した効率的なフィボナッチ数列の計算。メモ化により再帰版の問題を解決",
+			category: "dynamic",
+			timeComplexity: {
+				best: "O(n)",
+				average: "O(n)",
+				worst: "O(n)",
+			},
+			spaceComplexity: "O(n)",
+			difficulty: 2,
+		},
+		{
 			id: "factorial-recursive",
 			name: "階乗の計算（再帰）",
 			description:
@@ -229,7 +243,7 @@ export default function AlgorithmsPage() {
 			search: "探索",
 			sort: "ソート",
 			graph: "グラフ",
-			dynamic: "動的プログラミング",
+			dynamic: "動的計画法",
 			greedy: "貪欲法",
 			divide: "分割統治",
 			string: "文字列",
@@ -382,9 +396,9 @@ export default function AlgorithmsPage() {
 								さらなるアルゴリズム
 							</h3>
 							<p className="text-gray-500 dark:text-gray-500 text-sm">
-								ダイクストラ法、動的プログラミング
+								ダイクストラ法、A*アルゴリズム
 								<br />
-								A*アルゴリズムなどを準備中...
+								その他の高度なアルゴリズムを準備中...
 							</p>
 						</div>
 					</div>
