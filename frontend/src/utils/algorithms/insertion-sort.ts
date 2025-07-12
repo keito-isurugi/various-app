@@ -115,7 +115,7 @@ export class InsertionSortAlgorithm implements Algorithm {
 						comparedIndex: j,
 						comparedValue: sortedArray[j],
 						keyValue: key,
-						willShift: true,
+						willShift: "yes",
 						comparisonCount: comparisonCount,
 					},
 				});
