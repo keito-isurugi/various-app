@@ -156,6 +156,20 @@ export default function AlgorithmsPage() {
 			spaceComplexity: "O(n)",
 			difficulty: 2,
 		},
+		{
+			id: "hanoi-recursive",
+			name: "ハノイの塔（再帰）",
+			description:
+				"分割統治法による再帰的解法。3つの杭を使って全ての円盤を移動する古典的パズルで、再帰アルゴリズムの美しい応用例",
+			category: "divide",
+			timeComplexity: {
+				best: "O(2^n)",
+				average: "O(2^n)",
+				worst: "O(2^n)",
+			},
+			spaceComplexity: "O(n)",
+			difficulty: 4,
+		},
 	];
 
 	/**
