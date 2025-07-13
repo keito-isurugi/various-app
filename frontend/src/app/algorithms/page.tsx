@@ -380,6 +380,20 @@ export default function AlgorithmsPage() {
 			spaceComplexity: "O(n)",
 			difficulty: 2,
 		},
+		{
+			id: "mod-basic",
+			name: "mod計算の基本",
+			description:
+				"剰余演算の基本的な性質と高速べき乗計算を学習する数学的アルゴリズム。暗号学とハッシュ関数の基盤技術",
+			category: "other",
+			timeComplexity: {
+				best: "O(1)",
+				average: "O(log n)",
+				worst: "O(log n)",
+			},
+			spaceComplexity: "O(1)",
+			difficulty: 2,
+		},
 	];
 
 	/**
