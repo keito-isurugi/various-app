@@ -366,6 +366,20 @@ export default function AlgorithmsPage() {
 			spaceComplexity: "O(n)",
 			difficulty: 3,
 		},
+		{
+			id: "sieve-eratosthenes",
+			name: "エラトステネスの篩",
+			description:
+				"古代ギリシャの数学者エラトステネスが考案した素数を効率的に列挙するアルゴリズム。暗号学や数論研究の基盤技術",
+			category: "other",
+			timeComplexity: {
+				best: "O(n log log n)",
+				average: "O(n log log n)",
+				worst: "O(n log log n)",
+			},
+			spaceComplexity: "O(n)",
+			difficulty: 2,
+		},
 	];
 
 	/**
