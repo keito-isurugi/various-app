@@ -394,6 +394,20 @@ export default function AlgorithmsPage() {
 			spaceComplexity: "O(1)",
 			difficulty: 2,
 		},
+		{
+			id: "exponentiation-by-squaring",
+			name: "繰り返し二乗法",
+			description:
+				"効率的なべき乗計算を行う分割統治法ベースのアルゴリズム。指数を二進法で分解して計算量を劇的に削減",
+			category: "divide",
+			timeComplexity: {
+				best: "O(log n)",
+				average: "O(log n)",
+				worst: "O(log n)",
+			},
+			spaceComplexity: "O(log n)",
+			difficulty: 3,
+		},
 	];
 
 	/**
