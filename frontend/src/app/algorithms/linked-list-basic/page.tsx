@@ -10,6 +10,8 @@
 import Link from "next/link";
 import React, { useState, useCallback } from "react";
 import { AlgorithmVisualizer } from "../../../components/algorithm/AlgorithmVisualizer";
+import { CalculationExplanation } from "../../../components/calculator/CalculationExplanation";
+import { linkedListBasicExplanation } from "../../../data/explanations/linked-list-basic-explanation";
 import type { AlgorithmInput, AlgorithmResult } from "../../../types/algorithm";
 import { LinkedListBasicAlgorithm } from "../../../utils/algorithms/linked-list-basic";
 
@@ -507,16 +509,11 @@ export default function LinkedListBasicPage() {
 
 				{/* 詳細解説セクション */}
 				<section className="mt-12">
-					<div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700">
-						<h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">
-							📖 連結リストについて
-						</h3>
-						<div className="prose dark:prose-invert max-w-none">
-							<pre className="whitespace-pre-wrap text-sm leading-relaxed">
-								{algorithm.getExplanation()}
-							</pre>
-						</div>
-					</div>
+					<CalculationExplanation
+						explanationData={linkedListBasicExplanation}
+						defaultExpanded={false}
+						className="shadow-xl"
+					/>
 				</section>
 
 				{/* コード例セクション */}

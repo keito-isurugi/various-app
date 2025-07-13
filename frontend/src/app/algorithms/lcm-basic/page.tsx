@@ -1,8 +1,8 @@
 /**
- * src/app/algorithms/gcd-euclidean/page.tsx
+ * src/app/algorithms/lcm-basic/page.tsx
  *
- * 最大公約数（ユークリッドの互除法）アルゴリズムの解説ページ
- * 二つの整数の最大公約数を効率的に求める古典的なアルゴリズムの学習と可視化を提供
+ * 最小公倍数（LCM）アルゴリズムの解説ページ
+ * GCDを利用して二つの整数の最小公倍数を効率的に求めるアルゴリズムの学習と可視化を提供
  */
 
 "use client";
@@ -11,17 +11,17 @@ import Link from "next/link";
 import React, { useState, useCallback } from "react";
 import { AlgorithmVisualizer } from "../../../components/algorithm/AlgorithmVisualizer";
 import { CalculationExplanation } from "../../../components/calculator/CalculationExplanation";
-import { gcdEuclideanExplanation } from "../../../data/explanations/gcd-euclidean-explanation";
+import { lcmBasicExplanation } from "../../../data/explanations/lcm-basic-explanation";
 import type { AlgorithmInput, AlgorithmResult } from "../../../types/algorithm";
-import { GcdEuclideanAlgorithm } from "../../../utils/algorithms/gcd-euclidean";
+import { LcmBasicAlgorithm } from "../../../utils/algorithms/lcm-basic";
 
 /**
- * 最大公約数（ユークリッドの互除法）学習ページ
- * 古典的なアルゴリズムの理解と可視化
+ * 最小公倍数（LCM）学習ページ
+ * GCDを利用した効率的なLCM計算の理解と可視化
  */
-export default function GcdEuclideanPage() {
+export default function LcmBasicPage() {
 	// アルゴリズムインスタンス
-	const algorithm = new GcdEuclideanAlgorithm();
+	const algorithm = new LcmBasicAlgorithm();
 
 	// 状態管理
 	const [input, setInput] = useState<AlgorithmInput>(
@@ -29,8 +29,8 @@ export default function GcdEuclideanPage() {
 	);
 	const [result, setResult] = useState<AlgorithmResult | null>(null);
 	const [isExecuting, setIsExecuting] = useState(false);
-	const [inputA, setInputA] = useState("48");
-	const [inputB, setInputB] = useState("18");
+	const [inputA, setInputA] = useState("12");
+	const [inputB, setInputB] = useState("8");
 
 	/**
 	 * アルゴリズムを実行
@@ -80,8 +80,8 @@ export default function GcdEuclideanPage() {
 				return;
 			}
 
-			if (a === 0 && b === 0) {
-				alert("両方の数値を0にすることはできません");
+			if (a === 0 || b === 0) {
+				alert("0との最小公倍数は定義されません");
 				return;
 			}
 
@@ -97,11 +97,11 @@ export default function GcdEuclideanPage() {
 	}, [inputA, inputB]);
 
 	// 推奨入力例を取得
-	const recommendedInputs = GcdEuclideanAlgorithm.getRecommendedInputs();
+	const recommendedInputs = LcmBasicAlgorithm.getRecommendedInputs();
 
 	// 現在の入力値
-	const currentA = input.parameters?.a || 48;
-	const currentB = input.parameters?.b || 18;
+	const currentA = input.parameters?.a || 12;
+	const currentB = input.parameters?.b || 8;
 
 	return (
 		<div className="min-h-screen bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 transition-colors">
@@ -131,23 +131,23 @@ export default function GcdEuclideanPage() {
 						</Link>
 						<span className="text-gray-400">／</span>
 						<span className="text-gray-900 dark:text-gray-100 font-medium">
-							最大公約数（ユークリッドの互除法）
+							最小公倍数（LCM）
 						</span>
 					</div>
 				</nav>
 
 				{/* ページヘッダー */}
 				<header className="mb-8 text-center">
-					<h1 className="text-4xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 dark:from-emerald-400 dark:to-teal-400 bg-clip-text text-transparent mb-4">
-						最大公約数（ユークリッドの互除法）
+					<h1 className="text-4xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400 bg-clip-text text-transparent mb-4">
+						最小公倍数（LCM）
 					</h1>
 					<p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-						紀元前300年から続く古典的なアルゴリズムで二つの整数の最大公約数を効率的に求めよう
+						GCDを利用して二つの整数の最小公倍数を効率的に求める数学的アルゴリズム
 					</p>
 				</header>
 
 				{/* アルゴリズム情報カード */}
-				<div className="mb-8 bg-gradient-to-r from-emerald-50 to-teal-50 dark:from-emerald-900/20 dark:to-teal-900/20 rounded-xl p-6 border border-emerald-200 dark:border-emerald-700">
+				<div className="mb-8 bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-indigo-900/20 dark:to-purple-900/20 rounded-xl p-6 border border-indigo-200 dark:border-indigo-700">
 					<div className="grid md:grid-cols-4 gap-4 text-center">
 						<div>
 							<div className="text-2xl font-bold text-green-600 dark:text-green-400">
@@ -175,10 +175,10 @@ export default function GcdEuclideanPage() {
 						</div>
 						<div>
 							<div className="text-2xl font-bold text-purple-600 dark:text-purple-400">
-								紀元前300年
+								数学的関係
 							</div>
 							<div className="text-sm text-gray-600 dark:text-gray-400">
-								歴史
+								LCM × GCD = a × b
 							</div>
 						</div>
 					</div>
@@ -189,7 +189,7 @@ export default function GcdEuclideanPage() {
 					<div className="xl:col-span-1">
 						<div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700 sticky top-4">
 							<h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">
-								🔢 入力設定
+								🧮 入力設定
 							</h3>
 
 							{/* 現在の設定表示 */}
@@ -198,20 +198,20 @@ export default function GcdEuclideanPage() {
 									<span className="text-sm font-medium text-gray-600 dark:text-gray-400">
 										計算対象:
 									</span>
-									<div className="font-mono text-lg font-bold text-emerald-600 dark:text-emerald-400 mt-1">
-										gcd({currentA}, {currentB})
+									<div className="font-mono text-lg font-bold text-indigo-600 dark:text-indigo-400 mt-1">
+										lcm({currentA}, {currentB})
 									</div>
 								</div>
 								<div className="mb-2">
 									<span className="text-sm font-medium text-gray-600 dark:text-gray-400">
-										アルゴリズム:
+										数学的関係:
 									</span>
 									<div className="text-sm text-gray-900 dark:text-gray-100 mt-1">
-										ユークリッドの互除法
+										LCM = (a × b) / GCD(a, b)
 									</div>
 								</div>
-								<div className="mt-2 p-2 bg-emerald-100 dark:bg-emerald-900/30 rounded text-xs text-emerald-800 dark:text-emerald-200">
-									📐 原理: gcd(a, b) = gcd(b, a mod b)
+								<div className="mt-2 p-2 bg-indigo-100 dark:bg-indigo-900/30 rounded text-xs text-indigo-800 dark:text-indigo-200">
+									🔗 GCDを利用した効率的な計算
 								</div>
 							</div>
 
@@ -229,9 +229,9 @@ export default function GcdEuclideanPage() {
 										type="number"
 										value={inputA}
 										onChange={(e) => setInputA(e.target.value)}
-										min="0"
-										placeholder="48"
-										className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-emerald-500 dark:bg-gray-700 dark:text-gray-100"
+										min="1"
+										placeholder="12"
+										className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 dark:bg-gray-700 dark:text-gray-100"
 									/>
 								</div>
 
@@ -247,16 +247,16 @@ export default function GcdEuclideanPage() {
 										type="number"
 										value={inputB}
 										onChange={(e) => setInputB(e.target.value)}
-										min="0"
-										placeholder="18"
-										className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-emerald-500 dark:bg-gray-700 dark:text-gray-100"
+										min="1"
+										placeholder="8"
+										className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 dark:bg-gray-700 dark:text-gray-100"
 									/>
 								</div>
 
 								<button
 									type="button"
 									onClick={applyCustomInput}
-									className="w-full py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg transition-colors"
+									className="w-full py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg transition-colors"
 								>
 									設定を適用
 								</button>
@@ -274,10 +274,10 @@ export default function GcdEuclideanPage() {
 											type="button"
 											onClick={() => setRecommendedInput(rec.a, rec.b)}
 											className="w-full py-2 px-3 text-xs rounded transition-colors text-left bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-300"
-											title={`期待される結果: ${rec.expectedGcd}`}
+											title={`期待される結果: LCM=${rec.expectedLcm}, GCD=${rec.expectedGcd}`}
 										>
 											<div className="font-semibold">
-												gcd({rec.a}, {rec.b})
+												lcm({rec.a}, {rec.b})
 											</div>
 											<div className="text-xs opacity-75">
 												{rec.description}
@@ -295,10 +295,10 @@ export default function GcdEuclideanPage() {
 								className={`w-full py-3 rounded-lg font-semibold transition-all duration-200 ${
 									isExecuting
 										? "bg-gray-400 text-gray-700 cursor-not-allowed"
-										: "bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white shadow-lg hover:shadow-xl"
+										: "bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white shadow-lg hover:shadow-xl"
 								}`}
 							>
-								{isExecuting ? "計算中..." : "🧮 GCD計算実行"}
+								{isExecuting ? "計算中..." : "🧮 LCM計算実行"}
 							</button>
 
 							{/* 結果表示 */}
@@ -310,9 +310,9 @@ export default function GcdEuclideanPage() {
 									<div className="space-y-2 text-sm">
 										<div>
 											<span className="text-gray-600 dark:text-gray-400">
-												最大公約数:
+												最小公倍数:
 											</span>
-											<span className="ml-2 font-mono font-bold text-emerald-600 dark:text-emerald-400 text-lg">
+											<span className="ml-2 font-mono font-bold text-indigo-600 dark:text-indigo-400 text-lg">
 												{result.result}
 											</span>
 										</div>
@@ -346,10 +346,10 @@ export default function GcdEuclideanPage() {
 							<div className="bg-white dark:bg-gray-800 rounded-xl p-12 border border-gray-200 dark:border-gray-700 text-center mb-8">
 								<div className="text-6xl mb-4">🧮</div>
 								<h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-2">
-									最大公約数を計算してください
+									最小公倍数を計算してください
 								</h3>
 								<p className="text-gray-600 dark:text-gray-400">
-									左側の入力パネルから数値を設定し、「GCD計算実行」ボタンを押してください
+									左側の入力パネルから数値を設定し、「LCM計算実行」ボタンを押してください
 								</p>
 							</div>
 						)}
@@ -359,7 +359,7 @@ export default function GcdEuclideanPage() {
 				{/* 詳細解説セクション */}
 				<section className="mt-12">
 					<CalculationExplanation
-						explanationData={gcdEuclideanExplanation}
+						explanationData={lcmBasicExplanation}
 						defaultExpanded={false}
 						className="shadow-xl"
 					/>
@@ -373,66 +373,75 @@ export default function GcdEuclideanPage() {
 						</h3>
 						<div className="bg-gray-900 rounded-lg p-6 overflow-x-auto">
 							<pre className="text-sm text-gray-100">
-								<code>{`// ユークリッドの互除法による最大公約数の計算
+								<code>{`// 最小公倍数（LCM）を効率的に計算
 function gcd(a, b) {
-    // 特殊ケース: 片方が0の場合
-    if (b === 0) {
-        return a;
-    }
-    
-    // 負数の場合は絶対値を取る
-    a = Math.abs(a);
-    b = Math.abs(b);
-    
-    // より大きい数を最初に配置
-    if (a < b) {
-        [a, b] = [b, a];
-    }
-    
-    // ユークリッドの互除法の実行
+    // ユークリッドの互除法でGCDを計算
     while (b !== 0) {
         const remainder = a % b;
-        console.log(\`\${a} ÷ \${b} = \${Math.floor(a / b)} あまり \${remainder}\`);
-        
-        // gcd(a, b) = gcd(b, a % b)
         a = b;
         b = remainder;
     }
-    
     return a;
 }
 
-// 再帰版の実装
-function gcdRecursive(a, b) {
-    // ベースケース
-    if (b === 0) {
-        return a;
+function lcm(a, b) {
+    // LCM = |a × b| / GCD(a, b)
+    if (a === 0 || b === 0) {
+        throw new Error("0との最小公倍数は定義されません");
     }
     
-    // 再帰的に呼び出し
-    return gcdRecursive(b, a % b);
+    const absA = Math.abs(a);
+    const absB = Math.abs(b);
+    const gcdValue = gcd(absA, absB);
+    
+    return (absA * absB) / gcdValue;
 }
 
-// 最小公倍数（LCM）も計算可能
-function lcm(a, b) {
-    return Math.abs(a * b) / gcd(a, b);
+// オーバーフロー対策版（大きな数値の場合）
+function lcmSafe(a, b) {
+    if (a === 0 || b === 0) {
+        throw new Error("0との最小公倍数は定義されません");
+    }
+    
+    const absA = Math.abs(a);
+    const absB = Math.abs(b);
+    const gcdValue = gcd(absA, absB);
+    
+    // (a / gcd) * b の順序で計算（オーバーフロー対策）
+    return (absA / gcdValue) * absB;
+}
+
+// 複数の数の最小公倍数
+function lcmMultiple(...numbers) {
+    return numbers.reduce((acc, num) => lcm(acc, num));
 }
 
 // 使用例
-console.log(gcd(48, 18));        // 6
-console.log(gcd(17, 13));        // 1 (互いに素)
-console.log(gcd(100, 25));       // 25
-console.log(gcdRecursive(1071, 462)); // 21
+console.log(lcm(12, 8));           // 24
+console.log(lcm(17, 13));          // 221 (互いに素)
+console.log(lcm(6, 4));            // 12
+console.log(lcm(15, 25));          // 75
+console.log(lcm(7, 21));           // 21 (一方が他方の倍数)
 
-// 最小公倍数の例
-console.log(lcm(12, 8));         // 24
+// 複数の数の例
+console.log(lcmMultiple(4, 6, 8)); // 24
 
-// 複数の数の最大公約数
-function gcdMultiple(...numbers) {
-    return numbers.reduce((acc, num) => gcd(acc, num));
+// 分数の通分での利用例
+function addFractions(num1, den1, num2, den2) {
+    const commonDenominator = lcm(den1, den2);
+    const newNum1 = num1 * (commonDenominator / den1);
+    const newNum2 = num2 * (commonDenominator / den2);
+    const resultNum = newNum1 + newNum2;
+    
+    // 約分
+    const gcdValue = gcd(resultNum, commonDenominator);
+    return {
+        numerator: resultNum / gcdValue,
+        denominator: commonDenominator / gcdValue
+    };
 }
 
-console.log(gcdMultiple(12, 18, 24)); // 6`}</code>
+console.log(addFractions(1, 4, 1, 6)); // { numerator: 5, denominator: 12 }`}</code>
 							</pre>
 						</div>
 					</div>
@@ -440,39 +449,43 @@ console.log(gcdMultiple(12, 18, 24)); // 6`}</code>
 
 				{/* アルゴリズムの特徴セクション */}
 				<section className="mt-12">
-					<div className="bg-gradient-to-r from-emerald-50 to-teal-50 dark:from-emerald-900/20 dark:to-teal-900/20 rounded-xl p-6 border border-emerald-200 dark:border-emerald-700">
-						<h3 className="text-xl font-semibold text-emerald-900 dark:text-emerald-100 mb-4">
-							🎯 アルゴリズムの特徴
+					<div className="bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-indigo-900/20 dark:to-purple-900/20 rounded-xl p-6 border border-indigo-200 dark:border-indigo-700">
+						<h3 className="text-xl font-semibold text-indigo-900 dark:text-indigo-100 mb-4">
+							🎯 最小公倍数の応用と特徴
 						</h3>
 						<div className="grid md:grid-cols-2 gap-6">
 							<div>
-								<h4 className="font-semibold text-emerald-800 dark:text-emerald-200 mb-3">
-									歴史的価値
+								<h4 className="font-semibold text-indigo-800 dark:text-indigo-200 mb-3">
+									実世界での応用
 								</h4>
-								<ul className="space-y-2 text-emerald-700 dark:text-emerald-300 text-sm">
-									<li>• 紀元前300年頃に考案された最古のアルゴリズム</li>
-									<li>• ユークリッド「原論」第7巻に記載</li>
-									<li>• 2000年以上経った現在も最効率の手法</li>
-									<li>• 数学の基礎を築いた重要な発見</li>
+								<ul className="space-y-2 text-indigo-700 dark:text-indigo-300 text-sm">
+									<li>• 分数の通分・加減算</li>
+									<li>• 周期的現象の同期計算</li>
+									<li>• タスクスケジューリング</li>
+									<li>• 音楽理論（リズムパターン）</li>
+									<li>• プログラミング（配列サイズ調整）</li>
+									<li>• 信号処理（サンプリング周波数）</li>
 								</ul>
 							</div>
 							<div>
-								<h4 className="font-semibold text-emerald-800 dark:text-emerald-200 mb-3">
-									現代での応用
+								<h4 className="font-semibold text-indigo-800 dark:text-indigo-200 mb-3">
+									数学的性質
 								</h4>
-								<ul className="space-y-2 text-emerald-700 dark:text-emerald-300 text-sm">
-									<li>• RSA暗号の鍵生成アルゴリズム</li>
-									<li>• 分数の約分・通分計算</li>
-									<li>• コンピュータグラフィックスの比率計算</li>
-									<li>• 音楽理論での和音周期の分析</li>
+								<ul className="space-y-2 text-indigo-700 dark:text-indigo-300 text-sm">
+									<li>• LCM(a, b) × GCD(a, b) = a × b</li>
+									<li>• LCM(a, b) ≥ max(a, b)</li>
+									<li>• LCM(a, 1) = a</li>
+									<li>• LCM(a, a) = a</li>
+									<li>• 交換法則: LCM(a, b) = LCM(b, a)</li>
+									<li>• 結合法則: LCM(a, LCM(b, c)) = LCM(LCM(a, b), c)</li>
 								</ul>
 							</div>
 						</div>
 						<div className="mt-4 p-3 bg-blue-100 dark:bg-blue-900/30 rounded-lg">
 							<p className="text-sm text-blue-800 dark:text-blue-200">
-								💡 <strong>学習ポイント:</strong>{" "}
-								古典的なアルゴリズムでありながら、現代のコンピュータサイエンスや暗号学でも重要な役割を果たしています。
-								効率的な問題解決の思考法を学ぶ絶好の例です。
+								💡 <strong>重要な関係:</strong>{" "}
+								LCMとGCDは相補的な関係にあり、一方を効率的に計算できれば他方も簡単に求められます。
+								この数学的関係を利用することで、複雑な計算を単純化できます。
 							</p>
 						</div>
 					</div>

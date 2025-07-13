@@ -10,6 +10,8 @@
 import Link from "next/link";
 import React, { useState, useCallback } from "react";
 import { AlgorithmVisualizer } from "../../../components/algorithm/AlgorithmVisualizer";
+import { CalculationExplanation } from "../../../components/calculator/CalculationExplanation";
+import { dequeBasicExplanation } from "../../../data/explanations/deque-basic-explanation";
 import type { AlgorithmInput, AlgorithmResult } from "../../../types/algorithm";
 import { DequeBasicAlgorithm } from "../../../utils/algorithms/deque-basic";
 
@@ -444,16 +446,11 @@ export default function DequeBasicPage() {
 
 				{/* 詳細解説セクション */}
 				<section className="mt-12">
-					<div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700">
-						<h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">
-							📖 両端キューについて
-						</h3>
-						<div className="prose dark:prose-invert max-w-none">
-							<pre className="whitespace-pre-wrap text-sm leading-relaxed">
-								{algorithm.getExplanation()}
-							</pre>
-						</div>
-					</div>
+					<CalculationExplanation
+						explanationData={dequeBasicExplanation}
+						defaultExpanded={false}
+						className="shadow-xl"
+					/>
 				</section>
 
 				{/* コード例セクション */}

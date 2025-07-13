@@ -324,6 +324,34 @@ export default function AlgorithmsPage() {
 			spaceComplexity: "O(1)",
 			difficulty: 2,
 		},
+		{
+			id: "lcm-basic",
+			name: "最小公倍数（LCM）",
+			description:
+				"GCDを利用して二つの整数の最小公倍数を効率的に求める数学的アルゴリズム。分数計算や周期計算に応用",
+			category: "other",
+			timeComplexity: {
+				best: "O(1)",
+				average: "O(log(min(a, b)))",
+				worst: "O(log(min(a, b)))",
+			},
+			spaceComplexity: "O(1)",
+			difficulty: 2,
+		},
+		{
+			id: "lcs-dp",
+			name: "最長共通部分列（LCS）",
+			description:
+				"動的計画法を使用して二つの文字列の最長共通部分列を効率的に求める文字列アルゴリズム。DNA解析やテキスト比較に応用",
+			category: "dynamic",
+			timeComplexity: {
+				best: "O(m×n)",
+				average: "O(m×n)",
+				worst: "O(m×n)",
+			},
+			spaceComplexity: "O(m×n)",
+			difficulty: 3,
+		},
 	];
 
 	/**
