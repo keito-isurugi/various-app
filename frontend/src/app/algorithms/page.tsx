@@ -422,6 +422,62 @@ export default function AlgorithmsPage() {
 			spaceComplexity: "O(1)",
 			difficulty: 2,
 		},
+		{
+			id: "heap-priority-queue",
+			name: "ヒープ（優先度付きキュー）",
+			description:
+				"完全二分木による効率的な優先度管理。最大/最小値の高速取得と動的な優先度更新を実現する応用データ構造",
+			category: "data-structure",
+			timeComplexity: {
+				best: "O(1)",
+				average: "O(log n)",
+				worst: "O(n)",
+			},
+			spaceComplexity: "O(n)",
+			difficulty: 3,
+		},
+		{
+			id: "union-find",
+			name: "Union-Find（素集合データ構造）",
+			description:
+				"互いに素な集合の効率的な管理。パス圧縮とランク合併により実用的に定数時間操作を実現する応用データ構造",
+			category: "data-structure",
+			timeComplexity: {
+				best: "O(α(n))",
+				average: "O(α(n))",
+				worst: "O(α(n))",
+			},
+			spaceComplexity: "O(n)",
+			difficulty: 3,
+		},
+		{
+			id: "segment-tree",
+			name: "セグメント木",
+			description:
+				"完全二分木による範囲クエリと一点更新の効率的な処理。分割統治法の美しい実現による応用データ構造",
+			category: "data-structure",
+			timeComplexity: {
+				best: "O(log n)",
+				average: "O(log n)",
+				worst: "O(log n)",
+			},
+			spaceComplexity: "O(4n)",
+			difficulty: 3,
+		},
+		{
+			id: "fenwick-tree",
+			name: "Fenwick Tree（Binary Indexed Tree）",
+			description:
+				"ビット演算による累積和の効率的な計算。lowbit操作で実現する累積和特化の応用データ構造",
+			category: "data-structure",
+			timeComplexity: {
+				best: "O(log n)",
+				average: "O(log n)",
+				worst: "O(log n)",
+			},
+			spaceComplexity: "O(n)",
+			difficulty: 3,
+		},
 	];
 
 	/**

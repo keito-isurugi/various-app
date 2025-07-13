@@ -38,6 +38,18 @@ export interface AlgorithmStep {
 		string,
 		number | string | number[] | string[] | boolean | undefined
 	>;
+	/** 木構造の状態（セグメント木、ヒープ等） */
+	tree?: number[];
+	/** Union-Find構造の状態 */
+	unionFind?: number[];
+	/** Fenwick Tree構造の状態 */
+	fenwickTree?: number[];
+	/** グラフの隣接リスト */
+	graph?: Record<string, string[]>;
+	/** ノードの状態 */
+	nodes?: Record<string, any>;
+	/** エッジの状態 */
+	edges?: Array<{ from: string; to: string; weight?: number; state?: string }>;
 }
 
 /**
