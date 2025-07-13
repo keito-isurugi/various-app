@@ -478,6 +478,76 @@ export default function AlgorithmsPage() {
 			spaceComplexity: "O(n)",
 			difficulty: 3,
 		},
+		{
+			id: "cumulative-sum",
+			name: "累積和・差分配列",
+			description:
+				"前処理による配列の区間操作を劇的に高速化する重要な技法。区間和クエリを O(1) で処理し、区間更新も効率的に実現",
+			category: "other",
+			timeComplexity: {
+				best: "O(1)",
+				average: "O(1)",
+				worst: "O(n)",
+			},
+			spaceComplexity: "O(n)",
+			difficulty: 2,
+		},
+		{
+			id: "sliding-window",
+			name: "スライディングウィンドウ（尺取り法）",
+			description:
+				"配列の連続する部分列を効率的に処理する重要な技法。固定・可変サイズのウィンドウで様々な問題を解決",
+			category: "other",
+			timeComplexity: {
+				best: "O(n)",
+				average: "O(n)",
+				worst: "O(n)",
+			},
+			spaceComplexity: "O(1)",
+			difficulty: 2,
+		},
+		{
+			id: "two-pointer",
+			name: "2 pointer法",
+			description:
+				"2つのポインタを使って配列を効率的に処理する重要な技法。Two Sum、回文判定、配列マージなど幅広い応用",
+			category: "other",
+			timeComplexity: {
+				best: "O(n)",
+				average: "O(n)",
+				worst: "O(n)",
+			},
+			spaceComplexity: "O(1)",
+			difficulty: 2,
+		},
+		{
+			id: "bit-exhaustive-search",
+			name: "ビット全探索",
+			description:
+				"ビット演算を活用して効率的に全ての部分集合を探索する重要な技法。部分集合和、ナップサック問題などを解決",
+			category: "other",
+			timeComplexity: {
+				best: "O(2^n)",
+				average: "O(2^n)",
+				worst: "O(2^n)",
+			},
+			spaceComplexity: "O(n)",
+			difficulty: 3,
+		},
+		{
+			id: "next-permutation",
+			name: "next_permutation（順列全列挙）",
+			description:
+				"辞書順で次の順列を効率的に生成する標準的なアルゴリズム。4つのステップで最小限の変更により次の順列を生成",
+			category: "other",
+			timeComplexity: {
+				best: "O(1)",
+				average: "O(1)",
+				worst: "O(n)",
+			},
+			spaceComplexity: "O(1)",
+			difficulty: 3,
+		},
 	];
 
 	/**
