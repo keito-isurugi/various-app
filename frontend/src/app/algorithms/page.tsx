@@ -352,6 +352,20 @@ export default function AlgorithmsPage() {
 			spaceComplexity: "O(m×n)",
 			difficulty: 3,
 		},
+		{
+			id: "lis-dp",
+			name: "最長増加部分列（LIS）",
+			description:
+				"動的計画法を使用して配列から最長の増加部分列を効率的に求める最適化アルゴリズム。株価分析や時系列解析に応用",
+			category: "dynamic",
+			timeComplexity: {
+				best: "O(n²)",
+				average: "O(n²)",
+				worst: "O(n²)",
+			},
+			spaceComplexity: "O(n)",
+			difficulty: 3,
+		},
 	];
 
 	/**
