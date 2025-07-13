@@ -28,21 +28,35 @@ export default function ContactPage() {
 		setIsSubmitting(true);
 		setSubmitMessage("");
 
-		// フォーム送信のシミュレーション
 		try {
-			// 実際の実装では、ここでAPIにリクエストを送信
-			await new Promise((resolve) => setTimeout(resolve, 1000));
-
-			setSubmitMessage(
-				"お問い合わせを受け付けました。返信までしばらくお待ちください。",
-			);
-			setFormData({
-				name: "",
-				email: "",
-				subject: "",
-				message: "",
+			const response = await fetch("/api/contact", {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify(formData),
 			});
+
+			const data = await response.json();
+
+			if (response.ok) {
+				setSubmitMessage(
+					"お問い合わせを受け付けました。返信までしばらくお待ちください。",
+				);
+				setFormData({
+					name: "",
+					email: "",
+					subject: "",
+					message: "",
+				});
+			} else {
+				setSubmitMessage(
+					data.error ||
+						"送信中にエラーが発生しました。もう一度お試しください。",
+				);
+			}
 		} catch (error) {
+			console.error("送信エラー:", error);
 			setSubmitMessage(
 				"送信中にエラーが発生しました。もう一度お試しください。",
 			);

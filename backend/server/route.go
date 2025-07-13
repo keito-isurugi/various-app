@@ -8,7 +8,7 @@ import (
 	imageTagApp "github.com/keito-isurugi/kei-talk/application/image_tag"
 	tagApp "github.com/keito-isurugi/kei-talk/application/tag"
 	"github.com/keito-isurugi/kei-talk/infrastructure/env"
-	"github.com/keito-isurugi/kei-talk/infrastructure/postgresql"
+	db "github.com/keito-isurugi/kei-talk/infrastructure/postgresql"
 	"github.com/keito-isurugi/kei-talk/infrastructure/postgresql/repository"
 	imagePre "github.com/keito-isurugi/kei-talk/presentation/http/image"
 	imageTagPre "github.com/keito-isurugi/kei-talk/presentation/http/image_tag"

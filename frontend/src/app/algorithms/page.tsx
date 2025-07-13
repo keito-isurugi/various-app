@@ -408,6 +408,20 @@ export default function AlgorithmsPage() {
 			spaceComplexity: "O(log n)",
 			difficulty: 3,
 		},
+		{
+			id: "combination-nck",
+			name: "nCk組み合わせ計算",
+			description:
+				"組み合わせ数学の基本的な計算C(n,k)を複数の手法で効率的に実装。確率論と統計学の基盤",
+			category: "other",
+			timeComplexity: {
+				best: "O(1)",
+				average: "O(min(k, n-k))",
+				worst: "O(n)",
+			},
+			spaceComplexity: "O(1)",
+			difficulty: 2,
+		},
 	];
 
 	/**
