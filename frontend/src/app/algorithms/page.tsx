@@ -549,18 +549,60 @@ export default function AlgorithmsPage() {
 			difficulty: 3,
 		},
 		{
-			id: "graph-shortest-path",
-			name: "グラフの最短経路",
+			id: "dijkstra",
+			name: "ダイクストラ法",
 			description:
-				"グラフ理論における最短経路問題と最小全域木問題を解く代表的なアルゴリズム群。ダイクストラ法、ワーシャルフロイド法、クラスカル法、プリム法を学習",
+				"重み付きグラフにおいて単一始点最短経路問題を解くグリーディアルゴリズム。負の重みがない場合に最適解を保証",
 			category: "graph",
 			timeComplexity: {
-				best: "O(E log V)",
+				best: "O(V log V)",
+				average: "O((V + E) log V)",
+				worst: "O((V + E) log V)",
+			},
+			spaceComplexity: "O(V)",
+			difficulty: 3,
+		},
+		{
+			id: "warshall-floyd",
+			name: "ワーシャルフロイド法",
+			description:
+				"重み付きグラフにおいて全点間最短経路問題を解く動的計画法のアルゴリズム。負の重みも扱え、負の閉路も検出可能",
+			category: "graph",
+			timeComplexity: {
+				best: "O(V³)",
 				average: "O(V³)",
 				worst: "O(V³)",
 			},
 			spaceComplexity: "O(V²)",
-			difficulty: 4,
+			difficulty: 3,
+		},
+		{
+			id: "kruskal",
+			name: "クラスカル法",
+			description:
+				"重み付き無向グラフから最小全域木を構築するグリーディアルゴリズム。辺を重みの小さい順に選択し、Union-Findで閉路検出",
+			category: "graph",
+			timeComplexity: {
+				best: "O(E log E)",
+				average: "O(E log E)",
+				worst: "O(E log E)",
+			},
+			spaceComplexity: "O(V)",
+			difficulty: 3,
+		},
+		{
+			id: "prim",
+			name: "プリム法",
+			description:
+				"重み付き無向グラフから最小全域木を構築するグリーディアルゴリズム。頂点を一つずつMSTに追加していく直感的なアプローチ",
+			category: "graph",
+			timeComplexity: {
+				best: "O(E log V)",
+				average: "O(E log V)",
+				worst: "O(E log V)",
+			},
+			spaceComplexity: "O(V)",
+			difficulty: 3,
 		},
 	];
 
