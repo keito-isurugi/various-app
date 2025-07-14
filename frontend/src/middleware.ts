@@ -19,10 +19,16 @@ export function middleware(request: NextRequest) {
 		response.headers.set("Content-Security-Policy", "frame-ancestors *;");
 	}
 
+	// /demo/iframe-target パスに対してはX-Frame-Optionsを明示的にDENYに設定
+	// これにより他ドメインからのiframe埋め込みを禁止
+	if (request.nextUrl.pathname === "/demo/iframe-target") {
+		response.headers.set("X-Frame-Options", "DENY");
+	}
+
 	return response;
 }
 
 // ミドルウェアを適用するパスの設定
 export const config = {
-	matcher: "/demo/embed-target",
+	matcher: ["/demo/embed-target", "/demo/iframe-target"],
 };

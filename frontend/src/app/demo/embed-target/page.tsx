@@ -1,8 +1,26 @@
+"use client";
+
+import { useEffect, useState } from "react";
+
 /**
  * iframe埋め込み対象のデモページ
  * 他のサイトからiframeで埋め込まれることを想定
  */
 export default function EmbedTargetPage() {
+	const [currentDate, setCurrentDate] = useState<string>("");
+
+	useEffect(() => {
+		// クライアントサイドでのみ日時を設定
+		setCurrentDate(
+			new Date().toLocaleString("ja-JP", {
+				year: "numeric",
+				month: "long",
+				day: "numeric",
+				hour: "2-digit",
+				minute: "2-digit",
+			}),
+		);
+	}, []);
 	return (
 		<div className="min-h-screen bg-gradient-to-br from-blue-50 to-purple-50 flex items-center justify-center p-8">
 			<div className="bg-white rounded-lg shadow-xl p-8 max-w-2xl w-full">
@@ -35,15 +53,7 @@ export default function EmbedTargetPage() {
 						<h2 className="text-xl font-semibold text-gray-700 mb-2">
 							現在の日時
 						</h2>
-						<p className="text-gray-600">
-							{new Date().toLocaleString("ja-JP", {
-								year: "numeric",
-								month: "long",
-								day: "numeric",
-								hour: "2-digit",
-								minute: "2-digit",
-							})}
-						</p>
+						<p className="text-gray-600">{currentDate || "読み込み中..."}</p>
 					</div>
 				</div>
 
