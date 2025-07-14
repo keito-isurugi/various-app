@@ -82,6 +82,23 @@ export interface AlgorithmResult {
 }
 
 /**
+ * グラフエッジの定義
+ */
+export interface GraphEdge {
+	from: number;
+	to: number;
+	weight: number;
+}
+
+/**
+ * グラフデータの構造
+ */
+export interface GraphData {
+	nodes: string[];
+	edges: GraphEdge[];
+}
+
+/**
  * アルゴリズムの入力設定
  */
 export interface AlgorithmInput {
@@ -89,12 +106,12 @@ export interface AlgorithmInput {
 	array?: number[];
 	/** 探索対象の値 */
 	target?: number;
-	/** グラフデータ（グラフ系アルゴリズム用） */
-	graph?: Record<string, string[]>;
+	/** グラフデータ（グラフ系アルゴリズム用） - 新形式 */
+	graph?: GraphData | Record<string, string[]>;
 	/** 開始ノード（グラフ系アルゴリズム用） */
-	startNode?: string;
+	startNode?: number | string;
 	/** 目標ノード（グラフ系アルゴリズム用） */
-	targetNode?: string;
+	targetNode?: number | string;
 	/** 実行方法 */
 	method?: string;
 	/** その他のパラメータ */
@@ -241,4 +258,47 @@ export interface ExplanationSection {
 	examples: string[];
 	/** 数式（オプション） */
 	formula?: string;
+}
+
+/**
+ * 高度なアルゴリズム解説データの構造（グラフアルゴリズムなど）
+ */
+export interface DetailedExplanationData {
+	/** 計算の種類 */
+	calculationType: string;
+	/** 解説のタイトル */
+	title: string;
+	/** 概要 */
+	overview: string;
+	/** 解説セクション */
+	sections: DetailedExplanationSection[];
+	/** 計算量情報 */
+	complexity?: {
+		time: string;
+		space: string;
+		description: string;
+	};
+	/** 応用例 */
+	applications?: string[];
+}
+
+/**
+ * 高度な解説セクションの構造
+ */
+export interface DetailedExplanationSection {
+	/** セクションタイトル */
+	title: string;
+	/** セクション内容 */
+	content: string;
+	/** 数式（オプション） */
+	formulas?: Array<{
+		name: string;
+		expression: string;
+		description: string;
+	}>;
+	/** 詳細な例（オプション） */
+	examples?: Array<{
+		title: string;
+		code: string;
+	}>;
 }

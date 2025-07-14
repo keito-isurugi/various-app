@@ -10,13 +10,14 @@
 import type React from "react";
 import { useState } from "react";
 import type {
+	DetailedExplanationData,
 	ExplanationData,
 	ExplanationSection,
 } from "../../types/algorithm";
 
 interface CalculationExplanationProps {
 	/** 表示する解説データ */
-	explanationData: ExplanationData;
+	explanationData: ExplanationData | DetailedExplanationData;
 	/** 初期状態で展開するかどうか */
 	defaultExpanded?: boolean;
 	/** 追加のCSSクラス */
@@ -56,6 +57,22 @@ export const CalculationExplanation: React.FC<CalculationExplanationProps> = ({
 			newExpandedSections.add(sectionId);
 		}
 		setExpandedSections(newExpandedSections);
+	};
+
+	/**
+	 * セクションIDを取得（DetailedExplanationSectionにはidがないため）
+	 */
+	const getSectionId = (section: any, index: number): string => {
+		return section.id || `section-${index}`;
+	};
+
+	/**
+	 * DetailedExplanationDataかどうかを判定
+	 */
+	const isDetailedExplanation = (
+		data: ExplanationData | DetailedExplanationData,
+	): data is DetailedExplanationData => {
+		return "complexity" in data || "applications" in data;
 	};
 
 	/**
@@ -156,88 +173,155 @@ export const CalculationExplanation: React.FC<CalculationExplanationProps> = ({
 							🔍 詳細解説
 						</h4>
 
-						{explanationData.sections.map((section) => (
-							<div
-								key={section.id}
-								className={`border rounded-lg ${getSectionStyles(section.importance)}`}
-							>
-								{/* セクションヘッダー */}
-								<button
-									type="button"
-									className="w-full p-4 text-left hover:bg-opacity-80 transition-colors"
-									onClick={() => toggleSectionExpansion(section.id)}
-									aria-expanded={expandedSections.has(section.id)}
-									aria-label={`${section.title}の詳細を${expandedSections.has(section.id) ? "折りたたむ" : "展開する"}`}
+						{explanationData.sections.map((section, index) => {
+							const sectionId = getSectionId(section, index);
+							const isDetailedSection = isDetailedExplanation(explanationData);
+							return (
+								<div
+									key={sectionId}
+									className={`border rounded-lg ${!isDetailedSection ? getSectionStyles((section as any).importance) : "border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50"}`}
 								>
-									<div className="flex items-center justify-between">
-										<h5 className="font-semibold text-gray-900 dark:text-gray-100">
-											{section.title}
-										</h5>
-										<div
-											className={`transform transition-transform duration-200 ${expandedSections.has(section.id) ? "rotate-180" : ""}`}
-										>
-											<svg
-												className="w-5 h-5 text-gray-500"
-												fill="none"
-												stroke="currentColor"
-												viewBox="0 0 24 24"
-												aria-hidden="true"
+									{/* セクションヘッダー */}
+									<button
+										type="button"
+										className="w-full p-4 text-left hover:bg-opacity-80 transition-colors"
+										onClick={() => toggleSectionExpansion(sectionId)}
+										aria-expanded={expandedSections.has(sectionId)}
+										aria-label={`${section.title}の詳細を${expandedSections.has(sectionId) ? "折りたたむ" : "展開する"}`}
+									>
+										<div className="flex items-center justify-between">
+											<h5 className="font-semibold text-gray-900 dark:text-gray-100">
+												{section.title}
+											</h5>
+											<div
+												className={`transform transition-transform duration-200 ${expandedSections.has(sectionId) ? "rotate-180" : ""}`}
 											>
-												<path
-													strokeLinecap="round"
-													strokeLinejoin="round"
-													strokeWidth={2}
-													d="M19 9l-7 7-7-7"
-												/>
-											</svg>
+												<svg
+													className="w-5 h-5 text-gray-500"
+													fill="none"
+													stroke="currentColor"
+													viewBox="0 0 24 24"
+													aria-hidden="true"
+												>
+													<path
+														strokeLinecap="round"
+														strokeLinejoin="round"
+														strokeWidth={2}
+														d="M19 9l-7 7-7-7"
+													/>
+												</svg>
+											</div>
 										</div>
-									</div>
-								</button>
+									</button>
 
-								{/* セクションコンテンツ */}
-								{expandedSections.has(section.id) && (
-									<div className="px-4 pb-4 border-t border-gray-200 dark:border-gray-600 pt-4">
-										{/* 説明文 */}
-										<p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
-											{section.content}
-										</p>
+									{/* セクションコンテンツ */}
+									{expandedSections.has(sectionId) && (
+										<div className="px-4 pb-4 border-t border-gray-200 dark:border-gray-600 pt-4">
+											{/* 説明文 */}
+											<p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4 whitespace-pre-line">
+												{section.content}
+											</p>
 
-										{/* 数式表示 */}
-										{section.formula && (
-											<div className="mb-4 p-3 bg-white dark:bg-gray-700 rounded-md border border-gray-200 dark:border-gray-600">
-												<h6 className="text-sm font-semibold text-gray-600 dark:text-gray-400 mb-2">
-													📐 数式
-												</h6>
-												<div className="text-lg font-mono text-center text-gray-800 dark:text-gray-200">
-													{/* 数式をプレーンテキストとして表示（HTMLタグを除去） */}
-													{section.formula?.replace(/<[^>]*>/g, "") || ""}
+											{/* 数式表示（通常のExplanationSection用） */}
+											{!isDetailedSection && (section as any).formula && (
+												<div className="mb-4 p-3 bg-white dark:bg-gray-700 rounded-md border border-gray-200 dark:border-gray-600">
+													<h6 className="text-sm font-semibold text-gray-600 dark:text-gray-400 mb-2">
+														📐 数式
+													</h6>
+													<div className="text-lg font-mono text-center text-gray-800 dark:text-gray-200">
+														{(section as any).formula?.replace(
+															/<[^>]*>/g,
+															"",
+														) || ""}
+													</div>
 												</div>
-											</div>
-										)}
+											)}
 
-										{/* 実例表示 */}
-										{section.examples && section.examples.length > 0 && (
-											<div className="p-3 bg-yellow-50 dark:bg-yellow-900/20 rounded-md border border-yellow-200 dark:border-yellow-700/50">
-												<h6 className="text-sm font-semibold text-yellow-800 dark:text-yellow-200 mb-2">
-													💡 具体例
-												</h6>
-												<ul className="space-y-1">
-													{section.examples.map((example, index) => (
-														<li
-															key={`example-${example.slice(0, 30)}-${section.id}-${index}`}
-															className="text-sm text-yellow-700 dark:text-yellow-300 flex items-start gap-2"
-														>
-															<span className="text-yellow-500 mt-1">•</span>
-															<span>{example}</span>
-														</li>
-													))}
-												</ul>
-											</div>
-										)}
-									</div>
-								)}
-							</div>
-						))}
+											{/* 数式表示（DetailedExplanationSection用） */}
+											{isDetailedSection &&
+												(section as any).formulas &&
+												(section as any).formulas.length > 0 && (
+													<div className="mb-4 space-y-3">
+														<h6 className="text-sm font-semibold text-gray-600 dark:text-gray-400">
+															📐 数式
+														</h6>
+														{(section as any).formulas.map(
+															(formula: any, formulaIndex: number) => (
+																<div
+																	key={`formula-${formula.name || formulaIndex}`}
+																	className="p-3 bg-white dark:bg-gray-700 rounded-md border border-gray-200 dark:border-gray-600"
+																>
+																	<div className="font-semibold text-sm text-gray-700 dark:text-gray-300 mb-1">
+																		{formula.name}
+																	</div>
+																	<div className="text-lg font-mono text-center text-gray-800 dark:text-gray-200 mb-2">
+																		{formula.expression}
+																	</div>
+																	<div className="text-xs text-gray-600 dark:text-gray-400">
+																		{formula.description}
+																	</div>
+																</div>
+															),
+														)}
+													</div>
+												)}
+
+											{/* 実例表示（通常のExplanationSection用） */}
+											{!isDetailedSection &&
+												(section as any).examples &&
+												(section as any).examples.length > 0 && (
+													<div className="p-3 bg-yellow-50 dark:bg-yellow-900/20 rounded-md border border-yellow-200 dark:border-yellow-700/50">
+														<h6 className="text-sm font-semibold text-yellow-800 dark:text-yellow-200 mb-2">
+															💡 具体例
+														</h6>
+														<ul className="space-y-1">
+															{(section as any).examples.map(
+																(example: string, exampleIndex: number) => (
+																	<li
+																		key={`example-${example.slice(0, 30)}-${sectionId}-${exampleIndex}`}
+																		className="text-sm text-yellow-700 dark:text-yellow-300 flex items-start gap-2"
+																	>
+																		<span className="text-yellow-500 mt-1">
+																			•
+																		</span>
+																		<span>{example}</span>
+																	</li>
+																),
+															)}
+														</ul>
+													</div>
+												)}
+
+											{/* 実例表示（DetailedExplanationSection用） */}
+											{isDetailedSection &&
+												(section as any).examples &&
+												(section as any).examples.length > 0 && (
+													<div className="mb-4 space-y-3">
+														<h6 className="text-sm font-semibold text-yellow-800 dark:text-yellow-200">
+															💡 実装例
+														</h6>
+														{(section as any).examples.map(
+															(example: any, exampleIndex: number) => (
+																<div
+																	key={`example-${example.title || exampleIndex}`}
+																	className="p-3 bg-yellow-50 dark:bg-yellow-900/20 rounded-md border border-yellow-200 dark:border-yellow-700/50"
+																>
+																	<div className="font-semibold text-sm text-yellow-800 dark:text-yellow-200 mb-2">
+																		{example.title}
+																	</div>
+																	<pre className="text-xs text-yellow-700 dark:text-yellow-300 overflow-x-auto whitespace-pre-wrap font-mono bg-yellow-100 dark:bg-yellow-900/40 p-2 rounded">
+																		{example.code}
+																	</pre>
+																</div>
+															),
+														)}
+													</div>
+												)}
+										</div>
+									)}
+								</div>
+							);
+						})}
 					</div>
 				</div>
 			)}

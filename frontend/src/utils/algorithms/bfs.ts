@@ -45,8 +45,8 @@ export class BreadthFirstSearchAlgorithm implements Algorithm {
 		}
 
 		const graph = input.graph as Record<string, string[]>;
-		const startNode = input.startNode || "0";
-		const targetNode = input.targetNode;
+		const startNode = String(input.startNode || "0");
+		const targetNode = input.targetNode ? String(input.targetNode) : undefined;
 		const method = input.method || "iterative";
 
 		// グラフの統計情報を取得

@@ -548,6 +548,20 @@ export default function AlgorithmsPage() {
 			spaceComplexity: "O(1)",
 			difficulty: 3,
 		},
+		{
+			id: "graph-shortest-path",
+			name: "グラフの最短経路",
+			description:
+				"グラフ理論における最短経路問題と最小全域木問題を解く代表的なアルゴリズム群。ダイクストラ法、ワーシャルフロイド法、クラスカル法、プリム法を学習",
+			category: "graph",
+			timeComplexity: {
+				best: "O(E log V)",
+				average: "O(V³)",
+				worst: "O(V³)",
+			},
+			spaceComplexity: "O(V²)",
+			difficulty: 4,
+		},
 	];
 
 	/**
@@ -721,7 +735,7 @@ export default function AlgorithmsPage() {
 								さらなるアルゴリズム
 							</h3>
 							<p className="text-gray-500 dark:text-gray-500 text-sm">
-								ダイクストラ法、A*アルゴリズム
+								A*アルゴリズム、ベルマン・フォード法
 								<br />
 								その他の高度なアルゴリズムを準備中...
 							</p>

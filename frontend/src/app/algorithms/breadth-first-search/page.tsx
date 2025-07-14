@@ -28,8 +28,8 @@ export default function BreadthFirstSearchPage() {
 				...input,
 				method: selectedMethod,
 				graph: customGraph ? JSON.parse(customGraph) : input.graph,
-				startNode: startNode,
-				targetNode: targetNode || undefined,
+				startNode: Number(startNode),
+				targetNode: targetNode ? Number(targetNode) : undefined,
 			};
 			setInput(updatedInput);
 			const execResult = bfs.execute(updatedInput);
