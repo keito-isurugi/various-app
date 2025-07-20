@@ -47,6 +47,27 @@ export default function SecuritiesPage() {
 				"OWASP Top 10",
 			],
 		},
+		{
+			id: "owasp-top10",
+			name: "OWASP Top 10 (2021)",
+			description:
+				"Webアプリケーションの最も重大なセキュリティリスク10項目を詳しく学習。各リスクの原因、影響、攻撃例、対策方法を実践的に理解",
+			category: "intermediate",
+			difficulty: 3,
+			estimatedTime: "5-6時間",
+			keyTopics: [
+				"アクセス制御の不備",
+				"暗号化の失敗",
+				"インジェクション",
+				"安全でない設計",
+				"セキュリティ設定ミス",
+				"脆弱なコンポーネント",
+				"認証の失敗",
+				"データ整合性の失敗",
+				"ログとモニタリング",
+				"SSRF",
+			],
+		},
 	];
 
 	// 今後追加予定のトピック
@@ -159,7 +180,7 @@ export default function SecuritiesPage() {
 						📚 学習コンテンツ
 					</h2>
 
-					<div className="grid md:grid-cols-1 lg:grid-cols-1 gap-8">
+					<div className="grid md:grid-cols-1 lg:grid-cols-2 gap-8">
 						{availableTopics.map((topic) => (
 							<Link
 								key={topic.id}
