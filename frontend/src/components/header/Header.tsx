@@ -87,6 +87,7 @@ export const Header: React.FC = () => {
 							<NavLink href="/" label="Home" />
 							<NavLink href="/blog/posts" label="Blog" />
 							<NavLink href="/algorithms" label="Algorithms" />
+							<NavLink href="/securities" label="Securities" />
 							<NavLink href="/accounting" label="Accounting" />
 							<NavLink href="/calculator" label="Calculator" />
 							<NavLink href="/big3" label="BIG3" />
