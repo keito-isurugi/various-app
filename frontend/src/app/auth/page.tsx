@@ -16,6 +16,7 @@ import {
 	UserCheck,
 	Users,
 } from "lucide-react";
+import Link from "next/link";
 import type React from "react";
 
 // 認証と認可の基本概念を説明するコンポーネント
@@ -76,7 +77,7 @@ const TopicCard = ({
 }) => {
 	const isComingSoon = status === "coming-soon";
 
-	return (
+	const cardContent = (
 		<div
 			className={`
 				relative overflow-hidden rounded-lg border transition-all duration-300
@@ -120,6 +121,13 @@ const TopicCard = ({
 			</div>
 		</div>
 	);
+
+	// リンクがある場合はLinkコンポーネントで囲む
+	if (!isComingSoon && link) {
+		return <Link href={link}>{cardContent}</Link>;
+	}
+
+	return cardContent;
 };
 
 // セキュリティ基礎知識カード
@@ -238,7 +246,8 @@ export default function AuthPage() {
 							subtitle="認可フレームワーク"
 							description="「Googleでログイン」のような、他サービスのアカウントで認証・認可を行う仕組み。安全に権限を委譲できます。"
 							icon={Users}
-							status="coming-soon"
+							status="available"
+							link="/auth/oauth2"
 						/>
 
 						<TopicCard
