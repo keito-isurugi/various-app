@@ -255,7 +255,8 @@ export default function AuthPage() {
 							subtitle="認証レイヤー"
 							description="OAuth 2.0の上に構築された認証の仕組み。ユーザー情報を安全に取得でき、シングルサインオンを実現します。"
 							icon={Cloud}
-							status="coming-soon"
+							status="available"
+							link="/auth/oidc"
 						/>
 
 						<TopicCard
