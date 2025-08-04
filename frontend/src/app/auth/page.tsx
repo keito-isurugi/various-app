@@ -264,7 +264,8 @@ export default function AuthPage() {
 							subtitle="セキュリティ強化"
 							description="パスワードだけでなく、SMSコードや認証アプリなど複数の要素で本人確認を行い、セキュリティを高めます。"
 							icon={Smartphone}
-							status="coming-soon"
+							status="available"
+							link="/auth/mfa"
 						/>
 
 						<TopicCard
