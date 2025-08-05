@@ -269,6 +269,15 @@ export default function AuthPage() {
 						/>
 
 						<TopicCard
+							title="私の仕事について"
+							subtitle="OIDC開発エンジニア"
+							description="OIDC準拠認証サーバーを開発する「デジタルセキュリティガード」の日常をご紹介します。"
+							icon={UserCheck}
+							status="available"
+							link="/auth/work"
+						/>
+
+						<TopicCard
 							title="JWT (JSON Web Token)"
 							subtitle="トークンベース認証"
 							description="ユーザー情報を含む暗号化されたトークン。サーバー間で安全に情報をやり取りできます。"
@@ -281,14 +290,6 @@ export default function AuthPage() {
 							subtitle="企業向けSSO"
 							description="企業環境でよく使われるシングルサインオンの標準規格。一度のログインで複数のサービスを利用できます。"
 							icon={Building}
-							status="coming-soon"
-						/>
-
-						<TopicCard
-							title="生体認証"
-							subtitle="バイオメトリクス"
-							description="指紋、顔、虹彩などの身体的特徴を使った認証方法。なりすましが困難で高いセキュリティを実現します。"
-							icon={UserCheck}
 							status="coming-soon"
 						/>
 					</div>
