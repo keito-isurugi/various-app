@@ -113,3 +113,27 @@ Access pgAdmin at http://localhost:5050 with credentials from `.env`.
 - **Add new page**: Create directory in `/frontend/src/app/`
 - **Update database schema**: Add migration file to `/backend/DDL/`, restart Docker services
 - **Format frontend code**: Run `npm run format` in frontend directory
+
+## IMPORTANT: Code Quality Requirements
+
+**CRITICAL**: After making ANY changes to frontend code (TypeScript/TSX files), you MUST:
+
+1. **Run Biome check**:
+   ```bash
+   cd frontend
+   npx biome check src/
+   ```
+
+2. **Fix all errors before committing**:
+   - Fix linting errors reported by Biome
+   - Apply safe fixes with `npx biome check --write src/`
+   - Apply unsafe fixes if needed with `npx biome check --write --unsafe src/`
+   - Never commit code with Biome errors
+
+3. **Common fixes**:
+   - Add `type="button"` to all `<button>` elements
+   - Use `Number.isNaN()` instead of `isNaN()`
+   - Wrap variables in switch cases with `{ }`
+   - Add all dependencies to `useEffect` dependency arrays or use `useCallback`
+
+This is enforced by pre-commit hooks (husky + lint-staged) and will block commits if errors exist.
