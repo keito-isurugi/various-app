@@ -137,3 +137,26 @@ Access pgAdmin at http://localhost:5050 with credentials from `.env`.
    - Add all dependencies to `useEffect` dependency arrays or use `useCallback`
 
 This is enforced by pre-commit hooks (husky + lint-staged) and will block commits if errors exist.
+
+## Git Operations Policy
+
+**CRITICAL**: Never execute `git commit` or `git push` commands without explicit user permission.
+
+### Rules:
+1. **NO automatic commits** - Do NOT run `git commit` unless the user explicitly asks you to commit
+2. **NO automatic pushes** - Do NOT run `git push` unless the user explicitly asks you to push
+3. **Staging is OK** - You may run `git add` to stage files when preparing changes
+4. **Status checks are OK** - You may run `git status`, `git diff`, `git log` to check repository state
+
+### What you SHOULD do:
+- After making changes, stage the files with `git add`
+- Check the status with `git status` or `git diff --cached`
+- **Ask the user** if they want to commit and push the changes
+- Wait for explicit confirmation before running `git commit` or `git push`
+
+### Example workflow:
+1. Make code changes
+2. Run `git add -A` to stage changes
+3. Run `git status` to show what will be committed
+4. **Tell the user**: "変更をステージングしました。コミットしますか？"
+5. Wait for user response before committing

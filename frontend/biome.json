@@ -33,6 +33,9 @@
 			"a11y": {
 				"useKeyWithClickEvents": "off",
 				"useSemanticElements": "off"
+			},
+			"complexity": {
+				"noForEach": "off"
 			}
 		}
 	},
