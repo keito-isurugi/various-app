@@ -43,9 +43,11 @@ export const csvImportService = {
 			}) as string[][];
 
 			// Skip header row if present
-			const dataRows = records[0]?.[0]?.toLowerCase().includes("title")
-				? records.slice(1)
-				: records;
+			const firstCell = records[0]?.[0]?.toLowerCase() || "";
+			const dataRows =
+				firstCell.includes("title") || firstCell.includes("タイトル")
+					? records.slice(1)
+					: records;
 
 			const todos: TodoFormData[] = [];
 
