@@ -24,28 +24,40 @@ npm run format      # Format code with Biome
 ### Backend Development
 ```bash
 # All backend services run via Docker Compose
-docker-compose up -d    # Start all services (API, DB, pgAdmin, LocalStack)
+docker-compose up -d    # Start all services (API, DB, pgAdmin, LocalStack, Firebase Emulator)
 docker-compose down     # Stop all services
 docker-compose logs -f api  # View API logs
+docker-compose up firebase-emulator  # Start only Firebase Emulator for TODO app
 ```
 
 The Go backend uses Air for hot-reloading - changes to `.go` files automatically rebuild.
+
+### TODO App Development
+```bash
+cd frontend
+npm run dev:all         # Start Next.js dev server + Firebase Emulator
+npm run emulator        # Start Firebase Emulator only
+```
 
 ### Environment Setup
 1. Copy `.env.example` to `.env` in the root directory
 2. The frontend requires a `.env.local` file with:
    - `NOTION_DATABASE_ID` - Your Notion database ID
    - `NEXT_PUBLIC_API_BASE_URL` - Backend API URL
+   - Firebase credentials (for TODO app) - see `frontend/.env.example`
+   - `NEXT_PUBLIC_USE_FIREBASE_EMULATOR=true` for local development
 
 ## Architecture
 
 ### Frontend Structure
-- **App Router**: Uses Next.js 14 App Router pattern
-- **Public Routes**: `/blog/posts`, `/blog/posts/[id]` 
+- **App Router**: Uses Next.js 15 App Router pattern
+- **Public Routes**: `/blog/posts`, `/blog/posts/[id]`, `/todo`, `/todo/dashboard`
 - **Admin Routes**: `/admin/image`, `/admin/tag`
 - **API Routes**: `/api/blog/posts`, `/api/images`
 - **Content Source**: Notion as headless CMS
-- **Styling**: Tailwind CSS with Typography plugin
+- **Data Storage**: Firebase Firestore (TODO app)
+- **Styling**: Tailwind CSS v4 with Typography plugin
+- **UI Components**: shadcn/ui (Radix UI primitives)
 - **Code Style**: Biome with tabs and double quotes
 
 ### Backend Structure
@@ -56,7 +68,7 @@ The Go backend uses Air for hot-reloading - changes to `.go` files automatically
 - **Logging**: Zap structured logging
 
 ### Key Features
-1. **Blog System**: 
+1. **Blog System**:
    - Fetches content from Notion
    - Converts to markdown files
    - Auto-commits to Git
@@ -67,6 +79,15 @@ The Go backend uses Air for hot-reloading - changes to `.go` files automatically
    - Upload to S3
    - Tag management
    - Many-to-many image-tag relationships
+
+3. **TODO App** (`/todo`):
+   - Task management with calendar views (month/week/day)
+   - Category/tag organization
+   - Progress tracking (daily/weekly/monthly)
+   - Dashboard with statistics and analytics
+   - CSV import/export
+   - Firebase Firestore for data persistence
+   - Firebase Emulator for local development
 
 ## Database
 PostgreSQL migrations are in `/backend/DDL/` and auto-apply on container start:
