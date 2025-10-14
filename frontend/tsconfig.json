@@ -21,8 +21,9 @@
 		"paths": {
 			"@/*": ["./src/*"]
 		},
-		"sourceMap": true
+		"sourceMap": true,
+		"target": "ES2017"
 	},
 	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-	"exclude": ["node_modules", "**/*.test.ts", "**/*.test.tsx"]
+	"exclude": ["node_modules", "**/*.test.ts", "**/*.test.tsx", "tmp_todo-app"]
 }
