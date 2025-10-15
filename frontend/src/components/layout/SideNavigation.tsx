@@ -20,6 +20,7 @@ export const SideNavigation: React.FC<SideNavigationProps> = ({
 	const navItems = [
 		{ href: "/", label: "ホーム", icon: "🏠" },
 		{ href: "/blog/posts", label: "ブログ", icon: "📝" },
+		{ href: "/todo", label: "TODOアプリ", icon: "✅" },
 		{ href: "/algorithms", label: "アルゴリズム学習", icon: "🔍" },
 		{ href: "/securities", label: "セキュリティ", icon: "🔐" },
 		{ href: "/auth", label: "認証・認可", icon: "🔑" },
@@ -70,10 +71,8 @@ export const SideNavigation: React.FC<SideNavigationProps> = ({
 		<>
 			{/* オーバーレイ */}
 			<div
-				className={`fixed inset-0 bg-black transition-opacity duration-300 ease-in-out z-[60] xl:hidden ${
-					isOpen
-						? "bg-opacity-50 dark:bg-opacity-70"
-						: "bg-opacity-0 pointer-events-none"
+				className={`fixed inset-0 bg-black/50 transition-opacity duration-300 ease-in-out z-[60] ${
+					isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
 				}`}
 				onClick={onClose}
 				onKeyDown={(e) => {
@@ -88,15 +87,15 @@ export const SideNavigation: React.FC<SideNavigationProps> = ({
 
 			{/* サイドメニュー */}
 			<div
-				className={`fixed top-0 left-0 h-full w-80 bg-white dark:bg-gray-900 shadow-lg transform transition-transform duration-300 ease-in-out z-[70] xl:hidden ${
+				className={`fixed top-0 left-0 h-full w-80 bg-card text-card-foreground shadow-lg transform transition-transform duration-300 ease-in-out z-[70] ${
 					isOpen ? "translate-x-0" : "-translate-x-full"
 				}`}
 			>
 				{/* ヘッダー */}
-				<div className="flex items-center justify-between p-6 border-b border-gray-200 dark:border-gray-700">
+				<div className="flex items-center justify-between p-6 border-b border-border">
 					<Link
 						href="/"
-						className="text-xl font-bold text-gray-900 dark:text-white"
+						className="text-xl font-bold text-foreground"
 						onClick={onClose}
 					>
 						Keito
@@ -104,7 +103,7 @@ export const SideNavigation: React.FC<SideNavigationProps> = ({
 					<button
 						type="button"
 						onClick={onClose}
-						className="p-2 rounded-md text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+						className="p-2 rounded-md text-muted-foreground hover:text-foreground hover:bg-accent transition-colors"
 						aria-label="メニューを閉じる"
 					>
 						<svg
@@ -132,7 +131,7 @@ export const SideNavigation: React.FC<SideNavigationProps> = ({
 								<Link
 									href={item.href}
 									onClick={onClose}
-									className="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-white transition-colors"
+									className="flex items-center gap-3 px-4 py-3 rounded-lg text-foreground hover:bg-accent hover:text-accent-foreground transition-colors"
 								>
 									<span className="text-lg">{item.icon}</span>
 									<span className="font-medium">{item.label}</span>
@@ -143,8 +142,8 @@ export const SideNavigation: React.FC<SideNavigationProps> = ({
 				</nav>
 
 				{/* フッター情報 */}
-				<div className="absolute bottom-0 left-0 right-0 p-6 border-t border-gray-200 dark:border-gray-700">
-					<div className="text-center text-sm text-gray-500 dark:text-gray-400">
+				<div className="absolute bottom-0 left-0 right-0 p-6 border-t border-border">
+					<div className="text-center text-sm text-muted-foreground">
 						<p>&copy; 2024 Keito</p>
 						<p>技術ブログとポートフォリオ</p>
 					</div>

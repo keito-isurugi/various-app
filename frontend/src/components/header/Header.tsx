@@ -28,8 +28,8 @@ export const Header: React.FC = () => {
 			<header
 				className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
 					isScrolled
-						? "bg-white/90 dark:bg-gray-900/90 shadow-medium backdrop-blur-md border-b border-gray-200 dark:border-gray-700"
-						: "bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm"
+						? "bg-card/90 shadow-medium backdrop-blur-md border-b border-border"
+						: "bg-card/80 backdrop-blur-sm"
 				}`}
 			>
 				<div className="container mx-auto container-padding">
@@ -38,24 +38,24 @@ export const Header: React.FC = () => {
 						<button
 							type="button"
 							onClick={() => setIsSideNavOpen(!isSideNavOpen)}
-							className="relative p-2 rounded-xl bg-white/50 dark:bg-gray-900/50 border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-800 hover:border-gray-400 dark:hover:border-gray-500 transition-all duration-300 xl:hidden group"
+							className="relative p-2 rounded-xl bg-muted hover:bg-accent hover:text-accent-foreground transition-all duration-300 group"
 							aria-label={isSideNavOpen ? "メニューを閉じる" : "メニューを開く"}
 						>
 							<div className="w-6 h-6 flex flex-col justify-center items-center">
 								<span
-									className={`block h-0.5 w-5 bg-gray-700 dark:bg-gray-300 transition-all duration-300 ease-out ${
+									className={`block h-0.5 w-5 bg-foreground transition-all duration-300 ease-out ${
 										isSideNavOpen
 											? "rotate-45 translate-y-1"
 											: "-translate-y-0.5"
 									}`}
 								/>
 								<span
-									className={`block h-0.5 w-5 bg-gray-700 dark:bg-gray-300 transition-all duration-300 ease-out ${
+									className={`block h-0.5 w-5 bg-foreground transition-all duration-300 ease-out ${
 										isSideNavOpen ? "opacity-0" : "my-0.5"
 									}`}
 								/>
 								<span
-									className={`block h-0.5 w-5 bg-gray-700 dark:bg-gray-300 transition-all duration-300 ease-out ${
+									className={`block h-0.5 w-5 bg-foreground transition-all duration-300 ease-out ${
 										isSideNavOpen
 											? "-rotate-45 -translate-y-1"
 											: "translate-y-0.5"
@@ -64,11 +64,11 @@ export const Header: React.FC = () => {
 							</div>
 						</button>
 
-						{/* ロゴ/サイトタイトル - 中央配置（モバイル）または左寄せ（デスクトップ） */}
-						<div className="flex-1 lg:flex-none flex justify-center lg:justify-start">
+						{/* ロゴ/サイトタイトル - 中央配置 */}
+						<div className="flex-1 flex justify-center">
 							<Link
 								href="/"
-								className="group flex items-center space-x-2 px-3 py-2 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300"
+								className="group flex items-center space-x-2 px-3 py-2 rounded-xl hover:bg-accent transition-all duration-300"
 							>
 								<div className="relative">
 									<div className="w-8 h-8 bg-gradient-to-br from-primary-500 to-primary-600 rounded-lg flex items-center justify-center shadow-soft group-hover:shadow-glow transition-all duration-300">
@@ -82,31 +82,9 @@ export const Header: React.FC = () => {
 							</Link>
 						</div>
 
-						{/* デスクトップナビゲーション */}
-						<nav className="hidden xl:flex items-center space-x-1">
-							<NavLink href="/" label="Home" />
-							<NavLink href="/blog/posts" label="Blog" />
-							<NavLink href="/algorithms" label="Algorithms" />
-							<NavLink href="/securities" label="Securities" />
-							<NavLink href="/auth" label="Auth" />
-							<NavLink href="/accounting" label="Accounting" />
-							<NavLink href="/calculator" label="Calculator" />
-							<NavLink href="/big3" label="BIG3" />
-							<NavLink href="/playground" label="Playground" />
-							<NavLink href="/about" label="About" />
-							<NavLink href="/contact" label="Contact" />
-						</nav>
-
-						{/* ダークモードトグル（デスクトップ） */}
-						<div className="hidden lg:flex items-center space-x-4">
+						{/* ダークモードトグル */}
+						<div className="flex items-center">
 							<ThemeToggle />
-							<div className="w-px h-6 bg-border" />
-							<Link
-								href="/contact"
-								className="btn-primary px-4 py-2 text-sm hover:scale-105 transition-transform duration-200"
-							>
-								Get Started
-							</Link>
 						</div>
 					</div>
 				</div>
@@ -120,22 +98,6 @@ export const Header: React.FC = () => {
 		</>
 	);
 };
-
-/**
- * ナビゲーションリンクコンポーネント
- */
-const NavLink: React.FC<{ href: string; label: string }> = ({
-	href,
-	label,
-}) => (
-	<Link
-		href={href}
-		className="relative px-4 py-2 text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300 group"
-	>
-		{label}
-		<span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-primary-500 rounded-full group-hover:w-6 transition-all duration-300" />
-	</Link>
-);
 
 /**
  * テーマトグルボタン

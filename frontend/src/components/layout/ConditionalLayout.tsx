@@ -22,7 +22,7 @@ export const ConditionalLayout: React.FC<ConditionalLayoutProps> = ({
 
 	if (isSamplePage) {
 		// サンプルページ用の独立レイアウト
-		return <div className="min-h-screen">{children}</div>;
+		return <div className="min-h-screen bg-background">{children}</div>;
 	}
 
 	// 通常ページ用のレイアウト
