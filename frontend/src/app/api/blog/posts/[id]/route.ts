@@ -4,8 +4,9 @@ import { n2m, notion } from "@/libs/notion/notionAPI";
 
 export async function GET(
 	request: Request,
-	{ params }: { params: { id: string } },
+	props: { params: Promise<{ id: string }> },
 ) {
+	const params = await props.params;
 	const response = await notion.blocks.children.list({
 		block_id: params.id,
 	});
