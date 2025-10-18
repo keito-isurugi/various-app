@@ -4,14 +4,15 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 interface WorksDetailPageProps {
-	params: {
+	params: Promise<{
 		id: string;
-	};
+	}>;
 }
 
-export async function generateMetadata({
-	params,
-}: WorksDetailPageProps): Promise<Metadata> {
+export async function generateMetadata(
+	props: WorksDetailPageProps,
+): Promise<Metadata> {
+	const params = await props.params;
 	const work = getWorkById(params.id);
 
 	if (!work) {
@@ -26,7 +27,10 @@ export async function generateMetadata({
 	};
 }
 
-export default function WorksDetailPageRoute({ params }: WorksDetailPageProps) {
+export default async function WorksDetailPageRoute(
+	props: WorksDetailPageProps,
+) {
+	const params = await props.params;
 	const work = getWorkById(params.id);
 
 	if (!work) {
