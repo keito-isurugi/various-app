@@ -11,9 +11,11 @@ import {
 	getMassageTicket,
 	verifyTicketHash,
 } from "@/lib/massage-ticket/massageTicketService";
-import type { MassageTicket } from "@/types/massage-ticket";
+import type { MassageTicket, UsageUnit } from "@/types/massage-ticket";
+import jsPDF from "jspdf";
 import Link from "next/link";
 import { useParams, useRouter } from "next/navigation";
+import QRCode from "qrcode";
 import { useCallback, useEffect, useState } from "react";
 
 export default function MassageTicketDetailPage() {
@@ -25,6 +27,7 @@ export default function MassageTicketDetailPage() {
 	const [error, setError] = useState<string | null>(null);
 	const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
 	const [isDeleting, setIsDeleting] = useState(false);
+	const [qrCodeDataUrl, setQrCodeDataUrl] = useState<string | null>(null);
 
 	const loadTicket = useCallback(async () => {
 		if (!ticketId) return;
@@ -49,6 +52,13 @@ export default function MassageTicketDetailPage() {
 			}
 
 			setTicket(loadedTicket);
+
+			// QRコードを生成
+			const qrDataUrl = await QRCode.toDataURL(loadedTicket.id, {
+				width: 300,
+				margin: 2,
+			});
+			setQrCodeDataUrl(qrDataUrl);
 		} catch (err) {
 			console.error("チケットの読み込みに失敗しました:", err);
 			setError("チケットの読み込みに失敗しました");
@@ -78,6 +88,250 @@ export default function MassageTicketDetailPage() {
 		} finally {
 			setIsDeleting(false);
 		}
+	};
+
+	// Canvasを使って日本語テキストを画像に変換（アスペクト比を保持）
+	const textToImage = (
+		text: string,
+		fontSizePt: number,
+		fontFamily = '"Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", "MS PGothic", sans-serif',
+	): Promise<{ dataUrl: string; width: number; height: number }> => {
+		return new Promise((resolve) => {
+			const canvas = document.createElement("canvas");
+			const ctx = canvas.getContext("2d");
+			if (!ctx) {
+				resolve({ dataUrl: "", width: 0, height: 0 });
+				return;
+			}
+
+			const dpi = 300;
+			const mmToPx = dpi / 25.4;
+			const fontSizeMm = (fontSizePt * 25.4) / 72;
+			const fontSizePx = fontSizeMm * mmToPx;
+			const paddingPx = 5 * mmToPx;
+
+			ctx.font = `${fontSizePx}px ${fontFamily}`;
+			ctx.textBaseline = "top";
+
+			const metrics = ctx.measureText(text);
+			const textWidthPx = metrics.width;
+			const textHeightPx = fontSizePx * 1.5;
+
+			canvas.width = Math.ceil(textWidthPx + paddingPx * 2);
+			canvas.height = Math.ceil(textHeightPx + paddingPx * 2);
+
+			const scaledCtx = canvas.getContext("2d");
+			if (!scaledCtx) {
+				resolve({ dataUrl: "", width: 0, height: 0 });
+				return;
+			}
+
+			scaledCtx.font = `${fontSizePx}px ${fontFamily}`;
+			scaledCtx.textBaseline = "top";
+			scaledCtx.fillStyle = "#000000";
+			scaledCtx.fillText(text, paddingPx, paddingPx);
+
+			const widthMm = canvas.width / mmToPx;
+			const heightMm = canvas.height / mmToPx;
+
+			resolve({
+				dataUrl: canvas.toDataURL("image/png"),
+				width: widthMm,
+				height: heightMm,
+			});
+		});
+	};
+
+	const generatePDF = async () => {
+		if (!ticket) return;
+
+		// QRコードを生成
+		const qrCodeDataUrl = await QRCode.toDataURL(ticket.id, {
+			width: 200,
+			margin: 2,
+		});
+
+		// PDFを作成
+		const pdf = new jsPDF({
+			orientation: "portrait",
+			unit: "mm",
+			format: "a4",
+		});
+
+		const pageWidth = pdf.internal.pageSize.getWidth();
+
+		// 日本語テキストを画像に変換
+		const titleImage = await textToImage("肩たたき券", 32);
+		const userNameImage = await textToImage(`利用者: ${ticket.userName}`, 16);
+		const ticketIdImage = await textToImage(`チケットID: ${ticket.id}`, 14);
+		const expiresAtImage = await textToImage(
+			`有効期限: ${ticket.expiresAt.toLocaleDateString("ja-JP")}`,
+			14,
+		);
+		const usageImage = await textToImage(
+			ticket.usageUnit === "count"
+				? `利用回数: ${(ticket.totalCount || 0).toLocaleString()}回`
+				: `利用時間: ${ticket.totalTimeMinutes}分`,
+			14,
+		);
+		const instructionImage = await textToImage(
+			"このQRコードを管理者に提示してください",
+			11,
+		);
+		const usageGuide1 = await textToImage("【使い方】", 12);
+		const usageGuide2 = await textToImage(
+			"1. この肩たたき券を管理者に渡してください",
+			10,
+		);
+		const usageGuide3 = await textToImage(
+			"2. 管理者がQRコードをスキャンして利用開始します",
+			10,
+		);
+		const usageGuide4 = await textToImage(
+			"3. 回数または時間が減算され、利用が記録されます",
+			10,
+		);
+
+		// レイアウト用の変数
+		let currentY = 20;
+		const leftMargin = 25;
+		const sectionSpacing = 10;
+		const itemSpacing = 4;
+		const smallItemSpacing = 3;
+
+		// タイトル
+		if (titleImage.dataUrl) {
+			pdf.addImage(
+				titleImage.dataUrl,
+				"PNG",
+				(pageWidth - titleImage.width) / 2,
+				currentY,
+				titleImage.width,
+				titleImage.height,
+			);
+			currentY += titleImage.height + sectionSpacing;
+		}
+
+		// 利用者名
+		if (userNameImage.dataUrl) {
+			pdf.addImage(
+				userNameImage.dataUrl,
+				"PNG",
+				leftMargin,
+				currentY,
+				userNameImage.width,
+				userNameImage.height,
+			);
+			currentY += userNameImage.height + itemSpacing;
+		}
+
+		// 有効期限
+		if (expiresAtImage.dataUrl) {
+			pdf.addImage(
+				expiresAtImage.dataUrl,
+				"PNG",
+				leftMargin,
+				currentY,
+				expiresAtImage.width,
+				expiresAtImage.height,
+			);
+			currentY += expiresAtImage.height + itemSpacing;
+		}
+
+		// 利用単位と数量
+		if (usageImage.dataUrl) {
+			pdf.addImage(
+				usageImage.dataUrl,
+				"PNG",
+				leftMargin,
+				currentY,
+				usageImage.width,
+				usageImage.height,
+			);
+			currentY += usageImage.height + itemSpacing;
+		}
+
+		// チケットID
+		if (ticketIdImage.dataUrl) {
+			pdf.addImage(
+				ticketIdImage.dataUrl,
+				"PNG",
+				leftMargin,
+				currentY,
+				ticketIdImage.width,
+				ticketIdImage.height,
+			);
+			currentY += ticketIdImage.height + sectionSpacing;
+		}
+
+		// QRコードを中央に配置
+		const qrSize = 60;
+		const qrX = (pageWidth - qrSize) / 2;
+		const qrY = currentY;
+		pdf.addImage(qrCodeDataUrl, "PNG", qrX, qrY, qrSize, qrSize);
+
+		// QRコード下の説明文
+		let instructionY = qrY + qrSize + 6;
+		if (instructionImage.dataUrl) {
+			pdf.addImage(
+				instructionImage.dataUrl,
+				"PNG",
+				(pageWidth - instructionImage.width) / 2,
+				instructionY,
+				instructionImage.width,
+				instructionImage.height,
+			);
+			instructionY += instructionImage.height;
+		}
+
+		// 使い方の説明
+		let guideY = instructionY + sectionSpacing;
+		if (usageGuide1.dataUrl) {
+			pdf.addImage(
+				usageGuide1.dataUrl,
+				"PNG",
+				(pageWidth - usageGuide1.width) / 2,
+				guideY,
+				usageGuide1.width,
+				usageGuide1.height,
+			);
+			guideY += usageGuide1.height + smallItemSpacing;
+		}
+		if (usageGuide2.dataUrl) {
+			pdf.addImage(
+				usageGuide2.dataUrl,
+				"PNG",
+				(pageWidth - usageGuide2.width) / 2,
+				guideY,
+				usageGuide2.width,
+				usageGuide2.height,
+			);
+			guideY += usageGuide2.height + smallItemSpacing;
+		}
+		if (usageGuide3.dataUrl) {
+			pdf.addImage(
+				usageGuide3.dataUrl,
+				"PNG",
+				(pageWidth - usageGuide3.width) / 2,
+				guideY,
+				usageGuide3.width,
+				usageGuide3.height,
+			);
+			guideY += usageGuide3.height + smallItemSpacing;
+		}
+		if (usageGuide4.dataUrl) {
+			pdf.addImage(
+				usageGuide4.dataUrl,
+				"PNG",
+				(pageWidth - usageGuide4.width) / 2,
+				guideY,
+				usageGuide4.width,
+				usageGuide4.height,
+			);
+		}
+
+		// PDFをダウンロード
+		pdf.save(`肩たたき券_${ticket.id}.pdf`);
 	};
 
 	if (isLoading) {
@@ -119,6 +373,9 @@ export default function MassageTicketDetailPage() {
 					← 一覧に戻る
 				</Link>
 				<div className="flex gap-2">
+					<Button onClick={generatePDF} variant="outline">
+						PDFダウンロード
+					</Button>
 					<Link href={`/massage-ticket/${ticket.id}`}>
 						<Button variant="outline">表示ページを見る</Button>
 					</Link>
@@ -307,6 +564,77 @@ export default function MassageTicketDetailPage() {
 								))}
 							</tbody>
 						</table>
+					</div>
+				)}
+			</div>
+
+			{/* QRコード表示 */}
+			<div className="bg-white dark:bg-gray-900 shadow-lg border border-gray-200 dark:border-gray-600 rounded-lg p-8">
+				<h2 className="text-2xl font-bold mb-6 text-gray-900 dark:text-gray-50">
+					QRコード
+				</h2>
+				{qrCodeDataUrl ? (
+					<div className="flex flex-col items-center space-y-4">
+						<div className="bg-white dark:bg-gray-800 p-4 rounded-lg border border-gray-200 dark:border-gray-700">
+							<img
+								src={qrCodeDataUrl}
+								alt="QRコード"
+								className="w-64 h-64 md:w-80 md:h-80"
+							/>
+						</div>
+						<p className="text-sm text-gray-600 dark:text-gray-400 text-center">
+							このQRコードをスキャンして利用開始できます
+						</p>
+						<div className="flex gap-2">
+							<Button
+								onClick={async () => {
+									if (ticket && qrCodeDataUrl) {
+										// QRコードを再生成
+										const qrDataUrl = await QRCode.toDataURL(ticket.id, {
+											width: 300,
+											margin: 2,
+										});
+										setQrCodeDataUrl(qrDataUrl);
+									}
+								}}
+								variant="outline"
+							>
+								QRコードを再生成
+							</Button>
+							<Button
+								onClick={() => {
+									if (qrCodeDataUrl) {
+										// QRコード画像をダウンロード
+										const link = document.createElement("a");
+										link.href = qrCodeDataUrl;
+										link.download = `qr-code-${ticket?.id}.png`;
+										link.click();
+									}
+								}}
+								variant="outline"
+							>
+								QRコードをダウンロード
+							</Button>
+						</div>
+					</div>
+				) : (
+					<div className="text-center py-8">
+						<p className="text-gray-600 dark:text-gray-400 mb-4">
+							QRコードを生成中...
+						</p>
+						<Button
+							onClick={async () => {
+								if (ticket) {
+									const qrDataUrl = await QRCode.toDataURL(ticket.id, {
+										width: 300,
+										margin: 2,
+									});
+									setQrCodeDataUrl(qrDataUrl);
+								}
+							}}
+						>
+							QRコードを生成
+						</Button>
 					</div>
 				)}
 			</div>
