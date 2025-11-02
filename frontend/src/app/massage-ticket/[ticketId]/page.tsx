@@ -234,7 +234,7 @@ export default function ViewMassageTicketPage() {
 					</Button>
 					<Button
 						onClick={() => {
-							window.location.href = `/massage-ticket/scan?ticketId=${ticket.id}`;
+							window.location.href = `/massage-ticket/admin/scan?ticketId=${ticket.id}`;
 						}}
 					>
 						管理者が読み込む

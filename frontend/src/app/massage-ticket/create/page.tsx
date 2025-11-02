@@ -14,6 +14,7 @@ import type {
 	UsageUnit,
 } from "@/types/massage-ticket";
 import jsPDF from "jspdf";
+import Link from "next/link";
 import QRCode from "qrcode";
 import { useState } from "react";
 
@@ -214,6 +215,11 @@ export default function CreateMassageTicketPage() {
 							>
 								Webで表示
 							</Button>
+							<Link href="/massage-ticket/admin/list" className="flex-1">
+								<Button variant="outline" className="w-full">
+									一覧を見る
+								</Button>
+							</Link>
 							<Button
 								onClick={() => {
 									setTicketId(null);

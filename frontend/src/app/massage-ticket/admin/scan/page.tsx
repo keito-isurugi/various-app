@@ -14,6 +14,7 @@ import {
 } from "@/lib/massage-ticket/massageTicketService";
 import type { MassageTicket } from "@/types/massage-ticket";
 import { Html5Qrcode } from "html5-qrcode";
+import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { Suspense, useCallback, useEffect, useRef, useState } from "react";
 
@@ -150,7 +151,12 @@ function ScanMassageTicketContent() {
 
 	return (
 		<div className="container mx-auto px-4 py-8 max-w-2xl">
-			<h1 className="text-3xl font-bold mb-8">肩たたき券読み込み</h1>
+			<div className="flex items-center justify-between mb-8">
+				<h1 className="text-3xl font-bold">肩たたき券読み込み</h1>
+				<Link href="/massage-ticket/admin/list">
+					<Button variant="outline">一覧を見る</Button>
+				</Link>
+			</div>
 
 			{!ticket ? (
 				<div className="space-y-4">

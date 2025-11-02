@@ -6,9 +6,11 @@
 import {
 	Timestamp,
 	collection,
+	deleteDoc,
 	doc,
 	getDoc,
 	getDocs,
+	orderBy,
 	query,
 	setDoc,
 	updateDoc,
@@ -262,4 +264,80 @@ export function verifyTicketHash(ticket: MassageTicket): boolean {
 	};
 	const expectedHash = generateHash(hashData);
 	return expectedHash === ticket.hash;
+}
+
+/**
+ * すべての肩たたき券を取得（作成日時の降順）
+ */
+export async function getAllMassageTickets(): Promise<MassageTicket[]> {
+	const q = query(
+		collection(db, COLLECTION_NAME),
+		orderBy("createdAt", "desc"),
+	);
+	const querySnapshot = await getDocs(q);
+
+	const tickets: MassageTicket[] = [];
+
+	for (const docSnap of querySnapshot.docs) {
+		const data = docSnap.data();
+
+		// 利用履歴を取得
+		const usagesQuery = query(
+			collection(db, USAGE_COLLECTION_NAME),
+			where("ticketId", "==", data.id),
+		);
+		const usagesSnap = await getDocs(usagesQuery);
+		const usages: MassageTicketUsage[] = usagesSnap.docs.map((usageDoc) => {
+			const usageData = usageDoc.data();
+			return {
+				id: usageDoc.id,
+				ticketId: usageData.ticketId,
+				usedAt: usageData.usedAt.toDate(),
+				usedCount: usageData.usedCount,
+				usedTimeMinutes: usageData.usedTimeMinutes,
+				managerId: usageData.managerId,
+			};
+		});
+
+		const ticket: MassageTicket = {
+			id: data.id,
+			userId: data.userId || "",
+			userName: data.userName,
+			createdAt: data.createdAt.toDate(),
+			expiresAt: data.expiresAt.toDate(),
+			usageUnit: data.usageUnit,
+			totalCount: data.totalCount,
+			totalTimeMinutes: data.totalTimeMinutes,
+			remainingCount: data.remainingCount,
+			remainingTimeMinutes: data.remainingTimeMinutes,
+			usages,
+			hash: data.hash,
+			isUsed: data.isUsed,
+		};
+
+		tickets.push(ticket);
+	}
+
+	return tickets;
+}
+
+/**
+ * 肩たたき券を削除
+ */
+export async function deleteMassageTicket(ticketId: string): Promise<void> {
+	// チケット自体を削除
+	const ticketRef = doc(db, COLLECTION_NAME, ticketId);
+	await deleteDoc(ticketRef);
+
+	// 関連する利用履歴も削除
+	const usagesQuery = query(
+		collection(db, USAGE_COLLECTION_NAME),
+		where("ticketId", "==", ticketId),
+	);
+	const usagesSnap = await getDocs(usagesQuery);
+
+	const deletePromises = usagesSnap.docs.map((usageDoc) =>
+		deleteDoc(usageDoc.ref),
+	);
+	await Promise.all(deletePromises);
 }
