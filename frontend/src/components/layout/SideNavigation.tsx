@@ -21,6 +21,8 @@ export const SideNavigation: React.FC<SideNavigationProps> = ({
 		{ href: "/", label: "ホーム", icon: "🏠" },
 		{ href: "/blog/posts", label: "ブログ", icon: "📝" },
 		{ href: "/todo", label: "TODOアプリ", icon: "✅" },
+		{ href: "/massage-ticket/create", label: "肩たたき券作成", icon: "🎫" },
+		{ href: "/massage-ticket/scan", label: "肩たたき券読み込み", icon: "📷" },
 		{ href: "/algorithms", label: "アルゴリズム学習", icon: "🔍" },
 		{ href: "/securities", label: "セキュリティ", icon: "🔐" },
 		{ href: "/auth", label: "認証・認可", icon: "🔑" },

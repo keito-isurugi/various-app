@@ -24,6 +24,7 @@
 		"@radix-ui/react-select": "^2.2.6",
 		"@radix-ui/react-slot": "^1.2.3",
 		"@radix-ui/react-tabs": "^1.1.13",
+		"@types/qrcode": "^1.5.6",
 		"axios": "^1.7.9",
 		"class-variance-authority": "^0.7.1",
 		"clsx": "^2.1.1",
@@ -31,11 +32,14 @@
 		"date-fns": "^4.1.0",
 		"dotenv": "^16.4.7",
 		"firebase": "^12.3.0",
+		"html5-qrcode": "^2.3.8",
+		"jspdf": "^3.0.3",
 		"lucide-react": "^0.544.0",
 		"next": "15.5.4",
 		"notion-to-md": "^3.1.1",
 		"path": "^0.12.7",
 		"qiita-js": "^0.4.3",
+		"qrcode": "^1.5.4",
 		"react": "19.1.0",
 		"react-day-picker": "^9.11.0",
 		"react-dom": "19.1.0",
@@ -87,7 +91,10 @@
 		"typescript": "^5"
 	},
 	"lint-staged": {
-		"src/**/*.{ts,tsx,js,jsx}": ["biome check --write", "biome check"],
+		"src/**/*.{ts,tsx,js,jsx}": [
+			"biome check --write",
+			"biome check"
+		],
 		"src/**/*.{ts,tsx}": [
 			"bash -c 'tsc --noEmit --skipLibCheck --project tsconfig.json'"
 		]
