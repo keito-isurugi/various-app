@@ -15,9 +15,9 @@ import {
 import type { MassageTicket } from "@/types/massage-ticket";
 import { Html5Qrcode } from "html5-qrcode";
 import { useSearchParams } from "next/navigation";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { Suspense, useCallback, useEffect, useRef, useState } from "react";
 
-export default function ScanMassageTicketPage() {
+function ScanMassageTicketContent() {
 	const searchParams = useSearchParams();
 	const qrCodeRef = useRef<Html5Qrcode | null>(null);
 	const [isScanning, setIsScanning] = useState(false);
@@ -386,5 +386,21 @@ export default function ScanMassageTicketPage() {
 				</div>
 			)}
 		</div>
+	);
+}
+
+export default function ScanMassageTicketPage() {
+	return (
+		<Suspense
+			fallback={
+				<div className="container mx-auto px-4 py-8 max-w-2xl">
+					<div className="text-center">
+						<p className="text-gray-600 dark:text-gray-400">読み込み中...</p>
+					</div>
+				</div>
+			}
+		>
+			<ScanMassageTicketContent />
+		</Suspense>
 	);
 }
