@@ -4,12 +4,8 @@
 
 "use client";
 
-import { DeleteConfirmDialog } from "@/components/massage-ticket/DeleteConfirmDialog";
 import { Button } from "@/components/ui/button";
-import {
-	deleteMassageTicket,
-	getAllMassageTickets,
-} from "@/lib/massage-ticket/massageTicketService";
+import { getAllMassageTickets } from "@/lib/massage-ticket/massageTicketService";
 import type { MassageTicket } from "@/types/massage-ticket";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -18,11 +14,6 @@ export default function MassageTicketListPage() {
 	const [tickets, setTickets] = useState<MassageTicket[]>([]);
 	const [isLoading, setIsLoading] = useState(true);
 	const [error, setError] = useState<string | null>(null);
-	const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
-	const [selectedTicket, setSelectedTicket] = useState<MassageTicket | null>(
-		null,
-	);
-	const [isDeleting, setIsDeleting] = useState(false);
 
 	useEffect(() => {
 		loadTickets();
@@ -39,28 +30,6 @@ export default function MassageTicketListPage() {
 			setError("チケット一覧の読み込みに失敗しました");
 		} finally {
 			setIsLoading(false);
-		}
-	};
-
-	const handleDeleteClick = (ticket: MassageTicket) => {
-		setSelectedTicket(ticket);
-		setDeleteDialogOpen(true);
-	};
-
-	const handleDeleteConfirm = async () => {
-		if (!selectedTicket) return;
-
-		setIsDeleting(true);
-		try {
-			await deleteMassageTicket(selectedTicket.id);
-			await loadTickets();
-			setDeleteDialogOpen(false);
-			setSelectedTicket(null);
-		} catch (err) {
-			console.error("削除に失敗しました:", err);
-			alert("削除に失敗しました");
-		} finally {
-			setIsDeleting(false);
 		}
 	};
 
@@ -215,13 +184,6 @@ export default function MassageTicketListPage() {
 												>
 													詳細
 												</Link>
-												<button
-													type="button"
-													onClick={() => handleDeleteClick(ticket)}
-													className="text-red-600 dark:text-red-400 hover:text-red-800 dark:hover:text-red-300"
-												>
-													削除
-												</button>
 											</td>
 										</tr>
 									);
@@ -231,17 +193,6 @@ export default function MassageTicketListPage() {
 					</div>
 				</div>
 			)}
-
-			<DeleteConfirmDialog
-				isOpen={deleteDialogOpen}
-				onClose={() => {
-					setDeleteDialogOpen(false);
-					setSelectedTicket(null);
-				}}
-				onConfirm={handleDeleteConfirm}
-				ticketName={selectedTicket?.userName}
-				isDeleting={isDeleting}
-			/>
 		</div>
 	);
 }
