@@ -166,31 +166,35 @@ export default function ViewMassageTicketPage() {
 					</div>
 
 					{/* 残り回数/時間 */}
-					<div className="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-6 text-center">
+					<div className="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-4 sm:p-6 text-center">
 						<span className="text-sm text-gray-600 dark:text-gray-400 mb-2 block">
 							残り
 						</span>
-						{ticket.usageUnit === "count" ? (
-							<p
-								className={`text-4xl font-bold ${
-									(ticket.remainingCount || 0) === 0
-										? "text-red-600 dark:text-red-400"
-										: "text-blue-600 dark:text-blue-400"
-								}`}
-							>
-								{(ticket.remainingCount || 0).toLocaleString()}回
-							</p>
-						) : (
-							<p
-								className={`text-4xl font-bold ${
-									(ticket.remainingTimeMinutes || 0) === 0
-										? "text-red-600 dark:text-red-400"
-										: "text-blue-600 dark:text-blue-400"
-								}`}
-							>
-								{(ticket.remainingTimeMinutes || 0).toLocaleString()}分
-							</p>
-						)}
+						<div className="overflow-x-auto -mx-2 sm:mx-0">
+							<div className="px-2 sm:px-0">
+								{ticket.usageUnit === "count" ? (
+									<p
+										className={`text-2xl sm:text-3xl md:text-4xl font-bold whitespace-nowrap inline-block ${
+											(ticket.remainingCount || 0) === 0
+												? "text-red-600 dark:text-red-400"
+												: "text-blue-600 dark:text-blue-400"
+										}`}
+									>
+										{(ticket.remainingCount || 0).toLocaleString()}回
+									</p>
+								) : (
+									<p
+										className={`text-2xl sm:text-3xl md:text-4xl font-bold whitespace-nowrap inline-block ${
+											(ticket.remainingTimeMinutes || 0) === 0
+												? "text-red-600 dark:text-red-400"
+												: "text-blue-600 dark:text-blue-400"
+										}`}
+									>
+										{(ticket.remainingTimeMinutes || 0).toLocaleString()}分
+									</p>
+								)}
+							</div>
+						</div>
 						{ticket.usageUnit === "count" && ticket.totalCount && (
 							<p className="text-sm text-gray-600 dark:text-gray-400 mt-2">
 								総回数: {(ticket.totalCount || 0).toLocaleString()}回

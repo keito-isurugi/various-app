@@ -226,40 +226,42 @@ function ScanMassageTicketContent() {
 						</h2>
 
 						{/* 残り回数/時間 - 最も重要な情報を大きく表示 */}
-						<div className="mb-8 p-6 bg-blue-50 dark:bg-blue-950/40 rounded-xl border-2 border-blue-200 dark:border-blue-800">
-							<div className="text-center">
+						<div className="mb-8 p-4 sm:p-6 bg-blue-50 dark:bg-blue-950/40 rounded-xl border-2 border-blue-200 dark:border-blue-800">
+							<div className="text-center overflow-x-auto -mx-2 sm:mx-0">
 								<span className="text-base text-gray-700 dark:text-blue-200 block mb-3">
 									残り
 									{ticket.usageUnit === "count" ? "回数" : "時間"}
 								</span>
-								{ticket.usageUnit === "count" ? (
-									<p
-										className={`text-5xl font-bold mb-2 ${
-											(ticket.remainingCount || 0) === 0
-												? "text-red-600 dark:text-red-400"
-												: "text-blue-600 dark:text-blue-400"
-										}`}
-									>
-										{(ticket.remainingCount || 0).toLocaleString()}回
-									</p>
-								) : (
-									<p
-										className={`text-5xl font-bold mb-2 ${
-											(ticket.remainingTimeMinutes || 0) === 0
-												? "text-red-600 dark:text-red-400"
-												: "text-blue-600 dark:text-blue-400"
-										}`}
-									>
-										{(ticket.remainingTimeMinutes || 0).toLocaleString()}分
-									</p>
-								)}
+								<div className="px-2 sm:px-0">
+									{ticket.usageUnit === "count" ? (
+										<p
+											className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-2 whitespace-nowrap inline-block ${
+												(ticket.remainingCount || 0) === 0
+													? "text-red-600 dark:text-red-400"
+													: "text-blue-600 dark:text-blue-400"
+											}`}
+										>
+											{(ticket.remainingCount || 0).toLocaleString()}回
+										</p>
+									) : (
+										<p
+											className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-2 whitespace-nowrap inline-block ${
+												(ticket.remainingTimeMinutes || 0) === 0
+													? "text-red-600 dark:text-red-400"
+													: "text-blue-600 dark:text-blue-400"
+											}`}
+										>
+											{(ticket.remainingTimeMinutes || 0).toLocaleString()}分
+										</p>
+									)}
+								</div>
 								{ticket.usageUnit === "count" && ticket.totalCount && (
-									<p className="text-lg text-gray-600 dark:text-gray-300">
+									<p className="text-lg text-gray-600 dark:text-gray-300 mt-2">
 										総回数: {(ticket.totalCount || 0).toLocaleString()}回
 									</p>
 								)}
 								{ticket.usageUnit === "time" && ticket.totalTimeMinutes && (
-									<p className="text-lg text-gray-600 dark:text-gray-300">
+									<p className="text-lg text-gray-600 dark:text-gray-300 mt-2">
 										総時間: {ticket.totalTimeMinutes}分
 									</p>
 								)}
