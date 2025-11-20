@@ -7,7 +7,8 @@ import { Button } from "@/components/ui/button";
 import { progressService } from "@/lib/study/progressService";
 import { questionService } from "@/lib/study/questionService";
 import type { Language, Question } from "@/types/study";
-import { Download, Languages, Loader2, RefreshCw } from "lucide-react";
+import { Download, Languages, List, Loader2, RefreshCw } from "lucide-react";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export default function StudyPage() {
@@ -187,6 +188,18 @@ export default function StudyPage() {
 					<h1 className="text-xl sm:text-2xl font-bold">Tech Quiz</h1>
 
 					<div className="flex items-center gap-2">
+						<Link href="/study/questions">
+							<Button
+								variant="outline"
+								size="sm"
+								className="flex items-center gap-2"
+								type="button"
+							>
+								<List className="h-4 w-4" />
+								<span className="hidden sm:inline">問題一覧</span>
+							</Button>
+						</Link>
+
 						<Button
 							variant="outline"
 							size="sm"
