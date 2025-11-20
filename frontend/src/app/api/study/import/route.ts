@@ -1,42 +1,49 @@
 import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import type { TechTestQuestion } from "@/types/study";
-import { cert, getApps, initializeApp } from "firebase-admin/app";
-import { getFirestore } from "firebase-admin/firestore";
+import { getApps, initializeApp } from "firebase/app";
+import {
+	collection,
+	connectFirestoreEmulator,
+	doc,
+	getFirestore,
+	writeBatch,
+} from "firebase/firestore";
 import { NextResponse } from "next/server";
 
-// Firebase Admin初期化を遅延させる関数
-function initializeFirebaseAdmin() {
+// Firebase初期化
+function initializeFirebase() {
 	if (getApps().length === 0) {
-		// Emulator mode
+		const app = initializeApp({
+			apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+			authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+			projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+			storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+			messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+			appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
+		});
+
+		const db = getFirestore(app);
+
+		// Emulator接続
 		if (process.env.NEXT_PUBLIC_USE_FIREBASE_EMULATOR === "true") {
-			process.env.FIRESTORE_EMULATOR_HOST = "localhost:8080";
-			initializeApp({
-				projectId: "demo-project",
-			});
-		} else {
-			// Production mode - 環境変数が存在しない場合はスキップ
-			if (!process.env.FIREBASE_PRIVATE_KEY) {
-				throw new Error(
-					"Firebase credentials are not configured. This endpoint is only available in emulator mode or with proper Firebase credentials.",
-				);
+			try {
+				connectFirestoreEmulator(db, "localhost", 8080);
+			} catch (error) {
+				// Already connected
 			}
-			initializeApp({
-				credential: cert({
-					projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
-					clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
-					privateKey: process.env.FIREBASE_PRIVATE_KEY.replace(/\\n/g, "\n"),
-				}),
-			});
 		}
+
+		return db;
 	}
-	return getFirestore();
+
+	return getFirestore(getApps()[0]);
 }
 
 export async function POST() {
 	try {
-		// Firebase Admin初期化
-		const db = initializeFirebaseAdmin();
+		// Firebase初期化
+		const db = initializeFirebase();
 
 		// tech-test.jsonを読み込み
 		const filePath = resolve(process.cwd(), "tech-test.json");
@@ -45,43 +52,46 @@ export async function POST() {
 
 		let successCount = 0;
 		let errorCount = 0;
-		const batch = db.batch();
-		const questionsRef = db.collection("questions");
+		const questionsRef = collection(db, "questions");
 
-		// バッチ処理でデータをインポート
-		for (const [index, question] of questions.entries()) {
-			try {
-				const docId = `q${String(index + 1).padStart(4, "0")}`;
-				const docRef = questionsRef.doc(docId);
+		// バッチ処理でデータをインポート（500件ずつ）
+		for (let i = 0; i < questions.length; i += 500) {
+			const batch = writeBatch(db);
+			const batchQuestions = questions.slice(i, i + 500);
 
-				// Firestoreに保存するデータを作成（camelCaseに変換）
-				const questionData = {
-					group: question.Group,
-					category: question.Category,
-					japaneseQuestion: question.Japanese_Question,
-					englishQuestion: question.English_Question,
-					japaneseAnswer: question.Japanese_Answer,
-					englishAnswer: question.English_Answer,
-					relatedLink: question.Related_Link,
-					createdAt: new Date(),
-					updatedAt: new Date(),
-				};
+			for (const [batchIndex, question] of batchQuestions.entries()) {
+				try {
+					const globalIndex = i + batchIndex;
+					const docId = `q${String(globalIndex + 1).padStart(4, "0")}`;
+					const docRef = doc(questionsRef, docId);
 
-				batch.set(docRef, questionData);
-				successCount++;
+					// Firestoreに保存するデータを作成（camelCaseに変換）
+					const questionData = {
+						group: question.Group,
+						category: question.Category,
+						japaneseQuestion: question.Japanese_Question,
+						englishQuestion: question.English_Question,
+						japaneseAnswer: question.Japanese_Answer,
+						englishAnswer: question.English_Answer,
+						relatedLink: question.Related_Link,
+						createdAt: new Date(),
+						updatedAt: new Date(),
+					};
 
-				// Firestoreのバッチは最大500件まで
-				if ((index + 1) % 500 === 0) {
-					await batch.commit();
+					batch.set(docRef, questionData);
+					successCount++;
+				} catch (error) {
+					errorCount++;
+					console.error(
+						`Failed to import question ${i + batchIndex + 1}:`,
+						error,
+					);
 				}
-			} catch (error) {
-				errorCount++;
-				console.error(`Failed to import question ${index + 1}:`, error);
 			}
-		}
 
-		// 残りのバッチをコミット
-		await batch.commit();
+			// バッチをコミット
+			await batch.commit();
+		}
 
 		return NextResponse.json({
 			message: "問題データのインポートが完了しました",
