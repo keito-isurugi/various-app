@@ -12,7 +12,7 @@
 		"typecheck": "tsc --noEmit --skipLibCheck",
 		"prepare": "husky",
 		"debug": "NODE_OPTIONS='--inspect' next dev",
-		"emulator": "firebase emulators:start --only firestore",
+		"emulator": "firebase emulators:start --only firestore --import=./emulator-data --export-on-exit=./emulator-data",
 		"dev:all": "concurrently \"npm run emulator\" \"npm run dev\"",
 		"import:questions": "ts-node scripts/importQuestions.ts",
 		"import:questions:stats": "ts-node scripts/importQuestions.ts --stats"

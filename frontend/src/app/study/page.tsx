@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { progressService } from "@/lib/study/progressService";
 import { questionService } from "@/lib/study/questionService";
 import type { Language, Question } from "@/types/study";
-import { Languages, RefreshCw } from "lucide-react";
+import { Download, Languages, Loader2, RefreshCw } from "lucide-react";
 import { useEffect, useState } from "react";
 
 export default function StudyPage() {
@@ -17,6 +17,8 @@ export default function StudyPage() {
 	const [showAnswer, setShowAnswer] = useState(false);
 	const [loading, setLoading] = useState(true);
 	const [sessionStartTime, setSessionStartTime] = useState<number>(Date.now());
+	const [importing, setImporting] = useState(false);
+	const [importMessage, setImportMessage] = useState<string | null>(null);
 
 	// 問題を読み込む
 	useEffect(() => {
@@ -90,6 +92,36 @@ export default function StudyPage() {
 		setSessionStartTime(Date.now());
 	};
 
+	const handleImportData = async () => {
+		setImporting(true);
+		setImportMessage(null);
+
+		try {
+			const response = await fetch("/api/study/import", {
+				method: "POST",
+			});
+
+			const data = await response.json();
+
+			if (!response.ok) {
+				throw new Error(data.error || "インポートに失敗しました");
+			}
+
+			setImportMessage(
+				`成功: ${data.stats.success}件 / 失敗: ${data.stats.failed}件`,
+			);
+
+			// データをリロード
+			await loadQuestions();
+		} catch (error) {
+			setImportMessage(
+				`エラー: ${error instanceof Error ? error.message : "不明なエラー"}`,
+			);
+		} finally {
+			setImporting(false);
+		}
+	};
+
 	if (loading) {
 		return (
 			<div className="min-h-screen bg-background flex items-center justify-center">
@@ -103,14 +135,45 @@ export default function StudyPage() {
 
 	if (questions.length === 0) {
 		return (
-			<div className="min-h-screen bg-background flex items-center justify-center">
-				<div className="text-center">
-					<p className="text-muted-foreground mb-4">
-						問題が見つかりませんでした
-					</p>
-					<p className="text-sm text-muted-foreground">
-						Firebase Emulatorを起動し、問題データをインポートしてください
-					</p>
+			<div className="container mx-auto px-4 py-8 max-w-2xl">
+				<div className="text-center space-y-6">
+					<div>
+						<h2 className="text-2xl font-bold mb-2">問題が見つかりません</h2>
+						<p className="text-muted-foreground">
+							問題データをインポートしてください
+						</p>
+					</div>
+
+					<Button
+						onClick={handleImportData}
+						disabled={importing}
+						size="lg"
+						className="w-full sm:w-auto"
+					>
+						{importing ? (
+							<>
+								<Loader2 className="mr-2 h-5 w-5 animate-spin" />
+								インポート中...
+							</>
+						) : (
+							<>
+								<Download className="mr-2 h-5 w-5" />
+								問題データをインポート
+							</>
+						)}
+					</Button>
+
+					{importMessage && (
+						<div
+							className={`p-4 rounded-lg ${
+								importMessage.startsWith("成功")
+									? "bg-green-50 text-green-800 border border-green-200"
+									: "bg-red-50 text-red-800 border border-red-200"
+							}`}
+						>
+							{importMessage}
+						</div>
+					)}
 				</div>
 			</div>
 		);
@@ -146,6 +209,22 @@ export default function StudyPage() {
 						>
 							<RefreshCw className="h-4 w-4" />
 							<span className="hidden sm:inline">新しいセット</span>
+						</Button>
+
+						<Button
+							variant="outline"
+							size="sm"
+							onClick={handleImportData}
+							disabled={importing}
+							className="flex items-center gap-2"
+							type="button"
+						>
+							{importing ? (
+								<Loader2 className="h-4 w-4 animate-spin" />
+							) : (
+								<Download className="h-4 w-4" />
+							)}
+							<span className="hidden sm:inline">データ更新</span>
 						</Button>
 					</div>
 				</div>

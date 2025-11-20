@@ -6,6 +6,17 @@
 		"ui": {
 			"enabled": true,
 			"port": 4000
+		},
+		"hub": {
+			"port": 4400
+		}
+	},
+	"emulator": {
+		"export": {
+			"path": "./emulator-data",
+			"on_export": {
+				"firestore": true
+			}
 		}
 	}
 }
