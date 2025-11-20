@@ -24,6 +24,11 @@
 		"sourceMap": true,
 		"target": "ES2017"
 	},
+	"ts-node": {
+		"compilerOptions": {
+			"module": "commonjs"
+		}
+	},
 	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
 	"exclude": ["node_modules", "**/*.test.ts", "**/*.test.tsx", "tmp_todo-app"]
 }
