@@ -14,10 +14,10 @@ export function StudyProgress({
 	return (
 		<div className="space-y-2">
 			<div className="flex items-center justify-between text-sm">
-				<span className="font-medium">
-					問題 {currentIndex + 1} / {totalQuestions}
+				<span className="font-medium text-muted-foreground">
+					進捗: {currentIndex + 1} / {totalQuestions}
 				</span>
-				<span className="text-muted-foreground">
+				<span className="text-xs text-muted-foreground">
 					{Math.round(progressPercentage)}%
 				</span>
 			</div>

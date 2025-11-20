@@ -7,6 +7,7 @@
 import { Button } from "@/components/ui/button";
 import { getAllMassageTickets } from "@/lib/massage-ticket/massageTicketService";
 import type { MassageTicket } from "@/types/massage-ticket";
+import { Plus, QrCode, RefreshCcw } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -45,13 +46,29 @@ export default function MassageTicketListPage() {
 
 	return (
 		<div className="container mx-auto px-4 py-8 max-w-6xl">
-			<div className="flex items-center justify-between mb-8">
-				<h1 className="text-3xl font-bold">肩たたき券一覧</h1>
-				<div className="flex gap-2">
-					<Link href="/massage-ticket/create">
-						<Button>新規作成</Button>
+			<div className="mb-8">
+				<h1 className="text-3xl font-bold mb-4">肩たたき券管理</h1>
+
+				{/* ナビゲーションボタン */}
+				<div className="flex flex-wrap gap-3">
+					<Link href="/massage-ticket/admin/create">
+						<Button className="flex items-center gap-2">
+							<Plus className="h-4 w-4" />
+							新規作成
+						</Button>
 					</Link>
-					<Button variant="outline" onClick={loadTickets}>
+					<Link href="/massage-ticket/admin/scan">
+						<Button variant="outline" className="flex items-center gap-2">
+							<QrCode className="h-4 w-4" />
+							QR読み込み
+						</Button>
+					</Link>
+					<Button
+						variant="outline"
+						onClick={loadTickets}
+						className="flex items-center gap-2"
+					>
+						<RefreshCcw className="h-4 w-4" />
 						更新
 					</Button>
 				</div>
@@ -68,7 +85,7 @@ export default function MassageTicketListPage() {
 					<p className="text-gray-600 dark:text-gray-400 mb-4">
 						肩たたき券がまだ作成されていません
 					</p>
-					<Link href="/massage-ticket/create">
+					<Link href="/massage-ticket/admin/create">
 						<Button>最初の肩たたき券を作成</Button>
 					</Link>
 				</div>

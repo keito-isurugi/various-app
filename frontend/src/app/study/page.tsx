@@ -1,12 +1,13 @@
 "use client";
 
 import { QuestionCard } from "@/components/study/QuestionCard";
-import { StudyHeader } from "@/components/study/StudyHeader";
 import { StudyNavigation } from "@/components/study/StudyNavigation";
 import { StudyProgress } from "@/components/study/StudyProgress";
+import { Button } from "@/components/ui/button";
 import { progressService } from "@/lib/study/progressService";
 import { questionService } from "@/lib/study/questionService";
 import type { Language, Question } from "@/types/study";
+import { Languages, RefreshCw } from "lucide-react";
 import { useEffect, useState } from "react";
 
 export default function StudyPage() {
@@ -15,9 +16,7 @@ export default function StudyPage() {
 	const [language, setLanguage] = useState<Language>("ja");
 	const [showAnswer, setShowAnswer] = useState(false);
 	const [loading, setLoading] = useState(true);
-	const [sessionStartTime, setSessionStartTime] = useState<number>(
-		Date.now(),
-	);
+	const [sessionStartTime, setSessionStartTime] = useState<number>(Date.now());
 
 	// 問題を読み込む
 	useEffect(() => {
@@ -118,38 +117,65 @@ export default function StudyPage() {
 	}
 
 	return (
-		<div className="min-h-screen bg-background">
-			<StudyHeader
-				onLanguageToggle={handleLanguageToggle}
-				currentLanguage={language}
-				onNewSession={handleNewSession}
-			/>
+		<div className="container mx-auto px-4 py-6 max-w-4xl">
+			{/* ツールバー */}
+			<div className="mb-6 space-y-4">
+				<div className="flex items-center justify-between">
+					<h1 className="text-xl sm:text-2xl font-bold">Tech Quiz</h1>
 
-			<main className="container mx-auto px-4 py-6 max-w-4xl">
+					<div className="flex items-center gap-2">
+						<Button
+							variant="outline"
+							size="sm"
+							onClick={handleLanguageToggle}
+							className="flex items-center gap-2"
+							type="button"
+						>
+							<Languages className="h-4 w-4" />
+							<span className="hidden sm:inline">
+								{language === "ja" ? "日本語" : "English"}
+							</span>
+						</Button>
+
+						<Button
+							variant="outline"
+							size="sm"
+							onClick={handleNewSession}
+							className="flex items-center gap-2"
+							type="button"
+						>
+							<RefreshCw className="h-4 w-4" />
+							<span className="hidden sm:inline">新しいセット</span>
+						</Button>
+					</div>
+				</div>
+
 				<StudyProgress
 					currentIndex={currentIndex}
 					totalQuestions={questions.length}
 				/>
+			</div>
 
-				<div className="mt-6">
-					<QuestionCard
-						question={currentQuestion}
-						language={language}
-						showAnswer={showAnswer}
-						onToggleAnswer={handleToggleAnswer}
-						onUnderstanding={handleUnderstandingRecord}
-					/>
-				</div>
-
-				<StudyNavigation
-					currentIndex={currentIndex}
-					totalQuestions={questions.length}
-					onPrevious={handlePrevious}
-					onNext={handleNext}
-					canGoPrevious={currentIndex > 0}
-					canGoNext={currentIndex < questions.length - 1}
+			{/* 問題カード */}
+			<div className="mb-8">
+				<QuestionCard
+					question={currentQuestion}
+					language={language}
+					showAnswer={showAnswer}
+					onToggleAnswer={handleToggleAnswer}
+					onUnderstanding={handleUnderstandingRecord}
 				/>
-			</main>
+			</div>
+
+			{/* ナビゲーション */}
+			<StudyNavigation
+				currentIndex={currentIndex}
+				totalQuestions={questions.length}
+				onPrevious={handlePrevious}
+				onNext={handleNext}
+				canGoPrevious={currentIndex > 0}
+				canGoNext={currentIndex < questions.length - 1}
+			/>
 		</div>
 	);
 }
