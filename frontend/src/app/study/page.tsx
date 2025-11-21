@@ -6,6 +6,7 @@ import { StudyProgress } from "@/components/study/StudyProgress";
 import { Button } from "@/components/ui/button";
 import { progressService } from "@/lib/study/progressService";
 import { questionService } from "@/lib/study/questionService";
+import { statsService } from "@/lib/study/statsService";
 import type { Language, Question } from "@/types/study";
 import { Download, Languages, List, Loader2, RefreshCw } from "lucide-react";
 import Link from "next/link";
@@ -70,11 +71,20 @@ export default function StudyPage() {
 		const timeSpent = Math.floor((Date.now() - sessionStartTime) / 1000);
 
 		try {
+			// 進捗を記録
 			await progressService.recordAttempt(
 				currentQuestion.id,
 				understood,
 				timeSpent,
 			);
+
+			// 統計を更新
+			await statsService.recordStudy(
+				currentQuestion.category,
+				understood,
+				timeSpent,
+			);
+
 			console.log(
 				`Recorded: ${understood ? "understood" : "not understood"}, time: ${timeSpent}s`,
 			);
