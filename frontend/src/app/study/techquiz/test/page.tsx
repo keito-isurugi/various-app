@@ -51,7 +51,7 @@ export default function TestModePage() {
 			count: questionCount.toString(),
 			...(timeLimit && { timeLimit: timeLimit.toString() }),
 		});
-		router.push(`/study/test/start?${params.toString()}`);
+		router.push(`/study/techquiz/test/start?${params.toString()}`);
 	};
 
 	const questionOptions = [10, 20, 30, 50];
@@ -204,7 +204,7 @@ export default function TestModePage() {
 									これまでの成績と間違えた問題を振り返る
 								</p>
 							</div>
-							<Link href="/study/test/history">
+							<Link href="/study/techquiz/test/history">
 								<Button variant="outline">履歴を見る</Button>
 							</Link>
 						</div>

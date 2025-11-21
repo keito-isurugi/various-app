@@ -76,7 +76,7 @@ export default function ReviewPage() {
 						<RefreshCw className="h-4 w-4" />
 						更新
 					</Button>
-					<Link href="/study/dashboard">
+					<Link href="/study/techquiz/dashboard">
 						<Button variant="ghost" size="sm">
 							<ArrowLeft className="mr-2 h-4 w-4" />
 							ダッシュボード
@@ -139,10 +139,10 @@ export default function ReviewPage() {
 							素晴らしい！今日の復習は全て完了しました。
 						</p>
 						<div className="mt-6 flex justify-center gap-3">
-							<Link href="/study">
+							<Link href="/study/techquiz/practice">
 								<Button>新しい問題を学習</Button>
 							</Link>
-							<Link href="/study/dashboard">
+							<Link href="/study/techquiz/dashboard">
 								<Button variant="outline">ダッシュボードへ</Button>
 							</Link>
 						</div>

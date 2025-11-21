@@ -156,7 +156,7 @@ export default function QuestionsListPage() {
 			<div className="mb-8">
 				<div className="flex items-center justify-between mb-4">
 					<h1 className="text-3xl font-bold">問題一覧</h1>
-					<Link href="/study">
+					<Link href="/study/techquiz/practice">
 						<Button variant="outline">
 							<BookOpen className="mr-2 h-4 w-4" />
 							学習モード
@@ -304,7 +304,7 @@ export default function QuestionsListPage() {
 					{filteredQuestions.map((question) => (
 						<Link
 							key={question.id}
-							href={`/study/questions/${question.id}`}
+							href={`/study/techquiz/questions/${question.id}`}
 							className="block"
 						>
 							<div className="border border-border rounded-lg p-4 hover:bg-accent transition-colors cursor-pointer">

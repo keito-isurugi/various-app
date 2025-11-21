@@ -75,7 +75,7 @@ export default function DashboardPage() {
 			<div className="mb-8">
 				<div className="flex items-center justify-between mb-4">
 					<h1 className="text-3xl font-bold">学習ダッシュボード</h1>
-					<Link href="/study">
+					<Link href="/study/techquiz/practice">
 						<Button variant="outline">
 							<ArrowLeft className="mr-2 h-4 w-4" />
 							学習に戻る
@@ -99,7 +99,7 @@ export default function DashboardPage() {
 
 				{/* 学習を始めるボタン */}
 				<div className="flex justify-center pt-4">
-					<Link href="/study">
+					<Link href="/study/techquiz/practice">
 						<Button size="lg" className="px-8">
 							学習を続ける
 						</Button>

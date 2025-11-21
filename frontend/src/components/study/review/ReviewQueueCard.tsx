@@ -48,7 +48,7 @@ export function ReviewQueueCard({
 					<div className="text-3xl font-bold text-red-600">{overdueCount}</div>
 					<p className="mt-2 text-sm text-gray-600">早めに復習しましょう</p>
 					{overdueCount > 0 && (
-						<Link href="/study/review?filter=overdue">
+						<Link href="/study/techquiz/review?filter=overdue">
 							<Button
 								variant="outline"
 								size="sm"
@@ -75,7 +75,7 @@ export function ReviewQueueCard({
 					</div>
 					<p className="mt-2 text-sm text-gray-600">今日復習予定の問題</p>
 					{upcomingCount > 0 && (
-						<Link href="/study/review?filter=today">
+						<Link href="/study/techquiz/review?filter=today">
 							<Button
 								variant="outline"
 								size="sm"
@@ -102,7 +102,7 @@ export function ReviewQueueCard({
 					</div>
 					<p className="mt-2 text-sm text-gray-600">復習が必要な問題</p>
 					{totalReviews > 0 && (
-						<Link href="/study/review">
+						<Link href="/study/techquiz/review">
 							<Button
 								variant="outline"
 								size="sm"
@@ -161,7 +161,7 @@ export function ReviewQueueCard({
 												<span>間隔: {progress.interval}日</span>
 											</div>
 										</div>
-										<Link href={`/study/questions/${question.id}`}>
+										<Link href={`/study/techquiz/questions/${question.id}`}>
 											<Button variant="ghost" size="sm">
 												詳細
 											</Button>

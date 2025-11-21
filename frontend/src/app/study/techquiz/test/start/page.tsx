@@ -109,7 +109,7 @@ function TestStartContent() {
 				startTime,
 				timeLimit,
 			);
-			router.push(`/study/test/result/${testId}`);
+			router.push(`/study/techquiz/test/result/${testId}`);
 		} catch (error) {
 			console.error("Failed to save test result:", error);
 		}

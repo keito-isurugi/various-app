@@ -37,7 +37,9 @@ export default function TestResultPage() {
 			setTestResult(result);
 
 			// 問題データを取得
-			const questionIds = result.questionResults.map((r) => r.questionId);
+			const questionIds = result.questionResults.map(
+				(r: { questionId: string }) => r.questionId,
+			);
 			const allQuestions = await questionService.getAllQuestions();
 			const questionMap = new Map<string, Question>();
 
@@ -74,7 +76,7 @@ export default function TestResultPage() {
 			<div className="container mx-auto max-w-6xl p-6">
 				<div className="text-center">
 					<p className="text-gray-600">テスト結果が見つかりませんでした</p>
-					<Link href="/study/test">
+					<Link href="/study/techquiz/test">
 						<Button className="mt-4">テストモードに戻る</Button>
 					</Link>
 				</div>
@@ -254,7 +256,7 @@ export default function TestResultPage() {
 										</div>
 										<p className="font-medium">{question.japaneseQuestion}</p>
 										{!result.understood && (
-											<Link href={`/study/questions/${question.id}`}>
+											<Link href={`/study/techquiz/questions/${question.id}`}>
 												<Button
 													type="button"
 													variant="outline"
@@ -275,18 +277,18 @@ export default function TestResultPage() {
 
 			{/* アクション */}
 			<div className="flex flex-wrap justify-center gap-3">
-				<Link href="/study/test">
+				<Link href="/study/techquiz/test">
 					<Button type="button" size="lg">
 						<RotateCw className="mr-2 h-5 w-5" />
 						もう一度テスト
 					</Button>
 				</Link>
-				<Link href="/study/test/history">
+				<Link href="/study/techquiz/test/history">
 					<Button type="button" variant="outline" size="lg">
 						テスト履歴を見る
 					</Button>
 				</Link>
-				<Link href="/study/dashboard">
+				<Link href="/study/techquiz/dashboard">
 					<Button type="button" variant="outline" size="lg">
 						<Home className="mr-2 h-5 w-5" />
 						ダッシュボード

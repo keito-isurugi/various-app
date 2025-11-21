@@ -81,7 +81,7 @@ export default function QuestionDetailPage() {
 	const goToPrevious = () => {
 		if (hasPrevious) {
 			const previousId = allQuestions[currentIndex - 1].id;
-			router.push(`/study/questions/${previousId}`);
+			router.push(`/study/techquiz/questions/${previousId}`);
 			setShowAnswer(false);
 		}
 	};
@@ -89,7 +89,7 @@ export default function QuestionDetailPage() {
 	const goToNext = () => {
 		if (hasNext) {
 			const nextId = allQuestions[currentIndex + 1].id;
-			router.push(`/study/questions/${nextId}`);
+			router.push(`/study/techquiz/questions/${nextId}`);
 			setShowAnswer(false);
 		}
 	};
@@ -122,7 +122,7 @@ export default function QuestionDetailPage() {
 			<div className="container mx-auto px-4 py-8">
 				<div className="text-center">
 					<p className="text-muted-foreground mb-4">問題が見つかりません</p>
-					<Link href="/study/questions">
+					<Link href="/study/techquiz/questions">
 						<Button>問題一覧に戻る</Button>
 					</Link>
 				</div>
@@ -135,7 +135,7 @@ export default function QuestionDetailPage() {
 			{/* ヘッダー */}
 			<div className="mb-6">
 				<div className="flex items-center justify-between mb-4">
-					<Link href="/study/questions">
+					<Link href="/study/techquiz/questions">
 						<Button variant="ghost" size="sm">
 							<ArrowLeft className="mr-2 h-4 w-4" />
 							一覧に戻る
@@ -167,7 +167,7 @@ export default function QuestionDetailPage() {
 							<LanguagesIcon className="mr-2 h-4 w-4" />
 							{language === "ja" ? "日本語" : "English"}
 						</Button>
-						<Link href="/study/questions">
+						<Link href="/study/techquiz/questions">
 							<Button variant="outline" size="sm">
 								<List className="mr-2 h-4 w-4" />
 								一覧

@@ -59,7 +59,7 @@ export default function TestHistoryPage() {
 					<h1 className="mb-2 text-3xl font-bold">テスト履歴</h1>
 					<p className="text-gray-600">過去のテスト結果を確認</p>
 				</div>
-				<Link href="/study/test">
+				<Link href="/study/techquiz/test">
 					<Button variant="outline">
 						<ArrowLeft className="mr-2 h-4 w-4" />
 						テストモード
@@ -115,7 +115,7 @@ export default function TestHistoryPage() {
 				<Card>
 					<CardContent className="py-12 text-center">
 						<p className="mb-4 text-gray-600">まだテストを受けていません</p>
-						<Link href="/study/test">
+						<Link href="/study/techquiz/test">
 							<Button>最初のテストを受ける</Button>
 						</Link>
 					</CardContent>
@@ -127,7 +127,10 @@ export default function TestHistoryPage() {
 						const isGood = result.percentage >= 80;
 
 						return (
-							<Link key={result.id} href={`/study/test/result/${result.id}`}>
+							<Link
+								key={result.id}
+								href={`/study/techquiz/test/result/${result.id}`}
+							>
 								<Card className="transition-all hover:border-blue-300 hover:shadow-md">
 									<CardContent className="p-6">
 										<div className="flex items-center justify-between">

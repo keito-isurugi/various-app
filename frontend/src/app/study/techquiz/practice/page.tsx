@@ -198,7 +198,7 @@ export default function StudyPage() {
 					<h1 className="text-xl sm:text-2xl font-bold">Tech Quiz</h1>
 
 					<div className="flex items-center gap-2">
-						<Link href="/study/questions">
+						<Link href="/study/techquiz/questions">
 							<Button
 								variant="outline"
 								size="sm"

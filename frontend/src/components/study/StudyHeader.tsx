@@ -18,7 +18,10 @@ export function StudyHeader({
 		<header className="border-b bg-card">
 			<div className="container mx-auto px-4 py-4">
 				<div className="flex items-center justify-between">
-					<Link href="/study" className="flex items-center gap-2">
+					<Link
+						href="/study/techquiz/practice"
+						className="flex items-center gap-2"
+					>
 						<BookOpen className="h-6 w-6 text-primary" />
 						<h1 className="text-2xl font-bold">Tech Quiz</h1>
 					</Link>
