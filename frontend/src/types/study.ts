@@ -133,3 +133,49 @@ export interface TechTestQuestion {
 	English_Answer: string;
 	Related_Link: string;
 }
+
+/**
+ * テストモード用の型定義（Phase 3）
+ */
+
+/**
+ * テスト結果の個別問題
+ */
+export interface TestQuestionResult {
+	questionId: string;
+	understood: boolean;
+	timeSpent: number; // 秒
+}
+
+/**
+ * テスト結果
+ * Firestore の testResults コレクションの型定義
+ */
+export interface TestResult {
+	id: string;
+	userId: string;
+	questionCount: number; // テストの問題数
+	timeLimit: number | null; // 制限時間（秒）、nullは制限なし
+	startedAt: Timestamp;
+	completedAt: Timestamp;
+	totalTimeSpent: number; // 総所要時間（秒）
+	score: number; // 正答数
+	percentage: number; // 正答率（0-100）
+	questionResults: TestQuestionResult[]; // 各問題の結果
+	groups: string[]; // テストに含まれたグループ
+	categories: string[]; // テストに含まれたカテゴリ
+	createdAt: Timestamp;
+}
+
+/**
+ * テストセッション（UI状態管理用）
+ */
+export interface TestSession {
+	questionIds: string[]; // テスト内の問題IDリスト
+	currentIndex: number; // 現在の問題インデックス
+	startTime: number; // テスト開始時刻（timestamp）
+	timeLimit: number | null; // 制限時間（秒）
+	answers: Map<string, boolean>; // questionId -> understood
+	timesPerQuestion: Map<string, number>; // questionId -> timeSpent（秒）
+	language: Language; // 表示言語
+}

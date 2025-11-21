@@ -1,10 +1,12 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import { progressService } from "@/lib/study/progressService";
 import { questionService } from "@/lib/study/questionService";
 import type { Language, Question } from "@/types/study";
 import {
 	ArrowLeft,
+	Bookmark,
 	ChevronLeft,
 	ChevronRight,
 	ExternalLink,
@@ -27,18 +29,36 @@ export default function QuestionDetailPage() {
 	const [loading, setLoading] = useState(true);
 	const [language, setLanguage] = useState<Language>("ja");
 	const [showAnswer, setShowAnswer] = useState(false);
+	const [isBookmarked, setIsBookmarked] = useState(false);
+	const [bookmarkLoading, setBookmarkLoading] = useState(false);
 
 	const loadQuestion = useCallback(async () => {
 		try {
 			setLoading(true);
-			const q = await questionService.getQuestionById(questionId);
+			const [q, progress] = await Promise.all([
+				questionService.getQuestionById(questionId),
+				progressService.getUserProgress(questionId),
+			]);
 			setQuestion(q);
+			setIsBookmarked(progress?.bookmarked || false);
 		} catch (error) {
 			console.error("Failed to load question:", error);
 		} finally {
 			setLoading(false);
 		}
 	}, [questionId]);
+
+	const handleToggleBookmark = async () => {
+		setBookmarkLoading(true);
+		try {
+			const newBookmarkState = await progressService.toggleBookmark(questionId);
+			setIsBookmarked(newBookmarkState);
+		} catch (error) {
+			console.error("Failed to toggle bookmark:", error);
+		} finally {
+			setBookmarkLoading(false);
+		}
+	};
 
 	const loadAllQuestions = useCallback(async () => {
 		try {
@@ -124,6 +144,22 @@ export default function QuestionDetailPage() {
 
 					<div className="flex items-center gap-2">
 						<Button
+							type="button"
+							variant={isBookmarked ? "default" : "outline"}
+							size="sm"
+							onClick={handleToggleBookmark}
+							disabled={bookmarkLoading}
+							className={
+								isBookmarked ? "bg-yellow-500 hover:bg-yellow-600" : ""
+							}
+						>
+							<Bookmark
+								className={`mr-2 h-4 w-4 ${isBookmarked ? "fill-current" : ""}`}
+							/>
+							{isBookmarked ? "ブックマーク済み" : "ブックマーク"}
+						</Button>
+						<Button
+							type="button"
 							variant="outline"
 							size="sm"
 							onClick={() => setLanguage(language === "ja" ? "en" : "ja")}
