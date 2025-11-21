@@ -1,5 +1,7 @@
 "use client";
 
+import { TechQuizBreadcrumb } from "@/components/study/TechQuizBreadcrumb";
+import { TechQuizQuickNav } from "@/components/study/TechQuizQuickNav";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { questionService } from "@/lib/study/questionService";
@@ -97,6 +99,17 @@ export default function TestResultPage() {
 
 	return (
 		<div className="container mx-auto max-w-6xl p-6">
+			{/* パンくずリスト */}
+			<TechQuizBreadcrumb
+				items={[
+					{ label: "テストモード", href: "/study/techquiz/test" },
+					{ label: "テスト結果" },
+				]}
+			/>
+
+			{/* クイックナビゲーション */}
+			<TechQuizQuickNav />
+
 			{/* 結果サマリー */}
 			<Card className="mb-8 border-2 border-blue-200 bg-gradient-to-br from-blue-50 to-white">
 				<CardContent className="pt-8 text-center">

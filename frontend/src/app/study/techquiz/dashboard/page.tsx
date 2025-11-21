@@ -1,5 +1,7 @@
 "use client";
 
+import { TechQuizBreadcrumb } from "@/components/study/TechQuizBreadcrumb";
+import { TechQuizQuickNav } from "@/components/study/TechQuizQuickNav";
 import { DailyProgressCard } from "@/components/study/dashboard/DailyProgressCard";
 import { StatsCards } from "@/components/study/dashboard/StatsCards";
 import { StreakDisplay } from "@/components/study/dashboard/StreakDisplay";
@@ -71,16 +73,16 @@ export default function DashboardPage() {
 
 	return (
 		<div className="container mx-auto px-4 py-8 max-w-7xl">
+			{/* パンくずリスト */}
+			<TechQuizBreadcrumb items={[{ label: "ダッシュボード" }]} />
+
+			{/* クイックナビゲーション */}
+			<TechQuizQuickNav />
+
 			{/* ヘッダー */}
 			<div className="mb-8">
 				<div className="flex items-center justify-between mb-4">
 					<h1 className="text-3xl font-bold">学習ダッシュボード</h1>
-					<Link href="/study/techquiz/practice">
-						<Button variant="outline">
-							<ArrowLeft className="mr-2 h-4 w-4" />
-							学習に戻る
-						</Button>
-					</Link>
 				</div>
 				<p className="text-muted-foreground">
 					あなたの学習進捗と統計を確認できます

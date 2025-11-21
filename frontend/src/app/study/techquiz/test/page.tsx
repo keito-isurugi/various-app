@@ -1,5 +1,7 @@
 "use client";
 
+import { TechQuizBreadcrumb } from "@/components/study/TechQuizBreadcrumb";
+import { TechQuizQuickNav } from "@/components/study/TechQuizQuickNav";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { questionService } from "@/lib/study/questionService";
@@ -75,6 +77,12 @@ export default function TestModePage() {
 
 	return (
 		<div className="container mx-auto max-w-4xl p-6">
+			{/* パンくずリスト */}
+			<TechQuizBreadcrumb items={[{ label: "テストモード" }]} />
+
+			{/* クイックナビゲーション */}
+			<TechQuizQuickNav />
+
 			{/* ヘッダー */}
 			<div className="mb-8">
 				<h1 className="mb-2 text-3xl font-bold">テストモード</h1>

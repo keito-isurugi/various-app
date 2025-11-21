@@ -1,5 +1,7 @@
 "use client";
 
+import { TechQuizBreadcrumb } from "@/components/study/TechQuizBreadcrumb";
+import { TechQuizQuickNav } from "@/components/study/TechQuizQuickNav";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { testService } from "@/lib/study/testService";
@@ -53,6 +55,17 @@ export default function TestHistoryPage() {
 
 	return (
 		<div className="container mx-auto max-w-6xl p-6">
+			{/* パンくずリスト */}
+			<TechQuizBreadcrumb
+				items={[
+					{ label: "テストモード", href: "/study/techquiz/test" },
+					{ label: "テスト履歴" },
+				]}
+			/>
+
+			{/* クイックナビゲーション */}
+			<TechQuizQuickNav />
+
 			{/* ヘッダー */}
 			<div className="mb-8 flex items-center justify-between">
 				<div>

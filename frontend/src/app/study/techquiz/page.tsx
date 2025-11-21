@@ -13,10 +13,14 @@ import { statsService } from "@/lib/study/statsService";
 import {
 	Award,
 	BookOpen,
+	Brain,
+	Calendar,
+	CheckCircle,
 	Clock,
 	ListChecks,
 	PieChart,
 	RefreshCw,
+	TrendingUp,
 } from "lucide-react";
 import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
@@ -126,6 +130,74 @@ export default function TechQuizHomePage() {
 					技術問題で知識を習慣的に学習・定着させよう
 				</p>
 			</div>
+
+			{/* 説明セクション */}
+			<Card className="mb-8 border-blue-200 bg-gradient-to-br from-blue-50 via-white to-purple-50">
+				<CardHeader>
+					<CardTitle className="flex items-center gap-2 text-2xl">
+						<Brain className="h-7 w-7 text-blue-600" />
+						<span>Tech Quizとは？</span>
+					</CardTitle>
+					<CardDescription className="text-base">
+						科学的な記憶定着アルゴリズムを活用した技術学習プラットフォーム
+					</CardDescription>
+				</CardHeader>
+				<CardContent className="space-y-6">
+					<p className="text-gray-700">
+						Tech
+						Quizは、技術問題を通じて知識を効率的に学習・定着させるためのプラットフォームです。
+						単なる暗記ではなく、理解度に応じた最適なタイミングでの復習により、長期記憶への定着を促進します。
+					</p>
+
+					<div className="grid gap-4 md:grid-cols-3">
+						<div className="rounded-lg bg-white p-4 shadow-sm">
+							<div className="mb-2 flex items-center gap-2 font-semibold text-blue-600">
+								<TrendingUp className="h-5 w-5" />
+								<span>SM-2アルゴリズム</span>
+							</div>
+							<p className="text-sm text-gray-600">
+								あなたの理解度に応じて、最適な復習タイミングを自動計算。忘却曲線に基づいた科学的アプローチで効率的に学習できます。
+							</p>
+						</div>
+
+						<div className="rounded-lg bg-white p-4 shadow-sm">
+							<div className="mb-2 flex items-center gap-2 font-semibold text-green-600">
+								<CheckCircle className="h-5 w-5" />
+								<span>理解度に応じた出題</span>
+							</div>
+							<p className="text-sm text-gray-600">
+								わかった/わからないの選択により、苦手な問題は短い間隔で、得意な問題は長い間隔で復習。無駄なく学習を進められます。
+							</p>
+						</div>
+
+						<div className="rounded-lg bg-white p-4 shadow-sm">
+							<div className="mb-2 flex items-center gap-2 font-semibold text-orange-600">
+								<Calendar className="h-5 w-5" />
+								<span>習慣化サポート</span>
+							</div>
+							<p className="text-sm text-gray-600">
+								連続学習日数の記録やテストモードなど、継続的な学習をサポートする機能で、知識の定着を促進します。
+							</p>
+						</div>
+					</div>
+
+					<div className="rounded-lg border-l-4 border-blue-600 bg-blue-50 p-4">
+						<div className="mb-2 font-semibold text-blue-900">
+							💡 効果的な学習のコツ
+						</div>
+						<ul className="list-inside list-disc space-y-1 text-sm text-blue-800">
+							<li>毎日少しずつ継続することが重要です</li>
+							<li>
+								「わからない」を選ぶことは恥ずかしいことではありません。正直に選択することで最適な学習ができます
+							</li>
+							<li>
+								復習リストは毎日チェックして、記憶が定着する前に復習しましょう
+							</li>
+							<li>テストモードで定期的に実力を確認し、弱点を把握しましょう</li>
+						</ul>
+					</div>
+				</CardContent>
+			</Card>
 
 			{/* 統計サマリー */}
 			<div className="mb-8 grid gap-4 md:grid-cols-4">

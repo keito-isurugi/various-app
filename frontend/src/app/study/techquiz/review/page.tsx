@@ -1,5 +1,7 @@
 "use client";
 
+import { TechQuizBreadcrumb } from "@/components/study/TechQuizBreadcrumb";
+import { TechQuizQuickNav } from "@/components/study/TechQuizQuickNav";
 import { ReviewQueueCard } from "@/components/study/review/ReviewQueueCard";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -58,6 +60,12 @@ export default function ReviewPage() {
 
 	return (
 		<div className="container mx-auto max-w-7xl p-6">
+			{/* パンくずリスト */}
+			<TechQuizBreadcrumb items={[{ label: "復習リスト" }]} />
+
+			{/* クイックナビゲーション */}
+			<TechQuizQuickNav />
+
 			{/* ヘッダー */}
 			<div className="mb-6 flex items-center justify-between">
 				<div>

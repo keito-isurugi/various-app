@@ -31,7 +31,7 @@ const pageLinks = [
 		color: "from-green-500 to-emerald-500",
 	},
 	{
-		href: "/study",
+		href: "/study/techquiz",
 		title: "Tech Quiz",
 		description: "技術問題で学習",
 		icon: Brain,

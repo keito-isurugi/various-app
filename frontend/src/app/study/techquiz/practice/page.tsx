@@ -3,6 +3,8 @@
 import { QuestionCard } from "@/components/study/QuestionCard";
 import { StudyNavigation } from "@/components/study/StudyNavigation";
 import { StudyProgress } from "@/components/study/StudyProgress";
+import { TechQuizBreadcrumb } from "@/components/study/TechQuizBreadcrumb";
+import { TechQuizQuickNav } from "@/components/study/TechQuizQuickNav";
 import { Button } from "@/components/ui/button";
 import { progressService } from "@/lib/study/progressService";
 import { questionService } from "@/lib/study/questionService";
@@ -192,10 +194,16 @@ export default function StudyPage() {
 
 	return (
 		<div className="container mx-auto px-4 py-6 max-w-4xl">
+			{/* パンくずリスト */}
+			<TechQuizBreadcrumb items={[{ label: "ランダム演習" }]} />
+
+			{/* クイックナビゲーション */}
+			<TechQuizQuickNav />
+
 			{/* ツールバー */}
 			<div className="mb-6 space-y-4">
 				<div className="flex items-center justify-between">
-					<h1 className="text-xl sm:text-2xl font-bold">Tech Quiz</h1>
+					<h1 className="text-xl sm:text-2xl font-bold">ランダム演習</h1>
 
 					<div className="flex items-center gap-2">
 						<Link href="/study/techquiz/questions">

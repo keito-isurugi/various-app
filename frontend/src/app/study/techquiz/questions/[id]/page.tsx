@@ -1,5 +1,7 @@
 "use client";
 
+import { TechQuizBreadcrumb } from "@/components/study/TechQuizBreadcrumb";
+import { TechQuizQuickNav } from "@/components/study/TechQuizQuickNav";
 import { Button } from "@/components/ui/button";
 import { progressService } from "@/lib/study/progressService";
 import { questionService } from "@/lib/study/questionService";
@@ -132,6 +134,17 @@ export default function QuestionDetailPage() {
 
 	return (
 		<div className="container mx-auto px-4 py-8 max-w-4xl">
+			{/* パンくずリスト */}
+			<TechQuizBreadcrumb
+				items={[
+					{ label: "問題一覧", href: "/study/techquiz/questions" },
+					{ label: "問題詳細" },
+				]}
+			/>
+
+			{/* クイックナビゲーション */}
+			<TechQuizQuickNav />
+
 			{/* ヘッダー */}
 			<div className="mb-6">
 				<div className="flex items-center justify-between mb-4">
