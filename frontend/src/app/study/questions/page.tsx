@@ -1,11 +1,15 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import { progressService } from "@/lib/study/progressService";
 import { questionService } from "@/lib/study/questionService";
+import { reviewService } from "@/lib/study/reviewService";
 import type { Question } from "@/types/study";
-import { BookOpen, Filter, Search } from "lucide-react";
+import { BookOpen, Bookmark, Filter, Search, X } from "lucide-react";
 import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
+
+type FilterMode = "all" | "bookmarked" | "unanswered" | "weak" | "review";
 
 export default function QuestionsListPage() {
 	const [questions, setQuestions] = useState<Question[]>([]);
@@ -14,12 +18,28 @@ export default function QuestionsListPage() {
 	const [selectedGroup, setSelectedGroup] = useState<string>("all");
 	const [selectedCategory, setSelectedCategory] = useState<string>("all");
 	const [searchQuery, setSearchQuery] = useState("");
+	const [filterMode, setFilterMode] = useState<FilterMode>("all");
+	const [bookmarkedIds, setBookmarkedIds] = useState<Set<string>>(new Set());
+	const [answeredIds, setAnsweredIds] = useState<Set<string>>(new Set());
+	const [understoodIds, setUnderstoodIds] = useState<Set<string>>(new Set());
+	const [reviewIds, setReviewIds] = useState<Set<string>>(new Set());
 
 	const loadQuestions = useCallback(async () => {
 		try {
 			setLoading(true);
-			const allQuestions = await questionService.getAllQuestions();
+			const [allQuestions, bookmarked, answered, understood, reviewQuestions] =
+				await Promise.all([
+					questionService.getAllQuestions(),
+					progressService.getBookmarkedQuestionIds(),
+					progressService.getAnsweredQuestionIds(),
+					progressService.getUnderstoodQuestionIds(),
+					reviewService.getReviewQuestionIds(),
+				]);
 			setQuestions(allQuestions);
+			setBookmarkedIds(new Set(bookmarked));
+			setAnsweredIds(new Set(answered));
+			setUnderstoodIds(new Set(understood));
+			setReviewIds(new Set(reviewQuestions));
 		} catch (error) {
 			console.error("Failed to load questions:", error);
 		} finally {
@@ -29,6 +49,29 @@ export default function QuestionsListPage() {
 
 	const filterQuestions = useCallback(() => {
 		let filtered = [...questions];
+
+		// フィルターモード
+		switch (filterMode) {
+			case "bookmarked": {
+				filtered = filtered.filter((q) => bookmarkedIds.has(q.id));
+				break;
+			}
+			case "unanswered": {
+				filtered = filtered.filter((q) => !answeredIds.has(q.id));
+				break;
+			}
+			case "weak": {
+				// 解答したが理解していない問題
+				filtered = filtered.filter(
+					(q) => answeredIds.has(q.id) && !understoodIds.has(q.id),
+				);
+				break;
+			}
+			case "review": {
+				filtered = filtered.filter((q) => reviewIds.has(q.id));
+				break;
+			}
+		}
 
 		// グループフィルター
 		if (selectedGroup !== "all") {
@@ -53,7 +96,17 @@ export default function QuestionsListPage() {
 		}
 
 		setFilteredQuestions(filtered);
-	}, [questions, selectedGroup, selectedCategory, searchQuery]);
+	}, [
+		questions,
+		selectedGroup,
+		selectedCategory,
+		searchQuery,
+		filterMode,
+		bookmarkedIds,
+		answeredIds,
+		understoodIds,
+		reviewIds,
+	]);
 
 	useEffect(() => {
 		loadQuestions();
@@ -117,6 +170,58 @@ export default function QuestionsListPage() {
 
 			{/* フィルター */}
 			<div className="mb-6 space-y-4">
+				{/* 学習セットフィルター */}
+				<div className="flex flex-wrap gap-2">
+					<Button
+						variant={filterMode === "all" ? "default" : "outline"}
+						size="sm"
+						onClick={() => setFilterMode("all")}
+					>
+						すべて ({questions.length})
+					</Button>
+					<Button
+						variant={filterMode === "unanswered" ? "default" : "outline"}
+						size="sm"
+						onClick={() => setFilterMode("unanswered")}
+					>
+						未学習 ({questions.length - answeredIds.size})
+					</Button>
+					<Button
+						variant={filterMode === "weak" ? "default" : "outline"}
+						size="sm"
+						onClick={() => setFilterMode("weak")}
+					>
+						苦手 ({answeredIds.size - understoodIds.size})
+					</Button>
+					<Button
+						variant={filterMode === "bookmarked" ? "default" : "outline"}
+						size="sm"
+						onClick={() => setFilterMode("bookmarked")}
+						className="flex items-center gap-1"
+					>
+						<Bookmark className="h-3 w-3" />
+						ブックマーク ({bookmarkedIds.size})
+					</Button>
+					<Button
+						variant={filterMode === "review" ? "default" : "outline"}
+						size="sm"
+						onClick={() => setFilterMode("review")}
+					>
+						復習予定 ({reviewIds.size})
+					</Button>
+					{filterMode !== "all" && (
+						<Button
+							variant="ghost"
+							size="sm"
+							onClick={() => setFilterMode("all")}
+							className="flex items-center gap-1"
+						>
+							<X className="h-3 w-3" />
+							クリア
+						</Button>
+					)}
+				</div>
+
 				{/* 検索バー */}
 				<div className="relative">
 					<Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />

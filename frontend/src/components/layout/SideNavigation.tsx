@@ -50,6 +50,7 @@ export const SideNavigation: React.FC<SideNavigationProps> = ({
 		items: [
 			{ href: "/study", label: "Tech Quiz", icon: "📝" },
 			{ href: "/study/dashboard", label: "ダッシュボード", icon: "📊" },
+			{ href: "/study/review", label: "復習リスト", icon: "🔄" },
 			{ href: "/study/questions", label: "問題一覧", icon: "📚" },
 			{ href: "/algorithms", label: "アルゴリズム学習", icon: "🔍" },
 			{ href: "/securities", label: "セキュリティ", icon: "🔐" },
