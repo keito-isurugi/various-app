@@ -204,19 +204,44 @@ export default function QuestionDetailPage() {
 				)}
 
 				{/* 関連リンク */}
-				{question.relatedLink && (
-					<div className="pt-4 border-t border-border">
-						<a
-							href={question.relatedLink}
-							target="_blank"
-							rel="noopener noreferrer"
-							className="inline-flex items-center gap-2 text-sm text-primary hover:underline cursor-pointer"
-						>
-							<ExternalLink className="h-4 w-4" />
-							関連リンク
-						</a>
-					</div>
-				)}
+				{question.relatedLink &&
+					(() => {
+						// URLを抽出（<url>形式）
+						const urlMatches =
+							question.relatedLink.match(/<(https?:\/\/[^>]+)>/g);
+						const urls = urlMatches?.map((match) => match.slice(1, -1)) || [];
+
+						// URLが含まれている場合はリンクを表示、そうでない場合はテキストのみ表示
+						if (urls.length > 0) {
+							return (
+								<div className="pt-4 border-t border-border space-y-2">
+									<p className="text-sm font-semibold">関連リンク:</p>
+									{urls.map((url, index) => (
+										<a
+											key={index}
+											href={url}
+											target="_blank"
+											rel="noopener noreferrer"
+											className="flex items-center gap-2 text-sm text-primary hover:underline cursor-pointer"
+										>
+											<ExternalLink className="h-4 w-4 flex-shrink-0" />
+											<span className="break-all">{url}</span>
+										</a>
+									))}
+								</div>
+							);
+						}
+
+						// URLが含まれていない場合はテキストのみ表示
+						return (
+							<div className="pt-4 border-t border-border">
+								<p className="text-sm">
+									<span className="font-semibold">関連:</span>{" "}
+									{question.relatedLink}
+								</p>
+							</div>
+						);
+					})()}
 			</div>
 
 			{/* ナビゲーション */}

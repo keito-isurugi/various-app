@@ -86,22 +86,51 @@ export function QuestionCard({
 						</div>
 
 						{/* 関連リンク */}
-						{question.relatedLink && (
-							<div className="space-y-2">
-								<h4 className="text-sm font-semibold text-muted-foreground">
-									関連リンク
-								</h4>
-								<a
-									href={question.relatedLink}
-									target="_blank"
-									rel="noopener noreferrer"
-									className="inline-flex items-center gap-2 text-sm text-primary hover:underline"
-								>
-									<ExternalLink className="h-4 w-4" />
-									{question.relatedLink}
-								</a>
-							</div>
-						)}
+						{question.relatedLink &&
+							(() => {
+								// URLを抽出（<url>形式）
+								const urlMatches =
+									question.relatedLink.match(/<(https?:\/\/[^>]+)>/g);
+								const urls =
+									urlMatches?.map((match) => match.slice(1, -1)) || [];
+
+								// URLが含まれている場合はリンクを表示、そうでない場合はテキストのみ表示
+								if (urls.length > 0) {
+									return (
+										<div className="space-y-2">
+											<h4 className="text-sm font-semibold text-muted-foreground">
+												関連リンク
+											</h4>
+											<div className="space-y-2">
+												{urls.map((url, index) => (
+													<a
+														key={index}
+														href={url}
+														target="_blank"
+														rel="noopener noreferrer"
+														className="flex items-center gap-2 text-sm text-primary hover:underline cursor-pointer"
+													>
+														<ExternalLink className="h-4 w-4 flex-shrink-0" />
+														<span className="break-all">{url}</span>
+													</a>
+												))}
+											</div>
+										</div>
+									);
+								}
+
+								// URLが含まれていない場合はテキストのみ表示
+								return (
+									<div className="space-y-2">
+										<h4 className="text-sm font-semibold text-muted-foreground">
+											関連
+										</h4>
+										<p className="text-sm text-muted-foreground">
+											{question.relatedLink}
+										</p>
+									</div>
+								);
+							})()}
 
 						{/* 理解度ボタン */}
 						<div className="space-y-3 pt-4">
