@@ -8,9 +8,10 @@ import type React from "react";
 export const Footer: React.FC = () => {
 	const currentYear = new Date().getFullYear();
 
-	const footerLinks = [
-		{ href: "/privacy", label: "プライバシーポリシー" },
-		{ href: "/terms", label: "利用規約" },
+	const footerLinks: Array<{ href: string; label: string }> = [
+		// TODO: プライバシーポリシーと利用規約ページを作成後に有効化
+		// { href: "/privacy", label: "プライバシーポリシー" },
+		// { href: "/terms", label: "利用規約" },
 	];
 
 	const socialLinks = [

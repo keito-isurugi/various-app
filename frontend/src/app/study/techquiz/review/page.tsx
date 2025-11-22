@@ -10,7 +10,7 @@ import { reviewService } from "@/lib/study/reviewService";
 import type { Question, UserProgress } from "@/types/study";
 import { ArrowLeft, RefreshCw } from "lucide-react";
 import Link from "next/link";
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function ReviewPage() {
 	const [reviewQuestions, setReviewQuestions] = useState<UserProgress[]>([]);
@@ -22,31 +22,33 @@ export default function ReviewPage() {
 		totalOverdue: 0,
 		completedToday: 0,
 	});
+	const [refreshTrigger, setRefreshTrigger] = useState(0);
 
-	const loadReviewData = useCallback(async () => {
-		setLoading(true);
-		try {
-			const [reviews, overdue, questions, statistics] = await Promise.all([
-				reviewService.getTodayReviewQuestions(),
-				reviewService.getOverdueReviewQuestions(),
-				questionService.getAllQuestions(),
-				reviewService.getReviewStatistics(),
-			]);
-
-			setReviewQuestions(reviews);
-			setOverdueQuestions(overdue);
-			setAllQuestions(questions);
-			setStats(statistics);
-		} catch (error) {
-			console.error("Failed to load review data:", error);
-		} finally {
-			setLoading(false);
-		}
-	}, []);
-
+	// biome-ignore lint/correctness/useExhaustiveDependencies: refreshTrigger is intentionally used to trigger re-fetch
 	useEffect(() => {
+		const loadReviewData = async () => {
+			setLoading(true);
+			try {
+				const [reviews, overdue, questions, statistics] = await Promise.all([
+					reviewService.getTodayReviewQuestions(),
+					reviewService.getOverdueReviewQuestions(),
+					questionService.getAllQuestions(),
+					reviewService.getReviewStatistics(),
+				]);
+
+				setReviewQuestions(reviews);
+				setOverdueQuestions(overdue);
+				setAllQuestions(questions);
+				setStats(statistics);
+			} catch (error) {
+				console.error("Failed to load review data:", error);
+			} finally {
+				setLoading(false);
+			}
+		};
+
 		loadReviewData();
-	}, [loadReviewData]);
+	}, [refreshTrigger]);
 
 	if (loading) {
 		return (
@@ -78,7 +80,7 @@ export default function ReviewPage() {
 					<Button
 						variant="outline"
 						size="sm"
-						onClick={loadReviewData}
+						onClick={() => setRefreshTrigger((prev) => prev + 1)}
 						className="flex items-center gap-2"
 					>
 						<RefreshCw className="h-4 w-4" />

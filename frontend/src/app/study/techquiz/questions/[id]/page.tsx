@@ -34,21 +34,38 @@ export default function QuestionDetailPage() {
 	const [isBookmarked, setIsBookmarked] = useState(false);
 	const [bookmarkLoading, setBookmarkLoading] = useState(false);
 
-	const loadQuestion = useCallback(async () => {
-		try {
-			setLoading(true);
-			const [q, progress] = await Promise.all([
-				questionService.getQuestionById(questionId),
-				progressService.getUserProgress(questionId),
-			]);
-			setQuestion(q);
-			setIsBookmarked(progress?.bookmarked || false);
-		} catch (error) {
-			console.error("Failed to load question:", error);
-		} finally {
-			setLoading(false);
-		}
+	useEffect(() => {
+		const loadQuestion = async () => {
+			try {
+				setLoading(true);
+				const [q, progress] = await Promise.all([
+					questionService.getQuestionById(questionId),
+					progressService.getUserProgress(questionId),
+				]);
+				setQuestion(q);
+				setIsBookmarked(progress?.bookmarked || false);
+			} catch (error) {
+				console.error("Failed to load question:", error);
+			} finally {
+				setLoading(false);
+			}
+		};
+
+		loadQuestion();
 	}, [questionId]);
+
+	useEffect(() => {
+		const loadAllQuestions = async () => {
+			try {
+				const questions = await questionService.getAllQuestions();
+				setAllQuestions(questions);
+			} catch (error) {
+				console.error("Failed to load all questions:", error);
+			}
+		};
+
+		loadAllQuestions();
+	}, []); // 初回のみ実行
 
 	const handleToggleBookmark = async () => {
 		setBookmarkLoading(true);
@@ -61,20 +78,6 @@ export default function QuestionDetailPage() {
 			setBookmarkLoading(false);
 		}
 	};
-
-	const loadAllQuestions = useCallback(async () => {
-		try {
-			const questions = await questionService.getAllQuestions();
-			setAllQuestions(questions);
-		} catch (error) {
-			console.error("Failed to load all questions:", error);
-		}
-	}, []);
-
-	useEffect(() => {
-		loadQuestion();
-		loadAllQuestions();
-	}, [loadQuestion, loadAllQuestions]);
 
 	const currentIndex = allQuestions.findIndex((q) => q.id === questionId);
 	const hasPrevious = currentIndex > 0;

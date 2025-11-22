@@ -9,7 +9,7 @@ import { reviewService } from "@/lib/study/reviewService";
 import type { Question } from "@/types/study";
 import { BookOpen, Bookmark, Filter, Search, X } from "lucide-react";
 import Link from "next/link";
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 type FilterMode = "all" | "bookmarked" | "unanswered" | "weak" | "review";
 
@@ -26,30 +26,48 @@ export default function QuestionsListPage() {
 	const [understoodIds, setUnderstoodIds] = useState<Set<string>>(new Set());
 	const [reviewIds, setReviewIds] = useState<Set<string>>(new Set());
 
-	const loadQuestions = useCallback(async () => {
-		try {
-			setLoading(true);
-			const [allQuestions, bookmarked, answered, understood, reviewQuestions] =
-				await Promise.all([
-					questionService.getAllQuestions(),
-					progressService.getBookmarkedQuestionIds(),
-					progressService.getAnsweredQuestionIds(),
-					progressService.getUnderstoodQuestionIds(),
-					reviewService.getReviewQuestionIds(),
-				]);
-			setQuestions(allQuestions);
-			setBookmarkedIds(new Set(bookmarked));
-			setAnsweredIds(new Set(answered));
-			setUnderstoodIds(new Set(understood));
-			setReviewIds(new Set(reviewQuestions));
-		} catch (error) {
-			console.error("Failed to load questions:", error);
-		} finally {
-			setLoading(false);
-		}
+	useEffect(() => {
+		const loadQuestions = async () => {
+			try {
+				setLoading(true);
+
+				// 問題データを最初に取得
+				const allQuestions = await questionService.getAllQuestions();
+				setQuestions(allQuestions);
+
+				// ユーザー進捗データは並行で取得（失敗しても問題データは表示）
+				try {
+					const [bookmarked, answered, understood, reviewQuestions] =
+						await Promise.all([
+							progressService.getBookmarkedQuestionIds(),
+							progressService.getAnsweredQuestionIds(),
+							progressService.getUnderstoodQuestionIds(),
+							reviewService.getReviewQuestionIds(),
+						]);
+					setBookmarkedIds(new Set(bookmarked));
+					setAnsweredIds(new Set(answered));
+					setUnderstoodIds(new Set(understood));
+					setReviewIds(new Set(reviewQuestions));
+				} catch (progressError) {
+					console.warn("Failed to load progress data:", progressError);
+					// 進捗データの取得に失敗しても、問題データは表示する
+				}
+			} catch (error) {
+				console.error("Failed to load questions:", error);
+				// より詳細なエラー情報を表示
+				if (error instanceof Error) {
+					console.error("Error message:", error.message);
+					console.error("Error stack:", error.stack);
+				}
+			} finally {
+				setLoading(false);
+			}
+		};
+
+		loadQuestions();
 	}, []);
 
-	const filterQuestions = useCallback(() => {
+	useEffect(() => {
 		let filtered = [...questions];
 
 		// フィルターモード
@@ -109,14 +127,6 @@ export default function QuestionsListPage() {
 		understoodIds,
 		reviewIds,
 	]);
-
-	useEffect(() => {
-		loadQuestions();
-	}, [loadQuestions]);
-
-	useEffect(() => {
-		filterQuestions();
-	}, [filterQuestions]);
 
 	// ユニークなグループとカテゴリを取得
 	const groups = Array.from(new Set(questions.map((q) => q.group))).sort();

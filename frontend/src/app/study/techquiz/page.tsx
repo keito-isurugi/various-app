@@ -23,7 +23,7 @@ import {
 	TrendingUp,
 } from "lucide-react";
 import Link from "next/link";
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function TechQuizHomePage() {
 	const [stats, setStats] = useState({
@@ -35,32 +35,32 @@ export default function TechQuizHomePage() {
 	const [reviewCount, setReviewCount] = useState(0);
 	const [loading, setLoading] = useState(true);
 
-	const loadData = useCallback(async () => {
-		setLoading(true);
-		try {
-			const [questions, userStats, reviewQuestions] = await Promise.all([
-				questionService.getAllQuestions(),
-				statsService.getUserStats(),
-				reviewService.getTodayReviewQuestions(),
-			]);
-
-			setStats({
-				totalQuestions: questions.length,
-				answeredQuestions: userStats?.answeredQuestions || 0,
-				understoodCount: userStats?.understoodCount || 0,
-				currentStreak: userStats?.currentStreak || 0,
-			});
-			setReviewCount(reviewQuestions.length);
-		} catch (error) {
-			console.error("Failed to load data:", error);
-		} finally {
-			setLoading(false);
-		}
-	}, []);
-
 	useEffect(() => {
+		const loadData = async () => {
+			setLoading(true);
+			try {
+				const [questions, userStats, reviewQuestions] = await Promise.all([
+					questionService.getAllQuestions(),
+					statsService.getUserStats(),
+					reviewService.getTodayReviewQuestions(),
+				]);
+
+				setStats({
+					totalQuestions: questions.length,
+					answeredQuestions: userStats?.answeredQuestions || 0,
+					understoodCount: userStats?.understoodCount || 0,
+					currentStreak: userStats?.currentStreak || 0,
+				});
+				setReviewCount(reviewQuestions.length);
+			} catch (error) {
+				console.error("Failed to load data:", error);
+			} finally {
+				setLoading(false);
+			}
+		};
+
 		loadData();
-	}, [loadData]);
+	}, []);
 
 	const accuracyRate =
 		stats.answeredQuestions > 0
