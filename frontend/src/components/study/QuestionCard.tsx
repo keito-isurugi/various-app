@@ -47,7 +47,9 @@ export function QuestionCard({
 					<h3 className="text-sm font-semibold text-muted-foreground">
 						{language === "ja" ? "問題" : "Question"}
 					</h3>
-					<p className="text-lg leading-relaxed">{questionText}</p>
+					<p className="text-lg leading-relaxed whitespace-pre-wrap">
+						{questionText.replace(/\\n/g, "\n")}
+					</p>
 				</div>
 
 				{/* 解答表示ボタン */}
@@ -80,8 +82,8 @@ export function QuestionCard({
 							<h3 className="text-sm font-semibold text-muted-foreground">
 								{language === "ja" ? "解答" : "Answer"}
 							</h3>
-							<div className="text-base leading-relaxed bg-muted/50 p-4 rounded-lg">
-								{answerText}
+							<div className="text-base leading-relaxed bg-muted/50 p-4 rounded-lg whitespace-pre-wrap">
+								{answerText.replace(/\\n/g, "\n")}
 							</div>
 						</div>
 

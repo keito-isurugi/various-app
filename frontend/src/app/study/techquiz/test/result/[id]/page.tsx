@@ -267,7 +267,9 @@ export default function TestResultPage() {
 												解答時間: {result.timeSpent}秒
 											</span>
 										</div>
-										<p className="font-medium">{question.japaneseQuestion}</p>
+										<p className="font-medium whitespace-pre-wrap">
+											{question.japaneseQuestion.replace(/\\n/g, "\n")}
+										</p>
 										{!result.understood && (
 											<Link href={`/study/techquiz/questions/${question.id}`}>
 												<Button

@@ -202,15 +202,15 @@ function TestStartContent() {
 					</div>
 
 					<div className="mb-6">
-						<h2 className="mb-4 text-xl font-bold">
-							{currentQuestion.japaneseQuestion}
+						<h2 className="mb-4 text-xl font-bold whitespace-pre-wrap">
+							{currentQuestion.japaneseQuestion.replace(/\\n/g, "\n")}
 						</h2>
 
 						{showAnswer ? (
 							<div className="rounded-lg border border-gray-200 bg-gray-50 p-4">
 								<p className="mb-2 text-sm font-medium text-gray-700">解答:</p>
 								<p className="whitespace-pre-wrap text-gray-900">
-									{currentQuestion.japaneseAnswer}
+									{currentQuestion.japaneseAnswer.replace(/\\n/g, "\n")}
 								</p>
 							</div>
 						) : (

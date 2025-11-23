@@ -218,9 +218,10 @@ export default function QuestionDetailPage() {
 				<div className="mb-6">
 					<h2 className="text-lg font-semibold mb-3">問題</h2>
 					<p className="text-base leading-relaxed whitespace-pre-wrap">
-						{language === "ja"
+						{(language === "ja"
 							? question.japaneseQuestion
-							: question.englishQuestion}
+							: question.englishQuestion
+						).replace(/\\n/g, "\n")}
 					</p>
 				</div>
 
@@ -248,9 +249,10 @@ export default function QuestionDetailPage() {
 					<div className="bg-muted/50 rounded-lg p-4 mb-4">
 						<h3 className="text-md font-semibold mb-3">回答</h3>
 						<p className="text-base leading-relaxed whitespace-pre-wrap">
-							{language === "ja"
+							{(language === "ja"
 								? question.japaneseAnswer
-								: question.englishAnswer}
+								: question.englishAnswer
+							).replace(/\\n/g, "\n")}
 						</p>
 					</div>
 				)}

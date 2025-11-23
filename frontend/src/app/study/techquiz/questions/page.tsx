@@ -338,11 +338,11 @@ export default function QuestionsListPage() {
 												{question.category}
 											</span>
 										</div>
-										<p className="font-medium mb-1">
-											{question.japaneseQuestion}
+										<p className="font-medium mb-1 whitespace-pre-wrap">
+											{question.japaneseQuestion.replace(/\\n/g, "\n")}
 										</p>
-										<p className="text-sm text-muted-foreground line-clamp-2">
-											{question.japaneseAnswer}
+										<p className="text-sm text-muted-foreground line-clamp-2 whitespace-pre-wrap">
+											{question.japaneseAnswer.replace(/\\n/g, "\n")}
 										</p>
 									</div>
 								</div>
