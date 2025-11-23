@@ -67,35 +67,30 @@ export default function StudyPage() {
 		setLanguage(language === "ja" ? "en" : "ja");
 	};
 
-	const handleUnderstandingRecord = async (understood: boolean) => {
+	const handleUnderstandingRecord = (understood: boolean) => {
 		if (!currentQuestion) return;
 
 		const timeSpent = Math.floor((Date.now() - sessionStartTime) / 1000);
+		const questionId = currentQuestion.id;
+		const category = currentQuestion.category;
 
-		try {
-			// 進捗を記録
-			await progressService.recordAttempt(
-				currentQuestion.id,
-				understood,
-				timeSpent,
-			);
+		// 即座に次の問題へ遷移（UIをブロックしない）
+		handleNext();
 
-			// 統計を更新
-			await statsService.recordStudy(
-				currentQuestion.category,
-				understood,
-				timeSpent,
-			);
-
-			console.log(
-				`Recorded: ${understood ? "understood" : "not understood"}, time: ${timeSpent}s`,
-			);
-
-			// 次の問題へ自動遷移
-			handleNext();
-		} catch (error) {
-			console.error("Failed to record progress:", error);
-		}
+		// バックグラウンドで進捗と統計を記録
+		Promise.all([
+			progressService.recordAttempt(questionId, understood, timeSpent),
+			statsService.recordStudy(category, understood, timeSpent),
+		])
+			.then(() => {
+				console.log(
+					`Recorded: ${understood ? "understood" : "not understood"}, time: ${timeSpent}s`,
+				);
+			})
+			.catch((error) => {
+				console.error("Failed to record progress:", error);
+				// エラーが発生してもUIには影響させない
+			});
 	};
 
 	const handleNewSession = () => {
