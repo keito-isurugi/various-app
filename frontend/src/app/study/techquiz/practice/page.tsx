@@ -23,6 +23,7 @@ export default function StudyPage() {
 	const [sessionStartTime, setSessionStartTime] = useState<number>(Date.now());
 	const [importing, setImporting] = useState(false);
 	const [importMessage, setImportMessage] = useState<string | null>(null);
+	const [isCompleted, setIsCompleted] = useState(false);
 
 	// 問題を読み込む
 	useEffect(() => {
@@ -74,8 +75,16 @@ export default function StudyPage() {
 		const questionId = currentQuestion.id;
 		const category = currentQuestion.category;
 
-		// 即座に次の問題へ遷移（UIをブロックしない）
-		handleNext();
+		// 最後の問題かどうかをチェック
+		const isLastQuestion = currentIndex === questions.length - 1;
+
+		if (isLastQuestion) {
+			// 最後の問題の場合、完了状態に設定
+			setIsCompleted(true);
+		} else {
+			// 次の問題へ遷移
+			handleNext();
+		}
 
 		// バックグラウンドで進捗と統計を記録
 		Promise.all([
@@ -98,6 +107,7 @@ export default function StudyPage() {
 		setCurrentIndex(0);
 		setShowAnswer(false);
 		setSessionStartTime(Date.now());
+		setIsCompleted(false);
 	};
 
 	const handleImportData = async () => {
@@ -182,6 +192,59 @@ export default function StudyPage() {
 							{importMessage}
 						</div>
 					)}
+				</div>
+			</div>
+		);
+	}
+
+	// セッション完了画面
+	if (isCompleted) {
+		return (
+			<div className="container mx-auto px-4 py-6 max-w-4xl">
+				{/* パンくずリスト */}
+				<TechQuizBreadcrumb items={[{ label: "ランダム演習" }]} />
+
+				{/* クイックナビゲーション */}
+				<TechQuizQuickNav />
+
+				{/* 完了メッセージ */}
+				<div className="flex flex-col items-center justify-center space-y-6 py-12">
+					<div className="text-center space-y-4">
+						<div className="text-6xl">🎉</div>
+						<h2 className="text-3xl font-bold">セッション完了！</h2>
+						<p className="text-lg text-gray-600">
+							{questions.length}問の演習を完了しました
+						</p>
+					</div>
+
+					<div className="flex flex-col sm:flex-row gap-4 w-full max-w-md">
+						<Button
+							onClick={handleNewSession}
+							size="lg"
+							className="flex-1"
+							type="button"
+						>
+							<RefreshCw className="mr-2 h-5 w-5" />
+							新しいセットで続ける
+						</Button>
+						<Link href="/study/techquiz/dashboard" className="flex-1">
+							<Button
+								variant="outline"
+								size="lg"
+								className="w-full"
+								type="button"
+							>
+								統計を見る
+							</Button>
+						</Link>
+					</div>
+
+					<Link
+						href="/study/techquiz"
+						className="text-blue-600 hover:underline"
+					>
+						ホームに戻る
+					</Link>
 				</div>
 			</div>
 		);
