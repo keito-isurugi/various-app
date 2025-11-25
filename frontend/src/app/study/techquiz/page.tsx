@@ -39,17 +39,23 @@ export default function TechQuizHomePage() {
 		const loadData = async () => {
 			setLoading(true);
 			try {
-				const [questions, userStats, reviewQuestions] = await Promise.all([
+				// 問題データとレビューデータを取得
+				const [questions, reviewQuestions] = await Promise.all([
 					questionService.getAllQuestions(),
-					statsService.getUserStats(),
 					reviewService.getTodayReviewQuestions(),
 				]);
 
+				// ユーザー統計を取得（存在しない場合は初期化）
+				let userStats = await statsService.getUserStats();
+				if (!userStats) {
+					userStats = await statsService.initializeUserStats();
+				}
+
 				setStats({
 					totalQuestions: questions.length,
-					answeredQuestions: userStats?.answeredQuestions || 0,
-					understoodCount: userStats?.understoodCount || 0,
-					currentStreak: userStats?.currentStreak || 0,
+					answeredQuestions: userStats.answeredQuestions,
+					understoodCount: userStats.understoodCount,
+					currentStreak: userStats.currentStreak,
 				});
 				setReviewCount(reviewQuestions.length);
 			} catch (error) {
