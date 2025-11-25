@@ -1,6 +1,7 @@
 import { db } from "@/lib/firebase";
 import type { Question, QuestionFilter } from "@/types/study";
 import {
+	type QueryConstraint,
 	collection,
 	doc,
 	getDoc,
@@ -8,7 +9,6 @@ import {
 	orderBy,
 	query,
 	where,
-	type QueryConstraint,
 } from "firebase/firestore";
 
 const QUESTIONS_COLLECTION = "questions";
@@ -68,7 +68,7 @@ export const questionService = {
 		const q = query(collection(db, QUESTIONS_COLLECTION), ...constraints);
 		const querySnapshot = await getDocs(q);
 
-		let questions = querySnapshot.docs.map((doc) => ({
+		const questions = querySnapshot.docs.map((doc) => ({
 			id: doc.id,
 			...doc.data(),
 		})) as Question[];
@@ -109,14 +109,38 @@ export const questionService = {
 			(q) => !excludeIds.includes(q.id),
 		);
 
-		// シャッフル（Fisher-Yates アルゴリズム）
+		// より良い乱数生成のため、現在時刻をシードとして使用
+		// crypto.getRandomValues()を使用してより高品質な乱数を生成
+		const getSecureRandom = () => {
+			if (typeof window !== "undefined" && window.crypto) {
+				const array = new Uint32Array(1);
+				window.crypto.getRandomValues(array);
+				return array[0] / (0xffffffff + 1);
+			}
+			return Math.random();
+		};
+
+		// シャッフル（改良版Fisher-Yates アルゴリズム）
 		const shuffled = [...availableQuestions];
 		for (let i = shuffled.length - 1; i > 0; i--) {
-			const j = Math.floor(Math.random() * (i + 1));
+			const j = Math.floor(getSecureRandom() * (i + 1));
 			[shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
 		}
 
-		return shuffled.slice(0, count);
+		// 選択された問題のグループ分布をログ出力（デバッグ用）
+		const selected = shuffled.slice(0, count);
+		if (typeof console !== "undefined") {
+			const distribution = selected.reduce(
+				(acc, q) => {
+					acc[q.group] = (acc[q.group] || 0) + 1;
+					return acc;
+				},
+				{} as Record<string, number>,
+			);
+			console.log("Random questions distribution:", distribution);
+		}
+
+		return selected;
 	},
 
 	/**
