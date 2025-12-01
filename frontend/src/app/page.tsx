@@ -109,8 +109,7 @@ export default function HomePage() {
 			<section className="section-padding pt-8 md:pt-12">
 				<div className="container mx-auto container-padding text-center">
 					<h1 className="text-5xl font-bold mb-6">
-						<span className="gradient-text-primary">Welcome to</span>{" "}
-						<span className="text-gray-900 dark:text-white">Keito</span>
+						<span className="gradient-text-primary">Welcome</span>
 					</h1>
 					<p className="text-xl text-gray-600 dark:text-gray-300 mb-8">
 						技術ブログとポートフォリオサイト

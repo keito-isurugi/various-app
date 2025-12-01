@@ -10,8 +10,9 @@ const twitterClient = new TwitterApi({
 });
 
 async function postTweet() {
+	const blogUrl = process.env.BLOG_URL || "https://example.com";
 	await twitterClient.v2.tweet(
-		"Qiitaの記事を更新しました。\nhttps://qiita.com/keito-isurugi/items/25d4168e3367c3a9be2e\n\nzennの記事を更新しました。\nhttps://zenn.dev/i_keito/articles/129872c8-f4a6-809f-a838-e3f430b36342\nブログ記事を更新しました。\nhttps://kei-talk.vercel.app/blog/posts/129872c8-f4a6-809f-a838-e3f430b36342",
+		"Qiitaの記事を更新しました。\nhttps://qiita.com/keito-isurugi/items/25d4168e3367c3a9be2e\n\nzennの記事を更新しました。\nhttps://zenn.dev/i_keito/articles/129872c8-f4a6-809f-a838-e3f430b36342\nブログ記事を更新しました。\n" + blogUrl + "/blog/posts/129872c8-f4a6-809f-a838-e3f430b36342",
 	);
 }
 

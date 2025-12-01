@@ -33,7 +33,6 @@ describe("SideNavigation", () => {
 			render(<SideNavigation isOpen={true} onClose={mockOnClose} />);
 
 			// サイドメニューが表示されている
-			expect(screen.getByText("kei-talk")).toBeInTheDocument();
 			expect(screen.getByText("ホーム")).toBeInTheDocument();
 			expect(screen.getByText("ブログ")).toBeInTheDocument();
 		});
@@ -42,7 +41,7 @@ describe("SideNavigation", () => {
 			render(<SideNavigation isOpen={false} onClose={mockOnClose} />);
 
 			// メニューが非表示（transform: translateX(-100%)）
-			const menu = screen.getByText("kei-talk").closest("div")?.parentElement;
+			const menu = screen.getByText("ホーム").closest("div")?.parentElement;
 			expect(menu).toHaveClass("-translate-x-full");
 		});
 	});
@@ -122,7 +121,8 @@ describe("SideNavigation", () => {
 		it("フッター情報が表示される", () => {
 			render(<SideNavigation isOpen={true} onClose={mockOnClose} />);
 
-			expect(screen.getByText("© 2024 kei-talk")).toBeInTheDocument();
+			const currentYear = new Date().getFullYear();
+			expect(screen.getByText(`© ${currentYear}`)).toBeInTheDocument();
 			expect(
 				screen.getByText("技術ブログとポートフォリオ"),
 			).toBeInTheDocument();

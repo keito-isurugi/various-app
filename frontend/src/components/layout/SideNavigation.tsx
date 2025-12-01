@@ -128,7 +128,7 @@ export const SideNavigation: React.FC<SideNavigationProps> = ({
 						className="text-xl font-bold text-foreground cursor-pointer"
 						onClick={onClose}
 					>
-						Keito
+						ホーム
 					</Link>
 					<button
 						type="button"
@@ -221,7 +221,7 @@ export const SideNavigation: React.FC<SideNavigationProps> = ({
 				{/* フッター情報 */}
 				<div className="absolute bottom-0 left-0 right-0 p-6 border-t border-border bg-card">
 					<div className="text-center text-sm text-muted-foreground">
-						<p>&copy; 2025 Keito</p>
+						<p>&copy; 2025</p>
 						<p>技術ブログとポートフォリオ</p>
 					</div>
 				</div>

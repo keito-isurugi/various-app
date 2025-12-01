@@ -15,7 +15,7 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-	title: "Keito - 技術ブログとポートフォリオ",
+	title: "技術ブログとポートフォリオ",
 	description: "プログラミングと技術に関する記事、開発実績を紹介するサイト",
 };
 

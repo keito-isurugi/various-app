@@ -22,7 +22,7 @@ describe("HomePage", () => {
 
 		// メインタイトルの確認
 		expect(
-			screen.getByRole("heading", { level: 1, name: /Welcome to kei-talk/i }),
+			screen.getByRole("heading", { level: 1, name: /Welcome/i }),
 		).toBeInTheDocument();
 
 		// サブタイトルの確認

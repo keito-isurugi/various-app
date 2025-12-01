@@ -19,12 +19,12 @@ jest.mock("next/link", () => {
 describe("Header", () => {
 	it("サイトタイトルを表示する", () => {
 		render(<Header />);
-		expect(screen.getByText("kei-talk")).toBeInTheDocument();
+		expect(screen.getByText("ホーム")).toBeInTheDocument();
 	});
 
 	it("ホームリンクが正しく設定されている", () => {
 		render(<Header />);
-		const homeLink = screen.getByRole("link", { name: "kei-talk" });
+		const homeLink = screen.getByRole("link", { name: "ホーム" });
 		expect(homeLink).toHaveAttribute("href", "/");
 	});
 

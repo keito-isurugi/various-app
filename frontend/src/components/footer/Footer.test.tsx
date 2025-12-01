@@ -21,7 +21,7 @@ describe("Footer", () => {
 		render(<Footer />);
 		const currentYear = new Date().getFullYear();
 		expect(
-			screen.getByText(`© ${currentYear} kei-talk. All rights reserved.`),
+			screen.getByText(`© ${currentYear} All rights reserved.`),
 		).toBeInTheDocument();
 	});
 

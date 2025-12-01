@@ -132,7 +132,7 @@ export default function IframeDemoPage() {
 
 					<div className="border-2 border-gray-300 rounded overflow-hidden">
 						<iframe
-							src="https://kei-talk.vercel.app/demo/embed-target"
+							src="/demo/embed-target"
 							width={iframeWidth}
 							height={`${iframeHeight}px`}
 							className="mx-auto"
@@ -147,7 +147,7 @@ export default function IframeDemoPage() {
 						</h3>
 						<pre className="p-4 bg-gray-900 text-gray-100 rounded overflow-x-auto">
 							<code>{`<iframe
-  src="https://kei-talk.vercel.app/demo/embed-target"
+  src="${typeof window !== "undefined" ? window.location.origin : ""}/demo/embed-target"
   width="${iframeWidth}"
   height="${iframeHeight}"
   frameborder="0"
@@ -188,7 +188,7 @@ export default function IframeDemoPage() {
 						</p>
 						<div className="border-2 border-red-300 rounded overflow-hidden bg-gray-100">
 							<iframe
-								src="https://kei-talk.vercel.app/demo/iframe-target"
+								src="/demo/iframe-target"
 								width="100%"
 								height="400px"
 								className="mx-auto"
