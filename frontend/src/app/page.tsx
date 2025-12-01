@@ -4,12 +4,8 @@ import {
 	Calculator,
 	Calendar,
 	Code,
-	Key,
-	Lock,
 	Rocket,
-	Shield,
 	Ticket,
-	Wallet,
 } from "lucide-react";
 import Link from "next/link";
 
@@ -41,27 +37,6 @@ const pageLinks = [
 		description: "データ構造とアルゴリズム",
 		icon: Code,
 		color: "from-orange-500 to-red-500",
-	},
-	{
-		href: "/securities",
-		title: "セキュリティ",
-		description: "セキュリティの基礎",
-		icon: Shield,
-		color: "from-red-500 to-rose-500",
-	},
-	{
-		href: "/auth",
-		title: "認証・認可",
-		description: "OAuth2, OIDC, MFA",
-		icon: Key,
-		color: "from-yellow-500 to-amber-500",
-	},
-	{
-		href: "/accounting",
-		title: "会計解説",
-		description: "減価償却など",
-		icon: Wallet,
-		color: "from-teal-500 to-cyan-500",
 	},
 	{
 		href: "/calculator",
