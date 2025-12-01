@@ -758,13 +758,6 @@ export default function WorkPage() {
 						<ArrowLeft className="w-4 h-4" />
 						<span>認証・認可の基礎に戻る</span>
 					</Link>
-					<Link
-						href="/contact"
-						className="inline-flex items-center gap-2 px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors"
-					>
-						<span>お問い合わせ</span>
-						<ArrowRight className="w-4 h-4" />
-					</Link>
 				</div>
 			</div>
 		</div>

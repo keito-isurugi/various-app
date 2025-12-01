@@ -35,12 +35,9 @@ describe("HomePage", () => {
 		render(<HomePage />);
 
 		const blogButton = screen.getByRole("link", { name: /ブログを読む/i });
-		const aboutButton = screen.getByRole("link", { name: /私について/i });
 
 		expect(blogButton).toBeInTheDocument();
 		expect(blogButton).toHaveAttribute("href", "/blog/posts");
-		expect(aboutButton).toBeInTheDocument();
-		expect(aboutButton).toHaveAttribute("href", "/about");
 	});
 
 	it("特徴セクションを表示する", () => {

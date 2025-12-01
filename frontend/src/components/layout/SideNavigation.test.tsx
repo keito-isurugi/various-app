@@ -95,8 +95,6 @@ describe("SideNavigation", () => {
 				"ブログ",
 				"BIG3計算",
 				"Playground",
-				"私について",
-				"お問い合わせ",
 			];
 
 			for (const item of expectedItems) {
@@ -112,8 +110,6 @@ describe("SideNavigation", () => {
 			expect(screen.getByText("📝")).toBeInTheDocument(); // ブログ
 			expect(screen.getByText("💪")).toBeInTheDocument(); // BIG3
 			expect(screen.getByText("🚀")).toBeInTheDocument(); // Playground
-			expect(screen.getByText("👤")).toBeInTheDocument(); // About
-			expect(screen.getByText("📧")).toBeInTheDocument(); // Contact
 		});
 	});
 

@@ -39,8 +39,6 @@ export const SideNavigation: React.FC<SideNavigationProps> = ({
 		{ href: "/todo", label: "TODOアプリ", icon: "✅" },
 		{ href: "/massage-ticket/admin/list", label: "肩たたき券管理", icon: "🎫" },
 		{ href: "/big3", label: "BIG3計算", icon: "💪" },
-		{ href: "/about", label: "私について", icon: "👤" },
-		{ href: "/contact", label: "お問い合わせ", icon: "📧" },
 	];
 
 	// 学習カテゴリ配下の項目

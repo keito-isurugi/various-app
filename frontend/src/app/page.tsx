@@ -6,11 +6,9 @@ import {
 	Code,
 	Key,
 	Lock,
-	MessageSquare,
 	Rocket,
 	Shield,
 	Ticket,
-	User,
 	Wallet,
 } from "lucide-react";
 import Link from "next/link";
@@ -86,20 +84,6 @@ const pageLinks = [
 		icon: Ticket,
 		color: "from-pink-500 to-rose-500",
 	},
-	{
-		href: "/about",
-		title: "私について",
-		description: "プロフィールとスキル",
-		icon: User,
-		color: "from-slate-500 to-gray-500",
-	},
-	{
-		href: "/contact",
-		title: "お問い合わせ",
-		description: "連絡フォーム",
-		icon: MessageSquare,
-		color: "from-emerald-500 to-green-500",
-	},
 ];
 
 export default function HomePage() {
@@ -117,9 +101,6 @@ export default function HomePage() {
 					<div className="flex gap-4 justify-center">
 						<Link href="/blog/posts" className="btn-primary px-6 py-3">
 							ブログを読む
-						</Link>
-						<Link href="/about" className="btn-secondary px-6 py-3">
-							私について
 						</Link>
 					</div>
 				</div>
