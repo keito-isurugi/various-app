@@ -10,7 +10,14 @@ import { progressService } from "@/lib/study/progressService";
 import { questionService } from "@/lib/study/questionService";
 import { statsService } from "@/lib/study/statsService";
 import type { Language, Question } from "@/types/study";
-import { Download, Languages, List, Loader2, RefreshCw } from "lucide-react";
+import {
+	Download,
+	Languages,
+	List,
+	Loader2,
+	RefreshCw,
+	PartyPopper,
+} from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -210,7 +217,9 @@ export default function StudyPage() {
 				{/* 完了メッセージ */}
 				<div className="flex flex-col items-center justify-center space-y-6 py-12">
 					<div className="text-center space-y-4">
-						<div className="text-6xl">🎉</div>
+						<div className="text-6xl">
+							<PartyPopper className="text-6xl" />
+						</div>
 						<h2 className="text-3xl font-bold">セッション完了！</h2>
 						<p className="text-lg text-gray-600">
 							{questions.length}問の演習を完了しました

@@ -1,6 +1,18 @@
 "use client";
 
-import { ChevronDown, ChevronUp } from "lucide-react";
+import {
+	BookOpen,
+	Calendar,
+	Ticket,
+	Dumbbell,
+	GraduationCap,
+	Brain,
+	Code,
+	Calculator,
+	Rocket,
+	ChevronDown,
+	ChevronUp,
+} from "lucide-react";
 import Link from "next/link";
 import type React from "react";
 import { useEffect, useState } from "react";
@@ -13,12 +25,14 @@ interface SideNavigationProps {
 interface NavItem {
 	href: string;
 	label: string;
-	icon: string;
+	icon: React.ComponentType<{ className?: string }>;
+	color: string;
 }
 
 interface NavCategory {
 	label: string;
-	icon: string;
+	icon: React.ComponentType<{ className?: string }>;
+	color: string;
 	items: NavItem[];
 }
 
@@ -34,22 +48,22 @@ export const SideNavigation: React.FC<SideNavigationProps> = ({
 
 	// 通常のナビゲーション項目
 	const navItems: NavItem[] = [
-		{ href: "/", label: "ホーム", icon: "🏠" },
-		{ href: "/blog/posts", label: "ブログ", icon: "📝" },
-		{ href: "/todo", label: "TODOアプリ", icon: "✅" },
-		{ href: "/massage-ticket/admin/list", label: "肩たたき券管理", icon: "🎫" },
-		{ href: "/big3", label: "BIG3計算", icon: "💪" },
+		{ href: "/blog/posts", label: "ブログ", icon: BookOpen, color: "from-blue-500 to-cyan-500" },
+		{ href: "/todo", label: "TODOアプリ", icon: Calendar, color: "from-green-500 to-emerald-500" },
+		{ href: "/massage-ticket/admin/list", label: "肩たたき券管理", icon: Ticket, color: "from-pink-500 to-rose-500" },
+		{ href: "/big3", label: "BIG3計算", icon: Dumbbell, color: "from-orange-500 to-red-500" },
 	];
 
 	// 学習カテゴリ配下の項目
 	const learningCategory: NavCategory = {
 		label: "学習",
-		icon: "📚",
+		icon: GraduationCap,
+		color: "from-purple-500 to-pink-500",
 		items: [
-			{ href: "/study/techquiz", label: "Tech Quiz", icon: "📝" },
-			{ href: "/algorithms", label: "アルゴリズム学習", icon: "🔍" },
-			{ href: "/calculator", label: "物理計算", icon: "🔬" },
-			{ href: "/playground", label: "Playground", icon: "🚀" },
+			{ href: "/study/techquiz", label: "Tech Quiz", icon: Brain, color: "from-purple-500 to-pink-500" },
+			{ href: "/algorithms", label: "アルゴリズム学習", icon: Code, color: "from-orange-500 to-red-500" },
+			{ href: "/calculator", label: "物理計算", icon: Calculator, color: "from-indigo-500 to-blue-500" },
+			{ href: "/playground", label: "Playground", icon: Rocket, color: "from-violet-500 to-purple-500" },
 		],
 	};
 
@@ -155,18 +169,25 @@ export const SideNavigation: React.FC<SideNavigationProps> = ({
 				>
 					<ul className="space-y-2">
 						{/* 通常のナビゲーション項目 */}
-						{navItems.map((item) => (
-							<li key={item.href}>
-								<Link
-									href={item.href}
-									onClick={onClose}
-									className="flex items-center gap-3 px-4 py-3 rounded-lg text-foreground hover:bg-accent hover:text-accent-foreground transition-colors cursor-pointer"
-								>
-									<span className="text-lg">{item.icon}</span>
-									<span className="font-medium">{item.label}</span>
-								</Link>
-							</li>
-						))}
+						{navItems.map((item) => {
+							const Icon = item.icon;
+							return (
+								<li key={item.href}>
+									<Link
+										href={item.href}
+										onClick={onClose}
+										className="flex items-center gap-3 px-4 py-3 rounded-lg text-foreground hover:bg-accent hover:text-accent-foreground transition-colors cursor-pointer"
+									>
+										<div
+											className={`w-10 h-10 rounded-lg bg-gradient-to-br ${item.color} flex items-center justify-center flex-shrink-0`}
+										>
+											<Icon className="h-5 w-5 text-white" />
+										</div>
+										<span className="font-medium">{item.label}</span>
+									</Link>
+								</li>
+							);
+						})}
 
 						{/* 学習カテゴリ（プルダウン） */}
 						<li>
@@ -176,7 +197,14 @@ export const SideNavigation: React.FC<SideNavigationProps> = ({
 								className="w-full flex items-center justify-between gap-3 px-4 py-3 rounded-lg text-foreground hover:bg-accent hover:text-accent-foreground transition-colors cursor-pointer"
 							>
 								<div className="flex items-center gap-3">
-									<span className="text-lg">{learningCategory.icon}</span>
+									<div
+										className={`w-10 h-10 rounded-lg bg-gradient-to-br ${learningCategory.color} flex items-center justify-center flex-shrink-0`}
+									>
+										{(() => {
+											const Icon = learningCategory.icon;
+											return <Icon className="h-5 w-5 text-white" />;
+										})()}
+									</div>
 									<span className="font-medium">{learningCategory.label}</span>
 								</div>
 								{expandedCategory === "learning" ? (
@@ -195,18 +223,25 @@ export const SideNavigation: React.FC<SideNavigationProps> = ({
 								}`}
 							>
 								<ul className="mt-1 ml-4 space-y-1">
-									{learningCategory.items.map((item) => (
-										<li key={item.href}>
-											<Link
-												href={item.href}
-												onClick={onClose}
-												className="flex items-center gap-3 px-4 py-2 rounded-lg text-sm text-muted-foreground hover:bg-accent hover:text-accent-foreground transition-colors cursor-pointer"
-											>
-												<span>{item.icon}</span>
-												<span>{item.label}</span>
-											</Link>
-										</li>
-									))}
+									{learningCategory.items.map((item) => {
+										const Icon = item.icon;
+										return (
+											<li key={item.href}>
+												<Link
+													href={item.href}
+													onClick={onClose}
+													className="flex items-center gap-3 px-4 py-2 rounded-lg text-sm text-muted-foreground hover:bg-accent hover:text-accent-foreground transition-colors cursor-pointer"
+												>
+													<div
+														className={`w-8 h-8 rounded-lg bg-gradient-to-br ${item.color} flex items-center justify-center flex-shrink-0`}
+													>
+														<Icon className="h-4 w-4 text-white" />
+													</div>
+													<span>{item.label}</span>
+												</Link>
+											</li>
+										);
+									})}
 								</ul>
 							</div>
 						</li>

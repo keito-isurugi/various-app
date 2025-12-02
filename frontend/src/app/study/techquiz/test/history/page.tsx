@@ -6,7 +6,16 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { testService } from "@/lib/study/testService";
 import type { TestResult } from "@/types/study";
-import { ArrowLeft, Award, Calendar, Clock, TrendingUp } from "lucide-react";
+import {
+	ArrowLeft,
+	Award,
+	Calendar,
+	Clock,
+	TrendingUp,
+	Trophy,
+	PartyPopper,
+	FileText,
+} from "lucide-react";
 import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
 
@@ -150,7 +159,13 @@ export default function TestHistoryPage() {
 											<div className="flex-1">
 												<div className="mb-2 flex items-center gap-3">
 													<div className="text-3xl">
-														{isPerfect ? "🏆" : isGood ? "🎉" : "📝"}
+														{isPerfect ? (
+															<Trophy className="text-3xl" />
+														) : isGood ? (
+															<PartyPopper className="text-3xl" />
+														) : (
+															<FileText className="text-3xl" />
+														)}
 													</div>
 													<div>
 														<div className="flex items-center gap-2">

@@ -1,4 +1,16 @@
 import type React from "react";
+import {
+	Scale,
+	AlertTriangle,
+	XCircle,
+	Sprout,
+	Dumbbell,
+	Flame,
+	Zap,
+	Crown,
+	Activity,
+	Wrench,
+} from "lucide-react";
 import type { BIG3TotalData, Gender, WeightLevel } from "../../types/big3";
 import { getLevelBgColor, getLevelColor } from "../../utils/big3-calculator";
 import { validateBodyWeightByGender } from "../../utils/big3-calculator-gender";
@@ -22,7 +34,7 @@ export const BIG3Total: React.FC<BIG3TotalProps> = ({ bodyWeight, gender }) => {
 			<div className="card text-center">
 				<div className="p-12">
 					<div className="w-16 h-16 bg-gradient-to-br from-primary-100 to-primary-200 dark:from-primary-800 dark:to-primary-700 rounded-2xl flex items-center justify-center mx-auto mb-6">
-						<span className="text-2xl">⚖️</span>
+						<Scale className="text-2xl" />
 					</div>
 					<p className="text-muted-foreground text-lg mb-2">
 						体重を入力してください
@@ -42,7 +54,7 @@ export const BIG3Total: React.FC<BIG3TotalProps> = ({ bodyWeight, gender }) => {
 			<div className="card text-center border-error-500/20 bg-error-50/50 dark:bg-error-950/20">
 				<div className="p-8">
 					<div className="w-16 h-16 bg-error-100 dark:bg-error-800 rounded-2xl flex items-center justify-center mx-auto mb-4">
-						<span className="text-2xl">⚠️</span>
+						<AlertTriangle className="text-2xl" />
 					</div>
 					<p className="text-error-600 dark:text-error-400 text-lg font-medium mb-2">
 						{validation.errorMessage}
@@ -62,7 +74,7 @@ export const BIG3Total: React.FC<BIG3TotalProps> = ({ bodyWeight, gender }) => {
 			<div className="card text-center border-error-500/20 bg-error-50/50 dark:bg-error-950/20">
 				<div className="p-8">
 					<div className="w-16 h-16 bg-error-100 dark:bg-error-800 rounded-2xl flex items-center justify-center mx-auto mb-4">
-						<span className="text-2xl">❌</span>
+						<XCircle className="text-2xl" />
 					</div>
 					<p className="text-error-600 dark:text-error-400 text-lg font-medium">
 						データの計算に失敗しました
@@ -76,20 +88,20 @@ export const BIG3Total: React.FC<BIG3TotalProps> = ({ bodyWeight, gender }) => {
 	 * レベル別データカードをレンダリング
 	 */
 	const renderLevelCard = (level: WeightLevel, data: BIG3TotalData) => {
-		const getLevelEmoji = (level: WeightLevel): string => {
+		const getLevelIcon = (level: WeightLevel): React.ComponentType<{ className?: string }> => {
 			switch (level) {
 				case "初心者":
-					return "🌱";
+					return Sprout;
 				case "初級者":
-					return "💪";
+					return Dumbbell;
 				case "中級者":
-					return "🔥";
+					return Flame;
 				case "上級者":
-					return "⚡";
+					return Zap;
 				case "エリート":
-					return "👑";
+					return Crown;
 				default:
-					return "💪";
+					return Dumbbell;
 			}
 		};
 
@@ -115,11 +127,14 @@ export const BIG3Total: React.FC<BIG3TotalProps> = ({ bodyWeight, gender }) => {
 				<div className="p-6">
 					{/* レベルヘッダー */}
 					<div className="text-center mb-6">
-						<div
-							className={`w-16 h-16 bg-gradient-to-br ${getLevelGradient(level)} rounded-2xl flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300 shadow-soft group-hover:shadow-glow`}
-						>
-							<span className="text-2xl">{getLevelEmoji(level)}</span>
-						</div>
+					<div
+						className={`w-16 h-16 bg-gradient-to-br ${getLevelGradient(level)} rounded-2xl flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300 shadow-soft group-hover:shadow-glow`}
+					>
+						{(() => {
+							const Icon = getLevelIcon(level);
+							return <Icon className="text-2xl text-white" />;
+						})()}
+					</div>
 						<h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
 							{level}
 						</h3>
@@ -128,24 +143,27 @@ export const BIG3Total: React.FC<BIG3TotalProps> = ({ bodyWeight, gender }) => {
 					{/* 種目別重量 */}
 					<div className="space-y-3 mb-6">
 						<div className="flex justify-between items-center py-2 px-3 rounded-lg bg-secondary-50 dark:bg-secondary-900/30">
-							<span className="text-sm font-medium text-muted-foreground">
-								🏋️ ベンチプレス
+							<span className="text-sm font-medium text-muted-foreground flex items-center gap-2">
+								<Dumbbell />
+								ベンチプレス
 							</span>
 							<span className="text-sm font-bold text-foreground">
 								{data.benchPress}kg
 							</span>
 						</div>
 						<div className="flex justify-between items-center py-2 px-3 rounded-lg bg-secondary-50 dark:bg-secondary-900/30">
-							<span className="text-sm font-medium text-muted-foreground">
-								🦵 スクワット
+							<span className="text-sm font-medium text-muted-foreground flex items-center gap-2">
+								<Activity />
+								スクワット
 							</span>
 							<span className="text-sm font-bold text-foreground">
 								{data.squat}kg
 							</span>
 						</div>
 						<div className="flex justify-between items-center py-2 px-3 rounded-lg bg-secondary-50 dark:bg-secondary-900/30">
-							<span className="text-sm font-medium text-muted-foreground">
-								🏗️ デッドリフト
+							<span className="text-sm font-medium text-muted-foreground flex items-center gap-2">
+								<Wrench />
+								デッドリフト
 							</span>
 							<span className="text-sm font-bold text-foreground">
 								{data.deadlift}kg

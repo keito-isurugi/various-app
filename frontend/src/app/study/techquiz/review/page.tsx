@@ -8,7 +8,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { questionService } from "@/lib/study/questionService";
 import { reviewService } from "@/lib/study/reviewService";
 import type { Question, UserProgress } from "@/types/study";
-import { ArrowLeft, RefreshCw } from "lucide-react";
+import { ArrowLeft, RefreshCw, PartyPopper } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -121,8 +121,9 @@ export default function ReviewPage() {
 						</div>
 						{stats.completedToday === stats.totalReviewsToday &&
 							stats.totalReviewsToday > 0 && (
-								<div className="rounded-lg bg-green-50 p-3 text-green-700">
-									🎉 今日の復習完了！
+								<div className="rounded-lg bg-green-50 p-3 text-green-700 flex items-center gap-2">
+									<PartyPopper />
+									今日の復習完了！
 								</div>
 							)}
 					</div>

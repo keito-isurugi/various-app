@@ -15,6 +15,9 @@ import {
 	RotateCw,
 	TrendingUp,
 	X,
+	Trophy,
+	PartyPopper,
+	FileText,
 } from "lucide-react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
@@ -115,11 +118,17 @@ export default function TestResultPage() {
 				<CardContent className="pt-8 text-center">
 					<div className="mb-4">
 						{isPerfect ? (
-							<div className="mb-2 text-6xl">🏆</div>
+							<div className="mb-2 text-6xl">
+								<Trophy className="text-6xl" />
+							</div>
 						) : isGood ? (
-							<div className="mb-2 text-6xl">🎉</div>
+							<div className="mb-2 text-6xl">
+								<PartyPopper className="text-6xl" />
+							</div>
 						) : (
-							<div className="mb-2 text-6xl">📝</div>
+							<div className="mb-2 text-6xl">
+								<FileText className="text-6xl" />
+							</div>
 						)}
 						<h1 className="mb-2 text-3xl font-bold">
 							{isPerfect
