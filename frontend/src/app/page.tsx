@@ -68,26 +68,14 @@ export default function HomePage() {
 			<section className="section-padding pt-8 md:pt-12">
 				<div className="container mx-auto container-padding text-center">
 					<h1 className="text-5xl font-bold mb-6">
-						<span className="gradient-text-primary">Welcome</span>
+						<span className="gradient-text-primary">Welcome!</span>
 					</h1>
-					<p className="text-xl text-gray-600 dark:text-gray-300 mb-8">
-						技術ブログとポートフォリオサイト
-					</p>
-					<div className="flex gap-4 justify-center">
-						<Link href="/blog/posts" className="btn-primary px-6 py-3">
-							ブログを読む
-						</Link>
-					</div>
 				</div>
 			</section>
 
 			{/* コンテンツナビゲーション */}
 			<section className="section-padding">
 				<div className="container mx-auto container-padding">
-					<h2 className="text-3xl font-bold text-center mb-12">
-						コンテンツを探す
-					</h2>
-
 					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
 						{pageLinks.map((link) => {
 							const Icon = link.icon;

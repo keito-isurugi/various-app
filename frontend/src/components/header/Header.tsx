@@ -70,14 +70,8 @@ export const Header: React.FC = () => {
 								href="/"
 								className="group flex items-center space-x-2 px-3 py-2 rounded-xl hover:bg-accent transition-all duration-300"
 							>
-								<div className="relative">
-									<div className="w-8 h-8 bg-gradient-to-br from-primary-500 to-primary-600 rounded-lg flex items-center justify-center shadow-soft group-hover:shadow-glow transition-all duration-300">
-										<span className="text-white font-bold text-lg">H</span>
-									</div>
-									<div className="absolute -top-1 -right-1 w-3 h-3 bg-gradient-to-br from-emerald-400 to-emerald-500 rounded-full animate-pulse-soft" />
-								</div>
 								<span className="text-xl font-bold gradient-text-primary group-hover:scale-105 transition-transform duration-300">
-									ホーム
+									Various App
 								</span>
 							</Link>
 						</div>
