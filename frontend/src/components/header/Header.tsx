@@ -38,7 +38,7 @@ export const Header: React.FC = () => {
 						<button
 							type="button"
 							onClick={() => setIsSideNavOpen(!isSideNavOpen)}
-							className="relative p-2 rounded-xl bg-muted hover:bg-accent hover:text-accent-foreground transition-all duration-300 group"
+							className="relative p-2 hover:scale-110 active:scale-95 transition-transform duration-150 cursor-pointer"
 							aria-label={isSideNavOpen ? "メニューを閉じる" : "メニューを開く"}
 						>
 							<div className="w-6 h-6 flex flex-col justify-center items-center">
@@ -68,11 +68,9 @@ export const Header: React.FC = () => {
 						<div className="flex-1 flex justify-center">
 							<Link
 								href="/"
-								className="group flex items-center space-x-2 px-3 py-2 rounded-xl hover:bg-accent transition-all duration-300"
+								className="text-xl font-bold text-foreground hover:scale-105 active:scale-95 transition-transform duration-150"
 							>
-								<span className="text-xl font-bold gradient-text-primary group-hover:scale-105 transition-transform duration-300">
-									Various App
-								</span>
+								Various App
 							</Link>
 						</div>
 					</div>

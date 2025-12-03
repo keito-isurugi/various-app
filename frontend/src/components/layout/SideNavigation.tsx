@@ -2,16 +2,16 @@
 
 import {
 	BookOpen,
-	Calendar,
-	Ticket,
-	Dumbbell,
-	GraduationCap,
 	Brain,
-	Code,
 	Calculator,
-	Rocket,
+	Calendar,
 	ChevronDown,
 	ChevronUp,
+	Code,
+	Dumbbell,
+	GraduationCap,
+	Rocket,
+	Ticket,
 } from "lucide-react";
 import Link from "next/link";
 import type React from "react";
@@ -48,10 +48,30 @@ export const SideNavigation: React.FC<SideNavigationProps> = ({
 
 	// 通常のナビゲーション項目
 	const navItems: NavItem[] = [
-		{ href: "/blog/posts", label: "ブログ", icon: BookOpen, color: "from-blue-500 to-cyan-500" },
-		{ href: "/todo", label: "TODOアプリ", icon: Calendar, color: "from-green-500 to-emerald-500" },
-		{ href: "/massage-ticket/admin/list", label: "肩たたき券管理", icon: Ticket, color: "from-pink-500 to-rose-500" },
-		{ href: "/big3", label: "BIG3計算", icon: Dumbbell, color: "from-orange-500 to-red-500" },
+		{
+			href: "/blog/posts",
+			label: "ブログ",
+			icon: BookOpen,
+			color: "from-blue-500 to-cyan-500",
+		},
+		{
+			href: "/todo",
+			label: "TODOアプリ",
+			icon: Calendar,
+			color: "from-green-500 to-emerald-500",
+		},
+		{
+			href: "/massage-ticket/admin/list",
+			label: "肩たたき券管理",
+			icon: Ticket,
+			color: "from-pink-500 to-rose-500",
+		},
+		{
+			href: "/big3",
+			label: "BIG3計算",
+			icon: Dumbbell,
+			color: "from-orange-500 to-red-500",
+		},
 	];
 
 	// 学習カテゴリ配下の項目
@@ -60,10 +80,30 @@ export const SideNavigation: React.FC<SideNavigationProps> = ({
 		icon: GraduationCap,
 		color: "from-purple-500 to-pink-500",
 		items: [
-			{ href: "/study/techquiz", label: "Tech Quiz", icon: Brain, color: "from-purple-500 to-pink-500" },
-			{ href: "/algorithms", label: "アルゴリズム学習", icon: Code, color: "from-orange-500 to-red-500" },
-			{ href: "/calculator", label: "物理計算", icon: Calculator, color: "from-indigo-500 to-blue-500" },
-			{ href: "/playground", label: "Playground", icon: Rocket, color: "from-violet-500 to-purple-500" },
+			{
+				href: "/study/techquiz",
+				label: "Tech Quiz",
+				icon: Brain,
+				color: "from-purple-500 to-pink-500",
+			},
+			{
+				href: "/algorithms",
+				label: "アルゴリズム学習",
+				icon: Code,
+				color: "from-orange-500 to-red-500",
+			},
+			{
+				href: "/calculator",
+				label: "物理計算",
+				icon: Calculator,
+				color: "from-indigo-500 to-blue-500",
+			},
+			{
+				href: "/playground",
+				label: "Playground",
+				icon: Rocket,
+				color: "from-violet-500 to-purple-500",
+			},
 		],
 	};
 
@@ -134,7 +174,7 @@ export const SideNavigation: React.FC<SideNavigationProps> = ({
 				<div className="flex items-center justify-between p-6 border-b border-border">
 					<Link
 						href="/"
-						className="text-xl font-bold text-foreground cursor-pointer"
+						className="text-xl font-bold text-foreground hover:scale-105 active:scale-95 transition-transform duration-150"
 						onClick={onClose}
 					>
 						Various App
@@ -142,7 +182,7 @@ export const SideNavigation: React.FC<SideNavigationProps> = ({
 					<button
 						type="button"
 						onClick={onClose}
-						className="p-2 rounded-md text-muted-foreground hover:text-foreground hover:bg-accent transition-colors cursor-pointer"
+						className="p-2 text-foreground hover:scale-110 active:scale-95 transition-transform duration-150 cursor-pointer"
 						aria-label="メニューを閉じる"
 					>
 						<svg
@@ -176,10 +216,10 @@ export const SideNavigation: React.FC<SideNavigationProps> = ({
 									<Link
 										href={item.href}
 										onClick={onClose}
-										className="flex items-center gap-3 px-4 py-3 rounded-lg text-foreground hover:bg-accent hover:text-accent-foreground transition-colors cursor-pointer"
+										className="group flex items-center gap-3 px-4 py-3 rounded-lg text-foreground bg-transparent hover:bg-secondary active:opacity-80 focus:outline-none focus-visible:ring-2 focus-visible:ring-ring transition-colors"
 									>
 										<div
-											className={`w-10 h-10 rounded-lg bg-gradient-to-br ${item.color} flex items-center justify-center flex-shrink-0`}
+											className={`w-10 h-10 rounded-lg bg-gradient-to-br ${item.color} flex items-center justify-center shrink-0 shadow-sm group-hover:shadow-md transition-shadow`}
 										>
 											<Icon className="h-5 w-5 text-white" />
 										</div>
@@ -194,11 +234,11 @@ export const SideNavigation: React.FC<SideNavigationProps> = ({
 							<button
 								type="button"
 								onClick={() => toggleCategory("learning")}
-								className="w-full flex items-center justify-between gap-3 px-4 py-3 rounded-lg text-foreground hover:bg-accent hover:text-accent-foreground transition-colors cursor-pointer"
+								className="group w-full flex items-center justify-between gap-3 px-4 py-3 rounded-lg text-foreground bg-transparent hover:bg-secondary active:opacity-80 focus:outline-none focus-visible:ring-2 focus-visible:ring-ring transition-colors cursor-pointer"
 							>
 								<div className="flex items-center gap-3">
 									<div
-										className={`w-10 h-10 rounded-lg bg-gradient-to-br ${learningCategory.color} flex items-center justify-center flex-shrink-0`}
+										className={`w-10 h-10 rounded-lg bg-gradient-to-br ${learningCategory.color} flex items-center justify-center shrink-0 shadow-sm group-hover:shadow-md transition-shadow`}
 									>
 										{(() => {
 											const Icon = learningCategory.icon;
@@ -207,11 +247,13 @@ export const SideNavigation: React.FC<SideNavigationProps> = ({
 									</div>
 									<span className="font-medium">{learningCategory.label}</span>
 								</div>
-								{expandedCategory === "learning" ? (
-									<ChevronUp className="h-4 w-4" />
-								) : (
-									<ChevronDown className="h-4 w-4" />
-								)}
+								<div className="p-1 rounded-md">
+									{expandedCategory === "learning" ? (
+										<ChevronUp className="h-4 w-4" />
+									) : (
+										<ChevronDown className="h-4 w-4" />
+									)}
+								</div>
 							</button>
 
 							{/* サブメニュー */}
@@ -230,10 +272,10 @@ export const SideNavigation: React.FC<SideNavigationProps> = ({
 												<Link
 													href={item.href}
 													onClick={onClose}
-													className="flex items-center gap-3 px-4 py-2 rounded-lg text-sm text-muted-foreground hover:bg-accent hover:text-accent-foreground transition-colors cursor-pointer"
+													className="group flex items-center gap-3 px-4 py-2 rounded-lg text-sm text-muted-foreground bg-transparent hover:bg-secondary hover:text-foreground active:opacity-80 focus:outline-none focus-visible:ring-2 focus-visible:ring-ring transition-colors"
 												>
 													<div
-														className={`w-8 h-8 rounded-lg bg-gradient-to-br ${item.color} flex items-center justify-center flex-shrink-0`}
+														className={`w-8 h-8 rounded-lg bg-gradient-to-br ${item.color} flex items-center justify-center shrink-0 shadow-sm group-hover:shadow-md transition-shadow`}
 													>
 														<Icon className="h-4 w-4 text-white" />
 													</div>
