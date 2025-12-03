@@ -64,7 +64,7 @@ export const WeightInput: React.FC<WeightInputProps> = ({
 				className="flex text-sm font-semibold text-foreground items-center gap-2"
 			>
 				<span className="text-lg">⚖️</span>
-				体重 <span className="text-error-500">*</span>
+				体重 <span className="text-destructive">*</span>
 			</label>
 
 			{/* 入力フィールド */}
@@ -82,7 +82,7 @@ export const WeightInput: React.FC<WeightInputProps> = ({
 						input pr-12 text-lg font-medium
 						${
 							hasError
-								? "border-error-500 focus-visible:ring-error-500 bg-error-50 dark:bg-error-950/20"
+								? "border-destructive focus-visible:ring-destructive bg-destructive/5"
 								: "border-border focus-visible:ring-primary"
 						}
 						${
@@ -101,7 +101,7 @@ export const WeightInput: React.FC<WeightInputProps> = ({
 						className={`text-sm font-bold px-2 py-1 rounded-md ${
 							disabled
 								? "text-muted-foreground bg-secondary/30"
-								: "text-primary bg-primary-50 dark:bg-primary-950/30"
+								: "text-primary bg-primary/10"
 						}`}
 					>
 						kg
@@ -111,11 +111,11 @@ export const WeightInput: React.FC<WeightInputProps> = ({
 
 			{/* エラーメッセージ */}
 			{hasError && (
-				<div className="flex items-center gap-2 p-3 bg-error-50 dark:bg-error-950/20 border border-error-200 dark:border-error-800 rounded-lg">
-					<span className="text-error-500">⚠️</span>
+				<div className="flex items-center gap-2 p-3 bg-destructive/5 border border-destructive/20 rounded-lg">
+					<span className="text-destructive">⚠️</span>
 					<output
 						id="bodyWeight-error"
-						className="text-sm text-error-600 dark:text-error-400 font-medium"
+						className="text-sm text-destructive font-medium"
 					>
 						{errorMessage}
 					</output>
@@ -124,8 +124,8 @@ export const WeightInput: React.FC<WeightInputProps> = ({
 
 			{/* ヘルプテキスト */}
 			{!hasError && (
-				<div className="flex items-center gap-2 p-3 bg-secondary-50 dark:bg-secondary-950/20 border border-secondary-200 dark:border-secondary-800 rounded-lg">
-					<span className="text-secondary-500">💡</span>
+				<div className="flex items-center gap-2 p-3 bg-secondary border border-border rounded-lg">
+					<span className="text-muted-foreground">💡</span>
 					<p className="text-sm text-muted-foreground">
 						{getWeightRangeMessageByGender(gender)}
 					</p>

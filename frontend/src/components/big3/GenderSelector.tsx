@@ -31,7 +31,7 @@ export const GenderSelector: React.FC<GenderSelectorProps> = ({
 			</div>
 
 			{/* 性別選択ボタン */}
-			<fieldset className="inline-flex bg-gray-100 dark:bg-gray-800 p-1.5 rounded-xl border-2 border-gray-200 dark:border-gray-700 shadow-sm">
+			<fieldset className="inline-flex bg-secondary p-1.5 rounded-xl border-2 border-border shadow-sm">
 				<legend className="sr-only">性別選択</legend>
 				{/* 男性ボタン */}
 				<button
@@ -43,9 +43,9 @@ export const GenderSelector: React.FC<GenderSelectorProps> = ({
 						${
 							selectedGender === "male"
 								? "bg-blue-600 text-white shadow-lg ring-2 ring-blue-500 ring-opacity-50 scale-105"
-								: "text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-700 hover:bg-blue-50 dark:hover:bg-blue-900/20 hover:text-blue-600 dark:hover:text-blue-300 shadow-sm"
+								: "text-foreground bg-card hover:scale-110 active:scale-95 shadow-sm"
 						}
-						${disabled ? "opacity-50 cursor-not-allowed" : "cursor-pointer hover:scale-102"}
+						${disabled ? "opacity-50 cursor-not-allowed" : "cursor-pointer"}
 					`}
 					role="radio"
 					aria-checked={selectedGender === "male"}
@@ -57,7 +57,7 @@ export const GenderSelector: React.FC<GenderSelectorProps> = ({
 						</span>
 						<span>男性</span>
 						{selectedGender === "male" && (
-							<span className="absolute -top-1 -right-1 w-3 h-3 bg-green-500 rounded-full border-2 border-white dark:border-gray-800" />
+							<span className="absolute -top-1 -right-1 w-3 h-3 bg-green-500 rounded-full border-2 border-card" />
 						)}
 					</span>
 				</button>
@@ -72,9 +72,9 @@ export const GenderSelector: React.FC<GenderSelectorProps> = ({
 						${
 							selectedGender === "female"
 								? "bg-pink-600 text-white shadow-lg ring-2 ring-pink-500 ring-opacity-50 scale-105"
-								: "text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-700 hover:bg-pink-50 dark:hover:bg-pink-900/20 hover:text-pink-600 dark:hover:text-pink-300 shadow-sm"
+								: "text-foreground bg-card hover:scale-110 active:scale-95 shadow-sm"
 						}
-						${disabled ? "opacity-50 cursor-not-allowed" : "cursor-pointer hover:scale-102"}
+						${disabled ? "opacity-50 cursor-not-allowed" : "cursor-pointer"}
 					`}
 					role="radio"
 					aria-checked={selectedGender === "female"}
@@ -86,7 +86,7 @@ export const GenderSelector: React.FC<GenderSelectorProps> = ({
 						</span>
 						<span>女性</span>
 						{selectedGender === "female" && (
-							<span className="absolute -top-1 -right-1 w-3 h-3 bg-green-500 rounded-full border-2 border-white dark:border-gray-800" />
+							<span className="absolute -top-1 -right-1 w-3 h-3 bg-green-500 rounded-full border-2 border-card" />
 						)}
 					</span>
 				</button>
@@ -95,8 +95,8 @@ export const GenderSelector: React.FC<GenderSelectorProps> = ({
 			{/* 選択状態表示と説明テキスト */}
 			<div className="space-y-2">
 				{/* 現在の選択状態 */}
-				<div className="flex items-center justify-center gap-2 p-2 bg-gradient-to-r from-blue-50 to-pink-50 dark:from-blue-950/20 dark:to-pink-950/20 rounded-lg border border-gray-200 dark:border-gray-700">
-					<span className="text-sm font-medium text-gray-700 dark:text-gray-300">
+				<div className="flex items-center justify-center gap-2 p-2 bg-secondary rounded-lg border border-border">
+					<span className="text-sm font-medium text-muted-foreground">
 						選択中:
 					</span>
 					<span
@@ -104,8 +104,8 @@ export const GenderSelector: React.FC<GenderSelectorProps> = ({
 						text-sm font-bold px-2 py-1 rounded-md
 						${
 							selectedGender === "male"
-								? "text-blue-700 bg-blue-100 dark:text-blue-300 dark:bg-blue-900/30"
-								: "text-pink-700 bg-pink-100 dark:text-pink-300 dark:bg-pink-900/30"
+								? "text-blue-600 bg-blue-100"
+								: "text-pink-600 bg-pink-100"
 						}
 					`}
 					>
@@ -114,8 +114,8 @@ export const GenderSelector: React.FC<GenderSelectorProps> = ({
 				</div>
 
 				{/* 説明テキスト */}
-				<div className="flex items-center gap-2 p-3 bg-secondary-50 dark:bg-secondary-950/20 border border-secondary-200 dark:border-secondary-800 rounded-lg">
-					<span className="text-secondary-500">💡</span>
+				<div className="flex items-center gap-2 p-3 bg-secondary border border-border rounded-lg">
+					<span className="text-muted-foreground">💡</span>
 					<p className="text-sm text-muted-foreground">
 						性別によって適用される基準値が異なります
 					</p>

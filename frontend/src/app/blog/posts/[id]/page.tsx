@@ -76,15 +76,15 @@ export default async function Home(props: any) {
 		}
 
 		return (
-			<div className="min-h-screen bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 py-20">
+			<div className="min-h-screen bg-gradient-to-br from-secondary to-background py-20">
 				<div className="container mx-auto px-4 max-w-4xl">
 					{/* ブログ記事ヘッダー */}
 					<header className="mb-8">
-						<h1 className="text-4xl font-bold text-gray-900 dark:text-gray-100 mb-4 leading-tight">
+						<h1 className="text-4xl font-bold text-foreground mb-4 leading-tight">
 							{title}
 						</h1>
 
-						<div className="flex flex-wrap items-center gap-6 text-sm text-gray-600 dark:text-gray-400 mb-6">
+						<div className="flex flex-wrap items-center gap-6 text-sm text-muted-foreground mb-6">
 							{/* 更新日 */}
 							<div className="flex items-center gap-2">
 								<svg
@@ -124,14 +124,14 @@ export default async function Home(props: any) {
 								</svg>
 								<div className="flex flex-wrap gap-2">
 									{tags.length === 0 ? (
-										<span className="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 rounded-full text-sm">
+										<span className="px-3 py-1 bg-secondary text-muted-foreground rounded-full text-sm">
 											なし
 										</span>
 									) : (
 										tags.map((tag: any) => (
 											<span
 												key={tag.id}
-												className="px-3 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300 rounded-full text-sm font-medium"
+												className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium"
 											>
 												{tag.name}
 											</span>
@@ -142,12 +142,12 @@ export default async function Home(props: any) {
 						</div>
 
 						{/* 区切り線 */}
-						<div className="w-full h-px bg-gradient-to-r from-transparent via-gray-300 dark:via-gray-600 to-transparent mb-8" />
+						<div className="w-full h-px bg-gradient-to-r from-transparent via-border to-transparent mb-8" />
 					</header>
 
 					{/* ブログコンテンツ */}
-					<main className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl p-8 border border-gray-200 dark:border-gray-700 shadow-lg">
-						<article className="prose dark:prose-invert prose-sm sm:prose lg:prose-lg xl:prose-xl max-w-none">
+					<main className="bg-card/80 backdrop-blur-sm rounded-xl p-8 border border-border shadow-lg">
+						<article className="prose prose-sm sm:prose lg:prose-lg xl:prose-xl max-w-none prose-headings:text-foreground prose-p:text-foreground prose-strong:text-foreground prose-a:text-primary">
 							<ReactMarkdown
 								remarkPlugins={[remarkGfm]}
 								rehypePlugins={[rehypeRaw]}
@@ -172,7 +172,7 @@ export default async function Home(props: any) {
 											</div>
 										) : (
 											<code
-												className={`${className} bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 px-1.5 py-0.5 rounded text-sm font-mono`}
+												className={`${className} bg-secondary text-foreground px-1.5 py-0.5 rounded text-sm font-mono`}
 												{...props}
 											>
 												{children}
@@ -183,24 +183,24 @@ export default async function Home(props: any) {
 										<div className="overflow-x-auto">{children}</div>
 									),
 									blockquote: ({ children }) => (
-										<blockquote className="border-l-4 border-blue-500 dark:border-blue-400 bg-blue-50 dark:bg-blue-900/20 pl-4 py-2 my-4 italic text-gray-700 dark:text-gray-300">
+										<blockquote className="border-l-4 border-primary bg-primary/5 pl-4 py-2 my-4 italic text-muted-foreground">
 											{children}
 										</blockquote>
 									),
 									table: ({ children }) => (
 										<div className="overflow-x-auto my-4">
-											<table className="min-w-full border-collapse border border-gray-300 dark:border-gray-600">
+											<table className="min-w-full border-collapse border border-border">
 												{children}
 											</table>
 										</div>
 									),
 									th: ({ children }) => (
-										<th className="border border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-700 px-4 py-2 text-left font-semibold text-gray-900 dark:text-gray-100">
+										<th className="border border-border bg-secondary px-4 py-2 text-left font-semibold text-foreground">
 											{children}
 										</th>
 									),
 									td: ({ children }) => (
-										<td className="border border-gray-300 dark:border-gray-600 px-4 py-2 text-gray-700 dark:text-gray-300">
+										<td className="border border-border px-4 py-2 text-muted-foreground">
 											{children}
 										</td>
 									),

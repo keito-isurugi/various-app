@@ -8,7 +8,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { questionService } from "@/lib/study/questionService";
 import { reviewService } from "@/lib/study/reviewService";
 import type { Question, UserProgress } from "@/types/study";
-import { ArrowLeft, RefreshCw, PartyPopper } from "lucide-react";
+import { ArrowLeft, PartyPopper, RefreshCw } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 

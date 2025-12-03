@@ -173,21 +173,21 @@ export default function CalculatorPage() {
 	}, [calculator]);
 
 	return (
-		<div className="min-h-screen bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 transition-colors">
+		<div className="min-h-screen bg-gradient-to-br from-secondary to-background transition-colors">
 			<div className="container mx-auto px-4 py-8 max-w-4xl">
 				{/* ページヘッダー */}
 				<header className="mb-8 text-center">
-					<h1 className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 bg-clip-text text-transparent mb-4">
+					<h1 className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-4">
 						物理計算ツール
 					</h1>
-					<p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+					<p className="text-lg text-muted-foreground max-w-2xl mx-auto">
 						各種物理量の計算を行うことができます。シュワルツシルト半径や脱出速度などの計算をサポートしています。
 					</p>
 				</header>
 
 				{/* 計算機選択 */}
 				<section className="mb-8">
-					<h2 className="text-xl font-semibold text-gray-800 dark:text-gray-200 mb-4">
+					<h2 className="text-xl font-semibold text-foreground mb-4">
 						計算タイプ
 					</h2>
 					<div className="grid md:grid-cols-2 gap-4">
@@ -197,18 +197,18 @@ export default function CalculatorPage() {
 								key={calc.type}
 								onClick={() => handleCalculatorChange(calc.type)}
 								className={`
-									p-6 rounded-xl border-2 transition-all duration-200 text-left
+									p-6 rounded-xl border-2 transition-all duration-200 text-left cursor-pointer
 									${
 										calc.type === selectedCalculatorId
-											? "border-blue-500 bg-blue-50 dark:bg-blue-900/20 ring-2 ring-blue-500 ring-opacity-20"
-											: "border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 hover:border-blue-300 dark:hover:border-blue-600"
+											? "border-blue-500 bg-primary/5 ring-2 ring-blue-500 ring-opacity-20"
+											: "border-border bg-card hover:border-blue-300"
 									}
 								`}
 							>
-								<h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2">
+								<h3 className="text-lg font-semibold text-foreground mb-2">
 									{calc.displayName}
 								</h3>
-								<p className="text-sm text-gray-600 dark:text-gray-400">
+								<p className="text-sm text-muted-foreground">
 									{calc.description}
 								</p>
 							</button>
@@ -218,28 +218,26 @@ export default function CalculatorPage() {
 
 				{/* 現在の計算機情報 */}
 				<section className="mb-8">
-					<div className="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/10 dark:to-purple-900/10 rounded-xl p-6 border border-blue-200 dark:border-blue-800">
-						<h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2">
+					<div className="bg-primary/5 rounded-xl p-6 border border-primary/20">
+						<h3 className="text-lg font-semibold text-foreground mb-2">
 							{calculator.displayName}
 						</h3>
-						<p className="text-gray-600 dark:text-gray-400">
-							{calculator.description}
-						</p>
+						<p className="text-muted-foreground">{calculator.description}</p>
 					</div>
 				</section>
 
 				<div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
 					{/* 入力セクション */}
 					<section className="space-y-6">
-						<div className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 border border-gray-200 dark:border-gray-600 shadow-lg">
+						<div className="bg-card/50 backdrop-blur-sm rounded-xl p-6 border border-border shadow-lg">
 							<div className="flex items-center justify-between mb-6">
-								<h2 className="text-xl font-semibold text-gray-800 dark:text-gray-200">
+								<h2 className="text-xl font-semibold text-foreground">
 									パラメータ入力
 								</h2>
 								<button
 									type="button"
 									onClick={handleLoadExample}
-									className="px-3 py-1.5 text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 text-sm font-medium bg-blue-50 dark:bg-blue-900/30 rounded-md hover:bg-blue-100 dark:hover:bg-blue-900/50 transition-colors"
+									className="px-3 py-1.5 text-primary hover:opacity-80 text-sm font-medium bg-primary/10 rounded-md transition-colors cursor-pointer"
 								>
 									例の値を読み込み
 								</button>
@@ -273,7 +271,7 @@ export default function CalculatorPage() {
 									{validationResult.errors.map((error, index) => (
 										<div
 											key={`error-${error.slice(0, 50)}-${Date.now()}-${index}`}
-											className="flex items-center text-red-600 dark:text-red-400 text-sm bg-red-50 dark:bg-red-900/30 p-3 rounded-md border border-red-200 dark:border-red-700/50"
+											className="flex items-center text-destructive text-sm bg-destructive/10 p-3 rounded-md border border-destructive/30"
 										>
 											<svg
 												className="w-4 h-4 mr-2 flex-shrink-0"
@@ -293,7 +291,7 @@ export default function CalculatorPage() {
 									{validationResult.warnings.map((warning, index) => (
 										<div
 											key={`warning-${warning.slice(0, 50)}-${Date.now()}-${index}`}
-											className="flex items-center text-yellow-600 dark:text-yellow-400 text-sm bg-yellow-50 dark:bg-yellow-900/30 p-3 rounded-md border border-yellow-200 dark:border-yellow-700/50"
+											className="flex items-center text-yellow-600 text-sm bg-yellow-500/10 p-3 rounded-md border border-yellow-500/30"
 										>
 											<svg
 												className="w-4 h-4 mr-2 flex-shrink-0"
@@ -320,8 +318,8 @@ export default function CalculatorPage() {
 								disabled={isCalculating || !validationResult.isValid}
 								className={`w-full py-4 px-6 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 ${
 									isCalculating || !validationResult.isValid
-										? "bg-gray-300 dark:bg-gray-700 text-gray-500 dark:text-gray-400 cursor-not-allowed scale-100"
-										: "bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow-lg hover:shadow-xl"
+										? "bg-secondary text-muted-foreground cursor-not-allowed scale-100"
+										: "bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow-lg hover:shadow-xl cursor-pointer"
 								}`}
 							>
 								{isCalculating ? (
@@ -338,8 +336,8 @@ export default function CalculatorPage() {
 
 					{/* 結果セクション */}
 					<section className="space-y-6">
-						<div className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 border border-gray-200 dark:border-gray-600 shadow-lg">
-							<h2 className="text-xl font-semibold text-gray-800 dark:text-gray-200 mb-6">
+						<div className="bg-card/50 backdrop-blur-sm rounded-xl p-6 border border-border shadow-lg">
+							<h2 className="text-xl font-semibold text-foreground mb-6">
 								計算結果
 							</h2>
 
@@ -350,8 +348,8 @@ export default function CalculatorPage() {
 									))}
 								</div>
 							) : (
-								<div className="bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-700 dark:to-gray-600 border border-gray-200 dark:border-gray-600 rounded-xl p-8 text-center">
-									<div className="text-gray-400 dark:text-gray-500 mb-4">
+								<div className="bg-secondary border border-border rounded-xl p-8 text-center">
+									<div className="text-muted-foreground mb-4">
 										<svg
 											className="w-16 h-16 mx-auto"
 											fill="none"
@@ -367,7 +365,7 @@ export default function CalculatorPage() {
 											/>
 										</svg>
 									</div>
-									<p className="text-gray-500 dark:text-gray-400 text-lg">
+									<p className="text-muted-foreground text-lg">
 										パラメータを入力して「計算実行」ボタンを押してください
 									</p>
 								</div>

@@ -265,14 +265,14 @@ if (button && result) {
 	const currentFile = getCurrentFile();
 
 	return (
-		<div className="flex flex-col h-[calc(100vh-5rem)] bg-gray-50 dark:bg-gray-900">
+		<div className="flex flex-col h-[calc(100vh-5rem)] bg-secondary">
 			{/* ページヘッダー */}
-			<div className="flex items-center justify-between px-3 md:px-5 py-4 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 shadow-soft">
+			<div className="flex items-center justify-between px-3 md:px-5 py-4 bg-card border-b border-border shadow-soft">
 				<div className="flex items-center gap-2 md:gap-4 min-w-0 flex-1">
-					<h1 className="m-0 text-lg md:text-2xl font-bold text-gray-900 dark:text-white truncate">
+					<h1 className="m-0 text-lg md:text-2xl font-bold text-foreground truncate">
 						🚀 Code Playground
 					</h1>
-					<span className="hidden sm:inline text-sm md:text-base font-medium text-gray-500 dark:text-gray-400 truncate">
+					<span className="hidden sm:inline text-sm md:text-base font-medium text-muted-foreground truncate">
 						{project.name}
 					</span>
 				</div>
@@ -281,10 +281,10 @@ if (button && result) {
 					<button
 						type="button"
 						onClick={togglePreview}
-						className={`px-2 md:px-4 py-2 text-xs md:text-sm font-medium rounded-lg transition-all duration-300 ${
+						className={`px-2 md:px-4 py-2 text-xs md:text-sm font-medium rounded-lg transition-all duration-300 cursor-pointer ${
 							showPreview
 								? "bg-primary-500 text-white border border-primary-500 shadow-soft hover:bg-primary-600"
-								: "bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-600 hover:bg-gray-200 dark:hover:bg-gray-600"
+								: "bg-secondary text-muted-foreground border border-border hover:bg-secondary/80"
 						}`}
 					>
 						<span className="md:hidden">👁️</span>
@@ -293,10 +293,10 @@ if (button && result) {
 					<button
 						type="button"
 						onClick={toggleConsole}
-						className={`px-2 md:px-4 py-2 text-xs md:text-sm font-medium rounded-lg transition-all duration-300 ${
+						className={`px-2 md:px-4 py-2 text-xs md:text-sm font-medium rounded-lg transition-all duration-300 cursor-pointer ${
 							showConsole
 								? "bg-primary-500 text-white border border-primary-500 shadow-soft hover:bg-primary-600"
-								: "bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-600 hover:bg-gray-200 dark:hover:bg-gray-600"
+								: "bg-secondary text-muted-foreground border border-border hover:bg-secondary/80"
 						}`}
 					>
 						<span className="md:hidden">📋 ({consoleLogs.length})</span>
@@ -308,7 +308,7 @@ if (button && result) {
 						<button
 							type="button"
 							onClick={clearErrors}
-							className="px-2 md:px-4 py-2 text-xs md:text-sm font-medium bg-error-50 dark:bg-error-950/20 text-error-600 dark:text-error-400 border border-error-200 dark:border-error-800 rounded-lg hover:bg-error-100 dark:hover:bg-error-950/30 transition-all duration-300"
+							className="px-2 md:px-4 py-2 text-xs md:text-sm font-medium bg-destructive/10 text-destructive border border-destructive/30 rounded-lg hover:bg-destructive/20 transition-all duration-300 cursor-pointer"
 						>
 							<span className="md:hidden">⚠️ ({errors.length})</span>
 							<span className="hidden md:inline">

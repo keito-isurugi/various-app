@@ -212,7 +212,7 @@ function ScanMassageTicketContent() {
 					</div>
 
 					{error && (
-						<div className="bg-red-50 dark:bg-red-900 border border-red-200 dark:border-red-700 rounded-lg p-4 text-red-800 dark:text-red-200">
+						<div className="bg-destructive/10 border border-destructive/30 rounded-lg p-4 text-destructive">
 							{error}
 						</div>
 					)}
@@ -220,15 +220,15 @@ function ScanMassageTicketContent() {
 			) : (
 				<div className="space-y-6">
 					{/* チケット情報 */}
-					<div className="bg-white dark:bg-gray-900 shadow-lg border border-gray-200 dark:border-gray-600 rounded-lg p-8">
-						<h2 className="text-2xl font-bold mb-8 text-gray-900 dark:text-gray-50">
+					<div className="bg-card shadow-lg border border-border rounded-lg p-8">
+						<h2 className="text-2xl font-bold mb-8 text-foreground">
 							チケット情報
 						</h2>
 
 						{/* 残り回数/時間 - 最も重要な情報を大きく表示 */}
-						<div className="mb-8 p-4 sm:p-6 bg-blue-50 dark:bg-blue-950/40 rounded-xl border-2 border-blue-200 dark:border-blue-800">
+						<div className="mb-8 p-4 sm:p-6 bg-primary/5 rounded-xl border-2 border-primary/20">
 							<div className="text-center overflow-x-auto -mx-2 sm:mx-0">
-								<span className="text-base text-gray-700 dark:text-blue-200 block mb-3">
+								<span className="text-base text-muted-foreground block mb-3">
 									残り
 									{ticket.usageUnit === "count" ? "回数" : "時間"}
 								</span>
@@ -237,8 +237,8 @@ function ScanMassageTicketContent() {
 										<p
 											className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-2 whitespace-nowrap inline-block ${
 												(ticket.remainingCount || 0) === 0
-													? "text-red-600 dark:text-red-400"
-													: "text-blue-600 dark:text-blue-400"
+													? "text-destructive"
+													: "text-primary"
 											}`}
 										>
 											{(ticket.remainingCount || 0).toLocaleString()}回
@@ -247,8 +247,8 @@ function ScanMassageTicketContent() {
 										<p
 											className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-2 whitespace-nowrap inline-block ${
 												(ticket.remainingTimeMinutes || 0) === 0
-													? "text-red-600 dark:text-red-400"
-													: "text-blue-600 dark:text-blue-400"
+													? "text-destructive"
+													: "text-primary"
 											}`}
 										>
 											{(ticket.remainingTimeMinutes || 0).toLocaleString()}分
@@ -256,12 +256,12 @@ function ScanMassageTicketContent() {
 									)}
 								</div>
 								{ticket.usageUnit === "count" && ticket.totalCount && (
-									<p className="text-lg text-gray-600 dark:text-gray-300 mt-2">
+									<p className="text-lg text-muted-foreground mt-2">
 										総回数: {(ticket.totalCount || 0).toLocaleString()}回
 									</p>
 								)}
 								{ticket.usageUnit === "time" && ticket.totalTimeMinutes && (
-									<p className="text-lg text-gray-600 dark:text-gray-300 mt-2">
+									<p className="text-lg text-muted-foreground mt-2">
 										総時間: {ticket.totalTimeMinutes}分
 									</p>
 								)}
@@ -270,49 +270,49 @@ function ScanMassageTicketContent() {
 
 						{/* 基本情報 - リスト形式 */}
 						<div className="space-y-4 mb-6">
-							<div className="flex items-center justify-between py-3 border-b border-gray-200 dark:border-gray-700">
-								<span className="text-base text-gray-600 dark:text-gray-300 font-medium">
+							<div className="flex items-center justify-between py-3 border-b border-border">
+								<span className="text-base text-muted-foreground font-medium">
 									利用者名
 								</span>
-								<span className="text-lg font-semibold text-gray-900 dark:text-gray-50">
+								<span className="text-lg font-semibold text-foreground">
 									{ticket.userName}
 								</span>
 							</div>
-							<div className="flex items-center justify-between py-3 border-b border-gray-200 dark:border-gray-700">
-								<span className="text-base text-gray-600 dark:text-gray-300 font-medium">
+							<div className="flex items-center justify-between py-3 border-b border-border">
+								<span className="text-base text-muted-foreground font-medium">
 									有効期限
 								</span>
-								<span className="text-lg font-semibold text-gray-900 dark:text-gray-50">
+								<span className="text-lg font-semibold text-foreground">
 									{ticket.expiresAt.toLocaleDateString("ja-JP")}
 								</span>
 							</div>
-							<div className="flex items-center justify-between py-3 border-b border-gray-200 dark:border-gray-700">
-								<span className="text-base text-gray-600 dark:text-gray-300 font-medium">
+							<div className="flex items-center justify-between py-3 border-b border-border">
+								<span className="text-base text-muted-foreground font-medium">
 									利用単位
 								</span>
-								<span className="text-lg font-semibold text-gray-900 dark:text-gray-50">
+								<span className="text-lg font-semibold text-foreground">
 									{ticket.usageUnit === "count" ? "回数" : "時間"}
 								</span>
 							</div>
-							<div className="flex items-center justify-between py-3 border-b border-gray-200 dark:border-gray-700">
-								<span className="text-base text-gray-600 dark:text-gray-300 font-medium">
+							<div className="flex items-center justify-between py-3 border-b border-border">
+								<span className="text-base text-muted-foreground font-medium">
 									状態
 								</span>
 								{ticket.isUsed ? (
-									<span className="inline-block px-3 py-1 rounded-full text-sm font-semibold bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-400">
+									<span className="inline-block px-3 py-1 rounded-full text-sm font-semibold bg-destructive/10 text-destructive">
 										使用済み
 									</span>
 								) : (
-									<span className="inline-block px-3 py-1 rounded-full text-sm font-semibold bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400">
+									<span className="inline-block px-3 py-1 rounded-full text-sm font-semibold bg-green-500/10 text-green-600">
 										利用可能
 									</span>
 								)}
 							</div>
 							<div className="py-3">
-								<span className="text-base text-gray-600 dark:text-gray-300 font-medium block mb-2">
+								<span className="text-base text-muted-foreground font-medium block mb-2">
 									チケットID
 								</span>
-								<p className="text-sm font-mono text-gray-700 dark:text-gray-200 break-all bg-gray-50 dark:bg-gray-800 p-3 rounded">
+								<p className="text-sm font-mono text-muted-foreground break-all bg-secondary p-3 rounded">
 									{ticket.id}
 								</p>
 							</div>
@@ -321,8 +321,8 @@ function ScanMassageTicketContent() {
 
 					{/* 利用入力フォーム */}
 					{!ticket.isUsed && (
-						<div className="bg-white dark:bg-gray-900 shadow-lg border border-gray-200 dark:border-gray-600 rounded-lg p-6">
-							<h2 className="text-xl font-semibold mb-4 text-gray-900 dark:text-gray-50">
+						<div className="bg-card shadow-lg border border-border rounded-lg p-6">
+							<h2 className="text-xl font-semibold mb-4 text-foreground">
 								利用開始
 							</h2>
 							<div className="space-y-4">
@@ -330,7 +330,7 @@ function ScanMassageTicketContent() {
 									<div>
 										<Label
 											htmlFor="usageCount"
-											className="text-gray-900 dark:text-gray-100"
+											className="text-foreground"
 										>
 											使用回数 *
 										</Label>
@@ -348,7 +348,7 @@ function ScanMassageTicketContent() {
 									<div>
 										<Label
 											htmlFor="usageTimeMinutes"
-											className="text-gray-900 dark:text-gray-100"
+											className="text-foreground"
 										>
 											使用時間（分） *
 										</Label>
@@ -376,7 +376,7 @@ function ScanMassageTicketContent() {
 					)}
 
 					{error && (
-						<div className="bg-red-50 dark:bg-red-900 border border-red-200 dark:border-red-700 rounded-lg p-4 text-red-800 dark:text-red-200">
+						<div className="bg-destructive/10 border border-destructive/30 rounded-lg p-4 text-destructive">
 							{error}
 						</div>
 					)}
@@ -403,7 +403,7 @@ export default function ScanMassageTicketPage() {
 			fallback={
 				<div className="container mx-auto px-4 py-8 max-w-2xl">
 					<div className="text-center">
-						<p className="text-gray-600 dark:text-gray-400">読み込み中...</p>
+						<p className="text-muted-foreground">読み込み中...</p>
 					</div>
 				</div>
 			}

@@ -195,24 +195,22 @@ export const AlgorithmVisualizer: React.FC<AlgorithmVisualizerProps> = ({
 	};
 
 	return (
-		<div
-			className={`bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700 ${className}`}
-		>
+		<div className={`bg-card rounded-xl p-6 border border-border ${className}`}>
 			{/* ヘッダー：現在のステップ情報 */}
 			<div className="mb-6">
 				<div className="flex items-center justify-between mb-4">
-					<h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
+					<h3 className="text-lg font-semibold text-foreground">
 						アルゴリズム実行 - ステップ {executionState.currentStep + 1} /{" "}
 						{steps.length}
 					</h3>
-					<div className="text-sm text-gray-600 dark:text-gray-400">
+					<div className="text-sm text-muted-foreground">
 						操作: {currentStepData?.operation || "待機中"}
 					</div>
 				</div>
 
 				{/* 現在のステップの説明 */}
-				<div className="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-4 border border-blue-200 dark:border-blue-700">
-					<p className="text-blue-900 dark:text-blue-100 font-medium">
+				<div className="bg-primary/5 rounded-lg p-4 border border-primary/20">
+					<p className="text-primary font-medium">
 						{currentStepData?.description || "実行準備中..."}
 					</p>
 				</div>
@@ -220,9 +218,7 @@ export const AlgorithmVisualizer: React.FC<AlgorithmVisualizerProps> = ({
 
 			{/* 配列の可視化 */}
 			<div className="mb-6">
-				<h4 className="text-md font-medium text-gray-800 dark:text-gray-200 mb-3">
-					配列の状態
-				</h4>
+				<h4 className="text-md font-medium text-foreground mb-3">配列の状態</h4>
 				<div className="flex flex-wrap gap-2 justify-center">
 					{visualElements.map((element) => (
 						<div
@@ -234,12 +230,12 @@ export const AlgorithmVisualizer: React.FC<AlgorithmVisualizerProps> = ({
 							`}
 						>
 							{/* 要素の値 */}
-							<div className="text-lg font-bold text-gray-800 dark:text-gray-100">
+							<div className="text-lg font-bold text-foreground">
 								{element.value}
 							</div>
 
 							{/* インデックス */}
-							<div className="text-xs text-gray-600 dark:text-gray-400 mt-1">
+							<div className="text-xs text-muted-foreground mt-1">
 								[{element.index}]
 							</div>
 
@@ -254,7 +250,7 @@ export const AlgorithmVisualizer: React.FC<AlgorithmVisualizerProps> = ({
 				{/* 探索範囲の表示 */}
 				{currentStepData?.searchRange && (
 					<div className="mt-4 text-center">
-						<div className="inline-flex items-center gap-2 px-3 py-1 bg-blue-100 dark:bg-blue-900/30 rounded-full text-sm text-blue-800 dark:text-blue-200">
+						<div className="inline-flex items-center gap-2 px-3 py-1 bg-primary/10 rounded-full text-sm text-primary">
 							<span>探索範囲:</span>
 							<span className="font-mono font-bold">
 								[{currentStepData.searchRange.start},{" "}
@@ -269,18 +265,18 @@ export const AlgorithmVisualizer: React.FC<AlgorithmVisualizerProps> = ({
 			{currentStepData?.variables &&
 				Object.keys(currentStepData.variables).length > 0 && (
 					<div className="mb-6">
-						<h4 className="text-md font-medium text-gray-800 dark:text-gray-200 mb-3">
+						<h4 className="text-md font-medium text-foreground mb-3">
 							変数の値
 						</h4>
-						<div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-4">
+						<div className="bg-secondary rounded-lg p-4">
 							<div className="grid grid-cols-2 md:grid-cols-4 gap-3">
 								{Object.entries(currentStepData.variables).map(
 									([key, value]) => (
 										<div key={key} className="text-center">
-											<div className="text-xs text-gray-600 dark:text-gray-400 uppercase">
+											<div className="text-xs text-muted-foreground uppercase">
 												{key}
 											</div>
-											<div className="text-lg font-mono font-bold text-gray-900 dark:text-gray-100">
+											<div className="text-lg font-mono font-bold text-foreground">
 												{String(value)}
 											</div>
 										</div>
@@ -292,13 +288,13 @@ export const AlgorithmVisualizer: React.FC<AlgorithmVisualizerProps> = ({
 				)}
 
 			{/* コントロールパネル */}
-			<div className="flex flex-col md:flex-row items-center justify-between gap-4 pt-4 border-t border-gray-200 dark:border-gray-700">
+			<div className="flex flex-col md:flex-row items-center justify-between gap-4 pt-4 border-t border-border">
 				{/* ステップ制御ボタン */}
 				<div className="flex items-center gap-2">
 					<button
 						type="button"
 						onClick={reset}
-						className="px-3 py-2 bg-gray-500 hover:bg-gray-600 text-white rounded-lg transition-colors disabled:opacity-50"
+						className="px-3 py-2 bg-gray-500 hover:bg-gray-600 text-white rounded-lg transition-colors disabled:opacity-50 cursor-pointer"
 						aria-label="リセット"
 					>
 						⏮️ リセット
@@ -308,7 +304,7 @@ export const AlgorithmVisualizer: React.FC<AlgorithmVisualizerProps> = ({
 						type="button"
 						onClick={prevStep}
 						disabled={executionState.currentStep <= 0}
-						className="px-3 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition-colors disabled:opacity-50"
+						className="px-3 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition-colors disabled:opacity-50 cursor-pointer"
 						aria-label="前のステップ"
 					>
 						⏪ 前へ
@@ -317,7 +313,7 @@ export const AlgorithmVisualizer: React.FC<AlgorithmVisualizerProps> = ({
 					<button
 						type="button"
 						onClick={toggleAutoPlay}
-						className={`px-4 py-2 rounded-lg transition-colors text-white ${
+						className={`px-4 py-2 rounded-lg transition-colors text-white cursor-pointer ${
 							executionState.autoPlay
 								? "bg-red-500 hover:bg-red-600"
 								: "bg-green-500 hover:bg-green-600"
@@ -330,7 +326,7 @@ export const AlgorithmVisualizer: React.FC<AlgorithmVisualizerProps> = ({
 						type="button"
 						onClick={nextStep}
 						disabled={executionState.currentStep >= steps.length - 1}
-						className="px-3 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition-colors disabled:opacity-50"
+						className="px-3 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition-colors disabled:opacity-50 cursor-pointer"
 						aria-label="次のステップ"
 					>
 						次へ ⏩
@@ -341,7 +337,7 @@ export const AlgorithmVisualizer: React.FC<AlgorithmVisualizerProps> = ({
 				<div className="flex items-center gap-3">
 					<label
 						htmlFor="speed-slider"
-						className="text-sm text-gray-600 dark:text-gray-400"
+						className="text-sm text-muted-foreground"
 					>
 						実行速度:
 					</label>
@@ -360,33 +356,31 @@ export const AlgorithmVisualizer: React.FC<AlgorithmVisualizerProps> = ({
 						}
 						className="w-24"
 					/>
-					<span className="text-sm text-gray-600 dark:text-gray-400 min-w-[60px]">
+					<span className="text-sm text-muted-foreground min-w-[60px]">
 						{executionState.speed}ms
 					</span>
 				</div>
 			</div>
 
 			{/* 凡例 */}
-			<div className="mt-6 pt-4 border-t border-gray-200 dark:border-gray-700">
-				<h4 className="text-sm font-medium text-gray-800 dark:text-gray-200 mb-2">
-					凡例
-				</h4>
+			<div className="mt-6 pt-4 border-t border-border">
+				<h4 className="text-sm font-medium text-foreground mb-2">凡例</h4>
 				<div className="flex flex-wrap gap-4 text-sm">
 					<div className="flex items-center gap-2">
 						<div className="w-4 h-4 bg-yellow-400 border border-yellow-600 rounded" />
-						<span className="text-gray-600 dark:text-gray-400">比較中</span>
+						<span className="text-muted-foreground">比較中</span>
 					</div>
 					<div className="flex items-center gap-2">
 						<div className="w-4 h-4 bg-green-400 border border-green-600 rounded" />
-						<span className="text-gray-600 dark:text-gray-400">発見</span>
+						<span className="text-muted-foreground">発見</span>
 					</div>
 					<div className="flex items-center gap-2">
 						<div className="w-4 h-4 bg-blue-200 border border-blue-400 rounded" />
-						<span className="text-gray-600 dark:text-gray-400">探索範囲</span>
+						<span className="text-muted-foreground">探索範囲</span>
 					</div>
 					<div className="flex items-center gap-2">
 						<div className="w-4 h-4 bg-gray-200 border border-gray-400 rounded" />
-						<span className="text-gray-600 dark:text-gray-400">探索済み</span>
+						<span className="text-muted-foreground">探索済み</span>
 					</div>
 				</div>
 			</div>

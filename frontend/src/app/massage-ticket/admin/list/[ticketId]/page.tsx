@@ -338,7 +338,7 @@ export default function MassageTicketDetailPage() {
 		return (
 			<div className="container mx-auto px-4 py-8 max-w-4xl">
 				<div className="text-center">
-					<p className="text-gray-600 dark:text-gray-400">読み込み中...</p>
+					<p className="text-muted-foreground">読み込み中...</p>
 				</div>
 			</div>
 		);
@@ -347,8 +347,8 @@ export default function MassageTicketDetailPage() {
 	if (error || !ticket) {
 		return (
 			<div className="container mx-auto px-4 py-8 max-w-4xl">
-				<div className="bg-red-50 dark:bg-red-900 border border-red-200 dark:border-red-700 rounded-lg p-6 text-center">
-					<p className="text-red-800 dark:text-red-200 mb-4">
+				<div className="bg-destructive/10 border border-destructive/30 rounded-lg p-6 text-center">
+					<p className="text-destructive mb-4">
 						{error || "肩たたき券が見つかりません"}
 					</p>
 					<Link href="/massage-ticket/admin/list">
@@ -368,7 +368,7 @@ export default function MassageTicketDetailPage() {
 			<div className="flex items-center justify-between mb-8">
 				<Link
 					href="/massage-ticket/admin/list"
-					className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300"
+					className="text-primary hover:text-primary/80"
 				>
 					← 一覧に戻る
 				</Link>
@@ -389,8 +389,8 @@ export default function MassageTicketDetailPage() {
 			</div>
 
 			{/* チケット情報 */}
-			<div className="bg-white dark:bg-gray-900 shadow-lg border border-gray-200 dark:border-gray-600 rounded-lg p-8 mb-6">
-				<h2 className="text-2xl font-bold mb-6 text-gray-900 dark:text-gray-50">
+			<div className="bg-card shadow-lg border border-border rounded-lg p-8 mb-6">
+				<h2 className="text-2xl font-bold mb-6 text-foreground">
 					チケット情報
 				</h2>
 
@@ -400,8 +400,8 @@ export default function MassageTicketDetailPage() {
 						<div
 							className={`inline-block px-4 py-2 rounded-full text-sm font-semibold ${
 								isExpired
-									? "bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200"
-									: "bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-200"
+									? "bg-destructive/10 text-destructive"
+									: "bg-orange-500/10 text-orange-600"
 							}`}
 						>
 							{isExpired ? "有効期限切れ" : "使用済み"}
@@ -410,9 +410,9 @@ export default function MassageTicketDetailPage() {
 				</div>
 
 				{/* 残り回数/時間 - 最も重要な情報を大きく表示 */}
-				<div className="mb-8 p-4 sm:p-6 bg-blue-50 dark:bg-blue-950/40 rounded-xl border-2 border-blue-200 dark:border-blue-800">
+				<div className="mb-8 p-4 sm:p-6 bg-primary/5 rounded-xl border-2 border-primary/20">
 					<div className="text-center overflow-x-auto -mx-2 sm:mx-0">
-						<span className="text-base text-gray-700 dark:text-blue-200 block mb-3">
+						<span className="text-base text-muted-foreground block mb-3">
 							残り
 							{ticket.usageUnit === "count" ? "回数" : "時間"}
 						</span>
@@ -421,8 +421,8 @@ export default function MassageTicketDetailPage() {
 								<p
 									className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-2 whitespace-nowrap inline-block ${
 										(ticket.remainingCount || 0) === 0
-											? "text-red-600 dark:text-red-400"
-											: "text-blue-600 dark:text-blue-400"
+											? "text-destructive"
+											: "text-primary"
 									}`}
 								>
 									{(ticket.remainingCount || 0).toLocaleString()}回
@@ -431,8 +431,8 @@ export default function MassageTicketDetailPage() {
 								<p
 									className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-2 whitespace-nowrap inline-block ${
 										(ticket.remainingTimeMinutes || 0) === 0
-											? "text-red-600 dark:text-red-400"
-											: "text-blue-600 dark:text-blue-400"
+											? "text-destructive"
+											: "text-primary"
 									}`}
 								>
 									{(ticket.remainingTimeMinutes || 0).toLocaleString()}分
@@ -440,12 +440,12 @@ export default function MassageTicketDetailPage() {
 							)}
 						</div>
 						{ticket.usageUnit === "count" && ticket.totalCount && (
-							<p className="text-lg text-gray-600 dark:text-gray-300 mt-2">
+							<p className="text-lg text-muted-foreground mt-2">
 								総回数: {(ticket.totalCount || 0).toLocaleString()}回
 							</p>
 						)}
 						{ticket.usageUnit === "time" && ticket.totalTimeMinutes && (
-							<p className="text-lg text-gray-600 dark:text-gray-300 mt-2">
+							<p className="text-lg text-muted-foreground mt-2">
 								総時間: {ticket.totalTimeMinutes}分
 							</p>
 						)}
@@ -454,27 +454,27 @@ export default function MassageTicketDetailPage() {
 
 				{/* 基本情報 */}
 				<div className="space-y-4 mb-6">
-					<div className="flex items-center justify-between py-3 border-b border-gray-200 dark:border-gray-700">
-						<span className="text-base text-gray-600 dark:text-gray-300 font-medium">
+					<div className="flex items-center justify-between py-3 border-b border-border">
+						<span className="text-base text-muted-foreground font-medium">
 							利用者名
 						</span>
-						<span className="text-lg font-semibold text-gray-900 dark:text-gray-50">
+						<span className="text-lg font-semibold text-foreground">
 							{ticket.userName}
 						</span>
 					</div>
-					<div className="flex items-center justify-between py-3 border-b border-gray-200 dark:border-gray-700">
-						<span className="text-base text-gray-600 dark:text-gray-300 font-medium">
+					<div className="flex items-center justify-between py-3 border-b border-border">
+						<span className="text-base text-muted-foreground font-medium">
 							チケットID
 						</span>
-						<span className="text-sm font-mono text-gray-700 dark:text-gray-200 break-all">
+						<span className="text-sm font-mono text-muted-foreground break-all">
 							{ticket.id}
 						</span>
 					</div>
-					<div className="flex items-center justify-between py-3 border-b border-gray-200 dark:border-gray-700">
-						<span className="text-base text-gray-600 dark:text-gray-300 font-medium">
+					<div className="flex items-center justify-between py-3 border-b border-border">
+						<span className="text-base text-muted-foreground font-medium">
 							作成日
 						</span>
-						<span className="text-lg font-semibold text-gray-900 dark:text-gray-50">
+						<span className="text-lg font-semibold text-foreground">
 							{ticket.createdAt.toLocaleDateString("ja-JP")}{" "}
 							{ticket.createdAt.toLocaleTimeString("ja-JP", {
 								hour: "2-digit",
@@ -482,38 +482,38 @@ export default function MassageTicketDetailPage() {
 							})}
 						</span>
 					</div>
-					<div className="flex items-center justify-between py-3 border-b border-gray-200 dark:border-gray-700">
-						<span className="text-base text-gray-600 dark:text-gray-300 font-medium">
+					<div className="flex items-center justify-between py-3 border-b border-border">
+						<span className="text-base text-muted-foreground font-medium">
 							有効期限
 						</span>
 						<span
 							className={`text-lg font-semibold ${
 								isExpired
-									? "text-red-600 dark:text-red-400"
-									: "text-gray-900 dark:text-gray-50"
+									? "text-destructive"
+									: "text-foreground"
 							}`}
 						>
 							{ticket.expiresAt.toLocaleDateString("ja-JP")}
 						</span>
 					</div>
-					<div className="flex items-center justify-between py-3 border-b border-gray-200 dark:border-gray-700">
-						<span className="text-base text-gray-600 dark:text-gray-300 font-medium">
+					<div className="flex items-center justify-between py-3 border-b border-border">
+						<span className="text-base text-muted-foreground font-medium">
 							利用単位
 						</span>
-						<span className="text-lg font-semibold text-gray-900 dark:text-gray-50">
+						<span className="text-lg font-semibold text-foreground">
 							{ticket.usageUnit === "count" ? "回数" : "時間"}
 						</span>
 					</div>
 					<div className="flex items-center justify-between py-3">
-						<span className="text-base text-gray-600 dark:text-gray-300 font-medium">
+						<span className="text-base text-muted-foreground font-medium">
 							状態
 						</span>
 						{isFullyUsed ? (
-							<span className="inline-block px-3 py-1 rounded-full text-sm font-semibold bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-400">
+							<span className="inline-block px-3 py-1 rounded-full text-sm font-semibold bg-destructive/10 text-destructive">
 								使用済み
 							</span>
 						) : (
-							<span className="inline-block px-3 py-1 rounded-full text-sm font-semibold bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400">
+							<span className="inline-block px-3 py-1 rounded-full text-sm font-semibold bg-green-500/10 text-green-600">
 								利用可能
 							</span>
 						)}
@@ -522,42 +522,42 @@ export default function MassageTicketDetailPage() {
 			</div>
 
 			{/* 利用履歴 */}
-			<div className="bg-white dark:bg-gray-900 shadow-lg border border-gray-200 dark:border-gray-600 rounded-lg p-8">
-				<h2 className="text-2xl font-bold mb-6 text-gray-900 dark:text-gray-50">
+			<div className="bg-card shadow-lg border border-border rounded-lg p-8">
+				<h2 className="text-2xl font-bold mb-6 text-foreground">
 					利用履歴
 				</h2>
 
 				{ticket.usages.length === 0 ? (
-					<p className="text-gray-600 dark:text-gray-400 text-center py-8">
+					<p className="text-muted-foreground text-center py-8">
 						まだ利用されていません
 					</p>
 				) : (
 					<div className="overflow-x-auto">
 						<table className="w-full">
-							<thead className="bg-gray-50 dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
+							<thead className="bg-secondary border-b border-border">
 								<tr>
-									<th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+									<th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider">
 										利用日時
 									</th>
-									<th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+									<th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider">
 										利用量
 									</th>
 								</tr>
 							</thead>
-							<tbody className="bg-white dark:bg-gray-900 divide-y divide-gray-200 dark:divide-gray-700">
+							<tbody className="bg-card divide-y divide-border">
 								{ticket.usages.map((usage) => (
 									<tr
 										key={usage.id}
-										className="hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
+										className="hover:bg-secondary transition-colors"
 									>
-										<td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600 dark:text-gray-300">
+										<td className="px-6 py-4 whitespace-nowrap text-sm text-muted-foreground">
 											{usage.usedAt.toLocaleDateString("ja-JP")}{" "}
 											{usage.usedAt.toLocaleTimeString("ja-JP", {
 												hour: "2-digit",
 												minute: "2-digit",
 											})}
 										</td>
-										<td className="px-6 py-4 whitespace-nowrap text-sm font-semibold text-gray-900 dark:text-gray-50">
+										<td className="px-6 py-4 whitespace-nowrap text-sm font-semibold text-foreground">
 											{ticket.usageUnit === "count"
 												? `${usage.usedCount || 0}回`
 												: `${usage.usedTimeMinutes || 0}分`}
@@ -571,20 +571,20 @@ export default function MassageTicketDetailPage() {
 			</div>
 
 			{/* QRコード表示 */}
-			<div className="bg-white dark:bg-gray-900 shadow-lg border border-gray-200 dark:border-gray-600 rounded-lg p-8">
-				<h2 className="text-2xl font-bold mb-6 text-gray-900 dark:text-gray-50">
+			<div className="bg-card shadow-lg border border-border rounded-lg p-8">
+				<h2 className="text-2xl font-bold mb-6 text-foreground">
 					QRコード
 				</h2>
 				{qrCodeDataUrl ? (
 					<div className="flex flex-col items-center space-y-4">
-						<div className="bg-white dark:bg-gray-800 p-4 rounded-lg border border-gray-200 dark:border-gray-700">
+						<div className="bg-card p-4 rounded-lg border border-border">
 							<img
 								src={qrCodeDataUrl}
 								alt="QRコード"
 								className="w-64 h-64 md:w-80 md:h-80"
 							/>
 						</div>
-						<p className="text-sm text-gray-600 dark:text-gray-400 text-center">
+						<p className="text-sm text-muted-foreground text-center">
 							このQRコードをスキャンして利用開始できます
 						</p>
 						<div className="flex gap-2">
@@ -621,7 +621,7 @@ export default function MassageTicketDetailPage() {
 					</div>
 				) : (
 					<div className="text-center py-8">
-						<p className="text-gray-600 dark:text-gray-400 mb-4">
+						<p className="text-muted-foreground mb-4">
 							QRコードを生成中...
 						</p>
 						<Button

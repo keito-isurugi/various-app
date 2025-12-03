@@ -69,7 +69,7 @@ export default function ViewMassageTicketPage() {
 		return (
 			<div className="container mx-auto px-4 py-8 max-w-2xl">
 				<div className="text-center">
-					<p className="text-gray-600 dark:text-gray-400">読み込み中...</p>
+					<p className="text-muted-foreground">読み込み中...</p>
 				</div>
 			</div>
 		);
@@ -78,8 +78,8 @@ export default function ViewMassageTicketPage() {
 	if (error || !ticket) {
 		return (
 			<div className="container mx-auto px-4 py-8 max-w-2xl">
-				<div className="bg-red-50 dark:bg-red-900 border border-red-200 dark:border-red-700 rounded-lg p-6 text-center">
-					<p className="text-red-800 dark:text-red-200">
+				<div className="bg-destructive/10 border border-destructive/30 rounded-lg p-6 text-center">
+					<p className="text-destructive">
 						{error || "肩たたき券が見つかりません"}
 					</p>
 					<Button
@@ -101,18 +101,18 @@ export default function ViewMassageTicketPage() {
 
 	return (
 		<div className="container mx-auto px-4 py-8 max-w-2xl">
-			<div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 p-6 md:p-8">
+			<div className="bg-card rounded-lg shadow-lg border border-border p-6 md:p-8">
 				{/* ヘッダー */}
 				<div className="text-center mb-8">
-					<h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-2">
+					<h1 className="text-3xl font-bold text-foreground mb-2">
 						肩たたき券
 					</h1>
 					{(isExpired || isFullyUsed) && (
 						<div
 							className={`inline-block px-4 py-2 rounded-full text-sm font-semibold ${
 								isExpired
-									? "bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200"
-									: "bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-200"
+									? "bg-destructive/10 text-destructive"
+									: "bg-orange-500/10 text-orange-600"
 							}`}
 						>
 							{isExpired ? "有効期限切れ" : "使用済み"}
@@ -122,43 +122,43 @@ export default function ViewMassageTicketPage() {
 
 				{/* チケット情報 */}
 				<div className="space-y-4 mb-8">
-					<div className="bg-gray-50 dark:bg-gray-700/50 rounded-lg p-4">
+					<div className="bg-secondary rounded-lg p-4">
 						<div className="grid grid-cols-1 md:grid-cols-2 gap-4">
 							<div>
-								<span className="text-sm text-gray-600 dark:text-gray-400 block">
+								<span className="text-sm text-muted-foreground block">
 									利用者名
 								</span>
-								<p className="text-lg font-semibold text-gray-900 dark:text-gray-100">
+								<p className="text-lg font-semibold text-foreground">
 									{ticket.userName}
 								</p>
 							</div>
 							<div>
-								<span className="text-sm text-gray-600 dark:text-gray-400 block">
+								<span className="text-sm text-muted-foreground block">
 									有効期限
 								</span>
 								<p
 									className={`text-lg font-semibold ${
 										isExpired
-											? "text-red-600 dark:text-red-400"
-											: "text-gray-900 dark:text-gray-100"
+											? "text-destructive"
+											: "text-foreground"
 									}`}
 								>
 									{ticket.expiresAt.toLocaleDateString("ja-JP")}
 								</p>
 							</div>
 							<div>
-								<span className="text-sm text-gray-600 dark:text-gray-400 block">
+								<span className="text-sm text-muted-foreground block">
 									チケットID
 								</span>
-								<p className="text-sm font-mono text-gray-700 dark:text-gray-300 break-all">
+								<p className="text-sm font-mono text-muted-foreground break-all">
 									{ticket.id}
 								</p>
 							</div>
 							<div>
-								<span className="text-sm text-gray-600 dark:text-gray-400 block">
+								<span className="text-sm text-muted-foreground block">
 									利用単位
 								</span>
-								<p className="text-lg font-semibold text-gray-900 dark:text-gray-100">
+								<p className="text-lg font-semibold text-foreground">
 									{ticket.usageUnit === "count" ? "回数" : "時間"}
 								</p>
 							</div>
@@ -166,8 +166,8 @@ export default function ViewMassageTicketPage() {
 					</div>
 
 					{/* 残り回数/時間 */}
-					<div className="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-4 sm:p-6 text-center">
-						<span className="text-sm text-gray-600 dark:text-gray-400 mb-2 block">
+					<div className="bg-primary/5 rounded-lg p-4 sm:p-6 text-center">
+						<span className="text-sm text-muted-foreground mb-2 block">
 							残り
 						</span>
 						<div className="overflow-x-auto -mx-2 sm:mx-0">
@@ -176,8 +176,8 @@ export default function ViewMassageTicketPage() {
 									<p
 										className={`text-2xl sm:text-3xl md:text-4xl font-bold whitespace-nowrap inline-block ${
 											(ticket.remainingCount || 0) === 0
-												? "text-red-600 dark:text-red-400"
-												: "text-blue-600 dark:text-blue-400"
+												? "text-destructive"
+												: "text-primary"
 										}`}
 									>
 										{(ticket.remainingCount || 0).toLocaleString()}回
@@ -186,8 +186,8 @@ export default function ViewMassageTicketPage() {
 									<p
 										className={`text-2xl sm:text-3xl md:text-4xl font-bold whitespace-nowrap inline-block ${
 											(ticket.remainingTimeMinutes || 0) === 0
-												? "text-red-600 dark:text-red-400"
-												: "text-blue-600 dark:text-blue-400"
+												? "text-destructive"
+												: "text-primary"
 										}`}
 									>
 										{(ticket.remainingTimeMinutes || 0).toLocaleString()}分
@@ -196,12 +196,12 @@ export default function ViewMassageTicketPage() {
 							</div>
 						</div>
 						{ticket.usageUnit === "count" && ticket.totalCount && (
-							<p className="text-sm text-gray-600 dark:text-gray-400 mt-2">
+							<p className="text-sm text-muted-foreground mt-2">
 								総回数: {(ticket.totalCount || 0).toLocaleString()}回
 							</p>
 						)}
 						{ticket.usageUnit === "time" && ticket.totalTimeMinutes && (
-							<p className="text-sm text-gray-600 dark:text-gray-400 mt-2">
+							<p className="text-sm text-muted-foreground mt-2">
 								総時間: {ticket.totalTimeMinutes}分
 							</p>
 						)}
@@ -210,14 +210,14 @@ export default function ViewMassageTicketPage() {
 					{/* QRコード */}
 					{qrCodeDataUrl && (
 						<div className="flex flex-col items-center space-y-4">
-							<div className="bg-white dark:bg-gray-700 p-4 rounded-lg">
+							<div className="bg-card p-4 rounded-lg border border-border">
 								<img
 									src={qrCodeDataUrl}
 									alt="QRコード"
 									className="w-64 h-64 md:w-80 md:h-80"
 								/>
 							</div>
-							<p className="text-sm text-gray-600 dark:text-gray-400 text-center">
+							<p className="text-sm text-muted-foreground text-center">
 								このQRコードを管理者に提示してください
 							</p>
 						</div>

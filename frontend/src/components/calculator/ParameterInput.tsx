@@ -99,22 +99,16 @@ export const ParameterInput: React.FC<ParameterInputProps> = ({
 			{/* ラベル */}
 			<label
 				htmlFor={inputId}
-				className="block text-sm font-medium text-gray-700 dark:text-gray-300"
+				className="block text-sm font-medium text-foreground"
 			>
 				{parameter.name}
-				{parameter.required && (
-					<span className="text-red-500 dark:text-red-400 ml-1">*</span>
-				)}
-				<span className="text-gray-500 dark:text-gray-400 ml-2">
-					({parameter.unit})
-				</span>
+				{parameter.required && <span className="text-destructive ml-1">*</span>}
+				<span className="text-muted-foreground ml-2">({parameter.unit})</span>
 			</label>
 
 			{/* 説明 */}
 			{parameter.description && (
-				<p className="text-sm text-gray-600 dark:text-gray-400">
-					{parameter.description}
-				</p>
+				<p className="text-sm text-muted-foreground">{parameter.description}</p>
 			)}
 
 			{/* 入力フィールド */}
@@ -130,21 +124,19 @@ export const ParameterInput: React.FC<ParameterInputProps> = ({
 					aria-label={`${parameter.name} (${parameter.unit})`}
 					aria-describedby={hasError ? errorId : undefined}
 					aria-invalid={hasError}
-					className={`w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 focus:border-blue-500 dark:focus:border-blue-400 transition-colors ${
-						hasError
-							? "border-red-500 dark:border-red-400"
-							: "border-gray-300 dark:border-gray-600"
+					className={`w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-colors ${
+						hasError ? "border-destructive" : "border-input"
 					} ${
 						disabled
-							? "bg-gray-50 dark:bg-gray-800 text-gray-500 dark:text-gray-400 cursor-not-allowed"
-							: "bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100"
+							? "bg-secondary text-muted-foreground cursor-not-allowed"
+							: "bg-background text-foreground"
 					}`}
 					placeholder={`例: ${typeof parameter.value === "number" && !Number.isNaN(parameter.value) ? parameter.value.toExponential() : parameter.value}`}
 				/>
 
 				{/* 単位表示 */}
 				<div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
-					<span className="text-gray-500 dark:text-gray-400 text-sm">
+					<span className="text-muted-foreground text-sm">
 						{parameter.unit}
 					</span>
 				</div>
@@ -152,10 +144,7 @@ export const ParameterInput: React.FC<ParameterInputProps> = ({
 
 			{/* エラーメッセージ */}
 			{hasError && (
-				<p
-					id={errorId}
-					className="text-sm text-red-600 dark:text-red-400 flex items-center"
-				>
+				<p id={errorId} className="text-sm text-destructive flex items-center">
 					<svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
 						<title>エラー</title>
 						<path
@@ -170,7 +159,7 @@ export const ParameterInput: React.FC<ParameterInputProps> = ({
 
 			{/* 範囲情報 */}
 			{(parameter.min !== undefined || parameter.max !== undefined) && (
-				<p className="text-xs text-gray-500 dark:text-gray-400">
+				<p className="text-xs text-muted-foreground">
 					範囲: {parameter.min ?? "無制限"} ～ {parameter.max ?? "無制限"}
 				</p>
 			)}

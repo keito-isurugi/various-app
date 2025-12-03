@@ -38,7 +38,7 @@ export default function MassageTicketListPage() {
 		return (
 			<div className="container mx-auto px-4 py-8 max-w-6xl">
 				<div className="text-center">
-					<p className="text-gray-600 dark:text-gray-400">読み込み中...</p>
+					<p className="text-muted-foreground">読み込み中...</p>
 				</div>
 			</div>
 		);
@@ -75,14 +75,14 @@ export default function MassageTicketListPage() {
 			</div>
 
 			{error && (
-				<div className="bg-red-50 dark:bg-red-900 border border-red-200 dark:border-red-700 rounded-lg p-4 mb-6 text-red-800 dark:text-red-200">
+				<div className="bg-destructive/10 border border-destructive/30 rounded-lg p-4 mb-6 text-destructive">
 					{error}
 				</div>
 			)}
 
 			{tickets.length === 0 ? (
-				<div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-8 text-center">
-					<p className="text-gray-600 dark:text-gray-400 mb-4">
+				<div className="bg-secondary rounded-lg p-8 text-center">
+					<p className="text-muted-foreground mb-4">
 						肩たたき券がまだ作成されていません
 					</p>
 					<Link href="/massage-ticket/admin/create">
@@ -90,35 +90,35 @@ export default function MassageTicketListPage() {
 					</Link>
 				</div>
 			) : (
-				<div className="bg-white dark:bg-gray-900 shadow-lg border border-gray-200 dark:border-gray-600 rounded-lg overflow-hidden">
+				<div className="bg-card shadow-lg border border-border rounded-lg overflow-hidden">
 					<div className="overflow-x-auto">
 						<table className="w-full">
-							<thead className="bg-gray-50 dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
+							<thead className="bg-secondary border-b border-border">
 								<tr>
-									<th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+									<th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider">
 										利用者名
 									</th>
-									<th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+									<th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider">
 										作成日
 									</th>
-									<th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+									<th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider">
 										有効期限
 									</th>
-									<th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+									<th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider">
 										利用単位
 									</th>
-									<th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+									<th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider">
 										残り
 									</th>
-									<th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+									<th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider">
 										状態
 									</th>
-									<th className="px-6 py-3 text-right text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+									<th className="px-6 py-3 text-right text-xs font-medium text-muted-foreground uppercase tracking-wider">
 										操作
 									</th>
 								</tr>
 							</thead>
-							<tbody className="bg-white dark:bg-gray-900 divide-y divide-gray-200 dark:divide-gray-700">
+							<tbody className="bg-card divide-y divide-border">
 								{tickets.map((ticket) => {
 									const isExpired = new Date() > ticket.expiresAt;
 									const isFullyUsed = ticket.isUsed;
@@ -126,31 +126,31 @@ export default function MassageTicketListPage() {
 									return (
 										<tr
 											key={ticket.id}
-											className="hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
+											className="hover:bg-secondary transition-colors"
 										>
 											<td className="px-6 py-4 whitespace-nowrap">
 												<Link
 													href={`/massage-ticket/admin/list/${ticket.id}`}
-													className="text-lg font-semibold text-gray-900 dark:text-gray-50 hover:text-blue-600 dark:hover:text-blue-400"
+													className="text-lg font-semibold text-foreground hover:text-primary"
 												>
 													{ticket.userName}
 												</Link>
 											</td>
-											<td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600 dark:text-gray-300">
+											<td className="px-6 py-4 whitespace-nowrap text-sm text-muted-foreground">
 												{ticket.createdAt.toLocaleDateString("ja-JP")}
 											</td>
 											<td className="px-6 py-4 whitespace-nowrap text-sm">
 												<span
 													className={
 														isExpired
-															? "text-red-600 dark:text-red-400"
-															: "text-gray-600 dark:text-gray-300"
+															? "text-destructive"
+															: "text-muted-foreground"
 													}
 												>
 													{ticket.expiresAt.toLocaleDateString("ja-JP")}
 												</span>
 											</td>
-											<td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600 dark:text-gray-300">
+											<td className="px-6 py-4 whitespace-nowrap text-sm text-muted-foreground">
 												{ticket.usageUnit === "count" ? "回数" : "時間"}
 											</td>
 											<td className="px-6 py-4 whitespace-nowrap text-sm font-semibold">
@@ -158,8 +158,8 @@ export default function MassageTicketListPage() {
 													<span
 														className={
 															(ticket.remainingCount || 0) === 0
-																? "text-red-600 dark:text-red-400"
-																: "text-blue-600 dark:text-blue-400"
+																? "text-destructive"
+																: "text-primary"
 														}
 													>
 														{(ticket.remainingCount || 0).toLocaleString()}回
@@ -168,8 +168,8 @@ export default function MassageTicketListPage() {
 													<span
 														className={
 															(ticket.remainingTimeMinutes || 0) === 0
-																? "text-red-600 dark:text-red-400"
-																: "text-blue-600 dark:text-blue-400"
+																? "text-destructive"
+																: "text-primary"
 														}
 													>
 														{(
@@ -181,15 +181,15 @@ export default function MassageTicketListPage() {
 											</td>
 											<td className="px-6 py-4 whitespace-nowrap">
 												{isFullyUsed ? (
-													<span className="inline-block px-2 py-1 rounded-full text-xs font-semibold bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-400">
+													<span className="inline-block px-2 py-1 rounded-full text-xs font-semibold bg-destructive/10 text-destructive">
 														使用済み
 													</span>
 												) : isExpired ? (
-													<span className="inline-block px-2 py-1 rounded-full text-xs font-semibold bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-400">
+													<span className="inline-block px-2 py-1 rounded-full text-xs font-semibold bg-orange-500/10 text-orange-600">
 														期限切れ
 													</span>
 												) : (
-													<span className="inline-block px-2 py-1 rounded-full text-xs font-semibold bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400">
+													<span className="inline-block px-2 py-1 rounded-full text-xs font-semibold bg-green-500/10 text-green-600">
 														利用可能
 													</span>
 												)}
@@ -197,7 +197,7 @@ export default function MassageTicketListPage() {
 											<td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium space-x-2">
 												<Link
 													href={`/massage-ticket/admin/list/${ticket.id}`}
-													className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300"
+													className="text-primary hover:text-primary/80"
 												>
 													詳細
 												</Link>

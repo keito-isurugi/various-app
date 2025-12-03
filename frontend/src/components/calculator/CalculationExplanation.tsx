@@ -81,24 +81,24 @@ export const CalculationExplanation: React.FC<CalculationExplanationProps> = ({
 	const getSectionStyles = (importance: ExplanationSection["importance"]) => {
 		switch (importance) {
 			case "high":
-				return "border-blue-200 dark:border-blue-700 bg-blue-50 dark:bg-blue-900/20";
+				return "border-primary/30 bg-primary/5";
 			case "medium":
-				return "border-green-200 dark:border-green-700 bg-green-50 dark:bg-green-900/20";
+				return "border-green-500/30 bg-green-500/5";
 			case "low":
-				return "border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50";
+				return "border-border bg-secondary";
 			default:
-				return "border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50";
+				return "border-border bg-secondary";
 		}
 	};
 
 	return (
 		<div
-			className={`bg-white dark:bg-gray-800 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 ${className}`}
+			className={`bg-card rounded-xl shadow-lg border border-border ${className}`}
 		>
 			{/* ヘッダー部分 */}
 			<button
 				type="button"
-				className="w-full p-6 text-left hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors rounded-t-xl"
+				className="w-full p-6 text-left hover:bg-secondary transition-colors rounded-t-xl cursor-pointer"
 				onClick={toggleMainExpansion}
 				aria-expanded={isExpanded}
 				aria-label={`${explanationData.title}の解説を${isExpanded ? "折りたたむ" : "展開する"}`}
@@ -123,10 +123,10 @@ export const CalculationExplanation: React.FC<CalculationExplanationProps> = ({
 							</svg>
 						</div>
 						<div>
-							<h3 className="text-xl font-bold text-gray-900 dark:text-gray-100">
+							<h3 className="text-xl font-bold text-foreground">
 								{explanationData.title}
 							</h3>
-							<p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
+							<p className="text-sm text-muted-foreground mt-1">
 								クリックして詳細な解説を見る
 							</p>
 						</div>
@@ -156,20 +156,18 @@ export const CalculationExplanation: React.FC<CalculationExplanationProps> = ({
 
 			{/* 展開コンテンツ */}
 			{isExpanded && (
-				<div className="px-6 pb-6 border-t border-gray-200 dark:border-gray-700">
+				<div className="px-6 pb-6 border-t border-border">
 					{/* 概要説明 */}
-					<div className="mt-6 p-4 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/30 dark:to-indigo-900/30 rounded-lg border border-blue-200 dark:border-blue-700/50">
-						<h4 className="text-lg font-semibold text-blue-900 dark:text-blue-100 mb-2">
-							📚 概要
-						</h4>
-						<p className="text-blue-800 dark:text-blue-200 leading-relaxed">
+					<div className="mt-6 p-4 bg-primary/5 rounded-lg border border-primary/20">
+						<h4 className="text-lg font-semibold text-primary mb-2">📚 概要</h4>
+						<p className="text-foreground leading-relaxed">
 							{explanationData.overview}
 						</p>
 					</div>
 
 					{/* 詳細セクション */}
 					<div className="mt-6 space-y-4">
-						<h4 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">
+						<h4 className="text-lg font-semibold text-foreground mb-4">
 							🔍 詳細解説
 						</h4>
 
@@ -179,18 +177,18 @@ export const CalculationExplanation: React.FC<CalculationExplanationProps> = ({
 							return (
 								<div
 									key={sectionId}
-									className={`border rounded-lg ${!isDetailedSection ? getSectionStyles((section as any).importance) : "border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50"}`}
+									className={`border rounded-lg ${!isDetailedSection ? getSectionStyles((section as any).importance) : "border-border bg-secondary"}`}
 								>
 									{/* セクションヘッダー */}
 									<button
 										type="button"
-										className="w-full p-4 text-left hover:bg-opacity-80 transition-colors"
+										className="w-full p-4 text-left hover:opacity-80 transition-opacity cursor-pointer"
 										onClick={() => toggleSectionExpansion(sectionId)}
 										aria-expanded={expandedSections.has(sectionId)}
 										aria-label={`${section.title}の詳細を${expandedSections.has(sectionId) ? "折りたたむ" : "展開する"}`}
 									>
 										<div className="flex items-center justify-between">
-											<h5 className="font-semibold text-gray-900 dark:text-gray-100">
+											<h5 className="font-semibold text-foreground">
 												{section.title}
 											</h5>
 											<div
@@ -216,19 +214,19 @@ export const CalculationExplanation: React.FC<CalculationExplanationProps> = ({
 
 									{/* セクションコンテンツ */}
 									{expandedSections.has(sectionId) && (
-										<div className="px-4 pb-4 border-t border-gray-200 dark:border-gray-600 pt-4">
+										<div className="px-4 pb-4 border-t border-border pt-4">
 											{/* 説明文 */}
-											<p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4 whitespace-pre-line">
+											<p className="text-muted-foreground leading-relaxed mb-4 whitespace-pre-line">
 												{section.content}
 											</p>
 
 											{/* 数式表示（通常のExplanationSection用） */}
 											{!isDetailedSection && (section as any).formula && (
-												<div className="mb-4 p-3 bg-white dark:bg-gray-700 rounded-md border border-gray-200 dark:border-gray-600">
-													<h6 className="text-sm font-semibold text-gray-600 dark:text-gray-400 mb-2">
+												<div className="mb-4 p-3 bg-card rounded-md border border-border">
+													<h6 className="text-sm font-semibold text-muted-foreground mb-2">
 														📐 数式
 													</h6>
-													<div className="text-lg font-mono text-center text-gray-800 dark:text-gray-200">
+													<div className="text-lg font-mono text-center text-foreground">
 														{(section as any).formula?.replace(
 															/<[^>]*>/g,
 															"",
@@ -242,22 +240,22 @@ export const CalculationExplanation: React.FC<CalculationExplanationProps> = ({
 												(section as any).formulas &&
 												(section as any).formulas.length > 0 && (
 													<div className="mb-4 space-y-3">
-														<h6 className="text-sm font-semibold text-gray-600 dark:text-gray-400">
+														<h6 className="text-sm font-semibold text-muted-foreground">
 															📐 数式
 														</h6>
 														{(section as any).formulas.map(
 															(formula: any, formulaIndex: number) => (
 																<div
 																	key={`formula-${formula.name || formulaIndex}`}
-																	className="p-3 bg-white dark:bg-gray-700 rounded-md border border-gray-200 dark:border-gray-600"
+																	className="p-3 bg-card rounded-md border border-border"
 																>
-																	<div className="font-semibold text-sm text-gray-700 dark:text-gray-300 mb-1">
+																	<div className="font-semibold text-sm text-muted-foreground mb-1">
 																		{formula.name}
 																	</div>
-																	<div className="text-lg font-mono text-center text-gray-800 dark:text-gray-200 mb-2">
+																	<div className="text-lg font-mono text-center text-foreground mb-2">
 																		{formula.expression}
 																	</div>
-																	<div className="text-xs text-gray-600 dark:text-gray-400">
+																	<div className="text-xs text-muted-foreground">
 																		{formula.description}
 																	</div>
 																</div>
@@ -270,8 +268,8 @@ export const CalculationExplanation: React.FC<CalculationExplanationProps> = ({
 											{!isDetailedSection &&
 												(section as any).examples &&
 												(section as any).examples.length > 0 && (
-													<div className="p-3 bg-yellow-50 dark:bg-yellow-900/20 rounded-md border border-yellow-200 dark:border-yellow-700/50">
-														<h6 className="text-sm font-semibold text-yellow-800 dark:text-yellow-200 mb-2">
+													<div className="p-3 bg-yellow-500/10 rounded-md border border-yellow-500/30">
+														<h6 className="text-sm font-semibold text-yellow-600 mb-2">
 															💡 具体例
 														</h6>
 														<ul className="space-y-1">
@@ -279,7 +277,7 @@ export const CalculationExplanation: React.FC<CalculationExplanationProps> = ({
 																(example: string, exampleIndex: number) => (
 																	<li
 																		key={`example-${example.slice(0, 30)}-${sectionId}-${exampleIndex}`}
-																		className="text-sm text-yellow-700 dark:text-yellow-300 flex items-start gap-2"
+																		className="text-sm text-foreground flex items-start gap-2"
 																	>
 																		<span className="text-yellow-500 mt-1">
 																			•
@@ -297,19 +295,19 @@ export const CalculationExplanation: React.FC<CalculationExplanationProps> = ({
 												(section as any).examples &&
 												(section as any).examples.length > 0 && (
 													<div className="mb-4 space-y-3">
-														<h6 className="text-sm font-semibold text-yellow-800 dark:text-yellow-200">
+														<h6 className="text-sm font-semibold text-yellow-600">
 															💡 実装例
 														</h6>
 														{(section as any).examples.map(
 															(example: any, exampleIndex: number) => (
 																<div
 																	key={`example-${example.title || exampleIndex}`}
-																	className="p-3 bg-yellow-50 dark:bg-yellow-900/20 rounded-md border border-yellow-200 dark:border-yellow-700/50"
+																	className="p-3 bg-yellow-500/10 rounded-md border border-yellow-500/30"
 																>
-																	<div className="font-semibold text-sm text-yellow-800 dark:text-yellow-200 mb-2">
+																	<div className="font-semibold text-sm text-yellow-600 mb-2">
 																		{example.title}
 																	</div>
-																	<pre className="text-xs text-yellow-700 dark:text-yellow-300 overflow-x-auto whitespace-pre-wrap font-mono bg-yellow-100 dark:bg-yellow-900/40 p-2 rounded">
+																	<pre className="text-xs text-foreground overflow-x-auto whitespace-pre-wrap font-mono bg-secondary p-2 rounded">
 																		{example.code}
 																	</pre>
 																</div>

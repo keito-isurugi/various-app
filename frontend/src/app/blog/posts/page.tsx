@@ -22,14 +22,14 @@ export default async function Home() {
 		const posts: any = response.results;
 
 		return (
-			<div className="min-h-screen bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 py-20">
+			<div className="min-h-screen bg-gradient-to-br from-secondary to-background py-20">
 				<div className="container mx-auto px-4 max-w-4xl">
 					{/* ページヘッダー */}
 					<header className="text-center mb-12">
-						<h1 className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 bg-clip-text text-transparent mb-4">
+						<h1 className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-4">
 							ブログ一覧
 						</h1>
-						<p className="text-lg text-gray-600 dark:text-gray-300">
+						<p className="text-lg text-muted-foreground">
 							技術記事やプログラミングに関する投稿をまとめています
 						</p>
 					</header>
@@ -39,15 +39,15 @@ export default async function Home() {
 						{posts?.map((post: any) => (
 							<article
 								key={post.id}
-								className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl p-6 border border-gray-200 dark:border-gray-700 shadow-lg hover:shadow-xl transition-all duration-300 hover:transform hover:scale-105"
+								className="bg-card/80 backdrop-blur-sm rounded-xl p-6 border border-border shadow-lg hover:shadow-xl transition-all duration-300 hover:transform hover:scale-105"
 							>
 								<Link href={`/blog/posts/${post.id}`} className="block group">
-									<h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+									<h2 className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
 										{post.properties.title.title[0].plain_text}
 									</h2>
 								</Link>
 
-								<div className="flex flex-wrap items-center gap-4 text-sm text-gray-600 dark:text-gray-400">
+								<div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
 									{/* 更新日 */}
 									<div className="flex items-center gap-1">
 										<svg
@@ -89,14 +89,14 @@ export default async function Home() {
 										</svg>
 										<div className="flex flex-wrap gap-2">
 											{post.properties.tag.multi_select.length === 0 ? (
-												<span className="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 rounded-md text-xs">
+												<span className="px-2 py-1 bg-secondary text-muted-foreground rounded-md text-xs">
 													なし
 												</span>
 											) : (
 												post.properties.tag.multi_select.map((tag: any) => (
 													<span
 														key={tag.id}
-														className="px-2 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300 rounded-md text-xs font-medium"
+														className="px-2 py-1 bg-primary/10 text-primary rounded-md text-xs font-medium"
 													>
 														{tag.name}
 													</span>
@@ -111,7 +111,7 @@ export default async function Home() {
 
 					{/* フッター */}
 					<footer className="mt-12 text-center">
-						<p className="text-gray-500 dark:text-gray-400 text-sm">
+						<p className="text-muted-foreground text-sm">
 							定期的に新しい記事を投稿しています
 						</p>
 					</footer>
@@ -124,12 +124,12 @@ export default async function Home() {
 
 		// エラー時のフォールバック表示
 		return (
-			<div className="min-h-screen bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 py-20">
+			<div className="min-h-screen bg-gradient-to-br from-secondary to-background py-20">
 				<div className="container mx-auto px-4 max-w-4xl text-center">
-					<h1 className="text-4xl font-bold text-gray-900 dark:text-gray-100 mb-4">
+					<h1 className="text-4xl font-bold text-foreground mb-4">
 						エラーが発生しました
 					</h1>
-					<p className="text-lg text-gray-600 dark:text-gray-300 mb-8">
+					<p className="text-lg text-muted-foreground mb-8">
 						申し訳ありませんが、ブログ記事の読み込み中にエラーが発生しました。
 					</p>
 					<Link

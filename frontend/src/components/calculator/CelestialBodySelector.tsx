@@ -52,7 +52,7 @@ export const CelestialBodySelector: React.FC<CelestialBodySelectorProps> = ({
 					value={selectedBodyId || ""}
 					onChange={handleSelectChange}
 					disabled={disabled}
-					className="input appearance-none bg-background pr-12 text-lg font-medium cursor-pointer disabled:cursor-not-allowed hover:border-primary-400 transition-colors"
+					className="input appearance-none bg-background pr-12 text-lg font-medium cursor-pointer disabled:cursor-not-allowed hover:border-primary transition-colors"
 				>
 					<option value="">🌟 手動で質量を入力</option>
 					<optgroup label="🪐 太陽系の天体">
@@ -91,10 +91,10 @@ export const CelestialBodySelector: React.FC<CelestialBodySelectorProps> = ({
 			</div>
 
 			{selectedBody && (
-				<div className="card bg-primary-50/50 dark:bg-primary-950/20 border-primary-200 dark:border-primary-800 animate-slide-up">
+				<div className="card bg-primary/5 border-primary/20 animate-slide-up">
 					<div className="p-4">
 						<div className="flex items-start gap-3">
-							<div className="w-10 h-10 bg-gradient-to-br from-primary-500 to-primary-600 rounded-xl flex items-center justify-center flex-shrink-0">
+							<div className="w-10 h-10 bg-gradient-to-br from-primary-500 to-primary-600 rounded-xl flex items-center justify-center shrink-0">
 								<span className="text-white text-lg">
 									{selectedBody.category === "solar_system" ? "🪐" : "⭐"}
 								</span>
@@ -128,7 +128,7 @@ export const CelestialBodySelector: React.FC<CelestialBodySelectorProps> = ({
 										{getMassComparison(selectedBody.mass).description}
 									</div>
 									{selectedBody.description && (
-										<div className="text-sm text-muted-foreground mt-2 p-2 bg-secondary-50 dark:bg-secondary-950/30 rounded-lg">
+										<div className="text-sm text-muted-foreground mt-2 p-2 bg-secondary rounded-lg">
 											{selectedBody.description}
 										</div>
 									)}

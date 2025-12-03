@@ -11,13 +11,13 @@ import {
 	Award,
 	Check,
 	Clock,
+	FileText,
 	Home,
+	PartyPopper,
 	RotateCw,
 	TrendingUp,
-	X,
 	Trophy,
-	PartyPopper,
-	FileText,
+	X,
 } from "lucide-react";
 import Link from "next/link";
 import { useParams } from "next/navigation";

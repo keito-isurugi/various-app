@@ -1,16 +1,16 @@
-import type React from "react";
 import {
-	Scale,
+	Activity,
 	AlertTriangle,
-	XCircle,
-	Sprout,
+	Crown,
 	Dumbbell,
 	Flame,
-	Zap,
-	Crown,
-	Activity,
+	Scale,
+	Sprout,
 	Wrench,
+	XCircle,
+	Zap,
 } from "lucide-react";
+import type React from "react";
 import type { BIG3TotalData, Gender, WeightLevel } from "../../types/big3";
 import { getLevelBgColor, getLevelColor } from "../../utils/big3-calculator";
 import { validateBodyWeightByGender } from "../../utils/big3-calculator-gender";
@@ -33,7 +33,7 @@ export const BIG3Total: React.FC<BIG3TotalProps> = ({ bodyWeight, gender }) => {
 		return (
 			<div className="card text-center">
 				<div className="p-12">
-					<div className="w-16 h-16 bg-gradient-to-br from-primary-100 to-primary-200 dark:from-primary-800 dark:to-primary-700 rounded-2xl flex items-center justify-center mx-auto mb-6">
+					<div className="w-16 h-16 bg-gradient-to-br from-primary-100 to-primary-200 rounded-2xl flex items-center justify-center mx-auto mb-6">
 						<Scale className="text-2xl" />
 					</div>
 					<p className="text-muted-foreground text-lg mb-2">
@@ -51,12 +51,12 @@ export const BIG3Total: React.FC<BIG3TotalProps> = ({ bodyWeight, gender }) => {
 	const validation = validateBodyWeightByGender(bodyWeight, gender);
 	if (!validation.isValid) {
 		return (
-			<div className="card text-center border-error-500/20 bg-error-50/50 dark:bg-error-950/20">
+			<div className="card text-center border-destructive/20 bg-destructive/5">
 				<div className="p-8">
-					<div className="w-16 h-16 bg-error-100 dark:bg-error-800 rounded-2xl flex items-center justify-center mx-auto mb-4">
-						<AlertTriangle className="text-2xl" />
+					<div className="w-16 h-16 bg-destructive/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+						<AlertTriangle className="text-2xl text-destructive" />
 					</div>
-					<p className="text-error-600 dark:text-error-400 text-lg font-medium mb-2">
+					<p className="text-destructive text-lg font-medium mb-2">
 						{validation.errorMessage}
 					</p>
 					<p className="text-muted-foreground text-sm">
@@ -71,12 +71,12 @@ export const BIG3Total: React.FC<BIG3TotalProps> = ({ bodyWeight, gender }) => {
 	const totalData = calculateBIG3TotalByGender(bodyWeight, gender);
 	if (!totalData) {
 		return (
-			<div className="card text-center border-error-500/20 bg-error-50/50 dark:bg-error-950/20">
+			<div className="card text-center border-destructive/20 bg-destructive/5">
 				<div className="p-8">
-					<div className="w-16 h-16 bg-error-100 dark:bg-error-800 rounded-2xl flex items-center justify-center mx-auto mb-4">
-						<XCircle className="text-2xl" />
+					<div className="w-16 h-16 bg-destructive/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+						<XCircle className="text-2xl text-destructive" />
 					</div>
-					<p className="text-error-600 dark:text-error-400 text-lg font-medium">
+					<p className="text-destructive text-lg font-medium">
 						データの計算に失敗しました
 					</p>
 				</div>
@@ -88,7 +88,9 @@ export const BIG3Total: React.FC<BIG3TotalProps> = ({ bodyWeight, gender }) => {
 	 * レベル別データカードをレンダリング
 	 */
 	const renderLevelCard = (level: WeightLevel, data: BIG3TotalData) => {
-		const getLevelIcon = (level: WeightLevel): React.ComponentType<{ className?: string }> => {
+		const getLevelIcon = (
+			level: WeightLevel,
+		): React.ComponentType<{ className?: string }> => {
 			switch (level) {
 				case "初心者":
 					return Sprout;
@@ -127,14 +129,14 @@ export const BIG3Total: React.FC<BIG3TotalProps> = ({ bodyWeight, gender }) => {
 				<div className="p-6">
 					{/* レベルヘッダー */}
 					<div className="text-center mb-6">
-					<div
-						className={`w-16 h-16 bg-gradient-to-br ${getLevelGradient(level)} rounded-2xl flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300 shadow-soft group-hover:shadow-glow`}
-					>
-						{(() => {
-							const Icon = getLevelIcon(level);
-							return <Icon className="text-2xl text-white" />;
-						})()}
-					</div>
+						<div
+							className={`w-16 h-16 bg-gradient-to-br ${getLevelGradient(level)} rounded-2xl flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300 shadow-soft group-hover:shadow-glow`}
+						>
+							{(() => {
+								const Icon = getLevelIcon(level);
+								return <Icon className="text-2xl text-white" />;
+							})()}
+						</div>
 						<h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
 							{level}
 						</h3>
@@ -142,7 +144,7 @@ export const BIG3Total: React.FC<BIG3TotalProps> = ({ bodyWeight, gender }) => {
 
 					{/* 種目別重量 */}
 					<div className="space-y-3 mb-6">
-						<div className="flex justify-between items-center py-2 px-3 rounded-lg bg-secondary-50 dark:bg-secondary-900/30">
+						<div className="flex justify-between items-center py-2 px-3 rounded-lg bg-secondary">
 							<span className="text-sm font-medium text-muted-foreground flex items-center gap-2">
 								<Dumbbell />
 								ベンチプレス
@@ -151,7 +153,7 @@ export const BIG3Total: React.FC<BIG3TotalProps> = ({ bodyWeight, gender }) => {
 								{data.benchPress}kg
 							</span>
 						</div>
-						<div className="flex justify-between items-center py-2 px-3 rounded-lg bg-secondary-50 dark:bg-secondary-900/30">
+						<div className="flex justify-between items-center py-2 px-3 rounded-lg bg-secondary">
 							<span className="text-sm font-medium text-muted-foreground flex items-center gap-2">
 								<Activity />
 								スクワット
@@ -160,7 +162,7 @@ export const BIG3Total: React.FC<BIG3TotalProps> = ({ bodyWeight, gender }) => {
 								{data.squat}kg
 							</span>
 						</div>
-						<div className="flex justify-between items-center py-2 px-3 rounded-lg bg-secondary-50 dark:bg-secondary-900/30">
+						<div className="flex justify-between items-center py-2 px-3 rounded-lg bg-secondary">
 							<span className="text-sm font-medium text-muted-foreground flex items-center gap-2">
 								<Wrench />
 								デッドリフト
@@ -208,10 +210,10 @@ export const BIG3Total: React.FC<BIG3TotalProps> = ({ bodyWeight, gender }) => {
 			</div>
 
 			{/* 説明文 */}
-			<div className="card bg-primary-50/50 dark:bg-primary-950/20 border-primary-200 dark:border-primary-800">
+			<div className="card bg-primary/5 border-primary/20">
 				<div className="p-6">
 					<div className="flex items-center gap-3 mb-4">
-						<div className="w-8 h-8 bg-primary-500 rounded-lg flex items-center justify-center">
+						<div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
 							<span className="text-white text-lg">💡</span>
 						</div>
 						<h4 className="text-lg font-bold text-foreground">

@@ -11,10 +11,10 @@ import {
 	Award,
 	Calendar,
 	Clock,
+	FileText,
+	PartyPopper,
 	TrendingUp,
 	Trophy,
-	PartyPopper,
-	FileText,
 } from "lucide-react";
 import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";

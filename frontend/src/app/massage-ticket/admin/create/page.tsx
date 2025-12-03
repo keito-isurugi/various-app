@@ -336,21 +336,21 @@ export default function CreateMassageTicketPage() {
 			{ticketId ? (
 				<div className="space-y-6">
 					{/* 成功メッセージ */}
-					<div className="bg-green-50 dark:bg-green-900 border border-green-200 dark:border-green-700 rounded-lg p-6">
-						<h2 className="text-xl font-semibold mb-4 text-green-800 dark:text-green-200">
+					<div className="bg-green-500/10 border border-green-500/30 rounded-lg p-6">
+						<h2 className="text-xl font-semibold mb-4 text-green-600">
 							✨ 肩たたき券を作成しました！
 						</h2>
-						<p className="mb-2 text-green-700 dark:text-green-300">
+						<p className="mb-2 text-green-600">
 							チケットID: <span className="font-mono text-sm">{ticketId}</span>
 						</p>
-						<p className="text-green-700 dark:text-green-300 mb-4">
+						<p className="text-green-600 mb-4">
 							PDFがダウンロードされました。印刷してお使いください。
 						</p>
 
 						{/* URL表示とコピー */}
 						{ticketUrl && (
-							<div className="bg-white dark:bg-gray-800 rounded-lg p-4 mb-4">
-								<span className="text-sm text-gray-600 dark:text-gray-400 mb-2 block">
+							<div className="bg-card rounded-lg p-4 mb-4">
+								<span className="text-sm text-muted-foreground mb-2 block">
 									Webで表示するURL
 								</span>
 								<div className="flex gap-2">
@@ -376,8 +376,8 @@ export default function CreateMassageTicketPage() {
 
 						{/* QRコード表示 */}
 						{qrCodeDataUrl && (
-							<div className="bg-white dark:bg-gray-800 rounded-lg p-6 text-center">
-								<span className="text-sm text-gray-600 dark:text-gray-400 mb-4 block">
+							<div className="bg-card rounded-lg p-6 text-center">
+								<span className="text-sm text-muted-foreground mb-4 block">
 									QRコード（管理者がスキャンできます）
 								</span>
 								<div className="flex justify-center mb-4">
@@ -387,7 +387,7 @@ export default function CreateMassageTicketPage() {
 										className="w-64 h-64 md:w-80 md:h-80"
 									/>
 								</div>
-								<p className="text-xs text-gray-500 dark:text-gray-400">
+								<p className="text-xs text-muted-foreground">
 									このQRコードを管理者に提示してください
 								</p>
 							</div>

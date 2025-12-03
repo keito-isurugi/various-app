@@ -66,9 +66,9 @@ export function DailyProgressCard({ progress }: DailyProgressCardProps) {
 
 				{/* 完了バッジ */}
 				{progress.completed && (
-					<div className="flex items-center gap-2 p-3 bg-green-50 dark:bg-green-900/20 rounded-lg border border-green-200 dark:border-green-800">
-						<CheckCircle2 className="h-5 w-5 text-green-600 dark:text-green-400" />
-						<span className="text-sm font-medium text-green-700 dark:text-green-300">
+					<div className="flex items-center gap-2 p-3 bg-green-500/10 rounded-lg border border-green-500/30">
+						<CheckCircle2 className="h-5 w-5 text-green-600" />
+						<span className="text-sm font-medium text-green-600">
 							今日の目標達成！
 						</span>
 					</div>
