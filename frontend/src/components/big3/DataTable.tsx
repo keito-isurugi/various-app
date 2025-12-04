@@ -1,26 +1,33 @@
 import type React from "react";
 import { LEVEL_ORDER } from "../../data/big3-data";
 import type { ExerciseType, Gender, WeightLevel } from "../../types/big3";
-import { getLevelColor } from "../../utils/big3-calculator";
 import { getBIG3DataByGender } from "../../utils/big3-calculator-gender";
 
 interface DataTableProps {
-	/** 表示する種目 */
 	exercise: ExerciseType;
-	/** 性別 */
 	gender: Gender;
-	/** ハイライトする体重 */
 	highlightBodyWeight?: number;
-	/** コンパクト表示モード */
 	compact?: boolean;
-	/** 追加のCSSクラス */
 	className?: string;
 }
 
-/**
- * BIG3データ表示テーブルコンポーネント
- * 指定された種目のレベル別重量データを表形式で表示する
- */
+const getLevelHeaderColor = (level: WeightLevel): string => {
+	switch (level) {
+		case "初心者":
+			return "text-green-700 dark:text-green-400";
+		case "初級者":
+			return "text-blue-700 dark:text-blue-400";
+		case "中級者":
+			return "text-orange-700 dark:text-orange-400";
+		case "上級者":
+			return "text-purple-700 dark:text-purple-400";
+		case "エリート":
+			return "text-yellow-700 dark:text-yellow-400";
+		default:
+			return "text-gray-700 dark:text-gray-300";
+	}
+};
+
 export const DataTable: React.FC<DataTableProps> = ({
 	exercise,
 	gender,
@@ -30,48 +37,32 @@ export const DataTable: React.FC<DataTableProps> = ({
 }) => {
 	const exerciseData = getBIG3DataByGender(gender)[exercise];
 
-	/**
-	 * 指定した体重がハイライト対象かチェック
-	 */
 	const isHighlighted = (bodyWeight: number): boolean => {
 		if (!highlightBodyWeight) return false;
-		return Math.abs(bodyWeight - highlightBodyWeight) < 2.5; // 2.5kg以内なら該当
-	};
-
-	/**
-	 * レベルヘッダーのスタイルを取得
-	 */
-	const getLevelHeaderStyle = (level: WeightLevel): string => {
-		return `${getLevelColor(level)} font-semibold`;
+		return Math.abs(bodyWeight - highlightBodyWeight) < 2.5;
 	};
 
 	return (
 		<div className={`${compact ? "text-sm" : ""} ${className}`}>
-			<div className="overflow-x-auto">
-				<table
-					className="min-w-full border-collapse border border-gray-300"
-					aria-label={`${exercise}のレベル別重量データ`}
-				>
-					<caption className="caption-top text-lg font-semibold text-gray-900 mb-4">
-						{exercise}のレベル別重量表
-					</caption>
+			<h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4">
+				{exercise}
+			</h2>
 
-					<thead>
-						<tr className="bg-gray-50">
+			<div className="overflow-x-auto rounded-lg border border-gray-200 dark:border-gray-700">
+				<table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+					<thead className="bg-gray-50 dark:bg-gray-800">
+						<tr>
 							<th
 								scope="col"
-								className="border border-gray-300 px-4 py-2 text-left font-semibold text-gray-900"
+								className="px-4 py-3 text-left text-sm font-semibold text-gray-900 dark:text-gray-100"
 							>
-								体重 (kg)
+								体重
 							</th>
 							{LEVEL_ORDER.map((level) => (
 								<th
 									key={level}
 									scope="col"
-									className={`
-										border border-gray-300 px-4 py-2 text-center
-										${getLevelHeaderStyle(level)}
-									`}
+									className={`px-4 py-3 text-center text-sm font-semibold ${getLevelHeaderColor(level)}`}
 								>
 									{level}
 								</th>
@@ -79,40 +70,37 @@ export const DataTable: React.FC<DataTableProps> = ({
 						</tr>
 					</thead>
 
-					<tbody>
+					<tbody className="bg-white dark:bg-gray-900 divide-y divide-gray-200 dark:divide-gray-700">
 						{exerciseData.map((data) => {
 							const highlighted = isHighlighted(data.bodyWeight);
 
 							return (
 								<tr
 									key={data.bodyWeight}
-									className={`
-										${
-											highlighted
-												? "bg-blue-50 border-blue-200"
-												: "hover:bg-gray-50"
-										}
-										transition-colors
-									`}
+									className={
+										highlighted
+											? "bg-blue-50 dark:bg-blue-900/20"
+											: "hover:bg-gray-50 dark:hover:bg-gray-800"
+									}
 								>
-									{/* 体重セル */}
 									<td
-										className={`
-										border border-gray-300 px-4 py-2 font-medium
-										${highlighted ? "text-blue-900" : "text-gray-900"}
-									`}
+										className={`px-4 py-2.5 text-sm font-medium ${
+											highlighted
+												? "text-blue-900 dark:text-blue-300"
+												: "text-gray-900 dark:text-gray-100"
+										}`}
 									>
-										{data.bodyWeight}
+										{data.bodyWeight}kg
 									</td>
 
-									{/* 各レベルの重量セル */}
 									{LEVEL_ORDER.map((level) => (
 										<td
 											key={level}
-											className={`
-												border border-gray-300 px-4 py-2 text-center
-												${highlighted ? "text-blue-900" : "text-gray-700"}
-											`}
+											className={`px-4 py-2.5 text-sm text-center ${
+												highlighted
+													? "text-blue-900 dark:text-blue-300"
+													: "text-gray-700 dark:text-gray-300"
+											}`}
 										>
 											{data[level]}
 										</td>
@@ -124,15 +112,11 @@ export const DataTable: React.FC<DataTableProps> = ({
 				</table>
 			</div>
 
-			{/* テーブル下部の説明 */}
-			<div className="mt-4 text-sm text-gray-600">
-				<p>単位: kg</p>
-				{highlightBodyWeight && (
-					<p className="text-blue-600 font-medium">
-						体重 {highlightBodyWeight}kg 付近の行がハイライトされています
-					</p>
-				)}
-			</div>
+			{highlightBodyWeight && (
+				<p className="mt-3 text-sm text-blue-600 dark:text-blue-400">
+					体重 {highlightBodyWeight}kg 付近の行がハイライトされています
+				</p>
+			)}
 		</div>
 	);
 };

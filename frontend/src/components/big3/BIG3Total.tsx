@@ -4,6 +4,7 @@ import {
 	Crown,
 	Dumbbell,
 	Flame,
+	Info,
 	Scale,
 	Sprout,
 	Wrench,
@@ -12,177 +13,142 @@ import {
 } from "lucide-react";
 import type React from "react";
 import type { BIG3TotalData, Gender, WeightLevel } from "../../types/big3";
-import { getLevelBgColor, getLevelColor } from "../../utils/big3-calculator";
 import { validateBodyWeightByGender } from "../../utils/big3-calculator-gender";
 import { calculateBIG3TotalByGender } from "../../utils/big3-total-calculator";
 
 interface BIG3TotalProps {
-	/** 体重 (kg) */
 	bodyWeight: number | "";
-	/** 性別 */
 	gender: Gender;
 }
 
-/**
- * BIG3合計値表示コンポーネント
- * レベル別のBIG3合計値とその内訳を表示する
- */
+const LEVEL_CONFIG: Record<
+	WeightLevel,
+	{
+		icon: React.ComponentType<{ className?: string }>;
+		gradient: string;
+		bgColor: string;
+	}
+> = {
+	初心者: {
+		icon: Sprout,
+		gradient: "from-green-500 to-emerald-600",
+		bgColor: "bg-green-500",
+	},
+	初級者: {
+		icon: Dumbbell,
+		gradient: "from-blue-500 to-cyan-600",
+		bgColor: "bg-blue-500",
+	},
+	中級者: {
+		icon: Flame,
+		gradient: "from-orange-500 to-amber-600",
+		bgColor: "bg-orange-500",
+	},
+	上級者: {
+		icon: Zap,
+		gradient: "from-purple-500 to-violet-600",
+		bgColor: "bg-purple-500",
+	},
+	エリート: {
+		icon: Crown,
+		gradient: "from-yellow-500 to-orange-600",
+		bgColor: "bg-yellow-500",
+	},
+};
+
 export const BIG3Total: React.FC<BIG3TotalProps> = ({ bodyWeight, gender }) => {
-	// 体重が未入力の場合
 	if (bodyWeight === "") {
 		return (
-			<div className="card text-center">
-				<div className="p-12">
-					<div className="w-16 h-16 bg-gradient-to-br from-primary-100 to-primary-200 rounded-2xl flex items-center justify-center mx-auto mb-6">
-						<Scale className="text-2xl" />
-					</div>
-					<p className="text-muted-foreground text-lg mb-2">
-						体重を入力してください
-					</p>
-					<p className="text-muted-foreground/70 text-sm">
-						各レベルのBIG3合計値を確認できます
-					</p>
-				</div>
+			<div className="text-center py-12">
+				<Scale className="w-12 h-12 mx-auto mb-4 text-gray-400 dark:text-gray-500" />
+				<p className="text-gray-600 dark:text-gray-400">
+					体重を入力すると各レベルのBIG3合計値を確認できます
+				</p>
 			</div>
 		);
 	}
 
-	// 体重のバリデーション
 	const validation = validateBodyWeightByGender(bodyWeight, gender);
 	if (!validation.isValid) {
 		return (
-			<div className="card text-center border-destructive/20 bg-destructive/5">
-				<div className="p-8">
-					<div className="w-16 h-16 bg-destructive/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
-						<AlertTriangle className="text-2xl text-destructive" />
-					</div>
-					<p className="text-destructive text-lg font-medium mb-2">
-						{validation.errorMessage}
-					</p>
-					<p className="text-muted-foreground text-sm">
-						50kg〜140kgの範囲で入力してください
-					</p>
-				</div>
+			<div className="text-center py-12">
+				<AlertTriangle className="w-12 h-12 mx-auto mb-4 text-red-500" />
+				<p className="text-red-600 dark:text-red-400 font-medium mb-1">
+					{validation.errorMessage}
+				</p>
+				<p className="text-sm text-gray-500 dark:text-gray-400">
+					有効な範囲で入力してください
+				</p>
 			</div>
 		);
 	}
 
-	// BIG3合計値を計算
 	const totalData = calculateBIG3TotalByGender(bodyWeight, gender);
 	if (!totalData) {
 		return (
-			<div className="card text-center border-destructive/20 bg-destructive/5">
-				<div className="p-8">
-					<div className="w-16 h-16 bg-destructive/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
-						<XCircle className="text-2xl text-destructive" />
-					</div>
-					<p className="text-destructive text-lg font-medium">
-						データの計算に失敗しました
-					</p>
-				</div>
+			<div className="text-center py-12">
+				<XCircle className="w-12 h-12 mx-auto mb-4 text-red-500" />
+				<p className="text-red-600 dark:text-red-400 font-medium">
+					データの計算に失敗しました
+				</p>
 			</div>
 		);
 	}
 
-	/**
-	 * レベル別データカードをレンダリング
-	 */
 	const renderLevelCard = (level: WeightLevel, data: BIG3TotalData) => {
-		const getLevelIcon = (
-			level: WeightLevel,
-		): React.ComponentType<{ className?: string }> => {
-			switch (level) {
-				case "初心者":
-					return Sprout;
-				case "初級者":
-					return Dumbbell;
-				case "中級者":
-					return Flame;
-				case "上級者":
-					return Zap;
-				case "エリート":
-					return Crown;
-				default:
-					return Dumbbell;
-			}
-		};
-
-		const getLevelGradient = (level: WeightLevel): string => {
-			switch (level) {
-				case "初心者":
-					return "from-green-500 to-emerald-500";
-				case "初級者":
-					return "from-blue-500 to-cyan-500";
-				case "中級者":
-					return "from-orange-500 to-amber-500";
-				case "上級者":
-					return "from-purple-500 to-violet-500";
-				case "エリート":
-					return "from-yellow-500 to-orange-500";
-				default:
-					return "from-gray-500 to-gray-600";
-			}
-		};
+		const config = LEVEL_CONFIG[level];
+		const Icon = config.icon;
 
 		return (
-			<div key={level} className="card-hover group">
-				<div className="p-6">
-					{/* レベルヘッダー */}
-					<div className="text-center mb-6">
-						<div
-							className={`w-16 h-16 bg-gradient-to-br ${getLevelGradient(level)} rounded-2xl flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300 shadow-soft group-hover:shadow-glow`}
+			<div
+				key={level}
+				className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden"
+			>
+				<div
+					className={`bg-gradient-to-r ${config.gradient} px-4 py-3 flex items-center gap-3`}
+				>
+					<Icon className="w-5 h-5 text-white" />
+					<h3 className="font-bold text-white">{level}</h3>
+				</div>
+
+				<div className="p-4 space-y-2">
+					<div className="flex justify-between text-sm">
+						<span className="text-gray-600 dark:text-gray-400 flex items-center gap-2">
+							<Dumbbell className="w-4 h-4" />
+							ベンチプレス
+						</span>
+						<span className="font-medium text-gray-900 dark:text-gray-100">
+							{data.benchPress}kg
+						</span>
+					</div>
+					<div className="flex justify-between text-sm">
+						<span className="text-gray-600 dark:text-gray-400 flex items-center gap-2">
+							<Activity className="w-4 h-4" />
+							スクワット
+						</span>
+						<span className="font-medium text-gray-900 dark:text-gray-100">
+							{data.squat}kg
+						</span>
+					</div>
+					<div className="flex justify-between text-sm">
+						<span className="text-gray-600 dark:text-gray-400 flex items-center gap-2">
+							<Wrench className="w-4 h-4" />
+							デッドリフト
+						</span>
+						<span className="font-medium text-gray-900 dark:text-gray-100">
+							{data.deadlift}kg
+						</span>
+					</div>
+
+					<div className="pt-3 mt-3 border-t border-gray-200 dark:border-gray-700 flex justify-between items-center">
+						<span className="font-medium text-gray-700 dark:text-gray-300">
+							合計
+						</span>
+						<span
+							className={`text-xl font-bold bg-gradient-to-r ${config.gradient} bg-clip-text text-transparent`}
 						>
-							{(() => {
-								const Icon = getLevelIcon(level);
-								return <Icon className="text-2xl text-white" />;
-							})()}
-						</div>
-						<h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
-							{level}
-						</h3>
-					</div>
-
-					{/* 種目別重量 */}
-					<div className="space-y-3 mb-6">
-						<div className="flex justify-between items-center py-2 px-3 rounded-lg bg-secondary">
-							<span className="text-sm font-medium text-muted-foreground flex items-center gap-2">
-								<Dumbbell />
-								ベンチプレス
-							</span>
-							<span className="text-sm font-bold text-foreground">
-								{data.benchPress}kg
-							</span>
-						</div>
-						<div className="flex justify-between items-center py-2 px-3 rounded-lg bg-secondary">
-							<span className="text-sm font-medium text-muted-foreground flex items-center gap-2">
-								<Activity />
-								スクワット
-							</span>
-							<span className="text-sm font-bold text-foreground">
-								{data.squat}kg
-							</span>
-						</div>
-						<div className="flex justify-between items-center py-2 px-3 rounded-lg bg-secondary">
-							<span className="text-sm font-medium text-muted-foreground flex items-center gap-2">
-								<Wrench />
-								デッドリフト
-							</span>
-							<span className="text-sm font-bold text-foreground">
-								{data.deadlift}kg
-							</span>
-						</div>
-					</div>
-
-					{/* 合計値 */}
-					<div className="border-t border-border pt-4">
-						<div className="flex justify-between items-center">
-							<span className="text-lg font-bold text-foreground">合計</span>
-							<span
-								className={`text-2xl font-bold bg-gradient-to-r ${getLevelGradient(level)} bg-clip-text text-transparent`}
-							>
-								{data.total}kg
-							</span>
-						</div>
+							{data.total}kg
+						</span>
 					</div>
 				</div>
 			</div>
@@ -190,64 +156,31 @@ export const BIG3Total: React.FC<BIG3TotalProps> = ({ bodyWeight, gender }) => {
 	};
 
 	return (
-		<div className="space-y-8">
-			{/* ヘッダー */}
+		<div className="space-y-6">
 			<div className="text-center">
-				<h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-					<span className="gradient-text-primary">BIG3</span>合計値
+				<h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-1">
+					BIG3合計値
 				</h2>
-				<p className="text-xl text-muted-foreground">
-					体重 <span className="font-bold text-primary">{bodyWeight}kg</span>{" "}
-					における各レベルの目標重量と合計値
+				<p className="text-gray-600 dark:text-gray-400">
+					体重{" "}
+					<span className="font-semibold text-blue-600 dark:text-blue-400">
+						{bodyWeight}kg
+					</span>{" "}
+					での各レベル目標
 				</p>
 			</div>
 
-			{/* レベル別カード */}
-			<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+			<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
 				{Object.entries(totalData).map(([level, data]) =>
 					renderLevelCard(level as WeightLevel, data),
 				)}
 			</div>
 
-			{/* 説明文 */}
-			<div className="card bg-primary/5 border-primary/20">
-				<div className="p-6">
-					<div className="flex items-center gap-3 mb-4">
-						<div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-							<span className="text-white text-lg">💡</span>
-						</div>
-						<h4 className="text-lg font-bold text-foreground">
-							BIG3合計値について
-						</h4>
-					</div>
-					<ul className="text-muted-foreground space-y-2">
-						<li className="flex items-start gap-2">
-							<span className="text-primary mt-1">•</span>
-							<span>
-								BIG3合計値は、ベンチプレス + スクワット +
-								デッドリフトの合計重量です
-							</span>
-						</li>
-						<li className="flex items-start gap-2">
-							<span className="text-primary mt-1">•</span>
-							<span>
-								この数値は体重別の一般的な指標であり、個人差があります
-							</span>
-						</li>
-						<li className="flex items-start gap-2">
-							<span className="text-primary mt-1">•</span>
-							<span>
-								次のレベルの合計値を目標にトレーニング計画を立てましょう
-							</span>
-						</li>
-						<li className="flex items-start gap-2">
-							<span className="text-primary mt-1">•</span>
-							<span>
-								無理な重量への挑戦は避け、段階的に向上を目指してください
-							</span>
-						</li>
-					</ul>
-				</div>
+			<div className="flex items-start gap-2 text-sm text-gray-500 dark:text-gray-400">
+				<Info className="w-4 h-4 shrink-0 mt-0.5" />
+				<p>
+					BIG3合計値はベンチプレス・スクワット・デッドリフトの合計重量です。体重別の一般的な指標であり、個人差があります。
+				</p>
 			</div>
 		</div>
 	);
