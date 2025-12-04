@@ -14,27 +14,29 @@ interface TechQuizBreadcrumbProps {
 
 export function TechQuizBreadcrumb({ items }: TechQuizBreadcrumbProps) {
 	return (
-		<nav className="mb-4 flex items-center gap-2 text-sm text-gray-600">
+		<nav className="mb-4 flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
 			<Link
 				href="/study/techquiz"
-				className="flex items-center gap-1 transition-colors hover:text-blue-600"
+				className="flex items-center gap-1 transition-colors hover:text-blue-600 dark:hover:text-blue-400"
 			>
 				<Home className="h-4 w-4" />
 				<span>Tech Quiz</span>
 			</Link>
 
 			{items.map((item, index) => (
-				<div key={index} className="flex items-center gap-2">
+				<div key={item.label} className="flex items-center gap-2">
 					<ChevronRight className="h-4 w-4" />
 					{item.href ? (
 						<Link
 							href={item.href}
-							className="transition-colors hover:text-blue-600"
+							className="transition-colors hover:text-blue-600 dark:hover:text-blue-400"
 						>
 							{item.label}
 						</Link>
 					) : (
-						<span className="font-medium text-gray-900">{item.label}</span>
+						<span className="font-medium text-gray-900 dark:text-gray-100">
+							{item.label}
+						</span>
 					)}
 				</div>
 			))}

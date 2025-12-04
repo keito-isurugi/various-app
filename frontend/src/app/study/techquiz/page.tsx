@@ -1,12 +1,5 @@
 "use client";
 
-import {
-	Card,
-	CardContent,
-	CardDescription,
-	CardHeader,
-	CardTitle,
-} from "@/components/ui/card";
 import { questionService } from "@/lib/study/questionService";
 import { reviewService } from "@/lib/study/reviewService";
 import { statsService } from "@/lib/study/statsService";
@@ -17,7 +10,9 @@ import {
 	Calendar,
 	CheckCircle,
 	Clock,
+	Info,
 	ListChecks,
+	Loader2,
 	PieChart,
 	RefreshCw,
 	TrendingUp,
@@ -39,13 +34,11 @@ export default function TechQuizHomePage() {
 		const loadData = async () => {
 			setLoading(true);
 			try {
-				// 問題データとレビューデータを取得
 				const [questions, reviewQuestions] = await Promise.all([
 					questionService.getAllQuestions(),
 					reviewService.getTodayReviewQuestions(),
 				]);
 
-				// ユーザー統計を取得（存在しない場合は初期化）
 				let userStats = await statsService.getUserStats();
 				if (!userStats) {
 					userStats = await statsService.initializeUserStats();
@@ -79,32 +72,28 @@ export default function TechQuizHomePage() {
 			icon: RefreshCw,
 			title: "ランダム演習",
 			description: "ランダムに選ばれた問題で学習",
-			color: "bg-blue-50 hover:bg-blue-100 border-blue-200",
-			iconColor: "text-blue-600",
+			color: "blue",
 		},
 		{
 			href: "/study/techquiz/questions",
 			icon: ListChecks,
 			title: "問題一覧",
 			description: "全ての問題を閲覧・フィルター",
-			color: "bg-purple-50 hover:bg-purple-100 border-purple-200",
-			iconColor: "text-purple-600",
+			color: "purple",
 		},
 		{
 			href: "/study/techquiz/dashboard",
 			icon: PieChart,
 			title: "ダッシュボード",
 			description: "学習統計と進捗を確認",
-			color: "bg-green-50 hover:bg-green-100 border-green-200",
-			iconColor: "text-green-600",
+			color: "green",
 		},
 		{
 			href: "/study/techquiz/review",
 			icon: Clock,
 			title: "復習リスト",
 			description: `復習が必要な問題 (${reviewCount}件)`,
-			color: "bg-orange-50 hover:bg-orange-100 border-orange-200",
-			iconColor: "text-orange-600",
+			color: "orange",
 			badge: reviewCount > 0 ? reviewCount : null,
 		},
 		{
@@ -112,208 +101,219 @@ export default function TechQuizHomePage() {
 			icon: Award,
 			title: "テストモード",
 			description: "模擬試験で実力チェック",
-			color: "bg-red-50 hover:bg-red-100 border-red-200",
-			iconColor: "text-red-600",
+			color: "red",
 		},
 	];
 
+	const getColorClasses = (color: string) => {
+		const colors: Record<string, { bg: string; icon: string; hover: string }> =
+			{
+				blue: {
+					bg: "bg-blue-50 dark:bg-blue-900/20",
+					icon: "text-blue-600 dark:text-blue-400",
+					hover: "hover:bg-blue-100 dark:hover:bg-blue-900/30",
+				},
+				purple: {
+					bg: "bg-purple-50 dark:bg-purple-900/20",
+					icon: "text-purple-600 dark:text-purple-400",
+					hover: "hover:bg-purple-100 dark:hover:bg-purple-900/30",
+				},
+				green: {
+					bg: "bg-green-50 dark:bg-green-900/20",
+					icon: "text-green-600 dark:text-green-400",
+					hover: "hover:bg-green-100 dark:hover:bg-green-900/30",
+				},
+				orange: {
+					bg: "bg-orange-50 dark:bg-orange-900/20",
+					icon: "text-orange-600 dark:text-orange-400",
+					hover: "hover:bg-orange-100 dark:hover:bg-orange-900/30",
+				},
+				red: {
+					bg: "bg-red-50 dark:bg-red-900/20",
+					icon: "text-red-600 dark:text-red-400",
+					hover: "hover:bg-red-100 dark:hover:bg-red-900/30",
+				},
+			};
+		return colors[color] || colors.blue;
+	};
+
 	if (loading) {
 		return (
-			<div className="container mx-auto max-w-7xl p-6">
-				<div className="flex items-center justify-center py-12">
-					<div className="h-8 w-8 animate-spin rounded-full border-b-2 border-blue-600" />
-				</div>
+			<div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex items-center justify-center">
+				<Loader2 className="h-8 w-8 animate-spin text-blue-600" />
 			</div>
 		);
 	}
 
 	return (
-		<div className="container mx-auto max-w-7xl p-6">
-			{/* ヘッダー */}
-			<div className="mb-8">
-				<h1 className="mb-2 text-4xl font-bold">Tech Quiz</h1>
-				<p className="text-lg text-gray-600">
-					技術問題で知識を習慣的に学習・定着させよう
-				</p>
-			</div>
+		<div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+			<div className="max-w-6xl mx-auto px-4 py-8">
+				{/* Header */}
+				<header className="mb-8">
+					<h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-2">
+						Tech Quiz
+					</h1>
+					<p className="text-gray-600 dark:text-gray-400">
+						技術問題で知識を習慣的に学習・定着させよう
+					</p>
+				</header>
 
-			{/* 説明セクション */}
-			<Card className="mb-8 border-blue-200 bg-gradient-to-br from-blue-50 via-white to-purple-50">
-				<CardHeader>
-					<CardTitle className="flex items-center gap-2 text-2xl">
-						<Brain className="h-7 w-7 text-blue-600" />
-						<span>Tech Quizとは？</span>
-					</CardTitle>
-					<CardDescription className="text-base">
-						科学的な記憶定着アルゴリズムを活用した技術学習プラットフォーム
-					</CardDescription>
-				</CardHeader>
-				<CardContent className="space-y-6">
-					<p className="text-gray-700">
-						Tech
-						Quizは、技術問題を通じて知識を効率的に学習・定着させるためのプラットフォームです。
-						単なる暗記ではなく、理解度に応じた最適なタイミングでの復習により、長期記憶への定着を促進します。
+				{/* About Section */}
+				<section className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-6 mb-8">
+					<div className="flex items-center gap-3 mb-4">
+						<Brain className="h-6 w-6 text-blue-600 dark:text-blue-400" />
+						<h2 className="text-xl font-bold text-gray-900 dark:text-gray-100">
+							Tech Quizとは？
+						</h2>
+					</div>
+					<p className="text-gray-600 dark:text-gray-400 mb-6">
+						科学的な記憶定着アルゴリズムを活用した技術学習プラットフォームです。
+						理解度に応じた最適なタイミングでの復習により、長期記憶への定着を促進します。
 					</p>
 
-					<div className="grid gap-4 md:grid-cols-3">
-						<div className="rounded-lg bg-white p-4 shadow-sm">
-							<div className="mb-2 flex items-center gap-2 font-semibold text-blue-600">
+					<div className="grid gap-4 md:grid-cols-3 mb-6">
+						<div className="p-4 bg-gray-50 dark:bg-gray-700/50 rounded-lg">
+							<div className="flex items-center gap-2 mb-2 text-blue-600 dark:text-blue-400 font-medium">
 								<TrendingUp className="h-5 w-5" />
-								<span>SM-2アルゴリズム</span>
+								SM-2アルゴリズム
 							</div>
-							<p className="text-sm text-gray-600">
-								あなたの理解度に応じて、最適な復習タイミングを自動計算。忘却曲線に基づいた科学的アプローチで効率的に学習できます。
+							<p className="text-sm text-gray-600 dark:text-gray-400">
+								理解度に応じて最適な復習タイミングを自動計算
 							</p>
 						</div>
 
-						<div className="rounded-lg bg-white p-4 shadow-sm">
-							<div className="mb-2 flex items-center gap-2 font-semibold text-green-600">
+						<div className="p-4 bg-gray-50 dark:bg-gray-700/50 rounded-lg">
+							<div className="flex items-center gap-2 mb-2 text-green-600 dark:text-green-400 font-medium">
 								<CheckCircle className="h-5 w-5" />
-								<span>理解度に応じた出題</span>
+								理解度に応じた出題
 							</div>
-							<p className="text-sm text-gray-600">
-								わかった/わからないの選択により、苦手な問題は短い間隔で、得意な問題は長い間隔で復習。無駄なく学習を進められます。
+							<p className="text-sm text-gray-600 dark:text-gray-400">
+								苦手な問題は短い間隔で、得意な問題は長い間隔で復習
 							</p>
 						</div>
 
-						<div className="rounded-lg bg-white p-4 shadow-sm">
-							<div className="mb-2 flex items-center gap-2 font-semibold text-orange-600">
+						<div className="p-4 bg-gray-50 dark:bg-gray-700/50 rounded-lg">
+							<div className="flex items-center gap-2 mb-2 text-orange-600 dark:text-orange-400 font-medium">
 								<Calendar className="h-5 w-5" />
-								<span>習慣化サポート</span>
+								習慣化サポート
 							</div>
-							<p className="text-sm text-gray-600">
-								連続学習日数の記録やテストモードなど、継続的な学習をサポートする機能で、知識の定着を促進します。
+							<p className="text-sm text-gray-600 dark:text-gray-400">
+								連続学習日数の記録やテストモードで継続的な学習をサポート
 							</p>
 						</div>
 					</div>
 
-					<div className="rounded-lg border-l-4 border-blue-600 bg-blue-50 p-4">
-						<div className="mb-2 font-semibold text-blue-900">
-							💡 効果的な学習のコツ
-						</div>
-						<ul className="list-inside list-disc space-y-1 text-sm text-blue-800">
-							<li>毎日少しずつ継続することが重要です</li>
-							<li>
-								「わからない」を選ぶことは恥ずかしいことではありません。正直に選択することで最適な学習ができます
-							</li>
-							<li>
-								復習リストは毎日チェックして、記憶が定着する前に復習しましょう
-							</li>
-							<li>テストモードで定期的に実力を確認し、弱点を把握しましょう</li>
-						</ul>
+					<div className="flex items-start gap-2 text-sm text-gray-600 dark:text-gray-400">
+						<Info className="h-4 w-4 shrink-0 mt-0.5 text-blue-500" />
+						<p>
+							毎日少しずつ継続し、復習リストを定期的にチェックすることで効果的に学習できます。
+						</p>
 					</div>
-				</CardContent>
-			</Card>
+				</section>
 
-			{/* 統計サマリー */}
-			<div className="mb-8 grid gap-4 md:grid-cols-4">
-				<Card>
-					<CardHeader className="pb-3">
-						<CardDescription>総問題数</CardDescription>
-					</CardHeader>
-					<CardContent>
-						<div className="text-3xl font-bold">{stats.totalQuestions}</div>
-					</CardContent>
-				</Card>
-
-				<Card>
-					<CardHeader className="pb-3">
-						<CardDescription>解答済み</CardDescription>
-					</CardHeader>
-					<CardContent>
-						<div className="text-3xl font-bold text-blue-600">
+				{/* Stats */}
+				<section className="grid gap-4 md:grid-cols-4 mb-8">
+					<div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-4">
+						<p className="text-sm text-gray-500 dark:text-gray-400 mb-1">
+							総問題数
+						</p>
+						<p className="text-2xl font-bold text-gray-900 dark:text-gray-100">
+							{stats.totalQuestions}
+						</p>
+					</div>
+					<div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-4">
+						<p className="text-sm text-gray-500 dark:text-gray-400 mb-1">
+							解答済み
+						</p>
+						<p className="text-2xl font-bold text-blue-600 dark:text-blue-400">
 							{stats.answeredQuestions}
-						</div>
-					</CardContent>
-				</Card>
-
-				<Card>
-					<CardHeader className="pb-3">
-						<CardDescription>正答率</CardDescription>
-					</CardHeader>
-					<CardContent>
-						<div className="text-3xl font-bold text-green-600">
+						</p>
+					</div>
+					<div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-4">
+						<p className="text-sm text-gray-500 dark:text-gray-400 mb-1">
+							正答率
+						</p>
+						<p className="text-2xl font-bold text-green-600 dark:text-green-400">
 							{accuracyRate}%
-						</div>
-					</CardContent>
-				</Card>
+						</p>
+					</div>
+					<div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-4">
+						<p className="text-sm text-gray-500 dark:text-gray-400 mb-1">
+							連続学習日数
+						</p>
+						<p className="text-2xl font-bold text-orange-600 dark:text-orange-400">
+							{stats.currentStreak}
+							<span className="text-sm font-normal text-gray-500 dark:text-gray-400 ml-1">
+								日
+							</span>
+						</p>
+					</div>
+				</section>
 
-				<Card>
-					<CardHeader className="pb-3">
-						<CardDescription>連続学習日数</CardDescription>
-					</CardHeader>
-					<CardContent>
-						<div className="flex items-baseline gap-1">
-							<div className="text-3xl font-bold text-orange-600">
-								{stats.currentStreak}
-							</div>
-							<div className="text-sm text-gray-600">日</div>
-						</div>
-					</CardContent>
-				</Card>
-			</div>
-
-			{/* ナビゲーションカード */}
-			<div className="mb-8">
-				<h2 className="mb-4 text-2xl font-bold">機能メニュー</h2>
-				<div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-					{navigationCards.map((card) => (
-						<Link key={card.href} href={card.href}>
-							<Card
-								className={`relative h-full transition-all duration-200 ${card.color}`}
-							>
-								<CardHeader>
-									<div className="flex items-center justify-between">
-										<card.icon className={`h-8 w-8 ${card.iconColor}`} />
-										{card.badge && (
-											<span className="flex h-6 w-6 items-center justify-center rounded-full bg-red-600 text-xs font-bold text-white">
-												{card.badge}
-											</span>
-										)}
+				{/* Navigation Cards */}
+				<section className="mb-8">
+					<h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4">
+						機能メニュー
+					</h2>
+					<div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+						{navigationCards.map((card) => {
+							const colors = getColorClasses(card.color);
+							return (
+								<Link key={card.href} href={card.href}>
+									<div
+										className={`relative h-full p-5 rounded-xl border border-gray-200 dark:border-gray-700 transition-colors ${colors.bg} ${colors.hover}`}
+									>
+										<div className="flex items-center justify-between mb-3">
+											<card.icon className={`h-7 w-7 ${colors.icon}`} />
+											{card.badge && (
+												<span className="flex h-6 w-6 items-center justify-center rounded-full bg-red-600 text-xs font-bold text-white">
+													{card.badge}
+												</span>
+											)}
+										</div>
+										<h3 className="font-bold text-gray-900 dark:text-gray-100 mb-1">
+											{card.title}
+										</h3>
+										<p className="text-sm text-gray-600 dark:text-gray-400">
+											{card.description}
+										</p>
 									</div>
-									<CardTitle className="text-xl">{card.title}</CardTitle>
-									<CardDescription className="text-gray-700">
-										{card.description}
-									</CardDescription>
-								</CardHeader>
-							</Card>
-						</Link>
-					))}
-				</div>
-			</div>
+								</Link>
+							);
+						})}
+					</div>
+				</section>
 
-			{/* クイックスタート */}
-			<Card className="border-2 border-blue-200 bg-gradient-to-br from-blue-50 to-white">
-				<CardHeader>
-					<CardTitle className="flex items-center gap-2">
-						<BookOpen className="h-6 w-6 text-blue-600" />
-						<span>クイックスタート</span>
-					</CardTitle>
-					<CardDescription>
-						今すぐ学習を始めるには、以下のボタンをクリック
-					</CardDescription>
-				</CardHeader>
-				<CardContent className="flex gap-3">
-					<Link href="/study/techquiz/practice" className="flex-1">
-						<button
-							type="button"
-							className="w-full rounded-lg bg-blue-600 px-6 py-3 font-semibold text-white transition-colors hover:bg-blue-700"
-						>
-							ランダム演習を開始
-						</button>
-					</Link>
-					{reviewCount > 0 && (
-						<Link href="/study/techquiz/review" className="flex-1">
+				{/* Quick Start */}
+				<section className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-6">
+					<div className="flex items-center gap-3 mb-4">
+						<BookOpen className="h-6 w-6 text-blue-600 dark:text-blue-400" />
+						<h2 className="text-xl font-bold text-gray-900 dark:text-gray-100">
+							クイックスタート
+						</h2>
+					</div>
+					<div className="flex flex-col sm:flex-row gap-3">
+						<Link href="/study/techquiz/practice" className="flex-1">
 							<button
 								type="button"
-								className="w-full rounded-lg border-2 border-orange-600 bg-white px-6 py-3 font-semibold text-orange-600 transition-colors hover:bg-orange-50"
+								className="w-full px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors"
 							>
-								今日の復習 ({reviewCount}件)
+								ランダム演習を開始
 							</button>
 						</Link>
-					)}
-				</CardContent>
-			</Card>
+						{reviewCount > 0 && (
+							<Link href="/study/techquiz/review" className="flex-1">
+								<button
+									type="button"
+									className="w-full px-6 py-3 border-2 border-orange-500 text-orange-600 dark:text-orange-400 hover:bg-orange-50 dark:hover:bg-orange-900/20 font-medium rounded-lg transition-colors"
+								>
+									今日の復習 ({reviewCount}件)
+								</button>
+							</Link>
+						)}
+					</div>
+				</section>
+			</div>
 		</div>
 	);
 }

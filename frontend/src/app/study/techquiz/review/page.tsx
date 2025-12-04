@@ -8,7 +8,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { questionService } from "@/lib/study/questionService";
 import { reviewService } from "@/lib/study/reviewService";
 import type { Question, UserProgress } from "@/types/study";
-import { ArrowLeft, PartyPopper, RefreshCw } from "lucide-react";
+import { ArrowLeft, CheckCircle, RefreshCw } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -121,8 +121,8 @@ export default function ReviewPage() {
 						</div>
 						{stats.completedToday === stats.totalReviewsToday &&
 							stats.totalReviewsToday > 0 && (
-								<div className="rounded-lg bg-green-50 p-3 text-green-700 flex items-center gap-2">
-									<PartyPopper />
+								<div className="rounded-lg bg-green-50 dark:bg-green-900/20 p-3 text-green-700 dark:text-green-400 flex items-center gap-2">
+									<CheckCircle className="h-5 w-5" />
 									今日の復習完了！
 								</div>
 							)}
@@ -138,27 +138,35 @@ export default function ReviewPage() {
 					allQuestions={allQuestions}
 				/>
 			) : (
-				<Card>
-					<CardContent className="py-12 text-center">
-						<div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-green-100">
-							<span className="text-3xl">✨</span>
-						</div>
-						<h3 className="mb-2 text-xl font-semibold">
-							復習する問題がありません
-						</h3>
-						<p className="text-gray-600">
-							素晴らしい！今日の復習は全て完了しました。
-						</p>
-						<div className="mt-6 flex justify-center gap-3">
-							<Link href="/study/techquiz/practice">
-								<Button>新しい問題を学習</Button>
-							</Link>
-							<Link href="/study/techquiz/dashboard">
-								<Button variant="outline">ダッシュボードへ</Button>
-							</Link>
-						</div>
-					</CardContent>
-				</Card>
+				<div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 py-12 text-center">
+					<div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-green-100 dark:bg-green-900/30">
+						<CheckCircle className="h-8 w-8 text-green-600 dark:text-green-400" />
+					</div>
+					<h3 className="mb-2 text-xl font-semibold text-gray-900 dark:text-gray-100">
+						復習する問題がありません
+					</h3>
+					<p className="text-gray-600 dark:text-gray-400">
+						素晴らしい！今日の復習は全て完了しました。
+					</p>
+					<div className="mt-6 flex justify-center gap-3">
+						<Link href="/study/techquiz/practice">
+							<button
+								type="button"
+								className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors"
+							>
+								新しい問題を学習
+							</button>
+						</Link>
+						<Link href="/study/techquiz/dashboard">
+							<button
+								type="button"
+								className="px-4 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 font-medium rounded-lg transition-colors"
+							>
+								ダッシュボードへ
+							</button>
+						</Link>
+					</div>
+				</div>
 			)}
 
 			{/* SM-2アルゴリズムの説明 */}
