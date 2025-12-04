@@ -1,5 +1,14 @@
 "use client";
 
+import {
+	AlertTriangle,
+	Code,
+	Eye,
+	FileCode,
+	Palette,
+	Terminal,
+	Zap,
+} from "lucide-react";
 import React, { useState, useCallback, useEffect } from "react";
 import { CodeEditor } from "../../components/playground/CodeEditor";
 import { PreviewPanel } from "../../components/playground/PreviewPanel";
@@ -265,14 +274,15 @@ if (button && result) {
 	const currentFile = getCurrentFile();
 
 	return (
-		<div className="flex flex-col h-[calc(100vh-5rem)] bg-secondary">
+		<div className="flex flex-col h-[calc(100vh-5rem-80px)] lg:h-[calc(100vh-5rem-96px)] bg-gray-100 dark:bg-gray-900">
 			{/* ページヘッダー */}
-			<div className="flex items-center justify-between px-3 md:px-5 py-4 bg-card border-b border-border shadow-soft">
+			<div className="flex items-center justify-between px-3 md:px-5 py-3 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
 				<div className="flex items-center gap-2 md:gap-4 min-w-0 flex-1">
-					<h1 className="m-0 text-lg md:text-2xl font-bold text-foreground truncate">
-						🚀 Code Playground
+					<Code className="w-5 h-5 text-blue-600 dark:text-blue-400 flex-shrink-0" />
+					<h1 className="m-0 text-base md:text-xl font-bold text-gray-900 dark:text-gray-100 truncate">
+						Code Playground
 					</h1>
-					<span className="hidden sm:inline text-sm md:text-base font-medium text-muted-foreground truncate">
+					<span className="hidden sm:inline text-sm font-medium text-gray-500 dark:text-gray-400 truncate">
 						{project.name}
 					</span>
 				</div>
@@ -281,39 +291,37 @@ if (button && result) {
 					<button
 						type="button"
 						onClick={togglePreview}
-						className={`px-2 md:px-4 py-2 text-xs md:text-sm font-medium rounded-lg transition-all duration-300 cursor-pointer ${
+						className={`flex items-center gap-1 px-2 md:px-4 py-2 text-xs md:text-sm font-medium rounded-lg transition-colors ${
 							showPreview
-								? "bg-primary-500 text-white border border-primary-500 shadow-soft hover:bg-primary-600"
-								: "bg-secondary text-muted-foreground border border-border hover:bg-secondary/80"
+								? "bg-blue-600 text-white hover:bg-blue-700"
+								: "bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-600 hover:bg-gray-200 dark:hover:bg-gray-600"
 						}`}
 					>
-						<span className="md:hidden">👁️</span>
-						<span className="hidden md:inline">👁️ プレビュー</span>
+						<Eye className="w-4 h-4" />
+						<span className="hidden md:inline">プレビュー</span>
 					</button>
 					<button
 						type="button"
 						onClick={toggleConsole}
-						className={`px-2 md:px-4 py-2 text-xs md:text-sm font-medium rounded-lg transition-all duration-300 cursor-pointer ${
+						className={`flex items-center gap-1 px-2 md:px-4 py-2 text-xs md:text-sm font-medium rounded-lg transition-colors ${
 							showConsole
-								? "bg-primary-500 text-white border border-primary-500 shadow-soft hover:bg-primary-600"
-								: "bg-secondary text-muted-foreground border border-border hover:bg-secondary/80"
+								? "bg-blue-600 text-white hover:bg-blue-700"
+								: "bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-600 hover:bg-gray-200 dark:hover:bg-gray-600"
 						}`}
 					>
-						<span className="md:hidden">📋 ({consoleLogs.length})</span>
-						<span className="hidden md:inline">
-							📋 コンソール ({consoleLogs.length})
-						</span>
+						<Terminal className="w-4 h-4" />
+						<span className="hidden md:inline">コンソール</span>
+						<span className="text-xs">({consoleLogs.length})</span>
 					</button>
 					{errors.length > 0 && (
 						<button
 							type="button"
 							onClick={clearErrors}
-							className="px-2 md:px-4 py-2 text-xs md:text-sm font-medium bg-destructive/10 text-destructive border border-destructive/30 rounded-lg hover:bg-destructive/20 transition-all duration-300 cursor-pointer"
+							className="flex items-center gap-1 px-2 md:px-4 py-2 text-xs md:text-sm font-medium bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400 border border-red-300 dark:border-red-700 rounded-lg hover:bg-red-200 dark:hover:bg-red-900/50 transition-colors"
 						>
-							<span className="md:hidden">⚠️ ({errors.length})</span>
-							<span className="hidden md:inline">
-								⚠️ エラー ({errors.length})
-							</span>
+							<AlertTriangle className="w-4 h-4" />
+							<span className="hidden md:inline">エラー</span>
+							<span className="text-xs">({errors.length})</span>
 						</button>
 					)}
 				</div>
@@ -323,26 +331,42 @@ if (button && result) {
 			<main className="flex flex-1 overflow-hidden md:flex-row flex-col min-h-0">
 				{/* エディターセクション */}
 				<section
-					className={`flex flex-col bg-white md:border-r border-gray-200 ${showPreview ? "flex-1 md:h-auto h-1/2" : "flex-1"}`}
+					className={`flex flex-col bg-white dark:bg-gray-800 md:border-r border-gray-200 dark:border-gray-700 ${showPreview ? "flex-1 md:h-auto h-1/2" : "flex-1"}`}
 				>
 					{/* ファイルタブ */}
-					<div className="flex bg-gray-50 border-b border-gray-200">
+					<div className="flex bg-gray-50 dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700">
 						{[
-							{ key: "html", label: "HTML", icon: "🌐" },
-							{ key: "css", label: "CSS", icon: "🎨" },
-							{ key: "javascript", label: "JavaScript", icon: "⚡" },
-						].map(({ key, label, icon }) => (
+							{
+								key: "html",
+								label: "HTML",
+								Icon: FileCode,
+								color: "text-orange-500",
+							},
+							{
+								key: "css",
+								label: "CSS",
+								Icon: Palette,
+								color: "text-blue-500",
+							},
+							{
+								key: "javascript",
+								label: "JavaScript",
+								Icon: Zap,
+								color: "text-yellow-500",
+							},
+						].map(({ key, label, Icon, color }) => (
 							<button
 								key={key}
 								type="button"
 								onClick={() => handleTabChange(key as PlaygroundLanguage)}
-								className={`flex items-center gap-2 px-5 py-3 text-sm font-medium border-b-2 transition-all duration-200 ${
+								className={`flex items-center gap-2 px-5 py-3 text-sm font-medium border-b-2 transition-colors ${
 									activeFile === key
-										? "bg-white text-blue-600 border-blue-600"
-										: "text-gray-600 border-transparent hover:bg-gray-100 hover:text-gray-900"
+										? "bg-white dark:bg-gray-800 text-blue-600 dark:text-blue-400 border-blue-600 dark:border-blue-400"
+										: "text-gray-600 dark:text-gray-400 border-transparent hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-gray-200"
 								}`}
 							>
-								{icon} {label}
+								<Icon className={`w-4 h-4 ${color}`} />
+								{label}
 							</button>
 						))}
 					</div>
@@ -364,7 +388,7 @@ if (button && result) {
 
 				{/* プレビューセクション */}
 				{showPreview && (
-					<section className="flex-1 bg-white md:h-auto h-1/2">
+					<section className="flex-1 bg-white dark:bg-gray-800 md:h-auto h-1/2">
 						<PreviewPanel
 							html={project.htmlFile.content}
 							css={project.cssFile.content}
@@ -384,46 +408,49 @@ if (button && result) {
 
 			{/* コンソールパネル */}
 			{showConsole && (
-				<section className="h-64 bg-white border-t border-gray-200 flex flex-col">
-					<div className="flex items-center justify-between px-4 py-3 bg-gray-50 border-b border-gray-200">
-						<h3 className="m-0 text-base font-semibold text-gray-900">
-							📋 コンソール
-						</h3>
+				<section className="h-64 bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 flex flex-col">
+					<div className="flex items-center justify-between px-4 py-3 bg-gray-50 dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700">
+						<div className="flex items-center gap-2">
+							<Terminal className="w-4 h-4 text-gray-600 dark:text-gray-400" />
+							<h3 className="m-0 text-base font-semibold text-gray-900 dark:text-gray-100">
+								コンソール
+							</h3>
+						</div>
 						<button
 							type="button"
 							onClick={clearConsoleLogs}
-							className="px-3 py-1 text-xs bg-gray-100 text-gray-600 border border-gray-300 rounded hover:bg-gray-200 transition-colors"
+							className="px-3 py-1 text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 border border-gray-300 dark:border-gray-600 rounded hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
 						>
 							クリア
 						</button>
 					</div>
-					<div className="flex-1 overflow-y-auto p-2 font-mono text-sm leading-relaxed">
+					<div className="flex-1 overflow-y-auto p-2 font-mono text-sm leading-relaxed bg-white dark:bg-gray-900">
 						{consoleLogs.map((log) => (
 							<div
 								key={log.id}
 								className={`flex gap-2 px-2 py-1 rounded mb-1 ${
 									log.level === "log"
-										? "text-gray-900"
+										? "text-gray-900 dark:text-gray-100"
 										: log.level === "info"
-											? "text-blue-600 bg-blue-50"
+											? "text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/30"
 											: log.level === "warn"
-												? "text-yellow-600 bg-yellow-50"
+												? "text-yellow-600 dark:text-yellow-400 bg-yellow-50 dark:bg-yellow-900/30"
 												: log.level === "error"
-													? "text-red-600 bg-red-50"
-													: "text-gray-900"
+													? "text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-900/30"
+													: "text-gray-900 dark:text-gray-100"
 								}`}
 							>
-								<span className="text-gray-400 text-xs min-w-20">
+								<span className="text-gray-400 dark:text-gray-500 text-xs min-w-20">
 									{log.timestamp.toLocaleTimeString()}
 								</span>
-								<span className="text-gray-500 font-semibold min-w-12 text-xs">
+								<span className="text-gray-500 dark:text-gray-400 font-semibold min-w-12 text-xs">
 									[{log.level.toUpperCase()}]
 								</span>
 								<span className="flex-1 break-words">{log.message}</span>
 							</div>
 						))}
 						{consoleLogs.length === 0 && (
-							<div className="text-center text-gray-400 italic py-5">
+							<div className="text-center text-gray-400 dark:text-gray-500 italic py-5">
 								コンソールログがありません
 							</div>
 						)}

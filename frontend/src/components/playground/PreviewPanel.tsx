@@ -1,3 +1,14 @@
+import {
+	AlertTriangle,
+	Loader2,
+	Maximize2,
+	Minimize2,
+	Monitor,
+	RefreshCw,
+	Smartphone,
+	Tablet,
+	Trash2,
+} from "lucide-react";
 import type React from "react";
 import { useCallback, useEffect, useRef, useState } from "react";
 import type { ConsoleLog, ExecutionError } from "../../types/playground";
@@ -63,13 +74,41 @@ export const PreviewPanel: React.FC<PreviewPanelProps> = ({
 	);
 	const [deviceType, setDeviceType] = useState<DeviceType>("desktop");
 	const [isFullscreen, setIsFullscreen] = useState(false);
-	const [lastUpdate, setLastUpdate] = useState<Date>(new Date());
+	const [lastUpdate, setLastUpdate] = useState<string>("");
+	const [isMounted, setIsMounted] = useState(false);
+
+	// クライアントサイドでのみ時刻を設定
+	useEffect(() => {
+		setIsMounted(true);
+		setLastUpdate(new Date().toLocaleTimeString());
+	}, []);
 
 	// デバイス設定
-	const deviceConfigs: Record<DeviceType, DeviceConfig> = {
-		desktop: { name: "デスクトップ", width: 1200, height: 800, icon: "🖥️" },
-		tablet: { name: "タブレット", width: 768, height: 1024, icon: "📱" },
-		mobile: { name: "モバイル", width: 375, height: 667, icon: "📱" },
+	const deviceConfigs: Record<
+		DeviceType,
+		DeviceConfig & { IconComponent: typeof Monitor }
+	> = {
+		desktop: {
+			name: "デスクトップ",
+			width: 1200,
+			height: 800,
+			icon: "desktop",
+			IconComponent: Monitor,
+		},
+		tablet: {
+			name: "タブレット",
+			width: 768,
+			height: 1024,
+			icon: "tablet",
+			IconComponent: Tablet,
+		},
+		mobile: {
+			name: "モバイル",
+			width: 375,
+			height: 667,
+			icon: "mobile",
+			IconComponent: Smartphone,
+		},
 	};
 
 	/**
@@ -125,7 +164,7 @@ export const PreviewPanel: React.FC<PreviewPanelProps> = ({
 				}
 			}, 50); // 50ms遅延
 
-			setLastUpdate(new Date());
+			setLastUpdate(new Date().toLocaleTimeString());
 		} catch (error) {
 			if (onError) {
 				onError({
@@ -179,65 +218,6 @@ export const PreviewPanel: React.FC<PreviewPanelProps> = ({
 		setIsFullscreen(!isFullscreen);
 	};
 
-	/**
-	 * ツールバーのレンダリング
-	 */
-	const renderToolbar = () => (
-		<div className="preview-toolbar">
-			{/* 更新ボタン */}
-			<button
-				type="button"
-				onClick={handleRefresh}
-				className="toolbar-button"
-				title="プレビューを更新"
-			>
-				🔄 更新
-			</button>
-
-			{/* クリアボタン */}
-			<button
-				type="button"
-				onClick={handleClear}
-				className="toolbar-button"
-				title="プレビューをクリア"
-			>
-				🗑️ クリア
-			</button>
-
-			{/* デバイス切り替え */}
-			{responsive && (
-				<div className="device-selector">
-					{Object.entries(deviceConfigs).map(([key, config]) => (
-						<button
-							key={key}
-							type="button"
-							onClick={() => handleDeviceChange(key as DeviceType)}
-							className={`device-button ${deviceType === key ? "active" : ""}`}
-							title={config.name}
-						>
-							{config.icon} {config.name}
-						</button>
-					))}
-				</div>
-			)}
-
-			{/* フルスクリーンボタン */}
-			<button
-				type="button"
-				onClick={handleFullscreenToggle}
-				className="toolbar-button"
-				title="フルスクリーン切り替え"
-			>
-				{isFullscreen ? "📉 戻る" : "📈 フルスクリーン"}
-			</button>
-
-			{/* 最終更新時刻 */}
-			<div className="last-update">
-				最終更新: {lastUpdate.toLocaleTimeString()}
-			</div>
-		</div>
-	);
-
 	// デバイス設定の取得
 	const currentDevice = deviceConfigs[deviceType];
 	const frameStyle = responsive
@@ -255,52 +235,58 @@ export const PreviewPanel: React.FC<PreviewPanelProps> = ({
 	return (
 		<div
 			data-testid="preview-panel"
-			className={`flex flex-col h-full bg-white border border-gray-200 rounded-lg overflow-hidden ${
+			className={`flex flex-col h-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden ${
 				isFullscreen ? "fixed inset-0 z-50 rounded-none" : ""
 			} ${className}`}
 		>
 			{/* ツールバー */}
-			<div className="flex items-center justify-between px-3 py-2 bg-gray-50 border-b border-gray-200 flex-wrap gap-2">
+			<div className="flex items-center justify-between px-3 py-2 bg-gray-50 dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 flex-wrap gap-2">
 				<div className="flex items-center gap-2">
 					{/* 更新ボタン */}
 					<button
 						type="button"
 						onClick={handleRefresh}
-						className="flex items-center gap-1 px-3 py-1 bg-white border border-gray-300 rounded text-sm hover:bg-gray-50 transition-colors"
+						className="flex items-center gap-1 px-3 py-1 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
 						title="プレビューを更新"
 					>
-						🔄 更新
+						<RefreshCw className="w-4 h-4" />
+						<span className="hidden sm:inline">更新</span>
 					</button>
 
 					{/* クリアボタン */}
 					<button
 						type="button"
 						onClick={handleClear}
-						className="flex items-center gap-1 px-3 py-1 bg-white border border-gray-300 rounded text-sm hover:bg-gray-50 transition-colors"
+						className="flex items-center gap-1 px-3 py-1 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
 						title="プレビューをクリア"
 					>
-						🗑️ クリア
+						<Trash2 className="w-4 h-4" />
+						<span className="hidden sm:inline">クリア</span>
 					</button>
 				</div>
 
 				{/* デバイス切り替え */}
 				{responsive && (
 					<div className="flex gap-1">
-						{Object.entries(deviceConfigs).map(([key, config]) => (
-							<button
-								key={key}
-								type="button"
-								onClick={() => handleDeviceChange(key as DeviceType)}
-								className={`px-2 py-1 text-xs rounded border transition-colors ${
-									deviceType === key
-										? "bg-blue-600 text-white border-blue-600"
-										: "bg-white text-gray-600 border-gray-300 hover:bg-gray-50"
-								}`}
-								title={config.name}
-							>
-								{config.icon} {config.name}
-							</button>
-						))}
+						{Object.entries(deviceConfigs).map(([key, config]) => {
+							const IconComp = config.IconComponent;
+							return (
+								<button
+									key={key}
+									type="button"
+									onClick={() => handleDeviceChange(key as DeviceType)}
+									className={`flex items-center gap-1 px-2 py-1 text-xs rounded border transition-colors ${
+										deviceType === key
+											? "bg-blue-600 text-white border-blue-600"
+											: "bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700"
+									}`}
+									title={config.name}
+								>
+									<IconComp className="w-3 h-3" />
+									<span className="hidden sm:inline">{config.name}</span>
+								</button>
+							);
+						})}
 					</div>
 				)}
 
@@ -309,30 +295,42 @@ export const PreviewPanel: React.FC<PreviewPanelProps> = ({
 					<button
 						type="button"
 						onClick={handleFullscreenToggle}
-						className="flex items-center gap-1 px-3 py-1 bg-white border border-gray-300 rounded text-sm hover:bg-gray-50 transition-colors"
+						className="flex items-center gap-1 px-3 py-1 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
 						title="フルスクリーン切り替え"
 					>
-						{isFullscreen ? "📉 戻る" : "📈 フルスクリーン"}
+						{isFullscreen ? (
+							<>
+								<Minimize2 className="w-4 h-4" />
+								<span className="hidden sm:inline">戻る</span>
+							</>
+						) : (
+							<>
+								<Maximize2 className="w-4 h-4" />
+								<span className="hidden sm:inline">全画面</span>
+							</>
+						)}
 					</button>
 
 					{/* 最終更新時刻 */}
-					<div className="text-xs text-gray-500">
-						最終更新: {lastUpdate.toLocaleTimeString()}
-					</div>
+					{isMounted && lastUpdate && (
+						<div className="text-xs text-gray-500 dark:text-gray-400">
+							最終更新: {lastUpdate}
+						</div>
+					)}
 				</div>
 			</div>
 
 			{/* プレビューコンテンツ */}
-			<div className="flex-1 relative overflow-auto">
+			<div className="flex-1 relative overflow-auto bg-gray-100 dark:bg-gray-900">
 				{isLoading && (
-					<div className="absolute inset-0 bg-white bg-opacity-80 flex flex-col items-center justify-center z-10">
-						<div
+					<div className="absolute inset-0 bg-white/80 dark:bg-gray-900/80 flex flex-col items-center justify-center z-10">
+						<Loader2
 							data-testid="loading-spinner"
-							className="text-3xl animate-spin mb-3"
-						>
-							⭐
+							className="w-8 h-8 text-blue-600 dark:text-blue-400 animate-spin mb-3"
+						/>
+						<div className="text-sm text-gray-600 dark:text-gray-400">
+							読み込み中...
 						</div>
-						<div className="text-sm text-gray-600">読み込み中...</div>
 					</div>
 				)}
 
@@ -340,9 +338,9 @@ export const PreviewPanel: React.FC<PreviewPanelProps> = ({
 					<div
 						data-testid="preview-frame"
 						ref={frameRef}
-						className={`w-full min-h-96 bg-white border border-gray-200 rounded overflow-auto ${
+						className={`w-full min-h-96 bg-white border border-gray-200 dark:border-gray-700 rounded overflow-auto ${
 							deviceType === "mobile"
-								? "border-2 border-gray-800 rounded-2xl"
+								? "border-2 border-gray-800 dark:border-gray-600 rounded-2xl"
 								: ""
 						}`}
 						style={frameStyle}
@@ -351,23 +349,26 @@ export const PreviewPanel: React.FC<PreviewPanelProps> = ({
 
 				{/* エラー表示 */}
 				{errors.length > 0 && (
-					<div className="bg-red-50 border-t border-red-200 p-3 max-h-48 overflow-y-auto">
-						<h4 className="text-sm font-semibold text-red-900 mb-2">
-							⚠️ エラー
-						</h4>
+					<div className="bg-red-50 dark:bg-red-900/30 border-t border-red-200 dark:border-red-800 p-3 max-h-48 overflow-y-auto">
+						<div className="flex items-center gap-2 mb-2">
+							<AlertTriangle className="w-4 h-4 text-red-600 dark:text-red-400" />
+							<h4 className="text-sm font-semibold text-red-900 dark:text-red-300">
+								エラー
+							</h4>
+						</div>
 						{errors.map((error) => (
 							<div
 								key={error.id}
-								className={`mb-2 p-2 bg-white border rounded ${
+								className={`mb-2 p-2 bg-white dark:bg-gray-800 border rounded ${
 									error.type === "syntax"
 										? "border-l-4 border-l-yellow-500"
 										: error.type === "runtime"
 											? "border-l-4 border-l-red-500"
-											: "border-gray-200"
+											: "border-gray-200 dark:border-gray-700"
 								}`}
 							>
 								<div className="flex gap-2 mb-1 text-xs">
-									<span className="font-semibold text-red-600">
+									<span className="font-semibold text-red-600 dark:text-red-400">
 										{error.type === "syntax"
 											? "構文エラー"
 											: error.type === "runtime"
@@ -377,15 +378,19 @@ export const PreviewPanel: React.FC<PreviewPanelProps> = ({
 													: "エラー"}
 									</span>
 									{error.file && (
-										<span className="bg-gray-100 px-2 py-0.5 rounded text-gray-600">
+										<span className="bg-gray-100 dark:bg-gray-700 px-2 py-0.5 rounded text-gray-600 dark:text-gray-300">
 											{error.file}
 										</span>
 									)}
 									{error.line && (
-										<span className="text-gray-500">行 {error.line}</span>
+										<span className="text-gray-500 dark:text-gray-400">
+											行 {error.line}
+										</span>
 									)}
 								</div>
-								<div className="text-sm text-gray-900">{error.message}</div>
+								<div className="text-sm text-gray-900 dark:text-gray-100">
+									{error.message}
+								</div>
 							</div>
 						))}
 					</div>

@@ -1,3 +1,4 @@
+import { AlertTriangle } from "lucide-react";
 import type React from "react";
 import { useEffect, useRef, useState } from "react";
 import type { PlaygroundLanguage } from "../../types/playground";
@@ -150,16 +151,12 @@ export const CodeEditor: React.FC<CodeEditorProps> = ({
 	return (
 		<div
 			data-testid="code-editor"
-			className={`h-full flex flex-col border border-gray-200 rounded-lg overflow-hidden bg-white ${theme === "dark" ? "bg-gray-900 border-gray-600 text-gray-200" : ""} ${className}`}
+			className={`h-full flex flex-col border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden bg-white dark:bg-gray-900 ${className}`}
 		>
 			{/* エディターヘッダー */}
-			<div
-				className={`flex items-center justify-between px-3 py-2 border-b ${theme === "dark" ? "bg-gray-800 border-gray-600" : "bg-gray-50 border-gray-200"}`}
-			>
+			<div className="flex items-center justify-between px-3 py-2 border-b bg-gray-50 dark:bg-gray-800 border-gray-200 dark:border-gray-700">
 				<div className="flex items-center">
-					<span
-						className={`text-xs font-semibold uppercase tracking-wide ${theme === "dark" ? "text-gray-300" : "text-gray-500"}`}
-					>
+					<span className="text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400">
 						{language.toUpperCase()}
 					</span>
 				</div>
@@ -168,17 +165,11 @@ export const CodeEditor: React.FC<CodeEditorProps> = ({
 			{/* エディター本体 */}
 			<div className="flex flex-1 overflow-hidden">
 				{showLineNumbers && (
-					<div
-						className={`px-2 py-3 text-right font-mono text-sm select-none min-w-12 ${
-							theme === "dark"
-								? "bg-gray-800 border-gray-600 text-gray-400"
-								: "bg-gray-50 border-gray-200 text-gray-500"
-						} border-r`}
-					>
+					<div className="px-2 py-3 text-right font-mono text-sm select-none min-w-12 bg-gray-50 dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700 text-gray-500 dark:text-gray-400">
 						{Array.from({ length: lineCount }, (_, i) => i + 1).map((line) => (
 							<div
 								key={line}
-								className={`leading-6 ${error?.line === line ? (theme === "dark" ? "bg-red-900 text-red-300" : "bg-red-100 text-red-600") : ""}`}
+								className={`leading-6 ${error?.line === line ? "bg-red-100 dark:bg-red-900/50 text-red-600 dark:text-red-400" : ""}`}
 								style={{ fontSize: `${fontSize}px` }}
 							>
 								{line}
@@ -196,11 +187,7 @@ export const CodeEditor: React.FC<CodeEditorProps> = ({
 						readOnly={readOnly}
 						disabled={readOnly}
 						placeholder={placeholder || getDefaultPlaceholder()}
-						className={`w-full h-full p-3 border-0 outline-none resize-none font-mono leading-6 bg-transparent focus:ring-0 focus:border-0 ${
-							theme === "dark"
-								? "text-gray-200 placeholder-gray-500"
-								: "text-gray-900 placeholder-gray-400"
-						} ${readOnly ? "cursor-not-allowed opacity-50" : "cursor-text"}`}
+						className={`w-full h-full p-3 border-0 outline-none resize-none font-mono leading-6 bg-transparent focus:ring-0 focus:border-0 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 ${readOnly ? "cursor-not-allowed opacity-50" : "cursor-text"}`}
 						style={{
 							fontSize: `${fontSize}px`,
 							tabSize: tabSize,
@@ -223,14 +210,10 @@ export const CodeEditor: React.FC<CodeEditorProps> = ({
 
 			{/* エラー表示 */}
 			{error && (
-				<div
-					className={`px-3 py-2 border-t ${theme === "dark" ? "bg-red-900 border-red-700" : "bg-red-50 border-red-200"}`}
-				>
+				<div className="px-3 py-2 border-t bg-red-50 dark:bg-red-900/30 border-red-200 dark:border-red-800">
 					<div className="flex items-center gap-2 text-sm">
-						<span className="text-base">⚠️</span>
-						<span
-							className={theme === "dark" ? "text-red-300" : "text-red-600"}
-						>
+						<AlertTriangle className="w-4 h-4 text-red-600 dark:text-red-400" />
+						<span className="text-red-600 dark:text-red-400">
 							{error.line && `行 ${error.line}: `}
 							{error.message}
 						</span>

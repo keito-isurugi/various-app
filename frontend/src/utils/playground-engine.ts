@@ -41,6 +41,7 @@ export interface PlaygroundEngine {
  */
 class PlaygroundEngineImpl implements PlaygroundEngine {
 	private container: HTMLElement;
+	private styleContainer: HTMLDivElement | null = null;
 	private styleElement: HTMLStyleElement | null = null;
 	private consoleLogs: ConsoleLog[] = [];
 
@@ -149,6 +150,7 @@ class PlaygroundEngineImpl implements PlaygroundEngine {
 
 	/**
 	 * CSSコードを実行
+	 * CSSはコンテナ内のスコープに限定される
 	 */
 	executeCSS(css: string): ExecutionResult {
 		const startTime = Date.now();
@@ -160,9 +162,6 @@ class PlaygroundEngineImpl implements PlaygroundEngine {
 			if (this.styleElement) {
 				this.styleElement.remove();
 			}
-
-			// 新しいスタイル要素を作成
-			this.styleElement = document.createElement("style");
 
 			// CSS構文の基本検証
 			const validation = validateCSS(css);
@@ -178,9 +177,22 @@ class PlaygroundEngineImpl implements PlaygroundEngine {
 				};
 			}
 
-			// CSSを適用
-			this.styleElement.textContent = css;
-			document.head.appendChild(this.styleElement);
+			// コンテナにユニークIDを設定（スコープ用）
+			const scopeId = this.container.id || `playground-scope-${Date.now()}`;
+			if (!this.container.id) {
+				this.container.id = scopeId;
+			}
+
+			// CSSをスコープ化（各セレクタの前にコンテナIDを追加）
+			const scopedCSS = this.scopeCSS(css, `#${scopeId}`);
+
+			// 新しいスタイル要素を作成してコンテナ内に配置
+			this.styleElement = document.createElement("style");
+			this.styleElement.setAttribute("data-playground-style", "true");
+			this.styleElement.textContent = scopedCSS;
+
+			// スタイルをコンテナの先頭に挿入（グローバルheadではなく）
+			this.container.insertBefore(this.styleElement, this.container.firstChild);
 		} catch (error) {
 			errors.push(
 				this.createError(
@@ -203,6 +215,77 @@ class PlaygroundEngineImpl implements PlaygroundEngine {
 			consoleLogs: newLogs,
 			executionTime,
 		};
+	}
+
+	/**
+	 * CSSをスコープ化する
+	 * 各セレクタの前にスコープIDを追加して、スタイルをコンテナ内に限定
+	 */
+	private scopeCSS(css: string, scopeSelector: string): string {
+		// @ルール（@media, @keyframes等）を処理
+		let remaining = css;
+
+		// @keyframes を抽出して保持（スコープ化しない）
+		const keyframesRegex =
+			/@keyframes\s+[\w-]+\s*\{[^{}]*(?:\{[^{}]*\}[^{}]*)*\}/g;
+		const keyframes: string[] = [];
+		remaining = remaining.replace(keyframesRegex, (match) => {
+			keyframes.push(match);
+			return "";
+		});
+
+		// @media クエリを処理
+		const mediaRegex =
+			/@media[^{]+\{([\s\S]*?)\}(?=\s*(?:@|\.|#|[a-zA-Z]|$|\}))/g;
+		remaining = remaining.replace(mediaRegex, (match, content) => {
+			const scopedContent = this.scopeSelectors(content, scopeSelector);
+			return match.replace(content, scopedContent);
+		});
+
+		// 残りの通常のセレクタをスコープ化
+		const scopedRemaining = this.scopeSelectors(remaining, scopeSelector);
+
+		return [...keyframes, scopedRemaining].join("\n");
+	}
+
+	/**
+	 * セレクタをスコープ化
+	 */
+	private scopeSelectors(css: string, scopeSelector: string): string {
+		// セレクタブロックを処理
+		return css.replace(
+			/([^{}]+)\{([^{}]*)\}/g,
+			(match, selectors: string, declarations) => {
+				// セレクタをカンマで分割
+				const scopedSelectors = selectors
+					.split(",")
+					.map((selector: string) => {
+						const trimmed = selector.trim();
+						if (!trimmed) return "";
+
+						// html, body, :root はコンテナ自体にマッピング
+						if (
+							trimmed === "html" ||
+							trimmed === "body" ||
+							trimmed === ":root"
+						) {
+							return scopeSelector;
+						}
+
+						// 既にスコープセレクタで始まる場合はそのまま
+						if (trimmed.startsWith(scopeSelector)) {
+							return trimmed;
+						}
+
+						// スコープセレクタを先頭に追加
+						return `${scopeSelector} ${trimmed}`;
+					})
+					.filter(Boolean)
+					.join(", ");
+
+				return `${scopedSelectors} {${declarations}}`;
+			},
+		);
 	}
 
 	/**
