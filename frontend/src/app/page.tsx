@@ -4,12 +4,14 @@ import {
 	Calculator,
 	Calendar,
 	Code,
+	Dumbbell,
 	Rocket,
 	Ticket,
 } from "lucide-react";
 import Link from "next/link";
 
 const pageLinks = [
+	// 通常項目（サイドメニューの通常項目と同順）
 	{
 		href: "/blog/posts",
 		title: "ブログ",
@@ -24,6 +26,21 @@ const pageLinks = [
 		icon: Calendar,
 		color: "from-green-500 to-emerald-500",
 	},
+	{
+		href: "/massage-ticket/admin/list",
+		title: "肩たたき券管理",
+		description: "デジタル肩たたき券",
+		icon: Ticket,
+		color: "from-pink-500 to-rose-500",
+	},
+	{
+		href: "/big3",
+		title: "BIG3計算",
+		description: "筋トレBIG3の記録管理",
+		icon: Dumbbell,
+		color: "from-orange-500 to-red-500",
+	},
+	// 学習カテゴリ（サイドメニューの学習カテゴリと同順）
 	{
 		href: "/study/techquiz",
 		title: "Tech Quiz",
@@ -51,13 +68,6 @@ const pageLinks = [
 		description: "コード実験場",
 		icon: Rocket,
 		color: "from-violet-500 to-purple-500",
-	},
-	{
-		href: "/massage-ticket/admin/list",
-		title: "肩たたき券管理",
-		description: "デジタル肩たたき券",
-		icon: Ticket,
-		color: "from-pink-500 to-rose-500",
 	},
 ];
 
