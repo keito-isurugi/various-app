@@ -125,7 +125,7 @@ export class ArrayReverseRecursiveAlgorithm implements Algorithm {
 		// 完了ステップ
 		this.steps.push({
 			id: this.stepId++,
-			description: `🎉 逆順完了！[${originalArray.join(", ")}] → [${this.currentArray.join(", ")}]`,
+			description: ` 逆順完了！[${originalArray.join(", ")}] → [${this.currentArray.join(", ")}]`,
 			array: [...this.currentArray],
 			operation: "完了",
 			variables: {
@@ -208,7 +208,7 @@ export class ArrayReverseRecursiveAlgorithm implements Algorithm {
 
 			this.steps.push({
 				id: this.stepId++,
-				description: `✅ ベースケース：${reason}`,
+				description: `ベースケース：${reason}`,
 				array: [...this.currentArray],
 				operation: "ベースケース",
 				variables: {
@@ -256,7 +256,7 @@ export class ArrayReverseRecursiveAlgorithm implements Algorithm {
 				callId: callId,
 				leftValue: this.currentArray[start],
 				rightValue: this.currentArray[end],
-				swapAction: `${this.currentArray[start]} ↔ ${this.currentArray[end]}`,
+				swapAction: `${this.currentArray[start]} <-> ${this.currentArray[end]}`,
 				nextCall: `reverseArray(${start + 1}, ${end - 1})`,
 			},
 			comparing: [start, end],
@@ -268,7 +268,7 @@ export class ArrayReverseRecursiveAlgorithm implements Algorithm {
 
 		this.steps.push({
 			id: this.stepId++,
-			description: `要素交換完了：array[${start}] ↔ array[${end}]`,
+			description: `要素交換完了：array[${start}] <-> array[${end}]`,
 			array: [...this.currentArray],
 			operation: "要素交換",
 			variables: {
@@ -373,16 +373,16 @@ export class ArrayReverseRecursiveAlgorithm implements Algorithm {
 	 */
 	private verifyReverse(original: number[], reversed: number[]): string {
 		if (original.length !== reversed.length) {
-			return "❌ 配列長が異なります";
+			return "配列長が異なります";
 		}
 
 		for (let i = 0; i < original.length; i++) {
 			if (original[i] !== reversed[original.length - 1 - i]) {
-				return "❌ 逆順が正しくありません";
+				return "逆順が正しくありません";
 			}
 		}
 
-		return "✅ 逆順が正しく実行されました";
+		return "逆順が正しく実行されました";
 	}
 
 	/**
@@ -403,35 +403,35 @@ export class ArrayReverseRecursiveAlgorithm implements Algorithm {
 		return `
 配列の逆順（再帰）は、線形再帰パターンの典型例です。
 
-🔄 **逆順の基本概念**
+ **逆順の基本概念**
 - 配列の要素を末尾から先頭の順序に並び替え
 - 例：[1, 2, 3, 4, 5] → [5, 4, 3, 2, 1]
 - 両端から中央に向かって要素を交換
 
-🧠 **再帰的思考**
+ **再帰的思考**
 - reverseArray(start, end)で範囲を指定
-- ①array[start] ↔ array[end] を交換
+- ①array[start] <-> array[end] を交換
 - ②reverseArray(start+1, end-1)を再帰呼び出し
 - ベースケース：start >= end で停止
 
-📏 **線形再帰の特徴**
+ **線形再帰の特徴**
 - 問題サイズが毎回2ずつ減少
 - 再帰の深さ：O(n/2) = O(n)
 - 各段階で1回の再帰呼び出し
 - フィボナッチのO(2^n)より効率的
 
-⏱️ **計算量**
+️ **計算量**
 - 時間計算量：O(n) - 線形時間
 - 空間計算量：O(n) - 再帰スタック
 - 交換回数：floor(n/2)回
 
-🎯 **学習価値**
+【ポイント】**学習価値**
 - 線形再帰パターンの理解
 - 分割統治の基本概念
 - 配列操作とインデックス管理
 - ベースケース設計の重要性
 
-💡 **実用性と応用**
+【ヒント】**実用性と応用**
 - 回文判定での類似パターン
 - 分割統治ソートの境界処理
 - 文字列操作での応用

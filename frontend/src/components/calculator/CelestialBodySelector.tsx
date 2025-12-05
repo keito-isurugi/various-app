@@ -42,7 +42,7 @@ export const CelestialBodySelector: React.FC<CelestialBodySelectorProps> = ({
 				htmlFor="celestial-body-selector"
 				className="block text-sm font-semibold text-foreground flex items-center gap-2"
 			>
-				<span className="text-lg">🌌</span>
+				<span className="text-lg"></span>
 				天体を選択
 			</label>
 
@@ -54,7 +54,7 @@ export const CelestialBodySelector: React.FC<CelestialBodySelectorProps> = ({
 					disabled={disabled}
 					className="input appearance-none bg-background pr-12 text-lg font-medium cursor-pointer disabled:cursor-not-allowed hover:border-primary transition-colors"
 				>
-					<option value="">🌟 手動で質量を入力</option>
+					<option value=""> 手動で質量を入力</option>
 					<optgroup label="🪐 太陽系の天体">
 						{solarSystemBodies.map((body) => (
 							<option key={body.id} value={body.id}>
@@ -62,7 +62,7 @@ export const CelestialBodySelector: React.FC<CelestialBodySelectorProps> = ({
 							</option>
 						))}
 					</optgroup>
-					<optgroup label="⭐ 恒星">
+					<optgroup label=" 恒星">
 						{stars.map((body) => (
 							<option key={body.id} value={body.id}>
 								{body.nameJa} ({body.name})
@@ -96,7 +96,7 @@ export const CelestialBodySelector: React.FC<CelestialBodySelectorProps> = ({
 						<div className="flex items-start gap-3">
 							<div className="w-10 h-10 bg-gradient-to-br from-primary-500 to-primary-600 rounded-xl flex items-center justify-center shrink-0">
 								<span className="text-white text-lg">
-									{selectedBody.category === "solar_system" ? "🪐" : "⭐"}
+									{selectedBody.category === "solar_system" ? "🪐" : ""}
 								</span>
 							</div>
 							<div className="flex-1 min-w-0">

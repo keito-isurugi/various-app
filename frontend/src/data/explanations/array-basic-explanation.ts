@@ -20,7 +20,7 @@ export const arrayBasicExplanation: ExplanationData = {
 	sections: [
 		{
 			id: "random-access-principle",
-			title: "🎯 ランダムアクセスの原理",
+			title: "【ポイント】ランダムアクセスの原理",
 			content:
 				"配列の最大の特徴は、インデックスを使った O(1) 時間でのランダムアクセスです。配列の先頭アドレスと要素サイズが分かれば、任意の要素のメモリアドレスを `先頭アドレス + インデックス × 要素サイズ` で瞬時に計算できます。この特性により、要素数に関係なく一定時間で任意の要素にアクセスできます。連続したメモリ配置のため、空間効率とキャッシュ効率も優秀です。",
 			importance: "high",
@@ -34,7 +34,7 @@ export const arrayBasicExplanation: ExplanationData = {
 
 		{
 			id: "basic-operations",
-			title: "🔧 基本操作の詳細",
+			title: "【実装】基本操作の詳細",
 			content:
 				"配列の基本操作には読み取り（access）、更新（update）、挿入（insert）、削除（delete）があります。読み取りと更新は O(1) 時間で実行できますが、挿入と削除は要素の移動が必要なため O(n) 時間かかります。末尾への追加は動的配列では O(1) 償却時間で可能です。検索操作は線形探索で O(n)、ソート済み配列では二分探索で O(log n) になります。",
 			importance: "high",
@@ -48,7 +48,7 @@ export const arrayBasicExplanation: ExplanationData = {
 
 		{
 			id: "memory-layout",
-			title: "💾 メモリレイアウトと効率性",
+			title: " メモリレイアウトと効率性",
 			content:
 				"配列は要素を連続したメモリ領域に格納するため、メモリ効率とキャッシュ効率が優秀です。現代のCPUはキャッシュラインという単位でメモリを読み込むため、配列の隣接要素は同時にキャッシュされ、アクセス速度が向上します。また、メモリの断片化が起こりにくく、メモリ使用量も最小限に抑えられます。この特性により、大量データの処理で高いパフォーマンスを発揮します。",
 			importance: "medium",
@@ -62,7 +62,7 @@ export const arrayBasicExplanation: ExplanationData = {
 
 		{
 			id: "dynamic-vs-static",
-			title: "🔄 静的配列と動的配列",
+			title: " 静的配列と動的配列",
 			content:
 				"配列には静的配列と動的配列の2種類があります。静的配列はサイズが固定で、コンパイル時にメモリが確保されます。動的配列（JavaScript の Array、Python の list など）はサイズが可変で、必要に応じて容量を拡張します。動的配列では容量拡張時に要素のコピーが発生しますが、償却計算量の概念により、追加操作の平均時間計算量は O(1) になります。",
 			importance: "medium",
@@ -76,7 +76,7 @@ export const arrayBasicExplanation: ExplanationData = {
 
 		{
 			id: "complexity-analysis",
-			title: "⚡ 計算量の分析",
+			title: "【計算量】計算量の分析",
 			content:
 				"配列の各操作の計算量は用途によって大きく異なります。ランダムアクセス（読み取り・更新）は O(1) で非常に高速です。挿入・削除は位置によって計算量が変わり、末尾では O(1)、中間では O(n) になります。検索は要素の配置によって O(1)（インデックス指定）から O(n)（線形探索）、O(log n)（二分探索）まで様々です。メモリ使用量は格納する要素数に比例して O(n) です。",
 			formula:
@@ -92,7 +92,7 @@ export const arrayBasicExplanation: ExplanationData = {
 
 		{
 			id: "real-world-applications",
-			title: "🌐 実世界での応用",
+			title: " 実世界での応用",
 			content:
 				"配列は様々な実世界のシステムで基盤技術として使用されています。データベースのレコード管理、画像・音声データの格納、科学計算での行列演算、ゲーム開発での座標管理など、あらゆる分野で活用されています。Web開発では配列を使ったデータの一覧表示や操作が頻繁に行われ、機械学習では多次元配列（テンソル）として数値計算の基盤となっています。",
 			importance: "medium",
@@ -106,7 +106,7 @@ export const arrayBasicExplanation: ExplanationData = {
 
 		{
 			id: "common-algorithms",
-			title: "🔍 配列を使用するアルゴリズム",
+			title: "【詳細】配列を使用するアルゴリズム",
 			content:
 				"配列は多くの基本的なアルゴリズムの基盤となっています。ソートアルゴリズム（クイックソート、マージソート、ヒープソートなど）では配列の要素を効率的に並び替えます。探索アルゴリズムでは、線形探索や二分探索で目的の要素を見つけます。動的計画法では結果をテーブル（配列）に格納して部分問題の解を再利用します。また、グラフアルゴリズムでも隣接行列として配列が使用されます。",
 			importance: "medium",
@@ -120,7 +120,7 @@ export const arrayBasicExplanation: ExplanationData = {
 
 		{
 			id: "optimization-techniques",
-			title: "🚀 最適化技法",
+			title: "【応用】最適化技法",
 			content:
 				"配列操作の効率化には様々な技法があります。メモリプリフェッチングによりキャッシュミスを減らし、ベクトル化により並列処理を活用できます。アクセスパターンの最適化では、行優先・列優先アクセスでキャッシュ効率を改善します。また、配列のサイズが事前に分かる場合は静的配列を使用し、不要な動的メモリ割り当てを避けることで性能を向上させることができます。",
 			importance: "low",
@@ -134,7 +134,7 @@ export const arrayBasicExplanation: ExplanationData = {
 
 		{
 			id: "common-mistakes",
-			title: "⚠️ よくある間違いと注意点",
+			title: "【注意】よくある間違いと注意点",
 			content:
 				"配列の使用において、いくつかの典型的な間違いがあります。境界外アクセス（インデックスが範囲を超える）は重大なバグの原因となります。頻繁な中間挿入・削除は性能問題を引き起こすため、用途に応じて適切なデータ構造を選択する必要があります。動的配列では未初期化要素へのアクセスや、削除後の要素への参照も問題となります。これらの問題を理解し、適切に対処することが重要です。",
 			importance: "medium",
@@ -148,7 +148,7 @@ export const arrayBasicExplanation: ExplanationData = {
 
 		{
 			id: "learning-progression",
-			title: "📚 学習の進め方",
+			title: "【基礎】学習の進め方",
 			content:
 				"配列の学習は、まず基本概念とインデックスアクセスの理解から始めます。次に各操作の計算量を理解し、実装を通じて動作を確認します。その後、ソートや探索などの基本アルゴリズムで配列の活用方法を学習します。応用として、多次元配列や動的配列の使い方を習得し、最終的には性能最適化の技法を学びます。段階的に理解を深めることで、効率的なプログラムが書けるようになります。",
 			importance: "low",

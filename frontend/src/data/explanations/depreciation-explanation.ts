@@ -20,7 +20,7 @@ export const depreciationExplanationData: ExplanationData = {
 	sections: [
 		{
 			id: "why-depreciation-needed",
-			title: "🤔 なぜ減価償却が必要なの？",
+			title: " なぜ減価償却が必要なの？",
 			content:
 				"想像してみてください。あなたが会社を経営していて、事業用に100万円のパソコンを購入したとします。このパソコンは5年間使う予定です。もし1年目に100万円全額を経費として計上してしまうと、1年目の利益が大幅に減ってしまいます。でも実際には、このパソコンは5年間にわたって会社の利益に貢献するはずです。だからこそ、その費用も5年間に分けて計上するのが合理的なのです。",
 			importance: "high",
@@ -33,7 +33,7 @@ export const depreciationExplanationData: ExplanationData = {
 
 		{
 			id: "real-world-analogy",
-			title: "🏠 身近な例で理解しよう",
+			title: " 身近な例で理解しよう",
 			content:
 				"減価償却を家庭で例えると、スマートフォンを分割払いで購入するようなものです。10万円のスマホを24回払いで購入した場合、毎月約4,200円ずつ支払いますよね。減価償却も同じように、高額な資産の費用を使用期間に応じて分割して計上するのです。ただし、分割払いと違うのは、お金の支払いは最初に済んでいて、会計上の処理だけを分割するということです。",
 			importance: "high",
@@ -46,7 +46,7 @@ export const depreciationExplanationData: ExplanationData = {
 
 		{
 			id: "depreciation-methods",
-			title: "📊 減価償却の計算方法",
+			title: "【解析】減価償却の計算方法",
 			content:
 				"減価償却には主に2つの計算方法があります。①定額法：毎年同じ金額を償却する最もシンプルな方法です。②定率法：最初の数年は多く、後半は少なく償却する方法です。初心者には定額法がおすすめです。なぜなら計算が簡単で、毎年の経費が一定になるため、経営計画を立てやすいからです。",
 			formula:
@@ -61,7 +61,7 @@ export const depreciationExplanationData: ExplanationData = {
 
 		{
 			id: "key-terms",
-			title: "📝 覚えておきたい重要な用語",
+			title: "【まとめ】覚えておきたい重要な用語",
 			content:
 				"減価償却を理解するための重要な用語を覚えましょう。①取得価額：資産を購入した時の金額です。②耐用年数：その資産を何年使うかの期間です。税法で決められています。③残存価額：耐用年数が終わった時の予想価値です。④償却可能額：実際に償却する金額（取得価額-残存価額）です。これらの用語を理解すれば、減価償却の計算ができるようになります。",
 			importance: "high",
@@ -75,7 +75,7 @@ export const depreciationExplanationData: ExplanationData = {
 
 		{
 			id: "practical-calculation",
-			title: "🧮 実際に計算してみよう",
+			title: " 実際に計算してみよう",
 			content:
 				"具体例で定額法の計算をしてみましょう。会社が業務用パソコンを50万円で購入し、4年間使用する予定です。残存価額は5万円と見積もります。計算式は：（取得価額50万円 - 残存価額5万円）÷ 耐用年数4年 = 年間償却額11.25万円となります。つまり、毎年11.25万円ずつ4年間にわたって経費として計上することになります。",
 			formula:
@@ -91,7 +91,7 @@ export const depreciationExplanationData: ExplanationData = {
 
 		{
 			id: "business-impact",
-			title: "💼 ビジネスへの影響",
+			title: "ビジネスへの影響",
 			content:
 				"減価償却は単なる会計処理ではなく、経営に大きな影響を与えます。①キャッシュフロー：減価償却費は現金の支出を伴わない経費のため、手元の現金は減りません。②税務効果：減価償却費により利益が減り、法人税も減少します。③投資判断：設備投資の際は、減価償却も含めた長期的な収益性を検討する必要があります。これらを理解することで、より良い経営判断ができるようになります。",
 			importance: "medium",

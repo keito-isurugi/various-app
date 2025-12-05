@@ -20,7 +20,7 @@ export const factorialExplanation: ExplanationData = {
 	sections: [
 		{
 			id: "factorial-definition",
-			title: "🔢 階乗の数学的定義",
+			title: "【数値】階乗の数学的定義",
 			content:
 				"階乗は数学において、自然数nに対してn以下の全ての正の整数の積として定義されます。0! = 1と定義され、n! = n × (n-1)!という再帰的な性質を持ちます。この定義は直接的にプログラムの再帰関数として実装でき、数学的定義とプログラム実装の美しい対応関係を学ぶことができます。",
 			importance: "high",
@@ -36,7 +36,7 @@ export const factorialExplanation: ExplanationData = {
 
 		{
 			id: "recursive-structure",
-			title: "🔄 再帰構造の理解",
+			title: " 再帰構造の理解",
 			content:
 				"階乗の再帰的定義 n! = n × (n-1)! は、問題を同じ種類のより小さな問題に分解する典型的な例です。各ステップで問題のサイズが1ずつ減少し、最終的にベースケース（0! = 1または1! = 1）に到達します。この線形再帰構造は、フィボナッチ数列の指数的再帰よりもシンプルで理解しやすく、再帰プログラミングの基礎を学ぶのに適しています。",
 			importance: "high",
@@ -52,7 +52,7 @@ export const factorialExplanation: ExplanationData = {
 
 		{
 			id: "base-case-analysis",
-			title: "🛑 ベースケースの設計",
+			title: " ベースケースの設計",
 			content:
 				"階乗のベースケースは、通常0! = 1または1! = 1に設定されます。数学的には0! = 1が正しい定義ですが、プログラム実装では1! = 1をベースケースとすることも多いです。重要なのは、再帰が無限に続かないよう適切な停止条件を設定することです。負数に対する階乗は未定義なので、入力値の検証も重要な実装要素です。",
 			importance: "high",
@@ -66,7 +66,7 @@ export const factorialExplanation: ExplanationData = {
 
 		{
 			id: "call-stack-mechanics",
-			title: "📚 コールスタックの動作",
+			title: "【基礎】コールスタックの動作",
 			content:
 				"階乗の再帰実装では、各関数呼び出しがスタックに積まれ、ベースケースに到達すると逆順に計算が実行されます。5!の計算では、factorial(5) → factorial(4) → ... → factorial(1)の順でスタックに積まれ、1 → 2 → 6 → 24 → 120の順で結果が計算されます。この過程を理解することで、再帰の実行メカニズムとメモリ使用パターンを把握できます。",
 			importance: "medium",
@@ -80,7 +80,7 @@ export const factorialExplanation: ExplanationData = {
 
 		{
 			id: "time-space-complexity",
-			title: "⏱️ 計算量の分析",
+			title: "️ 計算量の分析",
 			content:
 				"階乗の再帰実装の時間計算量はO(n)です。n回の関数呼び出しが必要で、各呼び出しは定数時間で処理されます。空間計算量もO(n)で、これは再帰の深さがnであるためです。フィボナッチ数列のO(2^n)と比較すると格段に効率的で、実用的な計算時間で実行できます。ただし、大きなnに対しては結果が非常に大きくなるため、オーバーフローに注意が必要です。",
 			formula:
@@ -96,7 +96,7 @@ export const factorialExplanation: ExplanationData = {
 
 		{
 			id: "comparison-with-iterative",
-			title: "🔄 反復実装との比較",
+			title: " 反復実装との比較",
 			content:
 				"階乗は再帰実装と反復実装（ループ）の両方で簡単に記述できます。再帰実装は数学的定義に忠実で理解しやすい一方、反復実装はスタックを使用せずメモリ効率が良いです。教育目的では再帰実装が概念理解に適していますが、実用面では反復実装が推奨されることが多いです。両方の実装を比較することで、アルゴリズム設計の選択肢を理解できます。",
 			importance: "medium",
@@ -110,7 +110,7 @@ export const factorialExplanation: ExplanationData = {
 
 		{
 			id: "practical-applications",
-			title: "🌍 実際の応用場面",
+			title: " 実際の応用場面",
 			content:
 				"階乗は数学、統計学、コンピュータサイエンスの様々な分野で使用されます。組み合わせ論での順列・組み合わせ計算、確率論での確率計算、数値解析でのテイラー展開などで頻繁に現れます。プログラミングでは、再帰アルゴリズムの教育例として最初に学ぶことが多く、より複雑な再帰アルゴリズム（クイックソート、ハノイの塔など）の理解への足がかりとなります。",
 			importance: "low",
@@ -124,7 +124,7 @@ export const factorialExplanation: ExplanationData = {
 
 		{
 			id: "overflow-considerations",
-			title: "⚠️ オーバーフローの考慮",
+			title: "【注意】オーバーフローの考慮",
 			content:
 				"階乗は非常に急速に増加する関数で、小さなnでも結果が巨大になります。JavaScriptの数値型（Number）では、20!（約2.4×10^18）付近で精度の問題が生じ、170!を超えるとInfinityになります。実用的な階乗計算では、BigInt型の使用や近似計算（スターリングの公式）、対数階乗の計算などの工夫が必要です。この問題を通して、数値計算の限界と対策を学ぶことができます。",
 			importance: "medium",

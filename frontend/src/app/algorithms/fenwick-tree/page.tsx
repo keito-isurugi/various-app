@@ -7,6 +7,7 @@
 
 "use client";
 
+import { Binary, BookOpen, Lightbulb, Target } from "lucide-react";
 import Link from "next/link";
 import React, { useState, useCallback } from "react";
 import { AlgorithmVisualizer } from "../../../components/algorithm/AlgorithmVisualizer";
@@ -273,7 +274,8 @@ export default function FenwickTreePage() {
 					<div className="xl:col-span-1">
 						<div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700 sticky top-4">
 							<h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">
-								🔢 Fenwick Tree操作設定
+								<Binary className="w-4 h-4" />
+								Fenwick Tree操作設定
 							</h3>
 
 							{/* 現在の設定表示 */}
@@ -287,7 +289,8 @@ export default function FenwickTreePage() {
 									</div>
 								</div>
 								<div className="mt-2 p-2 bg-purple-100 dark:bg-purple-900/30 rounded text-xs text-purple-800 dark:text-purple-200">
-									🎯 ビット演算による累積和管理
+									<Target className="w-4 h-4" />
+									ビット演算による累積和管理
 								</div>
 							</div>
 
@@ -435,8 +438,9 @@ export default function FenwickTreePage() {
 
 							{/* 推奨操作例 */}
 							<div className="space-y-2 mb-6">
-								<h4 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-									📚 推奨操作例
+								<h4 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 flex items-center gap-1">
+									<BookOpen className="w-4 h-4" />
+									推奨操作例
 								</h4>
 								<div className="space-y-2 max-h-48 overflow-y-auto">
 									{recommendedOperations.map((rec, index) => (
@@ -473,13 +477,20 @@ export default function FenwickTreePage() {
 								type="button"
 								onClick={executeAlgorithm}
 								disabled={isExecuting}
-								className={`w-full py-3 rounded-lg font-semibold transition-all duration-200 ${
+								className={`w-full py-3 rounded-lg font-semibold transition-all duration-200 flex items-center justify-center gap-2 ${
 									isExecuting
 										? "bg-gray-400 text-gray-700 cursor-not-allowed"
 										: "bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white shadow-lg hover:shadow-xl"
 								}`}
 							>
-								{isExecuting ? "実行中..." : "🔢 Fenwick Tree操作実行"}
+								{isExecuting ? (
+									"実行中..."
+								) : (
+									<>
+										<Binary className="w-4 h-4" />
+										Fenwick Tree操作実行
+									</>
+								)}
 							</button>
 
 							{/* 結果表示 */}
@@ -525,7 +536,9 @@ export default function FenwickTreePage() {
 							<AlgorithmVisualizer steps={result.steps} className="mb-8" />
 						) : (
 							<div className="bg-white dark:bg-gray-800 rounded-xl p-12 border border-gray-200 dark:border-gray-700 text-center mb-8">
-								<div className="text-6xl mb-4">🔢</div>
+								<div className="text-6xl mb-4">
+									<Binary className="w-16 h-16 mx-auto text-purple-500" />
+								</div>
 								<h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-2">
 									Fenwick Tree操作を実行してください
 								</h3>
@@ -550,8 +563,9 @@ export default function FenwickTreePage() {
 				{/* アルゴリズムの特徴セクション */}
 				<section className="mt-12">
 					<div className="bg-gradient-to-r from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 rounded-xl p-6 border border-purple-200 dark:border-purple-700">
-						<h3 className="text-xl font-semibold text-purple-900 dark:text-purple-100 mb-4">
-							🎯 Fenwick Treeの特徴と応用
+						<h3 className="text-xl font-semibold text-purple-900 dark:text-purple-100 mb-4 flex items-center gap-2">
+							<Target className="w-5 h-5" />
+							Fenwick Treeの特徴と応用
 						</h3>
 						<div className="grid md:grid-cols-2 gap-6">
 							<div>
@@ -579,7 +593,8 @@ export default function FenwickTreePage() {
 						</div>
 						<div className="mt-4 p-3 bg-amber-100 dark:bg-amber-900/30 rounded-lg">
 							<p className="text-sm text-amber-800 dark:text-amber-200">
-								💡 <strong>学習ポイント:</strong> Fenwick
+								<Lightbulb className="w-3 h-3 inline" />{" "}
+								<strong>学習ポイント:</strong> Fenwick
 								Treeはビット演算の巧妙な活用により、
 								累積和に特化した最適化を実現した実用的なデータ構造です。
 							</p>

@@ -20,7 +20,7 @@ export const twoPointerExplanation: ExplanationData = {
 	sections: [
 		{
 			id: "pointer-patterns",
-			title: "👆 ポインタの基本パターン",
+			title: " ポインタの基本パターン",
 			content:
 				"2 pointer法には主に3つの基本パターンがあります。対向ポインタは配列の両端から中央に向かって移動し、同方向ポインタは異なる速度で同じ方向に移動し、固定ポインタは一つを固定してもう一つを移動させます。各パターンは異なる問題に適用され、適切なパターンを選択することで効率的な解法を実現できます。",
 			importance: "high",
@@ -34,7 +34,7 @@ export const twoPointerExplanation: ExplanationData = {
 
 		{
 			id: "sorted-array-power",
-			title: "📊 ソート済み配列での威力",
+			title: "【解析】ソート済み配列での威力",
 			content:
 				"2 pointer法はソート済み配列で最大の威力を発揮します。要素の大小関係が明確なため、ポインタの移動方向を論理的に決定できます。Two Sum問題では、和が小さければ左ポインタを右に、大きければ右ポインタを左に移動することで、O(n)時間で解を発見できます。この性質により、探索空間を効率的に削減できます。",
 			importance: "high",
@@ -48,7 +48,7 @@ export const twoPointerExplanation: ExplanationData = {
 
 		{
 			id: "space-efficiency",
-			title: "💾 空間効率とin-place操作",
+			title: " 空間効率とin-place操作",
 			content:
 				"2 pointer法の大きな利点は優秀な空間効率です。多くの場合でO(1)の追加メモリのみで処理を完了でき、in-place操作により元の配列を直接変更できます。配列の反転、重複除去、条件に基づく要素の移動などで、新しい配列を作成せずに処理を完了できるため、メモリ制約のある環境でも効果的です。",
 			importance: "medium",
@@ -62,7 +62,7 @@ export const twoPointerExplanation: ExplanationData = {
 
 		{
 			id: "algorithm-optimization",
-			title: "⚡ アルゴリズム最適化の原理",
+			title: "【計算量】アルゴリズム最適化の原理",
 			content:
 				"2 pointer法による最適化の核心は「探索空間の効率的削減」です。各ステップで一方または両方のポインタを移動し、条件に基づいて不要な領域を除外します。この過程で各要素は最大定数回しかアクセスされないため、線形時間計算量を実現できます。適切な移動戦略により、全探索を回避して効率的な解法を構築できます。",
 			formula:
@@ -78,7 +78,7 @@ export const twoPointerExplanation: ExplanationData = {
 
 		{
 			id: "string-processing",
-			title: "📝 文字列処理での応用",
+			title: "【まとめ】文字列処理での応用",
 			content:
 				"2 pointer法は文字列処理でも広く活用されます。回文判定では両端から中央に向かって文字を比較し、部分文字列問題では条件に応じて範囲を調整します。文字列の反転、パターンマッチング、重複文字の処理などで効率的な解法を提供し、文字列アルゴリズムの基盤技術として重要な役割を果たします。",
 			importance: "medium",
@@ -92,7 +92,7 @@ export const twoPointerExplanation: ExplanationData = {
 
 		{
 			id: "geometric-problems",
-			title: "📐 幾何問題への応用",
+			title: " 幾何問題への応用",
 			content:
 				"2 pointer法は幾何問題でも威力を発揮します。Container with Most Water問題では、高さ配列から最大面積を持つ矩形をO(n)時間で発見できます。より低い壁のポインタを移動するという貪欲な戦略により、最適解を効率的に求められます。この原理は他の最大化・最小化問題にも応用できます。",
 			importance: "low",
@@ -106,7 +106,7 @@ export const twoPointerExplanation: ExplanationData = {
 
 		{
 			id: "implementation-strategies",
-			title: "🔧 実装戦略と技法",
+			title: "【実装】実装戦略と技法",
 			content:
 				"2 pointer法の実装では、ポインタの初期化、移動条件、終了条件を明確に定義することが重要です。境界チェック、重複要素の処理、特殊ケースの扱いに注意を払い、ロバストなコードを作成する必要があります。また、デバッグ時には各ステップでのポインタ位置と条件を確認し、論理の正当性を検証することが大切です。",
 			importance: "medium",
@@ -120,7 +120,7 @@ export const twoPointerExplanation: ExplanationData = {
 
 		{
 			id: "advanced-applications",
-			title: "🎯 高度な応用パターン",
+			title: "【ポイント】高度な応用パターン",
 			content:
 				"基本的な2 pointer法を発展させた高度な応用には、複数配列の同時処理、条件付きポインタ移動、優先度付き処理などがあります。ソート済み配列のマージ、複数条件での最適化、動的な移動戦略などの技法を組み合わせることで、より複雑な問題にも対応できます。これらの応用パターンを理解することで、問題解決の幅が大きく広がります。",
 			importance: "low",
@@ -134,7 +134,7 @@ export const twoPointerExplanation: ExplanationData = {
 
 		{
 			id: "performance-considerations",
-			title: "📈 性能考慮事項",
+			title: " 性能考慮事項",
 			content:
 				"2 pointer法の性能は、問題の性質とデータの特性に依存します。ソート済み配列では最高の効率を発揮しますが、未ソートデータではソートコストを考慮する必要があります。キャッシュ効率、分岐予測、メモリアクセスパターンなども実際の性能に影響するため、実装時にはこれらの要因も考慮することが重要です。",
 			importance: "low",
@@ -148,7 +148,7 @@ export const twoPointerExplanation: ExplanationData = {
 
 		{
 			id: "learning-methodology",
-			title: "📚 効果的な学習方法",
+			title: "【基礎】効果的な学習方法",
 			content:
 				"2 pointer法の習得は、基本パターンの理解から始めて、様々な問題での応用練習を積むことが効果的です。まずはTwo Sum、配列反転などの基本問題で手法を身に付け、徐々にThree Sum、文字列問題などの複雑な応用に進みます。各問題でポインタの移動ロジックを意識し、なぜその移動が正しいのかを理論的に理解することが重要です。",
 			importance: "low",

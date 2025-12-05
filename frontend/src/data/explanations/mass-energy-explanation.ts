@@ -20,7 +20,7 @@ export const massEnergyExplanation: ExplanationData = {
 	sections: [
 		{
 			id: "basic-concept",
-			title: "🌟 質量とエネルギーは同じもの？",
+			title: " 質量とエネルギーは同じもの？",
 			content:
 				"普通に考えると、「重さ」と「エネルギー」は全く別のものに思えます。しかし、アインシュタインは「実は同じものの違う姿」であることを発見しました。氷と水蒸気が同じH₂Oの違う状態であるように、質量とエネルギーも同じ「何か」の違う姿なのです。",
 			importance: "high",
@@ -33,7 +33,7 @@ export const massEnergyExplanation: ExplanationData = {
 
 		{
 			id: "formula-meaning",
-			title: "📐 E=mc²の意味",
+			title: " E=mc²の意味",
 			content:
 				"E=mc²の式で、Eはエネルギー、mは質量、cは光の速度です。重要なのは、光の速度cを2回かけることです。光の速度は秒速30万kmという巨大な数なので、c²（cの2乗）は想像を絶する大きな数になります。だから、ほんの少しの質量でも、掛け算すると膨大なエネルギーになるのです。",
 			formula:
@@ -48,7 +48,7 @@ export const massEnergyExplanation: ExplanationData = {
 
 		{
 			id: "real-world-examples",
-			title: "🔥 身の回りの例",
+			title: " 身の回りの例",
 			content:
 				"太陽は毎秒400万トンの質量をエネルギーに変換して輝いています。これは地球上のすべての核兵器を同時に爆発させたエネルギーの1000倍以上です。原子力発電所では、わずか数グラムのウランから、一般家庭数千軒分の電力を作り出しています。",
 			importance: "high",
@@ -61,7 +61,7 @@ export const massEnergyExplanation: ExplanationData = {
 
 		{
 			id: "nuclear-reactions",
-			title: "⚛️ 核反応での応用",
+			title: "️ 核反応での応用",
 			content:
 				"核分裂や核融合では、原子核が「少し軽く」なります。この「失われた質量」がエネルギーに変換されるのです。例えば、ウラン235が分裂すると、元の質量の約0.1%がエネルギーになります。たった0.1%でも、E=mc²のおかげで膨大なエネルギーになるのです。",
 			importance: "medium",
@@ -74,7 +74,7 @@ export const massEnergyExplanation: ExplanationData = {
 
 		{
 			id: "daily-applications",
-			title: "💡 現代社会への影響",
+			title: "【ヒント】現代社会への影響",
 			content:
 				"E=mc²は現代社会の基盤技術です。原子力発電、医療用のPET検査、放射線治療、さらには煙感知器にも使われています。また、GPS衛星の時計の補正にも相対性理論が必要で、E=mc²なしには現代の正確な位置測定は不可能です。",
 			importance: "medium",
@@ -87,7 +87,7 @@ export const massEnergyExplanation: ExplanationData = {
 
 		{
 			id: "comparison-with-chemistry",
-			title: "🧪 化学反応との違い",
+			title: " 化学反応との違い",
 			content:
 				"化学反応（燃焼など）では電子の結合が変わりますが、核反応では原子核そのものが変わります。ガソリン1Lの燃焼エネルギーは約32MJですが、同じ重さのウランが完全に変換されると約8兆倍のエネルギーが出ます。これがE=mc²の威力です。",
 			importance: "low",
@@ -100,7 +100,7 @@ export const massEnergyExplanation: ExplanationData = {
 
 		{
 			id: "einstein-discovery",
-			title: "🎓 アインシュタインの発見",
+			title: " アインシュタインの発見",
 			content:
 				"1905年、26歳のアインシュタインが特殊相対性理論を発表し、その帰結としてE=mc²を導きました。彼自身は原子爆弾の開発を予想していませんでしたが、後にナチスドイツが核兵器を開発する可能性を懸念し、アメリカに原子爆弾開発を促す手紙を書きました。",
 			importance: "low",

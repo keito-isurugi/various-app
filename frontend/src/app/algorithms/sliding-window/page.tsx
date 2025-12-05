@@ -7,6 +7,14 @@
 
 "use client";
 
+import {
+	Code,
+	FileText,
+	Lightbulb,
+	Play,
+	Settings,
+	Trophy,
+} from "lucide-react";
 import Link from "next/link";
 import React, { useState, useCallback } from "react";
 import { AlgorithmVisualizer } from "../../../components/algorithm/AlgorithmVisualizer";
@@ -286,8 +294,9 @@ export default function SlidingWindowPage() {
 					{/* 入力パネル */}
 					<div className="xl:col-span-1">
 						<div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700 sticky top-4">
-							<h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">
-								🔧 実行設定
+							<h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4 flex items-center gap-2">
+								<Settings className="w-5 h-5" />
+								実行設定
 							</h3>
 
 							{/* 現在の設定表示 */}
@@ -408,28 +417,30 @@ export default function SlidingWindowPage() {
 									onClick={setVariableSizeOperation}
 									className="w-full py-2 bg-green-500 hover:bg-green-600 text-white rounded-lg transition-colors text-sm"
 								>
-									📏 可変サイズ（尺取り法）
+									 可変サイズ（尺取り法）
 								</button>
 								<button
 									type="button"
 									onClick={setMaxSumOperation}
 									className="w-full py-2 bg-orange-500 hover:bg-orange-600 text-white rounded-lg transition-colors text-sm"
 								>
-									🏆 最大和ウィンドウ
+									<Trophy className="w-4 h-4" />
+									最大和ウィンドウ
 								</button>
 								<button
 									type="button"
 									onClick={setLongestSubstringOperation}
 									className="w-full py-2 bg-purple-500 hover:bg-purple-600 text-white rounded-lg transition-colors text-sm"
 								>
-									📝 最長部分文字列
+									<FileText className="w-4 h-4" />
+									最長部分文字列
 								</button>
 							</div>
 
 							{/* 推奨操作 */}
 							<div className="mb-6">
 								<h4 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-									💡 推奨操作
+									<Lightbulb className="w-3 h-3 inline" /> 推奨操作
 								</h4>
 								<div className="space-y-1 max-h-48 overflow-y-auto">
 									{recommendedOperations.map((rec) => (
@@ -450,13 +461,20 @@ export default function SlidingWindowPage() {
 								type="button"
 								onClick={executeAlgorithm}
 								disabled={isExecuting}
-								className={`w-full py-3 rounded-lg font-semibold transition-all duration-200 ${
+								className={`w-full py-3 rounded-lg font-semibold transition-all duration-200 flex items-center justify-center gap-2 ${
 									isExecuting
 										? "bg-gray-400 text-gray-700 cursor-not-allowed"
 										: "bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white shadow-lg hover:shadow-xl"
 								}`}
 							>
-								{isExecuting ? "実行中..." : "🚀 アルゴリズム実行"}
+								{isExecuting ? (
+									"実行中..."
+								) : (
+									<>
+										<Play className="w-4 h-4" />
+										アルゴリズム実行
+									</>
+								)}
 							</button>
 
 							{/* 結果表示 */}
@@ -531,8 +549,9 @@ export default function SlidingWindowPage() {
 				{/* コード例セクション */}
 				<section className="mt-12">
 					<div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700">
-						<h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">
-							💻 実装例（JavaScript）
+						<h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4 flex items-center gap-2">
+							<Code className="w-5 h-5" />
+							実装例（JavaScript）
 						</h3>
 						<div className="bg-gray-900 rounded-lg p-6 overflow-x-auto">
 							<pre className="text-sm text-gray-100">

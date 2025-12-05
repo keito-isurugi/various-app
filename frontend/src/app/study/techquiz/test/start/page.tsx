@@ -258,8 +258,8 @@ function TestStartContent() {
 							}`}
 						>
 							{answers.get(currentQuestion.id)
-								? "✓ 理解した"
-								: "✗ 理解していない"}
+								? "[OK] 理解した"
+								: "[NG] 理解していない"}
 						</div>
 					)}
 				</CardContent>

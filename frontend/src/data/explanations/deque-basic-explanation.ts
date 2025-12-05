@@ -20,7 +20,7 @@ export const dequeBasicExplanation: ExplanationData = {
 	sections: [
 		{
 			id: "double-ended-principle",
-			title: "↔️ 両端操作の原理",
+			title: "<->️ 両端操作の原理",
 			content:
 				"デックの最大の特徴は、両端（front と rear）での挿入・削除が O(1) 時間で可能なことです。通常のキューは一方向の操作のみですが、デックは双方向の操作により、より柔軟なデータ管理が可能になります。この特性により、スタックとキューの機能を同時に提供でき、単一のデータ構造で複数の用途に対応できます。効率的な実装により、全ての基本操作が定数時間で実行されます。",
 			importance: "high",
@@ -34,7 +34,7 @@ export const dequeBasicExplanation: ExplanationData = {
 
 		{
 			id: "basic-operations",
-			title: "🔧 基本操作の詳細",
+			title: "【実装】基本操作の詳細",
 			content:
 				"デックの基本操作は8つの主要な操作から構成されます。挿入操作として pushFront、pushBack、削除操作として popFront、popBack があります。確認操作として front、back で両端の要素を非破壊的に参照できます。状態確認として isEmpty、size で現在の状態を把握できます。これらの操作により、キューとしてもスタックとしても使用でき、さらに柔軟な操作パターンを実現できます。",
 			importance: "high",
@@ -48,7 +48,7 @@ export const dequeBasicExplanation: ExplanationData = {
 
 		{
 			id: "implementation-strategies",
-			title: "💻 実装戦略",
+			title: " 実装戦略",
 			content:
 				"デックの効率的な実装には複数の戦略があります。動的配列では先頭挿入が O(n) になるため、リングバッファ（循環配列）を使用して両端操作を O(1) で実現します。連結リストでは双方向リストを使用し、先頭と末尾の両方にポインタを保持します。また、複数のブロックを組み合わせたデック実装では、メモリ効率と操作効率の両立を図ります。各実装方法には特有の利点があります。",
 			importance: "medium",
@@ -62,7 +62,7 @@ export const dequeBasicExplanation: ExplanationData = {
 
 		{
 			id: "complexity-analysis",
-			title: "⚡ 計算量の分析",
+			title: "【計算量】計算量の分析",
 			content:
 				"効率的に実装されたデックでは、すべての基本操作が O(1) 時間で実行されます。pushFront、pushBack、popFront、popBack、front、back、isEmpty、size のすべてが定数時間で動作します。空間計算量は格納する要素数 n に対して O(n) です。ランダムアクセスは実装によって異なり、リングバッファでは O(1)、連結リストでは O(n) になります。この効率性により、大量データでも高速な処理が可能です。",
 			formula:
@@ -78,7 +78,7 @@ export const dequeBasicExplanation: ExplanationData = {
 
 		{
 			id: "real-world-applications",
-			title: "🌐 実世界での応用",
+			title: " 実世界での応用",
 			content:
 				"デックは様々な実世界のシステムで重要な役割を果たします。Webブラウザの履歴管理では、前後移動の両方向操作に使用されます。テキストエディタのアンドゥ・リドゥ機能では、操作履歴を両端で管理します。ゲーム開発では、プレイヤーの行動履歴や状態管理に活用されます。また、並列処理システムでは、タスクの動的な負荷分散にデックが使用され、効率的なワークスティーリングを実現します。",
 			importance: "medium",
@@ -92,7 +92,7 @@ export const dequeBasicExplanation: ExplanationData = {
 
 		{
 			id: "algorithms-using-deques",
-			title: "🔍 デックを使用するアルゴリズム",
+			title: "【詳細】デックを使用するアルゴリズム",
 			content:
 				"デックは多くの重要なアルゴリズムで活用されています。スライディングウィンドウ最大値問題では、モノトニックデックを使用して効率的に解決します。0-1 BFS では、重みが0の辺と1の辺に応じてデックの前後を使い分けます。A*探索では、ヒューリスティック値に応じて優先度を調整したキューとして使用されます。また、双方向BFSでは、探索の効率化にデックが重要な役割を果たします。",
 			importance: "medium",
@@ -106,7 +106,7 @@ export const dequeBasicExplanation: ExplanationData = {
 
 		{
 			id: "design-patterns",
-			title: "🏗️ デザインパターンでの活用",
+			title: "【構造】デザインパターンでの活用",
 			content:
 				"デックは様々なデザインパターンで活用されます。Command パターンでは、実行・取り消し可能なコマンドをデックで管理し、柔軟なアンドゥ・リドゥ機能を実現します。Observer パターンでは、イベントの順序管理にデックを使用します。Producer-Consumer パターンでは、複数の生産者・消費者間のデータ交換にデックが活用されます。これらのパターンにより、保守性の高いソフトウェア設計が可能になります。",
 			importance: "low",
@@ -120,7 +120,7 @@ export const dequeBasicExplanation: ExplanationData = {
 
 		{
 			id: "performance-optimization",
-			title: "🚀 性能最適化",
+			title: "【応用】性能最適化",
 			content:
 				"デックの性能最適化には複数のアプローチがあります。メモリの局所性を活用するため、ブロック単位でのメモリ管理を行います。プリフェッチングにより次のブロックを先読みし、キャッシュミスを削減します。また、操作パターンに応じて最適な実装を選択し、例えば頻繁なランダムアクセスが必要な場合は配列ベース、動的サイズ変更が多い場合は連結リストベースを採用します。",
 			importance: "low",
@@ -134,7 +134,7 @@ export const dequeBasicExplanation: ExplanationData = {
 
 		{
 			id: "common-mistakes",
-			title: "⚠️ よくある間違いと注意点",
+			title: "【注意】よくある間違いと注意点",
 			content:
 				"デックの使用において、いくつかの典型的な間違いがあります。空のデックからの削除操作は例外処理が必要です。サイズの管理を怠ると、意図しないメモリ使用量の増加が起こります。マルチスレッド環境では、適切な同期処理なしに複数スレッドから操作すると競合状態が発生します。また、ランダムアクセスを頻繁に行う場合は、配列の方が適している場合もあります。",
 			importance: "medium",
@@ -148,7 +148,7 @@ export const dequeBasicExplanation: ExplanationData = {
 
 		{
 			id: "learning-progression",
-			title: "📚 学習の進め方",
+			title: "【基礎】学習の進め方",
 			content:
 				"デックの学習は、まず基本概念と両端操作の理解から始めます。キューとスタックの復習後、デックの追加機能を学習します。次に実装方法を理解し、リングバッファや双方向リストでの実装を比較します。応用として、スライディングウィンドウやBFS変形などのアルゴリズムでの使用例を学習します。最終的には、実際のシステム設計での活用方法を習得し、適切なデータ構造選択ができるようになります。",
 			importance: "low",

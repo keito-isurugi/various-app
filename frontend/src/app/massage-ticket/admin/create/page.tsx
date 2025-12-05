@@ -338,7 +338,7 @@ export default function CreateMassageTicketPage() {
 					{/* 成功メッセージ */}
 					<div className="bg-green-500/10 border border-green-500/30 rounded-lg p-6">
 						<h2 className="text-xl font-semibold mb-4 text-green-600">
-							✨ 肩たたき券を作成しました！
+							肩たたき券を作成しました！
 						</h2>
 						<p className="mb-2 text-green-600">
 							チケットID: <span className="font-mono text-sm">{ticketId}</span>

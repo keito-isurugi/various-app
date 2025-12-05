@@ -7,6 +7,15 @@
 
 "use client";
 
+import {
+	Code,
+	Link2,
+	RefreshCw,
+	Settings,
+	Shuffle,
+	TrendingDown,
+	TrendingUp,
+} from "lucide-react";
 import Link from "next/link";
 import React, { useState, useCallback } from "react";
 import { AlgorithmVisualizer } from "../../../components/algorithm/AlgorithmVisualizer";
@@ -234,8 +243,9 @@ export default function MergeSortPage() {
 					{/* 入力パネル */}
 					<div className="xl:col-span-1">
 						<div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700 sticky top-4">
-							<h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">
-								🔧 実行設定
+							<h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4 flex items-center gap-2">
+								<Settings className="w-5 h-5" />
+								実行設定
 							</h3>
 
 							{/* 現在の設定表示 */}
@@ -290,37 +300,41 @@ export default function MergeSortPage() {
 								<button
 									type="button"
 									onClick={generateRandomArray}
-									className="w-full py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition-colors"
+									className="w-full py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition-colors flex items-center justify-center gap-2"
 								>
-									🎲 ランダム配列
+									<Shuffle className="w-4 h-4" />
+									ランダム配列
 								</button>
 								<button
 									type="button"
 									onClick={generateSortedArray}
-									className="w-full py-2 bg-green-500 hover:bg-green-600 text-white rounded-lg transition-colors"
+									className="w-full py-2 bg-green-500 hover:bg-green-600 text-white rounded-lg transition-colors flex items-center justify-center gap-2"
 								>
-									📈 ソート済み配列
+									<TrendingUp className="w-4 h-4" />
+									ソート済み配列
 								</button>
 								<button
 									type="button"
 									onClick={generateReverseArray}
-									className="w-full py-2 bg-red-500 hover:bg-red-600 text-white rounded-lg transition-colors"
+									className="w-full py-2 bg-red-500 hover:bg-red-600 text-white rounded-lg transition-colors flex items-center justify-center gap-2"
 								>
-									📉 逆順配列
+									<TrendingDown className="w-4 h-4" />
+									逆順配列
 								</button>
 								<button
 									type="button"
 									onClick={generateDuplicatesArray}
-									className="w-full py-2 bg-yellow-500 hover:bg-yellow-600 text-white rounded-lg transition-colors"
+									className="w-full py-2 bg-yellow-500 hover:bg-yellow-600 text-white rounded-lg transition-colors flex items-center justify-center gap-2"
 								>
-									🔄 重複要素（安定性テスト）
+									<RefreshCw className="w-4 h-4" />
+									重複要素（安定性テスト）
 								</button>
 								<button
 									type="button"
 									onClick={generatePartiallySortedArray}
 									className="w-full py-2 bg-indigo-500 hover:bg-indigo-600 text-white rounded-lg transition-colors"
 								>
-									🌊 部分ソート済み配列
+									 部分ソート済み配列
 								</button>
 							</div>
 
@@ -329,13 +343,20 @@ export default function MergeSortPage() {
 								type="button"
 								onClick={executeAlgorithm}
 								disabled={isExecuting}
-								className={`w-full py-3 rounded-lg font-semibold transition-all duration-200 ${
+								className={`w-full py-3 rounded-lg font-semibold transition-all duration-200 flex items-center justify-center gap-2 ${
 									isExecuting
 										? "bg-gray-400 text-gray-700 cursor-not-allowed"
 										: "bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white shadow-lg hover:shadow-xl"
 								}`}
 							>
-								{isExecuting ? "実行中..." : "🔗 マージソート実行"}
+								{isExecuting ? (
+									"実行中..."
+								) : (
+									<>
+										<Link2 className="w-4 h-4" />
+										マージソート実行
+									</>
+								)}
 							</button>
 
 							{/* 結果表示 */}
@@ -385,7 +406,9 @@ export default function MergeSortPage() {
 							<AlgorithmVisualizer steps={result.steps} className="mb-8" />
 						) : (
 							<div className="bg-white dark:bg-gray-800 rounded-xl p-12 border border-gray-200 dark:border-gray-700 text-center mb-8">
-								<div className="text-6xl mb-4">🔗</div>
+								<div className="text-6xl mb-4 flex justify-center">
+									<Link2 className="w-16 h-16 text-purple-500" />
+								</div>
 								<h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-2">
 									アルゴリズムを実行してください
 								</h3>
@@ -409,8 +432,9 @@ export default function MergeSortPage() {
 				{/* コード例セクション */}
 				<section className="mt-12">
 					<div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700">
-						<h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">
-							💻 実装例（JavaScript）
+						<h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4 flex items-center gap-2">
+							<Code className="w-5 h-5" />
+							実装例（JavaScript）
 						</h3>
 						<div className="bg-gray-900 rounded-lg p-6 overflow-x-auto">
 							<pre className="text-sm text-gray-100">

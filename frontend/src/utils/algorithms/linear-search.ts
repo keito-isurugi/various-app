@@ -99,7 +99,7 @@ export class LinearSearchAlgorithm implements Algorithm {
 				// 見つかった場合
 				steps.push({
 					id: stepId++,
-					description: `✅ 見つかりました！ ${target} はインデックス ${i} にあります`,
+					description: `見つかりました！ ${target} はインデックス ${i} にあります`,
 					array: [...array],
 					foundIndex: i,
 					operation: "発見",
@@ -146,7 +146,7 @@ export class LinearSearchAlgorithm implements Algorithm {
 		// 見つからなかった場合
 		steps.push({
 			id: stepId++,
-			description: `❌ ${target} は配列内に見つかりませんでした（全${array.length}個の要素をチェック）`,
+			description: `${target} は配列内に見つかりませんでした（全${array.length}個の要素をチェック）`,
 			array: [...array],
 			operation: "未発見",
 			variables: {
@@ -183,29 +183,29 @@ export class LinearSearchAlgorithm implements Algorithm {
 		return `
 線形探索は、配列の先頭から順番に要素を確認して目標値を探すシンプルな探索アルゴリズムです。
 
-🔍 **基本原理**
+【詳細】**基本原理**
 1. 配列の最初の要素から確認開始
 2. 目標値と現在の要素を比較
 3. 一致すれば探索終了、一致しなければ次の要素へ
 4. 配列の最後まで繰り返し
 
-📈 **特徴**
+ **特徴**
 - 実装が非常にシンプル
 - ソートされていない配列でも使用可能
 - 最悪の場合、全要素をチェックする必要がある
 - メモリ使用量が少ない（定数空間）
 
-🎯 **実用例**
+【ポイント】**実用例**
 - 小さなデータセットでの検索
 - ソートされていないデータの検索
 - リストの重複チェック
 - 条件に合う要素の検索
 
-⚡ **二分探索との比較**
+【計算量】**二分探索との比較**
 - 線形探索：O(n)、ソート不要、シンプル
 - 二分探索：O(log n)、ソート必須、複雑
 
-💡 **使い分け**
+【ヒント】**使い分け**
 - データが少ない場合やソートのコストが高い場合：線形探索
 - データが多くソート済みの場合：二分探索
 		`.trim();

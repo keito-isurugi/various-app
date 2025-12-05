@@ -7,6 +7,14 @@
 
 "use client";
 
+import {
+	AlertTriangle,
+	Binary,
+	BookOpen,
+	Code,
+	RefreshCw,
+	Settings,
+} from "lucide-react";
 import Link from "next/link";
 import React, { useState, useCallback } from "react";
 import { AlgorithmVisualizer } from "../../../components/algorithm/AlgorithmVisualizer";
@@ -198,8 +206,9 @@ export default function FactorialRecursivePage() {
 					{/* 入力パネル */}
 					<div className="xl:col-span-1">
 						<div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700 sticky top-4">
-							<h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">
-								🔧 実行設定
+							<h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4 flex items-center gap-2">
+								<Settings className="w-5 h-5" />
+								実行設定
 							</h3>
 
 							{/* 現在の設定表示 */}
@@ -232,7 +241,8 @@ export default function FactorialRecursivePage() {
 								</div>
 								{currentN > 15 && (
 									<div className="mt-2 p-2 bg-yellow-100 dark:bg-yellow-900/30 rounded text-xs text-yellow-800 dark:text-yellow-200">
-										⚠️ n {">"} 15は大きな値です
+										<AlertTriangle className="w-3 h-3 inline" /> n {">"}{" "}
+										15は大きな値です
 									</div>
 								)}
 							</div>
@@ -268,8 +278,9 @@ export default function FactorialRecursivePage() {
 
 							{/* 推奨値ボタン */}
 							<div className="space-y-2 mb-6">
-								<h4 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-									📚 推奨値
+								<h4 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 flex items-center gap-1">
+									<BookOpen className="w-4 h-4" />
+									推奨値
 								</h4>
 								<div className="grid grid-cols-3 gap-2">
 									{recommendedValues.slice(0, 9).map((rec) => (
@@ -293,7 +304,8 @@ export default function FactorialRecursivePage() {
 							{/* 階乗の値表示 */}
 							<div className="mb-6 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
 								<h4 className="text-sm font-medium text-blue-800 dark:text-blue-200 mb-2">
-									🔢 階乗の値
+									<Binary className="w-4 h-4" />
+									階乗の値
 								</h4>
 								<div className="text-xs text-blue-700 dark:text-blue-300 font-mono">
 									{FactorialRecursiveAlgorithm.generateFactorialSequence(
@@ -310,13 +322,20 @@ export default function FactorialRecursivePage() {
 								type="button"
 								onClick={executeAlgorithm}
 								disabled={isExecuting}
-								className={`w-full py-3 rounded-lg font-semibold transition-all duration-200 ${
+								className={`w-full py-3 rounded-lg font-semibold transition-all duration-200 flex items-center justify-center gap-2 ${
 									isExecuting
 										? "bg-gray-400 text-gray-700 cursor-not-allowed"
 										: "bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700 text-white shadow-lg hover:shadow-xl"
 								}`}
 							>
-								{isExecuting ? "実行中..." : "🔢 階乗計算実行"}
+								{isExecuting ? (
+									"実行中..."
+								) : (
+									<>
+										<Binary className="w-4 h-4" />
+										階乗計算実行
+									</>
+								)}
 							</button>
 
 							{/* 結果表示 */}
@@ -362,7 +381,9 @@ export default function FactorialRecursivePage() {
 							<AlgorithmVisualizer steps={result.steps} className="mb-8" />
 						) : (
 							<div className="bg-white dark:bg-gray-800 rounded-xl p-12 border border-gray-200 dark:border-gray-700 text-center mb-8">
-								<div className="text-6xl mb-4">🔢</div>
+								<div className="text-6xl mb-4">
+									<Binary className="w-16 h-16 mx-auto text-purple-500" />
+								</div>
 								<h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-2">
 									アルゴリズムを実行してください
 								</h3>
@@ -386,8 +407,9 @@ export default function FactorialRecursivePage() {
 				{/* コード例セクション */}
 				<section className="mt-12">
 					<div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700">
-						<h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">
-							💻 実装例（JavaScript）
+						<h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4 flex items-center gap-2">
+							<Code className="w-5 h-5" />
+							実装例（JavaScript）
 						</h3>
 						<div className="bg-gray-900 rounded-lg p-6 overflow-x-auto">
 							<pre className="text-sm text-gray-100">
@@ -439,8 +461,9 @@ console.log(generateFactorialSequence(6));
 				{/* 比較セクション */}
 				<section className="mt-12">
 					<div className="bg-gradient-to-r from-blue-50 to-green-50 dark:from-blue-900/20 dark:to-green-900/20 rounded-xl p-6 border border-blue-200 dark:border-blue-700">
-						<h3 className="text-xl font-semibold text-blue-900 dark:text-blue-100 mb-4">
-							🔄 再帰 vs 反復
+						<h3 className="text-xl font-semibold text-blue-900 dark:text-blue-100 mb-4 flex items-center gap-2">
+							<RefreshCw className="w-5 h-5" />
+							再帰 vs 反復
 						</h3>
 						<div className="grid md:grid-cols-2 gap-6">
 							<div>

@@ -20,7 +20,7 @@ export const subsetSumDpExplanation: ExplanationData = {
 	sections: [
 		{
 			id: "problem-definition",
-			title: "🎯 問題の定義",
+			title: "【ポイント】問題の定義",
 			content:
 				"部分和問題は、正の整数からなる配列とターゲット値が与えられたとき、配列の部分集合の和がターゲット値と一致するものが存在するかを判定する問題です。例えば、配列[2,3,7,8,10]とターゲット11が与えられた場合、部分集合{3,8}の和が11になるため、答えは「存在する」となります。この問題は組み合わせ最適化の基本的な例で、計算機科学の多くの分野で応用されています。",
 			importance: "high",
@@ -34,7 +34,7 @@ export const subsetSumDpExplanation: ExplanationData = {
 
 		{
 			id: "naive-approach-problems",
-			title: "🔍 全探索の問題点",
+			title: "【詳細】全探索の問題点",
 			content:
 				"部分和問題を全探索で解く場合、配列の各要素について「選ぶ/選ばない」の2択があるため、2^n通りの部分集合をすべて調べる必要があります。要素数が増えると計算時間が指数的に増加し、実用的でなくなります。例えば20要素の配列では約100万通り、30要素では約10億通りの組み合わせを調べる必要があり、現実的な時間では解けなくなります。",
 			importance: "high",
@@ -48,7 +48,7 @@ export const subsetSumDpExplanation: ExplanationData = {
 
 		{
 			id: "dp-state-design",
-			title: "📊 DPの状態設計",
+			title: "【解析】DPの状態設計",
 			content:
 				"動的計画法では、問題を部分問題に分解し、各部分問題の解を効率的に求めます。部分和問題では、dp[i][j]を「配列の最初のi個の要素を使って和jを作ることができるか」として定義します。この状態設計により、各要素について「含める/含めない」の判断を体系的に行えます。最終的な答えはdp[n][target]に格納されます。",
 			importance: "high",
@@ -62,7 +62,7 @@ export const subsetSumDpExplanation: ExplanationData = {
 
 		{
 			id: "state-transition",
-			title: "🔄 状態遷移の仕組み",
+			title: " 状態遷移の仕組み",
 			content:
 				"各セルdp[i][j]の値は、前の行の情報から決定されます。i番目の要素をarr[i-1]とすると、dp[i][j] = dp[i-1][j] OR dp[i-1][j-arr[i-1]]となります。左項は「i番目の要素を含めない場合」、右項は「i番目の要素を含める場合」を表します。右項はj >= arr[i-1]の場合のみ有効です。この遷移により、すべての可能性を効率的に探索できます。",
 			importance: "high",
@@ -76,7 +76,7 @@ export const subsetSumDpExplanation: ExplanationData = {
 
 		{
 			id: "table-construction",
-			title: "🏗️ テーブルの構築過程",
+			title: "【構造】テーブルの構築過程",
 			content:
 				"DPテーブルは行ごと（要素ごと）に構築していきます。まず0行目と0列目をベースケースで初期化し、その後1行目から順番に各セルを計算します。各行の計算では、現在の要素を含める場合と含めない場合の両方を考慮し、どちらかで和を作れる場合にtrueを設定します。この過程により、最終的にすべての部分問題の解が得られます。",
 			importance: "medium",
@@ -90,7 +90,7 @@ export const subsetSumDpExplanation: ExplanationData = {
 
 		{
 			id: "complexity-analysis",
-			title: "⚡ 計算量の分析",
+			title: "【計算量】計算量の分析",
 			content:
 				"動的計画法による部分和問題の解法は、時間計算量O(n×S)、空間計算量O(n×S)です（nは要素数、Sはターゲット値）。これは全探索のO(2^n)と比べて大幅な改善です。ただし、ターゲット値が非常に大きい場合は「疑似多項式時間」となり、実際には指数時間になる可能性があります。実用的には、ターゲット値が合理的な範囲内であれば十分効率的です。",
 			formula:
@@ -106,7 +106,7 @@ export const subsetSumDpExplanation: ExplanationData = {
 
 		{
 			id: "solution-reconstruction",
-			title: "🔍 解の復元",
+			title: "【詳細】解の復元",
 			content:
 				"DPテーブルからは部分集合の存在だけでなく、実際の部分集合も復元できます。dp[n][target]からバックトラックして、各段階で要素を含めたかどうかを判断します。dp[i][j] != dp[i-1][j]の場合、i番目の要素が含まれています。このようにして、条件を満たす具体的な部分集合を構築できます。",
 			importance: "medium",
@@ -120,7 +120,7 @@ export const subsetSumDpExplanation: ExplanationData = {
 
 		{
 			id: "optimization-techniques",
-			title: "🚀 最適化技法",
+			title: "【応用】最適化技法",
 			content:
 				"基本的な二次元DPは空間効率を改善できます。各行の計算では前の行の情報のみ必要なため、一次元配列で実装可能です。また、ターゲット値から逆順に更新することで、同一配列内での更新競合を避けられます。さらに、要素の和がターゲットより小さい場合の早期終了や、重複要素のグループ化などの最適化も可能です。",
 			importance: "low",
@@ -134,7 +134,7 @@ export const subsetSumDpExplanation: ExplanationData = {
 
 		{
 			id: "real-world-applications",
-			title: "🌍 実世界での応用",
+			title: " 実世界での応用",
 			content:
 				"部分和問題は多くの実世界の問題に応用されます。ナップサック問題、分割問題（配列を等しい和に分割）、硬貨の組み合わせ問題、予算制約下でのリソース配分など、様々な最適化問題の基礎となります。また、暗号学におけるナップサック暗号や、データ分析での特徴選択問題にも関連があります。",
 			importance: "low",
@@ -148,7 +148,7 @@ export const subsetSumDpExplanation: ExplanationData = {
 
 		{
 			id: "learning-progression",
-			title: "📚 学習の進め方",
+			title: "【基礎】学習の進め方",
 			content:
 				"部分和問題は二次元DPの入門として最適です。まず小さな例で手計算によりテーブルの構築過程を理解し、次に実装して動作を確認します。その後、ナップサック問題や最長共通部分列問題など、より複雑な二次元DP問題に挑戦します。状態設計の考え方を身につけることで、新しい問題にも応用できるようになります。",
 			importance: "low",

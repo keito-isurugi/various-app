@@ -110,7 +110,7 @@ export class StackBasicAlgorithm implements Algorithm {
 		// 完了ステップ
 		this.steps.push({
 			id: this.stepId++,
-			description: `🎉 操作完了！結果: ${result}`,
+			description: ` 操作完了！結果: ${result}`,
 			array: [...this.stack],
 			operation: "完了",
 			variables: {
@@ -156,7 +156,7 @@ export class StackBasicAlgorithm implements Algorithm {
 
 		this.steps.push({
 			id: this.stepId++,
-			description: `✅ push完了: ${value}が先頭に追加されました`,
+			description: `push完了: ${value}が先頭に追加されました`,
 			array: [...this.stack],
 			operation: "push完了",
 			variables: {
@@ -177,7 +177,7 @@ export class StackBasicAlgorithm implements Algorithm {
 		if (this.stack.length === 0) {
 			this.steps.push({
 				id: this.stepId++,
-				description: "❌ pop失敗: スタックが空です",
+				description: "pop失敗: スタックが空です",
 				array: [...this.stack],
 				operation: "pop失敗",
 				variables: {
@@ -210,7 +210,7 @@ export class StackBasicAlgorithm implements Algorithm {
 
 		this.steps.push({
 			id: this.stepId++,
-			description: `✅ pop完了: ${poppedValue}が取り出されました`,
+			description: `pop完了: ${poppedValue}が取り出されました`,
 			array: [...this.stack],
 			operation: "pop完了",
 			variables: {
@@ -342,31 +342,31 @@ export class StackBasicAlgorithm implements Algorithm {
 		return `
 スタック（Stack）は、LIFO（Last In, First Out）原理に基づくデータ構造です。
 
-🏗️ **基本概念**
+【構造】**基本概念**
 - 最後に入れた要素が最初に取り出される
 - 皿を積み重ねるイメージ
 - 一方向（先頭）からのみアクセス可能
 
-📚 **基本操作**
+【基礎】**基本操作**
 - push(value): 要素を先頭に追加 - O(1)
 - pop(): 先頭要素を取り出し - O(1)
 - peek(): 先頭要素を確認（削除なし） - O(1)
 - isEmpty(): 空かどうかを確認 - O(1)
 - size(): 要素数を取得 - O(1)
 
-🎯 **実世界での応用**
+【ポイント】**実世界での応用**
 - 関数呼び出しのコールスタック
 - ブラウザの戻るボタン履歴
 - 数式の括弧チェック
 - アンドゥ（取り消し）機能
 - 再帰アルゴリズムの実装
 
-⚡ **計算量の特徴**
+【計算量】**計算量の特徴**
 - すべての基本操作がO(1)で高速
 - 配列の末尾を先頭として実装
 - メモリ効率が良い
 
-💡 **学習価値**
+【ヒント】**学習価値**
 - データ構造の基礎概念
 - LIFO原理の理解
 - 効率的なデータアクセス方法

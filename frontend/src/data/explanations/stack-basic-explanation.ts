@@ -20,7 +20,7 @@ export const stackBasicExplanation: ExplanationData = {
 	sections: [
 		{
 			id: "lifo-principle",
-			title: "📚 LIFO原理の理解",
+			title: "【基礎】LIFO原理の理解",
 			content:
 				"LIFO（Last In, First Out）は「最後に入れたものが最初に出てくる」という原理です。日常生活では、皿の重ね、本の積み重ね、トレイの重ね置きなどで見られる概念です。スタックでは、要素の追加と取り出しが同じ端（top/先頭）で行われます。この制約により、逆順アクセスや一時的な保存と復元、再帰的な処理の管理などが自然に実現できます。コンピュータシステムの多くの場面でこの原理が活用されています。",
 			importance: "high",
@@ -34,7 +34,7 @@ export const stackBasicExplanation: ExplanationData = {
 
 		{
 			id: "basic-operations",
-			title: "🔧 基本操作の詳細",
+			title: "【実装】基本操作の詳細",
 			content:
 				"スタックの基本操作は主に5つあります。push（要素追加）は先頭に新しい要素を追加し、pop（要素取出）は先頭から要素を取り出します。top/peek（先頭確認）は先頭要素を削除せずに確認し、isEmpty（空判定）とsize（要素数取得）は状態の確認に使用します。これらの操作はすべてO(1)時間で実行でき、効率的なデータ管理を可能にします。エラーハンドリング（空スタックからのpopなど）も重要な考慮点です。",
 			importance: "high",
@@ -48,7 +48,7 @@ export const stackBasicExplanation: ExplanationData = {
 
 		{
 			id: "implementation-details",
-			title: "💻 実装における考慮点",
+			title: " 実装における考慮点",
 			content:
 				"スタックの実装には主に配列ベースと連結リストベースの2つの方法があります。配列ベースは実装が簡単で、動的配列（JavaScript の Array など）を使用すると push/pop が O(1) で実行できます。連結リストベースは動的サイズで メモリ効率が良く、先頭への追加・削除が自然に実装できます。また、固定サイズのスタックやスレッドセーフな実装、アンダーフロー/オーバーフローの対策など、用途に応じた最適化が重要です。",
 			importance: "medium",
@@ -62,7 +62,7 @@ export const stackBasicExplanation: ExplanationData = {
 
 		{
 			id: "complexity-analysis",
-			title: "⚡ 計算量の分析",
+			title: "【計算量】計算量の分析",
 			content:
 				"スタックのすべての基本操作は O(1) 時間で実行されます。push、pop、top、isEmpty、size のすべてが定数時間で動作し、要素数に関係なく一定時間で処理が完了します。空間計算量は格納する要素数 n に対して O(n) です。この効率性により、大量のデータや深い再帰処理でも高速に動作します。また、アクセスパターンが予測可能なため、キャッシュ効率も良好です。",
 			formula:
@@ -78,7 +78,7 @@ export const stackBasicExplanation: ExplanationData = {
 
 		{
 			id: "real-world-applications",
-			title: "🌐 実世界での応用",
+			title: " 実世界での応用",
 			content:
 				"スタックは様々な実世界のシステムで基盤技術として使用されています。プログラミング言語では関数呼び出しの管理（コールスタック）や式の評価に不可欠です。コンパイラでは構文解析や中間コード生成に使用されます。テキストエディタのアンドゥ機能、Webブラウザの履歴管理、ゲームの状態管理など、ユーザーインターフェースでも広く活用されています。オペレーティングシステムでは割り込み処理やメモリ管理にも使用されます。",
 			importance: "medium",
@@ -92,7 +92,7 @@ export const stackBasicExplanation: ExplanationData = {
 
 		{
 			id: "expression-evaluation",
-			title: "🔢 式の評価での活用",
+			title: "【数値】式の評価での活用",
 			content:
 				"スタックは数式の評価において重要な役割を果たします。中置記法から後置記法（逆ポーランド記法）への変換、後置記法の計算、括弧の対応チェックなどで使用されます。演算子の優先度処理や括弧のネストした構造の管理が自然に実現できます。この応用により、計算機や数式処理システム、プログラミング言語の式評価エンジンなどが構築されています。",
 			importance: "medium",
@@ -106,7 +106,7 @@ export const stackBasicExplanation: ExplanationData = {
 
 		{
 			id: "algorithms-using-stacks",
-			title: "🔍 スタックを使用するアルゴリズム",
+			title: "【詳細】スタックを使用するアルゴリズム",
 			content:
 				"スタックは多くの重要なアルゴリズムの基礎となっています。深さ優先探索（DFS）では、訪問すべきノードをスタックで管理することで、グラフやツリーの探索を実現します。再帰アルゴリズムの反復版への変換では、関数呼び出しスタックを明示的にスタックで管理します。バックトラッキング、トポロジカルソート、強連結成分の検出など、多くのグラフアルゴリズムでスタックが活用されています。",
 			importance: "medium",
@@ -120,7 +120,7 @@ export const stackBasicExplanation: ExplanationData = {
 
 		{
 			id: "call-stack-management",
-			title: "📞 コールスタックの管理",
+			title: " コールスタックの管理",
 			content:
 				"プログラミング言語の実行時システムでは、関数呼び出しの管理にスタックが使用されます。各関数呼び出しでスタックフレームが作成され、ローカル変数、引数、戻りアドレスが保存されます。再帰関数では、各再帰呼び出しが新しいスタックフレームを作成し、基底条件に達すると逆順で関数が終了していきます。スタックオーバーフローの理解や、tail call optimizationなどの最適化もこの概念に基づいています。",
 			importance: "medium",
@@ -134,7 +134,7 @@ export const stackBasicExplanation: ExplanationData = {
 
 		{
 			id: "common-mistakes",
-			title: "⚠️ よくある間違いと注意点",
+			title: "【注意】よくある間違いと注意点",
 			content:
 				"スタックの実装と使用において、いくつかの典型的な間違いがあります。空のスタックからのpop操作は例外処理が必要です。スタックオーバーフローを防ぐため、深い再帰や大量のデータに対する制限チェックが重要です。マルチスレッド環境では適切な同期処理が必要です。また、メモリ管理では、不要になったオブジェクトへの参照を適切にクリアしてメモリリークを防ぐ必要があります。",
 			importance: "medium",
@@ -148,7 +148,7 @@ export const stackBasicExplanation: ExplanationData = {
 
 		{
 			id: "learning-progression",
-			title: "📚 学習の進め方",
+			title: "【基礎】学習の進め方",
 			content:
 				"スタックの学習は、まず基本概念とLIFO原理の理解から始めます。日常生活の例（皿の重ねなど）を通じて概念を把握した後、簡単な配列実装を行います。次に、式の評価や括弧マッチングなどの応用問題に取り組み、実際の使用例を理解します。その後、DFSやバックトラッキングなどのアルゴリズムでの活用を学習し、最終的には関数呼び出しやコンパイラでの使用など、システムレベルでの理解を深めます。",
 			importance: "low",

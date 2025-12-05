@@ -169,7 +169,7 @@ export class BubbleSortAlgorithm implements Algorithm {
 				steps.push({
 					id: stepId++,
 					description:
-						"✅ 交換が発生しませんでした。配列は既にソート済みです！",
+						"交換が発生しませんでした。配列は既にソート済みです！",
 					array: [...sortedArray],
 					operation: "早期終了",
 					variables: {
@@ -185,7 +185,7 @@ export class BubbleSortAlgorithm implements Algorithm {
 		// 完了ステップ
 		steps.push({
 			id: stepId++,
-			description: "🎉 ソート完了！配列が昇順に並べ替えられました",
+			description: " ソート完了！配列が昇順に並べ替えられました",
 			array: [...sortedArray],
 			operation: "完了",
 			variables: {
@@ -229,18 +229,18 @@ export class BubbleSortAlgorithm implements Algorithm {
 3. 配列の最後まで繰り返し、最大値を右端に「浮上」させる
 4. 残りの要素に対して同じ処理を繰り返す
 
-📈 **特徴**
+ **特徴**
 - 実装が非常にシンプル
 - 安定ソート（同じ値の要素の順序が保たれる）
 - 最適化により既にソート済みの配列を高速処理可能
 - 大きな値が「泡（バブル）」のように浮上することから命名
 
-🎯 **実用性**
+【ポイント】**実用性**
 - 教育目的での理解に最適
 - 小規模なデータセットに適している
 - 大規模データには効率的でない（O(n²)の時間計算量）
 
-💡 **最適化のポイント**
+【ヒント】**最適化のポイント**
 - 交換が発生しなかった場合の早期終了
 - 各パスで右端の要素は確定済みなので比較範囲を縮小
 		`.trim();

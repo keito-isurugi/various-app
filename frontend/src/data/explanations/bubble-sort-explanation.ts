@@ -33,7 +33,7 @@ export const bubbleSortExplanation: ExplanationData = {
 
 		{
 			id: "algorithm-steps",
-			title: "🔄 アルゴリズムの手順",
+			title: " アルゴリズムの手順",
 			content:
 				"バブルソートは以下の手順を繰り返します：1) 配列の最初から隣り合う2つの要素を比較、2) 左の要素が右の要素より大きい場合は交換、3) 配列の最後まで繰り返し、4) 1回のパスで最大値が右端に移動、5) 残りの要素に対して同じ処理を繰り返します。",
 			importance: "high",
@@ -46,7 +46,7 @@ export const bubbleSortExplanation: ExplanationData = {
 
 		{
 			id: "time-complexity",
-			title: "⏱️ 時間計算量と効率性",
+			title: "️ 時間計算量と効率性",
 			content:
 				"バブルソートの時間計算量は O(n²) です。これは、n個の要素に対して最大 n×(n-1)/2 回の比較が必要なためです。ただし、配列が既にソートされている場合は O(n) となる最適化も可能です。空間計算量は O(1) で、元の配列以外にほとんどメモリを使用しません。",
 			formula:
@@ -61,7 +61,7 @@ export const bubbleSortExplanation: ExplanationData = {
 
 		{
 			id: "stability",
-			title: "🔒 安定性の特徴",
+			title: " 安定性の特徴",
 			content:
 				"バブルソートは「安定ソート」です。これは、同じ値を持つ要素の相対的な順序が変わらないことを意味します。隣接する要素のみを比較し、等しい場合は交換しないため、元の順序が保たれます。この特性は、複数の条件でソートする際に重要です。",
 			importance: "medium",
@@ -74,7 +74,7 @@ export const bubbleSortExplanation: ExplanationData = {
 
 		{
 			id: "optimization",
-			title: "⚡ 最適化のテクニック",
+			title: "【計算量】最適化のテクニック",
 			content:
 				"バブルソートにはいくつかの最適化方法があります。最も重要なのは「早期終了」です。1回のパスで交換が1回も発生しなかった場合、配列は既にソートされているため、処理を終了できます。また、各パスで右端の要素は確定するため、比較範囲を縮小できます。",
 			importance: "low",
@@ -87,7 +87,7 @@ export const bubbleSortExplanation: ExplanationData = {
 
 		{
 			id: "practical-use",
-			title: "💼 実用性と教育的価値",
+			title: "実用性と教育的価値",
 			content:
 				"バブルソートは実際の開発ではほとんど使用されませんが、教育的価値は非常に高いです。アルゴリズムの基本概念、ループの入れ子構造、配列の操作、時間計算量の理解などを学ぶのに最適です。また、他のソートアルゴリズムの理解の基礎となります。",
 			importance: "medium",
@@ -100,7 +100,7 @@ export const bubbleSortExplanation: ExplanationData = {
 
 		{
 			id: "comparison",
-			title: "🔄 他のソートアルゴリズムとの比較",
+			title: " 他のソートアルゴリズムとの比較",
 			content:
 				"バブルソートは他のソートアルゴリズムと比較すると効率は劣りますが、理解しやすさでは優れています。選択ソートや挿入ソートも O(n²) ですが、実装の複雑さや安定性が異なります。クイックソートやマージソートは O(n log n) でより高速ですが、実装が複雑です。",
 			importance: "low",

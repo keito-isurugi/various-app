@@ -20,7 +20,7 @@ export const fibonacciDpExplanation: ExplanationData = {
 	sections: [
 		{
 			id: "dynamic-programming-basics",
-			title: "🎯 動的計画法とは",
+			title: "【ポイント】動的計画法とは",
 			content:
 				"動的計画法は、複雑な問題を部分問題に分解し、各部分問題の解を保存して再利用することで効率化を図る手法です。重複する部分問題が存在し、最適部分構造を持つ問題に対して威力を発揮します。フィボナッチ数列は DP の教材として最適で、概念の理解から実装まで段階的に学習できます。「計算した結果を忘れずに保存する」という基本原理が、指数的な改善をもたらします。",
 			importance: "high",
@@ -34,7 +34,7 @@ export const fibonacciDpExplanation: ExplanationData = {
 
 		{
 			id: "bottom-up-approach",
-			title: "📈 ボトムアップ方式の実装",
+			title: " ボトムアップ方式の実装",
 			content:
 				"ボトムアップ方式は、最小の部分問題から始めて、段階的に大きな問題の解を構築していく手法です。フィボナッチ数列では、F(0)とF(1)のベースケースから開始し、F(2), F(3), ... F(n)まで順番に計算します。この方式により、必要な値が計算時点で既に利用可能になり、効率的で理解しやすい実装が可能になります。反復処理を使用するため、再帰のスタックオーバーフローも回避できます。",
 			importance: "high",
@@ -48,7 +48,7 @@ export const fibonacciDpExplanation: ExplanationData = {
 
 		{
 			id: "dp-table-structure",
-			title: "📊 DPテーブルの構造と管理",
+			title: "【解析】DPテーブルの構造と管理",
 			content:
 				"DPテーブルは、計算済みの部分問題の解を保存するデータ構造です。フィボナッチ数列では、配列 dp[0..n] を使用し、dp[i] に F(i) の値を保存します。インデックスが問題のパラメータ（この場合はn）に対応し、各要素が対応する部分問題の解を表します。テーブルの初期化、ベースケースの設定、ボトムアップでの値の更新という一連の流れが、DPアルゴリズムの標準的なパターンです。",
 			importance: "medium",
@@ -62,7 +62,7 @@ export const fibonacciDpExplanation: ExplanationData = {
 
 		{
 			id: "complexity-analysis",
-			title: "⚡ 計算量の劇的な改善",
+			title: "【計算量】計算量の劇的な改善",
 			content:
 				"動的計画法版は、時間計算量を O(2^n) から O(n) に、つまり指数時間から線形時間に改善します。これは各値を一度だけ計算し、二度と再計算しないためです。空間計算量は O(n) ですが、実装を工夫すれば O(1) まで削減可能です。この改善により、再帰版では計算不可能な大きな値（n=100, 1000など）も瞬時に計算できるようになります。",
 			formula:
@@ -78,7 +78,7 @@ export const fibonacciDpExplanation: ExplanationData = {
 
 		{
 			id: "memoization-vs-tabulation",
-			title: "🔄 メモ化 vs テーブル化",
+			title: " メモ化 vs テーブル化",
 			content:
 				"動的計画法には主に2つのアプローチがあります。メモ化（トップダウン）は再帰に記憶機能を追加し、テーブル化（ボトムアップ）は反復的に解を構築します。フィボナッチ数列のような問題では、テーブル化の方が効率的で理解しやすい傾向があります。メモ化は再帰の直感性を保持し、テーブル化は制御フローが明確で最適化しやすいという特徴があります。",
 			importance: "medium",
@@ -92,7 +92,7 @@ export const fibonacciDpExplanation: ExplanationData = {
 
 		{
 			id: "space-optimization",
-			title: "💾 空間計算量の最適化",
+			title: " 空間計算量の最適化",
 			content:
 				"フィボナッチ数列の計算では、直前の2つの値のみが必要なため、全てのDPテーブルを保持する必要がありません。変数2つ（prev1, prev2）を使用することで、空間計算量を O(n) から O(1) に削減できます。この最適化により、メモリ使用量を大幅に削減し、大きな n 値でもメモリ不足を避けられます。実用的なプログラミングでは、このような最適化が重要な技術となります。",
 			importance: "medium",
@@ -106,7 +106,7 @@ export const fibonacciDpExplanation: ExplanationData = {
 
 		{
 			id: "real-world-applications",
-			title: "🌍 実世界での応用例",
+			title: " 実世界での応用例",
 			content:
 				"動的計画法の考え方は、フィボナッチ数列を超えて多くの実世界の問題に応用されています。最短経路問題、ナップサック問題、文字列の編集距離、投資ポートフォリオの最適化など、様々な分野で重要な役割を果たします。一見異なる問題でも、「部分問題に分解し、解を保存・再利用する」という基本原理は共通しており、効率的なアルゴリズム設計の基盤となっています。",
 			importance: "low",
@@ -120,7 +120,7 @@ export const fibonacciDpExplanation: ExplanationData = {
 
 		{
 			id: "implementation-patterns",
-			title: "🔧 実装パターンとコツ",
+			title: "【実装】実装パターンとコツ",
 			content:
 				"効率的なDPアルゴリズムを実装するためのパターンがあります。問題の状態を明確に定義し、状態遷移式を導出し、ベースケースを特定します。配列の初期化、境界条件の処理、ループの順序などに注意が必要です。デバッグ時は、小さな入力での手計算結果と比較し、DPテーブルの中間状態を出力することで問題を特定できます。コード可読性のため、変数名や処理の意図を明確にすることも重要です。",
 			importance: "low",
@@ -134,7 +134,7 @@ export const fibonacciDpExplanation: ExplanationData = {
 
 		{
 			id: "learning-progression",
-			title: "📚 学習の進め方",
+			title: "【基礎】学習の進め方",
 			content:
 				"動的計画法の学習は段階的に進めることが重要です。まずフィボナッチ数列で基本概念を理解し、次により複雑な1次元DP問題（階段の登り方、硬貨の両替問題など）に挑戦します。その後、2次元DP（最長共通部分列、編集距離など）、さらに高次元や状態圧縮DPへと発展させます。各段階で手計算による理解と実装による確認を繰り返すことで、確実にスキルを身につけられます。",
 			importance: "low",

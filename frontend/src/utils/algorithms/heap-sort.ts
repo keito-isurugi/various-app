@@ -95,7 +95,7 @@ export class HeapSortAlgorithm implements Algorithm {
 		this.steps.push({
 			id: this.stepId++,
 			description:
-				"🎉 ヒープソート完了！O(n log n)性能保証とインプレース特性を実現",
+				" ヒープソート完了！O(n log n)性能保証とインプレース特性を実現",
 			array: [...sortedArray],
 			operation: "完了",
 			variables: {
@@ -126,7 +126,7 @@ export class HeapSortAlgorithm implements Algorithm {
 
 		this.steps.push({
 			id: this.stepId++,
-			description: "🏗️ フェーズ1: 最大ヒープ構築開始",
+			description: "【構造】フェーズ1: 最大ヒープ構築開始",
 			array: [...array],
 			operation: "ヒープ構築開始",
 			variables: {
@@ -157,7 +157,7 @@ export class HeapSortAlgorithm implements Algorithm {
 
 		this.steps.push({
 			id: this.stepId++,
-			description: "✅ 最大ヒープ構築完了！ルートに最大値が配置されました",
+			description: "最大ヒープ構築完了！ルートに最大値が配置されました",
 			array: [...array],
 			highlightedElements: [0],
 			operation: "ヒープ構築完了",
@@ -178,7 +178,7 @@ export class HeapSortAlgorithm implements Algorithm {
 
 		this.steps.push({
 			id: this.stepId++,
-			description: "📊 フェーズ2: ソート実行開始",
+			description: "【解析】フェーズ2: ソート実行開始",
 			array: [...array],
 			operation: "ソート開始",
 			variables: {
@@ -242,7 +242,7 @@ export class HeapSortAlgorithm implements Algorithm {
 
 		this.steps.push({
 			id: this.stepId++,
-			description: "🎊 ソート完了！全要素が昇順に並びました",
+			description: " ソート完了！全要素が昇順に並びました",
 			array: [...array],
 			operation: "ソート完了",
 			variables: {
@@ -333,12 +333,12 @@ export class HeapSortAlgorithm implements Algorithm {
 
 			this.steps.push({
 				id: this.stepId++,
-				description: `交換完了：${array[largest]} ↔ ${array[rootIndex]}。下位ノード ${largest} を再帰的にヒープ化`,
+				description: `交換完了：${array[largest]} <-> ${array[rootIndex]}。下位ノード ${largest} を再帰的にヒープ化`,
 				array: [...array],
 				highlightedElements: [largest],
 				operation: "交換後継続",
 				variables: {
-					swappedValues: `${array[largest]} ↔ ${array[rootIndex]}`,
+					swappedValues: `${array[largest]} <-> ${array[rootIndex]}`,
 					nextTarget: largest,
 					reason: "交換により下位でヒープ条件が崩れた可能性",
 				},
@@ -392,30 +392,30 @@ export class HeapSortAlgorithm implements Algorithm {
 		return `
 ヒープソートは、ヒープデータ構造を利用したインプレースソートアルゴリズムです。
 
-🎯 **基本原理**
+【ポイント】**基本原理**
 1. 配列を最大ヒープに変換（ヒープ構築フェーズ）
 2. ルート（最大値）を末尾と交換
 3. ヒープサイズを1減らし、ルートをヒープ化
 4. ヒープサイズが1になるまで繰り返し
 
-📈 **特徴**
+ **特徴**
 - 常にO(n log n)の時間計算量を保証
 - インプレース（O(1)空間計算量）
 - 不安定ソート（同じ値の順序が保たれない場合あり）
 - 性能が予測可能
 
-🎯 **実用性**
+【ポイント】**実用性**
 - リアルタイムシステム（性能保証重要）
 - 組み込みシステム（メモリ制限環境）
 - 優先度付きキューの実装
 - アルゴリズム競技（安全な選択）
 
-💡 **他のソートとの比較**
+【ヒント】**他のソートとの比較**
 - vs クイックソート：性能保証 vs 平均速度
 - vs マージソート：メモリ効率 vs 安定性
 - vs 選択ソート：効率性 vs シンプルさ
 
-🔍 **ヒープデータ構造**
+【詳細】**ヒープデータ構造**
 - 完全二分木の配列表現
 - 親ノード ≥ 子ノード（最大ヒープ）
 - 効率的なインデックス計算

@@ -122,7 +122,7 @@ export class QueueBasicAlgorithm implements Algorithm {
 		// 完了ステップ
 		this.steps.push({
 			id: this.stepId++,
-			description: `🎉 操作完了！結果: ${result}`,
+			description: ` 操作完了！結果: ${result}`,
 			array: [...this.queue],
 			operation: "完了",
 			variables: {
@@ -172,7 +172,7 @@ export class QueueBasicAlgorithm implements Algorithm {
 
 		this.steps.push({
 			id: this.stepId++,
-			description: `✅ enqueue完了: ${value}が末尾に追加されました`,
+			description: `enqueue完了: ${value}が末尾に追加されました`,
 			array: [...this.queue],
 			operation: "enqueue完了",
 			variables: {
@@ -194,7 +194,7 @@ export class QueueBasicAlgorithm implements Algorithm {
 		if (this.queue.length === 0) {
 			this.steps.push({
 				id: this.stepId++,
-				description: "❌ dequeue失敗: キューが空です",
+				description: "dequeue失敗: キューが空です",
 				array: [...this.queue],
 				operation: "dequeue失敗",
 				variables: {
@@ -229,7 +229,7 @@ export class QueueBasicAlgorithm implements Algorithm {
 
 		this.steps.push({
 			id: this.stepId++,
-			description: `✅ dequeue完了: ${dequeuedValue}が取り出されました`,
+			description: `dequeue完了: ${dequeuedValue}が取り出されました`,
 			array: [...this.queue],
 			operation: "dequeue完了",
 			variables: {
@@ -403,12 +403,12 @@ export class QueueBasicAlgorithm implements Algorithm {
 		return `
 キュー（Queue）は、FIFO（First In, First Out）原理に基づくデータ構造です。
 
-🏗️ **基本概念**
+【構造】**基本概念**
 - 最初に入れた要素が最初に取り出される
 - 列に並ぶイメージ（待ち行列）
 - 一方の端から追加、もう一方の端から取り出し
 
-📚 **基本操作**
+【基礎】**基本操作**
 - enqueue(value): 要素を末尾に追加 - O(1)
 - dequeue(): 先頭要素を取り出し - O(1)
 - front(): 先頭要素を確認（削除なし） - O(1)
@@ -416,25 +416,25 @@ export class QueueBasicAlgorithm implements Algorithm {
 - isEmpty(): 空かどうかを確認 - O(1)
 - size(): 要素数を取得 - O(1)
 
-🎯 **実世界での応用**
+【ポイント】**実世界での応用**
 - プロセス管理のタスクキュー
 - ネットワークのデータパケット処理
 - プリンタの印刷待ち行列
 - ゲームのターン管理システム
 - 幅優先探索（BFS）アルゴリズム
 
-⚡ **計算量の特徴**
+【計算量】**計算量の特徴**
 - すべての基本操作がO(1)で高速
 - 配列の先頭と末尾を活用した実装
 - メモリ効率が良い
 
-💡 **学習価値**
+【ヒント】**学習価値**
 - データ構造の基礎概念
 - FIFO原理の理解
 - 順序を保つデータアクセス方法
 - 実用的なプログラミング技法
 
-🔄 **スタックとの比較**
+ **スタックとの比較**
 - スタック: LIFO（後入れ先出し）
 - キュー: FIFO（先入れ先出し）
 - どちらも線形データ構造

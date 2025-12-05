@@ -113,7 +113,7 @@ export class FibonacciRecursiveAlgorithm implements Algorithm {
 		// 完了ステップ
 		this.steps.push({
 			id: this.stepId++,
-			description: `🎉 計算完了！F(${n}) = ${result}`,
+			description: ` 計算完了！F(${n}) = ${result}`,
 			array: [],
 			operation: "完了",
 			variables: {
@@ -186,7 +186,7 @@ export class FibonacciRecursiveAlgorithm implements Algorithm {
 
 			this.steps.push({
 				id: this.stepId++,
-				description: `✅ ベースケース：F(${n}) = ${result}（計算不要）`,
+				description: `ベースケース：F(${n}) = ${result}（計算不要）`,
 				array: [],
 				operation: "ベースケース",
 				variables: {
@@ -355,33 +355,33 @@ export class FibonacciRecursiveAlgorithm implements Algorithm {
 		return `
 フィボナッチ数列（再帰）は、関数が自分自身を呼び出す再帰アルゴリズムの代表例です。
 
-🔢 **フィボナッチ数列の定義**
+【数値】**フィボナッチ数列の定義**
 - F(0) = 0, F(1) = 1
 - F(n) = F(n-1) + F(n-2) （n ≥ 2）
 - 数列: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, ...
 
-🔄 **再帰的思考**
+ **再帰的思考**
 - 大きな問題を小さな同種の問題に分解
 - ベースケース（停止条件）が必須
 - 関数が自分自身を呼び出して解決
 
-📚 **実行メカニズム**
+【基礎】**実行メカニズム**
 - コールスタックに関数呼び出しが積まれる
 - ベースケースまで分解→逆順に結果を計算
 - メモリ使用量は再帰の深さに比例
 
-⚠️ **計算量の問題**
+【注意】**計算量の問題**
 - 時間計算量: O(2^n) - 指数的に増加
 - 同じ計算を何度も繰り返す
 - F(40)で約10億回の関数呼び出し
 
-🎯 **学習価値**
+【ポイント】**学習価値**
 - 再帰的思考法の理解
 - スタックとメモリ管理
 - アルゴリズムの効率性の重要性
 - 最適化（メモ化）の必要性
 
-💡 **実用的な改善策**
+【ヒント】**実用的な改善策**
 - メモ化（計算済み結果をキャッシュ）
 - 動的プログラミング（ボトムアップ）
 - 反復的実装（ループ使用）

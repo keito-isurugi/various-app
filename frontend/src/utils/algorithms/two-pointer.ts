@@ -184,7 +184,7 @@ export class TwoPointerAlgorithm implements Algorithm {
 		// 完了ステップ
 		this.steps.push({
 			id: this.stepId++,
-			description: `🎉 2 pointer法操作完了！${this.getOperationDescription(operation)}が正常に実行されました`,
+			description: ` 2 pointer法操作完了！${this.getOperationDescription(operation)}が正常に実行されました`,
 			array: [...this.originalArray],
 			operation: "完了",
 			variables: {
@@ -285,7 +285,7 @@ export class TwoPointerAlgorithm implements Algorithm {
 
 				this.steps.push({
 					id: this.stepId++,
-					description: `🎯 目標和${target}を発見！値[${sortedArray[left]}, ${sortedArray[right]}]`,
+					description: `【ポイント】目標和${target}を発見！値[${sortedArray[left]}, ${sortedArray[right]}]`,
 					array: sortedArray,
 					highlight: [left, right],
 					operation: "Two Sum発見",
@@ -438,7 +438,7 @@ export class TwoPointerAlgorithm implements Algorithm {
 
 					this.steps.push({
 						id: this.stepId++,
-						description: `🎯 解発見！[${fixed}, ${sortedArray[left]}, ${sortedArray[right]}] = ${target}`,
+						description: `【ポイント】解発見！[${fixed}, ${sortedArray[left]}, ${sortedArray[right]}] = ${target}`,
 						array: sortedArray,
 						highlight: [i, left, right],
 						operation: "Three Sum発見",
@@ -545,7 +545,7 @@ export class TwoPointerAlgorithm implements Algorithm {
 
 				this.steps.push({
 					id: this.stepId++,
-					description: `🎯 対象ペア発見！[${array[left]}, ${array[right]}] = ${target}`,
+					description: `【ポイント】対象ペア発見！[${array[left]}, ${array[right]}] = ${target}`,
 					array: [...array],
 					highlight: [left, right],
 					operation: "ペア発見",
@@ -812,7 +812,7 @@ export class TwoPointerAlgorithm implements Algorithm {
 			if (!isMatch) {
 				this.steps.push({
 					id: this.stepId++,
-					description: `❌ 回文ではありません：'${leftChar}' ≠ '${rightChar}'`,
+					description: `回文ではありません：'${leftChar}' ≠ '${rightChar}'`,
 					operation: "回文判定失敗",
 					variables: {
 						result: false,
@@ -833,12 +833,12 @@ export class TwoPointerAlgorithm implements Algorithm {
 
 		this.steps.push({
 			id: this.stepId++,
-			description: `✅ 回文です：「${processedText}」は前から読んでも後ろから読んでも同じ`,
+			description: `回文です：「${processedText}」は前から読んでも後ろから読んでも同じ`,
 			operation: "回文判定成功",
 			variables: {
 				result: true,
 				comparedPairsString: comparedPairs
-					.map((p) => `'${p.left}'='${p.right}'(${p.match ? "○" : "×"})`)
+					.map((p) => `'${p.left}'='${p.right}'(${p.match ? "*" : "×"})`)
 					.join(", "),
 				totalComparisons: comparedPairs.length,
 			},
@@ -909,7 +909,7 @@ export class TwoPointerAlgorithm implements Algorithm {
 
 				this.steps.push({
 					id: this.stepId++,
-					description: `🏆 新最大面積発見！面積=${area} (位置${left}-${right})`,
+					description: ` 新最大面積発見！面積=${area} (位置${left}-${right})`,
 					array: heights,
 					highlight: [left, right],
 					operation: "最大面積更新",
@@ -1274,19 +1274,19 @@ export class TwoPointerAlgorithm implements Algorithm {
 		return `
 2 pointer法（Two Pointers）は、配列やリストに対して2つのポインタを使用して効率的に操作を行う重要なアルゴリズム技法です。線形時間での探索や操作を可能にし、多くの問題でナイーブ法を大幅に改善できます。
 
-👆 **2 pointer法の基本概念**
+ **2 pointer法の基本概念**
 - 配列に対して2つのインデックス（ポインタ）を使用
 - ポインタの移動ルールによって効率的な処理を実現
 - ソート済み配列での威力を最大限発揮
 - 空間効率も優秀（多くの場合O(1)）
 
-📊 **主要なパターンと計算量**
+【解析】**主要なパターンと計算量**
 - 対向ポインタ: O(n) - 両端から中央へ
 - 同方向ポインタ: O(n) - 読み書きポインタによる処理
 - 固定+移動: O(n²) - 一つを固定してもう一つを移動
 - 条件付き移動: O(n) - 条件に応じた動的移動
 
-🎯 **代表的なパターン**
+【ポイント】**代表的なパターン**
 - **対向ポインタ**: 両端から中央に向かって移動
   - Two Sum, 回文判定, 配列反転
 - **同方向ポインタ**: 読み取りと書き込みで異なる速度
@@ -1294,31 +1294,31 @@ export class TwoPointerAlgorithm implements Algorithm {
 - **固定ポインタ**: 一つを固定してもう一つを移動
   - Three Sum, Four Sum
 
-💡 **実装のポイント**
+【ヒント】**実装のポイント**
 - ソート済み配列での活用が基本
 - ポインタの移動条件を明確に定義
 - 境界条件の適切な処理
 - 重複要素の処理方法
 
-🌟 **主要な応用問題**
+ **主要な応用問題**
 - **Sum問題**: Two Sum, Three Sum, Four Sum
 - **配列操作**: 重複除去, 配列反転, マージ
 - **文字列**: 回文判定, パターンマッチング
 - **幾何問題**: 最大面積, 最小距離
 
-🚀 **実世界での応用例**
+【応用】**実世界での応用例**
 - **データ処理**: 重複データの除去とクリーニング
 - **文字列解析**: テキスト処理とパターン検出
 - **数値計算**: 効率的な数値探索アルゴリズム
 - **ゲーム開発**: 衝突判定, 範囲チェック
 
-⚡ **パフォーマンス特性**
+【計算量】**パフォーマンス特性**
 - 時間計算量: O(n) ～ O(n²) - 問題に応じて
 - 空間計算量: O(1) - 多くの場合追加メモリ不要
 - 実装が直感的で理解しやすい
 - デバッグが容易
 
-🔍 **他の手法との比較**
+【詳細】**他の手法との比較**
 - vs ナイーブ法: 大幅な時間計算量改善
 - vs ハッシュテーブル: 空間効率に優れる
 - vs 分割統治: 実装が簡単

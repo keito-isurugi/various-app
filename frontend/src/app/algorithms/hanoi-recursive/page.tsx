@@ -7,6 +7,18 @@
 
 "use client";
 
+import {
+	AlertTriangle,
+	BarChart3,
+	Binary,
+	Code,
+	Construction,
+	Gamepad2,
+	Play,
+	Settings,
+	Target,
+	TrendingUp,
+} from "lucide-react";
 import Link from "next/link";
 import React, { useState, useCallback } from "react";
 import { AlgorithmVisualizer } from "../../../components/algorithm/AlgorithmVisualizer";
@@ -193,8 +205,9 @@ export default function HanoiRecursivePage() {
 					{/* 入力パネル */}
 					<div className="xl:col-span-1">
 						<div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700 sticky top-4">
-							<h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">
-								🏗️ 実行設定
+							<h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4 flex items-center gap-2">
+								<Settings className="w-5 h-5" />
+								実行設定
 							</h3>
 
 							{/* 現在の設定表示 */}
@@ -225,7 +238,8 @@ export default function HanoiRecursivePage() {
 								</div>
 								{currentN > 7 && (
 									<div className="mt-2 p-2 bg-yellow-100 dark:bg-yellow-900/30 rounded text-xs text-yellow-800 dark:text-yellow-200">
-										⚠️ n {">"} 7は計算量が大きいです
+										<AlertTriangle className="w-3 h-3 inline" /> n {">"}{" "}
+										7は計算量が大きいです
 									</div>
 								)}
 							</div>
@@ -261,8 +275,9 @@ export default function HanoiRecursivePage() {
 
 							{/* 推奨値ボタン */}
 							<div className="space-y-2 mb-6">
-								<h4 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-									🎯 推奨値
+								<h4 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 flex items-center gap-2">
+									<Target className="w-4 h-4" />
+									推奨値
 								</h4>
 								<div className="grid grid-cols-2 gap-2">
 									{recommendedValues.slice(0, 8).map((rec) => (
@@ -287,8 +302,9 @@ export default function HanoiRecursivePage() {
 
 							{/* 統計情報 */}
 							<div className="mb-6 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg">
-								<h4 className="text-sm font-medium text-purple-800 dark:text-purple-200 mb-2">
-									📊 統計情報
+								<h4 className="text-sm font-medium text-purple-800 dark:text-purple-200 mb-2 flex items-center gap-2">
+									<BarChart3 className="w-4 h-4" />
+									統計情報
 								</h4>
 								<div className="text-xs text-purple-700 dark:text-purple-300 space-y-1">
 									<div>移動回数: {statistics.totalMoves}回</div>
@@ -303,13 +319,20 @@ export default function HanoiRecursivePage() {
 								type="button"
 								onClick={executeAlgorithm}
 								disabled={isExecuting}
-								className={`w-full py-3 rounded-lg font-semibold transition-all duration-200 ${
+								className={`w-full py-3 rounded-lg font-semibold transition-all duration-200 flex items-center justify-center gap-2 ${
 									isExecuting
 										? "bg-gray-400 text-gray-700 cursor-not-allowed"
 										: "bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white shadow-lg hover:shadow-xl"
 								}`}
 							>
-								{isExecuting ? "実行中..." : "🏗️ ハノイの塔実行"}
+								{isExecuting ? (
+									"実行中..."
+								) : (
+									<>
+										<Play className="w-4 h-4" />
+										ハノイの塔実行
+									</>
+								)}
 							</button>
 
 							{/* 結果表示 */}
@@ -355,7 +378,9 @@ export default function HanoiRecursivePage() {
 							<AlgorithmVisualizer steps={result.steps} className="mb-8" />
 						) : (
 							<div className="bg-white dark:bg-gray-800 rounded-xl p-12 border border-gray-200 dark:border-gray-700 text-center mb-8">
-								<div className="text-6xl mb-4">🏗️</div>
+								<div className="text-6xl mb-4 flex justify-center">
+									<Construction className="w-16 h-16 text-purple-500" />
+								</div>
 								<h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-2">
 									アルゴリズムを実行してください
 								</h3>
@@ -379,8 +404,9 @@ export default function HanoiRecursivePage() {
 				{/* コード例セクション */}
 				<section className="mt-12">
 					<div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700">
-						<h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">
-							💻 実装例（JavaScript）
+						<h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4 flex items-center gap-2">
+							<Code className="w-5 h-5" />
+							実装例（JavaScript）
 						</h3>
 						<div className="bg-gray-900 rounded-lg p-6 overflow-x-auto">
 							<pre className="text-sm text-gray-100">
@@ -431,13 +457,14 @@ console.log(calculateMoves(10)); // 1023
 				{/* ルールと戦略セクション */}
 				<section className="mt-12">
 					<div className="bg-gradient-to-r from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 rounded-xl p-6 border border-purple-200 dark:border-purple-700">
-						<h3 className="text-xl font-semibold text-purple-900 dark:text-purple-100 mb-4">
-							🎮 ハノイの塔のルールと戦略
+						<h3 className="text-xl font-semibold text-purple-900 dark:text-purple-100 mb-4 flex items-center gap-2">
+							<Gamepad2 className="w-5 h-5" />
+							ハノイの塔のルールと戦略
 						</h3>
 						<div className="grid md:grid-cols-2 gap-6">
 							<div>
 								<h4 className="font-semibold text-purple-800 dark:text-purple-200 mb-3">
-									📏 基本ルール
+									 基本ルール
 								</h4>
 								<ul className="space-y-2 text-purple-700 dark:text-purple-300 text-sm">
 									<li>• 3本の杭（A、B、C）と n枚の円盤</li>
@@ -449,7 +476,7 @@ console.log(calculateMoves(10)); // 1023
 							</div>
 							<div>
 								<h4 className="font-semibold text-purple-800 dark:text-purple-200 mb-3">
-									🧠 分割統治戦略
+									 分割統治戦略
 								</h4>
 								<ul className="space-y-2 text-purple-700 dark:text-purple-300 text-sm">
 									<li>• n枚の問題を3つのサブ問題に分解</li>
@@ -467,12 +494,14 @@ console.log(calculateMoves(10)); // 1023
 				<section className="mt-12">
 					<div className="bg-gradient-to-r from-blue-50 to-green-50 dark:from-blue-900/20 dark:to-green-900/20 rounded-xl p-6 border border-blue-200 dark:border-blue-700">
 						<h3 className="text-xl font-semibold text-blue-900 dark:text-blue-100 mb-4">
-							🔢 数学的性質と洞察
+							<Binary className="w-4 h-4" />
+							数学的性質と洞察
 						</h3>
 						<div className="grid md:grid-cols-2 gap-6">
 							<div>
-								<h4 className="font-semibold text-blue-800 dark:text-blue-200 mb-3">
-									📈 計算量の特性
+								<h4 className="font-semibold text-blue-800 dark:text-blue-200 mb-3 flex items-center gap-2">
+									<TrendingUp className="w-4 h-4" />
+									計算量の特性
 								</h4>
 								<ul className="space-y-2 text-blue-700 dark:text-blue-300 text-sm">
 									<li>• 最小移動回数：2^n - 1 回</li>
@@ -483,8 +512,9 @@ console.log(calculateMoves(10)); // 1023
 								</ul>
 							</div>
 							<div>
-								<h4 className="font-semibold text-blue-800 dark:text-blue-200 mb-3">
-									🎯 実用的な応用
+								<h4 className="font-semibold text-blue-800 dark:text-blue-200 mb-3 flex items-center gap-2">
+									<Target className="w-4 h-4" />
+									実用的な応用
 								</h4>
 								<ul className="space-y-2 text-blue-700 dark:text-blue-300 text-sm">
 									<li>• バックアップシステムの最適化</li>

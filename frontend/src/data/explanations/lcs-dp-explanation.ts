@@ -20,7 +20,7 @@ export const lcsDpExplanation: ExplanationData = {
 	sections: [
 		{
 			id: "problem-definition",
-			title: "🎯 LCS問題の定義",
+			title: "【ポイント】LCS問題の定義",
 			content:
 				"最長共通部分列問題は、2つの文字列が与えられたとき、両方に共通して現れる最長の部分列を見つける問題です。部分列とは、元の文字列から文字を削除して得られる文字列で、残った文字の順序は保持されます。例えば、'ABCDGH'と'AEDFHR'のLCSは'ADH'（長さ3）です。部分文字列とは異なり、文字が連続している必要はありません。この問題は計算機科学の様々な分野で基本的な構成要素として使用されます。",
 			importance: "high",
@@ -34,7 +34,7 @@ export const lcsDpExplanation: ExplanationData = {
 
 		{
 			id: "naive-approach-problems",
-			title: "🔍 全探索アプローチの問題点",
+			title: "【詳細】全探索アプローチの問題点",
 			content:
 				"LCS問題を全探索で解く場合、各文字列のすべての部分列を生成し、共通する最長のものを探す必要があります。長さnの文字列には2^n個の部分列があるため、時間計算量は O(2^(m+n)) となり、文字列が長くなると実用的でなくなります。例えば、長さ20の文字列では約100万個、長さ30では約10億個の部分列があります。この指数的な増加により、動的計画法による効率的な解法が必要になります。",
 			importance: "high",
@@ -48,7 +48,7 @@ export const lcsDpExplanation: ExplanationData = {
 
 		{
 			id: "dp-state-design",
-			title: "📊 動的計画法の状態設計",
+			title: "【解析】動的計画法の状態設計",
 			content:
 				"LCSの動的計画法では、dp[i][j]を「文字列1の最初のi文字と文字列2の最初のj文字のLCSの長さ」として定義します。この状態設計により、部分問題の最適解を組み合わせて全体の最適解を構築できます。各セルの値は、文字が一致する場合と一致しない場合で異なる計算を行います。最終的な答えはdp[m][n]（mとnは各文字列の長さ）に格納されます。",
 			importance: "high",
@@ -62,7 +62,7 @@ export const lcsDpExplanation: ExplanationData = {
 
 		{
 			id: "state-transition",
-			title: "🔄 状態遷移の仕組み",
+			title: " 状態遷移の仕組み",
 			content:
 				"各セル dp[i][j] の値は、現在比較している文字が一致するかどうかで決まります。文字が一致する場合（str1[i-1] == str2[j-1]）、dp[i][j] = dp[i-1][j-1] + 1 となります。文字が一致しない場合、dp[i][j] = max(dp[i-1][j], dp[i][j-1]) となります。この遷移により、各文字の包含・除外の選択を最適化し、重複する部分問題を効率的に解決します。",
 			importance: "high",
@@ -78,7 +78,7 @@ export const lcsDpExplanation: ExplanationData = {
 
 		{
 			id: "table-construction",
-			title: "🏗️ DPテーブルの構築",
+			title: "【構造】DPテーブルの構築",
 			content:
 				"DPテーブルは行ごと（各文字ごと）に構築していきます。まず0行目と0列目をベースケース（0）で初期化し、その後1行目から順番に各セルを計算します。各セルの計算では、現在の文字ペアが一致するかを確認し、適切な遷移式を適用します。この過程により、最適部分構造の性質を活用して、全体の最適解が効率的に求められます。",
 			importance: "medium",
@@ -92,7 +92,7 @@ export const lcsDpExplanation: ExplanationData = {
 
 		{
 			id: "backtracking-reconstruction",
-			title: "🔍 バックトラッキングによる解の復元",
+			title: "【詳細】バックトラッキングによる解の復元",
 			content:
 				"DPテーブルからは LCS の長さだけでなく、実際の LCS 文字列も復元できます。右下から左上に向かってバックトラッキングを行い、各段階で値の変化を調べます。dp[i][j] が dp[i-1][j-1] + 1 の場合、対応する文字が LCS に含まれます。文字が一致しないセルでは、値が大きい方向（上または左）に向かって進みます。この過程により、実際の LCS 文字列を構築できます。",
 			importance: "medium",
@@ -106,7 +106,7 @@ export const lcsDpExplanation: ExplanationData = {
 
 		{
 			id: "complexity-analysis",
-			title: "⚡ 計算量の分析",
+			title: "【計算量】計算量の分析",
 			content:
 				"LCS の動的計画法による解法の時間計算量は O(m×n)、空間計算量は O(m×n) です（mとnは各文字列の長さ）。これは全探索の O(2^(m+n)) と比べて大幅な改善です。実際の例では、長さ1000の文字列でも100万回の計算で完了し、現実的な時間で処理できます。空間計算量の最適化により O(min(m,n)) に削減することも可能ですが、LCS文字列の復元には完全なテーブルが必要です。",
 			formula:
@@ -122,7 +122,7 @@ export const lcsDpExplanation: ExplanationData = {
 
 		{
 			id: "real-world-applications",
-			title: "🌍 実世界での応用",
+			title: " 実世界での応用",
 			content:
 				"LCS は様々な実世界の問題で重要な役割を果たします。バージョン管理システム（Git など）では、ファイルの差分検出に使用されます。DNA配列解析では、遺伝子の類似性や進化的関係の研究に活用されます。文書校正システムでは、原稿と校正版の比較に使用され、テキストエディタでは変更履歴の管理に応用されます。また、機械翻訳や自然言語処理でも文の類似性測定に使用されています。",
 			importance: "low",
@@ -136,7 +136,7 @@ export const lcsDpExplanation: ExplanationData = {
 
 		{
 			id: "variants-and-extensions",
-			title: "🔄 LCS の変形と拡張",
+			title: " LCS の変形と拡張",
 			content:
 				"基本的な LCS から派生した様々な変形問題があります。重み付き LCS では、文字マッチに重みを付けて最適化します。Edit Distance（編集距離）は LCS と密接に関連し、文字列の変換コストを計算します。複数文字列の LCS では、3つ以上の文字列の共通部分列を求めます。また、制約付き LCS では、特定のパターンを含む/除外する条件下で LCS を求めます。これらの拡張により、より複雑な実用問題に対応できます。",
 			importance: "medium",
@@ -150,7 +150,7 @@ export const lcsDpExplanation: ExplanationData = {
 
 		{
 			id: "optimization-techniques",
-			title: "🚀 最適化技法",
+			title: "【応用】最適化技法",
 			content:
 				"LCS の基本実装にはいくつかの最適化技法があります。空間効率の改善では、前の行の情報のみを保持することで O(min(m,n)) の空間計算量を実現できます。Hirschberg のアルゴリズムでは、分割統治法により O(min(m,n)) 空間で LCS 文字列も復元できます。また、文字の種類が少ない場合の特殊化や、前処理による高速化、並列化による性能向上なども重要な最適化手法です。",
 			importance: "low",
@@ -164,7 +164,7 @@ export const lcsDpExplanation: ExplanationData = {
 
 		{
 			id: "learning-progression",
-			title: "📚 学習の進め方",
+			title: "【基礎】学習の進め方",
 			content:
 				"LCS の学習は、まず部分列の概念と問題定義の理解から始めます。次に小さな例で手動計算を行い、DP テーブルの構築過程を理解します。その後、基本的な実装を行い、バックトラッキングによる解の復元を学習します。応用として、編集距離やファイル差分などの関連問題に取り組み、最終的には実際のシステムでの使用例を学習します。理論と実装の両面から段階的に理解を深めることが重要です。",
 			importance: "low",

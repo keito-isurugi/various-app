@@ -20,7 +20,7 @@ export const mergeSortExplanation: ExplanationData = {
 	sections: [
 		{
 			id: "divide-and-conquer-concept",
-			title: "🎯 分割統治法の基本理念",
+			title: "【ポイント】分割統治法の基本理念",
 			content:
 				"マージソートの核心は「分割統治法」です。大きな問題を解決可能な小さな部分問題に分割し、それぞれを独立して解決し、結果を統合して元の問題の解答を得る手法です。マージソートでは、「ソートできない大きな配列」を「必ずソートできる単一要素」まで分割し、「2つのソート済み配列のマージ」という簡単な操作で解決します。",
 			importance: "high",
@@ -33,7 +33,7 @@ export const mergeSortExplanation: ExplanationData = {
 
 		{
 			id: "divide-phase",
-			title: "✂️ 分割フェーズの詳細",
+			title: "️ 分割フェーズの詳細",
 			content:
 				"分割フェーズでは、配列を中央で半分に分け続けます。この操作を要素が1個になるまで再帰的に実行します。分割自体は非常に高速（O(1)）で、主に中央のインデックスを計算するだけです。分割の深さはlog₂(n)となり、これがアルゴリズム全体の対数的な性能に寄与します。このフェーズでは実際のソート作業は行われません。",
 			importance: "high",
@@ -47,7 +47,7 @@ export const mergeSortExplanation: ExplanationData = {
 
 		{
 			id: "conquer-phase",
-			title: "🔗 統治（マージ）フェーズの詳細",
+			title: "【連携】統治（マージ）フェーズの詳細",
 			content:
 				"統治フェーズでは、分割された小配列を順序よくマージしていきます。2つのソート済み配列をマージする操作は、両方の先頭要素を比較し、小さい方を結果に追加するという単純な手順を繰り返します。この操作は線形時間O(n)で実行でき、安定性（同じ値の順序保持）も自然に保たれます。",
 			importance: "high",
@@ -60,7 +60,7 @@ export const mergeSortExplanation: ExplanationData = {
 
 		{
 			id: "merge-operation",
-			title: "⚙️ マージ操作の仕組み",
+			title: "【設定】マージ操作の仕組み",
 			content:
 				"マージ操作は、マージソートの最も重要な部分です。2つのソート済み配列を受け取り、各配列の先頭から要素を比較して、小さい（または等しい）要素を結果配列に追加します。等しい場合は左の配列から取ることで安定性を保ちます。一方の配列が空になったら、残った配列の要素をすべて結果に追加します。",
 			importance: "medium",
@@ -73,7 +73,7 @@ export const mergeSortExplanation: ExplanationData = {
 
 		{
 			id: "time-complexity",
-			title: "⏱️ 時間計算量の保証",
+			title: "️ 時間計算量の保証",
 			content:
 				"マージソートの最大の特徴は、入力データの状態に関係なく常にO(n log n)の時間計算量を保証することです。分割フェーズでlog n層の分割を行い、各層でO(n)時間のマージ操作を実行するため、全体でO(n log n)となります。これは理論上のソート性能の下限に近い最適な性能です。",
 			formula:
@@ -88,7 +88,7 @@ export const mergeSortExplanation: ExplanationData = {
 
 		{
 			id: "stability-analysis",
-			title: "🔄 安定性の保証",
+			title: " 安定性の保証",
 			content:
 				"マージソートは「安定ソート」です。同じ値を持つ要素の相対的な順序が、ソート後も保たれます。マージ操作で同じ値の要素に遭遇した場合、常に左の配列（元の順序で先に現れた要素）を優先するためです。この特性により、複数のキーでの段階的ソートや、データの一意性を保つ必要がある場合に重要な役割を果たします。",
 			importance: "medium",
@@ -101,7 +101,7 @@ export const mergeSortExplanation: ExplanationData = {
 
 		{
 			id: "space-complexity",
-			title: "💾 空間計算量の特性",
+			title: " 空間計算量の特性",
 			content:
 				"マージソートの唯一の欠点は、O(n)の追加メモリが必要なことです。マージ操作で結果を格納するための配列が必要で、再帰的な実装では各分割レベルで新しい配列を作成します。しかし、この追加メモリにより安定性とO(n log n)の性能保証が実現されているため、メモリと性能のトレードオフとして受け入れられています。",
 			importance: "medium",
@@ -114,7 +114,7 @@ export const mergeSortExplanation: ExplanationData = {
 
 		{
 			id: "comparison-with-others",
-			title: "🆚 他のソートアルゴリズムとの比較",
+			title: " 他のソートアルゴリズムとの比較",
 			content:
 				"マージソートは、他の主要なソートアルゴリズムと比較して独特の特徴を持ちます。クイックソートは平均的に高速ですが最悪ケースでO(n²)になり不安定、ヒープソートは最悪ケースでもO(n log n)ですが不安定でキャッシュ効率が悪い、マージソートは常にO(n log n)で安定という特性があります。用途に応じた使い分けが重要です。",
 			importance: "high",
@@ -127,7 +127,7 @@ export const mergeSortExplanation: ExplanationData = {
 
 		{
 			id: "practical-applications",
-			title: "🌍 実際の応用場面",
+			title: " 実際の応用場面",
 			content:
 				"マージソートは、その安定性と性能保証により多くの実用的な場面で使用されています。Pythonのsort()関数の基礎となるTimsort、Javaのオブジェクト配列ソート、大規模データベースの外部ソート、並列処理システムでの分散ソートなどで採用されています。また、安定性が重要なアプリケーションでは第一選択となることが多いです。",
 			importance: "low",

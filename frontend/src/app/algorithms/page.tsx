@@ -7,6 +7,19 @@
 
 "use client";
 
+import {
+	ArrowRight,
+	BookOpen,
+	CheckCircle,
+	Construction,
+	Eye,
+	Gamepad2,
+	Lightbulb,
+	ListOrdered,
+	Rocket,
+	Star,
+	Target,
+} from "lucide-react";
 import Link from "next/link";
 import React from "react";
 import type { AlgorithmInfo } from "../../types/algorithm";
@@ -607,10 +620,19 @@ export default function AlgorithmsPage() {
 	];
 
 	/**
-	 * 難易度レベルを星で表示
+	 * 難易度レベルを星アイコンで表示
 	 */
-	const getDifficultyStars = (difficulty: number): string => {
-		return "★".repeat(difficulty) + "☆".repeat(5 - difficulty);
+	const getDifficultyStars = (difficulty: number) => {
+		return (
+			<span className="flex items-center gap-0.5">
+				{Array.from({ length: 5 }, (_, i) => (
+					<Star
+						key={`star-${i}`}
+						className={`w-3.5 h-3.5 ${i < difficulty ? "fill-yellow-400 text-yellow-400" : "text-gray-300 dark:text-gray-600"}`}
+					/>
+				))}
+			</span>
+		);
 	};
 
 	/**
@@ -672,7 +694,9 @@ export default function AlgorithmsPage() {
 					{/* 学習の特徴 */}
 					<div className="grid md:grid-cols-3 gap-6 mt-8">
 						<div className="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-6 border border-blue-200 dark:border-blue-700">
-							<div className="text-3xl mb-3">👁️</div>
+							<div className="mb-3">
+								<Eye className="w-8 h-8 text-blue-600 dark:text-blue-400" />
+							</div>
 							<h3 className="font-semibold text-blue-900 dark:text-blue-100 mb-2">
 								視覚化学習
 							</h3>
@@ -681,7 +705,9 @@ export default function AlgorithmsPage() {
 							</p>
 						</div>
 						<div className="bg-green-50 dark:bg-green-900/20 rounded-lg p-6 border border-green-200 dark:border-green-700">
-							<div className="text-3xl mb-3">🎮</div>
+							<div className="mb-3">
+								<Gamepad2 className="w-8 h-8 text-green-600 dark:text-green-400" />
+							</div>
 							<h3 className="font-semibold text-green-900 dark:text-green-100 mb-2">
 								インタラクティブ
 							</h3>
@@ -690,7 +716,9 @@ export default function AlgorithmsPage() {
 							</p>
 						</div>
 						<div className="bg-purple-50 dark:bg-purple-900/20 rounded-lg p-6 border border-purple-200 dark:border-purple-700">
-							<div className="text-3xl mb-3">📚</div>
+							<div className="mb-3">
+								<BookOpen className="w-8 h-8 text-purple-600 dark:text-purple-400" />
+							</div>
 							<h3 className="font-semibold text-purple-900 dark:text-purple-100 mb-2">
 								詳細解説
 							</h3>
@@ -703,8 +731,9 @@ export default function AlgorithmsPage() {
 
 				{/* アルゴリズム一覧 */}
 				<section className="mb-12">
-					<h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-8 text-center">
-						📖 学習可能なアルゴリズム
+					<h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-8 text-center flex items-center justify-center gap-3">
+						<BookOpen className="w-8 h-8 text-purple-600 dark:text-purple-400" />
+						学習可能なアルゴリズム
 					</h2>
 
 					<div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -754,17 +783,15 @@ export default function AlgorithmsPage() {
 
 									{/* 難易度 */}
 									<div className="flex items-center justify-between">
-										<div className="text-sm">
+										<div className="text-sm flex items-center">
 											<span className="text-gray-500 dark:text-gray-500">
 												難易度:
 											</span>
-											<span className="ml-2 text-yellow-500">
+											<span className="ml-2">
 												{getDifficultyStars(algorithm.difficulty)}
 											</span>
 										</div>
-										<div className="text-purple-600 dark:text-purple-400 group-hover:translate-x-1 transition-transform">
-											→
-										</div>
+										<ArrowRight className="w-5 h-5 text-purple-600 dark:text-purple-400 group-hover:translate-x-1 transition-transform" />
 									</div>
 								</div>
 							</Link>
@@ -772,7 +799,9 @@ export default function AlgorithmsPage() {
 
 						{/* 準備中カード */}
 						<div className="bg-gray-50 dark:bg-gray-700/50 rounded-xl p-6 border-2 border-dashed border-gray-300 dark:border-gray-600 text-center">
-							<div className="text-4xl mb-3">🚧</div>
+							<div className="mb-3 flex justify-center">
+								<Construction className="w-10 h-10 text-gray-500 dark:text-gray-400" />
+							</div>
 							<h3 className="font-semibold text-gray-600 dark:text-gray-400 mb-2">
 								さらなるアルゴリズム
 							</h3>
@@ -788,14 +817,16 @@ export default function AlgorithmsPage() {
 				{/* 学習ガイド */}
 				<section className="mb-12">
 					<div className="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 rounded-xl p-8 border border-blue-200 dark:border-blue-700">
-						<h2 className="text-2xl font-bold text-blue-900 dark:text-blue-100 mb-6 text-center">
-							🎯 効果的な学習方法
+						<h2 className="text-2xl font-bold text-blue-900 dark:text-blue-100 mb-6 text-center flex items-center justify-center gap-2">
+							<Target className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+							効果的な学習方法
 						</h2>
 
 						<div className="grid md:grid-cols-2 gap-6">
 							<div>
-								<h3 className="font-semibold text-blue-800 dark:text-blue-200 mb-3">
-									📋 学習の流れ
+								<h3 className="font-semibold text-blue-800 dark:text-blue-200 mb-3 flex items-center gap-2">
+									<ListOrdered className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+									学習の流れ
 								</h3>
 								<ol className="space-y-2 text-blue-700 dark:text-blue-300 text-sm">
 									<li>1. まず解説を読んで基本概念を理解</li>
@@ -807,8 +838,9 @@ export default function AlgorithmsPage() {
 							</div>
 
 							<div>
-								<h3 className="font-semibold text-blue-800 dark:text-blue-200 mb-3">
-									💡 学習のコツ
+								<h3 className="font-semibold text-blue-800 dark:text-blue-200 mb-3 flex items-center gap-2">
+									<Lightbulb className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+									学習のコツ
 								</h3>
 								<ul className="space-y-2 text-blue-700 dark:text-blue-300 text-sm">
 									<li>• 自分でケースを作って試してみる</li>
@@ -824,8 +856,8 @@ export default function AlgorithmsPage() {
 
 				{/* フッター情報 */}
 				<footer className="text-center text-gray-600 dark:text-gray-400">
-					<p className="text-sm">
-						🚀
+					<p className="text-sm flex items-center justify-center gap-2">
+						<Rocket className="w-4 h-4 text-gray-500 dark:text-gray-400" />
 						より多くのアルゴリズムを順次追加予定です。リクエストがあればお気軽にお声がけください！
 					</p>
 				</footer>

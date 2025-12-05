@@ -159,7 +159,7 @@ export const CalculationExplanation: React.FC<CalculationExplanationProps> = ({
 				<div className="px-6 pb-6 border-t border-border">
 					{/* 概要説明 */}
 					<div className="mt-6 p-4 bg-primary/5 rounded-lg border border-primary/20">
-						<h4 className="text-lg font-semibold text-primary mb-2">📚 概要</h4>
+						<h4 className="text-lg font-semibold text-primary mb-2">概要</h4>
 						<p className="text-foreground leading-relaxed">
 							{explanationData.overview}
 						</p>
@@ -168,7 +168,7 @@ export const CalculationExplanation: React.FC<CalculationExplanationProps> = ({
 					{/* 詳細セクション */}
 					<div className="mt-6 space-y-4">
 						<h4 className="text-lg font-semibold text-foreground mb-4">
-							🔍 詳細解説
+							詳細解説
 						</h4>
 
 						{explanationData.sections.map((section, index) => {
@@ -224,7 +224,7 @@ export const CalculationExplanation: React.FC<CalculationExplanationProps> = ({
 											{!isDetailedSection && (section as any).formula && (
 												<div className="mb-4 p-3 bg-card rounded-md border border-border">
 													<h6 className="text-sm font-semibold text-muted-foreground mb-2">
-														📐 数式
+														 数式
 													</h6>
 													<div className="text-lg font-mono text-center text-foreground">
 														{(section as any).formula?.replace(
@@ -241,7 +241,7 @@ export const CalculationExplanation: React.FC<CalculationExplanationProps> = ({
 												(section as any).formulas.length > 0 && (
 													<div className="mb-4 space-y-3">
 														<h6 className="text-sm font-semibold text-muted-foreground">
-															📐 数式
+															 数式
 														</h6>
 														{(section as any).formulas.map(
 															(formula: any, formulaIndex: number) => (
@@ -270,7 +270,7 @@ export const CalculationExplanation: React.FC<CalculationExplanationProps> = ({
 												(section as any).examples.length > 0 && (
 													<div className="p-3 bg-yellow-500/10 rounded-md border border-yellow-500/30">
 														<h6 className="text-sm font-semibold text-yellow-600 mb-2">
-															💡 具体例
+															具体例
 														</h6>
 														<ul className="space-y-1">
 															{(section as any).examples.map(
@@ -296,7 +296,7 @@ export const CalculationExplanation: React.FC<CalculationExplanationProps> = ({
 												(section as any).examples.length > 0 && (
 													<div className="mb-4 space-y-3">
 														<h6 className="text-sm font-semibold text-yellow-600">
-															💡 実装例
+															実装例
 														</h6>
 														{(section as any).examples.map(
 															(example: any, exampleIndex: number) => (

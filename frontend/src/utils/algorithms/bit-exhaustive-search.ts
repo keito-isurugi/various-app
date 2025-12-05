@@ -176,7 +176,7 @@ export class BitExhaustiveSearchAlgorithm implements Algorithm {
 		// 完了ステップ
 		this.steps.push({
 			id: this.stepId++,
-			description: `🎉 ビット全探索操作完了！${this.getOperationDescription(operation)}が正常に実行されました`,
+			description: ` ビット全探索操作完了！${this.getOperationDescription(operation)}が正常に実行されました`,
 			array: [...this.originalArray],
 			operation: "完了",
 			variables: {
@@ -368,7 +368,7 @@ export class BitExhaustiveSearchAlgorithm implements Algorithm {
 
 				this.steps.push({
 					id: this.stepId++,
-					description: `🎯 解発見！部分集合[${subset.join(", ")}] = ${target} (解${solutions.length}個目)`,
+					description: `【ポイント】解発見！部分集合[${subset.join(", ")}] = ${target} (解${solutions.length}個目)`,
 					array: [...array],
 					highlight: subset.map((val) => array.indexOf(val)),
 					operation: "解発見",
@@ -466,7 +466,7 @@ export class BitExhaustiveSearchAlgorithm implements Algorithm {
 
 				this.steps.push({
 					id: this.stepId++,
-					description: `🏆 新最大値更新！最大和=${maxSum}, 部分集合=[${bestSubset.join(", ")}]`,
+					description: ` 新最大値更新！最大和=${maxSum}, 部分集合=[${bestSubset.join(", ")}]`,
 					array: [...array],
 					highlight: bestSubset.map((val) => array.indexOf(val)),
 					operation: "最大値更新",
@@ -576,7 +576,7 @@ export class BitExhaustiveSearchAlgorithm implements Algorithm {
 
 				this.steps.push({
 					id: this.stepId++,
-					description: `🎒 新最適解！価値=${maxValue}, 重さ=${bestWeight}, アイテム=[${selectedItems.join(", ")}]`,
+					description: ` 新最適解！価値=${maxValue}, 重さ=${bestWeight}, アイテム=[${selectedItems.join(", ")}]`,
 					operation: "最適解更新",
 					variables: {
 						newMaxValue: maxValue,
@@ -916,7 +916,7 @@ export class BitExhaustiveSearchAlgorithm implements Algorithm {
 
 				this.steps.push({
 					id: this.stepId++,
-					description: `🎯 新最小部分集合発見！サイズ=${minSize}, 和=${minSum}, 集合=[${minSubset.join(", ")}]`,
+					description: `【ポイント】新最小部分集合発見！サイズ=${minSize}, 和=${minSum}, 集合=[${minSubset.join(", ")}]`,
 					array: [...array],
 					highlight: minSubset.map((val) => array.indexOf(val)),
 					operation: "最小集合更新",
@@ -1021,7 +1021,7 @@ export class BitExhaustiveSearchAlgorithm implements Algorithm {
 
 				this.steps.push({
 					id: this.stepId++,
-					description: `✅ 条件合致！部分集合[${subset.join(", ")}] (解${matchingSubsets.length}個目)`,
+					description: `条件合致！部分集合[${subset.join(", ")}] (解${matchingSubsets.length}個目)`,
 					array: [...array],
 					highlight: subset.map((val) => array.indexOf(val)),
 					operation: "条件合致",
@@ -1149,54 +1149,54 @@ export class BitExhaustiveSearchAlgorithm implements Algorithm {
 		return `
 ビット全探索（Bit Exhaustive Search）は、ビット演算を使用して全ての組み合わせを系統的に探索する重要なアルゴリズム技法です。2^n通りの部分集合を効率的に列挙・評価することで、組み合わせ最適化問題を解決できます。
 
-🔢 **ビット演算の基本原理**
+【数値】**ビット演算の基本原理**
 - n個の要素 → 2^n通りの部分集合
 - ビットマスク（0〜2^n-1）で全組み合わせを表現
 - i番目のビットが1 → i番目の要素を選択
 - 右シフト(>>)とAND演算(&)でビット判定
 
-📊 **主要な操作と計算量**
+【解析】**主要な操作と計算量**
 - 全組み合わせ生成: O(2^n) - 系統的な列挙
 - 部分集合和問題: O(2^n) - 動的計画法の代替
 - 最適化問題: O(2^n) - 確実な最適解発見
 - 制約付き探索: O(2^n) - 条件フィルタリング
 
-💡 **ビット演算の実装パターン**
+【ヒント】**ビット演算の実装パターン**
 - **基本パターン**: \`for (mask = 0; mask < (1 << n); mask++)\`
 - **ビット判定**: \`if ((mask >> i) & 1)\`
 - **部分集合構築**: マスクに基づく要素選択
 - **条件評価**: 構築した部分集合の評価
 
-🌟 **代表的な応用問題**
+ **代表的な応用問題**
 - **部分集合和**: 指定された和になる組み合わせ
 - **ナップサック**: 容量制約下での価値最大化
 - **組み合わせ最適化**: 複数条件での最適解探索
 - **制約充足**: 特定条件を満たす組み合わせ発見
 
-🚀 **実世界での応用例**
+【応用】**実世界での応用例**
 - **リソース配分**: 限られたリソースの最適割り当て
 - **スケジューリング**: タスクの組み合わせ最適化
 - **ゲーム理論**: 戦略の組み合わせ分析
 - **機械学習**: 特徴選択とモデル最適化
 
-⚡ **パフォーマンス特性**
+【計算量】**パフォーマンス特性**
 - 時間計算量: O(2^n) - 指数的増加
 - 空間計算量: O(1) - 追加メモリ最小限
 - 実装の簡潔性: ビット演算による直感的コード
 - 確実性: 全探索による最適解保証
 
-🔍 **他の手法との比較**
+【詳細】**他の手法との比較**
 - vs 動的計画法: 実装が簡潔、メモリ効率良好
 - vs 再帰的探索: スタックオーバーフローなし
 - vs 貪欲法: 最適解を確実に発見
 
-📈 **適用範囲と制限**
+ **適用範囲と制限**
 - **適用可能**: n ≤ 20程度（実用的な範囲）
 - **制限事項**: 指数的時間のため大規模データには不適
 - **最適使用**: 小〜中規模の組み合わせ最適化
 - **学習価値**: ビット演算と全探索の基本理解
 
-🎯 **学習のポイント**
+【ポイント】**学習のポイント**
 - ビット演算の理解と活用
 - 全探索の系統的アプローチ
 - 制約条件の効率的処理

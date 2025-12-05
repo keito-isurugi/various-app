@@ -29,11 +29,11 @@ export function StreakDisplay({ stats }: StreakDisplayProps) {
 	};
 
 	const getStreakBadge = (streak: number) => {
-		if (streak >= 100) return "🏆 レジェンド";
-		if (streak >= 30) return "🥇 ゴールド";
-		if (streak >= 7) return "🥈 シルバー";
-		if (streak >= 3) return "🥉 ブロンズ";
-		return "🌱 スターター";
+		if (streak >= 100) return " レジェンド";
+		if (streak >= 30) return " ゴールド";
+		if (streak >= 7) return " シルバー";
+		if (streak >= 3) return " ブロンズ";
+		return " スターター";
 	};
 
 	return (
@@ -82,7 +82,7 @@ export function StreakDisplay({ stats }: StreakDisplayProps) {
 						<div className="space-y-2">
 							{stats.currentStreak < 7 && (
 								<div className="flex justify-between items-center">
-									<span className="text-sm">🥉 ブロンズ</span>
+									<span className="text-sm"> ブロンズ</span>
 									<span className="text-sm text-muted-foreground">
 										あと{7 - stats.currentStreak}日
 									</span>
@@ -90,7 +90,7 @@ export function StreakDisplay({ stats }: StreakDisplayProps) {
 							)}
 							{stats.currentStreak >= 3 && stats.currentStreak < 30 && (
 								<div className="flex justify-between items-center">
-									<span className="text-sm">🥇 ゴールド</span>
+									<span className="text-sm"> ゴールド</span>
 									<span className="text-sm text-muted-foreground">
 										あと{30 - stats.currentStreak}日
 									</span>
@@ -98,7 +98,7 @@ export function StreakDisplay({ stats }: StreakDisplayProps) {
 							)}
 							{stats.currentStreak >= 7 && stats.currentStreak < 100 && (
 								<div className="flex justify-between items-center">
-									<span className="text-sm">🏆 レジェンド</span>
+									<span className="text-sm"> レジェンド</span>
 									<span className="text-sm text-muted-foreground">
 										あと{100 - stats.currentStreak}日
 									</span>

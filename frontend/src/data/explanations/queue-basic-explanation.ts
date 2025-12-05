@@ -20,7 +20,7 @@ export const queueBasicExplanation: ExplanationData = {
 	sections: [
 		{
 			id: "fifo-principle",
-			title: "📋 FIFO原理の理解",
+			title: " FIFO原理の理解",
 			content:
 				"FIFO（First In, First Out）は「最初に入れたものが最初に出てくる」という原理です。日常生活では、銀行の窓口待ち、レジの行列、印刷待ちキューなどで見られる概念です。キューでは、要素の追加は一方の端（rear/末尾）で行い、要素の取り出しは反対の端（front/先頭）で行います。この制約により、データの順序が保証され、公平性を保った処理が可能になります。",
 			importance: "high",
@@ -34,7 +34,7 @@ export const queueBasicExplanation: ExplanationData = {
 
 		{
 			id: "basic-operations",
-			title: "🔧 基本操作の詳細",
+			title: "【実装】基本操作の詳細",
 			content:
 				"キューの基本操作は主に6つあります。enqueue（要素追加）は末尾に新しい要素を追加し、dequeue（要素取出）は先頭から要素を取り出します。front（先頭確認）は先頭要素を削除せずに確認し、rear（末尾確認）は末尾要素を確認します。isEmpty（空判定）とsize（要素数取得）は状態の確認に使用します。これらの操作により、安全で効率的なデータ管理が可能になります。",
 			importance: "high",
@@ -48,7 +48,7 @@ export const queueBasicExplanation: ExplanationData = {
 
 		{
 			id: "implementation-details",
-			title: "💻 実装における考慮点",
+			title: " 実装における考慮点",
 			content:
 				"キューの実装には主に配列ベースと連結リストベースの2つの方法があります。配列ベースは実装が簡単ですが、dequeue操作でshift()を使用すると要素の移動が発生してO(n)時間かかります。効率的な実装では、front/rearポインタを使用したり、連結リストを使用したりしてすべての操作をO(1)時間で実現します。また、サイズ制限のある循環キューや、優先度付きキューなど、応用的な実装も重要です。",
 			importance: "medium",
@@ -62,7 +62,7 @@ export const queueBasicExplanation: ExplanationData = {
 
 		{
 			id: "complexity-analysis",
-			title: "⚡ 計算量の分析",
+			title: "【計算量】計算量の分析",
 			content:
 				"理想的なキューの実装では、すべての基本操作がO(1)時間で実行されるべきです。enqueue、dequeue、front、rear、isEmpty、sizeのすべてが定数時間で動作します。空間計算量は格納する要素数nに対してO(n)です。ただし、実装方法によってはdequeue操作がO(n)になる場合もあるため、効率的な実装の選択が重要です。適切な実装により、大量のデータに対しても高速な処理が可能になります。",
 			formula:
@@ -78,7 +78,7 @@ export const queueBasicExplanation: ExplanationData = {
 
 		{
 			id: "real-world-applications",
-			title: "🌐 実世界での応用",
+			title: " 実世界での応用",
 			content:
 				"キューは様々な実世界のシステムで重要な役割を果たします。オペレーティングシステムではプロセススケジューリングやI/O管理に使用されます。ネットワークシステムではデータパケットの順序保証や帯域制御に活用されます。Webサーバーではリクエストの処理順序管理、データベースではトランザクション管理、ゲーム開発ではイベント処理やアニメーション管理などで使用されます。これらの応用により、公平で効率的なシステムが実現されています。",
 			importance: "medium",
@@ -92,7 +92,7 @@ export const queueBasicExplanation: ExplanationData = {
 
 		{
 			id: "queue-variants",
-			title: "🔄 キューの種類と変形",
+			title: " キューの種類と変形",
 			content:
 				"基本的なキューから派生した様々な種類があります。Deque（両端キュー）は両端での追加・削除が可能で、より柔軟な操作を提供します。Priority Queue（優先度付きキュー）は要素に優先度を付けて管理し、重要度に応じた処理順序を実現します。Circular Queue（循環キュー）は固定サイズでメモリ効率が良く、組み込みシステムなどで使用されます。これらの変形により、様々な要件に対応できます。",
 			importance: "medium",
@@ -106,7 +106,7 @@ export const queueBasicExplanation: ExplanationData = {
 
 		{
 			id: "algorithms-using-queues",
-			title: "🔍 キューを使用するアルゴリズム",
+			title: "【詳細】キューを使用するアルゴリズム",
 			content:
 				"キューは多くの重要なアルゴリズムの基礎となっています。幅優先探索（BFS）では、訪問すべきノードをキューで管理することで、最短経路の発見やツリーの全レベル探索を実現します。トポロジカルソートでは依存関係のない要素をキューで管理し、適切な実行順序を決定します。またオペレーティングシステムのスケジューリングアルゴリズムでも、プロセスの実行順序を公平に管理するためにキューが使用されます。",
 			importance: "medium",
@@ -120,7 +120,7 @@ export const queueBasicExplanation: ExplanationData = {
 
 		{
 			id: "implementation-patterns",
-			title: "🏗️ 実装パターンと最適化",
+			title: "【構造】実装パターンと最適化",
 			content:
 				"効率的なキューの実装には複数のパターンがあります。動的配列を使用する場合は、capacity managementとamortized analysisが重要です。連結リストを使用する場合は、headとtailポインタの管理が鍵となります。メモリプールを使用したオブジェクトプールパターンや、thread-safeな実装でのロック戦略など、用途に応じた最適化が必要です。また、ガベージコレクションの影響を最小化する実装も重要な考慮点です。",
 			importance: "low",
@@ -134,7 +134,7 @@ export const queueBasicExplanation: ExplanationData = {
 
 		{
 			id: "common-mistakes",
-			title: "⚠️ よくある間違いと注意点",
+			title: "【注意】よくある間違いと注意点",
 			content:
 				"キューの実装と使用において、いくつかの典型的な間違いがあります。空のキューからのdequeue操作は例外処理が必要です。配列実装でのshift()使用は性能問題を引き起こします。マルチスレッド環境では適切な同期処理が必要です。また、メモリリークを防ぐため、不要になったオブジェクトへの参照は適切にクリアする必要があります。これらの問題を理解し、適切に対処することで、堅牢なキューシステムを構築できます。",
 			importance: "medium",
@@ -148,7 +148,7 @@ export const queueBasicExplanation: ExplanationData = {
 
 		{
 			id: "learning-progression",
-			title: "📚 学習の進め方",
+			title: "【基礎】学習の進め方",
 			content:
 				"キューの学習は、まず基本概念とFIFO原理の理解から始めます。次に簡単な配列実装を行い、各操作の動作を確認します。その後、効率的な実装（連結リストや循環キュー）に進み、計算量の違いを理解します。応用として、BFSなどのアルゴリズムでの使用例を学習し、最終的には実際のシステム設計での活用方法を習得します。実装と理論の両面から学習することで、深い理解が得られます。",
 			importance: "low",

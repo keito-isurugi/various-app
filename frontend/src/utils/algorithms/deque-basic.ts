@@ -130,7 +130,7 @@ export class DequeBasicAlgorithm implements Algorithm {
 		// 完了ステップ
 		this.steps.push({
 			id: this.stepId++,
-			description: `🎉 操作完了！結果: ${result}`,
+			description: ` 操作完了！結果: ${result}`,
 			array: [...this.deque],
 			operation: "完了",
 			variables: {
@@ -181,7 +181,7 @@ export class DequeBasicAlgorithm implements Algorithm {
 
 		this.steps.push({
 			id: this.stepId++,
-			description: `✅ pushFront完了: ${value}が先頭に追加されました`,
+			description: `pushFront完了: ${value}が先頭に追加されました`,
 			array: [...this.deque],
 			operation: "pushFront完了",
 			variables: {
@@ -225,7 +225,7 @@ export class DequeBasicAlgorithm implements Algorithm {
 
 		this.steps.push({
 			id: this.stepId++,
-			description: `✅ pushBack完了: ${value}が末尾に追加されました`,
+			description: `pushBack完了: ${value}が末尾に追加されました`,
 			array: [...this.deque],
 			operation: "pushBack完了",
 			variables: {
@@ -247,7 +247,7 @@ export class DequeBasicAlgorithm implements Algorithm {
 		if (this.deque.length === 0) {
 			this.steps.push({
 				id: this.stepId++,
-				description: "❌ popFront失敗: 両端キューが空です",
+				description: "popFront失敗: 両端キューが空です",
 				array: [...this.deque],
 				operation: "popFront失敗",
 				variables: {
@@ -282,7 +282,7 @@ export class DequeBasicAlgorithm implements Algorithm {
 
 		this.steps.push({
 			id: this.stepId++,
-			description: `✅ popFront完了: ${poppedValue}が取り出されました`,
+			description: `popFront完了: ${poppedValue}が取り出されました`,
 			array: [...this.deque],
 			operation: "popFront完了",
 			variables: {
@@ -303,7 +303,7 @@ export class DequeBasicAlgorithm implements Algorithm {
 		if (this.deque.length === 0) {
 			this.steps.push({
 				id: this.stepId++,
-				description: "❌ popBack失敗: 両端キューが空です",
+				description: "popBack失敗: 両端キューが空です",
 				array: [...this.deque],
 				operation: "popBack失敗",
 				variables: {
@@ -337,7 +337,7 @@ export class DequeBasicAlgorithm implements Algorithm {
 
 		this.steps.push({
 			id: this.stepId++,
-			description: `✅ popBack完了: ${poppedValue}が取り出されました`,
+			description: `popBack完了: ${poppedValue}が取り出されました`,
 			array: [...this.deque],
 			operation: "popBack完了",
 			variables: {
@@ -516,12 +516,12 @@ export class DequeBasicAlgorithm implements Algorithm {
 		return `
 両端キュー（Deque：Double-ended Queue）は、両端での追加・削除が可能なデータ構造です。
 
-🏗️ **基本概念**
+【構造】**基本概念**
 - 先頭と末尾の両方からアクセス可能
 - スタックとキューの機能を併せ持つ
 - 柔軟なデータアクセスパターンを提供
 
-📚 **基本操作**
+【基礎】**基本操作**
 - pushFront(value): 先頭に要素を追加 - O(1)
 - pushBack(value): 末尾に要素を追加 - O(1)
 - popFront(): 先頭要素を取り出し - O(1)
@@ -531,31 +531,31 @@ export class DequeBasicAlgorithm implements Algorithm {
 - isEmpty(): 空かどうかを確認 - O(1)
 - size(): 要素数を取得 - O(1)
 
-🎯 **実世界での応用**
+【ポイント】**実世界での応用**
 - ブラウザの履歴管理（前進・後退）
 - アンドゥ・リドゥ機能の実装
 - スライディングウィンドウアルゴリズム
 - 回文判定アルゴリズム
 - タスクスケジューラの優先度管理
 
-⚡ **計算量の特徴**
+【計算量】**計算量の特徴**
 - すべての基本操作がO(1)で高速
 - 両端でのアクセスが効率的
 - メモリ使用量はO(n)
 
-💡 **学習価値**
+【ヒント】**学習価値**
 - スタックとキューの統合概念
 - 双方向データアクセスの理解
 - 効率的なデータ構造設計
 - 実用的なアルゴリズム実装
 
-🔄 **他データ構造との比較**
+ **他データ構造との比較**
 - スタック: 片端のみ（LIFO）
 - キュー: 両端だが一方向（FIFO）
 - 両端キュー: 両端双方向アクセス
 - 配列: ランダムアクセス可能だが挿入・削除が遅い
 
-🧠 **実装のポイント**
+ **実装のポイント**
 - 配列やリンクリストで実装可能
 - 循環バッファによる効率的な実装
 - 動的サイズ調整機能

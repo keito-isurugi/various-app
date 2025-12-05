@@ -20,7 +20,7 @@ export const nextPermutationExplanation: ExplanationData = {
 	sections: [
 		{
 			id: "lexicographic-order",
-			title: "📚 辞書順の概念",
+			title: "【基礎】辞書順の概念",
 			content:
 				"辞書順（Lexicographic Order）は、辞書で単語が並んでいる順序と同じ原理で順列を並べる方法です。左から比較して最初に異なる位置の要素で大小を決定します。例えば[1,2,3]は[1,3,2]より小さく、[2,1,3]より小さくなります。この順序により、全ての順列を一意の順番で並べることができ、「次の順列」を明確に定義できます。",
 			importance: "high",
@@ -34,7 +34,7 @@ export const nextPermutationExplanation: ExplanationData = {
 
 		{
 			id: "algorithm-steps",
-			title: "🔄 4ステップアルゴリズム",
+			title: " 4ステップアルゴリズム",
 			content:
 				"next_permutationアルゴリズムは4つの明確なステップで構成されます。①右から最初の昇順位置（ピボット）を発見、②ピボットより大きい最小の要素を発見、③両者を交換、④ピボット以降を昇順に並び替え。この手順により、現在の順列から辞書順で次に大きい順列を効率的に生成できます。各ステップは論理的に必要で、省略できません。",
 			importance: "high",
@@ -48,7 +48,7 @@ export const nextPermutationExplanation: ExplanationData = {
 
 		{
 			id: "efficiency-analysis",
-			title: "⚡ 効率性の分析",
+			title: "【計算量】効率性の分析",
 			content:
 				"next_permutationの時間計算量は平均的にO(1)、最悪の場合でもO(n)です。多くの場合は末尾近くの小さな交換と反転で完了するため、非常に効率的です。全n!個の順列を生成する場合の総計算量はO(n! × n)となりますが、各順列生成は高速です。空間計算量はO(1)のin-place操作で、メモリ効率も優秀です。",
 			formula:
@@ -64,7 +64,7 @@ export const nextPermutationExplanation: ExplanationData = {
 
 		{
 			id: "implementation-details",
-			title: "💻 実装の詳細",
+			title: " 実装の詳細",
 			content:
 				"正確な実装には細かな注意が必要です。ピボット探索では配列の右端から左に向かって昇順位置を探し、交換相手探索ではピボットより大きい最小値を見つけます。境界条件（最後の順列の判定）、インデックスの範囲チェック、反転処理の正確な実装が重要です。これらの詳細を正しく実装することで、確実に動作するアルゴリズムを作成できます。",
 			importance: "medium",
@@ -78,7 +78,7 @@ export const nextPermutationExplanation: ExplanationData = {
 
 		{
 			id: "mathematical-foundation",
-			title: "🔢 数学的基盤",
+			title: "【数値】数学的基盤",
 			content:
 				"next_permutationは順列群の数学的性質に基づいています。順列は群を成し、辞書順により全順序が定義されます。順列のランク（辞書順での位置）は階乗進法で表現でき、k番目の順列を直接構築することも可能です。逆順列、順列の合成、周期性などの概念を理解することで、より深い応用が可能になります。",
 			importance: "low",
@@ -92,7 +92,7 @@ export const nextPermutationExplanation: ExplanationData = {
 
 		{
 			id: "combinatorial-applications",
-			title: "🎯 組み合わせ論的応用",
+			title: "【ポイント】組み合わせ論的応用",
 			content:
 				"next_permutationは組み合わせ最適化問題で重要な役割を果たします。巡回セールスマン問題の厳密解法、スケジューリング問題の全解探索、組み合わせ設計の生成などで活用されます。全ての順列を系統的に列挙することで、問題の全解空間を網羅的に探索でき、小〜中規模の問題では確実な最適解を発見できます。",
 			importance: "medium",
@@ -106,7 +106,7 @@ export const nextPermutationExplanation: ExplanationData = {
 
 		{
 			id: "cryptographic-uses",
-			title: "🔐 暗号学での応用",
+			title: " 暗号学での応用",
 			content:
 				"暗号学においてnext_permutationは鍵空間の探索や置換暗号の分析で使用されます。順列は置換暗号の基盤であり、全ての可能な置換を系統的に生成することで暗号の強度分析や鍵復元攻撃が可能です。また、乱数生成器の設計や暗号アルゴリズムのテストにも活用され、セキュリティ分野での重要性が高まっています。",
 			importance: "low",
@@ -120,7 +120,7 @@ export const nextPermutationExplanation: ExplanationData = {
 
 		{
 			id: "performance-optimization",
-			title: "🚀 性能最適化",
+			title: "【応用】性能最適化",
 			content:
 				"next_permutationの性能は実装の工夫により向上できます。早期終了による不要な処理の回避、キャッシュ効率を考慮したメモリアクセス、分岐予測しやすい条件分岐の設計などが効果的です。また、特定の問題に特化した最適化や、並列処理による高速化も可能です。大規模な順列生成では、これらの最適化が実行時間に大きく影響します。",
 			importance: "low",
@@ -134,7 +134,7 @@ export const nextPermutationExplanation: ExplanationData = {
 
 		{
 			id: "related-algorithms",
-			title: "🔗 関連アルゴリズム",
+			title: "【連携】関連アルゴリズム",
 			content:
 				"next_permutationには多くの関連アルゴリズムがあります。prev_permutation（前の順列）、next_combination（次の組み合わせ）、Johnson-Trotterアルゴリズム（隣接交換による順列生成）、Heap's algorithm（全順列の効率的生成）などです。これらのアルゴリズムを理解することで、様々な組み合わせ論的問題に対応でき、問題に最適な手法を選択できます。",
 			importance: "low",
@@ -148,7 +148,7 @@ export const nextPermutationExplanation: ExplanationData = {
 
 		{
 			id: "learning-strategy",
-			title: "📈 効果的な学習戦略",
+			title: " 効果的な学習戦略",
 			content:
 				"next_permutationの習得は、まず手作業での順列生成から始めて、アルゴリズムの各ステップを理解し、実装練習を積むのが効果的です。小さな例（3〜4要素）で手計算を行い、各ステップの必要性を確認します。その後、実装を通じて境界条件や特殊ケースの処理を学び、最終的には応用問題での活用まで習得します。理論と実践のバランスが重要です。",
 			importance: "low",

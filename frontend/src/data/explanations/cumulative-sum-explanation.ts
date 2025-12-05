@@ -20,7 +20,7 @@ export const cumulativeSumExplanation: ExplanationData = {
 	sections: [
 		{
 			id: "basic-concept",
-			title: "🔢 累積和の基本概念",
+			title: "【数値】累積和の基本概念",
 			content:
 				"累積和は配列の各位置までの要素の合計を事前に計算して格納する技法です。cumSum[i] = arr[0] + arr[1] + ... + arr[i-1] として定義され、区間[l, r]の合計をcumSum[r+1] - cumSum[l]で瞬時に計算できます。この単純な前処理により、O(n)時間を要していた区間和計算がO(1)時間で実行可能になります。",
 			importance: "high",
@@ -34,7 +34,7 @@ export const cumulativeSumExplanation: ExplanationData = {
 
 		{
 			id: "difference-array",
-			title: "📊 差分配列の原理",
+			title: "【解析】差分配列の原理",
 			content:
 				"差分配列は隣接要素の差を格納する配列で、区間更新を効率化します。diff[i] = arr[i] - arr[i-1]として定義し、区間[l,r]に値vを加算するときはdiff[l] += v, diff[r+1] -= vの2回の操作で完了します。最終的に差分配列の累積和を計算することで、全ての区間更新が反映された元配列を復元できます。",
 			importance: "high",
@@ -48,7 +48,7 @@ export const cumulativeSumExplanation: ExplanationData = {
 
 		{
 			id: "implementation-patterns",
-			title: "💻 実装パターンと技法",
+			title: " 実装パターンと技法",
 			content:
 				"累積和実装では1-indexedの配列を使用することで境界処理が簡潔になります。cumSum[0] = 0として初期化し、区間[l,r]の和をcumSum[r+1] - cumSum[l]で計算します。差分配列では配列の範囲外アクセスに注意し、最終的な復元処理で全ての更新を一括適用します。これらの実装パターンを習得することで、効率的で読みやすいコードが書けます。",
 			importance: "medium",
@@ -62,7 +62,7 @@ export const cumulativeSumExplanation: ExplanationData = {
 
 		{
 			id: "time-complexity",
-			title: "⚡ 計算量の分析と改善効果",
+			title: "【計算量】計算量の分析と改善効果",
 			content:
 				"ナイーブな区間和計算はO(n)時間ですが、累積和により O(1)に改善されます。q個のクエリがある場合、O(nq) → O(n+q)という劇的な改善です。差分配列による区間更新も同様で、ナイーブなO(n)更新がO(1)になります。前処理のコストO(n)は、複数のクエリを処理することで容易に回収できる投資です。",
 			formula:
@@ -78,7 +78,7 @@ export const cumulativeSumExplanation: ExplanationData = {
 
 		{
 			id: "advanced-applications",
-			title: "🌟 応用技法と拡張",
+			title: " 応用技法と拡張",
 			content:
 				"基本の累積和は2次元累積和（矩形領域の和）、累積XOR（ビット演算の区間処理）、累積最大値・最小値などに拡張できます。差分配列は座標圧縮と組み合わせて大きな座標空間での効率的処理、イベント処理での開始・終了の管理、スケジューリング問題での区間管理などに活用されます。これらの応用を理解することで、様々な問題への適用力が向上します。",
 			importance: "medium",
@@ -92,7 +92,7 @@ export const cumulativeSumExplanation: ExplanationData = {
 
 		{
 			id: "real-world-examples",
-			title: "🌍 実世界での活用例",
+			title: " 実世界での活用例",
 			content:
 				"累積和・差分配列は様々な実用システムで活用されています。データベースでは集計クエリの高速化、画像処理では積分画像による高速フィルタリング、財務システムでは期間損益の高速計算、ゲーム開発では範囲攻撃の効率的な実装などに使用されます。これらの技法は理論だけでなく、実際のシステム開発でも重要な役割を果たしています。",
 			importance: "medium",
@@ -106,7 +106,7 @@ export const cumulativeSumExplanation: ExplanationData = {
 
 		{
 			id: "comparison-with-alternatives",
-			title: "🔍 他の手法との比較",
+			title: "【詳細】他の手法との比較",
 			content:
 				"累積和・差分配列は、セグメント木やFenwick Treeと比較して実装が簡潔で理解しやすいという利点があります。メモリ効率も良く、キャッシュ効率も優秀です。ただし、動的な更新と区間クエリを同時に扱う場合は、セグメント木の方が適している場合があります。問題の性質を理解して最適な手法を選択することが重要です。",
 			importance: "low",
@@ -120,7 +120,7 @@ export const cumulativeSumExplanation: ExplanationData = {
 
 		{
 			id: "common-pitfalls",
-			title: "⚠️ よくある間違いと対策",
+			title: "【注意】よくある間違いと対策",
 			content:
 				"累積和実装でよくある間違いは、インデックスの境界エラーと0-indexed/1-indexedの混同です。差分配列では範囲外アクセスの見落としと、最終的な復元処理の忘れがあります。また、オーバーフローの可能性を考慮せずにint型で実装して桁あふれを起こすケースも多く見られます。これらの落とし穴を理解し、適切に対処することが重要です。",
 			importance: "medium",
@@ -134,7 +134,7 @@ export const cumulativeSumExplanation: ExplanationData = {
 
 		{
 			id: "learning-progression",
-			title: "📚 効果的な学習方法",
+			title: "【基礎】効果的な学習方法",
 			content:
 				"累積和・差分配列の学習は、まず1次元の基本操作から始めて、徐々に2次元や応用パターンに進むのが効果的です。理論の理解と並行して、実際の問題を解くことで定着を図ります。特に競技プログラミングの典型問題を通じて、様々な応用パターンを身に付けることが重要です。最終的には、問題を見てすぐに累積和・差分配列の適用可能性を判断できるレベルを目指します。",
 			importance: "low",

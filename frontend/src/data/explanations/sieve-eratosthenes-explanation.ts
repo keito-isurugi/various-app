@@ -20,7 +20,7 @@ export const sieveEratosthenesExplanation: ExplanationData = {
 	sections: [
 		{
 			id: "historical-background",
-			title: "📜 歴史的背景と重要性",
+			title: " 歴史的背景と重要性",
 			content:
 				"エラトステネスの篩は、古代ギリシャの数学者エラトステネス（紀元前276年頃～紀元前194年頃）によって考案されました。彼は地球の円周を初めて正確に測定したことでも知られる偉大な学者です。この篩のアルゴリズムは2000年以上前に考案されたにも関わらず、現代でも素数列挙の最も効率的な方法の一つとして使用されています。その美しいシンプルさと効率性は、古典アルゴリズムの傑作として数学史に残る重要な発見です。",
 			importance: "high",
@@ -34,7 +34,7 @@ export const sieveEratosthenesExplanation: ExplanationData = {
 
 		{
 			id: "algorithm-principle",
-			title: "🎯 アルゴリズムの基本原理",
+			title: "【ポイント】アルゴリズムの基本原理",
 			content:
 				"エラトステネスの篩の基本原理は「除外法」です。まず2からnまでのすべての数を素数候補として用意し、小さい素数から順にその倍数を除外していきます。最終的に除外されずに残った数がすべて素数となります。この方法の美しさは、各数について素数判定を個別に行う必要がなく、系統的な除外により効率的に素数を特定できることです。「篩（ふるい）」という名前は、不要な数を「振り落とす」動作に由来しています。",
 			importance: "high",
@@ -48,7 +48,7 @@ export const sieveEratosthenesExplanation: ExplanationData = {
 
 		{
 			id: "step-by-step-process",
-			title: "🔄 ステップバイステップの処理",
+			title: " ステップバイステップの処理",
 			content:
 				"アルゴリズムは以下の手順で進行します：1) 2からnまでの数をリストに書く、2) 最小の未処理数を素数として確定、3) その素数の倍数（自分以外）をすべて除外、4) √nまで手順2-3を繰り返す、5) 残った数がすべて素数。重要な最適化として、各素数pについてp²から倍数除外を開始します。これは、p²より小さいpの倍数は既により小さい素数によって除外されているためです。",
 			importance: "high",
@@ -64,7 +64,7 @@ export const sieveEratosthenesExplanation: ExplanationData = {
 
 		{
 			id: "efficiency-analysis",
-			title: "⚡ 効率性の分析",
+			title: "【計算量】効率性の分析",
 			content:
 				"エラトステネスの篩の時間計算量はO(n log log n)であり、これは素数列挙アルゴリズムとして非常に優秀です。試し割り法のO(n^1.5)と比較すると大幅な改善です。この効率性の理由は、各数について個別の素数判定を行わず、系統的な除外により並列的に多数の合成数を処理できることにあります。空間計算量はO(n)で、ビット配列を使用すればさらなる省メモリ化も可能です。",
 			importance: "high",
@@ -80,7 +80,7 @@ export const sieveEratosthenesExplanation: ExplanationData = {
 
 		{
 			id: "optimization-techniques",
-			title: "🚀 最適化技法",
+			title: "【応用】最適化技法",
 			content:
 				"エラトステネスの篩には多くの最適化技法があります。基本最適化として、p²から倍数除外を開始し、√nまでの処理で十分です。メモリ最適化では、ビット配列の使用により8分の1の省メモリ化が可能です。さらに、偶数の除外（2以外）、区間篩（segmented sieve）による大規模対応、並列化による高速化などの高度な最適化も存在します。これらの技法により、実用的な性能でより大きな範囲の素数列挙が可能になります。",
 			importance: "medium",
@@ -94,7 +94,7 @@ export const sieveEratosthenesExplanation: ExplanationData = {
 
 		{
 			id: "mathematical-properties",
-			title: "📐 数学的性質と理論",
+			title: " 数学的性質と理論",
 			content:
 				"エラトステネスの篩は深い数学的理論に基づいています。素数定理により、n以下の素数の個数はおよそn/ln(n)で近似されます。篩の効率性は調和級数の性質と関連し、Σ(1/p) ≈ log log nという関係があります。また、篩の過程は素数の分布パターンを視覚的に示し、素数の無限性や素数間隔の変動なども観察できます。これらの性質により、篩は純粋な計算ツールを超えて、数論研究の重要な道具となっています。",
 			importance: "medium",
@@ -108,7 +108,7 @@ export const sieveEratosthenesExplanation: ExplanationData = {
 
 		{
 			id: "modern-applications",
-			title: "🌐 現代での応用",
+			title: " 現代での応用",
 			content:
 				"エラトステネスの篩は現代の様々な分野で重要な役割を果たしています。暗号学では、RSA暗号の鍵生成で大きな素数が必要になります。競技プログラミングでは、素数判定や因数分解問題の前処理として頻繁に使用されます。数論研究では、素数分布の調査や予想の検証に活用されます。また、乱数生成、ハッシュ関数、分散システムでの一意ID生成など、コンピュータサイエンスの基盤技術としても広く応用されています。",
 			importance: "low",
@@ -122,7 +122,7 @@ export const sieveEratosthenesExplanation: ExplanationData = {
 
 		{
 			id: "implementation-variants",
-			title: "💻 実装バリエーション",
+			title: " 実装バリエーション",
 			content:
 				"エラトステネスの篩には用途に応じた様々な実装バリエーションがあります。標準実装では配列ベースで理解しやすく教育的です。ビット最適化版では省メモリを実現し、区間篩では大規模な範囲に対応できます。並列篩では複数コアを活用して高速化します。また、確率的篩や近似篩など、精度と速度のトレードオフを考慮した変種も研究されています。目的に応じて適切な実装を選択することが重要です。",
 			importance: "medium",
@@ -136,7 +136,7 @@ export const sieveEratosthenesExplanation: ExplanationData = {
 
 		{
 			id: "comparison-with-other-methods",
-			title: "⚖️ 他の素数判定法との比較",
+			title: "【比較】他の素数判定法との比較",
 			content:
 				"素数列挙には複数の手法がありますが、それぞれに特徴があります。試し割り法は実装が簡単ですが、大量の素数列挙には非効率です。ミラー・ラビン判定法は確率的ですが、個別の大きな数の素数判定に適しています。AKS判定法は決定的多項式時間ですが、実用性は限定的です。エラトステネスの篩は、中程度の範囲での全素数列挙において最も効率的で実用的な選択肢です。",
 			importance: "low",
@@ -150,7 +150,7 @@ export const sieveEratosthenesExplanation: ExplanationData = {
 
 		{
 			id: "educational-value",
-			title: "📚 教育的価値と学習意義",
+			title: "【基礎】教育的価値と学習意義",
 			content:
 				"エラトステネスの篩は、アルゴリズム学習において非常に高い教育的価値を持ちます。アルゴリズムの概念が直感的で理解しやすく、効率性の重要性を実感できます。数学（素数論）とコンピュータサイエンス（アルゴリズム）の美しい融合例として、学問の関連性を学べます。また、古典的知識が現代技術の基盤となっていることを示す好例でもあります。プログラミング的には、配列操作、ループ制御、最適化技法などの基本スキルも習得できます。",
 			importance: "low",
@@ -164,7 +164,7 @@ export const sieveEratosthenesExplanation: ExplanationData = {
 
 		{
 			id: "common-pitfalls",
-			title: "⚠️ よくある間違いと注意点",
+			title: "【注意】よくある間違いと注意点",
 			content:
 				"エラトステネスの篩の実装では、いくつかの典型的な間違いがあります。インデックス管理では、配列の0ベースと数値の1ベースの混同が頻発します。最適化の実装では、p²からの開始を忘れる、√nの範囲制限を適用しないなどがあります。メモリ関連では、大きなnに対する配列サイズの制限を考慮しない場合があります。また、結果の検証では、既知の素数列との照合を怠ると間違いに気づかない可能性があります。",
 			importance: "medium",
@@ -178,7 +178,7 @@ export const sieveEratosthenesExplanation: ExplanationData = {
 
 		{
 			id: "learning-progression",
-			title: "📖 学習の進め方",
+			title: "学習の進め方",
 			content:
 				"エラトステネスの篩の学習は、まず手動での小さな例（n=30程度）から始めることをお勧めします。アルゴリズムの動作を理解した後、基本的な実装を行い、その後段階的に最適化を追加していきます。ビット最適化、区間篩、並列化などの高度な技法に進む前に、基本形を完全に理解することが重要です。最終的には、暗号学や競技プログラミングでの実用例を学習し、理論と実践の橋渡しを行います。各段階で計算量の変化を実測することで、最適化の効果を体感できます。",
 			importance: "low",

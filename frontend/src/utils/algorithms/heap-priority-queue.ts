@@ -175,7 +175,7 @@ export class HeapPriorityQueueAlgorithm implements Algorithm {
 		// 完了ステップ
 		this.steps.push({
 			id: this.stepId++,
-			description: `🎉 ヒープ操作完了！${this.getOperationDescription(operation)}が正常に実行されました`,
+			description: ` ヒープ操作完了！${this.getOperationDescription(operation)}が正常に実行されました`,
 			array: [...this.heap],
 			operation: "完了",
 			variables: {
@@ -248,7 +248,7 @@ export class HeapPriorityQueueAlgorithm implements Algorithm {
 		if (this.heap.length === 0) {
 			this.steps.push({
 				id: this.stepId++,
-				description: "❌ エラー：ヒープが空です",
+				description: "エラー：ヒープが空です",
 				array: [],
 				operation: "エラー",
 			});
@@ -296,7 +296,7 @@ export class HeapPriorityQueueAlgorithm implements Algorithm {
 		if (this.heap.length === 0) {
 			this.steps.push({
 				id: this.stepId++,
-				description: "❌ ヒープが空です",
+				description: "ヒープが空です",
 				array: [],
 				operation: "エラー",
 			});
@@ -661,43 +661,43 @@ export class HeapPriorityQueueAlgorithm implements Algorithm {
 		return `
 ヒープ（Heap）は、完全二分木の形をした特殊なデータ構造で、優先度付きキュー（Priority Queue）の効率的な実装として広く使用されています。各ノードが特定の順序関係（ヒープ性質）を満たすことで、最大値や最小値への高速アクセスを実現します。
 
-🌳 **ヒープの特徴**
+ **ヒープの特徴**
 - 完全二分木構造（最下段以外は完全に埋まっている）
 - 配列による効率的な実装が可能
 - 親子関係：親のインデックスi → 左子2i+1、右子2i+2
 - ヒープ性質：最大ヒープでは親≥子、最小ヒープでは親≤子
 
-📊 **主要な操作と計算量**
+【解析】**主要な操作と計算量**
 - 挿入（Insert）: O(log n) - 末尾に追加してbubble up
 - 削除（Extract）: O(log n) - 根を削除してbubble down
 - 最大/最小値取得（Peek）: O(1) - 根の要素を参照
 - ヒープ構築（Build）: O(n) - ボトムアップ方式
 
-🔄 **ヒープ化の手法**
+ **ヒープ化の手法**
 - Bubble Up: 子から親への上方向の調整
 - Bubble Down: 親から子への下方向の調整
 - 各操作で部分的にヒープ性質を修復
 
-💡 **実装のポイント**
+【ヒント】**実装のポイント**
 - 配列インデックス0から開始
 - 親子関係の計算式を正確に実装
 - 境界条件の適切な処理
 - ヒープタイプ（最大/最小）による比較の切り替え
 
-🌟 **実用的な応用**
+ **実用的な応用**
 - タスクスケジューリング（優先度付きタスク管理）
 - ダイクストラ法などのグラフアルゴリズム
 - ハフマン符号化（データ圧縮）
 - イベント駆動シミュレーション
 - K番目に大きい要素の検索
 
-⚡ **パフォーマンス特性**
+【計算量】**パフォーマンス特性**
 - 挿入・削除がO(log n)で安定
 - ソート済み配列と比較して挿入が高速
 - 部分的な順序のみ保証（完全なソートは不要）
 - メモリ効率が良い（配列実装）
 
-🔍 **他のデータ構造との比較**
+【詳細】**他のデータ構造との比較**
 - vs 配列: 優先度付き操作が高速
 - vs 平衡二分探索木: 実装が簡単、定数倍が小さい
 - vs リンクリスト: ランダムアクセスと優先度管理が可能

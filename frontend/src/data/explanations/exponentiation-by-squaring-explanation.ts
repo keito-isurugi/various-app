@@ -20,7 +20,7 @@ export const exponentiationBySquaringExplanation: ExplanationData = {
 	sections: [
 		{
 			id: "mathematical-foundation",
-			title: "📐 数学的基礎と原理",
+			title: " 数学的基礎と原理",
 			content:
 				"繰り返し二乗法の基礎は分割統治法にあります。a^n を計算する際、nが偶数なら a^n = (a^(n/2))^2、nが奇数なら a^n = a × a^(n-1) という性質を利用します。この再帰的分解により、指数を効率的に削減できます。例えば3^10 = (3^5)^2 = 3 × (3^4)^2 = 3 × ((3^2)^2)^2 のように分解し、必要な乗算回数を大幅に削減します。二進法表現との関係も重要で、指数の各ビットが計算過程を決定します。",
 			importance: "high",
@@ -34,9 +34,9 @@ export const exponentiationBySquaringExplanation: ExplanationData = {
 
 		{
 			id: "binary-representation",
-			title: "🔢 二進法表現と計算過程",
+			title: "【数値】二進法表現と計算過程",
 			content:
-				"繰り返し二乗法の効率性は指数の二進法表現に基づきます。指数nを二進法で表現すると、各ビット位置が2の冪に対応します。例えば13₁₀ = 1101₂ = 8 + 4 + 1なので、a^13 = a^8 × a^4 × a^1となります。アルゴリズムは右から左へビットを処理し、各ステップで基数を二乗し、ビットが1の位置で結果に基数を乗算します。この方法により、指数のビット数（⌈log₂(n)⌉）に比例する時間で計算が完了します。",
+				"繰り返し二乗法の効率性は指数の二進法表現に基づきます。指数nを二進法で表現すると、各ビット位置が2の冪に対応します。例えば13₁₀ = 1101₂ = 8 + 4 + 1なので、a^13 = a^8 × a^4 × a^1となります。アルゴリズムは右から左へビットを処理し、各ステップで基数を二乗し、ビットが1の位置で結果に基数を乗算します。この方法により、指数のビット数（ceil(log₂(n))）に比例する時間で計算が完了します。",
 			importance: "high",
 			formula:
 				"二進分解:<br>n = Σ(b_i × 2^i) where b_i ∈ {0,1}<br>a^n = Π(a^(2^i))^(b_i)<br><br>例: 13 = 1101₂<br>a^13 = a^(2³) × a^(2²) × a^(2⁰)",
@@ -50,7 +50,7 @@ export const exponentiationBySquaringExplanation: ExplanationData = {
 
 		{
 			id: "algorithm-steps",
-			title: "🔄 アルゴリズムの詳細ステップ",
+			title: " アルゴリズムの詳細ステップ",
 			content:
 				"繰り返し二乗法の実装は反復的アプローチが一般的です。初期設定でresult = 1, base = a, exp = nとし、expが0になるまで以下を繰り返します：1) expが奇数ならresultにbaseを乗算、2) baseを二乗、3) expを2で割る（整数除算）。この過程で、指数の各ビットに対応する基数の冪（a¹, a², a⁴, a⁸, ...）が順次計算され、必要なもののみが結果に反映されます。ログ時間での完了が保証されます。",
 			importance: "high",
@@ -64,12 +64,12 @@ export const exponentiationBySquaringExplanation: ExplanationData = {
 
 		{
 			id: "complexity-analysis",
-			title: "⚡ 計算量分析と効率性",
+			title: "【計算量】計算量分析と効率性",
 			content:
 				"繰り返し二乗法の時間計算量はO(log n)で、これは指数nのビット数に比例します。ナイーブな方法のO(n)と比較すると、大きな指数に対して指数的な改善を実現します。例えば、n=1000の場合、ナイーブ法は999回の乗算が必要ですが、繰り返し二乗法は約10回で完了します。空間計算量は反復実装でO(1)、再帰実装でO(log n)です。この効率性により、暗号学での大きな数のべき乗計算が実用的になります。",
 			importance: "high",
 			formula:
-				"時間計算量比較:<br>ナイーブ法: O(n) = n-1回の乗算<br>繰り返し二乗法: O(log n) = ⌈log₂(n)⌉回の反復<br><br>効率性の向上:<br>n=1024: 1023回 → 10回 (約100倍高速)<br>n=10⁶: 999,999回 → 20回 (約50,000倍高速)",
+				"時間計算量比較:<br>ナイーブ法: O(n) = n-1回の乗算<br>繰り返し二乗法: O(log n) = ceil(log₂(n))回の反復<br><br>効率性の向上:<br>n=1024: 1023回 → 10回 (約100倍高速)<br>n=10⁶: 999,999回 → 20回 (約50,000倍高速)",
 			examples: [
 				"n=16: ナイーブ15回 vs 最適4回",
 				"n=100: ナイーブ99回 vs 最適7回",
@@ -80,7 +80,7 @@ export const exponentiationBySquaringExplanation: ExplanationData = {
 
 		{
 			id: "modular-exponentiation",
-			title: "🔐 モジュラー冪乗計算",
+			title: " モジュラー冪乗計算",
 			content:
 				"モジュラー冪乗計算（a^n mod m）は暗号学において極めて重要です。繰り返し二乗法の各ステップでモジュラー演算を適用することで、中間結果が法mより小さく保たれ、オーバーフローを防止できます。RSA暗号では1024ビット以上の大きな数でのべき乗計算が必要ですが、この技法により実用的な時間で計算が可能になります。各乗算後にmod演算を適用するため、数値の大きさが制御され、安全で効率的な計算が実現されます。",
 			importance: "medium",
@@ -94,7 +94,7 @@ export const exponentiationBySquaringExplanation: ExplanationData = {
 
 		{
 			id: "cryptographic-applications",
-			title: "🔒 暗号学での応用",
+			title: " 暗号学での応用",
 			content:
 				"繰り返し二乗法は現代暗号学の基盤技術です。RSA暗号では、暗号化（m^e mod n）と復号化（c^d mod n）の両方でモジュラー冪乗計算が必要です。ディフィー・ヘルマン鍵交換では g^x mod p の計算に使用され、楕円曲線暗号では有限体上でのスカラー倍算に応用されます。デジタル署名アルゴリズムでも署名生成と検証で重要な役割を果たし、現代の情報セキュリティを支える不可欠な技術となっています。",
 			importance: "low",
@@ -108,7 +108,7 @@ export const exponentiationBySquaringExplanation: ExplanationData = {
 
 		{
 			id: "divide-and-conquer",
-			title: "🌟 分割統治法の美しい応用",
+			title: " 分割統治法の美しい応用",
 			content:
 				"繰り返し二乗法は分割統治法の美しい応用例です。大きな問題（a^n）を小さな部分問題（a^(n/2)）に分割し、部分問題の解を組み合わせて全体の解を構築します。この過程で問題サイズが指数的に減少し、効率的な解法が実現されます。再帰構造が明確で理解しやすく、分割統治法の学習において理想的な教材となっています。また、反復版への変換も可能で、アルゴリズム設計技法の多様性を学べます。",
 			importance: "medium",
@@ -116,13 +116,13 @@ export const exponentiationBySquaringExplanation: ExplanationData = {
 				"問題分割: a^n → a^(n/2) × a^(n/2)",
 				"部分解結合: (a^(n/2))^2",
 				"問題サイズ削減: n → n/2 → n/4 → ...",
-				"再帰 ↔ 反復の相互変換が可能",
+				"再帰 <-> 反復の相互変換が可能",
 			],
 		},
 
 		{
 			id: "implementation-variants",
-			title: "💻 実装バリエーション",
+			title: " 実装バリエーション",
 			content:
 				"繰り返し二乗法には再帰版と反復版の実装があります。再帰版は数学的定義に忠実で理解しやすいですが、深い再帰によるスタックオーバーフローのリスクがあります。反復版は効率的でスタック使用量が少なく、実用的な実装として広く使用されます。また、左から右へのビット処理（MSBファースト）と右から左へのビット処理（LSBファースト）の両方が可能で、用途に応じて選択できます。最適化技法として、プリコンピューテーションやウィンドウ法も存在します。",
 			importance: "medium",
@@ -136,7 +136,7 @@ export const exponentiationBySquaringExplanation: ExplanationData = {
 
 		{
 			id: "optimization-techniques",
-			title: "🚀 最適化技法",
+			title: "【応用】最適化技法",
 			content:
 				"繰り返し二乗法にはさらなる最適化技法があります。ウィンドウ法では複数ビットを一度に処理し、プリコンピューテーションでは頻繁に使用される冪をあらかじめ計算しておきます。モンゴメリ算法は大きな数のモジュラー演算を高速化し、並列処理では独立な計算を同時実行します。ハードウェア実装では専用回路により更なる高速化が可能です。これらの技法により、暗号学的アプリケーションでの実用性能が大幅に向上します。",
 			importance: "low",
@@ -150,7 +150,7 @@ export const exponentiationBySquaringExplanation: ExplanationData = {
 
 		{
 			id: "mathematical-properties",
-			title: "📊 数学的性質と理論",
+			title: "【解析】数学的性質と理論",
 			content:
 				"繰り返し二乗法は深い数学的性質を持ちます。フェルマーの小定理やオイラーの定理と組み合わせることで、特定の条件下での効率的な計算が可能になります。中国剰余定理を使用した並列化や、カーマイケル関数による指数削減なども応用されます。また、離散対数問題の困難性がこのアルゴリズムの逆演算の複雑さを示し、暗号学的安全性の基盤となっています。群論や環論との関連も深く、抽象代数の実用的応用例として価値があります。",
 			importance: "medium",
@@ -164,7 +164,7 @@ export const exponentiationBySquaringExplanation: ExplanationData = {
 
 		{
 			id: "educational-value",
-			title: "📚 教育的価値と学習意義",
+			title: "【基礎】教育的価値と学習意義",
 			content:
 				"繰り返し二乗法は計算機科学教育において多面的な価値を持ちます。分割統治法の具体例として、再帰的思考と効率的アルゴリズム設計を学べます。二進法表現の実用的応用により、数学とプログラミングの関連性を理解できます。計算量解析では、指数的改善の劇的な効果を体感できます。さらに、暗号学への入り口として、現代社会を支える技術の理解につながります。理論と実践の架け橋として、優れた学習教材となっています。",
 			importance: "low",
@@ -178,7 +178,7 @@ export const exponentiationBySquaringExplanation: ExplanationData = {
 
 		{
 			id: "common-pitfalls",
-			title: "⚠️ よくある間違いと注意点",
+			title: "【注意】よくある間違いと注意点",
 			content:
 				"繰り返し二乗法の実装では、いくつかの典型的な間違いがあります。指数が0の場合の特別処理を忘れる、整数オーバーフローへの対策不足、モジュラー演算での負数処理の不備、再帰実装での深い再帰によるスタックオーバーフローなどです。また、浮動小数点数での精度問題、ビット操作での論理エラー、効率性テストでの計測方法の誤りも頻発します。これらの問題を理解し適切に対処することで、信頼性の高い実装が可能になります。",
 			importance: "medium",

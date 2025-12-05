@@ -20,7 +20,7 @@ if (process.env.NEXT_PUBLIC_USE_FIREBASE_EMULATOR === "true") {
 	if (typeof window !== "undefined") {
 		try {
 			connectFirestoreEmulator(db, "localhost", 8080);
-			console.log("🔥 Connected to Firestore Emulator");
+			console.log(" Connected to Firestore Emulator");
 		} catch (error) {
 			console.log("Firestore Emulator already connected");
 		}

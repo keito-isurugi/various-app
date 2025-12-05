@@ -1,5 +1,6 @@
 "use client";
 
+import { Star } from "lucide-react";
 import Link from "next/link";
 import React, { useState } from "react";
 import { AlgorithmVisualizer } from "../../../components/algorithm/AlgorithmVisualizer";
@@ -118,9 +119,17 @@ export default function BreadthFirstSearchPage() {
 						</div>
 						<div>
 							<dt className="text-sm font-medium text-gray-500">難易度</dt>
-							<dd className="text-lg font-semibold text-gray-900">
-								{"★".repeat(bfs.info.difficulty)}
-								{"☆".repeat(5 - bfs.info.difficulty)}
+							<dd className="flex gap-0.5 mt-1">
+								{Array.from({ length: 5 }).map((_, i) => (
+									<Star
+										key={`star-${i}`}
+										className={`w-5 h-5 ${
+											i < bfs.info.difficulty
+												? "fill-yellow-400 text-yellow-400"
+												: "text-gray-300"
+										}`}
+									/>
+								))}
 							</dd>
 						</div>
 					</div>

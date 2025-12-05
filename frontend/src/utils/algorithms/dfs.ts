@@ -140,7 +140,7 @@ export class DepthFirstSearchAlgorithm implements Algorithm {
 			: this.visitOrder.length === nodeCount;
 		this.steps.push({
 			id: this.stepId++,
-			description: `🎉 DFS完了！${targetNode ? (foundTarget ? `ターゲット「${targetNode}」を発見` : `ターゲット「${targetNode}」は見つかりませんでした`) : `${this.visitOrder.length}/${nodeCount}個のノードを訪問`}`,
+			description: ` DFS完了！${targetNode ? (foundTarget ? `ターゲット「${targetNode}」を発見` : `ターゲット「${targetNode}」は見つかりませんでした`) : `${this.visitOrder.length}/${nodeCount}個のノードを訪問`}`,
 			array: [],
 			operation: "完了",
 			variables: {
@@ -207,7 +207,7 @@ export class DepthFirstSearchAlgorithm implements Algorithm {
 		if (targetNode && node === targetNode) {
 			this.steps.push({
 				id: this.stepId++,
-				description: `✅ ターゲット「${targetNode}」を発見！探索完了`,
+				description: `ターゲット「${targetNode}」を発見！探索完了`,
 				array: [],
 				operation: "ターゲット発見",
 				variables: {
@@ -384,7 +384,7 @@ export class DepthFirstSearchAlgorithm implements Algorithm {
 			if (targetNode && node === targetNode) {
 				this.steps.push({
 					id: this.stepId++,
-					description: `✅ ターゲット「${targetNode}」を発見！探索完了`,
+					description: `ターゲット「${targetNode}」を発見！探索完了`,
 					array: [],
 					operation: "ターゲット発見",
 					variables: {
@@ -526,30 +526,30 @@ export class DepthFirstSearchAlgorithm implements Algorithm {
 		return `
 深さ優先探索（DFS）は、グラフ探索の基本アルゴリズムです。
 
-🌲 **基本概念**
+ **基本概念**
 - 現在のノードから可能な限り深く進む
 - 行き止まりに達したらバックトラック
 - 未探索の経路があれば再び深く進む
 - 全ノード訪問または目標発見まで継続
 
-🔄 **実装方式**
+ **実装方式**
 - 再帰実装：直感的で理解しやすい
 - 反復実装：スタック使用、スタックオーバーフロー回避
 - どちらも同じ探索結果を得る
 
-📊 **計算量**
+【解析】**計算量**
 - 時間計算量：O(V + E) - 頂点数V、辺数E
 - 空間計算量：O(V) - 訪問済み管理とスタック
 - 実用的な性能で大規模グラフも処理可能
 
-🔧 **応用分野**
+【実装】**応用分野**
 - 迷路の解法とパスファインディング
 - グラフの連結性判定
 - トポロジカルソート
 - ゲームAIでの状態空間探索
 - コンパイラの構文解析
 
-💡 **学習ポイント**
+【ヒント】**学習ポイント**
 - グラフ理論の基礎概念
 - 再帰とスタックの理解
 - バックトラッキングの仕組み

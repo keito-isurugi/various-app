@@ -20,7 +20,7 @@ export const linearSearchExplanation: ExplanationData = {
 	sections: [
 		{
 			id: "basic-concept",
-			title: "🔍 基本的な考え方",
+			title: "【詳細】基本的な考え方",
 			content:
 				"線形探索の考え方は、本棚で特定の本を探すときと同じです。本が整理されていない本棚では、最初の本から順番に1冊ずつタイトルを確認していくしかありません。目的の本が見つかるまで、または全ての本をチェックし終わるまで、この作業を続けます。",
 			importance: "high",
@@ -33,7 +33,7 @@ export const linearSearchExplanation: ExplanationData = {
 
 		{
 			id: "algorithm-steps",
-			title: "📝 アルゴリズムの手順",
+			title: "【まとめ】アルゴリズムの手順",
 			content:
 				"線形探索は以下の単純な手順を繰り返します：1) 配列の最初の要素から開始、2) 現在の要素と目標値を比較、3) 一致すれば探索終了、4) 一致しなければ次の要素へ移動、5) 配列の最後まで到達したら「見つからない」を報告。この手順の単純さが線形探索の最大の特徴です。",
 			importance: "high",
@@ -47,7 +47,7 @@ export const linearSearchExplanation: ExplanationData = {
 
 		{
 			id: "time-complexity",
-			title: "⏱️ 時間計算量の理解",
+			title: "️ 時間計算量の理解",
 			content:
 				"線形探索の時間計算量は O(n) です。これは配列の要素数に比例して実行時間が増加することを意味します。最良の場合（最初に見つかる）はO(1)、平均的な場合は O(n/2)、最悪の場合（最後にある、または見つからない）は O(n) となります。",
 			formula:
@@ -62,7 +62,7 @@ export const linearSearchExplanation: ExplanationData = {
 
 		{
 			id: "advantages",
-			title: "✅ 線形探索の利点",
+			title: "線形探索の利点",
 			content:
 				"線形探索には多くの利点があります。実装が非常にシンプルで理解しやすく、デバッグも容易です。ソートされていない配列でも使用でき、配列の順序を変更する必要がありません。また、メモリ使用量が少なく（O(1)の空間計算量）、小規模なデータセットでは十分に実用的です。",
 			importance: "medium",
@@ -75,7 +75,7 @@ export const linearSearchExplanation: ExplanationData = {
 
 		{
 			id: "binary-search-comparison",
-			title: "🆚 二分探索との比較",
+			title: " 二分探索との比較",
 			content:
 				"線形探索と二分探索の使い分けは重要です。線形探索は O(n) でソート不要ですが、二分探索は O(log n) でソート済み配列が必要です。データが少ない場合やソートのコストが高い場合は線形探索が、大量のソート済みデータでは二分探索が適しています。",
 			importance: "high",
@@ -88,7 +88,7 @@ export const linearSearchExplanation: ExplanationData = {
 
 		{
 			id: "practical-applications",
-			title: "🌍 実際の応用例",
+			title: " 実際の応用例",
 			content:
 				"線形探索は身近なところで多く使用されています。小規模なリストでの検索、設定ファイルでの値検索、ログファイルでの特定レコード検索、メニューシステムでの選択肢検索など、データ量が限られている場面では線形探索が最適な選択となることが多いです。",
 			importance: "medium",
@@ -101,7 +101,7 @@ export const linearSearchExplanation: ExplanationData = {
 
 		{
 			id: "implementation-variations",
-			title: "🔧 実装のバリエーション",
+			title: "【実装】実装のバリエーション",
 			content:
 				"線形探索には様々な実装パターンがあります。基本的な要素検索、最初に見つかった位置の返却、全ての一致位置の返却、条件に合う要素の検索、カウント機能付き検索など、用途に応じて様々な形に拡張できます。この柔軟性も線形探索の魅力の一つです。",
 			importance: "low",

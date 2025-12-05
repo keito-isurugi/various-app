@@ -138,7 +138,7 @@ export const CodeEditor: React.FC<CodeEditorProps> = ({
 		return (
 			<div className="error-display">
 				<div className="error-message">
-					<span className="error-icon">⚠️</span>
+					<AlertTriangle className="error-icon w-4 h-4 inline-block mr-1" />
 					<span className="error-text">
 						{error.line && `行 ${error.line}: `}
 						{error.message}

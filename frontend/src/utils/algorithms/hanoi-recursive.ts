@@ -151,7 +151,7 @@ export class HanoiRecursiveAlgorithm implements Algorithm {
 		// 完了ステップ
 		this.steps.push({
 			id: this.stepId++,
-			description: `🎉 完了！${n}枚の円盤を${this.totalMoves}回の移動で杭Cに移動しました`,
+			description: ` 完了！${n}枚の円盤を${this.totalMoves}回の移動で杭Cに移動しました`,
 			array: [],
 			operation: "完了",
 			variables: {
@@ -237,7 +237,7 @@ export class HanoiRecursiveAlgorithm implements Algorithm {
 		if (n === 1) {
 			this.steps.push({
 				id: this.stepId++,
-				description: `✅ ベースケース：1枚の円盤を${from}杭から${to}杭に直接移動`,
+				description: `ベースケース：1枚の円盤を${from}杭から${to}杭に直接移動`,
 				array: [],
 				operation: "ベースケース",
 				variables: {
@@ -465,7 +465,7 @@ export class HanoiRecursiveAlgorithm implements Algorithm {
 			// 移動のステップを記録
 			this.steps.push({
 				id: this.stepId++,
-				description: `💫 移動 ${this.totalMoves}: 円盤${disk}を杭${from}から杭${to}に移動`,
+				description: ` 移動 ${this.totalMoves}: 円盤${disk}を杭${from}から杭${to}に移動`,
 				array: [],
 				operation: "円盤移動",
 				variables: {
@@ -500,28 +500,28 @@ export class HanoiRecursiveAlgorithm implements Algorithm {
 		return `
 ハノイの塔（再帰）は、分割統治法の美しい応用例として有名な古典的パズルです。
 
-🏗️ **問題設定**
+【構造】**問題設定**
 - 3本の杭（A、B、C）と異なるサイズのn枚の円盤
 - 全円盤を杭Aから杭Cに移動することが目標
 - 制約：①1回に1枚しか移動できない ②大きい円盤を小さい円盤の上に置けない
 
-🧠 **分割統治の思考**
+ **分割統治の思考**
 - n枚の問題を3つのサブ問題に分解
 - ①上のn-1枚を補助杭に移動 ②最下段を目標杭に移動 ③補助杭からn-1枚を目標杭に移動
 - 各サブ問題は同じ構造を持つため再帰的に解決
 
-📈 **指数的複雑さ**
+ **指数的複雑さ**
 - 最小移動回数：2^n - 1 回
 - 時間計算量：O(2^n) - 指数的増加
 - 空間計算量：O(n) - 再帰の深さ
 
-🎯 **学習価値**
+【ポイント】**学習価値**
 - 分割統治法の理解
 - 再帰的思考の訓練
 - 指数的複雑さの体感
 - 最適化アルゴリズムの存在証明
 
-💡 **数学的洞察**
+【ヒント】**数学的洞察**
 - 移動パターンと二進数の関係
 - Gray符号との対応
 - 各円盤の移動回数：円盤kは2^(k-1)回移動

@@ -111,7 +111,7 @@ export class BinarySearchAlgorithm implements Algorithm {
 				// 見つかった場合
 				steps.push({
 					id: stepId++,
-					description: `✅ 見つかりました！ ${target} はインデックス ${mid} にあります`,
+					description: `見つかりました！ ${target} はインデックス ${mid} にあります`,
 					array: [...array],
 					foundIndex: mid,
 					searchRange: { start: left, end: right },
@@ -166,7 +166,7 @@ export class BinarySearchAlgorithm implements Algorithm {
 		// 見つからなかった場合
 		steps.push({
 			id: stepId++,
-			description: `❌ ${target} は配列内に見つかりませんでした`,
+			description: `${target} は配列内に見つかりませんでした`,
 			array: [...array],
 			searchRange: { start: left, end: right },
 			operation: "未発見",
@@ -202,18 +202,18 @@ export class BinarySearchAlgorithm implements Algorithm {
 		return `
 二分探索は、ソート済みの配列から特定の要素を効率的に見つけるアルゴリズムです。
 
-🔍 **基本原理**
+【詳細】**基本原理**
 1. 配列の中央要素を確認
 2. 目標値と比較
 3. 目標値が小さければ左半分、大きければ右半分を選択
 4. 選択した半分で同じ処理を繰り返す
 
-📈 **効率性**
+ **効率性**
 - 各ステップで探索範囲が半分になる
 - 1000個の要素でも最大10回の比較で見つかる
 - 電話帳で名前を探すときと同じ方法
 
-🎯 **実用例**
+【ポイント】**実用例**
 - 辞書での単語検索
 - データベースのインデックス検索
 - ゲームでの高得点ランキング検索

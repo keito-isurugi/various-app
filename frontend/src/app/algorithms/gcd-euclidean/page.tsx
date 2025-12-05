@@ -7,6 +7,14 @@
 
 "use client";
 
+import {
+	Binary,
+	BookOpen,
+	Calculator,
+	Code,
+	Lightbulb,
+	Target,
+} from "lucide-react";
 import Link from "next/link";
 import React, { useState, useCallback } from "react";
 import { AlgorithmVisualizer } from "../../../components/algorithm/AlgorithmVisualizer";
@@ -189,7 +197,8 @@ export default function GcdEuclideanPage() {
 					<div className="xl:col-span-1">
 						<div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700 sticky top-4">
 							<h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">
-								🔢 入力設定
+								<Binary className="w-4 h-4" />
+								入力設定
 							</h3>
 
 							{/* 現在の設定表示 */}
@@ -211,7 +220,7 @@ export default function GcdEuclideanPage() {
 									</div>
 								</div>
 								<div className="mt-2 p-2 bg-emerald-100 dark:bg-emerald-900/30 rounded text-xs text-emerald-800 dark:text-emerald-200">
-									📐 原理: gcd(a, b) = gcd(b, a mod b)
+									 原理: gcd(a, b) = gcd(b, a mod b)
 								</div>
 							</div>
 
@@ -264,8 +273,9 @@ export default function GcdEuclideanPage() {
 
 							{/* 推奨入力例 */}
 							<div className="space-y-2 mb-6">
-								<h4 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-									📚 推奨入力例
+								<h4 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 flex items-center gap-1">
+									<BookOpen className="w-4 h-4" />
+									推奨入力例
 								</h4>
 								<div className="space-y-2 max-h-48 overflow-y-auto">
 									{recommendedInputs.map((rec, index) => (
@@ -292,13 +302,20 @@ export default function GcdEuclideanPage() {
 								type="button"
 								onClick={executeAlgorithm}
 								disabled={isExecuting}
-								className={`w-full py-3 rounded-lg font-semibold transition-all duration-200 ${
+								className={`w-full py-3 rounded-lg font-semibold transition-all duration-200 flex items-center justify-center gap-2 ${
 									isExecuting
 										? "bg-gray-400 text-gray-700 cursor-not-allowed"
 										: "bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white shadow-lg hover:shadow-xl"
 								}`}
 							>
-								{isExecuting ? "計算中..." : "🧮 GCD計算実行"}
+								{isExecuting ? (
+									"計算中..."
+								) : (
+									<>
+										<Calculator className="w-4 h-4" />
+										GCD計算実行
+									</>
+								)}
 							</button>
 
 							{/* 結果表示 */}
@@ -344,7 +361,9 @@ export default function GcdEuclideanPage() {
 							<AlgorithmVisualizer steps={result.steps} className="mb-8" />
 						) : (
 							<div className="bg-white dark:bg-gray-800 rounded-xl p-12 border border-gray-200 dark:border-gray-700 text-center mb-8">
-								<div className="text-6xl mb-4">🧮</div>
+								<div className="text-6xl mb-4">
+									<Calculator className="w-16 h-16 mx-auto text-purple-500" />
+								</div>
 								<h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-2">
 									最大公約数を計算してください
 								</h3>
@@ -368,8 +387,9 @@ export default function GcdEuclideanPage() {
 				{/* コード例セクション */}
 				<section className="mt-12">
 					<div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700">
-						<h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">
-							💻 実装例（JavaScript）
+						<h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4 flex items-center gap-2">
+							<Code className="w-5 h-5" />
+							実装例（JavaScript）
 						</h3>
 						<div className="bg-gray-900 rounded-lg p-6 overflow-x-auto">
 							<pre className="text-sm text-gray-100">
@@ -441,8 +461,9 @@ console.log(gcdMultiple(12, 18, 24)); // 6`}</code>
 				{/* アルゴリズムの特徴セクション */}
 				<section className="mt-12">
 					<div className="bg-gradient-to-r from-emerald-50 to-teal-50 dark:from-emerald-900/20 dark:to-teal-900/20 rounded-xl p-6 border border-emerald-200 dark:border-emerald-700">
-						<h3 className="text-xl font-semibold text-emerald-900 dark:text-emerald-100 mb-4">
-							🎯 アルゴリズムの特徴
+						<h3 className="text-xl font-semibold text-emerald-900 dark:text-emerald-100 mb-4 flex items-center gap-2">
+							<Target className="w-5 h-5" />
+							アルゴリズムの特徴
 						</h3>
 						<div className="grid md:grid-cols-2 gap-6">
 							<div>
@@ -470,7 +491,8 @@ console.log(gcdMultiple(12, 18, 24)); // 6`}</code>
 						</div>
 						<div className="mt-4 p-3 bg-blue-100 dark:bg-blue-900/30 rounded-lg">
 							<p className="text-sm text-blue-800 dark:text-blue-200">
-								💡 <strong>学習ポイント:</strong>{" "}
+								<Lightbulb className="w-3 h-3 inline" />{" "}
+								<strong>学習ポイント:</strong>{" "}
 								古典的なアルゴリズムでありながら、現代のコンピュータサイエンスや暗号学でも重要な役割を果たしています。
 								効率的な問題解決の思考法を学ぶ絶好の例です。
 							</p>

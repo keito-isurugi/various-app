@@ -20,7 +20,7 @@ export const escapeVelocityExplanation: ExplanationData = {
 	sections: [
 		{
 			id: "basic-concept",
-			title: "🚀 宇宙への「脱出」とは？",
+			title: "【応用】宇宙への「脱出」とは？",
 			content:
 				"物体を空に向かって投げると、重力により必ず地面に落ちてきます。しかし、十分な速度で投げれば、重力に打ち勝って無限遠まで飛んでいくことができます。この「無限遠まで飛んでいく最低速度」が脱出速度です。ロケットが宇宙に行くときも、この原理を使っています。",
 			importance: "high",
@@ -33,7 +33,7 @@ export const escapeVelocityExplanation: ExplanationData = {
 
 		{
 			id: "energy-perspective",
-			title: "⚡ エネルギーの観点から理解",
+			title: "【計算量】エネルギーの観点から理解",
 			content:
 				"脱出速度は、運動エネルギーと位置エネルギーのバランスで決まります。物体が持つ運動エネルギー（速度のエネルギー）が、重力による位置エネルギーを上回れば脱出できます。坂道を自転車で登ることに例えると、頂上まで届く十分な勢いが必要なのと同じです。",
 			importance: "medium",
@@ -46,7 +46,7 @@ export const escapeVelocityExplanation: ExplanationData = {
 
 		{
 			id: "formula-explanation",
-			title: "📐 計算式の意味",
+			title: " 計算式の意味",
 			content:
 				"脱出速度は v = √(2GM/r) という式で計算されます。ここで、Gは重力定数、Mは天体の質量、rは天体の半径です。つまり、重い天体ほど、また小さい（密度の高い）天体ほど脱出速度が大きくなります。",
 			formula:
@@ -61,7 +61,7 @@ export const escapeVelocityExplanation: ExplanationData = {
 
 		{
 			id: "real-examples",
-			title: "🌍 身近な例で比較",
+			title: " 身近な例で比較",
 			content:
 				"地球からの脱出速度は秒速11.2kmです。これは時速約4万kmで、東京-大阪間を約20秒で移動する速度です！月は重力が弱いので秒速2.4km、逆に太陽は非常に重いので秒速617kmも必要です。",
 			importance: "high",
@@ -75,7 +75,7 @@ export const escapeVelocityExplanation: ExplanationData = {
 
 		{
 			id: "rocket-applications",
-			title: "🛸 ロケットでの応用",
+			title: " ロケットでの応用",
 			content:
 				"実際のロケットは、燃料を燃やして段階的に加速します。アポロ計画の月面着陸船や、現在の国際宇宙ステーション（ISS）への補給機も、この脱出速度の原理を使って宇宙に向かいます。ただし、実際は大気抵抗や重力損失があるため、理論値より多くのエネルギーが必要です。",
 			importance: "high",
@@ -88,7 +88,7 @@ export const escapeVelocityExplanation: ExplanationData = {
 
 		{
 			id: "circular-vs-escape",
-			title: "🔄 軌道速度と脱出速度の違い",
+			title: " 軌道速度と脱出速度の違い",
 			content:
 				"人工衛星が地球を回る「軌道速度」（約7.9km/s）と「脱出速度」（11.2km/s）は違います。軌道速度は地球の周りを回り続ける速度、脱出速度は地球から完全に離れる速度です。軌道速度は脱出速度の約70%（1/√2倍）になります。",
 			importance: "medium",
@@ -101,7 +101,7 @@ export const escapeVelocityExplanation: ExplanationData = {
 
 		{
 			id: "interesting-facts",
-			title: "🌟 面白い豆知識",
+			title: " 面白い豆知識",
 			content:
 				"もし地球の重力が今の2倍だったら、脱出速度は約15.8km/sになり、ロケット技術はもっと発達が遅れていたでしょう。逆に月では重力が弱いので、アームストロング船長は軽々と月面を歩くことができました。また、脱出速度が光速と等しくなる天体がブラックホールです。",
 			importance: "low",

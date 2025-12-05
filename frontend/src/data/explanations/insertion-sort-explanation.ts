@@ -20,7 +20,7 @@ export const insertionSortExplanation: ExplanationData = {
 	sections: [
 		{
 			id: "basic-concept",
-			title: "🎯 基本的な考え方",
+			title: "【ポイント】基本的な考え方",
 			content:
 				"挿入ソートは、トランプゲームで手札を整理する作業と全く同じです。最初は1枚のカードから始まり、新しいカードを受け取るたびに、既に並んでいるカードの適切な位置を見つけて挿入します。既に並んでいる部分は常にソートされた状態を保ち、一枚ずつ整理されたエリアを拡張していきます。",
 			importance: "high",
@@ -33,7 +33,7 @@ export const insertionSortExplanation: ExplanationData = {
 
 		{
 			id: "algorithm-steps",
-			title: "📝 アルゴリズムの手順",
+			title: "【まとめ】アルゴリズムの手順",
 			content:
 				"挿入ソートは以下の手順を繰り返します：1) 2番目の要素から開始（1番目は既にソート済みと見なす）、2) 現在の要素を一時的に保存、3) 既ソート部分の右端から左へ比較し、より大きな要素を右にシフト、4) 適切な位置が見つかったら、保存した要素を挿入、5) 次の要素へ進む。この手順により、左から順番にソートされたエリアが拡張されます。",
 			importance: "high",
@@ -47,7 +47,7 @@ export const insertionSortExplanation: ExplanationData = {
 
 		{
 			id: "time-complexity",
-			title: "⏱️ 時間計算量の分析",
+			title: "️ 時間計算量の分析",
 			content:
 				"挿入ソートの時間計算量は入力データの状態に大きく依存します。最良ケース（既にソート済み）ではO(n)、最悪ケース（逆順）ではO(n²)、平均的なケースでもO(n²)となります。ただし、部分的にソートされた配列では実際の実行時間は大幅に改善され、実用的な性能を発揮します。",
 			formula:
@@ -62,7 +62,7 @@ export const insertionSortExplanation: ExplanationData = {
 
 		{
 			id: "stability-analysis",
-			title: "🔄 安定性の特徴",
+			title: " 安定性の特徴",
 			content:
 				"挿入ソートは「安定ソート」です。これは、同じ値を持つ要素の相対的な順序が保たれることを意味します。要素を挿入する際、既存の同じ値の要素より後ろに配置されるため、元の順序が維持されます。この特性は、複数のキーでソートする場合や、データの一意性を保つ必要がある場合に重要です。",
 			importance: "medium",
@@ -75,7 +75,7 @@ export const insertionSortExplanation: ExplanationData = {
 
 		{
 			id: "adaptive-nature",
-			title: "🚀 適応的特性",
+			title: "【応用】適応的特性",
 			content:
 				"挿入ソートの最大の特徴は「適応的」であることです。入力データが部分的にソートされている場合、アルゴリズムは自動的にそれを検知し、大幅に高速化します。既にソートされた部分では比較回数が最小限に抑えられ、理論上のO(n²)よりもはるかに高性能を発揮します。",
 			importance: "high",
@@ -88,7 +88,7 @@ export const insertionSortExplanation: ExplanationData = {
 
 		{
 			id: "advantages",
-			title: "✅ 挿入ソートの利点",
+			title: "挿入ソートの利点",
 			content:
 				"挿入ソートには多くの実用的な利点があります。実装が簡単で理解しやすく、安定ソートであり、小規模データやほぼソート済みデータで高効率、オンラインアルゴリズム（データが逐次到着）として使用可能、メモリ使用量が定数、など実際のプログラミングで有用な特性を多く持っています。",
 			importance: "medium",
@@ -101,7 +101,7 @@ export const insertionSortExplanation: ExplanationData = {
 
 		{
 			id: "comparison-with-others",
-			title: "🆚 他のソートアルゴリズムとの比較",
+			title: " 他のソートアルゴリズムとの比較",
 			content:
 				"O(n²)アルゴリズムの中で、挿入ソートは実用性が最も高いとされています。バブルソートは理解しやすいが非効率、選択ソートは交換回数が少ないが適応性なし、挿入ソートは安定で適応的、実用的という特徴があります。実際、多くの高速ソートアルゴリズムが小規模部分で挿入ソートを使用しています。",
 			importance: "high",
@@ -114,7 +114,7 @@ export const insertionSortExplanation: ExplanationData = {
 
 		{
 			id: "practical-applications",
-			title: "🌍 実際の応用場面",
+			title: " 実際の応用場面",
 			content:
 				"挿入ソートは現代のプログラミングでも広く使用されています。多くの標準ライブラリのソート関数が小規模配列で挿入ソートを使用し、オンラインゲームのリアルタイムランキング、データベースの増分ソート、組み込みシステムでの効率的なソートなど、様々な場面で活躍しています。",
 			importance: "low",

@@ -175,7 +175,7 @@ export class NextPermutationAlgorithm implements Algorithm {
 		// 完了ステップ
 		this.steps.push({
 			id: this.stepId++,
-			description: `🎉 順列操作完了！${this.getOperationDescription(operation)}が正常に実行されました`,
+			description: ` 順列操作完了！${this.getOperationDescription(operation)}が正常に実行されました`,
 			array: [...this.originalArray],
 			operation: "完了",
 			variables: {
@@ -250,7 +250,7 @@ export class NextPermutationAlgorithm implements Algorithm {
 		if (i < 0) {
 			this.steps.push({
 				id: this.stepId++,
-				description: "❌ これが最後の順列です（降順配列）",
+				description: "これが最後の順列です（降順配列）",
 				array: [...result],
 				operation: "最後の順列",
 				variables: {
@@ -267,7 +267,7 @@ export class NextPermutationAlgorithm implements Algorithm {
 
 		this.steps.push({
 			id: this.stepId++,
-			description: `🎯 ピボット発見：位置${i} (値=${result[i]})`,
+			description: `【ポイント】ピボット発見：位置${i} (値=${result[i]})`,
 			array: [...result],
 			highlight: [i],
 			operation: "ピボット確定",
@@ -299,7 +299,7 @@ export class NextPermutationAlgorithm implements Algorithm {
 
 		this.steps.push({
 			id: this.stepId++,
-			description: `🔄 交換相手発見：位置${j} (値=${result[j]})`,
+			description: ` 交換相手発見：位置${j} (値=${result[j]})`,
 			array: [...result],
 			highlight: [i, j],
 			operation: "交換相手確定",
@@ -355,7 +355,7 @@ export class NextPermutationAlgorithm implements Algorithm {
 		while (left < right) {
 			this.steps.push({
 				id: this.stepId++,
-				description: `反転：位置${left}(${result[left]}) ↔ 位置${right}(${result[right]})`,
+				description: `反転：位置${left}(${result[left]}) <-> 位置${right}(${result[right]})`,
 				array: [...result],
 				highlight: [left, right],
 				operation: "要素反転",
@@ -378,7 +378,7 @@ export class NextPermutationAlgorithm implements Algorithm {
 
 		this.steps.push({
 			id: this.stepId++,
-			description: `✅ 次の順列生成完了：[${result.join(", ")}]`,
+			description: `次の順列生成完了：[${result.join(", ")}]`,
 			array: [...result],
 			operation: "next_permutation完了",
 			variables: {
@@ -1169,55 +1169,55 @@ export class NextPermutationAlgorithm implements Algorithm {
 		return `
 next_permutation（順列全列挙）は、辞書順で次の順列を効率的に生成する標準的なアルゴリズムです。C++のstd::next_permutationと同等の機能を提供し、全ての順列を系統的に列挙することができます。
 
-🔄 **next_permutationアルゴリズムの原理**
+ **next_permutationアルゴリズムの原理**
 - 辞書順で次に大きい順列を生成
 - 4つのステップで効率的に実現
 - 平均的にはO(1)時間での実行
 - in-place操作によるメモリ効率
 
-📊 **アルゴリズムの4ステップ**
+【解析】**アルゴリズムの4ステップ**
 1. **ピボット発見**: 右から最初の昇順位置を特定
 2. **交換相手探索**: ピボットより大きい最小値を発見
 3. **要素交換**: ピボットと交換相手を交換
 4. **部分反転**: ピボット以降を昇順に並び替え
 
-💡 **実装の核心概念**
+【ヒント】**実装の核心概念**
 - **辞書順**: 文字列の辞書順と同じ原理
 - **最小変更**: 必要最小限の変更で次順列を生成
 - **効率性**: 不要な計算を避ける巧妙な設計
 - **完全性**: 全ての順列を漏れなく生成
 
-🌟 **順列の重要な応用**
+ **順列の重要な応用**
 - **組み合わせ最適化**: 全解の系統的探索
 - **暗号学**: 鍵空間の探索と分析
 - **グラフ理論**: 頂点の順序づけ問題
 - **スケジューリング**: タスクの順序最適化
 
-🚀 **実世界での応用例**
+【応用】**実世界での応用例**
 - **経路最適化**: 巡回セールスマン問題の解法
 - **リソース管理**: 処理順序の最適化
 - **ゲーム開発**: 可能手順の列挙
 - **データ分析**: 順序統計と順序検定
 
-⚡ **パフォーマンス特性**
+【計算量】**パフォーマンス特性**
 - 時間計算量: 平均O(1)、最悪O(n)
 - 空間計算量: O(1) - in-place操作
 - 全順列生成: O(n! × n)
 - 実装の簡潔性と効率性の両立
 
-🔍 **関連する重要概念**
+【詳細】**関連する重要概念**
 - **順列のランク**: 辞書順での位置計算
 - **k番目順列**: 直接的な順列構築
 - **逆順列**: 順列の逆写像
 - **順列の合成**: 関数としての順列操作
 
-📈 **学習価値と応用範囲**
+ **学習価値と応用範囲**
 - **アルゴリズム設計**: 効率的な状態遷移の設計
 - **数学的理解**: 順列群と組み合わせ論の実践
 - **最適化手法**: 全探索の系統的アプローチ
 - **計算複雑性**: 時間とメモリのトレードオフ
 
-🎯 **実装のポイント**
+【ポイント】**実装のポイント**
 - 境界条件の適切な処理
 - オーバーフローの回避
 - インデックス操作の正確性

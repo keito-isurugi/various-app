@@ -183,7 +183,7 @@ export class SlidingWindowAlgorithm implements Algorithm {
 		// 完了ステップ
 		this.steps.push({
 			id: this.stepId++,
-			description: `🎉 スライディングウィンドウ操作完了！${this.getOperationDescription(operation)}が正常に実行されました`,
+			description: ` スライディングウィンドウ操作完了！${this.getOperationDescription(operation)}が正常に実行されました`,
 			array: [...this.originalArray],
 			operation: "完了",
 			variables: {
@@ -348,7 +348,7 @@ export class SlidingWindowAlgorithm implements Algorithm {
 			if (currentSum === targetSum) {
 				this.steps.push({
 					id: this.stepId++,
-					description: `🎯 目標和${targetSum}を発見！区間[${left}, ${right}]`,
+					description: `【ポイント】目標和${targetSum}を発見！区間[${left}, ${right}]`,
 					array: [...array],
 					highlight: Array.from(
 						{ length: right - left + 1 },
@@ -395,7 +395,7 @@ export class SlidingWindowAlgorithm implements Algorithm {
 				if (currentSum === targetSum && left <= right) {
 					this.steps.push({
 						id: this.stepId++,
-						description: `🎯 目標和${targetSum}を発見！区間[${left}, ${right}]`,
+						description: `【ポイント】目標和${targetSum}を発見！区間[${left}, ${right}]`,
 						array: [...array],
 						highlight: Array.from(
 							{ length: right - left + 1 },
@@ -496,7 +496,7 @@ export class SlidingWindowAlgorithm implements Algorithm {
 
 				this.steps.push({
 					id: this.stepId++,
-					description: `🏆 新しい最大和を発見！sum=${maxSum}, 区間[${maxStartIndex}, ${i}]`,
+					description: ` 新しい最大和を発見！sum=${maxSum}, 区間[${maxStartIndex}, ${i}]`,
 					array: [...array],
 					highlight: Array.from(
 						{ length: windowSize },
@@ -602,7 +602,7 @@ export class SlidingWindowAlgorithm implements Algorithm {
 
 				this.steps.push({
 					id: this.stepId++,
-					description: `🏆 新しい最小和を発見！sum=${minSum}, 区間[${minStartIndex}, ${i}]`,
+					description: ` 新しい最小和を発見！sum=${minSum}, 区間[${minStartIndex}, ${i}]`,
 					array: [...array],
 					highlight: Array.from(
 						{ length: windowSize },
@@ -713,7 +713,7 @@ export class SlidingWindowAlgorithm implements Algorithm {
 
 				this.steps.push({
 					id: this.stepId++,
-					description: `🎯 指定和${targetSum}を発見！区間[${left}, ${right}] (解${foundWindows.length}個目)`,
+					description: `【ポイント】指定和${targetSum}を発見！区間[${left}, ${right}] (解${foundWindows.length}個目)`,
 					array: [...array],
 					highlight: Array.from(
 						{ length: right - left + 1 },
@@ -823,7 +823,7 @@ export class SlidingWindowAlgorithm implements Algorithm {
 
 				this.steps.push({
 					id: this.stepId++,
-					description: `🏆 新最長部分文字列発見！「${text.slice(left, right + 1)}」長さ=${maxLength}`,
+					description: ` 新最長部分文字列発見！「${text.slice(left, right + 1)}」長さ=${maxLength}`,
 					operation: "最長更新",
 					variables: {
 						newMaxLength: maxLength,
@@ -932,7 +932,7 @@ export class SlidingWindowAlgorithm implements Algorithm {
 
 					this.steps.push({
 						id: this.stepId++,
-						description: `🏆 新最小ウィンドウ発見！「${text.slice(left, right + 1)}」長さ=${currentLength}`,
+						description: ` 新最小ウィンドウ発見！「${text.slice(left, right + 1)}」長さ=${currentLength}`,
 						operation: "最小ウィンドウ更新",
 						variables: {
 							newMinLength: minLength,
@@ -1153,43 +1153,43 @@ export class SlidingWindowAlgorithm implements Algorithm {
 - 要素の追加・削除による状態管理
 - 累積値の効率的な計算
 
-📊 **主要なパターンと計算量**
+【解析】**主要なパターンと計算量**
 - 固定ウィンドウ: O(n) - 各要素を1回ずつ処理
 - 可変ウィンドウ（尺取り法）: O(n) - 左右ポインタの線形移動
 - 最大/最小値探索: O(n) - スライドによる効率的比較
 - 部分文字列探索: O(n) - 文字集合の動的管理
 
-🎯 **尺取り法（Two Pointers）**
+【ポイント】**尺取り法（Two Pointers）**
 - 左右2つのポインタで範囲を動的調整
 - 条件に応じて範囲を拡張または縮小
 - 目標値の探索や条件満足問題に有効
 - メモリ効率も優秀（O(1)空間計算量）
 
-💡 **実装のポイント**
+【ヒント】**実装のポイント**
 - ウィンドウの初期化：最初のウィンドウを別途計算
 - 状態の更新：要素の追加・削除による差分更新
 - 境界条件：配列の開始・終了での適切な処理
 - 重複管理：文字列問題でのセットやマップ活用
 
-🌟 **代表的な応用パターン**
+ **代表的な応用パターン**
 - **固定ウィンドウ**: 移動平均、固定期間の最大/最小値
 - **可変ウィンドウ**: 指定和の部分配列、条件を満たす最長/最短部分列
 - **文字列問題**: 重複なし最長部分文字列、全文字を含む最小ウィンドウ
 - **最適化問題**: 制約下での最適解探索
 
-🚀 **実世界での応用例**
+【応用】**実世界での応用例**
 - **データ解析**: 時系列データの移動平均、トレンド分析
 - **ネットワーク**: パケット解析、フロー制御
 - **ゲーム開発**: 連続コンボ判定、範囲攻撃判定
 - **文字列処理**: テキスト解析、パターンマッチング
 
-⚡ **パフォーマンス特性**
+【計算量】**パフォーマンス特性**
 - 時間計算量: O(n) - 各要素を定数回処理
 - 空間計算量: O(1) または O(k) - ウィンドウサイズに依存
 - 実装が比較的シンプル
 - デバッグしやすい線形処理
 
-🔍 **他の手法との比較**
+【詳細】**他の手法との比較**
 - vs ナイーブ法: O(n²) → O(n)の劇的改善
 - vs 動的計画法: より少ないメモリで同等の効果
 - vs 分割統治: 実装が簡単で理解しやすい

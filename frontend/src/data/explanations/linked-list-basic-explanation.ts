@@ -20,7 +20,7 @@ export const linkedListBasicExplanation: ExplanationData = {
 	sections: [
 		{
 			id: "node-pointer-concept",
-			title: "🔗 ノードとポインタの概念",
+			title: "【連携】ノードとポインタの概念",
 			content:
 				"連結リストの基本構成要素はノードです。各ノードはデータ部分と次のノードへのポインタ（参照）から構成されます。ポインタによってノード同士がチェーン状につながり、一つの論理的なリストを形成します。この構造により、メモリ上では分散している要素を論理的に順序付けできます。最後のノードのポインタは null を指し、リストの終端を示します。この柔軟な構造が連結リストの特徴的な性質を生み出します。",
 			importance: "high",
@@ -34,7 +34,7 @@ export const linkedListBasicExplanation: ExplanationData = {
 
 		{
 			id: "basic-operations",
-			title: "🔧 基本操作の詳細",
+			title: "【実装】基本操作の詳細",
 			content:
 				"連結リストの基本操作には、挿入（insert）、削除（delete）、探索（search）、走査（traverse）があります。先頭への挿入・削除は O(1) で効率的ですが、中間や末尾の操作では目的位置まで辿る必要があるため O(n) 時間かかります。探索も線形時間が必要で、ランダムアクセスはできません。しかし、挿入・削除時に要素の移動が不要なため、これらの操作が頻繁な場合は配列より効率的です。",
 			importance: "high",
@@ -48,7 +48,7 @@ export const linkedListBasicExplanation: ExplanationData = {
 
 		{
 			id: "memory-management",
-			title: "💾 メモリ管理の特徴",
+			title: " メモリ管理の特徴",
 			content:
 				"連結リストは動的メモリ割り当てを使用し、実行時にサイズを変更できます。各ノードは必要に応じて個別に割り当てられ、不要になったノードは個別に解放されます。配列と異なり、事前にサイズを決める必要がなく、メモリを効率的に使用できます。ただし、各ノードにポインタ分のオーバーヘッドがあり、メモリ断片化の可能性もあります。ガベージコレクションがない言語では、適切なメモリ管理が重要です。",
 			importance: "medium",
@@ -62,7 +62,7 @@ export const linkedListBasicExplanation: ExplanationData = {
 
 		{
 			id: "variants-types",
-			title: "🔄 連結リストの種類",
+			title: " 連結リストの種類",
 			content:
 				"連結リストには複数の種類があります。単方向連結リストは次のノードのみを指し、双方向連結リストは前後両方向のポインタを持ちます。循環連結リストは最後のノードが最初のノードを指し、リング状の構造を形成します。各種類は異なる用途に適しており、双方向リストは逆方向の走査が可能で、循環リストは周期的なデータ処理に適しています。用途に応じた適切な選択が重要です。",
 			importance: "medium",
@@ -76,7 +76,7 @@ export const linkedListBasicExplanation: ExplanationData = {
 
 		{
 			id: "complexity-analysis",
-			title: "⚡ 計算量の分析",
+			title: "【計算量】計算量の分析",
 			content:
 				"連結リストの操作計算量は位置によって大きく異なります。先頭での挿入・削除は O(1) で効率的ですが、任意位置での操作は O(n) 時間が必要です。探索・アクセスは常に O(n) で、配列のランダムアクセス O(1) と比べて劣ります。空間計算量は要素数 n に対して O(n) ですが、ポインタ分のオーバーヘッドがあります。操作パターンに応じて配列との使い分けが重要です。",
 			formula:
@@ -92,7 +92,7 @@ export const linkedListBasicExplanation: ExplanationData = {
 
 		{
 			id: "real-world-applications",
-			title: "🌐 実世界での応用",
+			title: " 実世界での応用",
 			content:
 				"連結リストは様々な実世界のシステムで基盤技術として使用されています。オペレーティングシステムでは、プロセス管理やメモリ管理のデータ構造として活用されます。音楽プレイヤーでは、プレイリストの管理に使用され、楽曲の追加・削除・並び替えが効率的に行えます。Webブラウザでは、閲覧履歴の管理に連結リストが使用されます。また、ガベージコレクションやメモリプールの実装でも重要な役割を果たします。",
 			importance: "medium",
@@ -106,7 +106,7 @@ export const linkedListBasicExplanation: ExplanationData = {
 
 		{
 			id: "algorithms-using-lists",
-			title: "🔍 連結リストを使用するアルゴリズム",
+			title: "【詳細】連結リストを使用するアルゴリズム",
 			content:
 				"連結リストは多くのアルゴリズムで重要な役割を果たします。マージソートでは、連結リストの特性を活かした効率的な実装が可能です。グラフの隣接リスト表現では、各頂点の隣接頂点を連結リストで管理します。ハッシュテーブルのチェイン法では、衝突解決に連結リストを使用します。また、多項式の表現や大きな整数の演算でも、桁ごとにノードを分けて管理する手法が使用されます。",
 			importance: "medium",
@@ -120,7 +120,7 @@ export const linkedListBasicExplanation: ExplanationData = {
 
 		{
 			id: "implementation-techniques",
-			title: "🏗️ 実装技法",
+			title: "【構造】実装技法",
 			content:
 				"効率的な連結リスト実装には複数の技法があります。ダミーヘッドノードの使用により、境界条件（空リスト、先頭操作）の処理を簡略化できます。tail ポインタの保持により、末尾操作を O(1) で実行できます。メモリプールを使用することで、頻繁なノード作成・削除のオーバーヘッドを削減できます。また、スマートポインタやRAII（Resource Acquisition Is Initialization）により、メモリ安全性を向上させることも重要です。",
 			importance: "low",
@@ -134,7 +134,7 @@ export const linkedListBasicExplanation: ExplanationData = {
 
 		{
 			id: "common-mistakes",
-			title: "⚠️ よくある間違いと注意点",
+			title: "【注意】よくある間違いと注意点",
 			content:
 				"連結リストの実装と使用において、いくつかの典型的な間違いがあります。null ポインタの参照は重大なバグの原因となります。削除時に前のノードのポインタ更新を忘れると、リストが破損します。メモリリークを防ぐため、削除したノードの適切な解放が必要です。循環参照により無限ループが発生する可能性もあります。これらの問題を理解し、適切なエラーハンドリングと防御的プログラミングが重要です。",
 			importance: "medium",
@@ -148,7 +148,7 @@ export const linkedListBasicExplanation: ExplanationData = {
 
 		{
 			id: "learning-progression",
-			title: "📚 学習の進め方",
+			title: "【基礎】学習の進め方",
 			content:
 				"連結リストの学習は、まずポインタとノードの基本概念の理解から始めます。次に基本操作（挿入・削除・探索）を実装し、ポインタ操作に慣れます。その後、双方向リストや循環リストなどの変形を学習し、適用場面を理解します。応用として、マージソートやグラフアルゴリズムでの使用例を学習します。最終的には、メモリ管理やパフォーマンス最適化の技法を習得し、実用的な実装ができるようになります。",
 			importance: "low",

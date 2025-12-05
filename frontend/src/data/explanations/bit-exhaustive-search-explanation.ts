@@ -20,7 +20,7 @@ export const bitExhaustiveSearchExplanation: ExplanationData = {
 	sections: [
 		{
 			id: "bit-representation",
-			title: "🔢 ビット表現による組み合わせ",
+			title: "【数値】ビット表現による組み合わせ",
 			content:
 				"ビット全探索の核心は、整数のビット表現を使って部分集合を表現することです。n個の要素に対して、0から2^n-1までの整数を使い、各ビットが対応する要素の選択/非選択を表します。例えば、4個の要素では0101₂（=5）は1番目と3番目の要素を選択することを意味します。この表現により、全ての組み合わせを漏れなく系統的に列挙できます。",
 			importance: "high",
@@ -34,7 +34,7 @@ export const bitExhaustiveSearchExplanation: ExplanationData = {
 
 		{
 			id: "bit-operations",
-			title: "⚙️ ビット演算の基本操作",
+			title: "【設定】ビット演算の基本操作",
 			content:
 				"ビット全探索では、右シフト（>>）とAND演算（&）を組み合わせてビット判定を行います。(mask >> i) & 1により、i番目のビットが1かどうかを判定できます。この操作により、各マスク値に対して対応する部分集合を効率的に構築できます。ビット演算の理解は、効率的で読みやすいコードを書くための基盤となります。",
 			importance: "high",
@@ -48,7 +48,7 @@ export const bitExhaustiveSearchExplanation: ExplanationData = {
 
 		{
 			id: "complexity-analysis",
-			title: "📊 計算量の分析",
+			title: "【解析】計算量の分析",
 			content:
 				"ビット全探索の時間計算量はO(2^n × 処理時間)です。2^n個の組み合わせそれぞれに対して部分集合の構築と評価を行うため、指数的な時間がかかります。実用的には n ≤ 20程度が限界ですが、この範囲では確実な最適解を発見できます。空間計算量は通常O(1)で、メモリ効率に優れています。小規模問題での完全解法として重要な位置を占めます。",
 			formula:
@@ -64,7 +64,7 @@ export const bitExhaustiveSearchExplanation: ExplanationData = {
 
 		{
 			id: "subset-problems",
-			title: "🎯 部分集合問題への応用",
+			title: "【ポイント】部分集合問題への応用",
 			content:
 				"ビット全探索は部分集合に関する様々な問題で威力を発揮します。部分集合和問題、最大部分集合和、制約付き選択問題などで確実な解を発見できます。各組み合わせを系統的に評価することで、動的計画法では複雑になる問題も直感的に解けます。特に制約が複雑で状態遷移が困難な場合に、シンプルで確実な解法を提供します。",
 			importance: "high",
@@ -78,7 +78,7 @@ export const bitExhaustiveSearchExplanation: ExplanationData = {
 
 		{
 			id: "optimization-strategies",
-			title: "🚀 最適化戦略",
+			title: "【応用】最適化戦略",
 			content:
 				"基本のビット全探索にはいくつかの最適化戦略があります。早期終了による不要な探索の回避、制約による枝刈り、ビット演算の高速化などが効果的です。また、問題の性質を利用した順序付けや、対称性を利用した探索空間の削減も有効です。これらの最適化により、より大きな問題にも対応できる場合があります。",
 			importance: "medium",
@@ -92,7 +92,7 @@ export const bitExhaustiveSearchExplanation: ExplanationData = {
 
 		{
 			id: "practical-applications",
-			title: "🌍 実用的な応用例",
+			title: " 実用的な応用例",
 			content:
 				"ビット全探索は様々な実用システムで活用されています。リソース配分問題、スケジューリング最適化、特徴選択、組み合わせ設計などで重要な役割を果たします。特に、制約が複雑で他の手法では扱いが困難な小規模最適化問題において、確実で実装しやすい解法として価値があります。",
 			importance: "medium",
@@ -106,7 +106,7 @@ export const bitExhaustiveSearchExplanation: ExplanationData = {
 
 		{
 			id: "comparison-with-alternatives",
-			title: "🔍 他手法との比較",
+			title: "【詳細】他手法との比較",
 			content:
 				"ビット全探索は他の探索手法と比較して、実装の簡潔性と確実性で優れています。動的計画法と比べて状態設計が不要で、再帰的探索と比べてスタックオーバーフローの心配がありません。ただし、指数的時間のため大規模問題には不適です。問題のサイズと制約を考慮して、適切な手法を選択することが重要です。",
 			importance: "low",
@@ -120,7 +120,7 @@ export const bitExhaustiveSearchExplanation: ExplanationData = {
 
 		{
 			id: "implementation-patterns",
-			title: "💻 実装パターンと技法",
+			title: " 実装パターンと技法",
 			content:
 				"ビット全探索の実装には基本的なパターンがあります。外側のループで全マスクを走査し、内側のループで各ビットを判定して部分集合を構築、評価関数で条件をチェックするという流れです。エラーハンドリング、オーバーフロー対策、効率的なビット操作の実装が、品質の高いコードを作成するポイントとなります。",
 			importance: "medium",
@@ -134,7 +134,7 @@ export const bitExhaustiveSearchExplanation: ExplanationData = {
 
 		{
 			id: "advanced-techniques",
-			title: "🎓 発展的な技法",
+			title: " 発展的な技法",
 			content:
 				"基本のビット全探索を発展させた高度な技法には、部分集合の部分集合を扱うSoS（Sum over Subsets）DP、ビットマスクDP、並列処理による高速化などがあります。これらの技法により、より複雑な問題や大規模な問題にも対応できる場合があります。競技プログラミングの上級問題や研究レベルの問題で活用される重要な発展形です。",
 			importance: "low",
@@ -148,7 +148,7 @@ export const bitExhaustiveSearchExplanation: ExplanationData = {
 
 		{
 			id: "learning-approach",
-			title: "📚 効果的な学習アプローチ",
+			title: "【基礎】効果的な学習アプローチ",
 			content:
 				"ビット全探索の習得は、まずビット演算の基本から始めて、簡単な部分集合列挙、部分集合和問題、最適化問題の順に進むのが効果的です。各段階でビット表現と実際の組み合わせの対応を意識し、手計算での確認も行うことで理解が深まります。最終的には、問題を見てビット全探索の適用可能性を瞬時に判断できるレベルを目指します。",
 			importance: "low",

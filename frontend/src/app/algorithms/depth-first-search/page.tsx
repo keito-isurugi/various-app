@@ -7,6 +7,7 @@
 
 "use client";
 
+import { BarChart3, Code, Play, RefreshCw, TreeDeciduous } from "lucide-react";
 import Link from "next/link";
 import React, { useState, useCallback } from "react";
 import { AlgorithmVisualizer } from "../../../components/algorithm/AlgorithmVisualizer";
@@ -278,8 +279,9 @@ export default function DepthFirstSearchPage() {
 					{/* 設定パネル */}
 					<div className="xl:col-span-1">
 						<div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700 sticky top-4">
-							<h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">
-								🌲 実行設定
+							<h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4 flex items-center gap-2">
+								<TreeDeciduous className="w-5 h-5" />
+								実行設定
 							</h3>
 
 							{/* 実装方式選択 */}
@@ -414,8 +416,9 @@ export default function DepthFirstSearchPage() {
 
 							{/* 推奨グラフ */}
 							<div className="space-y-2 mb-6">
-								<h4 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-									📊 推奨グラフ
+								<h4 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 flex items-center gap-2">
+									<BarChart3 className="w-4 h-4" />
+									推奨グラフ
 								</h4>
 								<div className="space-y-2">
 									{recommendedGraphs.slice(0, 6).map((rec) => (
@@ -446,15 +449,20 @@ export default function DepthFirstSearchPage() {
 								type="button"
 								onClick={executeAlgorithm}
 								disabled={isExecuting || statistics.nodeCount === 0}
-								className={`w-full py-3 rounded-lg font-semibold transition-all duration-200 ${
+								className={`w-full py-3 rounded-lg font-semibold transition-all duration-200 flex items-center justify-center gap-2 ${
 									isExecuting || statistics.nodeCount === 0
 										? "bg-gray-400 text-gray-700 cursor-not-allowed"
 										: "bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white shadow-lg hover:shadow-xl"
 								}`}
 							>
-								{isExecuting
-									? "実行中..."
-									: `🌲 DFS実行（${selectedMethod === "recursive" ? "再帰" : "反復"}）`}
+								{isExecuting ? (
+									"実行中..."
+								) : (
+									<>
+										<TreeDeciduous className="w-4 h-4" />
+										{`DFS実行（${selectedMethod === "recursive" ? "再帰" : "反復"}）`}
+									</>
+								)}
 							</button>
 
 							{/* 結果表示 */}
@@ -502,7 +510,9 @@ export default function DepthFirstSearchPage() {
 							<AlgorithmVisualizer steps={result.steps} className="mb-8" />
 						) : (
 							<div className="bg-white dark:bg-gray-800 rounded-xl p-12 border border-gray-200 dark:border-gray-700 text-center mb-8">
-								<div className="text-6xl mb-4">🌲</div>
+								<div className="text-6xl mb-4">
+									<TreeDeciduous className="w-16 h-16 mx-auto text-purple-500" />
+								</div>
 								<h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-2">
 									深さ優先探索を実行してください
 								</h3>
@@ -526,8 +536,9 @@ export default function DepthFirstSearchPage() {
 				{/* コード例セクション */}
 				<section className="mt-12">
 					<div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700">
-						<h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">
-							💻 実装例（JavaScript）
+						<h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4 flex items-center gap-2">
+							<Code className="w-5 h-5" />
+							実装例（JavaScript）
 						</h3>
 						<div className="bg-gray-900 rounded-lg p-6 overflow-x-auto">
 							<pre className="text-sm text-gray-100">
@@ -642,8 +653,9 @@ function dfsComponent(graph, node, visited, component) {
 				{/* 実装比較セクション */}
 				<section className="mt-12">
 					<div className="bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-indigo-900/20 dark:to-purple-900/20 rounded-xl p-6 border border-indigo-200 dark:border-indigo-700">
-						<h3 className="text-xl font-semibold text-indigo-900 dark:text-indigo-100 mb-4">
-							🔄 再帰実装 vs 反復実装
+						<h3 className="text-xl font-semibold text-indigo-900 dark:text-indigo-100 mb-4 flex items-center gap-2">
+							<RefreshCw className="w-5 h-5" />
+							再帰実装 vs 反復実装
 						</h3>
 						<div className="grid md:grid-cols-2 gap-6">
 							<div>
@@ -678,7 +690,7 @@ function dfsComponent(graph, node, visited, component) {
 				<section className="mt-12">
 					<div className="bg-gradient-to-r from-green-50 to-blue-50 dark:from-green-900/20 dark:to-blue-900/20 rounded-xl p-6 border border-green-200 dark:border-green-700">
 						<h3 className="text-xl font-semibold text-green-900 dark:text-green-100 mb-4">
-							🚀 深さ優先探索の応用分野
+							<Play className="w-3 h-3 inline" /> 深さ優先探索の応用分野
 						</h3>
 						<div className="grid md:grid-cols-3 gap-6">
 							<div>

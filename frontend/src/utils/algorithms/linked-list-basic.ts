@@ -139,7 +139,7 @@ export class LinkedListBasicAlgorithm implements Algorithm {
 		// 完了ステップ
 		this.steps.push({
 			id: this.stepId++,
-			description: `🎉 操作完了！結果: ${result}`,
+			description: ` 操作完了！結果: ${result}`,
 			array: this.toArray(),
 			operation: "完了",
 			variables: {
@@ -242,7 +242,7 @@ export class LinkedListBasicAlgorithm implements Algorithm {
 
 		this.steps.push({
 			id: this.stepId++,
-			description: `✅ insertHead完了: ${value}が先頭に挿入されました`,
+			description: `insertHead完了: ${value}が先頭に挿入されました`,
 			array: this.toArray(),
 			operation: "insertHead完了",
 			variables: {
@@ -333,7 +333,7 @@ export class LinkedListBasicAlgorithm implements Algorithm {
 
 		this.steps.push({
 			id: this.stepId++,
-			description: `✅ insertTail完了: ${value}が末尾に挿入されました`,
+			description: `insertTail完了: ${value}が末尾に挿入されました`,
 			array: this.toArray(),
 			operation: "insertTail完了",
 			variables: {
@@ -408,7 +408,7 @@ export class LinkedListBasicAlgorithm implements Algorithm {
 
 		this.steps.push({
 			id: this.stepId++,
-			description: `✅ insertAt完了: 位置${index}に${value}が挿入されました`,
+			description: `insertAt完了: 位置${index}に${value}が挿入されました`,
 			array: this.toArray(),
 			operation: "insertAt完了",
 			variables: {
@@ -430,7 +430,7 @@ export class LinkedListBasicAlgorithm implements Algorithm {
 		if (!this.head) {
 			this.steps.push({
 				id: this.stepId++,
-				description: "❌ deleteHead失敗: リストが空です",
+				description: "deleteHead失敗: リストが空です",
 				array: this.toArray(),
 				operation: "deleteHead失敗",
 				variables: {
@@ -461,7 +461,7 @@ export class LinkedListBasicAlgorithm implements Algorithm {
 
 		this.steps.push({
 			id: this.stepId++,
-			description: `✅ deleteHead完了: ${deletedValue}が削除されました`,
+			description: `deleteHead完了: ${deletedValue}が削除されました`,
 			array: this.toArray(),
 			operation: "deleteHead完了",
 			variables: {
@@ -483,7 +483,7 @@ export class LinkedListBasicAlgorithm implements Algorithm {
 		if (!this.head) {
 			this.steps.push({
 				id: this.stepId++,
-				description: "❌ deleteTail失敗: リストが空です",
+				description: "deleteTail失敗: リストが空です",
 				array: this.toArray(),
 				operation: "deleteTail失敗",
 				variables: {
@@ -502,7 +502,7 @@ export class LinkedListBasicAlgorithm implements Algorithm {
 
 			this.steps.push({
 				id: this.stepId++,
-				description: `✅ deleteTail完了: 単一ノード${deletedValue}が削除されました`,
+				description: `deleteTail完了: 単一ノード${deletedValue}が削除されました`,
 				array: this.toArray(),
 				operation: "deleteTail完了",
 				variables: {
@@ -543,7 +543,7 @@ export class LinkedListBasicAlgorithm implements Algorithm {
 
 		this.steps.push({
 			id: this.stepId++,
-			description: `✅ deleteTail完了: ${deletedValue}が末尾から削除されました`,
+			description: `deleteTail完了: ${deletedValue}が末尾から削除されました`,
 			array: this.toArray(),
 			operation: "deleteTail完了",
 			variables: {
@@ -619,7 +619,7 @@ export class LinkedListBasicAlgorithm implements Algorithm {
 
 		this.steps.push({
 			id: this.stepId++,
-			description: `✅ deleteAt完了: 位置${index}の${deletedValue}が削除されました`,
+			description: `deleteAt完了: 位置${index}の${deletedValue}が削除されました`,
 			array: this.toArray(),
 			operation: "deleteAt完了",
 			variables: {
@@ -674,7 +674,7 @@ export class LinkedListBasicAlgorithm implements Algorithm {
 			if (current.value === value) {
 				this.steps.push({
 					id: this.stepId++,
-					description: `✅ find完了: 値${value}が位置${position}で発見されました`,
+					description: `find完了: 値${value}が位置${position}で発見されました`,
 					array: this.toArray(),
 					operation: "find完了",
 					variables: {
@@ -692,7 +692,7 @@ export class LinkedListBasicAlgorithm implements Algorithm {
 
 		this.steps.push({
 			id: this.stepId++,
-			description: `❌ find完了: 値${value}は見つかりませんでした`,
+			description: `find完了: 値${value}は見つかりませんでした`,
 			array: this.toArray(),
 			operation: "find未発見",
 			variables: {
@@ -794,13 +794,13 @@ export class LinkedListBasicAlgorithm implements Algorithm {
 		return `
 連結リスト（Linked List）は、ノードとポインタで構成される動的データ構造です。
 
-🏗️ **基本概念**
+【構造】**基本概念**
 - 各ノードが値と次のノードへのポインタを持つ
 - 動的にサイズを変更可能
 - メモリの効率的な利用
 - 順次アクセスのみ（ランダムアクセス不可）
 
-📚 **基本操作**
+【基礎】**基本操作**
 - insertHead(value): 先頭に挿入 - O(1)
 - insertTail(value): 末尾に挿入 - O(n)
 - insertAt(index, value): 指定位置に挿入 - O(n)
@@ -811,32 +811,32 @@ export class LinkedListBasicAlgorithm implements Algorithm {
 - size(): 要素数を取得 - O(1)
 - isEmpty(): 空かどうかを確認 - O(1)
 
-🎯 **実世界での応用**
+【ポイント】**実世界での応用**
 - ウェブブラウザの履歴管理
 - 音楽プレイヤーのプレイリスト
 - アンドゥ機能の実装
 - メモリ管理システム
 - スタックやキューの実装基盤
 
-⚡ **計算量の特徴**
+【計算量】**計算量の特徴**
 - 先頭への挿入・削除: O(1)で高速
 - 検索・任意位置操作: O(n)で線形時間
 - 空間計算量: O(n)（ノード数に比例）
 - 配列と比べてメモリオーバーヘッドあり
 
-💡 **学習価値**
+【ヒント】**学習価値**
 - ポインタとメモリ管理の理解
 - 動的データ構造の概念
 - アルゴリズムとデータ構造の関係
 - 実装における設計選択の重要性
 
-🔄 **配列との比較**
+ **配列との比較**
 - 配列: ランダムアクセスO(1)、固定サイズ
 - 連結リスト: 順次アクセスO(n)、動的サイズ
 - 配列: 挿入・削除O(n)（要素移動が必要）
 - 連結リスト: 先頭操作O(1)、ポインタ操作のみ
 
-🧠 **実装のポイント**
+ **実装のポイント**
 - ポインタの正確な操作
 - メモリリークの防止
 - エッジケースの処理（空リスト、単一ノード）

@@ -7,6 +7,7 @@
 
 "use client";
 
+import { BarChart3, Play, Settings, Star } from "lucide-react";
 import Link from "next/link";
 import React, { useState, useCallback } from "react";
 import { AlgorithmVisualizer } from "../../../components/algorithm/AlgorithmVisualizer";
@@ -143,9 +144,17 @@ export default function KruskalPage() {
 								<div className="text-green-600 dark:text-green-400 font-semibold text-sm">
 									難易度
 								</div>
-								<div className="text-lg font-bold text-yellow-600 dark:text-yellow-400">
-									{"★".repeat(algorithm.info.difficulty)}
-									{"☆".repeat(5 - algorithm.info.difficulty)}
+								<div className="flex justify-center gap-0.5">
+									{Array.from({ length: 5 }).map((_, i) => (
+										<Star
+											key={`star-${i}`}
+											className={`w-4 h-4 ${
+												i < algorithm.info.difficulty
+													? "fill-yellow-400 text-yellow-400"
+													: "text-gray-300 dark:text-gray-600"
+											}`}
+										/>
+									))}
 								</div>
 							</div>
 							<div className="text-center">
@@ -166,8 +175,9 @@ export default function KruskalPage() {
 					<div className="xl:col-span-1">
 						<div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 shadow-lg sticky top-4">
 							<div className="p-6">
-								<h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4">
-									⚙️ アルゴリズム設定
+								<h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4 flex items-center gap-2">
+									<Settings className="w-5 h-5" />
+									アルゴリズム設定
 								</h2>
 
 								{/* 現在の設定表示 */}
@@ -254,20 +264,27 @@ export default function KruskalPage() {
 									type="button"
 									onClick={executeAlgorithm}
 									disabled={isExecuting}
-									className={`w-full py-3 rounded-lg font-semibold transition-all duration-200 ${
+									className={`w-full py-3 rounded-lg font-semibold transition-all duration-200 flex items-center justify-center gap-2 ${
 										isExecuting
 											? "bg-gray-400 text-gray-700 cursor-not-allowed"
 											: "bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white shadow-lg hover:shadow-xl"
 									}`}
 								>
-									{isExecuting ? "実行中..." : "🚀 アルゴリズム実行"}
+									{isExecuting ? (
+										"実行中..."
+									) : (
+										<>
+											<Play className="w-4 h-4" />
+											アルゴリズム実行
+										</>
+									)}
 								</button>
 
 								{/* 結果表示 */}
 								{result && (
 									<div className="mt-6 p-4 bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 rounded-lg border border-green-200 dark:border-green-700">
 										<h3 className="font-bold text-green-900 dark:text-green-100 mb-3">
-											✨ 実行結果
+											実行結果
 										</h3>
 										{result.summary && (
 											<div className="space-y-2 text-sm">
@@ -325,7 +342,7 @@ export default function KruskalPage() {
 																className="bg-green-50 dark:bg-green-900/20 rounded p-3 text-sm border border-green-200 dark:border-green-700"
 															>
 																<span className="font-mono">
-																	{edge.from} ↔ {edge.to} (重み: {edge.weight})
+																	{edge.from} - {edge.to} (重み: {edge.weight})
 																</span>
 															</div>
 														),
@@ -339,7 +356,7 @@ export default function KruskalPage() {
 						) : (
 							<div className="bg-white dark:bg-gray-800 rounded-xl p-12 border border-gray-200 dark:border-gray-700 text-center mb-8">
 								<div className="text-gray-400 dark:text-gray-500 text-6xl mb-4">
-									📊
+									<BarChart3 className="w-16 h-16 mx-auto" />
 								</div>
 								<h3 className="text-xl font-semibold text-gray-600 dark:text-gray-400 mb-2">
 									アルゴリズムの可視化

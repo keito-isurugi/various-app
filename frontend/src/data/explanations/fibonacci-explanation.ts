@@ -20,7 +20,7 @@ export const fibonacciExplanation: ExplanationData = {
 	sections: [
 		{
 			id: "fibonacci-sequence-basics",
-			title: "🔢 フィボナッチ数列の基本",
+			title: "【数値】フィボナッチ数列の基本",
 			content:
 				"フィボナッチ数列は、最初の2つの数（通常0と1）を除いて、各数が前の2つの数の和となる数列です。この数列は13世紀のイタリアの数学者レオナルド・フィボナッチにちなんで名付けられました。自然界の多くの現象（花びらの数、貝殻の螺旋、植物の葉の配置など）でこのパターンが観察され、数学的美しさと実用性を兼ね備えています。",
 			importance: "high",
@@ -35,7 +35,7 @@ export const fibonacciExplanation: ExplanationData = {
 
 		{
 			id: "recursive-thinking",
-			title: "🔄 再帰的思考法の理解",
+			title: " 再帰的思考法の理解",
 			content:
 				"再帰とは、問題を同じ種類のより小さな問題に分解して解決する手法です。フィボナッチ数列では「F(n) = F(n-1) + F(n-2)」という定義そのものが再帰的です。この考え方により、複雑な問題を単純な基本ケース（ベースケース）まで分解できます。プログラミングでは、関数が自分自身を呼び出すことでこの概念を実現します。",
 			importance: "high",
@@ -49,7 +49,7 @@ export const fibonacciExplanation: ExplanationData = {
 
 		{
 			id: "base-case-importance",
-			title: "🛑 ベースケースの重要性",
+			title: " ベースケースの重要性",
 			content:
 				"再帰アルゴリズムでは、再帰呼び出しを停止する条件（ベースケース）が必須です。フィボナッチ数列では、F(0)=0、F(1)=1がベースケースとなります。これらがないと無限再帰に陥り、プログラムがクラッシュします。ベースケースは再帰の「出口」であり、問題を解決可能な最小単位まで分解した状態を表します。",
 			importance: "high",
@@ -63,7 +63,7 @@ export const fibonacciExplanation: ExplanationData = {
 
 		{
 			id: "call-stack-visualization",
-			title: "📚 コールスタックの動作",
+			title: "【基礎】コールスタックの動作",
 			content:
 				"再帰呼び出しは、メモリのスタック領域に関数呼び出しの情報を積み重ねていきます。フィボナッチ数列の計算では、各再帰呼び出しがスタックに追加され、ベースケースに到達すると逆順に結果が計算されて戻されます。この過程を理解することで、再帰アルゴリズムの実行メカニズムとメモリ使用量を把握できます。",
 			importance: "medium",
@@ -78,7 +78,7 @@ export const fibonacciExplanation: ExplanationData = {
 
 		{
 			id: "exponential-time-complexity",
-			title: "⚠️ 指数的計算量の問題",
+			title: "【注意】指数的計算量の問題",
 			content:
 				"純粋な再帰実装のフィボナッチ数列は、同じ計算を何度も繰り返すため、時間計算量がO(2^n)となります。これは非常に非効率で、n=40程度でも数秒から数十秒かかります。この問題を通して、アルゴリズムの効率性の重要性と、最適化手法（メモ化、動的プログラミング）の必要性を学ぶことができます。",
 			formula:
@@ -94,7 +94,7 @@ export const fibonacciExplanation: ExplanationData = {
 
 		{
 			id: "recursive-tree-structure",
-			title: "🌳 再帰ツリー構造",
+			title: " 再帰ツリー構造",
 			content:
 				"フィボナッチ数列の再帰呼び出しは、二分木のような構造を形成します。各ノードが関数呼び出しを表し、子ノードがその関数内での再帰呼び出しを表します。この視覚化により、なぜ計算量が指数的になるのか、どの計算が重複しているのかを直感的に理解できます。プログラムの実行過程を木構造で表現する重要な概念です。",
 			importance: "medium",
@@ -108,7 +108,7 @@ export const fibonacciExplanation: ExplanationData = {
 
 		{
 			id: "learning-objectives",
-			title: "🎯 学習目標と教育的価値",
+			title: "【ポイント】学習目標と教育的価値",
 			content:
 				"フィボナッチ数列の再帰実装は、コンピュータサイエンスの基礎概念を学ぶのに最適な教材です。再帰的思考、関数呼び出しの仕組み、スタックの動作、計算量の概念、アルゴリズムの最適化の必要性など、多くの重要な概念を一度に学習できます。また、理論と実践のギャップを体験し、効率的なアルゴリズム設計の重要性を実感できます。",
 			importance: "low",
@@ -123,7 +123,7 @@ export const fibonacciExplanation: ExplanationData = {
 
 		{
 			id: "optimization-approaches",
-			title: "🚀 最適化手法の紹介",
+			title: "【応用】最適化手法の紹介",
 			content:
 				"純粋な再帰実装の問題を解決するため、様々な最適化手法が存在します。メモ化（計算結果をキャッシュ）により時間計算量をO(n)に改善できます。動的プログラミングによるボトムアップ手法や、反復的な実装も効果的です。さらに高度な手法として、行列の累乗を使った O(log n) 解法も存在します。",
 			importance: "low",

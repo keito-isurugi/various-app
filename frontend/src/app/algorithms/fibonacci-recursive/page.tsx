@@ -7,6 +7,15 @@
 
 "use client";
 
+import {
+	AlertTriangle,
+	Binary,
+	BookOpen,
+	Code,
+	RefreshCw,
+	Settings,
+	Zap,
+} from "lucide-react";
 import Link from "next/link";
 import React, { useState, useCallback } from "react";
 import { AlgorithmVisualizer } from "../../../components/algorithm/AlgorithmVisualizer";
@@ -192,8 +201,9 @@ export default function FibonacciRecursivePage() {
 					{/* 入力パネル */}
 					<div className="xl:col-span-1">
 						<div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700 sticky top-4">
-							<h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">
-								🔧 実行設定
+							<h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4 flex items-center gap-2">
+								<Settings className="w-5 h-5" />
+								実行設定
 							</h3>
 
 							{/* 現在の設定表示 */}
@@ -216,7 +226,8 @@ export default function FibonacciRecursivePage() {
 								</div>
 								{currentN > 15 && (
 									<div className="mt-2 p-2 bg-yellow-100 dark:bg-yellow-900/30 rounded text-xs text-yellow-800 dark:text-yellow-200">
-										⚠️ n {">"} 15は実行に時間がかかります
+										<AlertTriangle className="w-3 h-3 inline" /> n {">"}{" "}
+										15は実行に時間がかかります
 									</div>
 								)}
 							</div>
@@ -252,8 +263,9 @@ export default function FibonacciRecursivePage() {
 
 							{/* 推奨値ボタン */}
 							<div className="space-y-2 mb-6">
-								<h4 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-									📚 推奨値
+								<h4 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 flex items-center gap-1">
+									<BookOpen className="w-4 h-4" />
+									推奨値
 								</h4>
 								<div className="grid grid-cols-2 gap-2">
 									{recommendedValues.slice(0, 8).map((rec) => (
@@ -277,7 +289,8 @@ export default function FibonacciRecursivePage() {
 							{/* フィボナッチ数列表示 */}
 							<div className="mb-6 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
 								<h4 className="text-sm font-medium text-blue-800 dark:text-blue-200 mb-2">
-									🔢 フィボナッチ数列
+									<Binary className="w-4 h-4" />
+									フィボナッチ数列
 								</h4>
 								<div className="text-xs text-blue-700 dark:text-blue-300 font-mono">
 									{FibonacciRecursiveAlgorithm.generateSequence(
@@ -294,13 +307,20 @@ export default function FibonacciRecursivePage() {
 								type="button"
 								onClick={executeAlgorithm}
 								disabled={isExecuting}
-								className={`w-full py-3 rounded-lg font-semibold transition-all duration-200 ${
+								className={`w-full py-3 rounded-lg font-semibold transition-all duration-200 flex items-center justify-center gap-2 ${
 									isExecuting
 										? "bg-gray-400 text-gray-700 cursor-not-allowed"
 										: "bg-gradient-to-r from-yellow-600 to-orange-600 hover:from-yellow-700 hover:to-orange-700 text-white shadow-lg hover:shadow-xl"
 								}`}
 							>
-								{isExecuting ? "実行中..." : "🔄 フィボナッチ計算実行"}
+								{isExecuting ? (
+									"実行中..."
+								) : (
+									<>
+										<RefreshCw className="w-4 h-4" />
+										フィボナッチ計算実行
+									</>
+								)}
 							</button>
 
 							{/* 結果表示 */}
@@ -346,7 +366,9 @@ export default function FibonacciRecursivePage() {
 							<AlgorithmVisualizer steps={result.steps} className="mb-8" />
 						) : (
 							<div className="bg-white dark:bg-gray-800 rounded-xl p-12 border border-gray-200 dark:border-gray-700 text-center mb-8">
-								<div className="text-6xl mb-4">🔄</div>
+								<div className="text-6xl mb-4">
+									<RefreshCw className="w-16 h-16 mx-auto text-purple-500" />
+								</div>
 								<h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-2">
 									アルゴリズムを実行してください
 								</h3>
@@ -370,8 +392,9 @@ export default function FibonacciRecursivePage() {
 				{/* コード例セクション */}
 				<section className="mt-12">
 					<div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700">
-						<h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">
-							💻 実装例（JavaScript）
+						<h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4 flex items-center gap-2">
+							<Code className="w-5 h-5" />
+							実装例（JavaScript）
 						</h3>
 						<div className="bg-gray-900 rounded-lg p-6 overflow-x-auto">
 							<pre className="text-sm text-gray-100">
@@ -413,8 +436,9 @@ console.log(generateFibonacciSequence(10));
 				{/* 最適化の提案セクション */}
 				<section className="mt-12">
 					<div className="bg-gradient-to-r from-red-50 to-orange-50 dark:from-red-900/20 dark:to-orange-900/20 rounded-xl p-6 border border-red-200 dark:border-red-700">
-						<h3 className="text-xl font-semibold text-red-900 dark:text-red-100 mb-4">
-							⚡ 最適化の必要性
+						<h3 className="text-xl font-semibold text-red-900 dark:text-red-100 mb-4 flex items-center gap-2">
+							<Zap className="w-5 h-5" />
+							最適化の必要性
 						</h3>
 						<div className="grid md:grid-cols-2 gap-6">
 							<div>

@@ -204,7 +204,7 @@ export class FibonacciDPAlgorithm implements Algorithm {
 			// 計算完了のステップ
 			this.steps.push({
 				id: this.stepId++,
-				description: `✅ F(${i}) = ${newValue} を保存`,
+				description: `F(${i}) = ${newValue} を保存`,
 				array: this.dpTable.map((item) => item.value),
 				operation: "値を保存",
 				variables: {
@@ -231,7 +231,7 @@ export class FibonacciDPAlgorithm implements Algorithm {
 		// 完了ステップ
 		this.steps.push({
 			id: this.stepId++,
-			description: `🎉 計算完了！F(${n}) = ${result}`,
+			description: ` 計算完了！F(${n}) = ${result}`,
 			array: this.dpTable.map((item) => item.value),
 			operation: "完了",
 			variables: {
@@ -274,38 +274,38 @@ export class FibonacciDPAlgorithm implements Algorithm {
 		return `
 フィボナッチ数列（動的計画法）は、再帰版の非効率性を解決する最適化手法です。
 
-🎯 **動的計画法とは**
+【ポイント】**動的計画法とは**
 - 部分問題の解を保存して再利用
 - 重複計算を回避する最適化手法
 - ボトムアップまたはトップダウンで実装
 
-📊 **ボトムアップ方式**
+【解析】**ボトムアップ方式**
 - 小さい問題から順に解く
 - 配列（DPテーブル）に結果を保存
 - 必要な値が既に計算済み
 
-💡 **実装の特徴**
+【ヒント】**実装の特徴**
 - 時間計算量: O(n) - 線形時間
 - 空間計算量: O(n) - 配列サイズ
 - 各値を一度だけ計算
 
-🔄 **アルゴリズムの流れ**
+ **アルゴリズムの流れ**
 1. DPテーブルを初期化
 2. ベースケース（F(0)=0, F(1)=1）を設定
 3. F(2)からF(n)まで順番に計算
 4. 各ステップで以前の2つの値を使用
 
-⚖️ **再帰版との比較**
+【比較】**再帰版との比較**
 - 再帰版: O(2^n) 時間、重複計算多数
 - DP版: O(n) 時間、各値を一度だけ計算
 - n=40: 再帰版は約10億回、DP版は40回
 
-🚀 **さらなる最適化**
+【応用】**さらなる最適化**
 - 空間計算量をO(1)に削減可能
 - 必要なのは直前の2つの値のみ
 - 変数2つで実装可能
 
-📚 **学習価値**
+【基礎】**学習価値**
 - 最適化の重要性を理解
 - メモ化の概念を習得
 - 効率的なアルゴリズム設計

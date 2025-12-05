@@ -7,6 +7,18 @@
 
 "use client";
 
+import {
+	CheckCircle,
+	ChevronLeft,
+	ChevronRight,
+	Circle,
+	Pause,
+	Play,
+	RotateCcw,
+	Search,
+	Target,
+	XCircle,
+} from "lucide-react";
 import type React from "react";
 import { useCallback, useEffect, useState } from "react";
 import type {
@@ -179,18 +191,20 @@ export const AlgorithmVisualizer: React.FC<AlgorithmVisualizerProps> = ({
 	/**
 	 * 状態表示のアイコンを取得
 	 */
-	const getStateIcon = (state: VisualizationElement["state"]): string => {
+	const getStateIcon = (
+		state: VisualizationElement["state"],
+	): React.ReactNode => {
 		switch (state) {
 			case "comparing":
-				return "🔍";
+				return <Search className="w-4 h-4 inline" />;
 			case "found":
-				return "✅";
+				return <CheckCircle className="w-4 h-4 inline text-green-500" />;
 			case "searching":
-				return "🎯";
+				return <Target className="w-4 h-4 inline" />;
 			case "excluded":
-				return "❌";
+				return <XCircle className="w-4 h-4 inline text-red-500" />;
 			default:
-				return "⚪";
+				return <Circle className="w-4 h-4 inline text-gray-400" />;
 		}
 	};
 
@@ -297,7 +311,8 @@ export const AlgorithmVisualizer: React.FC<AlgorithmVisualizerProps> = ({
 						className="px-3 py-2 bg-gray-500 hover:bg-gray-600 text-white rounded-lg transition-colors disabled:opacity-50 cursor-pointer"
 						aria-label="リセット"
 					>
-						⏮️ リセット
+						<RotateCcw className="w-4 h-4 inline mr-1" />
+						リセット
 					</button>
 
 					<button
@@ -307,7 +322,8 @@ export const AlgorithmVisualizer: React.FC<AlgorithmVisualizerProps> = ({
 						className="px-3 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition-colors disabled:opacity-50 cursor-pointer"
 						aria-label="前のステップ"
 					>
-						⏪ 前へ
+						<ChevronLeft className="w-4 h-4 inline mr-1" />
+						前へ
 					</button>
 
 					<button
@@ -319,7 +335,17 @@ export const AlgorithmVisualizer: React.FC<AlgorithmVisualizerProps> = ({
 								: "bg-green-500 hover:bg-green-600"
 						}`}
 					>
-						{executionState.autoPlay ? "⏸️ 停止" : "▶️ 自動実行"}
+						{executionState.autoPlay ? (
+							<>
+								<Pause className="w-4 h-4 inline mr-1" />
+								停止
+							</>
+						) : (
+							<>
+								<Play className="w-4 h-4 inline mr-1" />
+								自動実行
+							</>
+						)}
 					</button>
 
 					<button
@@ -329,7 +355,8 @@ export const AlgorithmVisualizer: React.FC<AlgorithmVisualizerProps> = ({
 						className="px-3 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition-colors disabled:opacity-50 cursor-pointer"
 						aria-label="次のステップ"
 					>
-						次へ ⏩
+						次へ
+						<ChevronRight className="w-4 h-4 inline ml-1" />
 					</button>
 				</div>
 

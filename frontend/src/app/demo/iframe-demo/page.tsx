@@ -169,7 +169,7 @@ export default function IframeDemoPage() {
 
 					<div className="bg-white p-4 rounded mb-4">
 						<p className="text-sm text-red-600 font-semibold mb-2">
-							⚠️ このiframeは正常に表示されません
+							【注意】このiframeは正常に表示されません
 						</p>
 						<div className="border-2 border-red-300 rounded overflow-hidden bg-gray-100">
 							<iframe
@@ -184,7 +184,7 @@ export default function IframeDemoPage() {
 
 					<div className="bg-white p-4 rounded mb-4">
 						<p className="text-sm text-red-600 font-semibold mb-2">
-							⚠️ このiframeは正常に表示されません2
+							【注意】このiframeは正常に表示されません2
 						</p>
 						<div className="border-2 border-red-300 rounded overflow-hidden bg-gray-100">
 							<iframe

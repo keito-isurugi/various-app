@@ -20,7 +20,7 @@ export const modBasicExplanation: ExplanationData = {
 	sections: [
 		{
 			id: "mathematical-foundation",
-			title: "📐 数学的基礎と定義",
+			title: " 数学的基礎と定義",
 			content:
 				"mod計算は「a mod m = r」という形で表現され、これは「aをmで割った余りがr」という意味です。数学的には、a = q×m + r（0 ≤ r < m）の関係で定義されます。ここでqは商、rは余りです。例えば、17 mod 5 = 2 は、17 = 3×5 + 2 を意味します。この演算は、数論における合同関係の基礎となり、「a ≡ b (mod m)」（aとbはmを法として合同）という概念につながります。",
 			importance: "high",
@@ -34,7 +34,7 @@ export const modBasicExplanation: ExplanationData = {
 
 		{
 			id: "basic-properties",
-			title: "🔧 基本的な性質と法則",
+			title: "【実装】基本的な性質と法則",
 			content:
 				"mod演算は多くの重要な性質を持ちます。加法性質：(a + b) mod m = ((a mod m) + (b mod m)) mod m、乗法性質：(a × b) mod m = ((a mod m) × (b mod m)) mod m、分配法則：(a × (b + c)) mod m = ((a × b) + (a × c)) mod m。これらの性質により、大きな数の計算を効率化できます。また、べき乗についても (a^n) mod m の形で表現でき、特に高速べき乗アルゴリズムの基礎となります。",
 			importance: "high",
@@ -50,7 +50,7 @@ export const modBasicExplanation: ExplanationData = {
 
 		{
 			id: "fast-exponentiation",
-			title: "⚡ 高速べき乗計算",
+			title: "【計算量】高速べき乗計算",
 			content:
 				"a^n mod m を効率的に計算する高速べき乗アルゴリズムは、指数nを二進法で表現し、「二乗して削減」という手法を用います。ナイーブな方法ではO(n)回の乗算が必要ですが、高速べき乗ではO(log n)回に削減できます。例えば3^13の計算では、13 = 8 + 4 + 1 = 2^3 + 2^2 + 2^0 として分解し、3^8, 3^4, 3^1を計算して組み合わせます。これは暗号学において大きな指数での計算を実用的にする重要な技術です。",
 			importance: "high",
@@ -66,7 +66,7 @@ export const modBasicExplanation: ExplanationData = {
 
 		{
 			id: "modular-inverse",
-			title: "🔄 モジュラ逆元",
+			title: " モジュラ逆元",
 			content:
 				"モジュラ逆元は、「a × x ≡ 1 (mod m)」を満たすxのことです。これは通常の除法に相当する概念で、暗号学において重要な役割を果たします。逆元が存在する条件は gcd(a, m) = 1、つまりaとmが互いに素であることです。計算には拡張ユークリッドの互除法を使用し、時間計算量はO(log m)です。例えば、3の7を法とする逆元は5で、3×5 = 15 ≡ 1 (mod 7) が成り立ちます。",
 			importance: "medium",
@@ -80,7 +80,7 @@ export const modBasicExplanation: ExplanationData = {
 
 		{
 			id: "cryptographic-applications",
-			title: "🔐 暗号学での応用",
+			title: " 暗号学での応用",
 			content:
 				"mod計算は現代暗号学の基盤技術です。RSA暗号では、大きな素数を法とするmod演算により公開鍵暗号を実現します。楕円曲線暗号では有限体上の演算として使用され、ディフィー・ヘルマン鍵交換では離散対数問題の困難性を利用します。これらの暗号方式の安全性は、大きな数でのmod計算の一方向性（計算は簡単だが逆算は困難）に依存しています。また、ハッシュ関数の設計においても重要な役割を果たします。",
 			importance: "low",
@@ -94,7 +94,7 @@ export const modBasicExplanation: ExplanationData = {
 
 		{
 			id: "computational-efficiency",
-			title: "🚀 計算効率と最適化",
+			title: "【応用】計算効率と最適化",
 			content:
 				"mod計算の効率性は、使用するアルゴリズムと実装方法に大きく依存します。基本的なmod演算はO(1)ですが、べき乗計算では高速べき乗によりO(log n)を実現できます。大きな数での計算では、モンゴメリ算法やバレット・リダクションなどの特殊な技法が使用されます。また、並列計算やハードウェア実装により、さらなる高速化が可能です。実装時には整数オーバーフローの回避も重要な考慮事項となります。",
 			importance: "medium",
@@ -108,7 +108,7 @@ export const modBasicExplanation: ExplanationData = {
 
 		{
 			id: "number-theory-connections",
-			title: "🔢 数論との関連",
+			title: "【数値】数論との関連",
 			content:
 				"mod計算は数論の多くの概念と深く関連しています。フェルマーの小定理（pが素数のとき a^(p-1) ≡ 1 (mod p)）、オイラーの定理（φ(n)はオイラー関数）、中国剰余定理などの重要な定理の基礎となります。素数判定アルゴリズム（ミラー・ラビン判定法など）や因数分解アルゴリズムでも中核的な役割を果たします。これらの数論的性質は、暗号学の安全性証明や効率的なアルゴリズム設計において不可欠です。",
 			importance: "medium",
@@ -122,7 +122,7 @@ export const modBasicExplanation: ExplanationData = {
 
 		{
 			id: "practical-implementations",
-			title: "💻 実装上の考慮事項",
+			title: " 実装上の考慮事項",
 			content:
 				"mod計算の実装では、いくつかの重要な点に注意が必要です。負数のmod演算は言語により異なる結果を返すことがあるため、常に正の余りを得るための調整が必要です。大きな数の計算では整数オーバーフローを避けるため、計算途中でmodを取る必要があります。また、ゼロ除算の回避、適切な型選択（32bit vs 64bit整数）、浮動小数点数との使い分けも重要です。パフォーマンスが重要な場合は、ビット演算を活用した最適化も検討されます。",
 			importance: "medium",
@@ -136,7 +136,7 @@ export const modBasicExplanation: ExplanationData = {
 
 		{
 			id: "hash-functions",
-			title: "🔗 ハッシュ関数への応用",
+			title: "【連携】ハッシュ関数への応用",
 			content:
 				"mod計算はハッシュ関数の設計において重要な役割を果たします。ハッシュテーブルのインデックス計算、チェックサム算出、分散システムでの一貫性ハッシュなど、様々な場面で使用されます。良いハッシュ関数は、入力データを均等に分散させる性質を持ち、これはmod演算の性質を巧みに利用しています。暗号学的ハッシュ関数（SHA-256など）でも、内部的にmod演算が多用されており、安全性と効率性の両立に貢献しています。",
 			importance: "low",
@@ -150,7 +150,7 @@ export const modBasicExplanation: ExplanationData = {
 
 		{
 			id: "distributed-systems",
-			title: "🌐 分散システムでの活用",
+			title: " 分散システムでの活用",
 			content:
 				"分散システムにおいて、mod計算は負荷分散、データ分散、ノード選択などの重要な機能を提供します。一貫性ハッシュでは、mod演算によりデータを複数のノードに均等に分散させます。分散ID生成では、mod演算により重複のない一意な識別子を生成します。また、分散合意アルゴリズムやレプリケーション戦略でも、mod演算による順序付けや選択が活用されます。これらの応用により、スケーラブルで信頼性の高い分散システムが実現されています。",
 			importance: "low",
@@ -164,7 +164,7 @@ export const modBasicExplanation: ExplanationData = {
 
 		{
 			id: "educational-value",
-			title: "📚 学習価値と発展性",
+			title: "【基礎】学習価値と発展性",
 			content:
 				"mod計算の学習は、数学的思考力とプログラミングスキルの両方を向上させる優れた教材です。抽象的な数学概念を具体的なアルゴリズムとして実装することで、理論と実践の橋渡しができます。効率的なアルゴリズム設計の考え方、最適化技法、複雑度解析などの重要概念も学べます。さらに、現代社会を支える暗号技術への理解の入り口としても価値があり、情報セキュリティやプライバシー保護への関心を高める効果も期待できます。",
 			importance: "low",
@@ -178,7 +178,7 @@ export const modBasicExplanation: ExplanationData = {
 
 		{
 			id: "common-pitfalls",
-			title: "⚠️ よくある間違いと注意点",
+			title: "【注意】よくある間違いと注意点",
 			content:
 				"mod計算の実装や使用において、いくつかの典型的な間違いがあります。負数のmod演算では、言語によって異なる結果が得られる場合があるため、常に正の結果を得るための調整が必要です。大きな数の計算では、オーバーフローを避けるため計算途中でmodを適用することが重要です。また、mod 0による除算エラー、浮動小数点数での精度問題、効率的でないアルゴリズムの選択なども注意が必要です。これらの問題を理解し適切に対処することで、信頼性の高い実装が可能になります。",
 			importance: "medium",

@@ -20,7 +20,7 @@ export const lcmBasicExplanation: ExplanationData = {
 	sections: [
 		{
 			id: "problem-definition",
-			title: "🎯 最小公倍数の定義",
+			title: "【ポイント】最小公倍数の定義",
 			content:
 				"最小公倍数（Least Common Multiple, LCM）は、与えられた2つ以上の整数のすべての倍数である正の整数のうち、最小のものです。例えば、12と8の公倍数は24, 48, 72, ...ですが、この中で最小の24がLCM(12,8)となります。LCMは分数の計算、周期的現象の分析、プログラミングでのデータ構造の最適化など、数学と情報科学の多くの分野で重要な役割を果たします。",
 			importance: "high",
@@ -34,7 +34,7 @@ export const lcmBasicExplanation: ExplanationData = {
 
 		{
 			id: "mathematical-relationship",
-			title: "🔗 GCDとの数学的関係",
+			title: "【連携】GCDとの数学的関係",
 			content:
 				"LCMとGCD（最大公約数）の間には重要な数学的関係があります：LCM(a,b) × GCD(a,b) = a × b。この関係により、GCDを効率的に求めるユークリッドの互除法を利用して、LCMも効率的に計算できます。つまり、LCM(a,b) = (a × b) / GCD(a,b)として計算できるため、時間計算量はGCDと同じO(log n)となります。",
 			importance: "high",
@@ -50,7 +50,7 @@ export const lcmBasicExplanation: ExplanationData = {
 
 		{
 			id: "efficient-algorithm",
-			title: "⚡ 効率的なアルゴリズム",
+			title: "【計算量】効率的なアルゴリズム",
 			content:
 				"LCMの計算は、素朴な方法（両方の倍数を順番に調べる）では時間がかかりますが、GCDとの関係を利用すると効率的になります。ユークリッドの互除法でGCDを求め、その結果を使ってLCMを計算します。この方法の時間計算量はO(log n)で、大きな数でも高速に計算できます。また、オーバーフロー対策として、除算を先に行う実装も重要です。",
 			importance: "high",
@@ -64,7 +64,7 @@ export const lcmBasicExplanation: ExplanationData = {
 
 		{
 			id: "implementation-considerations",
-			title: "💻 実装上の考慮点",
+			title: " 実装上の考慮点",
 			content:
 				"LCMの実装では、オーバーフローに注意が必要です。a × b を先に計算すると、結果は収まってもその中間結果がオーバーフローする可能性があります。これを避けるため、(a / GCD(a,b)) × b の順序で計算するか、BigIntなどの大整数ライブラリを使用します。また、0との最小公倍数は数学的に定義されないため、入力検証も重要です。",
 			importance: "medium",
@@ -78,7 +78,7 @@ export const lcmBasicExplanation: ExplanationData = {
 
 		{
 			id: "multiple-numbers",
-			title: "🔢 複数の数のLCM",
+			title: "【数値】複数の数のLCM",
 			content:
 				"3つ以上の数のLCMは、2つずつ順番に計算することで求められます。LCM(a,b,c) = LCM(LCM(a,b),c) のように、結合法則が成り立ちます。配列の場合、reduceメソッドを使って効率的に実装できます。計算順序は結果に影響しませんが、途中でオーバーフローが起きにくい順序を選ぶことが実用上重要です。",
 			importance: "medium",
@@ -92,7 +92,7 @@ export const lcmBasicExplanation: ExplanationData = {
 
 		{
 			id: "real-world-applications",
-			title: "🌍 実世界での応用",
+			title: " 実世界での応用",
 			content:
 				"LCMは様々な実用的場面で活用されます。分数の通分では、分母のLCMを共通分母として使用します。音楽では異なるリズムパターンの同期に使われ、プログラミングでは配列のサイズ調整や周期的タスクのスケジューリングに応用されます。また、信号処理では異なるサンプリング周波数の同期や、データベースでのバッチ処理の最適化にも使用されます。",
 			importance: "low",
@@ -106,7 +106,7 @@ export const lcmBasicExplanation: ExplanationData = {
 
 		{
 			id: "mathematical-properties",
-			title: "📐 数学的性質",
+			title: " 数学的性質",
 			content:
 				"LCMには多くの重要な数学的性質があります。交換法則（LCM(a,b) = LCM(b,a)）、結合法則（LCM(a,LCM(b,c)) = LCM(LCM(a,b),c)）が成り立ちます。また、LCM(a,b) ≥ max(a,b)で、等号は一方が他方の倍数の場合に成立します。互いに素な数の場合、LCMは積と等しくなります。これらの性質を理解することで、計算の最適化や結果の検証に活用できます。",
 			importance: "medium",
@@ -120,7 +120,7 @@ export const lcmBasicExplanation: ExplanationData = {
 
 		{
 			id: "comparison-with-gcd",
-			title: "⚖️ GCDとの比較",
+			title: "【比較】GCDとの比較",
 			content:
 				"LCMとGCDは相補的な関係にあります。GCDは最大の共通因数を求める「下向き」の操作で、LCMは最小の共通倍数を求める「上向き」の操作です。両者とも同じユークリッドの互除法を基盤とし、同じ時間計算量O(log n)を持ちます。用途も相補的で、GCDは約分や因数分解に、LCMは通分や同期に使用されます。",
 			importance: "low",
@@ -134,7 +134,7 @@ export const lcmBasicExplanation: ExplanationData = {
 
 		{
 			id: "learning-progression",
-			title: "📚 学習の進め方",
+			title: "【基礎】学習の進め方",
 			content:
 				"LCMの学習は、まず基本概念と手計算による理解から始めます。次にGCDとの関係を学び、効率的なアルゴリズムを理解します。実装では、基本版から始めてオーバーフロー対策、複数の数への拡張と段階的に進めます。最後に実際の応用例（分数計算、周期問題など）を通じて、理論と実践の橋渡しを行います。",
 			importance: "low",

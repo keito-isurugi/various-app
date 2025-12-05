@@ -20,7 +20,7 @@ export const arrayReverseExplanation: ExplanationData = {
 	sections: [
 		{
 			id: "reverse-concept",
-			title: "🔄 配列逆順の基本概念",
+			title: " 配列逆順の基本概念",
 			content:
 				"配列の逆順とは、配列の要素を末尾から先頭の順序に並び替える操作です。例えば[1, 2, 3, 4, 5]を[5, 4, 3, 2, 1]に変換します。この操作は通常、両端の要素を交換し、徐々に中央に向かって処理を進めることで実現されます。再帰的な実装では、「最初と最後の要素を交換して、残りの部分配列に対して同じ処理を再帰的に適用する」という考え方を使います。この分割統治のアプローチにより、複雑な問題を小さな同種の問題に分解する再帰的思考を学習できます。",
 			importance: "high",
@@ -35,13 +35,13 @@ export const arrayReverseExplanation: ExplanationData = {
 
 		{
 			id: "recursive-approach",
-			title: "🧠 再帰的アプローチの設計",
+			title: " 再帰的アプローチの設計",
 			content:
 				"配列の逆順を再帰的に実装する際の核心は、「部分問題への分解」です。reverse(array, start, end)という関数で、startからendまでの範囲を逆順にします。アルゴリズムは、①array[start]とarray[end]を交換、②reverse(array, start+1, end-1)を再帰呼び出し、という2ステップで構成されます。ベースケースはstart >= endで、この時点で処理が完了します。この設計により、問題サイズが毎回2ずつ減少し、最終的に空の範囲または1要素の範囲まで分解されます。",
 			importance: "high",
 			examples: [
 				"関数定義: reverse(array, start, end)",
-				"ステップ1: array[start] ↔ array[end] を交換",
+				"ステップ1: array[start] <-> array[end] を交換",
 				"ステップ2: reverse(array, start+1, end-1) を呼び出し",
 				"ベースケース: start >= end なら処理終了",
 				"例: reverse([1,2,3,4,5], 0, 4) → ... → 完了",
@@ -50,7 +50,7 @@ export const arrayReverseExplanation: ExplanationData = {
 
 		{
 			id: "linear-recursion-pattern",
-			title: "📏 線形再帰パターンの理解",
+			title: " 線形再帰パターンの理解",
 			content:
 				"配列の逆順は線形再帰の典型例です。各再帰呼び出しで問題サイズが一定量（2）減少し、再帰の深さは配列長の半分になります。これは階乗計算の線形再帰と似ていますが、2つの境界を持つ点が特徴的です。フィボナッチ数列のような指数的再帰とは異なり、各段階で1回の再帰呼び出ししか発生しないため、計算量は線形になります。この線形再帰パターンは、多くの分割統治アルゴリズムの基礎となる重要な概念です。",
 			importance: "high",
@@ -65,7 +65,7 @@ export const arrayReverseExplanation: ExplanationData = {
 
 		{
 			id: "inplace-vs-copy",
-			title: "🔄 インプレース操作 vs コピー操作",
+			title: " インプレース操作 vs コピー操作",
 			content:
 				"配列の逆順には2つの実装アプローチがあります。インプレース操作は元の配列を直接変更し、メモリ効率が良いです。コピー操作は新しい配列を作成し、元の配列を保持します。再帰実装では通常インプレース操作を使用しますが、教育目的ではコピー操作も有用です。インプレース操作はO(1)の追加メモリ（再帰スタック除く）を使用し、コピー操作はO(n)の追加メモリを使用します。実用的にはインプレース操作が推奨されますが、関数型プログラミングではコピー操作が好まれます。",
 			importance: "medium",
@@ -80,7 +80,7 @@ export const arrayReverseExplanation: ExplanationData = {
 
 		{
 			id: "time-space-complexity",
-			title: "⏱️ 時間・空間計算量の分析",
+			title: "️ 時間・空間計算量の分析",
 			content:
 				"配列の逆順（再帰）の時間計算量はO(n)です。n/2回の再帰呼び出しが発生し、各呼び出しで定数時間の要素交換を行います。空間計算量もO(n)で、これは再帰呼び出しによるスタック使用量です。実際の再帰の深さはn/2なので、正確にはO(n/2) = O(n)です。反復実装と比較すると、時間計算量は同じO(n)ですが、再帰実装は追加のスタック領域O(n)を使用します。このため、実用的には反復実装が推奨されますが、教育的価値は再帰実装の方が高いです。",
 			formula:
@@ -97,7 +97,7 @@ export const arrayReverseExplanation: ExplanationData = {
 
 		{
 			id: "base-case-analysis",
-			title: "🛑 ベースケースの詳細分析",
+			title: " ベースケースの詳細分析",
 			content:
 				"配列逆順の再帰実装では、ベースケースの設計が重要です。start >= endという条件で再帰を停止します。これは、①start == endの場合（奇数長配列の中央要素）と②start > endの場合（偶数長配列で交差）の両方をカバーします。奇数長配列では中央要素は交換不要で、偶数長配列では全要素が交換対象となります。このベースケースにより、配列の長さに関係なく正しく動作し、無限再帰も防止されます。適切なベースケース設計は、再帰アルゴリズムの正確性と効率性に直結する重要な要素です。",
 			importance: "medium",
@@ -112,7 +112,7 @@ export const arrayReverseExplanation: ExplanationData = {
 
 		{
 			id: "educational-value",
-			title: "🎓 教育的価値と学習効果",
+			title: " 教育的価値と学習効果",
 			content:
 				"配列の逆順（再帰）は、実用性は低いものの教育的価値が非常に高いアルゴリズムです。線形再帰の理解、配列操作の基礎、分割統治の考え方を学習できます。また、ベースケースの設計、境界条件の処理、インデックス操作の注意点など、プログラミングの基本概念を包括的に学べます。再帰とループの比較を通じて、アルゴリズム選択の判断力も養えます。さらに、視覚的に理解しやすい操作なので、再帰の動作メカニズムを直感的に把握するのに適しています。",
 			importance: "medium",
@@ -127,7 +127,7 @@ export const arrayReverseExplanation: ExplanationData = {
 
 		{
 			id: "practical-applications",
-			title: "🔧 実用的な応用と発展",
+			title: "【実装】実用的な応用と発展",
 			content:
 				"配列の逆順そのものは実用性が限定的ですが、同様の再帰パターンは多くの実用的アルゴリズムで活用されます。文字列の回文判定、配列の部分範囲操作、分割統治ソート（マージソート、クイックソート）の境界処理などで類似の技法が使用されます。また、木構造の操作、グラフの探索、動的プログラミングでも同様の再帰パターンが頻繁に現れます。この基本パターンを理解することで、より複雑なアルゴリズムの理解と実装が容易になります。教育的には、再帰思考の訓練として非常に有効です。",
 			importance: "low",
@@ -142,7 +142,7 @@ export const arrayReverseExplanation: ExplanationData = {
 
 		{
 			id: "common-pitfalls",
-			title: "⚠️ よくある間違いと注意点",
+			title: "【注意】よくある間違いと注意点",
 			content:
 				"配列逆順の再帰実装でよくある間違いには、①インデックス境界の誤り、②ベースケース条件の不備、③要素交換ロジックの間違いなどがあります。特にstart >= endの条件を正しく設定しないと無限再帰が発生します。また、要素交換時の一時変数の使用を忘れると値が正しく交換されません。配列の境界外アクセスや、再帰の深さが深すぎることによるスタックオーバーフローにも注意が必要です。これらの問題を理解することで、より堅牢な再帰アルゴリズムを実装できるようになります。",
 			importance: "medium",

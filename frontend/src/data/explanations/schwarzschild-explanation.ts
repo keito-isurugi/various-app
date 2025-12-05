@@ -20,7 +20,7 @@ export const schwarzschildExplanation: ExplanationData = {
 	sections: [
 		{
 			id: "basic-concept",
-			title: "🌌 ブラックホールって何？",
+			title: " ブラックホールって何？",
 			content:
 				"ブラックホールは、重力が非常に強い天体です。想像してみてください：地球上では、ボールを投げ上げると重力で落ちてきますが、十分な速度で投げれば宇宙空間に飛んでいきます。しかし、ブラックホールの周りでは、光の速度でも脱出できないほど重力が強いのです。",
 			importance: "high",
@@ -33,7 +33,7 @@ export const schwarzschildExplanation: ExplanationData = {
 
 		{
 			id: "event-horizon",
-			title: "🔮 事象の地平面（イベントホライゾン）",
+			title: " 事象の地平面（イベントホライゾン）",
 			content:
 				"事象の地平面は、ブラックホールの「境界線」です。この境界を越えると、どんなものでも外に出ることができません。シュワルツシルト半径は、この境界線までの距離を表します。船が滝から落ちる瞬間の「引き返せない地点」のようなものです。",
 			importance: "high",
@@ -46,7 +46,7 @@ export const schwarzschildExplanation: ExplanationData = {
 
 		{
 			id: "formula-explanation",
-			title: "📐 計算式の意味",
+			title: " 計算式の意味",
 			content:
 				"シュワルツシルト半径は Rs = 2GM/c² という式で計算されます。ここで、Gは重力の強さを表す定数、Mは物体の質量（重さ）、cは光の速度です。つまり、物体が重いほど（質量が大きいほど）、シュワルツシルト半径も大きくなります。",
 			formula:
@@ -61,7 +61,7 @@ export const schwarzschildExplanation: ExplanationData = {
 
 		{
 			id: "real-examples",
-			title: "🌟 実際の例で理解しよう",
+			title: " 実際の例で理解しよう",
 			content:
 				"身近な物体がブラックホールになったらどのくらいの大きさになるか見てみましょう。例えば、太陽がブラックホールになると、半径は約3kmになります。これは山手線の内側程度の大きさです。地球の場合は、なんと約9mm（1円玉程度）になってしまいます！",
 			importance: "high",
@@ -74,7 +74,7 @@ export const schwarzschildExplanation: ExplanationData = {
 
 		{
 			id: "why-important",
-			title: "🤔 なぜ重要なの？",
+			title: " なぜ重要なの？",
 			content:
 				"シュワルツシルト半径を知ることで、宇宙の極限状態を理解できます。実際のブラックホールの研究、重力波の検出、宇宙の進化の解明などに役立ちます。また、アインシュタインの相対性理論を実際に体験できる数少ない計算の一つでもあります。",
 			importance: "medium",
@@ -87,7 +87,7 @@ export const schwarzschildExplanation: ExplanationData = {
 
 		{
 			id: "misconceptions",
-			title: "❌ よくある誤解",
+			title: "よくある誤解",
 			content:
 				"「ブラックホールは宇宙の掃除機」「近づくと吸い込まれる」という表現をよく聞きますが、実際は違います。ブラックホールも普通の天体と同じように、十分な距離を保って公転すれば安全です。太陽がブラックホールになっても、地球の軌道は変わりません。",
 			importance: "low",

@@ -20,7 +20,7 @@ export const binarySearchExplanation: ExplanationData = {
 	sections: [
 		{
 			id: "basic-concept",
-			title: "📚 基本的な考え方",
+			title: "【基礎】基本的な考え方",
 			content:
 				"二分探索の考え方は、普段私たちが辞書で単語を探すときと全く同じです。辞書で「Programming」という単語を探すとき、最初からページをめくったりしませんよね？まず真ん中あたりを開いて、目的の単語がそれより前にあるか後にあるかを判断し、該当する半分でさらに同じことを繰り返します。",
 			importance: "high",
@@ -33,7 +33,7 @@ export const binarySearchExplanation: ExplanationData = {
 
 		{
 			id: "algorithm-steps",
-			title: "🔄 アルゴリズムの手順",
+			title: " アルゴリズムの手順",
 			content:
 				"二分探索は以下の簡単な手順を繰り返します：1) 配列の中央要素を見る、2) 目標値と比較する、3) 目標値が小さければ左半分、大きければ右半分を選ぶ、4) 選んだ半分で同じ処理を繰り返す。このシンプルな手順だけで、非常に効率的な検索が実現できます。",
 			importance: "high",
@@ -46,7 +46,7 @@ export const binarySearchExplanation: ExplanationData = {
 
 		{
 			id: "time-complexity",
-			title: "⚡ なぜこんなに速いの？",
+			title: "【計算量】なぜこんなに速いの？",
 			content:
 				"二分探索の驚くべき効率性は「毎回半分に減る」ことにあります。1000個の要素があっても、1回目で500個、2回目で250個、3回目で125個...と減っていき、最大でも10回程度の比較で見つかります。これを数学的には「対数時間 O(log n)」と表現します。",
 			formula:
@@ -61,7 +61,7 @@ export const binarySearchExplanation: ExplanationData = {
 
 		{
 			id: "prerequisite",
-			title: "📋 重要な前提条件",
+			title: " 重要な前提条件",
 			content:
 				"二分探索には重要な前提条件があります：「配列がソートされていること」です。これは辞書が50音順やアルファベット順になっているのと同じ理由です。順序がバラバラだと、中央の要素を見ても左右のどちらを選ぶべきかわからないからです。",
 			importance: "high",
@@ -74,7 +74,7 @@ export const binarySearchExplanation: ExplanationData = {
 
 		{
 			id: "real-world-examples",
-			title: "🌍 実世界での応用例",
+			title: " 実世界での応用例",
 			content:
 				"二分探索は私たちの身の回りで広く使われています。データベースのインデックス検索、ファイルシステムの検索、ゲームの高得点ランキング、在庫管理システムなど、ソートされたデータを扱うあらゆる場面で活用されています。",
 			importance: "medium",
@@ -88,7 +88,7 @@ export const binarySearchExplanation: ExplanationData = {
 
 		{
 			id: "implementation-tips",
-			title: "💻 実装のポイント",
+			title: " 実装のポイント",
 			content:
 				"二分探索を実装する際の重要なポイントは、インデックスの計算です。特に中央値の計算 `mid = (left + right) / 2` では、オーバーフローを避けるため `mid = left + (right - left) / 2` と書くのが安全です。また、境界条件（left <= right）の処理も重要です。",
 			importance: "low",
@@ -101,7 +101,7 @@ export const binarySearchExplanation: ExplanationData = {
 
 		{
 			id: "variations",
-			title: "🔀 二分探索の応用",
+			title: " 二分探索の応用",
 			content:
 				"基本の二分探索を応用して、「最初に現れる位置」「最後に現れる位置」「指定値以上の最小値」など、様々な検索パターンに対応できます。これらの応用テクニックを覚えると、競技プログラミングや実務での問題解決力が大幅に向上します。",
 			importance: "low",

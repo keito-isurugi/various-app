@@ -20,7 +20,7 @@ export const quickSortExplanation: ExplanationData = {
 	sections: [
 		{
 			id: "divide-and-conquer",
-			title: "🎯 分割統治法の基本概念",
+			title: "【ポイント】分割統治法の基本概念",
 			content:
 				"クイックソートの核心は「分割統治法」です。これは大きな問題を小さな問題に分割し、それぞれを解決して結果を組み合わせる手法です。クイックソートでは、ピボットを基準に配列を「小さい要素」と「大きい要素」に分割し、各部分を独立してソートします。分割された各部分が小さくなるほど、ソートは簡単になります。",
 			importance: "high",
@@ -33,7 +33,7 @@ export const quickSortExplanation: ExplanationData = {
 
 		{
 			id: "pivot-concept",
-			title: "🎪 ピボットの役割と重要性",
+			title: " ピボットの役割と重要性",
 			content:
 				"ピボット（pivot）は「回転軸」という意味で、クイックソートでは分割の基準となる要素です。ピボットを選んだ後、配列をピボット以下とピボット超過の2つのグループに分けます。ピボットは最終的に正しい位置に配置され、それより小さい要素は左、大きい要素は右に来ます。ピボットの選択戦略によってアルゴリズムの性能が大きく変わります。",
 			importance: "high",
@@ -46,7 +46,7 @@ export const quickSortExplanation: ExplanationData = {
 
 		{
 			id: "algorithm-steps",
-			title: "📝 アルゴリズムの実行手順",
+			title: "【まとめ】アルゴリズムの実行手順",
 			content:
 				"クイックソートは以下の手順を再帰的に実行します：1) 配列からピボットを選択、2) パーティション操作でピボット以下を左、超過を右に分割、3) ピボットを正しい位置に配置、4) 左の部分配列に対して再帰的にクイックソート、5) 右の部分配列に対して再帰的にクイックソート。ベースケース（要素数1以下）で再帰を終了します。",
 			importance: "high",
@@ -60,7 +60,7 @@ export const quickSortExplanation: ExplanationData = {
 
 		{
 			id: "partition-process",
-			title: "🔄 パーティション操作の詳細",
+			title: " パーティション操作の詳細",
 			content:
 				"パーティション操作は、クイックソートの核心部分です。選択したピボットを基準に、配列を2つの部分に分割します。一般的には、左から順に要素を調べ、ピボット以下の要素を左側に、ピボット超過の要素を右側に集めます。この操作により、ピボットが最終的な正しい位置に配置され、左右の相対的な順序が確定します。",
 			importance: "medium",
@@ -73,7 +73,7 @@ export const quickSortExplanation: ExplanationData = {
 
 		{
 			id: "time-complexity",
-			title: "⏱️ 時間計算量の分析",
+			title: "️ 時間計算量の分析",
 			content:
 				"クイックソートの時間計算量は、ピボットの選択によって大きく変わります。最良・平均ケースではO(n log n)ですが、最悪ケースではO(n²)になります。最悪ケースは、毎回最小値または最大値をピボットに選んでしまい、分割が全く均等にならない場合です。しかし、ランダムピボットや中央値選択により、実用的にはO(n log n)の性能を期待できます。",
 			formula:
@@ -88,7 +88,7 @@ export const quickSortExplanation: ExplanationData = {
 
 		{
 			id: "pivot-strategies",
-			title: "🎲 ピボット選択戦略",
+			title: "【ランダム】ピボット選択戦略",
 			content:
 				"ピボットの選択戦略は、クイックソートの性能を左右する重要な要素です。先頭要素選択は実装が簡単ですが、ソート済み配列で性能が劣化します。末尾要素選択も同様の特性を持ちます。中央要素選択は、ソート済み配列でもバランスの取れた分割を提供します。ランダム要素選択は、理論的に最も安定した性能を期待できます。",
 			importance: "high",
@@ -102,7 +102,7 @@ export const quickSortExplanation: ExplanationData = {
 
 		{
 			id: "advantages-disadvantages",
-			title: "✅ 利点と注意点",
+			title: "利点と注意点",
 			content:
 				"クイックソートの主な利点は、平均的に高速で実用性が高いこと、インプレースソートでメモリ効率が良いこと、キャッシュ効率が良いことです。一方、最悪ケースでO(n²)になること、不安定ソートであること、再帰実装でスタックオーバーフローの可能性があることが注意点です。これらの特性を理解して適切に使用することが重要です。",
 			importance: "medium",
@@ -115,7 +115,7 @@ export const quickSortExplanation: ExplanationData = {
 
 		{
 			id: "comparison-with-others",
-			title: "🆚 他のソートアルゴリズムとの比較",
+			title: " 他のソートアルゴリズムとの比較",
 			content:
 				"O(n log n)アルゴリズムの中で、クイックソートは実用性が最も高いとされています。マージソートは安定で最悪ケースでもO(n log n)ですが、追加メモリが必要です。ヒープソートも最悪ケースでO(n log n)ですが、キャッシュ効率が劣ります。クイックソートは、平均的な性能、メモリ効率、キャッシュ効率のバランスが優れているため、多くの標準ライブラリで採用されています。",
 			importance: "high",
@@ -128,7 +128,7 @@ export const quickSortExplanation: ExplanationData = {
 
 		{
 			id: "practical-applications",
-			title: "🌍 実際の応用場面",
+			title: " 実際の応用場面",
 			content:
 				"クイックソートは、現代のソフトウェア開発で最も広く使用されているソートアルゴリズムです。C++のstd::sort、JavaのArrays.sort（プリミティブ型）、.NETのArray.Sortなど、多くの標準ライブラリが採用しています。また、データベースの内部ソート、大規模データ処理、ゲーム開発でのスコアランキングなど、様々な場面で使用されています。",
 			importance: "low",

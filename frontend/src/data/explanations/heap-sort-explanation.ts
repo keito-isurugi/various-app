@@ -20,7 +20,7 @@ export const heapSortExplanation: ExplanationData = {
 	sections: [
 		{
 			id: "heap-data-structure",
-			title: "🌳 ヒープデータ構造の基本",
+			title: " ヒープデータ構造の基本",
 			content:
 				"ヒープは完全二分木で、親ノードが子ノードより常に大きい（最大ヒープ）または小さい（最小ヒープ）という条件を満たすデータ構造です。配列として実装でき、インデックスi の親は(i-1)/2、左の子は2i+1、右の子は2i+2で表現できます。この性質により、ルート（インデックス0）には常に最大値（または最小値）が格納されます。",
 			importance: "high",
@@ -33,7 +33,7 @@ export const heapSortExplanation: ExplanationData = {
 
 		{
 			id: "heapify-operation",
-			title: "⚙️ ヒープ化（Heapify）操作",
+			title: "【設定】ヒープ化（Heapify）操作",
 			content:
 				"ヒープ化は、与えられたノードから下向きにヒープ条件を満たすよう調整する操作です。ノードとその子ノードを比較し、必要に応じて位置を交換します。この操作を再帰的に適用することで、部分木全体をヒープ条件に適合させます。ヒープソートの核となる操作で、O(log n)の時間計算量を持ちます。",
 			importance: "high",
@@ -47,7 +47,7 @@ export const heapSortExplanation: ExplanationData = {
 
 		{
 			id: "build-heap-phase",
-			title: "🏗️ ヒープ構築フェーズ",
+			title: "【構造】ヒープ構築フェーズ",
 			content:
 				"配列全体をヒープ構造に変換する段階です。最後の非葉ノード（インデックス(n/2)-1）から開始して、インデックス0まで逆順にヒープ化操作を実行します。この順序により、各ノードでヒープ化を実行する時点で、その子ノード以下は既にヒープ条件を満たしていることが保証されます。全体でO(n)時間で完了します。",
 			importance: "high",
@@ -61,7 +61,7 @@ export const heapSortExplanation: ExplanationData = {
 
 		{
 			id: "sorting-phase",
-			title: "📊 ソートフェーズの実行",
+			title: "【解析】ソートフェーズの実行",
 			content:
 				"ヒープ構築後、実際のソートを実行します。ルート（最大値）を配列の末尾と交換し、ヒープサイズを1減らします。その後、新しいルートに対してヒープ化を実行して、再び最大ヒープを復元します。この処理をヒープサイズが1になるまで繰り返すことで、配列全体が昇順にソートされます。",
 			importance: "high",
@@ -75,7 +75,7 @@ export const heapSortExplanation: ExplanationData = {
 
 		{
 			id: "time-complexity",
-			title: "⏱️ 時間計算量の分析",
+			title: "️ 時間計算量の分析",
 			content:
 				"ヒープソートの時間計算量は常にO(n log n)です。ヒープ構築がO(n)、ソートフェーズでn-1回のヒープ化操作（各O(log n)）を実行するため、全体でO(n log n)となります。入力データの状態（ソート済み、逆順、ランダム）に関係なく同じ性能を保証します。これは理論的に最適なソート性能の一つです。",
 			formula:
@@ -90,7 +90,7 @@ export const heapSortExplanation: ExplanationData = {
 
 		{
 			id: "in-place-sorting",
-			title: "💾 インプレースソートの利点",
+			title: " インプレースソートの利点",
 			content:
 				"ヒープソートの最大の利点は、インプレース（追加メモリをほとんど使わない）でソートできることです。定数個の変数以外、追加の配列や大量のメモリを必要としません。これにより、メモリが制限された環境や、大容量データの処理において有利です。マージソートと比較して、メモリ効率が大幅に優れています。",
 			importance: "medium",
@@ -103,7 +103,7 @@ export const heapSortExplanation: ExplanationData = {
 
 		{
 			id: "stability-analysis",
-			title: "🔄 安定性の特性",
+			title: " 安定性の特性",
 			content:
 				"ヒープソートは「不安定ソート」です。同じ値を持つ要素の相対的な順序が、ソート後に保たれない可能性があります。これは、ヒープ化操作や要素の交換において、元の順序を考慮しないためです。安定性が重要な用途では、マージソートやTimsortなどの安定ソートアルゴリズムの使用を検討する必要があります。",
 			importance: "medium",
@@ -116,7 +116,7 @@ export const heapSortExplanation: ExplanationData = {
 
 		{
 			id: "comparison-with-others",
-			title: "🆚 他のソートアルゴリズムとの比較",
+			title: " 他のソートアルゴリズムとの比較",
 			content:
 				"ヒープソートは、他の主要なソートアルゴリズムと比較してバランスの取れた特性を持ちます。クイックソートより若干遅いですが性能が保証され、マージソートよりメモリ効率が良く、選択ソートより大幅に高速です。リアルタイムシステムや組み込みシステムなど、性能保証とメモリ効率の両方が重要な場面で選択されます。",
 			importance: "high",
@@ -129,7 +129,7 @@ export const heapSortExplanation: ExplanationData = {
 
 		{
 			id: "practical-applications",
-			title: "🌍 実際の応用場面",
+			title: " 実際の応用場面",
 			content:
 				"ヒープソートは、その性能保証とメモリ効率により、特定の分野で重要な役割を果たしています。優先度付きキューの実装、リアルタイムシステムでの確定的ソート、組み込みシステムのメモリ制限環境、アルゴリズム競技での安全な選択肢として使用されています。また、ヒープデータ構造自体が多くのアルゴリズムの基礎となっています。",
 			importance: "low",

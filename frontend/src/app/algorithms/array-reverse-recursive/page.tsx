@@ -7,6 +7,13 @@
 
 "use client";
 
+import {
+	AlertTriangle,
+	BarChart3,
+	BookOpen,
+	Code,
+	RefreshCw,
+} from "lucide-react";
 import Link from "next/link";
 import React, { useState, useCallback } from "react";
 import { AlgorithmVisualizer } from "../../../components/algorithm/AlgorithmVisualizer";
@@ -212,8 +219,9 @@ export default function ArrayReverseRecursivePage() {
 					{/* 入力パネル */}
 					<div className="xl:col-span-1">
 						<div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700 sticky top-4">
-							<h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">
-								🔄 実行設定
+							<h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4 flex items-center gap-2">
+								<RefreshCw className="w-5 h-5" />
+								実行設定
 							</h3>
 
 							{/* 現在の配列表示 */}
@@ -252,7 +260,8 @@ export default function ArrayReverseRecursivePage() {
 								</div>
 								{currentArray.length > 15 && (
 									<div className="mt-2 p-2 bg-yellow-100 dark:bg-yellow-900/30 rounded text-xs text-yellow-800 dark:text-yellow-200">
-										⚠️ 配列長 {">"} 15は処理ステップが多くなります
+										<AlertTriangle className="w-3 h-3 inline" /> 配列長 {">"}{" "}
+										15は処理ステップが多くなります
 									</div>
 								)}
 							</div>
@@ -286,8 +295,9 @@ export default function ArrayReverseRecursivePage() {
 
 							{/* 推奨配列ボタン */}
 							<div className="space-y-2 mb-6">
-								<h4 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-									📚 推奨配列
+								<h4 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 flex items-center gap-1">
+									<BookOpen className="w-4 h-4" />
+									推奨配列
 								</h4>
 								<div className="grid grid-cols-1 gap-2">
 									{recommendedArrays.slice(0, 8).map((rec) => (
@@ -316,8 +326,9 @@ export default function ArrayReverseRecursivePage() {
 
 							{/* 統計情報 */}
 							<div className="mb-6 p-4 bg-teal-50 dark:bg-teal-900/20 rounded-lg">
-								<h4 className="text-sm font-medium text-teal-800 dark:text-teal-200 mb-2">
-									📊 統計情報
+								<h4 className="text-sm font-medium text-teal-800 dark:text-teal-200 mb-2 flex items-center gap-2">
+									<BarChart3 className="w-4 h-4" />
+									統計情報
 								</h4>
 								<div className="text-xs text-teal-700 dark:text-teal-300 space-y-1">
 									<div>交換回数: {statistics.expectedSwaps}回</div>
@@ -330,8 +341,9 @@ export default function ArrayReverseRecursivePage() {
 							{/* 反復実装との比較 */}
 							{currentArray.length > 0 && (
 								<div className="mb-6 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
-									<h4 className="text-sm font-medium text-blue-800 dark:text-blue-200 mb-2">
-										🔄 反復実装との比較
+									<h4 className="text-sm font-medium text-blue-800 dark:text-blue-200 mb-2 flex items-center gap-2">
+										<RefreshCw className="w-4 h-4" />
+										反復実装との比較
 									</h4>
 									<div className="text-xs text-blue-700 dark:text-blue-300">
 										<div className="mb-1">
@@ -347,13 +359,20 @@ export default function ArrayReverseRecursivePage() {
 								type="button"
 								onClick={executeAlgorithm}
 								disabled={isExecuting || currentArray.length === 0}
-								className={`w-full py-3 rounded-lg font-semibold transition-all duration-200 ${
+								className={`w-full py-3 rounded-lg font-semibold transition-all duration-200 flex items-center justify-center gap-2 ${
 									isExecuting || currentArray.length === 0
 										? "bg-gray-400 text-gray-700 cursor-not-allowed"
 										: "bg-gradient-to-r from-teal-600 to-cyan-600 hover:from-teal-700 hover:to-cyan-700 text-white shadow-lg hover:shadow-xl"
 								}`}
 							>
-								{isExecuting ? "実行中..." : "🔄 配列逆順実行"}
+								{isExecuting ? (
+									"実行中..."
+								) : (
+									<>
+										<RefreshCw className="w-4 h-4" />
+										配列逆順実行
+									</>
+								)}
 							</button>
 
 							{/* 結果表示 */}
@@ -403,7 +422,9 @@ export default function ArrayReverseRecursivePage() {
 							<AlgorithmVisualizer steps={result.steps} className="mb-8" />
 						) : (
 							<div className="bg-white dark:bg-gray-800 rounded-xl p-12 border border-gray-200 dark:border-gray-700 text-center mb-8">
-								<div className="text-6xl mb-4">🔄</div>
+								<div className="text-6xl mb-4">
+									<RefreshCw className="w-16 h-16 mx-auto text-teal-500" />
+								</div>
 								<h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-2">
 									アルゴリズムを実行してください
 								</h3>
@@ -427,8 +448,9 @@ export default function ArrayReverseRecursivePage() {
 				{/* コード例セクション */}
 				<section className="mt-12">
 					<div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700">
-						<h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">
-							💻 実装例（JavaScript）
+						<h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4 flex items-center gap-2">
+							<Code className="w-5 h-5" />
+							実装例（JavaScript）
 						</h3>
 						<div className="bg-gray-900 rounded-lg p-6 overflow-x-auto">
 							<pre className="text-sm text-gray-100">
@@ -462,7 +484,7 @@ function reverseArrayExplicit(array, start, end) {
         return;
     }
     
-    console.log(\`交換: array[\${start}] ↔ array[\${end}]\`);
+    console.log(\`交換: array[\${start}]  -  array[\${end}]\`);
     [array[start], array[end]] = [array[end], array[start]];
     
     reverseArrayExplicit(array, start + 1, end - 1);
@@ -503,8 +525,9 @@ function reverseArrayFunctional(array) {
 				{/* アルゴリズム比較セクション */}
 				<section className="mt-12">
 					<div className="bg-gradient-to-r from-teal-50 to-cyan-50 dark:from-teal-900/20 dark:to-cyan-900/20 rounded-xl p-6 border border-teal-200 dark:border-teal-700">
-						<h3 className="text-xl font-semibold text-teal-900 dark:text-teal-100 mb-4">
-							🔄 再帰 vs 反復 vs 関数型
+						<h3 className="text-xl font-semibold text-teal-900 dark:text-teal-100 mb-4 flex items-center gap-2">
+							<RefreshCw className="w-5 h-5" />
+							再帰 vs 反復 vs 関数型
 						</h3>
 						<div className="grid md:grid-cols-3 gap-6">
 							<div>

@@ -120,7 +120,7 @@ export class ArrayBasicAlgorithm implements Algorithm {
 		// 完了ステップ
 		this.steps.push({
 			id: this.stepId++,
-			description: `🎉 操作完了！結果: ${result}`,
+			description: ` 操作完了！結果: ${result}`,
 			array: [...this.array],
 			operation: "完了",
 			variables: {
@@ -151,7 +151,7 @@ export class ArrayBasicAlgorithm implements Algorithm {
 		if (index < 0 || index >= this.array.length) {
 			this.steps.push({
 				id: this.stepId++,
-				description: `❌ アクセス失敗: インデックス${index}は範囲外です`,
+				description: `アクセス失敗: インデックス${index}は範囲外です`,
 				array: [...this.array],
 				operation: "アクセス失敗",
 				variables: {
@@ -180,7 +180,7 @@ export class ArrayBasicAlgorithm implements Algorithm {
 
 		this.steps.push({
 			id: this.stepId++,
-			description: `✅ アクセス完了: インデックス${index}の値は${value}です`,
+			description: `アクセス完了: インデックス${index}の値は${value}です`,
 			array: [...this.array],
 			operation: "アクセス完了",
 			variables: {
@@ -249,7 +249,7 @@ export class ArrayBasicAlgorithm implements Algorithm {
 
 		this.steps.push({
 			id: this.stepId++,
-			description: `✅ 挿入完了: インデックス${insertIndex}に${value}が挿入されました`,
+			description: `挿入完了: インデックス${insertIndex}に${value}が挿入されました`,
 			array: [...this.array],
 			operation: "挿入完了",
 			variables: {
@@ -274,7 +274,7 @@ export class ArrayBasicAlgorithm implements Algorithm {
 		if (index < 0 || index >= this.array.length) {
 			this.steps.push({
 				id: this.stepId++,
-				description: `❌ 削除失敗: インデックス${index}は範囲外です`,
+				description: `削除失敗: インデックス${index}は範囲外です`,
 				array: [...this.array],
 				operation: "削除失敗",
 				variables: {
@@ -322,7 +322,7 @@ export class ArrayBasicAlgorithm implements Algorithm {
 
 		this.steps.push({
 			id: this.stepId++,
-			description: `✅ 削除完了: インデックス${index}の要素${deletedValue}が削除されました`,
+			description: `削除完了: インデックス${index}の要素${deletedValue}が削除されました`,
 			array: [...this.array],
 			operation: "削除完了",
 			variables: {
@@ -351,7 +351,7 @@ export class ArrayBasicAlgorithm implements Algorithm {
 		if (index < 0 || index >= this.array.length) {
 			this.steps.push({
 				id: this.stepId++,
-				description: `❌ 更新失敗: インデックス${index}は範囲外です`,
+				description: `更新失敗: インデックス${index}は範囲外です`,
 				array: [...this.array],
 				operation: "更新失敗",
 				variables: {
@@ -383,7 +383,7 @@ export class ArrayBasicAlgorithm implements Algorithm {
 
 		this.steps.push({
 			id: this.stepId++,
-			description: `✅ 更新完了: インデックス${index}の値が${oldValue}から${value}に変更されました`,
+			description: `更新完了: インデックス${index}の値が${oldValue}から${value}に変更されました`,
 			array: [...this.array],
 			operation: "更新完了",
 			variables: {
@@ -422,7 +422,7 @@ export class ArrayBasicAlgorithm implements Algorithm {
 		for (let i = 0; i < this.array.length; i++) {
 			this.steps.push({
 				id: this.stepId++,
-				description: `インデックス${i}をチェック: ${this.array[i]} ${this.array[i] === value ? `== ${value} ✅ 発見！` : `!= ${value}`}`,
+				description: `インデックス${i}をチェック: ${this.array[i]} ${this.array[i] === value ? `== ${value} 発見！` : `!= ${value}`}`,
 				array: [...this.array],
 				operation: "検索中",
 				variables: {
@@ -438,7 +438,7 @@ export class ArrayBasicAlgorithm implements Algorithm {
 			if (this.array[i] === value) {
 				this.steps.push({
 					id: this.stepId++,
-					description: `✅ 検索完了: 値${value}がインデックス${i}で見つかりました`,
+					description: `検索完了: 値${value}がインデックス${i}で見つかりました`,
 					array: [...this.array],
 					operation: "検索成功",
 					variables: {
@@ -454,7 +454,7 @@ export class ArrayBasicAlgorithm implements Algorithm {
 
 		this.steps.push({
 			id: this.stepId++,
-			description: `❌ 検索完了: 値${value}は配列に存在しません`,
+			description: `検索完了: 値${value}は配列に存在しません`,
 			array: [...this.array],
 			operation: "検索失敗",
 			variables: {
@@ -551,12 +551,12 @@ export class ArrayBasicAlgorithm implements Algorithm {
 		return `
 配列（Array）は、同じ型の要素を連続したメモリ領域に格納するデータ構造です。
 
-🏗️ **基本概念**
+【構造】**基本概念**
 - インデックスベースのランダムアクセス
 - 要素は0から始まる整数インデックスで管理
 - メモリ上に連続して配置される
 
-📚 **基本操作**
+【基礎】**基本操作**
 - access(index): 指定インデックスの要素にアクセス - O(1)
 - insert(index, value): 指定位置に要素を挿入 - O(n)
 - delete(index): 指定インデックスの要素を削除 - O(n)
@@ -564,20 +564,20 @@ export class ArrayBasicAlgorithm implements Algorithm {
 - search(value): 指定値を線形検索 - O(n)
 - length(): 配列の要素数を取得 - O(1)
 
-🎯 **実世界での応用**
+【ポイント】**実世界での応用**
 - プログラミング言語の基本データ型
 - データベースのレコード管理
 - 画像処理（ピクセル配列）
 - 数値計算（ベクトル・行列）
 - ゲーム開発（座標・状態管理）
 
-⚡ **計算量の特徴**
+【計算量】**計算量の特徴**
 - アクセス・更新: O(1)で高速
 - 挿入・削除: O(n)（要素のシフトが必要）
 - 検索: O(n)（線形検索）
 - キャッシュ効率が良い
 
-💡 **学習価値**
+【ヒント】**学習価値**
 - プログラミングの基礎概念
 - メモリ管理の理解
 - インデックス操作の重要性

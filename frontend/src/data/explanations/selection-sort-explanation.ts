@@ -20,7 +20,7 @@ export const selectionSortExplanation: ExplanationData = {
 	sections: [
 		{
 			id: "basic-concept",
-			title: "🎯 基本的な考え方",
+			title: "【ポイント】基本的な考え方",
 			content:
 				"選択ソートの考え方は、成績表を整理する作業と似ています。クラスの成績表で点数順に並べ替える際、まず全員の中から最高得点を見つけて1番目に、次に残りから最高得点を見つけて2番目に、という作業を繰り返します。選択ソートも同様に、毎回「残りの中から最小値を選択」して正しい位置に配置します。",
 			importance: "high",
@@ -33,7 +33,7 @@ export const selectionSortExplanation: ExplanationData = {
 
 		{
 			id: "algorithm-steps",
-			title: "📝 アルゴリズムの手順",
+			title: "【まとめ】アルゴリズムの手順",
 			content:
 				"選択ソートは以下の手順を繰り返します：1) 未ソート部分全体を調べて最小値を見つける、2) 見つけた最小値を未ソート部分の先頭と交換、3) ソート済み部分を1つ拡張、4) 未ソート部分がなくなるまで繰り返し。この手順により、左から順番に確定した値が並んでいきます。",
 			importance: "high",
@@ -47,7 +47,7 @@ export const selectionSortExplanation: ExplanationData = {
 
 		{
 			id: "time-complexity",
-			title: "⏱️ 時間計算量の分析",
+			title: "️ 時間計算量の分析",
 			content:
 				"選択ソートの時間計算量は常にO(n²)です。これは、データの初期状態に関係なく、必ず全ての要素を比較する必要があるためです。1回目のパスでn個、2回目でn-1個...と比較を行い、合計でn×(n-1)/2回の比較を実行します。交換回数は最大n-1回と、他のO(n²)アルゴリズムより少ないのが特徴です。",
 			formula:
@@ -62,7 +62,7 @@ export const selectionSortExplanation: ExplanationData = {
 
 		{
 			id: "stability-analysis",
-			title: "🔄 安定性の特徴",
+			title: " 安定性の特徴",
 			content:
 				"選択ソートは「不安定ソート」です。これは、同じ値を持つ要素の相対的な順序が保たれない可能性があることを意味します。最小値を見つけて交換する際に、同じ値の要素が入れ替わってしまうことがあります。この性質は、複数のキーでソートする場合に影響を与える可能性があります。",
 			importance: "medium",
@@ -75,7 +75,7 @@ export const selectionSortExplanation: ExplanationData = {
 
 		{
 			id: "advantages",
-			title: "✅ 選択ソートの利点",
+			title: "選択ソートの利点",
 			content:
 				"選択ソートには独特の利点があります。最も重要なのは交換回数の少なさで、最大でもn-1回しか交換を行いません。これは、メモリ書き込みコストが高い環境や、大きなオブジェクトをソートする際に有効です。また、実装がシンプルで理解しやすく、デバッグも容易です。",
 			importance: "medium",
@@ -88,7 +88,7 @@ export const selectionSortExplanation: ExplanationData = {
 
 		{
 			id: "comparison-with-others",
-			title: "🆚 他のソートアルゴリズムとの比較",
+			title: " 他のソートアルゴリズムとの比較",
 			content:
 				"選択ソートを他のO(n²)ソートと比較すると、それぞれに特徴があります。バブルソートは隣接交換で部分的ソートに対応、挿入ソートは安定で部分的ソートに高効率、選択ソートは交換回数最小で一定性能。用途に応じた使い分けが重要です。",
 			importance: "high",
@@ -101,7 +101,7 @@ export const selectionSortExplanation: ExplanationData = {
 
 		{
 			id: "practical-applications",
-			title: "🌍 実際の応用場面",
+			title: " 実際の応用場面",
 			content:
 				"選択ソートは特定の条件下で実用的です。交換コストが非常に高い場合（大きなオブジェクトや、ディスクI/Oを伴う場合）、メモリ制約が厳しい組み込みシステム、教育目的でのアルゴリズム理解、小規模データの一回限りのソートなどで使用されます。",
 			importance: "low",

@@ -20,7 +20,7 @@ export const lisDpExplanation: ExplanationData = {
 	sections: [
 		{
 			id: "problem-definition",
-			title: "🎯 LIS問題の定義",
+			title: "【ポイント】LIS問題の定義",
 			content:
 				"最長増加部分列問題は、配列が与えられたとき、元の順序を保ったまま要素を選択して、厳密に増加する最長の部分列を見つける問題です。部分列とは、元の配列から要素を削除して得られる配列で、残った要素の順序は保持されます。例えば、[10, 22, 9, 33, 21, 50, 41, 60]のLISは[10, 22, 33, 50, 60]（長さ5）です。部分配列とは異なり、要素が連続している必要はありません。この問題は動的プログラミングと最適化問題の優秀な教材として使用されます。",
 			importance: "high",
@@ -34,7 +34,7 @@ export const lisDpExplanation: ExplanationData = {
 
 		{
 			id: "naive-approach-problems",
-			title: "🔍 全探索アプローチの問題点",
+			title: "【詳細】全探索アプローチの問題点",
 			content:
 				"LIS問題を全探索で解く場合、配列のすべての部分列を生成し、増加条件を満たす最長のものを探す必要があります。長さnの配列には2^n個の部分列があるため、時間計算量は O(2^n) となり、配列が長くなると実用的でなくなります。例えば、長さ20の配列では約100万個、長さ30では約10億個の部分列があります。さらに、各部分列の増加条件チェックにO(n)時間が必要なため、実際の計算量はさらに悪化します。この指数的な増加により、動的計画法による効率的な解法が必要になります。",
 			importance: "high",
@@ -48,7 +48,7 @@ export const lisDpExplanation: ExplanationData = {
 
 		{
 			id: "dp-state-design",
-			title: "📊 動的計画法の状態設計",
+			title: "【解析】動的計画法の状態設計",
 			content:
 				"LISの動的計画法では、dp[i]を「i番目の要素で終わるLISの最大長」として定義します。この状態設計により、部分問題の最適解を組み合わせて全体の最適解を構築できます。各要素は最低限、自分だけの部分列（長さ1）を形成できるため、初期値は1です。各要素について、それより前の小さい要素を探索し、最適な前の要素から長さを継承します。最終的な答えは、全てのdp[i]の最大値となります。",
 			importance: "high",
@@ -62,7 +62,7 @@ export const lisDpExplanation: ExplanationData = {
 
 		{
 			id: "state-transition",
-			title: "🔄 状態遷移の仕組み",
+			title: " 状態遷移の仕組み",
 			content:
 				"各要素dp[i]の値は、それより前の要素との関係で決まります。要素iについて、j < i かつ array[j] < array[i] を満たすすべてのjに対して、dp[i] = max(dp[i], dp[j] + 1) の更新を行います。これにより、要素iで終わる最長の増加部分列を効率的に計算できます。predecessor（前の要素）のインデックスも記録することで、後でバックトラッキングによる実際のLISの復元が可能になります。",
 			importance: "high",
@@ -78,7 +78,7 @@ export const lisDpExplanation: ExplanationData = {
 
 		{
 			id: "table-construction",
-			title: "🏗️ DPテーブルの構築",
+			title: "【構造】DPテーブルの構築",
 			content:
 				"DPテーブルは要素ごと（各インデックスごと）に構築していきます。まず全ての要素を1で初期化し、その後要素1から順番に各値を計算します。各要素の計算では、それより前の全ての要素をチェックし、増加条件を満たすもので最大のdp値を持つものを探します。この過程により、最適部分構造の性質を活用して、全体の最適解が効率的に求められます。",
 			importance: "medium",
@@ -92,7 +92,7 @@ export const lisDpExplanation: ExplanationData = {
 
 		{
 			id: "backtracking-reconstruction",
-			title: "🔍 バックトラッキングによる解の復元",
+			title: "【詳細】バックトラッキングによる解の復元",
 			content:
 				"DPテーブルからはLISの長さだけでなく、実際のLIS配列も復元できます。まず最大のdp値を持つ要素を見つけ、そこからpredecessorリンクを辿って逆順にLISを構築します。各段階で、現在の要素をLISに追加し、predecessorが示す前の要素に移動します。この過程により、実際の最長増加部分列を効率的に復元できます。",
 			importance: "medium",
@@ -106,7 +106,7 @@ export const lisDpExplanation: ExplanationData = {
 
 		{
 			id: "complexity-analysis",
-			title: "⚡ 計算量の分析",
+			title: "【計算量】計算量の分析",
 			content:
 				"LISの動的計画法による解法の時間計算量は O(n²)、空間計算量は O(n) です（nは配列の長さ）。これは全探索の O(2^n) と比べて大幅な改善です。実際の例では、長さ100の配列でも1万回程度の計算で完了し、現実的な時間で処理できます。より効率的な O(n log n) の実装（二分探索を使用）も存在しますが、LISの復元が複雑になります。基本的なO(n²)実装は理解しやすく、教育的価値が高いです。",
 			formula:
@@ -122,7 +122,7 @@ export const lisDpExplanation: ExplanationData = {
 
 		{
 			id: "real-world-applications",
-			title: "🌍 実世界での応用",
+			title: " 実世界での応用",
 			content:
 				"LISは様々な実世界の問題で重要な役割を果たします。株価分析では最長の上昇トレンドの発見に使用され、投資戦略の策定に活用されます。データの時系列分析では、継続的な増加パターンの検出に使用されます。ソートアルゴリズムでは、元の配列がどの程度ソート済みかの測定に応用されます。また、バイオインフォマティクスでも遺伝子配列の進化的関係の分析に使用されています。",
 			importance: "low",
@@ -136,7 +136,7 @@ export const lisDpExplanation: ExplanationData = {
 
 		{
 			id: "variants-and-extensions",
-			title: "🔄 LISの変形と拡張",
+			title: " LISの変形と拡張",
 			content:
 				"基本的なLISから派生した様々な変形問題があります。非減少LIS（同じ値を許可）では、≤の条件を使用します。重み付きLISでは、各要素に重みを付けて最適化します。最長減少部分列（LDS）は逆の条件で最長の減少部分列を求めます。また、二次元LISでは、座標平面上の点について二次元での増加条件を満たす最長部分列を求めます。これらの拡張により、より複雑な実用問題に対応できます。",
 			importance: "medium",
@@ -150,7 +150,7 @@ export const lisDpExplanation: ExplanationData = {
 
 		{
 			id: "optimization-techniques",
-			title: "🚀 最適化技法",
+			title: "【応用】最適化技法",
 			content:
 				"LISの基本実装にはいくつかの最適化技法があります。O(n log n)実装では、二分探索を使用してより効率的に計算できます。segment treeやBinary Indexed Tree（BIT）を使用した実装も可能です。メモリ効率の改善では、predecessorリンクを効率的に管理する手法があります。また、並列化による性能向上や、特定の入力パターンに対する特殊化した高速化手法も研究されています。",
 			importance: "low",
@@ -164,7 +164,7 @@ export const lisDpExplanation: ExplanationData = {
 
 		{
 			id: "comparison-with-lis-algorithms",
-			title: "⚖️ 他のLISアルゴリズムとの比較",
+			title: "【比較】他のLISアルゴリズムとの比較",
 			content:
 				"LISを求める手法には複数のアプローチがあります。O(n²)のDP実装は理解しやすく実装が簡単ですが、大きな配列では遅くなります。O(n log n)の二分探索実装は高速ですが、LISの復元が複雑になります。segment treeを使用した実装は更新クエリがある場合に有効ですが、実装が複雑になります。用途と要求に応じて適切な手法を選択することが重要です。",
 			importance: "low",
@@ -178,7 +178,7 @@ export const lisDpExplanation: ExplanationData = {
 
 		{
 			id: "learning-progression",
-			title: "📚 学習の進め方",
+			title: "【基礎】学習の進め方",
 			content:
 				"LISの学習は、まず部分列の概念と問題定義の理解から始めます。次に小さな例で手動計算を行い、DPテーブルの構築過程を理解します。その後、基本的なO(n²)実装を行い、バックトラッキングによる解の復元を学習します。応用として、LISの変形問題や効率的なアルゴリズム（O(n log n)）に取り組み、最終的には実際のシステムでの使用例を学習します。理論と実装の両面から段階的に理解を深めることが重要です。",
 			importance: "low",

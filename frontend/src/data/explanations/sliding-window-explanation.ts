@@ -34,7 +34,7 @@ export const slidingWindowExplanation: ExplanationData = {
 
 		{
 			id: "two-pointer-technique",
-			title: "👆 尺取り法（Two Pointers）",
+			title: " 尺取り法（Two Pointers）",
 			content:
 				"尺取り法は2つのポインタ（left, right）を使用して範囲を動的に調整する技法です。条件を満たすまで右ポインタを伸ばし、条件を超えたら左ポインタを縮める操作を繰り返します。この伸縮動作が尺取虫の動きに似ていることから「尺取り法」と呼ばれます。各ポインタが配列を最大1回ずつ通過するため、時間計算量はO(n)になります。",
 			importance: "high",
@@ -48,7 +48,7 @@ export const slidingWindowExplanation: ExplanationData = {
 
 		{
 			id: "fixed-vs-variable",
-			title: "🔄 固定 vs 可変ウィンドウ",
+			title: " 固定 vs 可変ウィンドウ",
 			content:
 				"固定サイズウィンドウは一定のサイズを維持しながらスライドし、移動平均や固定期間の統計計算に適しています。可変サイズウィンドウは条件に応じてサイズが変化し、部分配列和問題や最長部分文字列問題に活用されます。固定では「追加→削除」の単純パターン、可変では「条件判定→拡張/縮小」の柔軟なパターンを持ちます。",
 			importance: "high",
@@ -62,7 +62,7 @@ export const slidingWindowExplanation: ExplanationData = {
 
 		{
 			id: "optimization-principle",
-			title: "⚡ 最適化の原理",
+			title: "【計算量】最適化の原理",
 			content:
 				"スライディングウィンドウの最適化効果は「重複計算の排除」にあります。ナイーブな方法では各位置で部分配列全体を再計算しますが、ウィンドウ法では前の状態から差分更新のみを行います。この原理により、O(n²)の二重ループがO(n)の線形処理に変換され、特に大規模データで劇的な性能向上を実現します。",
 			formula:
@@ -78,7 +78,7 @@ export const slidingWindowExplanation: ExplanationData = {
 
 		{
 			id: "string-processing",
-			title: "📝 文字列処理での応用",
+			title: "【まとめ】文字列処理での応用",
 			content:
 				"スライディングウィンドウは文字列処理で特に威力を発揮します。重複文字がない最長部分文字列、指定パターンを含む最小ウィンドウ、アナグラム検索などの問題で活用されます。文字頻度の管理にはハッシュマップを使用し、ウィンドウの拡張・縮小に応じて頻度を動的に更新します。これにより複雑な文字列問題も効率的に解決できます。",
 			importance: "medium",
@@ -92,7 +92,7 @@ export const slidingWindowExplanation: ExplanationData = {
 
 		{
 			id: "practical-applications",
-			title: "🌍 実用的な応用例",
+			title: " 実用的な応用例",
 			content:
 				"スライディングウィンドウは多くの実用システムで活用されています。ネットワーク監視での異常検知、金融システムでのリスク分析、IoTセンサーデータの実時間処理、ゲーム開発でのパフォーマンス監視などに使用されます。特にストリーミングデータの処理において、固定メモリで効率的な統計計算を実現する重要な技術です。",
 			importance: "medium",
@@ -106,7 +106,7 @@ export const slidingWindowExplanation: ExplanationData = {
 
 		{
 			id: "advanced-patterns",
-			title: "🔧 高度な応用パターン",
+			title: "【実装】高度な応用パターン",
 			content:
 				"基本的なスライディングウィンドウを発展させた高度なパターンには、複数ウィンドウの同時管理、優先度付きウィンドウ、階層ウィンドウなどがあります。また、セグメント木やdequeと組み合わせることで、より複雑な区間クエリや最値維持が可能になります。これらの応用パターンを理解することで、より複雑な問題にも対応できます。",
 			importance: "low",
@@ -120,7 +120,7 @@ export const slidingWindowExplanation: ExplanationData = {
 
 		{
 			id: "implementation-tips",
-			title: "💡 実装のコツと注意点",
+			title: "【ヒント】実装のコツと注意点",
 			content:
 				"スライディングウィンドウの実装では、境界条件の処理が重要です。右ポインタが配列末尾に達した場合の処理、空ウィンドウの扱い、オーバーフローの対策などに注意が必要です。また、状態管理（和、頻度、最大値など）を正確に行い、ポインタの移動と状態更新の同期を保つことが正しい動作のカギとなります。",
 			importance: "medium",
@@ -134,7 +134,7 @@ export const slidingWindowExplanation: ExplanationData = {
 
 		{
 			id: "performance-analysis",
-			title: "📊 性能分析と最適化",
+			title: "【解析】性能分析と最適化",
 			content:
 				"スライディングウィンドウの性能は問題の性質によって大きく左右されます。最良の場合は各要素を1回ずつ処理してO(n)、最悪の場合でもO(n)の線形時間を維持します。メモリ使用量は通常O(1)ですが、状態管理の内容によってはO(k)（kは状態のサイズ）になります。実装時はキャッシュ効率も考慮すると、さらなる性能向上が期待できます。",
 			importance: "low",
@@ -148,7 +148,7 @@ export const slidingWindowExplanation: ExplanationData = {
 
 		{
 			id: "learning-path",
-			title: "📈 効果的な学習アプローチ",
+			title: " 効果的な学習アプローチ",
 			content:
 				"スライディングウィンドウの習得は、まず固定サイズの基本問題から始めて、徐々に可変サイズや複雑な条件の問題に進むのが効果的です。各パターンの特徴を理解し、問題を見て適用可能性を素早く判断できるようになることが重要です。また、実装練習を通じて、様々な状態管理パターンに慣れることも大切です。",
 			importance: "low",

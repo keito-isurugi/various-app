@@ -20,7 +20,7 @@ export const gcdEuclideanExplanation: ExplanationData = {
 	sections: [
 		{
 			id: "historical-background",
-			title: "📜 歴史的背景と重要性",
+			title: " 歴史的背景と重要性",
 			content:
 				"ユークリッドの互除法は、人類史上最古のアルゴリズムの一つとして知られています。紀元前300年頃、古代ギリシャの数学者ユークリッドが著書「原論」第7巻で初めて体系的に記述しました。この方法は古代から近世まで、建築における比例計算や天文学での周期計算などに使用され、数学の基礎を支えてきました。現代でも、そのエレガントさと効率性により、コンピュータサイエンスの基本アルゴリズムとして教えられています。",
 			importance: "high",
@@ -34,7 +34,7 @@ export const gcdEuclideanExplanation: ExplanationData = {
 
 		{
 			id: "mathematical-principle",
-			title: "🧮 数学的原理",
+			title: " 数学的原理",
 			content:
 				"ユークリッドの互除法の核心は「gcd(a,b) = gcd(b, a mod b)」という性質です。これは、2つの数の最大公約数が、小さい方の数と大きい方を小さい方で割った余りの最大公約数と等しいことを意味します。この性質により、問題のサイズを急速に縮小できます。余りが0になったとき、その時点の除数が求める最大公約数となります。この原理は、数論の基本定理に基づく確実な数学的根拠を持っています。",
 			importance: "high",
@@ -50,7 +50,7 @@ export const gcdEuclideanExplanation: ExplanationData = {
 
 		{
 			id: "algorithm-efficiency",
-			title: "⚡ アルゴリズムの効率性",
+			title: "【計算量】アルゴリズムの効率性",
 			content:
 				"ユークリッドの互除法の時間計算量はO(log n)であり、これは非常に効率的です。各ステップで問題のサイズが急速に減少するため、大きな数に対しても高速に動作します。フィボナッチ数列のペアが最悪ケースとなりますが、それでも対数時間で完了します。空間計算量はO(1)（反復版）またはO(log n)（再帰版）となります。この効率性により、暗号学で使用される巨大な数でも実用的な時間で計算できます。",
 			importance: "high",
@@ -64,7 +64,7 @@ export const gcdEuclideanExplanation: ExplanationData = {
 
 		{
 			id: "implementation-variants",
-			title: "💻 実装のバリエーション",
+			title: " 実装のバリエーション",
 			content:
 				"ユークリッドの互除法には複数の実装方法があります。反復版は効率的でスタックオーバーフローの心配がなく、再帰版は数学的定義に忠実で理解しやすいという特徴があります。また、二進GCDアルゴリズム（Steinのアルゴリズム）は除算を使わずシフト演算のみで実装でき、ハードウェアレベルでの最適化が可能です。各実装方法には適用場面に応じた利点があります。",
 			importance: "medium",
@@ -78,7 +78,7 @@ export const gcdEuclideanExplanation: ExplanationData = {
 
 		{
 			id: "extended-euclidean",
-			title: "🔧 拡張ユークリッドの互除法",
+			title: "【実装】拡張ユークリッドの互除法",
 			content:
 				"拡張ユークリッドの互除法は、最大公約数と共に「ax + by = gcd(a,b)」を満たす整数x,yも求めるアルゴリズムです。この拡張版は、モジュラ逆元の計算やRSA暗号の鍵生成に欠かせません。基本的なユークリッドの互除法の過程を逆向きに辿ることで、線形結合の係数を求めます。暗号学、数論、線形代数など、より高度な数学的応用において重要な役割を果たします。",
 			importance: "medium",
@@ -92,7 +92,7 @@ export const gcdEuclideanExplanation: ExplanationData = {
 
 		{
 			id: "modern-applications",
-			title: "🌐 現代での応用",
+			title: " 現代での応用",
 			content:
 				"ユークリッドの互除法は現代のコンピュータサイエンスで幅広く応用されています。RSA暗号では大きな素数の最大公約数計算に使用され、分数演算では約分・通分の基礎となります。コンピュータグラフィックスでは画面比率の計算、音楽理論では和音の周期分析に活用されます。また、アルゴリズム設計の教育においても、効率的な問題解決の思考法を学ぶ重要な例として使われています。",
 			importance: "low",
@@ -106,7 +106,7 @@ export const gcdEuclideanExplanation: ExplanationData = {
 
 		{
 			id: "mathematical-properties",
-			title: "📐 数学的性質",
+			title: " 数学的性質",
 			content:
 				"最大公約数には多くの重要な数学的性質があります。交換法則（gcd(a,b) = gcd(b,a)）、結合法則（gcd(a,gcd(b,c)) = gcd(gcd(a,b),c)）が成り立ちます。また、gcd(a,b) = gcd(a+kb,b)（kは任意の整数）という性質もあります。これらの性質により、様々な計算の簡略化や証明で使用できます。互いに素（gcd = 1）の判定は、暗号学での素数性テストにも関連します。",
 			importance: "medium",
@@ -120,7 +120,7 @@ export const gcdEuclideanExplanation: ExplanationData = {
 
 		{
 			id: "complexity-analysis",
-			title: "📊 計算量解析",
+			title: "【解析】計算量解析",
 			content:
 				"ユークリッドの互除法の計算量は詳細に解析されています。最悪ケースは連続するフィボナッチ数のペアで、この場合でもO(log n)時間で完了します。平均的なケースでは更に高速で、実用的な数に対しては数ステップで完了することが多いです。この効率性の理由は、各ステップで問題サイズが幾何級数的に減少することにあります。空間計算量は実装方法により異なりますが、非常に少ないメモリで実行できます。",
 			formula:
@@ -136,7 +136,7 @@ export const gcdEuclideanExplanation: ExplanationData = {
 
 		{
 			id: "common-mistakes",
-			title: "⚠️ よくある間違いと注意点",
+			title: "【注意】よくある間違いと注意点",
 			content:
 				"ユークリッドの互除法の実装では、いくつかの典型的な間違いがあります。0での除算、負数の扱い、引数の順序の問題などです。また、オーバーフローの可能性や、浮動小数点数での精度の問題も注意が必要です。初期条件（a=0またはb=0）の処理や、結果が常に正になるような実装も重要です。これらの問題を理解し、適切に対処することで、堅牢なアルゴリズムを実装できます。",
 			importance: "medium",
@@ -150,7 +150,7 @@ export const gcdEuclideanExplanation: ExplanationData = {
 
 		{
 			id: "learning-progression",
-			title: "📚 学習の進め方",
+			title: "【基礎】学習の進め方",
 			content:
 				"ユークリッドの互除法の学習は、まず手計算で小さな例を追うことから始めます。次に基本的な実装を行い、その後拡張版や最適化版に進みます。数論の基礎知識があると理解が深まりますが、アルゴリズムとしての学習だけでも十分価値があります。最終的には、暗号学や他の応用分野での使用例を学ぶことで、理論と実践の橋渡しができます。効率的なアルゴリズム設計の思考法を身につける良い教材でもあります。",
 			importance: "low",

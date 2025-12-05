@@ -113,7 +113,7 @@ export class FactorialRecursiveAlgorithm implements Algorithm {
 		// 完了ステップ
 		this.steps.push({
 			id: this.stepId++,
-			description: `🎉 計算完了！${n}! = ${result}`,
+			description: ` 計算完了！${n}! = ${result}`,
 			array: [],
 			operation: "完了",
 			variables: {
@@ -185,7 +185,7 @@ export class FactorialRecursiveAlgorithm implements Algorithm {
 
 			this.steps.push({
 				id: this.stepId++,
-				description: `✅ ベースケース：${n}! = ${result}（定義による）`,
+				description: `ベースケース：${n}! = ${result}（定義による）`,
 				array: [],
 				operation: "ベースケース",
 				variables: {
@@ -322,33 +322,33 @@ export class FactorialRecursiveAlgorithm implements Algorithm {
 		return `
 階乗の計算（再帰）は、線形再帰アルゴリズムの代表例です。
 
-🔢 **階乗の定義**
+【数値】**階乗の定義**
 - 0! = 1, 1! = 1 （ベースケース）
 - n! = n × (n-1)! （n ≥ 2）
 - 例: 5! = 5 × 4 × 3 × 2 × 1 = 120
 
-🔄 **線形再帰構造**
+ **線形再帰構造**
 - 単純な再帰関係：各ステップで1つの再帰呼び出し
 - フィボナッチ数列より理解しやすい構造
 - 問題サイズが1ずつ減少
 
-📚 **実行メカニズム**
+【基礎】**実行メカニズム**
 - コールスタックに関数呼び出しが線形に積まれる
 - ベースケースから逆順に結果を計算
 - メモリ使用量は再帰の深さに比例
 
-⏱️ **効率的な計算量**
+️ **効率的な計算量**
 - 時間計算量: O(n) - 線形時間
 - 空間計算量: O(n) - 再帰の深さ
 - フィボナッチのO(2^n)より格段に効率的
 
-🎯 **学習価値**
+【ポイント】**学習価値**
 - 再帰プログラミングの基礎
 - 数学的定義の直接的な実装
 - スタックとメモリ管理の理解
 - より複雑な再帰アルゴリズムへの足がかり
 
-⚠️ **実用的な注意点**
+【注意】**実用的な注意点**
 - 20!以上では数値オーバーフローのリスク
 - 大きなnではスタックオーバーフローの可能性
 - 実用面では反復実装の方が効率的
