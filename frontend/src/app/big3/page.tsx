@@ -1,6 +1,7 @@
 "use client";
 
-import { AlertTriangle, Info } from "lucide-react";
+import { AlertTriangle, ClipboardList, ExternalLink, Info } from "lucide-react";
+import Link from "next/link";
 import React, { useState } from "react";
 import { DataTable } from "../../components/big3/DataTable";
 import { GenderSelector } from "../../components/big3/GenderSelector";
@@ -88,7 +89,7 @@ export default function BIG3Page() {
 							key={tab.key}
 							onClick={() => setActiveTab(tab.key)}
 							className={`
-								flex-1 min-w-fit px-4 py-2 text-sm font-medium rounded-md transition-colors
+								flex-1 min-w-fit px-4 py-2 text-sm font-medium rounded-md transition-colors cursor-pointer
 								${
 									activeTab === tab.key
 										? "bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 shadow-sm"
@@ -105,6 +106,24 @@ export default function BIG3Page() {
 				<div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-6">
 					{renderTabContent()}
 				</div>
+
+				{/* Related Link */}
+				<Link
+					href="/training-menu"
+					className="mt-6 flex items-center gap-3 p-4 bg-gradient-to-r from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20 border border-amber-200 dark:border-amber-800 rounded-xl hover:shadow-md transition-shadow"
+				>
+					<div className="w-10 h-10 rounded-lg bg-gradient-to-br from-amber-500 to-orange-500 flex items-center justify-center shrink-0">
+						<ClipboardList className="w-5 h-5 text-white" />
+					</div>
+					<div>
+						<p className="font-medium text-gray-900 dark:text-gray-100">
+							トレーニングメニュー
+						</p>
+						<p className="text-sm text-gray-600 dark:text-gray-400">
+							1RMからMAXアップ・筋肥大メニューを自動計算
+						</p>
+					</div>
+				</Link>
 
 				{/* Notes */}
 				<div className="mt-8 space-y-4">
@@ -128,6 +147,27 @@ export default function BIG3Page() {
 							</p>
 							<p>
 								このデータは一般的な指標です。無理な重量への挑戦は避け、適切なフォームと漸進的な負荷増加を心がけてください。
+							</p>
+						</div>
+					</div>
+
+					<div className="flex items-start gap-3 text-sm text-gray-600 dark:text-gray-400">
+						<ExternalLink className="w-5 h-5 shrink-0 mt-0.5 text-gray-500" />
+						<div className="space-y-1">
+							<p className="font-medium text-gray-900 dark:text-gray-100">
+								データ参照元
+							</p>
+							<p>
+								レベル判定の基準データは{" "}
+								<a
+									href="https://strengthlevel.com/strength-standards"
+									target="_blank"
+									rel="noopener noreferrer"
+									className="text-blue-600 dark:text-blue-400 hover:underline"
+								>
+									Strength Level
+								</a>{" "}
+								を参考にしています。
 							</p>
 						</div>
 					</div>

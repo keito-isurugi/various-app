@@ -3,6 +3,7 @@ import {
 	Brain,
 	Calculator,
 	Calendar,
+	ClipboardList,
 	Code,
 	Dumbbell,
 	Rocket,
@@ -39,6 +40,13 @@ const pageLinks = [
 		description: "筋トレBIG3の記録管理",
 		icon: Dumbbell,
 		color: "from-orange-500 to-red-500",
+	},
+	{
+		href: "/training-menu",
+		title: "トレーニングメニュー",
+		description: "1RMからメニュー自動計算",
+		icon: ClipboardList,
+		color: "from-amber-500 to-orange-500",
 	},
 	// 学習カテゴリ（サイドメニューの学習カテゴリと同順）
 	{

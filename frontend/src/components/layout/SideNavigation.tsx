@@ -7,6 +7,7 @@ import {
 	Calendar,
 	ChevronDown,
 	ChevronUp,
+	ClipboardList,
 	Code,
 	Dumbbell,
 	GraduationCap,
@@ -71,6 +72,12 @@ export const SideNavigation: React.FC<SideNavigationProps> = ({
 			label: "BIG3計算",
 			icon: Dumbbell,
 			color: "from-orange-500 to-red-500",
+		},
+		{
+			href: "/training-menu",
+			label: "トレーニングメニュー",
+			icon: ClipboardList,
+			color: "from-amber-500 to-orange-500",
 		},
 	];
 
