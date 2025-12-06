@@ -1,17 +1,25 @@
 "use client";
 
-import { AlertTriangle, Dumbbell, Info } from "lucide-react";
+import { AlertTriangle, Calendar, Dumbbell, Info } from "lucide-react";
 import { useMemo, useState } from "react";
 import { OneRMInputForm } from "../../components/training-menu/OneRMInputForm";
+import { ProgramSettingsForm } from "../../components/training-menu/ProgramSettingsForm";
+import { ProgramTable } from "../../components/training-menu/ProgramTable";
 import { TrainingMenuCard } from "../../components/training-menu/TrainingMenuCard";
 import type {
 	ExerciseKey,
 	OneRMInput,
+	ProgramSettings,
 	WeightIncrement,
 } from "../../types/training-menu";
-import { calculateAllMenus } from "../../utils/training-menu-calculator";
+import {
+	calculateAllMenus,
+	calculateAllPrograms,
+} from "../../utils/training-menu-calculator";
 
 const EXERCISES: ExerciseKey[] = ["squat", "bench", "deadlift"];
+
+type ViewMode = "daily" | "program";
 
 export default function TrainingMenuPage() {
 	const [input, setInput] = useState<OneRMInput>({
@@ -20,6 +28,11 @@ export default function TrainingMenuPage() {
 		deadlift: "",
 	});
 	const [increment, setIncrement] = useState<WeightIncrement>(2.5);
+	const [viewMode, setViewMode] = useState<ViewMode>("daily");
+	const [programSettings, setProgramSettings] = useState<ProgramSettings>({
+		duration: 4,
+		frequency: 1,
+	});
 
 	const handleInputChange = (exercise: ExerciseKey, value: number | "") => {
 		setInput((prev) => ({ ...prev, [exercise]: value }));
@@ -30,8 +43,14 @@ export default function TrainingMenuPage() {
 		[input, increment],
 	);
 
+	const programs = useMemo(
+		() => calculateAllPrograms(input, increment, programSettings),
+		[input, increment, programSettings],
+	);
+
 	const hasAnyInput = Object.values(input).some((v) => v !== "");
 	const hasAnyMenu = Object.keys(menus).length > 0;
+	const hasAnyProgram = Object.keys(programs).length > 0;
 
 	return (
 		<div className="min-h-screen bg-gray-50 dark:bg-gray-900">
@@ -50,7 +69,7 @@ export default function TrainingMenuPage() {
 				</header>
 
 				{/* Input Section */}
-				<div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-6 mb-8">
+				<div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-6 mb-6">
 					<h2 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">
 						1RMを入力
 					</h2>
@@ -62,26 +81,97 @@ export default function TrainingMenuPage() {
 					/>
 				</div>
 
+				{/* View Mode Toggle */}
+				<div className="flex gap-2 mb-6">
+					<button
+						type="button"
+						onClick={() => setViewMode("daily")}
+						className={`flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-lg font-medium transition-colors ${
+							viewMode === "daily"
+								? "bg-blue-600 text-white"
+								: "bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700"
+						}`}
+					>
+						<Dumbbell className="w-5 h-5" />
+						当日メニュー
+					</button>
+					<button
+						type="button"
+						onClick={() => setViewMode("program")}
+						className={`flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-lg font-medium transition-colors ${
+							viewMode === "program"
+								? "bg-red-600 text-white"
+								: "bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700"
+						}`}
+					>
+						<Calendar className="w-5 h-5" />
+						MAXアップ プログラム
+					</button>
+				</div>
+
+				{/* Program Settings (only shown in program mode) */}
+				{viewMode === "program" && (
+					<div className="mb-6">
+						<ProgramSettingsForm
+							settings={programSettings}
+							onSettingsChange={setProgramSettings}
+						/>
+					</div>
+				)}
+
 				{/* Results Section */}
 				{hasAnyInput && (
 					<div className="space-y-6">
 						<h2 className="text-xl font-semibold text-gray-900 dark:text-gray-100">
-							トレーニングメニュー
+							{viewMode === "daily"
+								? "トレーニングメニュー"
+								: `MAXアップ ${programSettings.duration}週間プログラム`}
 						</h2>
 
-						{hasAnyMenu ? (
+						{viewMode === "daily" ? (
+							// Daily Menu View
+							hasAnyMenu ? (
+								<div className="space-y-6">
+									{EXERCISES.map((exercise) => {
+										const menu = menus[exercise];
+										const oneRM = input[exercise];
+										if (!menu || oneRM === "") return null;
+
+										return (
+											<TrainingMenuCard
+												key={exercise}
+												exercise={exercise}
+												menu={menu}
+												oneRM={oneRM}
+											/>
+										);
+									})}
+								</div>
+							) : (
+								<div className="bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 rounded-lg p-4">
+									<div className="flex items-start gap-3">
+										<AlertTriangle className="w-5 h-5 text-yellow-600 dark:text-yellow-400 shrink-0 mt-0.5" />
+										<p className="text-yellow-800 dark:text-yellow-200">
+											有効な1RM値を入力してください（1kg〜500kg）
+										</p>
+									</div>
+								</div>
+							)
+						) : // Program View
+						hasAnyProgram ? (
 							<div className="space-y-6">
 								{EXERCISES.map((exercise) => {
-									const menu = menus[exercise];
+									const program = programs[exercise];
 									const oneRM = input[exercise];
-									if (!menu || oneRM === "") return null;
+									if (!program || oneRM === "") return null;
 
 									return (
-										<TrainingMenuCard
+										<ProgramTable
 											key={exercise}
 											exercise={exercise}
-											menu={menu}
+											program={program}
 											oneRM={oneRM}
+											frequency={programSettings.frequency}
 										/>
 									);
 								})}
@@ -120,8 +210,7 @@ export default function TrainingMenuPage() {
 								注意事項
 							</p>
 							<p>
-								MAXアップメニューは高強度（85%
-								1RM）のため、適切なフォームと十分なウォームアップを行ってください。
+								MAXアップメニューは高強度のため、適切なフォームと十分なウォームアップを行ってください。
 								無理な重量への挑戦は怪我の原因となります。
 							</p>
 						</div>
@@ -134,8 +223,16 @@ export default function TrainingMenuPage() {
 								メニュー仕様
 							</p>
 							<ul className="list-disc list-inside space-y-1">
-								<li>MAXアップ day: 85% 1RM × 3回 × 5セット（休憩3〜5分）</li>
-								<li>筋肥大 day: 70% 1RM × 8回 × 4セット（休憩1.5〜3分）</li>
+								<li>
+									当日メニュー: MAXアップ day (85% 1RM) / 筋肥大 day (70% 1RM)
+								</li>
+								<li>
+									MAXアッププログラム:
+									4/6/8週間の漸進的プログラム（最終週は調整週）
+								</li>
+								<li>
+									週2回の場合: A (Heavy) と B (Light: -5%) の2セッション構成
+								</li>
 							</ul>
 						</div>
 					</div>

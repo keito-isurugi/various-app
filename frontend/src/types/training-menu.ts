@@ -99,3 +99,63 @@ export const EXERCISE_SHORT_LABELS: Record<ExerciseKey, string> = {
 	bench: "BP",
 	deadlift: "DL",
 };
+
+/**
+ * プログラム期間（週数）
+ */
+export type ProgramDuration = 4 | 6 | 8;
+
+/**
+ * 週間頻度
+ */
+export type WeeklyFrequency = 1 | 2;
+
+/**
+ * プログラム設定
+ */
+export interface ProgramSettings {
+	/** プログラム期間（週数） */
+	duration: ProgramDuration;
+	/** 週間頻度 */
+	frequency: WeeklyFrequency;
+}
+
+/**
+ * 週ごとのプログラムテンプレート
+ */
+export interface WeekTemplate {
+	/** 週番号 */
+	week: number;
+	/** 強度 (0-1) */
+	intensity: number;
+	/** 回数 */
+	reps: number;
+	/** セット数 */
+	sets: number;
+}
+
+/**
+ * 計算されたプログラム週
+ */
+export interface ProgramWeek {
+	/** 週番号 */
+	week: number;
+	/** 強度 (%) */
+	intensityPercent: number;
+	/** 回数 */
+	reps: number;
+	/** セット数 */
+	sets: number;
+	/** Heavy日の重量 (kg) */
+	weightHeavy: number;
+	/** Light日の重量 (kg) - 週2回の場合のみ */
+	weightLight?: number;
+}
+
+/**
+ * 種目ごとのプログラム
+ */
+export interface ExerciseProgram {
+	/** 週ごとのプログラム */
+	weeks: ProgramWeek[];
+}

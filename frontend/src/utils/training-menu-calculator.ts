@@ -1,10 +1,16 @@
 import type {
 	ExerciseKey,
+	ExerciseProgram,
 	ExerciseTrainingMenu,
 	OneRMInput,
+	ProgramDuration,
+	ProgramSettings,
+	ProgramWeek,
 	TrainingConfig,
 	TrainingMenu,
 	ValidationResult,
+	WeekTemplate,
+	WeeklyFrequency,
 	WeightIncrement,
 } from "../types/training-menu";
 
@@ -149,6 +155,135 @@ export function calculateAllMenus(
 			const menu = calculateExerciseMenu(oneRM, increment);
 			if (menu) {
 				result[exercise] = menu;
+			}
+		}
+	}
+
+	return result;
+}
+
+/**
+ * Light日の強度差（固定値）
+ */
+const LIGHT_DAY_INTENSITY_DIFF = 0.05;
+
+/**
+ * 4週プログラムテンプレート
+ */
+const PROGRAM_TEMPLATE_4WEEKS: WeekTemplate[] = [
+	{ week: 1, intensity: 0.85, reps: 3, sets: 5 },
+	{ week: 2, intensity: 0.875, reps: 3, sets: 5 },
+	{ week: 3, intensity: 0.9, reps: 3, sets: 4 },
+	{ week: 4, intensity: 0.8, reps: 3, sets: 3 }, // 調整週
+];
+
+/**
+ * 6週プログラムテンプレート
+ */
+const PROGRAM_TEMPLATE_6WEEKS: WeekTemplate[] = [
+	{ week: 1, intensity: 0.8, reps: 3, sets: 5 },
+	{ week: 2, intensity: 0.85, reps: 3, sets: 5 },
+	{ week: 3, intensity: 0.875, reps: 3, sets: 5 },
+	{ week: 4, intensity: 0.9, reps: 3, sets: 4 },
+	{ week: 5, intensity: 0.925, reps: 2, sets: 4 },
+	{ week: 6, intensity: 0.8, reps: 3, sets: 3 }, // 調整週
+];
+
+/**
+ * 8週プログラムテンプレート
+ */
+const PROGRAM_TEMPLATE_8WEEKS: WeekTemplate[] = [
+	{ week: 1, intensity: 0.75, reps: 5, sets: 5 },
+	{ week: 2, intensity: 0.8, reps: 4, sets: 5 },
+	{ week: 3, intensity: 0.85, reps: 3, sets: 5 },
+	{ week: 4, intensity: 0.875, reps: 3, sets: 5 },
+	{ week: 5, intensity: 0.9, reps: 3, sets: 4 },
+	{ week: 6, intensity: 0.925, reps: 2, sets: 4 },
+	{ week: 7, intensity: 0.95, reps: 1, sets: 3 },
+	{ week: 8, intensity: 0.8, reps: 3, sets: 3 }, // 調整週
+];
+
+/**
+ * プログラム期間に応じたテンプレートを取得
+ */
+export function getProgramTemplate(duration: ProgramDuration): WeekTemplate[] {
+	switch (duration) {
+		case 4:
+			return PROGRAM_TEMPLATE_4WEEKS;
+		case 6:
+			return PROGRAM_TEMPLATE_6WEEKS;
+		case 8:
+			return PROGRAM_TEMPLATE_8WEEKS;
+	}
+}
+
+/**
+ * プログラム週を計算する
+ */
+function calculateProgramWeek(
+	oneRM: number,
+	template: WeekTemplate,
+	increment: WeightIncrement,
+	frequency: WeeklyFrequency,
+): ProgramWeek {
+	const weightHeavy = roundToIncrement(oneRM * template.intensity, increment);
+
+	const result: ProgramWeek = {
+		week: template.week,
+		intensityPercent: template.intensity * 100,
+		reps: template.reps,
+		sets: template.sets,
+		weightHeavy,
+	};
+
+	if (frequency === 2) {
+		const lightIntensity = template.intensity - LIGHT_DAY_INTENSITY_DIFF;
+		result.weightLight = roundToIncrement(oneRM * lightIntensity, increment);
+	}
+
+	return result;
+}
+
+/**
+ * 種目のプログラムを計算する
+ */
+export function calculateExerciseProgram(
+	oneRM: number,
+	increment: WeightIncrement,
+	settings: ProgramSettings,
+): ExerciseProgram | null {
+	const template = getProgramTemplate(settings.duration);
+
+	const weeks: ProgramWeek[] = template.map((weekTemplate) =>
+		calculateProgramWeek(oneRM, weekTemplate, increment, settings.frequency),
+	);
+
+	// すべての週のHeavy重量が0以下でないかチェック
+	if (weeks.some((week) => week.weightHeavy <= 0)) {
+		return null;
+	}
+
+	return { weeks };
+}
+
+/**
+ * 全種目のプログラムを計算する
+ */
+export function calculateAllPrograms(
+	input: OneRMInput,
+	increment: WeightIncrement,
+	settings: ProgramSettings,
+): Partial<Record<ExerciseKey, ExerciseProgram>> {
+	const result: Partial<Record<ExerciseKey, ExerciseProgram>> = {};
+
+	const exercises: ExerciseKey[] = ["squat", "bench", "deadlift"];
+
+	for (const exercise of exercises) {
+		const oneRM = input[exercise];
+		if (oneRM !== "" && validateOneRM(oneRM).isValid) {
+			const program = calculateExerciseProgram(oneRM, increment, settings);
+			if (program) {
+				result[exercise] = program;
 			}
 		}
 	}
