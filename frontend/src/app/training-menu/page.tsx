@@ -1,6 +1,13 @@
 "use client";
 
-import { AlertTriangle, Calendar, Dumbbell, Info } from "lucide-react";
+import {
+	AlertTriangle,
+	Calendar,
+	Check,
+	Copy,
+	Dumbbell,
+	Info,
+} from "lucide-react";
 import { useMemo, useState } from "react";
 import { OneRMInputForm } from "../../components/training-menu/OneRMInputForm";
 import { ProgramSettingsForm } from "../../components/training-menu/ProgramSettingsForm";
@@ -15,6 +22,8 @@ import type {
 import {
 	calculateAllMenus,
 	calculateAllPrograms,
+	formatAllDailyMenusForCopy,
+	formatAllProgramsForCopy,
 } from "../../utils/training-menu-calculator";
 
 const EXERCISES: ExerciseKey[] = ["squat", "bench", "deadlift"];
@@ -33,6 +42,7 @@ export default function TrainingMenuPage() {
 		duration: 4,
 		frequency: 1,
 	});
+	const [isCopied, setIsCopied] = useState(false);
 
 	const handleInputChange = (exercise: ExerciseKey, value: number | "") => {
 		setInput((prev) => ({ ...prev, [exercise]: value }));
@@ -51,6 +61,36 @@ export default function TrainingMenuPage() {
 	const hasAnyInput = Object.values(input).some((v) => v !== "");
 	const hasAnyMenu = Object.keys(menus).length > 0;
 	const hasAnyProgram = Object.keys(programs).length > 0;
+
+	const handleCopyAll = async () => {
+		const text =
+			viewMode === "daily"
+				? formatAllDailyMenusForCopy(input, menus)
+				: formatAllProgramsForCopy(
+						input,
+						programs,
+						programSettings.frequency,
+						programSettings.duration,
+					);
+
+		try {
+			await navigator.clipboard.writeText(text);
+			setIsCopied(true);
+			setTimeout(() => setIsCopied(false), 2000);
+		} catch {
+			// Fallback for older browsers
+			const textArea = document.createElement("textarea");
+			textArea.value = text;
+			textArea.style.position = "fixed";
+			textArea.style.left = "-9999px";
+			document.body.appendChild(textArea);
+			textArea.select();
+			document.execCommand("copy");
+			document.body.removeChild(textArea);
+			setIsCopied(true);
+			setTimeout(() => setIsCopied(false), 2000);
+		}
+	};
 
 	return (
 		<div className="min-h-screen bg-gray-50 dark:bg-gray-900">
@@ -122,11 +162,37 @@ export default function TrainingMenuPage() {
 				{/* Results Section */}
 				{hasAnyInput && (
 					<div className="space-y-6">
-						<h2 className="text-xl font-semibold text-gray-900 dark:text-gray-100">
-							{viewMode === "daily"
-								? "トレーニングメニュー"
-								: `MAXアップ ${programSettings.duration}週間プログラム`}
-						</h2>
+						<div className="flex items-center justify-between">
+							<h2 className="text-xl font-semibold text-gray-900 dark:text-gray-100">
+								{viewMode === "daily"
+									? "トレーニングメニュー"
+									: `MAXアップ ${programSettings.duration}週間プログラム`}
+							</h2>
+							{((viewMode === "daily" && hasAnyMenu) ||
+								(viewMode === "program" && hasAnyProgram)) && (
+								<button
+									type="button"
+									onClick={handleCopyAll}
+									className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+										isCopied
+											? "bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400"
+											: "bg-gray-100 text-gray-700 hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600"
+									}`}
+								>
+									{isCopied ? (
+										<>
+											<Check className="w-4 h-4" />
+											コピーしました
+										</>
+									) : (
+										<>
+											<Copy className="w-4 h-4" />
+											すべてコピー
+										</>
+									)}
+								</button>
+							)}
+						</div>
 
 						{viewMode === "daily" ? (
 							// Daily Menu View

@@ -290,3 +290,128 @@ export function calculateAllPrograms(
 
 	return result;
 }
+
+/**
+ * 当日メニューをコピー用テキストに変換
+ */
+export function formatDailyMenuForCopy(
+	exerciseName: string,
+	oneRM: number,
+	menu: ExerciseTrainingMenu,
+): string {
+	const lines = [
+		`【${exerciseName}】1RM: ${oneRM}kg`,
+		"",
+		"■ MAXアップ day",
+		`  ${menu.strength.weight}kg × ${menu.strength.reps}回 × ${menu.strength.sets}セット`,
+		`  休憩: ${menu.strength.restTime.min}〜${menu.strength.restTime.max}分`,
+		"",
+		"■ 筋肥大 day",
+		`  ${menu.hypertrophy.weight}kg × ${menu.hypertrophy.reps}回 × ${menu.hypertrophy.sets}セット`,
+		`  休憩: ${menu.hypertrophy.restTime.min}〜${menu.hypertrophy.restTime.max}分`,
+	];
+	return lines.join("\n");
+}
+
+/**
+ * プログラムをコピー用テキストに変換
+ */
+export function formatProgramForCopy(
+	exerciseName: string,
+	oneRM: number,
+	program: ExerciseProgram,
+	frequency: WeeklyFrequency,
+): string {
+	const lines = [
+		`【${exerciseName}】1RM: ${oneRM}kg - MAXアッププログラム`,
+		"",
+	];
+
+	if (frequency === 2) {
+		lines.push("週 | 強度 | 回数×セット | A(Heavy) | B(Light)");
+		lines.push("---|------|-------------|----------|----------");
+		for (const week of program.weeks) {
+			const isDeload = week.week === program.weeks.length;
+			const deloadMark = isDeload ? " (調整)" : "";
+			lines.push(
+				`W${week.week}${deloadMark} | ${week.intensityPercent}% | ${week.reps}×${week.sets} | ${week.weightHeavy}kg | ${week.weightLight}kg`,
+			);
+		}
+	} else {
+		lines.push("週 | 強度 | 回数×セット | 重量");
+		lines.push("---|------|-------------|------");
+		for (const week of program.weeks) {
+			const isDeload = week.week === program.weeks.length;
+			const deloadMark = isDeload ? " (調整)" : "";
+			lines.push(
+				`W${week.week}${deloadMark} | ${week.intensityPercent}% | ${week.reps}×${week.sets} | ${week.weightHeavy}kg`,
+			);
+		}
+	}
+
+	return lines.join("\n");
+}
+
+const EXERCISE_LABELS_FOR_COPY: Record<ExerciseKey, string> = {
+	squat: "スクワット",
+	bench: "ベンチプレス",
+	deadlift: "デッドリフト",
+};
+
+/**
+ * 全種目の当日メニューを一括コピー用テキストに変換
+ */
+export function formatAllDailyMenusForCopy(
+	input: OneRMInput,
+	menus: Partial<Record<ExerciseKey, ExerciseTrainingMenu>>,
+): string {
+	const exercises: ExerciseKey[] = ["squat", "bench", "deadlift"];
+	const sections: string[] = ["=== BIG3 トレーニングメニュー ===", ""];
+
+	for (const exercise of exercises) {
+		const menu = menus[exercise];
+		const oneRM = input[exercise];
+		if (menu && oneRM !== "") {
+			sections.push(
+				formatDailyMenuForCopy(EXERCISE_LABELS_FOR_COPY[exercise], oneRM, menu),
+			);
+			sections.push("");
+		}
+	}
+
+	return sections.join("\n").trim();
+}
+
+/**
+ * 全種目のプログラムを一括コピー用テキストに変換
+ */
+export function formatAllProgramsForCopy(
+	input: OneRMInput,
+	programs: Partial<Record<ExerciseKey, ExerciseProgram>>,
+	frequency: WeeklyFrequency,
+	duration: ProgramDuration,
+): string {
+	const exercises: ExerciseKey[] = ["squat", "bench", "deadlift"];
+	const sections: string[] = [
+		`=== BIG3 MAXアップ ${duration}週間プログラム ===`,
+		"",
+	];
+
+	for (const exercise of exercises) {
+		const program = programs[exercise];
+		const oneRM = input[exercise];
+		if (program && oneRM !== "") {
+			sections.push(
+				formatProgramForCopy(
+					EXERCISE_LABELS_FOR_COPY[exercise],
+					oneRM,
+					program,
+					frequency,
+				),
+			);
+			sections.push("");
+		}
+	}
+
+	return sections.join("\n").trim();
+}
