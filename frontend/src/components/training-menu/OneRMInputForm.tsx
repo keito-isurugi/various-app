@@ -1,6 +1,7 @@
 "use client";
 
-import { AlertCircle } from "lucide-react";
+import { AlertCircle, Calculator } from "lucide-react";
+import { useState } from "react";
 import type {
 	ExerciseKey,
 	OneRMInput,
@@ -8,6 +9,7 @@ import type {
 } from "../../types/training-menu";
 import { EXERCISE_LABELS } from "../../types/training-menu";
 import { validateOneRM } from "../../utils/training-menu-calculator";
+import { OneRMEstimator } from "./OneRMEstimator";
 
 interface OneRMInputFormProps {
 	input: OneRMInput;
@@ -25,6 +27,14 @@ export function OneRMInputForm({
 	increment,
 	onIncrementChange,
 }: OneRMInputFormProps) {
+	const [showEstimator, setShowEstimator] = useState(false);
+
+	const handleEstimatorApply = (
+		exercise: ExerciseKey,
+		estimatedOneRM: number,
+	) => {
+		onInputChange(exercise, estimatedOneRM);
+	};
 	const handleInputChange = (
 		exercise: ExerciseKey,
 		e: React.ChangeEvent<HTMLInputElement>,
@@ -92,34 +102,52 @@ export function OneRMInputForm({
 				})}
 			</div>
 
-			<div className="flex items-center gap-4">
-				<label
-					htmlFor="increment-select"
-					className="text-sm font-medium text-gray-700 dark:text-gray-300"
+			<div className="flex items-center justify-between">
+				<div className="flex items-center gap-4">
+					<label
+						htmlFor="increment-select"
+						className="text-sm font-medium text-gray-700 dark:text-gray-300"
+					>
+						重量刻み
+					</label>
+					<select
+						id="increment-select"
+						value={increment}
+						onChange={(e) =>
+							onIncrementChange(Number(e.target.value) as WeightIncrement)
+						}
+						className="
+							px-4 py-2 text-sm
+							border border-gray-300 dark:border-gray-600 rounded-lg
+							bg-white dark:bg-gray-800
+							text-gray-900 dark:text-gray-100
+							focus:outline-none focus:ring-2 focus:ring-blue-500
+						"
+					>
+						{WEIGHT_INCREMENTS.map((inc) => (
+							<option key={inc} value={inc}>
+								{inc} kg
+							</option>
+						))}
+					</select>
+				</div>
+
+				<button
+					type="button"
+					onClick={() => setShowEstimator(true)}
+					className="flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-blue-700 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20 hover:bg-blue-100 dark:hover:bg-blue-900/30 rounded-lg transition-colors"
 				>
-					重量刻み
-				</label>
-				<select
-					id="increment-select"
-					value={increment}
-					onChange={(e) =>
-						onIncrementChange(Number(e.target.value) as WeightIncrement)
-					}
-					className="
-						px-4 py-2 text-sm
-						border border-gray-300 dark:border-gray-600 rounded-lg
-						bg-white dark:bg-gray-800
-						text-gray-900 dark:text-gray-100
-						focus:outline-none focus:ring-2 focus:ring-blue-500
-					"
-				>
-					{WEIGHT_INCREMENTS.map((inc) => (
-						<option key={inc} value={inc}>
-							{inc} kg
-						</option>
-					))}
-				</select>
+					<Calculator className="w-4 h-4" />
+					1RMがわからない場合
+				</button>
 			</div>
+
+			{showEstimator && (
+				<OneRMEstimator
+					onApply={handleEstimatorApply}
+					onClose={() => setShowEstimator(false)}
+				/>
+			)}
 		</div>
 	);
 }

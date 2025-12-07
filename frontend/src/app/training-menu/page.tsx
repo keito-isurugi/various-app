@@ -9,10 +9,12 @@ import {
 	Info,
 } from "lucide-react";
 import { useMemo, useState } from "react";
+import { SaveClearButtons } from "../../components/common/SaveClearButtons";
 import { OneRMInputForm } from "../../components/training-menu/OneRMInputForm";
 import { ProgramSettingsForm } from "../../components/training-menu/ProgramSettingsForm";
 import { ProgramTable } from "../../components/training-menu/ProgramTable";
 import { TrainingMenuCard } from "../../components/training-menu/TrainingMenuCard";
+import { useLocalStorage } from "../../hooks/useLocalStorage";
 import type {
 	ExerciseKey,
 	OneRMInput,
@@ -30,22 +32,54 @@ const EXERCISES: ExerciseKey[] = ["squat", "bench", "deadlift"];
 
 type ViewMode = "daily" | "program";
 
+interface TrainingMenuSettings {
+	input: OneRMInput;
+	increment: WeightIncrement;
+	viewMode: ViewMode;
+	programSettings: ProgramSettings;
+}
+
+const DEFAULT_SETTINGS: TrainingMenuSettings = {
+	input: { squat: "", bench: "", deadlift: "" },
+	increment: 2.5,
+	viewMode: "daily",
+	programSettings: { duration: 4, frequency: 1 },
+};
+
 export default function TrainingMenuPage() {
-	const [input, setInput] = useState<OneRMInput>({
-		squat: "",
-		bench: "",
-		deadlift: "",
+	const {
+		data: settings,
+		setData: setSettings,
+		hasSavedData,
+		isSaved,
+		save,
+		clear,
+	} = useLocalStorage({
+		key: "training-menu-settings",
+		defaultValue: DEFAULT_SETTINGS,
 	});
-	const [increment, setIncrement] = useState<WeightIncrement>(2.5);
-	const [viewMode, setViewMode] = useState<ViewMode>("daily");
-	const [programSettings, setProgramSettings] = useState<ProgramSettings>({
-		duration: 4,
-		frequency: 1,
-	});
+
 	const [isCopied, setIsCopied] = useState(false);
 
+	const { input, increment, viewMode, programSettings } = settings;
+
 	const handleInputChange = (exercise: ExerciseKey, value: number | "") => {
-		setInput((prev) => ({ ...prev, [exercise]: value }));
+		setSettings((prev) => ({
+			...prev,
+			input: { ...prev.input, [exercise]: value },
+		}));
+	};
+
+	const setIncrement = (increment: WeightIncrement) => {
+		setSettings((prev) => ({ ...prev, increment }));
+	};
+
+	const setViewMode = (viewMode: ViewMode) => {
+		setSettings((prev) => ({ ...prev, viewMode }));
+	};
+
+	const setProgramSettings = (programSettings: ProgramSettings) => {
+		setSettings((prev) => ({ ...prev, programSettings }));
 	};
 
 	const menus = useMemo(
@@ -110,9 +144,19 @@ export default function TrainingMenuPage() {
 
 				{/* Input Section */}
 				<div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-6 mb-6">
-					<h2 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">
-						1RMを入力
-					</h2>
+					<div className="flex items-center justify-between mb-4">
+						<h2 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
+							1RMを入力
+						</h2>
+						<SaveClearButtons
+							canSave={hasAnyInput}
+							canClear={hasAnyInput || hasSavedData}
+							isSaved={isSaved}
+							hasSavedData={hasSavedData}
+							onSave={save}
+							onClear={clear}
+						/>
+					</div>
 					<OneRMInputForm
 						input={input}
 						onInputChange={handleInputChange}

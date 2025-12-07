@@ -2,20 +2,52 @@
 
 import { AlertTriangle, ClipboardList, ExternalLink, Info } from "lucide-react";
 import Link from "next/link";
-import React, { useState } from "react";
+import React from "react";
 import { DataTable } from "../../components/big3/DataTable";
 import { GenderSelector } from "../../components/big3/GenderSelector";
 import { TargetWeights } from "../../components/big3/TargetWeights";
 import { WeightInput } from "../../components/big3/WeightInput";
+import { SaveClearButtons } from "../../components/common/SaveClearButtons";
+import { useLocalStorage } from "../../hooks/useLocalStorage";
 import type { ExerciseType, Gender } from "../../types/big3";
 import { validateBodyWeightByGender } from "../../utils/big3-calculator-gender";
 
 type TabType = "target" | ExerciseType;
 
+interface Big3Settings {
+	bodyWeight: number | "";
+	activeTab: TabType;
+	selectedGender: Gender;
+}
+
+const DEFAULT_SETTINGS: Big3Settings = {
+	bodyWeight: "",
+	activeTab: "target",
+	selectedGender: "male",
+};
+
 export default function BIG3Page() {
-	const [bodyWeight, setBodyWeight] = useState<number | "">("");
-	const [activeTab, setActiveTab] = useState<TabType>("target");
-	const [selectedGender, setSelectedGender] = useState<Gender>("male");
+	const {
+		data: settings,
+		setData: setSettings,
+		hasSavedData,
+		isSaved,
+		save,
+		clear,
+	} = useLocalStorage({
+		key: "big3-settings",
+		defaultValue: DEFAULT_SETTINGS,
+	});
+
+	const { bodyWeight, activeTab, selectedGender } = settings;
+
+	const setBodyWeight = (bodyWeight: number | "") => {
+		setSettings((prev) => ({ ...prev, bodyWeight }));
+	};
+
+	const setActiveTab = (activeTab: TabType) => {
+		setSettings((prev) => ({ ...prev, activeTab }));
+	};
 
 	const validation =
 		bodyWeight !== ""
@@ -30,9 +62,14 @@ export default function BIG3Page() {
 	];
 
 	const handleGenderChange = (gender: Gender) => {
-		setSelectedGender(gender);
-		setBodyWeight("");
+		setSettings((prev) => ({
+			...prev,
+			selectedGender: gender,
+			bodyWeight: "",
+		}));
 	};
+
+	const hasAnyInput = bodyWeight !== "";
 
 	const renderTabContent = () => {
 		if (activeTab === "target") {
@@ -65,6 +102,19 @@ export default function BIG3Page() {
 
 				{/* Input Section */}
 				<div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-6 mb-6">
+					<div className="flex items-center justify-between mb-4">
+						<h2 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
+							設定
+						</h2>
+						<SaveClearButtons
+							canSave={hasAnyInput}
+							canClear={hasAnyInput || hasSavedData}
+							isSaved={isSaved}
+							hasSavedData={hasSavedData}
+							onSave={save}
+							onClear={clear}
+						/>
+					</div>
 					<div className="grid md:grid-cols-2 gap-6">
 						<GenderSelector
 							selectedGender={selectedGender}

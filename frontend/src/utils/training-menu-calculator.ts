@@ -55,6 +55,32 @@ export function roundToIncrement(
 }
 
 /**
+ * 1RMを推定する（重量×回数から）
+ * ベンチプレス: 1RM = 重量 × 回数 ÷ 40 + 重量
+ * スクワット・デッドリフト: 1RM = 重量 × 回数 ÷ 33.3 + 重量
+ * @param exercise - 種目
+ * @param weight - 使用重量 (kg)
+ * @param reps - 回数
+ * @returns 推定1RM (kg)
+ */
+export function estimateOneRM(
+	exercise: ExerciseKey,
+	weight: number,
+	reps: number,
+): number {
+	if (weight <= 0 || reps <= 0) {
+		return 0;
+	}
+
+	// ベンチプレスは40で割る、スクワット・デッドリフトは33.3で割る
+	const divisor = exercise === "bench" ? 40 : 33.3;
+	const estimated = (weight * reps) / divisor + weight;
+
+	// 小数点以下を四捨五入
+	return Math.round(estimated);
+}
+
+/**
  * 1RM入力値のバリデーション
  * @param value - 入力値
  * @returns バリデーション結果
