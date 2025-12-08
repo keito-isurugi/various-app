@@ -12,6 +12,7 @@ import {
 	Dumbbell,
 	GraduationCap,
 	Rocket,
+	Target,
 	Ticket,
 } from "lucide-react";
 import Link from "next/link";
@@ -78,6 +79,12 @@ export const SideNavigation: React.FC<SideNavigationProps> = ({
 			label: "トレーニングメニュー",
 			icon: ClipboardList,
 			color: "from-amber-500 to-orange-500",
+		},
+		{
+			href: "/one-rm-estimator",
+			label: "1RM推定計算",
+			icon: Target,
+			color: "from-purple-500 to-violet-500",
 		},
 	];
 

@@ -7,6 +7,7 @@ import {
 	Code,
 	Dumbbell,
 	Rocket,
+	Target,
 	Ticket,
 } from "lucide-react";
 import Link from "next/link";
@@ -47,6 +48,13 @@ const pageLinks = [
 		description: "1RMからメニュー自動計算",
 		icon: ClipboardList,
 		color: "from-amber-500 to-orange-500",
+	},
+	{
+		href: "/one-rm-estimator",
+		title: "1RM推定計算",
+		description: "重量×回数から1RMを推定",
+		icon: Target,
+		color: "from-purple-500 to-violet-500",
 	},
 	// 学習カテゴリ（サイドメニューの学習カテゴリと同順）
 	{
