@@ -1,11 +1,21 @@
 "use client";
 
-import { AlertTriangle, Calculator, ClipboardList, Info } from "lucide-react";
-import Link from "next/link";
+import {
+	AlertTriangle,
+	ArrowRight,
+	Calculator,
+	ClipboardList,
+	Info,
+} from "lucide-react";
+import { useRouter } from "next/navigation";
 import { SaveClearButtons } from "../../components/common/SaveClearButtons";
 import { useLocalStorage } from "../../hooks/useLocalStorage";
 import type { ExerciseKey } from "../../types/training-menu";
-import { EXERCISE_LABELS } from "../../types/training-menu";
+import {
+	EXERCISE_BADGE_COLORS,
+	EXERCISE_LABELS,
+	EXERCISE_SHORT_LABELS,
+} from "../../types/training-menu";
 import { estimateOneRM } from "../../utils/training-menu-calculator";
 
 interface ExerciseEstimate {
@@ -27,13 +37,10 @@ const DEFAULT_SETTINGS: EstimatorSettings = {
 
 const EXERCISES: ExerciseKey[] = ["squat", "bench", "deadlift"];
 
-const EXERCISE_BADGES: Record<ExerciseKey, { label: string; color: string }> = {
-	squat: { label: "SQ", color: "bg-red-500" },
-	bench: { label: "BP", color: "bg-blue-500" },
-	deadlift: { label: "DL", color: "bg-green-500" },
-};
+const TRAINING_MENU_STORAGE_KEY = "training-menu-settings";
 
 export default function OneRMEstimatorPage() {
+	const router = useRouter();
 	const {
 		data: settings,
 		setData: setSettings,
@@ -77,6 +84,33 @@ export default function OneRMEstimatorPage() {
 
 	const totalBig3 = estimates.reduce((sum, e) => sum + e.estimate, 0);
 
+	const handleApplyToTrainingMenu = () => {
+		// 現在のトレーニングメニュー設定を取得
+		const existingData = localStorage.getItem(TRAINING_MENU_STORAGE_KEY);
+		const existingSettings = existingData ? JSON.parse(existingData) : {};
+
+		// 推定1RMを反映
+		const newInput = {
+			squat: getEstimate("squat") || existingSettings?.input?.squat || "",
+			bench: getEstimate("bench") || existingSettings?.input?.bench || "",
+			deadlift:
+				getEstimate("deadlift") || existingSettings?.input?.deadlift || "",
+		};
+
+		// 更新した設定を保存
+		const updatedSettings = {
+			...existingSettings,
+			input: newInput,
+		};
+		localStorage.setItem(
+			TRAINING_MENU_STORAGE_KEY,
+			JSON.stringify(updatedSettings),
+		);
+
+		// メニュー提案ページに遷移
+		router.push("/big3-menu");
+	};
+
 	return (
 		<div className="min-h-screen bg-gray-50 dark:bg-gray-900">
 			<div className="max-w-2xl mx-auto px-4 py-8">
@@ -85,11 +119,11 @@ export default function OneRMEstimatorPage() {
 					<div className="flex items-center justify-center gap-3 mb-2">
 						<Calculator className="w-8 h-8 text-purple-600 dark:text-purple-400" />
 						<h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100">
-							1RM推定計算
+							BIG3 1RM推定
 						</h1>
 					</div>
 					<p className="text-gray-600 dark:text-gray-400">
-						挙げた重量と回数から1RM（最大挙上重量）を推定します
+						挙げた重量と回数からBIG3の1RM（最大挙上重量）を推定します
 					</p>
 				</header>
 
@@ -113,7 +147,6 @@ export default function OneRMEstimatorPage() {
 						{EXERCISES.map((exercise) => {
 							const { weight, reps } = settings[exercise];
 							const estimate = getEstimate(exercise);
-							const badge = EXERCISE_BADGES[exercise];
 
 							return (
 								<div
@@ -123,9 +156,9 @@ export default function OneRMEstimatorPage() {
 									{/* 種目名 */}
 									<div className="flex items-center gap-2 mb-3">
 										<span
-											className={`${badge.color} text-white text-xs font-bold px-2 py-1 rounded`}
+											className={`${EXERCISE_BADGE_COLORS[exercise]} text-white text-xs font-bold px-2 py-1 rounded`}
 										>
-											{badge.label}
+											{EXERCISE_SHORT_LABELS[exercise]}
 										</span>
 										<span className="font-medium text-gray-900 dark:text-gray-100">
 											{EXERCISE_LABELS[exercise]}
@@ -249,23 +282,43 @@ export default function OneRMEstimatorPage() {
 					)}
 				</div>
 
-				{/* Related Link */}
-				<Link
-					href="/training-menu"
-					className="flex items-center gap-3 p-4 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 border border-blue-200 dark:border-blue-800 rounded-xl hover:shadow-md transition-shadow"
-				>
-					<div className="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-500 to-indigo-500 flex items-center justify-center shrink-0">
-						<ClipboardList className="w-5 h-5 text-white" />
+				{/* トレーニングメニューに反映ボタン */}
+				{estimates.length > 0 ? (
+					<button
+						type="button"
+						onClick={handleApplyToTrainingMenu}
+						className="w-full flex items-center justify-between gap-3 p-4 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-xl hover:from-blue-600 hover:to-indigo-600 transition-colors shadow-md hover:shadow-lg cursor-pointer"
+					>
+						<div className="flex items-center gap-3">
+							<div className="w-10 h-10 rounded-lg bg-white/20 flex items-center justify-center shrink-0">
+								<ClipboardList className="w-5 h-5 text-white" />
+							</div>
+							<div className="text-left">
+								<p className="font-medium text-white">
+									トレーニングメニューに反映
+								</p>
+								<p className="text-sm text-blue-100">
+									推定1RMでメニューを自動計算
+								</p>
+							</div>
+						</div>
+						<ArrowRight className="w-5 h-5 text-white shrink-0" />
+					</button>
+				) : (
+					<div className="flex items-center gap-3 p-4 bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl">
+						<div className="w-10 h-10 rounded-lg bg-gray-200 dark:bg-gray-700 flex items-center justify-center shrink-0">
+							<ClipboardList className="w-5 h-5 text-gray-400" />
+						</div>
+						<div>
+							<p className="font-medium text-gray-400 dark:text-gray-500">
+								トレーニングメニューに反映
+							</p>
+							<p className="text-sm text-gray-400 dark:text-gray-500">
+								1RMを計算するとメニューに反映できます
+							</p>
+						</div>
 					</div>
-					<div>
-						<p className="font-medium text-gray-900 dark:text-gray-100">
-							トレーニングメニュー
-						</p>
-						<p className="text-sm text-gray-600 dark:text-gray-400">
-							推定した1RMでメニューを自動計算
-						</p>
-					</div>
-				</Link>
+				)}
 
 				{/* Notes */}
 				<div className="mt-8 space-y-4">

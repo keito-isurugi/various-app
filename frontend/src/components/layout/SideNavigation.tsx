@@ -12,7 +12,6 @@ import {
 	Dumbbell,
 	GraduationCap,
 	Rocket,
-	Target,
 	Ticket,
 } from "lucide-react";
 import Link from "next/link";
@@ -69,22 +68,22 @@ export const SideNavigation: React.FC<SideNavigationProps> = ({
 			color: "from-pink-500 to-rose-500",
 		},
 		{
-			href: "/big3",
-			label: "BIG3計算",
+			href: "/big3-level",
+			label: "BIG3レベル判定",
 			icon: Dumbbell,
 			color: "from-orange-500 to-red-500",
 		},
 		{
-			href: "/training-menu",
-			label: "トレーニングメニュー",
+			href: "/big3-menu",
+			label: "BIG3メニュー提案",
 			icon: ClipboardList,
-			color: "from-amber-500 to-orange-500",
+			color: "from-orange-500 to-red-500",
 		},
 		{
-			href: "/one-rm-estimator",
-			label: "1RM推定計算",
-			icon: Target,
-			color: "from-purple-500 to-violet-500",
+			href: "/big3-one-rm-estimator",
+			label: "BIG3 1RM推定",
+			icon: Calculator,
+			color: "from-orange-500 to-red-500",
 		},
 	];
 

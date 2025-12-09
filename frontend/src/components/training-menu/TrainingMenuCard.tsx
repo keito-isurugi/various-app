@@ -7,6 +7,7 @@ import type {
 	TrainingMenu,
 } from "../../types/training-menu";
 import {
+	EXERCISE_BADGE_COLORS,
 	EXERCISE_LABELS,
 	EXERCISE_SHORT_LABELS,
 } from "../../types/training-menu";
@@ -85,7 +86,9 @@ export function TrainingMenuCard({
 			<div className="bg-gray-100 dark:bg-gray-700 px-4 py-3 border-b border-gray-200 dark:border-gray-600">
 				<div className="flex items-center justify-between">
 					<div className="flex items-center gap-3">
-						<span className="bg-blue-600 text-white text-sm font-bold px-2 py-1 rounded">
+						<span
+							className={`${EXERCISE_BADGE_COLORS[exercise]} text-white text-sm font-bold px-2 py-1 rounded`}
+						>
 							{EXERCISE_SHORT_LABELS[exercise]}
 						</span>
 						<h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">

@@ -101,6 +101,15 @@ export const EXERCISE_SHORT_LABELS: Record<ExerciseKey, string> = {
 };
 
 /**
+ * 種目ごとのバッジカラー
+ */
+export const EXERCISE_BADGE_COLORS: Record<ExerciseKey, string> = {
+	squat: "bg-red-500",
+	bench: "bg-blue-500",
+	deadlift: "bg-green-500",
+};
+
+/**
  * プログラム期間（週数）
  */
 export type ProgramDuration = 4 | 6 | 8;

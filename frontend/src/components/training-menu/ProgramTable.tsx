@@ -7,6 +7,7 @@ import type {
 	WeeklyFrequency,
 } from "../../types/training-menu";
 import {
+	EXERCISE_BADGE_COLORS,
 	EXERCISE_LABELS,
 	EXERCISE_SHORT_LABELS,
 } from "../../types/training-menu";
@@ -32,7 +33,9 @@ export function ProgramTable({
 			<div className="bg-gradient-to-r from-red-50 to-orange-50 dark:from-red-900/20 dark:to-orange-900/20 px-4 py-3 border-b border-gray-200 dark:border-gray-600">
 				<div className="flex items-center justify-between">
 					<div className="flex items-center gap-3">
-						<span className="bg-red-600 text-white text-sm font-bold px-2 py-1 rounded">
+						<span
+							className={`${EXERCISE_BADGE_COLORS[exercise]} text-white text-sm font-bold px-2 py-1 rounded`}
+						>
 							{EXERCISE_SHORT_LABELS[exercise]}
 						</span>
 						<div className="flex items-center gap-2">

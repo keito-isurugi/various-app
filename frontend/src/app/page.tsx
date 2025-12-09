@@ -7,7 +7,6 @@ import {
 	Code,
 	Dumbbell,
 	Rocket,
-	Target,
 	Ticket,
 } from "lucide-react";
 import Link from "next/link";
@@ -36,25 +35,25 @@ const pageLinks = [
 		color: "from-pink-500 to-rose-500",
 	},
 	{
-		href: "/big3",
-		title: "BIG3計算",
-		description: "筋トレBIG3の記録管理",
+		href: "/big3-level",
+		title: "BIG3レベル判定",
+		description: "体重からBIG3のレベルを判定",
 		icon: Dumbbell,
 		color: "from-orange-500 to-red-500",
 	},
 	{
-		href: "/training-menu",
-		title: "トレーニングメニュー",
+		href: "/big3-menu",
+		title: "BIG3メニュー提案",
 		description: "1RMからメニュー自動計算",
 		icon: ClipboardList,
-		color: "from-amber-500 to-orange-500",
+		color: "from-orange-500 to-red-500",
 	},
 	{
-		href: "/one-rm-estimator",
-		title: "1RM推定計算",
+		href: "/big3-one-rm-estimator",
+		title: "BIG3 1RM推定",
 		description: "重量×回数から1RMを推定",
-		icon: Target,
-		color: "from-purple-500 to-violet-500",
+		icon: Calculator,
+		color: "from-orange-500 to-red-500",
 	},
 	// 学習カテゴリ（サイドメニューの学習カテゴリと同順）
 	{

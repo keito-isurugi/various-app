@@ -96,7 +96,7 @@ export default function BIG3Page() {
 						BIG3レベル判定
 					</h1>
 					<p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-						ベンチプレス・スクワット・デッドリフトのレベルを体重から判定します
+						体重からBIG3（ベンチプレス・スクワット・デッドリフト）のレベルを判定します
 					</p>
 				</header>
 
@@ -159,15 +159,15 @@ export default function BIG3Page() {
 
 				{/* Related Link */}
 				<Link
-					href="/training-menu"
-					className="mt-6 flex items-center gap-3 p-4 bg-gradient-to-r from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20 border border-amber-200 dark:border-amber-800 rounded-xl hover:shadow-md transition-shadow"
+					href="/big3-menu"
+					className="mt-6 flex items-center gap-3 p-4 bg-gradient-to-r from-orange-50 to-red-50 dark:from-orange-900/20 dark:to-red-900/20 border border-orange-200 dark:border-orange-800 rounded-xl hover:shadow-md transition-shadow"
 				>
-					<div className="w-10 h-10 rounded-lg bg-gradient-to-br from-amber-500 to-orange-500 flex items-center justify-center shrink-0">
+					<div className="w-10 h-10 rounded-lg bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center shrink-0">
 						<ClipboardList className="w-5 h-5 text-white" />
 					</div>
 					<div>
 						<p className="font-medium text-gray-900 dark:text-gray-100">
-							トレーニングメニュー
+							BIG3メニュー提案
 						</p>
 						<p className="text-sm text-gray-600 dark:text-gray-400">
 							1RMからMAXアップ・筋肥大メニューを自動計算

@@ -7,7 +7,11 @@ import type {
 	OneRMInput,
 	WeightIncrement,
 } from "../../types/training-menu";
-import { EXERCISE_LABELS } from "../../types/training-menu";
+import {
+	EXERCISE_BADGE_COLORS,
+	EXERCISE_LABELS,
+	EXERCISE_SHORT_LABELS,
+} from "../../types/training-menu";
 import { validateOneRM } from "../../utils/training-menu-calculator";
 import { OneRMEstimator } from "./OneRMEstimator";
 
@@ -62,8 +66,13 @@ export function OneRMInputForm({
 						<div key={exercise} className="space-y-2">
 							<label
 								htmlFor={`input-${exercise}`}
-								className="block text-sm font-medium text-gray-700 dark:text-gray-300"
+								className="flex items-center gap-2 text-sm font-medium text-gray-700 dark:text-gray-300"
 							>
+								<span
+									className={`${EXERCISE_BADGE_COLORS[exercise]} text-white text-xs font-bold px-1.5 py-0.5 rounded`}
+								>
+									{EXERCISE_SHORT_LABELS[exercise]}
+								</span>
 								{EXERCISE_LABELS[exercise]} 1RM
 							</label>
 							<div className="relative">
