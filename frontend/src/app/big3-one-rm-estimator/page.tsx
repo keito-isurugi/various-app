@@ -8,6 +8,7 @@ import {
 	Info,
 } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { RMReferenceTable } from "../../components/big3/RMReferenceTable";
 import { SaveClearButtons } from "../../components/common/SaveClearButtons";
 import { useLocalStorage } from "../../hooks/useLocalStorage";
 import type { ExerciseKey } from "../../types/training-menu";
@@ -319,6 +320,11 @@ export default function OneRMEstimatorPage() {
 						</div>
 					</div>
 				)}
+
+				{/* RM換算表（参考） */}
+				<div className="mt-6">
+					<RMReferenceTable />
+				</div>
 
 				{/* Notes */}
 				<div className="mt-8 space-y-4">
