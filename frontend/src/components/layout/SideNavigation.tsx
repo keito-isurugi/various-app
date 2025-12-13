@@ -1,5 +1,6 @@
 "use client";
 
+import { MonsterBallIcon } from "@/components/icons/MonsterBallIcon";
 import {
 	BookOpen,
 	Brain,
@@ -71,6 +72,12 @@ export const SideNavigation: React.FC<SideNavigationProps> = ({
 			label: "BIG3ツール",
 			icon: Dumbbell,
 			color: "from-orange-500 to-red-500",
+		},
+		{
+			href: "/pokemon",
+			label: "ポケモン図鑑",
+			icon: MonsterBallIcon,
+			color: "from-red-500 to-rose-600",
 		},
 	];
 

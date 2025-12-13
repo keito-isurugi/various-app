@@ -1,3 +1,4 @@
+import { MonsterBallIcon } from "@/components/icons/MonsterBallIcon";
 import {
 	BookOpen,
 	Brain,
@@ -39,6 +40,13 @@ const pageLinks = [
 		description: "レベル判定・メニュー提案・1RM推定",
 		icon: Dumbbell,
 		color: "from-orange-500 to-red-500",
+	},
+	{
+		href: "/pokemon",
+		title: "ポケモン図鑑",
+		description: "全世代のポケモンデータ",
+		icon: MonsterBallIcon,
+		color: "from-red-500 to-rose-600",
 	},
 	// 学習カテゴリ（サイドメニューの学習カテゴリと同順）
 	{

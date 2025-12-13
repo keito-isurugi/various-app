@@ -1,0 +1,275 @@
+/* ポケモン図鑑用スタイル */
+
+/* カードホバーエフェクト */
+.pokemon-card:hover {
+	transform: scale(1.1);
+	transition: transform 0.5s;
+}
+
+/* ボールスピナーアニメーション */
+.pokemon-ball-spin {
+	animation: rotate-anime 2.5s steps(100) infinite;
+	transform: rotateZ(45deg);
+}
+
+@keyframes rotate-anime {
+	0% {
+		transform: rotate(0);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+/* ポケモン一覧グリッド */
+.pokemon-grid {
+	display: grid;
+	grid-gap: 10px;
+	margin: 1em 0 2em;
+	grid-template-columns: repeat(auto-fill, minmax(11vw, 1fr));
+}
+
+@media screen and (max-width: 900px) {
+	.pokemon-grid {
+		grid-gap: 5px;
+		grid-template-columns: repeat(auto-fill, minmax(18.5vw, 1fr));
+	}
+}
+
+/* 詳細ページヘッダー */
+.pokemon-show-header {
+	width: 100vw;
+	margin: 0 calc(50% - 50vw);
+}
+
+/* スライダー */
+.pokemon-pickup-cover {
+	padding-bottom: 45px;
+	overflow: hidden;
+	padding-bottom: calc((100vw / 750) * 60);
+}
+
+.pokemon-pickup-wrap {
+	background: #f2f2f2;
+	height: calc((100vw / 750) * 360);
+	position: relative;
+	padding-top: calc((100vw / 750) * 40);
+}
+
+.pokemon-pickup-bg {
+	position: absolute;
+	top: calc((100vw / 750) * 30);
+	left: calc((100vw / 750) * 40);
+	width: calc((100vw / 750) * 730);
+	height: calc((100vw / 750) * 330);
+	border-radius: 2.6666vw;
+	background-color: #fff;
+	background-image: url(/img/pokemon/slider_back.png);
+	background-repeat: repeat-x;
+	background-position: bottom 0.78125vw left 0.703125vw;
+	background-size: calc((100vw / 750) * 300) auto;
+	box-shadow: calc((100vw / 750) * 14) calc((100vw / 750) * 10) 0 #d9d9d9;
+	transform: skewX(-4deg) rotate(-4deg);
+}
+
+.pokemon-pickup-bg::before {
+	content: "";
+	display: block;
+	background: linear-gradient(
+		to bottom,
+		#fff 0%,
+		#fff 20%,
+		rgba(255, 255, 255, 0) 100%
+	);
+	width: 100%;
+	height: 100%;
+}
+
+.pokemon-pickup-title {
+	line-height: 1;
+	width: 300px;
+	top: 30px;
+	position: absolute;
+	z-index: 5;
+	width: calc((100vw / 750) * 238.5);
+	top: calc((100vw / 750) * 30);
+	left: calc((100vw / 750) * 30);
+}
+
+.pokemon-pickup-inner {
+	position: relative;
+	z-index: 3;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 100%;
+	width: calc((100vw / 750) * 510);
+	margin: 0 auto;
+}
+
+.pokemon-pickup-content-img {
+	margin-top: 0px;
+	display: flex;
+	margin-top: calc((100vw / 750) * 40);
+}
+
+.pokemon-pickup-content-label {
+	font-size: 12px;
+	margin-right: 10px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin-right: calc((100vw / 750) * 10);
+	font-size: calc((100vw / 750) * 20);
+}
+
+.pokemon-pickup-content-label-img {
+	width: calc((40 / 1280) * 100vw);
+	max-width: 40px;
+}
+
+/* スライダーの矢印ボタン */
+.pokemon-slider {
+	position: relative;
+	z-index: 4;
+}
+
+.pokemon-slider .splide__arrow {
+	background-color: #fff;
+	border: solid 2px #ccc;
+	border-radius: 1.06666vw;
+	width: calc((100vw / 750) * 40);
+	height: calc((100vw / 750) * 160);
+	opacity: 1;
+	cursor: pointer;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.pokemon-slider .splide__arrow:hover {
+	background-color: #fafafa;
+}
+
+.pokemon-slider .splide__arrow svg {
+	display: none;
+}
+
+.pokemon-slider .splide__arrow::before {
+	content: "";
+	display: block;
+	height: calc((100vw / 750) * 17);
+	width: calc((100vw / 750) * 34);
+	background: url(/img/pokemon/arrow.svg) no-repeat;
+	background-size: contain;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+}
+
+.pokemon-slider .splide__arrow--prev::before {
+	transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.pokemon-slider .splide__arrow--next::before {
+	transform: translate(-50%, -50%) rotate(270deg);
+}
+
+.pokemon-slider .splide__arrow--prev {
+	left: 5px;
+}
+
+.pokemon-slider .splide__arrow--next {
+	right: 5px;
+}
+
+@media screen and (min-width: 768px) {
+	.pokemon-slider .splide__arrow {
+		width: calc((30 / 1280) * 100vw);
+		height: calc((140 / 1280) * 100vw);
+		max-width: 30px;
+		max-height: 140px;
+		border-radius: 4px;
+	}
+
+	.pokemon-slider .splide__arrow::before {
+		height: 12px;
+		width: 24px;
+	}
+
+	.pokemon-slider .splide__arrow--prev {
+		left: 20px;
+	}
+
+	.pokemon-slider .splide__arrow--next {
+		right: 20px;
+	}
+}
+
+/* 詳細ページの矢印ボタン */
+.pokemon-nav-button {
+	background-color: #fff;
+	border: 2px solid #9ca3af;
+	border-radius: 4px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	transition: background-color 0.2s;
+}
+
+.pokemon-nav-button:hover {
+	background-color: #f9fafb;
+}
+
+.pokemon-nav-button img {
+	width: 24px;
+	height: 12px;
+}
+
+@media screen and (min-width: 768px) {
+	.pokemon-pickup-cover {
+		padding-bottom: calc((55 / 1280) * 100vw);
+	}
+
+	.pokemon-pickup-wrap {
+		padding-top: 0;
+		height: calc((305 / 1280) * 100vw);
+	}
+
+	.pokemon-pickup-bg {
+		top: 0;
+		background-size: calc((220 / 1280) * 100vw);
+		box-shadow: 14px 10px 0 #d9d9d9;
+		width: calc((1145 / 1280) * 100vw);
+		height: calc((290 / 1280) * 100vw);
+		left: calc((145 / 1280) * 100vw);
+		border-radius: 0.78125vw;
+	}
+
+	.pokemon-pickup-title {
+		top: calc((30 / 1280) * 100vw);
+		left: calc((90 / 1280) * 100vw);
+		width: calc((300 / 1280) * 100vw);
+	}
+
+	.pokemon-pickup-inner {
+		width: 100%;
+	}
+
+	.pokemon-pickup-content-img {
+		margin-top: 10px;
+		font-size: 12px;
+	}
+
+	.pokemon-pickup-content-label {
+		font-size: 12px;
+		margin-right: calc((10 / 1280) * 100vw);
+	}
+
+	.pokemon-pickup-content-label-img {
+		width: calc((40 / 1280) * 100vw);
+		max-width: 40px;
+	}
+}
