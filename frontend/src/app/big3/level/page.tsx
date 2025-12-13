@@ -3,14 +3,14 @@
 import { AlertTriangle, ClipboardList, ExternalLink, Info } from "lucide-react";
 import Link from "next/link";
 import React from "react";
-import { DataTable } from "../../components/big3/DataTable";
-import { GenderSelector } from "../../components/big3/GenderSelector";
-import { TargetWeights } from "../../components/big3/TargetWeights";
-import { WeightInput } from "../../components/big3/WeightInput";
-import { SaveClearButtons } from "../../components/common/SaveClearButtons";
-import { useLocalStorage } from "../../hooks/useLocalStorage";
-import type { ExerciseType, Gender } from "../../types/big3";
-import { validateBodyWeightByGender } from "../../utils/big3-calculator-gender";
+import { DataTable } from "../../../components/big3/DataTable";
+import { GenderSelector } from "../../../components/big3/GenderSelector";
+import { TargetWeights } from "../../../components/big3/TargetWeights";
+import { WeightInput } from "../../../components/big3/WeightInput";
+import { SaveClearButtons } from "../../../components/common/SaveClearButtons";
+import { useLocalStorage } from "../../../hooks/useLocalStorage";
+import type { ExerciseType, Gender } from "../../../types/big3";
+import { validateBodyWeightByGender } from "../../../utils/big3-calculator-gender";
 
 type TabType = "target" | ExerciseType;
 
@@ -159,7 +159,7 @@ export default function BIG3Page() {
 
 				{/* Related Link */}
 				<Link
-					href="/big3-menu"
+					href="/big3/menu"
 					className="mt-6 flex items-center gap-3 p-4 bg-gradient-to-r from-orange-50 to-red-50 dark:from-orange-900/20 dark:to-red-900/20 border border-orange-200 dark:border-orange-800 rounded-xl hover:shadow-md transition-shadow"
 				>
 					<div className="w-10 h-10 rounded-lg bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center shrink-0">

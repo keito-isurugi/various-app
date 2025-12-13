@@ -8,16 +8,16 @@ import {
 	Info,
 } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { RMReferenceTable } from "../../components/big3/RMReferenceTable";
-import { SaveClearButtons } from "../../components/common/SaveClearButtons";
-import { useLocalStorage } from "../../hooks/useLocalStorage";
-import type { ExerciseKey } from "../../types/training-menu";
+import { RMReferenceTable } from "../../../components/big3/RMReferenceTable";
+import { SaveClearButtons } from "../../../components/common/SaveClearButtons";
+import { useLocalStorage } from "../../../hooks/useLocalStorage";
+import type { ExerciseKey } from "../../../types/training-menu";
 import {
 	EXERCISE_BADGE_COLORS,
 	EXERCISE_LABELS,
 	EXERCISE_SHORT_LABELS,
-} from "../../types/training-menu";
-import { estimateOneRM } from "../../utils/training-menu-calculator";
+} from "../../../types/training-menu";
+import { estimateOneRM } from "../../../utils/training-menu-calculator";
 
 interface ExerciseEstimate {
 	weight: number | "";
@@ -109,7 +109,7 @@ export default function OneRMEstimatorPage() {
 		);
 
 		// メニュー提案ページに遷移
-		router.push("/big3-menu");
+		router.push("/big3/menu");
 	};
 
 	return (

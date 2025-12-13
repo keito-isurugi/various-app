@@ -9,24 +9,24 @@ import {
 	Info,
 } from "lucide-react";
 import { useMemo, useState } from "react";
-import { SaveClearButtons } from "../../components/common/SaveClearButtons";
-import { OneRMInputForm } from "../../components/training-menu/OneRMInputForm";
-import { ProgramSettingsForm } from "../../components/training-menu/ProgramSettingsForm";
-import { ProgramTable } from "../../components/training-menu/ProgramTable";
-import { TrainingMenuCard } from "../../components/training-menu/TrainingMenuCard";
-import { useLocalStorage } from "../../hooks/useLocalStorage";
+import { SaveClearButtons } from "../../../components/common/SaveClearButtons";
+import { OneRMInputForm } from "../../../components/training-menu/OneRMInputForm";
+import { ProgramSettingsForm } from "../../../components/training-menu/ProgramSettingsForm";
+import { ProgramTable } from "../../../components/training-menu/ProgramTable";
+import { TrainingMenuCard } from "../../../components/training-menu/TrainingMenuCard";
+import { useLocalStorage } from "../../../hooks/useLocalStorage";
 import type {
 	ExerciseKey,
 	OneRMInput,
 	ProgramSettings,
 	WeightIncrement,
-} from "../../types/training-menu";
+} from "../../../types/training-menu";
 import {
 	calculateAllMenus,
 	calculateAllPrograms,
 	formatAllDailyMenusForCopy,
 	formatAllProgramsForCopy,
-} from "../../utils/training-menu-calculator";
+} from "../../../utils/training-menu-calculator";
 
 const EXERCISES: ExerciseKey[] = ["squat", "bench", "deadlift"];
 
