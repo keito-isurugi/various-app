@@ -161,11 +161,11 @@ devDependencies:
     specifier: 1.9.2
     version: 1.9.2
   '@tailwindcss/postcss':
-    specifier: ^4
-    version: 4.0.0
+    specifier: ^4.1.18
+    version: 4.1.18
   '@tailwindcss/typography':
     specifier: ^0.5.15
-    version: 0.5.15(tailwindcss@4.0.0)
+    version: 0.5.15(tailwindcss@4.1.18)
   '@testing-library/jest-dom':
     specifier: ^6.6.3
     version: 6.6.3
@@ -206,8 +206,8 @@ devDependencies:
     specifier: ^8.4.49
     version: 8.4.49
   tailwindcss:
-    specifier: ^4
-    version: 4.0.0
+    specifier: ^4.1.18
+    version: 4.1.18
   ts-jest:
     specifier: ^29.4.0
     version: 29.4.0(@babel/core@7.28.5)(jest@29.7.0)(typescript@5.0.2)
@@ -3077,18 +3077,17 @@ packages:
       '@tailwindcss/oxide-win32-x64-msvc': 4.1.18
     dev: true
 
-  /@tailwindcss/postcss@4.0.0:
-    resolution: {integrity: sha512-lI2bPk4TvwavHdehjr5WiC6HnZ59hacM6ySEo4RM/H7tsjWd8JpqiNW9ThH7rO/yKtrn4mGBoXshpvn8clXjPg==}
+  /@tailwindcss/postcss@4.1.18:
+    resolution: {integrity: sha512-Ce0GFnzAOuPyfV5SxjXGn0CubwGcuDB0zcdaPuCSzAa/2vII24JTkH+I6jcbXLb1ctjZMZZI6OjDaLPJQL1S0g==}
     dependencies:
       '@alloc/quick-lru': 5.2.0
       '@tailwindcss/node': 4.1.18
       '@tailwindcss/oxide': 4.1.18
-      lightningcss: 1.30.2
       postcss: 8.4.49
-      tailwindcss: 4.0.0
+      tailwindcss: 4.1.18
     dev: true
 
-  /@tailwindcss/typography@0.5.15(tailwindcss@4.0.0):
+  /@tailwindcss/typography@0.5.15(tailwindcss@4.1.18):
     resolution: {integrity: sha512-AqhlCXl+8grUz8uqExv5OTtgpjuVIwFTSXTrh8y9/pw6q2ek7fJ+Y8ZEVw7EB2DCcuCOtEjf9w3+J3rzts01uA==}
     peerDependencies:
       tailwindcss: '>=3.0.0 || insiders || >=4.0.0-alpha.20'
@@ -3097,7 +3096,7 @@ packages:
       lodash.isplainobject: 4.0.6
       lodash.merge: 4.6.2
       postcss-selector-parser: 6.0.10
-      tailwindcss: 4.0.0
+      tailwindcss: 4.1.18
     dev: true
 
   /@testing-library/dom@10.4.1:
@@ -10655,10 +10654,6 @@ packages:
   /tailwind-merge@3.3.1:
     resolution: {integrity: sha512-gBXpgUm/3rp1lMZZrM/w7D8GKqshif0zAymAhbCyIt8KMe+0v9DQ7cdYLR4FHH/cKpdTXb+A/tKKU3eolfsI+g==}
     dev: false
-
-  /tailwindcss@4.0.0:
-    resolution: {integrity: sha512-ULRPI3A+e39T7pSaf1xoi58AqqJxVCLg8F/uM5A3FadUbnyDTgltVnXJvdkTjwCOGA6NazqHVcwPJC5h2vRYVQ==}
-    dev: true
 
   /tailwindcss@4.1.18:
     resolution: {integrity: sha512-4+Z+0yiYyEtUVCScyfHCxOYP06L5Ne+JiHhY2IjR2KWMIWhJOYZKLSGZaP5HkZ8+bY0cxfzwDE5uOmzFXyIwxw==}

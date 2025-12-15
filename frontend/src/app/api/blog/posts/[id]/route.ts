@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "path";
 import { n2m, notion } from "@/libs/notion/notionAPI";
+import { NextResponse } from "next/server";
 
 export async function GET(
 	request: Request,
@@ -17,7 +18,7 @@ export async function GET(
 
 	// saveMarkdownFile(params.id)
 	const post: any = response.results;
-	return Response.json({ post });
+	return NextResponse.json({ post });
 }
 
 function getFormattedDate() {
