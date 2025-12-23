@@ -3,8 +3,8 @@ package repository
 import (
 	"context"
 	"fmt"
-	imageTagDomain "github.com/keito-isurugi/kei-talk/domain/image_tag"
-	"github.com/keito-isurugi/kei-talk/infrastructure/postgresql"
+	imageTagDomain "github.com/keito-isurugi/various-app/domain/image_tag"
+	"github.com/keito-isurugi/various-app/infrastructure/postgresql"
 	"gorm.io/gorm"
 )
 

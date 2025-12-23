@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-kei-talk is a full-stack blog platform with content syndication capabilities. The project consists of:
+various-app is a full-stack blog platform with content syndication capabilities. The project consists of:
 - **Frontend**: Next.js 14 application with Notion CMS integration
 - **Backend**: Go API server for image management (uses Clean Architecture)
 - **Infrastructure**: Docker Compose setup with PostgreSQL, pgAdmin, and LocalStack

@@ -1,7 +1,7 @@
 # TODOアプリ - 使用方法
 
 ## 概要
-TODOアプリがkei-talkプロジェクトに統合されました。
+TODOアプリがvarious-appプロジェクトに統合されました。
 
 ## アクセスURL
 - **TODOメイン画面**: http://localhost:3000/todo
@@ -22,13 +22,13 @@ cd frontend
 npm run dev:all  # Firebase Emulator + Next.js dev server
 
 # Option B: Docker Composeで起動
-cd /path/to/kei-talk
+cd /path/to/various-app
 docker-compose up firebase-emulator
 ```
 
 ### 3. すべてのサービスを起動
 ```bash
-cd /path/to/kei-talk
+cd /path/to/various-app
 docker-compose up
 # API, DB, pgAdmin, LocalStack, Firebase Emulator がすべて起動します
 ```

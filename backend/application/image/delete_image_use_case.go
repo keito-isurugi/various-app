@@ -3,7 +3,7 @@ package image
 import (
 	"github.com/labstack/echo/v4"
 
-	imageDomain "github.com/keito-isurugi/kei-talk/domain/image"
+	imageDomain "github.com/keito-isurugi/various-app/domain/image"
 )
 
 type DeleteImageUseCase interface {

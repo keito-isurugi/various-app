@@ -11,8 +11,8 @@ import (
 	"github.com/aws/aws-sdk-go/service/s3"
 	"github.com/aws/aws-sdk-go/service/s3/s3iface"
 	"github.com/google/uuid"
-	imageApp "github.com/keito-isurugi/kei-talk/application/image"
-	"github.com/keito-isurugi/kei-talk/infrastructure/env"
+	imageApp "github.com/keito-isurugi/various-app/application/image"
+	"github.com/keito-isurugi/various-app/infrastructure/env"
 	"github.com/labstack/echo/v4"
 )
 

@@ -1,7 +1,7 @@
 # TODO App Migration - Complete ✅
 
 ## Summary
-Successfully migrated the TODO app from `tmp_todo-app/` into the main kei-talk project.
+Successfully migrated the TODO app from `tmp_todo-app/` into the main various-app project.
 
 ## What Was Done
 

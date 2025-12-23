@@ -1,10 +1,10 @@
 package image
 
 import (
-	tagApp "github.com/keito-isurugi/kei-talk/application/tag"
+	tagApp "github.com/keito-isurugi/various-app/application/tag"
 	"github.com/labstack/echo/v4"
 
-	imageDomain "github.com/keito-isurugi/kei-talk/domain/image"
+	imageDomain "github.com/keito-isurugi/various-app/domain/image"
 )
 
 type ListImagesNoTaggedInputDto struct {

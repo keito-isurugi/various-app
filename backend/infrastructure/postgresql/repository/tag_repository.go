@@ -3,8 +3,8 @@ package repository
 import (
 	"context"
 
-	"github.com/keito-isurugi/kei-talk/domain/tag"
-	"github.com/keito-isurugi/kei-talk/infrastructure/postgresql"
+	"github.com/keito-isurugi/various-app/domain/tag"
+	"github.com/keito-isurugi/various-app/infrastructure/postgresql"
 )
 
 type tagRepository struct {

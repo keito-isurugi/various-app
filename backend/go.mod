@@ -1,4 +1,4 @@
-module github.com/keito-isurugi/kei-talk
+module github.com/keito-isurugi/various-app
 
 go 1.23.4
 

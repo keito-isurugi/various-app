@@ -4,8 +4,8 @@ import (
 	"net/http"
 	"strconv"
 
-	imageTagApp "github.com/keito-isurugi/kei-talk/application/image_tag"
-	"github.com/keito-isurugi/kei-talk/infrastructure/env"
+	imageTagApp "github.com/keito-isurugi/various-app/application/image_tag"
+	"github.com/keito-isurugi/various-app/infrastructure/env"
 	"github.com/labstack/echo/v4"
 )
 

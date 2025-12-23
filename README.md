@@ -1,4 +1,4 @@
-# kei-talk
+# various-app
 
 個人ブログサイト・物理計算ツール・筋トレ記録アプリを統合したフルスタックWebアプリケーション
 
@@ -77,7 +77,7 @@ services:
 ## 🏗️ プロジェクト構成
 
 ```
-kei-talk/
+various-app/
 ├── frontend/                 # Next.js アプリケーション
 │   ├── src/
 │   │   ├── app/             # App Router ページ
@@ -267,4 +267,4 @@ MIT License - 詳細は [LICENSE](LICENSE) ファイルを参照
 ---
 
 **開発者**: [Kei Isurugi](https://github.com/keito-isurugi)  
-**サイトURL**: [kei-talk.vercel.app](https://kei-talk.vercel.app)
+**サイトURL**: [various-app.vercel.app](https://various-app.vercel.app)

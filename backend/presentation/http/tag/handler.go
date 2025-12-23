@@ -3,8 +3,8 @@ package tag
 import (
 	"net/http"
 	"strconv"
-	tagApp "github.com/keito-isurugi/kei-talk/application/tag"
-	"github.com/keito-isurugi/kei-talk/infrastructure/env"
+	tagApp "github.com/keito-isurugi/various-app/application/tag"
+	"github.com/keito-isurugi/various-app/infrastructure/env"
 	"github.com/labstack/echo/v4"
 )
 

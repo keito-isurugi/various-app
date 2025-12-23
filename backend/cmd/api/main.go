@@ -3,11 +3,11 @@ package main
 import (
 	"fmt"
 
-	"github.com/keito-isurugi/kei-talk/infrastructure/aws"
-	"github.com/keito-isurugi/kei-talk/infrastructure/postgresql"
-	"github.com/keito-isurugi/kei-talk/infrastructure/env"
-	"github.com/keito-isurugi/kei-talk/infrastructure/logger"
-	"github.com/keito-isurugi/kei-talk/server"
+	"github.com/keito-isurugi/various-app/infrastructure/aws"
+	"github.com/keito-isurugi/various-app/infrastructure/postgresql"
+	"github.com/keito-isurugi/various-app/infrastructure/env"
+	"github.com/keito-isurugi/various-app/infrastructure/logger"
+	"github.com/keito-isurugi/various-app/server"
 )
 
 func main() {

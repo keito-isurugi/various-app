@@ -1,7 +1,7 @@
 version: "3.9"
 services:
   api:
-    container_name: kei-talk-api
+    container_name: various-app-api
     build:
       context: ./backend
       dockerfile: Dockerfile
@@ -12,9 +12,9 @@ services:
     env_file:
       - .env
     networks:
-      - kei-talk-network
+      - various-app-network
   db:
-    container_name: kei-talk-db
+    container_name: various-app-db
     image: postgres:14.5
     ports:
       - ${POSTGRES_PORT}:${POSTGRES_PORT}
@@ -26,9 +26,9 @@ services:
       - ./backend/persist/postgres:/var/lib/postgresql/data
       - ./backend/DDL:/docker-entrypoint-initdb.d
     networks:
-      - kei-talk-network
+      - various-app-network
   pgadmin:
-    container_name: kei-talk-pgadmin
+    container_name: various-app-pgadmin
     image: dpage/pgadmin4
     ports:
       - 5050:80
@@ -40,9 +40,9 @@ services:
     depends_on:
       - db
     networks:
-      - kei-talk-network
+      - various-app-network
   localstack:
-    container_name: kei-talk-localstack
+    container_name: various-app-localstack
     build:
       context: ./backend
       dockerfile: docker/localstack/Dockerfile
@@ -59,7 +59,7 @@ services:
     ports:
       - 4566:4566
     networks:
-      - kei-talk-network
+      - various-app-network
 networks:
-  kei-talk-network:
+  various-app-network:
     driver: bridge

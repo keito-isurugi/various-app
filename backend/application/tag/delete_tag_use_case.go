@@ -3,7 +3,7 @@ package tag
 import (
 	"github.com/labstack/echo/v4"
 
-	tagDomain "github.com/keito-isurugi/kei-talk/domain/tag"
+	tagDomain "github.com/keito-isurugi/various-app/domain/tag"
 )
 
 type DeleteTagUseCase interface {
