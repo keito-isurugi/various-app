@@ -142,4 +142,3 @@ weightB = roundToIncrement(1RM × (percentA - 0.05), increment)
     - 最大挙上重量＝重量×回数÷40＋重量
   - スクワット・デッドリフト
     - 最大挙上重量＝重量×回数÷33.3＋重量
-
