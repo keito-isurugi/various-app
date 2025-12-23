@@ -73,7 +73,7 @@ export function CategoryAnalysis({ categoryStats }: CategoryAnalysisProps) {
 											/>
 										))}
 									</Pie>
-									<Tooltip formatter={(value: number) => `${value}分`} />
+									<Tooltip formatter={(value) => `${value}分`} />
 									<Legend />
 								</PieChart>
 							</ResponsiveContainer>
@@ -99,8 +99,11 @@ export function CategoryAnalysis({ categoryStats }: CategoryAnalysisProps) {
 									<XAxis type="number" domain={[0, 100]} />
 									<YAxis dataKey="name" type="category" width={100} />
 									<Tooltip
-										formatter={(value: number, name: string, props: any) => {
-											if (name === "completionRate") {
+										formatter={(value, name, props) => {
+											if (
+												name === "completionRate" &&
+												typeof value === "number"
+											) {
 												return [
 													`${value.toFixed(1)}% (${props.payload.completed}/${props.payload.total})`,
 													"完了率",

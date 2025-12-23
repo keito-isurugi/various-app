@@ -53,7 +53,7 @@ export function ProductivityMetrics({
 								<CartesianGrid strokeDasharray="3 3" />
 								<XAxis dataKey="date" />
 								<YAxis domain={[0, 100]} />
-								<Tooltip formatter={(value: number) => `${value}%`} />
+								<Tooltip formatter={(value) => `${value}%`} />
 								<Legend />
 								<Line
 									type="monotone"
