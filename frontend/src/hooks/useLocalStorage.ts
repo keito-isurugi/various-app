@@ -23,6 +23,42 @@ interface UseLocalStorageReturn<T> {
 }
 
 /**
+ * オブジェクトをディープマージする
+ * 保存されたデータの欠落プロパティをデフォルト値で補完する
+ */
+function deepMerge<T>(defaultValue: T, storedValue: unknown): T {
+	if (
+		typeof defaultValue !== "object" ||
+		defaultValue === null ||
+		Array.isArray(defaultValue)
+	) {
+		return storedValue as T;
+	}
+
+	if (
+		typeof storedValue !== "object" ||
+		storedValue === null ||
+		Array.isArray(storedValue)
+	) {
+		return defaultValue;
+	}
+
+	const result = { ...defaultValue } as Record<string, unknown>;
+	const stored = storedValue as Record<string, unknown>;
+
+	for (const key of Object.keys(defaultValue as Record<string, unknown>)) {
+		if (key in stored) {
+			result[key] = deepMerge(
+				(defaultValue as Record<string, unknown>)[key],
+				stored[key],
+			);
+		}
+	}
+
+	return result as T;
+}
+
+/**
  * LocalStorageへの保存・読み込みを管理するカスタムフック
  */
 export function useLocalStorage<T>({
@@ -39,13 +75,15 @@ export function useLocalStorage<T>({
 		try {
 			const stored = localStorage.getItem(key);
 			if (stored) {
-				setData(JSON.parse(stored) as T);
+				const parsed = JSON.parse(stored);
+				// デフォルト値とマージして欠落プロパティを補完
+				setData(deepMerge(defaultValue, parsed));
 				setHasSavedData(true);
 			}
 		} catch {
 			// Ignore parse errors
 		}
-	}, [key]);
+	}, [key, defaultValue]);
 
 	const save = () => {
 		if (typeof window === "undefined") return;

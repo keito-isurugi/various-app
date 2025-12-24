@@ -90,6 +90,14 @@ export default function OneRMEstimatorPage() {
 		const existingData = localStorage.getItem(TRAINING_MENU_STORAGE_KEY);
 		const existingSettings = existingData ? JSON.parse(existingData) : {};
 
+		// デフォルト値
+		const defaultSettings = {
+			input: { squat: "", bench: "", deadlift: "" },
+			increment: 2.5,
+			viewMode: "daily",
+			programSettings: { duration: 4, frequency: 1 },
+		};
+
 		// 推定1RMを反映
 		const newInput = {
 			squat: getEstimate("squat") || existingSettings?.input?.squat || "",
@@ -98,10 +106,15 @@ export default function OneRMEstimatorPage() {
 				getEstimate("deadlift") || existingSettings?.input?.deadlift || "",
 		};
 
-		// 更新した設定を保存
+		// 更新した設定を保存（デフォルト値をマージ）
 		const updatedSettings = {
+			...defaultSettings,
 			...existingSettings,
 			input: newInput,
+			programSettings: {
+				...defaultSettings.programSettings,
+				...existingSettings?.programSettings,
+			},
 		};
 		localStorage.setItem(
 			TRAINING_MENU_STORAGE_KEY,
