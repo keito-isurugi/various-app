@@ -1,0 +1,2351 @@
+[
+  {
+    "id": "p2001-f01",
+    "tournamentId": "t2001",
+    "combiId": "c001",
+    "stage": "first",
+    "order": 1,
+    "totalScore": 829,
+    "rank": 1
+  },
+  {
+    "id": "p2001-f02",
+    "tournamentId": "t2001",
+    "combiId": "c006",
+    "stage": "first",
+    "order": 2,
+    "totalScore": 726,
+    "rank": 6
+  },
+  {
+    "id": "p2001-f03",
+    "tournamentId": "t2001",
+    "combiId": "c008",
+    "stage": "first",
+    "order": 3,
+    "totalScore": 637,
+    "rank": 8
+  },
+  {
+    "id": "p2001-f04",
+    "tournamentId": "t2001",
+    "combiId": "c003",
+    "stage": "first",
+    "order": 4,
+    "totalScore": 796,
+    "rank": 3
+  },
+  {
+    "id": "p2001-f05",
+    "tournamentId": "t2001",
+    "combiId": "c010",
+    "stage": "first",
+    "order": 5,
+    "totalScore": 540,
+    "rank": 10
+  },
+  {
+    "id": "p2001-f06",
+    "tournamentId": "t2001",
+    "combiId": "c007",
+    "stage": "first",
+    "order": 6,
+    "totalScore": 707,
+    "rank": 7
+  },
+  {
+    "id": "p2001-f07",
+    "tournamentId": "t2001",
+    "combiId": "c005",
+    "stage": "first",
+    "order": 7,
+    "totalScore": 741,
+    "rank": 5
+  },
+  {
+    "id": "p2001-f08",
+    "tournamentId": "t2001",
+    "combiId": "c004",
+    "stage": "first",
+    "order": 8,
+    "totalScore": 770,
+    "rank": 4
+  },
+  {
+    "id": "p2001-f09",
+    "tournamentId": "t2001",
+    "combiId": "c009",
+    "stage": "first",
+    "order": 9,
+    "totalScore": 614,
+    "rank": 9
+  },
+  {
+    "id": "p2001-f10",
+    "tournamentId": "t2001",
+    "combiId": "c002",
+    "stage": "first",
+    "order": 10,
+    "totalScore": 809,
+    "rank": 2
+  },
+  {
+    "id": "p2001-n01",
+    "tournamentId": "t2001",
+    "combiId": "c001",
+    "stage": "final",
+    "order": 1,
+    "totalVotes": 6,
+    "rank": 1
+  },
+  {
+    "id": "p2001-n02",
+    "tournamentId": "t2001",
+    "combiId": "c002",
+    "stage": "final",
+    "order": 2,
+    "totalVotes": 1,
+    "rank": 2
+  },
+  {
+    "id": "p2002-f01",
+    "tournamentId": "t2002",
+    "combiId": "c002",
+    "stage": "first",
+    "order": 1,
+    "totalScore": 545,
+    "rank": 5
+  },
+  {
+    "id": "p2002-f02",
+    "tournamentId": "t2002",
+    "combiId": "c004",
+    "stage": "first",
+    "order": 2,
+    "totalScore": 612,
+    "rank": 2
+  },
+  {
+    "id": "p2002-f03",
+    "tournamentId": "t2002",
+    "combiId": "c014",
+    "stage": "first",
+    "order": 3,
+    "totalScore": 534,
+    "rank": 8
+  },
+  {
+    "id": "p2002-f04",
+    "tournamentId": "t2002",
+    "combiId": "c012",
+    "stage": "first",
+    "order": 4,
+    "totalScore": 539,
+    "rank": 6
+  },
+  {
+    "id": "p2002-f05",
+    "tournamentId": "t2002",
+    "combiId": "c006",
+    "stage": "first",
+    "order": 5,
+    "totalScore": 621,
+    "rank": 1
+  },
+  {
+    "id": "p2002-f06",
+    "tournamentId": "t2002",
+    "combiId": "c011",
+    "stage": "first",
+    "order": 6,
+    "totalScore": 567,
+    "rank": 3
+  },
+  {
+    "id": "p2002-f07",
+    "tournamentId": "t2002",
+    "combiId": "c010",
+    "stage": "first",
+    "order": 7,
+    "totalScore": 561,
+    "rank": 4
+  },
+  {
+    "id": "p2002-f08",
+    "tournamentId": "t2002",
+    "combiId": "c003",
+    "stage": "first",
+    "order": 8,
+    "totalScore": 525,
+    "rank": 9
+  },
+  {
+    "id": "p2002-f09",
+    "tournamentId": "t2002",
+    "combiId": "c013",
+    "stage": "first",
+    "order": 9,
+    "totalScore": 535,
+    "rank": 7
+  },
+  {
+    "id": "p2002-n01",
+    "tournamentId": "t2002",
+    "combiId": "c006",
+    "stage": "final",
+    "order": 1,
+    "totalVotes": 2,
+    "rank": 2
+  },
+  {
+    "id": "p2002-n02",
+    "tournamentId": "t2002",
+    "combiId": "c011",
+    "stage": "final",
+    "order": 2,
+    "totalVotes": 0,
+    "rank": 3
+  },
+  {
+    "id": "p2002-n03",
+    "tournamentId": "t2002",
+    "combiId": "c004",
+    "stage": "final",
+    "order": 3,
+    "totalVotes": 5,
+    "rank": 1
+  },
+  {
+    "id": "p2003-f01",
+    "tournamentId": "t2003",
+    "combiId": "c018",
+    "stage": "first",
+    "order": 1,
+    "totalScore": 552,
+    "rank": 9
+  },
+  {
+    "id": "p2003-f02",
+    "tournamentId": "t2003",
+    "combiId": "c005",
+    "stage": "first",
+    "order": 2,
+    "totalScore": 554,
+    "rank": 8
+  },
+  {
+    "id": "p2003-f03",
+    "tournamentId": "t2003",
+    "combiId": "c013",
+    "stage": "first",
+    "order": 3,
+    "totalScore": 572,
+    "rank": 6
+  },
+  {
+    "id": "p2003-f04",
+    "tournamentId": "t2003",
+    "combiId": "c011",
+    "stage": "first",
+    "order": 4,
+    "totalScore": 656,
+    "rank": 2
+  },
+  {
+    "id": "p2003-f05",
+    "tournamentId": "t2003",
+    "combiId": "c016",
+    "stage": "first",
+    "order": 5,
+    "totalScore": 608,
+    "rank": 4
+  },
+  {
+    "id": "p2003-f06",
+    "tournamentId": "t2003",
+    "combiId": "c003",
+    "stage": "first",
+    "order": 6,
+    "totalScore": 564,
+    "rank": 7
+  },
+  {
+    "id": "p2003-f07",
+    "tournamentId": "t2003",
+    "combiId": "c006",
+    "stage": "first",
+    "order": 7,
+    "totalScore": 663,
+    "rank": 1
+  },
+  {
+    "id": "p2003-f08",
+    "tournamentId": "t2003",
+    "combiId": "c017",
+    "stage": "first",
+    "order": 8,
+    "totalScore": 601,
+    "rank": 5
+  },
+  {
+    "id": "p2003-f09",
+    "tournamentId": "t2003",
+    "combiId": "c015",
+    "stage": "first",
+    "order": 9,
+    "totalScore": 616,
+    "rank": 3
+  },
+  {
+    "id": "p2003-n01",
+    "tournamentId": "t2003",
+    "combiId": "c011",
+    "stage": "final",
+    "order": 1,
+    "totalVotes": 3,
+    "rank": 2
+  },
+  {
+    "id": "p2003-n02",
+    "tournamentId": "t2003",
+    "combiId": "c015",
+    "stage": "final",
+    "order": 2,
+    "totalVotes": 0,
+    "rank": 3
+  },
+  {
+    "id": "p2003-n03",
+    "tournamentId": "t2003",
+    "combiId": "c006",
+    "stage": "final",
+    "order": 3,
+    "totalVotes": 4,
+    "rank": 1
+  },
+  {
+    "id": "p2004-f01",
+    "tournamentId": "t2004",
+    "combiId": "c018",
+    "stage": "first",
+    "order": 1,
+    "totalScore": 582,
+    "rank": 9
+  },
+  {
+    "id": "p2004-f02",
+    "tournamentId": "t2004",
+    "combiId": "c020",
+    "stage": "first",
+    "order": 2,
+    "totalScore": 615,
+    "rank": 4
+  },
+  {
+    "id": "p2004-f03",
+    "tournamentId": "t2004",
+    "combiId": "c023",
+    "stage": "first",
+    "order": 3,
+    "totalScore": 583,
+    "rank": 8
+  },
+  {
+    "id": "p2004-f04",
+    "tournamentId": "t2004",
+    "combiId": "c022",
+    "stage": "first",
+    "order": 4,
+    "totalScore": 587,
+    "rank": 7
+  },
+  {
+    "id": "p2004-f05",
+    "tournamentId": "t2004",
+    "combiId": "c019",
+    "stage": "first",
+    "order": 5,
+    "totalScore": 639,
+    "rank": 2
+  },
+  {
+    "id": "p2004-f06",
+    "tournamentId": "t2004",
+    "combiId": "c021",
+    "stage": "first",
+    "order": 6,
+    "totalScore": 603,
+    "rank": 6
+  },
+  {
+    "id": "p2004-f07",
+    "tournamentId": "t2004",
+    "combiId": "c011",
+    "stage": "first",
+    "order": 7,
+    "totalScore": 615,
+    "rank": 5
+  },
+  {
+    "id": "p2004-f08",
+    "tournamentId": "t2004",
+    "combiId": "c015",
+    "stage": "first",
+    "order": 8,
+    "totalScore": 673,
+    "rank": 1
+  },
+  {
+    "id": "p2004-f09",
+    "tournamentId": "t2004",
+    "combiId": "c005",
+    "stage": "first",
+    "order": 9,
+    "totalScore": 634,
+    "rank": 3
+  },
+  {
+    "id": "p2004-n01",
+    "tournamentId": "t2004",
+    "combiId": "c015",
+    "stage": "final",
+    "order": 1,
+    "totalVotes": 6,
+    "rank": 1
+  },
+  {
+    "id": "p2004-n02",
+    "tournamentId": "t2004",
+    "combiId": "c005",
+    "stage": "final",
+    "order": 2,
+    "totalVotes": 0,
+    "rank": 3
+  },
+  {
+    "id": "p2004-n03",
+    "tournamentId": "t2004",
+    "combiId": "c019",
+    "stage": "final",
+    "order": 3,
+    "totalVotes": 1,
+    "rank": 2
+  },
+  {
+    "id": "p2005-f01",
+    "tournamentId": "t2005",
+    "combiId": "c011",
+    "stage": "first",
+    "order": 1,
+    "totalScore": 633,
+    "rank": 2
+  },
+  {
+    "id": "p2005-f02",
+    "tournamentId": "t2005",
+    "combiId": "c027",
+    "stage": "first",
+    "order": 2,
+    "totalScore": 564,
+    "rank": 8
+  },
+  {
+    "id": "p2005-f03",
+    "tournamentId": "t2005",
+    "combiId": "c019",
+    "stage": "first",
+    "order": 3,
+    "totalScore": 552,
+    "rank": 9
+  },
+  {
+    "id": "p2005-f04",
+    "tournamentId": "t2005",
+    "combiId": "c008",
+    "stage": "first",
+    "order": 4,
+    "totalScore": 622,
+    "rank": 5
+  },
+  {
+    "id": "p2005-f05",
+    "tournamentId": "t2005",
+    "combiId": "c024",
+    "stage": "first",
+    "order": 5,
+    "totalScore": 659,
+    "rank": 1
+  },
+  {
+    "id": "p2005-f06",
+    "tournamentId": "t2005",
+    "combiId": "c025",
+    "stage": "first",
+    "order": 6,
+    "totalScore": 626,
+    "rank": 4
+  },
+  {
+    "id": "p2005-f07",
+    "tournamentId": "t2005",
+    "combiId": "c026",
+    "stage": "first",
+    "order": 7,
+    "totalScore": 571,
+    "rank": 7
+  },
+  {
+    "id": "p2005-f08",
+    "tournamentId": "t2005",
+    "combiId": "c005",
+    "stage": "first",
+    "order": 8,
+    "totalScore": 646,
+    "rank": 3
+  },
+  {
+    "id": "p2005-f09",
+    "tournamentId": "t2005",
+    "combiId": "c018",
+    "stage": "first",
+    "order": 9,
+    "totalScore": 607,
+    "rank": 6
+  },
+  {
+    "id": "p2005-n01",
+    "tournamentId": "t2005",
+    "combiId": "c005",
+    "stage": "final",
+    "order": 1,
+    "totalVotes": 0,
+    "rank": 3
+  },
+  {
+    "id": "p2005-n02",
+    "tournamentId": "t2005",
+    "combiId": "c011",
+    "stage": "final",
+    "order": 2,
+    "totalVotes": 3,
+    "rank": 2
+  },
+  {
+    "id": "p2005-n03",
+    "tournamentId": "t2005",
+    "combiId": "c024",
+    "stage": "final",
+    "order": 3,
+    "totalVotes": 4,
+    "rank": 1
+  },
+  {
+    "id": "p2006-f01",
+    "tournamentId": "t2006",
+    "combiId": "c021",
+    "stage": "first",
+    "order": 1,
+    "totalScore": 570,
+    "rank": 9
+  },
+  {
+    "id": "p2006-f02",
+    "tournamentId": "t2006",
+    "combiId": "c006",
+    "stage": "first",
+    "order": 2,
+    "totalScore": 640,
+    "rank": 2
+  },
+  {
+    "id": "p2006-f03",
+    "tournamentId": "t2006",
+    "combiId": "c029",
+    "stage": "first",
+    "order": 3,
+    "totalScore": 597,
+    "rank": 7
+  },
+  {
+    "id": "p2006-f04",
+    "tournamentId": "t2006",
+    "combiId": "c005",
+    "stage": "first",
+    "order": 4,
+    "totalScore": 627,
+    "rank": 3
+  },
+  {
+    "id": "p2006-f05",
+    "tournamentId": "t2006",
+    "combiId": "c022",
+    "stage": "first",
+    "order": 5,
+    "totalScore": 613,
+    "rank": 5
+  },
+  {
+    "id": "p2006-f06",
+    "tournamentId": "t2006",
+    "combiId": "c008",
+    "stage": "first",
+    "order": 6,
+    "totalScore": 664,
+    "rank": 1
+  },
+  {
+    "id": "p2006-f07",
+    "tournamentId": "t2006",
+    "combiId": "c030",
+    "stage": "first",
+    "order": 7,
+    "totalScore": 576,
+    "rank": 8
+  },
+  {
+    "id": "p2006-f08",
+    "tournamentId": "t2006",
+    "combiId": "c011",
+    "stage": "first",
+    "order": 8,
+    "totalScore": 626,
+    "rank": 4
+  },
+  {
+    "id": "p2006-f09",
+    "tournamentId": "t2006",
+    "combiId": "c028",
+    "stage": "first",
+    "order": 9,
+    "totalScore": 609,
+    "rank": 6
+  },
+  {
+    "id": "p2006-n01",
+    "tournamentId": "t2006",
+    "combiId": "c005",
+    "stage": "final",
+    "order": 1,
+    "totalVotes": 0,
+    "rank": 3
+  },
+  {
+    "id": "p2006-n02",
+    "tournamentId": "t2006",
+    "combiId": "c006",
+    "stage": "final",
+    "order": 2,
+    "totalVotes": 0,
+    "rank": 2
+  },
+  {
+    "id": "p2006-n03",
+    "tournamentId": "t2006",
+    "combiId": "c008",
+    "stage": "final",
+    "order": 3,
+    "totalVotes": 7,
+    "rank": 1
+  },
+  {
+    "id": "p2007-f01",
+    "tournamentId": "t2007",
+    "combiId": "c011",
+    "stage": "first",
+    "order": 1,
+    "totalScore": 604,
+    "rank": 5
+  },
+  {
+    "id": "p2007-f02",
+    "tournamentId": "t2007",
+    "combiId": "c021",
+    "stage": "first",
+    "order": 2,
+    "totalScore": 577,
+    "rank": 9
+  },
+  {
+    "id": "p2007-f03",
+    "tournamentId": "t2007",
+    "combiId": "c033",
+    "stage": "first",
+    "order": 3,
+    "totalScore": 597,
+    "rank": 6
+  },
+  {
+    "id": "p2007-f04",
+    "tournamentId": "t2007",
+    "combiId": "c018",
+    "stage": "first",
+    "order": 4,
+    "totalScore": 580,
+    "rank": 8
+  },
+  {
+    "id": "p2007-f05",
+    "tournamentId": "t2007",
+    "combiId": "c022",
+    "stage": "first",
+    "order": 5,
+    "totalScore": 646,
+    "rank": 2
+  },
+  {
+    "id": "p2007-f06",
+    "tournamentId": "t2007",
+    "combiId": "c007",
+    "stage": "first",
+    "order": 6,
+    "totalScore": 650,
+    "rank": 3
+  },
+  {
+    "id": "p2007-f07",
+    "tournamentId": "t2007",
+    "combiId": "c032",
+    "stage": "first",
+    "order": 7,
+    "totalScore": 608,
+    "rank": 4
+  },
+  {
+    "id": "p2007-f08",
+    "tournamentId": "t2007",
+    "combiId": "c034",
+    "stage": "first",
+    "order": 8,
+    "totalScore": 593,
+    "rank": 7
+  },
+  {
+    "id": "p2007-f09",
+    "tournamentId": "t2007",
+    "combiId": "c031",
+    "stage": "first",
+    "order": 9,
+    "totalScore": 651,
+    "rank": 1
+  },
+  {
+    "id": "p2007-n01",
+    "tournamentId": "t2007",
+    "combiId": "c022",
+    "stage": "final",
+    "order": 1,
+    "totalVotes": 2,
+    "rank": 2
+  },
+  {
+    "id": "p2007-n02",
+    "tournamentId": "t2007",
+    "combiId": "c007",
+    "stage": "final",
+    "order": 2,
+    "totalVotes": 1,
+    "rank": 3
+  },
+  {
+    "id": "p2007-n03",
+    "tournamentId": "t2007",
+    "combiId": "c031",
+    "stage": "final",
+    "order": 3,
+    "totalVotes": 4,
+    "rank": 1
+  },
+  {
+    "id": "p2008-f01",
+    "tournamentId": "t2008",
+    "combiId": "c034",
+    "stage": "first",
+    "order": 1,
+    "totalScore": 619,
+    "rank": 6
+  },
+  {
+    "id": "p2008-f02",
+    "tournamentId": "t2008",
+    "combiId": "c011",
+    "stage": "first",
+    "order": 2,
+    "totalScore": 637,
+    "rank": 4
+  },
+  {
+    "id": "p2008-f03",
+    "tournamentId": "t2008",
+    "combiId": "c039",
+    "stage": "first",
+    "order": 3,
+    "totalScore": 614,
+    "rank": 7
+  },
+  {
+    "id": "p2008-f04",
+    "tournamentId": "t2008",
+    "combiId": "c037",
+    "stage": "first",
+    "order": 4,
+    "totalScore": 640,
+    "rank": 3
+  },
+  {
+    "id": "p2008-f05",
+    "tournamentId": "t2008",
+    "combiId": "c038",
+    "stage": "first",
+    "order": 5,
+    "totalScore": 623,
+    "rank": 5
+  },
+  {
+    "id": "p2008-f06",
+    "tournamentId": "t2008",
+    "combiId": "c040",
+    "stage": "first",
+    "order": 6,
+    "totalScore": 591,
+    "rank": 9
+  },
+  {
+    "id": "p2008-f07",
+    "tournamentId": "t2008",
+    "combiId": "c035",
+    "stage": "first",
+    "order": 7,
+    "totalScore": 644,
+    "rank": 2
+  },
+  {
+    "id": "p2008-f08",
+    "tournamentId": "t2008",
+    "combiId": "c007",
+    "stage": "first",
+    "order": 8,
+    "totalScore": 612,
+    "rank": 8
+  },
+  {
+    "id": "p2008-f09",
+    "tournamentId": "t2008",
+    "combiId": "c036",
+    "stage": "first",
+    "order": 9,
+    "totalScore": 649,
+    "rank": 1
+  },
+  {
+    "id": "p2008-n01",
+    "tournamentId": "t2008",
+    "combiId": "c037",
+    "stage": "final",
+    "order": 1,
+    "totalVotes": 0,
+    "rank": 3
+  },
+  {
+    "id": "p2008-n02",
+    "tournamentId": "t2008",
+    "combiId": "c035",
+    "stage": "final",
+    "order": 2,
+    "totalVotes": 5,
+    "rank": 1
+  },
+  {
+    "id": "p2008-n03",
+    "tournamentId": "t2008",
+    "combiId": "c036",
+    "stage": "final",
+    "order": 3,
+    "totalVotes": 2,
+    "rank": 2
+  },
+  {
+    "id": "p2009-f01",
+    "tournamentId": "t2009",
+    "combiId": "c037",
+    "stage": "first",
+    "order": 1,
+    "totalScore": 634,
+    "rank": 4
+  },
+  {
+    "id": "p2009-f02",
+    "tournamentId": "t2009",
+    "combiId": "c019",
+    "stage": "first",
+    "order": 2,
+    "totalScore": 607,
+    "rank": 8
+  },
+  {
+    "id": "p2009-f03",
+    "tournamentId": "t2009",
+    "combiId": "c023",
+    "stage": "first",
+    "order": 3,
+    "totalScore": 614,
+    "rank": 6
+  },
+  {
+    "id": "p2009-f04",
+    "tournamentId": "t2009",
+    "combiId": "c032",
+    "stage": "first",
+    "order": 4,
+    "totalScore": 595,
+    "rank": 9
+  },
+  {
+    "id": "p2009-f05",
+    "tournamentId": "t2009",
+    "combiId": "c011",
+    "stage": "first",
+    "order": 5,
+    "totalScore": 668,
+    "rank": 1
+  },
+  {
+    "id": "p2009-f06",
+    "tournamentId": "t2009",
+    "combiId": "c042",
+    "stage": "first",
+    "order": 6,
+    "totalScore": 628,
+    "rank": 5
+  },
+  {
+    "id": "p2009-f07",
+    "tournamentId": "t2009",
+    "combiId": "c039",
+    "stage": "first",
+    "order": 7,
+    "totalScore": 610,
+    "rank": 7
+  },
+  {
+    "id": "p2009-f08",
+    "tournamentId": "t2009",
+    "combiId": "c041",
+    "stage": "first",
+    "order": 8,
+    "totalScore": 651,
+    "rank": 2
+  },
+  {
+    "id": "p2009-f09",
+    "tournamentId": "t2009",
+    "combiId": "c035",
+    "stage": "first",
+    "order": 9,
+    "totalScore": 641,
+    "rank": 3
+  },
+  {
+    "id": "p2009-n01",
+    "tournamentId": "t2009",
+    "combiId": "c035",
+    "stage": "final",
+    "order": 1,
+    "totalVotes": 0,
+    "rank": 3
+  },
+  {
+    "id": "p2009-n02",
+    "tournamentId": "t2009",
+    "combiId": "c041",
+    "stage": "final",
+    "order": 2,
+    "totalVotes": 7,
+    "rank": 1
+  },
+  {
+    "id": "p2009-n03",
+    "tournamentId": "t2009",
+    "combiId": "c011",
+    "stage": "final",
+    "order": 3,
+    "totalVotes": 0,
+    "rank": 2
+  },
+  {
+    "id": "p2010-f01",
+    "tournamentId": "t2010",
+    "combiId": "c047",
+    "stage": "first",
+    "order": 1,
+    "totalScore": 592,
+    "rank": 9
+  },
+  {
+    "id": "p2010-f02",
+    "tournamentId": "t2010",
+    "combiId": "c046",
+    "stage": "first",
+    "order": 2,
+    "totalScore": 606,
+    "rank": 8
+  },
+  {
+    "id": "p2010-f03",
+    "tournamentId": "t2010",
+    "combiId": "c043",
+    "stage": "first",
+    "order": 3,
+    "totalScore": 644,
+    "rank": 3
+  },
+  {
+    "id": "p2010-f04",
+    "tournamentId": "t2010",
+    "combiId": "c045",
+    "stage": "first",
+    "order": 4,
+    "totalScore": 627,
+    "rank": 5
+  },
+  {
+    "id": "p2010-f05",
+    "tournamentId": "t2010",
+    "combiId": "c037",
+    "stage": "first",
+    "order": 5,
+    "totalScore": 626,
+    "rank": 6
+  },
+  {
+    "id": "p2010-f06",
+    "tournamentId": "t2010",
+    "combiId": "c011",
+    "stage": "first",
+    "order": 6,
+    "totalScore": 668,
+    "rank": 1
+  },
+  {
+    "id": "p2010-f07",
+    "tournamentId": "t2010",
+    "combiId": "c042",
+    "stage": "first",
+    "order": 7,
+    "totalScore": 620,
+    "rank": 7
+  },
+  {
+    "id": "p2010-f08",
+    "tournamentId": "t2010",
+    "combiId": "c044",
+    "stage": "first",
+    "order": 8,
+    "totalScore": 629,
+    "rank": 4
+  },
+  {
+    "id": "p2010-f09",
+    "tournamentId": "t2010",
+    "combiId": "c041",
+    "stage": "first",
+    "order": 9,
+    "totalScore": 668,
+    "rank": 2
+  },
+  {
+    "id": "p2010-n01",
+    "tournamentId": "t2010",
+    "combiId": "c043",
+    "stage": "final",
+    "order": 1,
+    "totalVotes": 3,
+    "rank": 2
+  },
+  {
+    "id": "p2010-n02",
+    "tournamentId": "t2010",
+    "combiId": "c011",
+    "stage": "final",
+    "order": 2,
+    "totalVotes": 4,
+    "rank": 1
+  },
+  {
+    "id": "p2010-n03",
+    "tournamentId": "t2010",
+    "combiId": "c041",
+    "stage": "final",
+    "order": 3,
+    "totalVotes": 0,
+    "rank": 3
+  },
+  {
+    "id": "p2015-f01",
+    "tournamentId": "t2015",
+    "combiId": "c051",
+    "stage": "first",
+    "order": 1,
+    "totalScore": 796,
+    "rank": 7
+  },
+  {
+    "id": "p2015-f02",
+    "tournamentId": "t2015",
+    "combiId": "c052",
+    "stage": "first",
+    "order": 2,
+    "totalScore": 791,
+    "rank": 8
+  },
+  {
+    "id": "p2015-f03",
+    "tournamentId": "t2015",
+    "combiId": "c049",
+    "stage": "first",
+    "order": 3,
+    "totalScore": 813,
+    "rank": 5
+  },
+  {
+    "id": "p2015-f04",
+    "tournamentId": "t2015",
+    "combiId": "c050",
+    "stage": "first",
+    "order": 4,
+    "totalScore": 806,
+    "rank": 6
+  },
+  {
+    "id": "p2015-f05",
+    "tournamentId": "t2015",
+    "combiId": "c046",
+    "stage": "first",
+    "order": 5,
+    "totalScore": 834,
+    "rank": 3
+  },
+  {
+    "id": "p2015-f06",
+    "tournamentId": "t2015",
+    "combiId": "c045",
+    "stage": "first",
+    "order": 6,
+    "totalScore": 818,
+    "rank": 2
+  },
+  {
+    "id": "p2015-f07",
+    "tournamentId": "t2015",
+    "combiId": "c042",
+    "stage": "first",
+    "order": 7,
+    "totalScore": 788,
+    "rank": 9
+  },
+  {
+    "id": "p2015-f08",
+    "tournamentId": "t2015",
+    "combiId": "c026",
+    "stage": "first",
+    "order": 8,
+    "totalScore": 816,
+    "rank": 4
+  },
+  {
+    "id": "p2015-f09",
+    "tournamentId": "t2015",
+    "combiId": "c048",
+    "stage": "first",
+    "order": 9,
+    "totalScore": 825,
+    "rank": 1
+  },
+  {
+    "id": "p2015-n01",
+    "tournamentId": "t2015",
+    "combiId": "c045",
+    "stage": "final",
+    "order": 1,
+    "totalVotes": 2,
+    "rank": 2
+  },
+  {
+    "id": "p2015-n02",
+    "tournamentId": "t2015",
+    "combiId": "c048",
+    "stage": "final",
+    "order": 2,
+    "totalVotes": 6,
+    "rank": 1
+  },
+  {
+    "id": "p2015-n03",
+    "tournamentId": "t2015",
+    "combiId": "c046",
+    "stage": "final",
+    "order": 3,
+    "totalVotes": 1,
+    "rank": 3
+  },
+  {
+    "id": "p2016-f01",
+    "tournamentId": "t2016",
+    "combiId": "c054",
+    "stage": "first",
+    "order": 1,
+    "totalScore": 446,
+    "rank": 5
+  },
+  {
+    "id": "p2016-f02",
+    "tournamentId": "t2016",
+    "combiId": "c055",
+    "stage": "first",
+    "order": 2,
+    "totalScore": 441,
+    "rank": 7
+  },
+  {
+    "id": "p2016-f03",
+    "tournamentId": "t2016",
+    "combiId": "c056",
+    "stage": "first",
+    "order": 3,
+    "totalScore": 436,
+    "rank": 9
+  },
+  {
+    "id": "p2016-f04",
+    "tournamentId": "t2016",
+    "combiId": "c045",
+    "stage": "first",
+    "order": 4,
+    "totalScore": 470,
+    "rank": 1
+  },
+  {
+    "id": "p2016-f05",
+    "tournamentId": "t2016",
+    "combiId": "c043",
+    "stage": "first",
+    "order": 5,
+    "totalScore": 441,
+    "rank": 8
+  },
+  {
+    "id": "p2016-f06",
+    "tournamentId": "t2016",
+    "combiId": "c042",
+    "stage": "first",
+    "order": 6,
+    "totalScore": 446,
+    "rank": 6
+  },
+  {
+    "id": "p2016-f07",
+    "tournamentId": "t2016",
+    "combiId": "c049",
+    "stage": "first",
+    "order": 7,
+    "totalScore": 459,
+    "rank": 3
+  },
+  {
+    "id": "p2016-f08",
+    "tournamentId": "t2016",
+    "combiId": "c053",
+    "stage": "first",
+    "order": 8,
+    "totalScore": 448,
+    "rank": 4
+  },
+  {
+    "id": "p2016-f09",
+    "tournamentId": "t2016",
+    "combiId": "c050",
+    "stage": "first",
+    "order": 9,
+    "totalScore": 469,
+    "rank": 2
+  },
+  {
+    "id": "p2016-n01",
+    "tournamentId": "t2016",
+    "combiId": "c049",
+    "stage": "final",
+    "order": 1,
+    "totalVotes": 1,
+    "rank": 3
+  },
+  {
+    "id": "p2016-n02",
+    "tournamentId": "t2016",
+    "combiId": "c050",
+    "stage": "final",
+    "order": 2,
+    "totalVotes": 1,
+    "rank": 2
+  },
+  {
+    "id": "p2016-n03",
+    "tournamentId": "t2016",
+    "combiId": "c045",
+    "stage": "final",
+    "order": 3,
+    "totalVotes": 3,
+    "rank": 1
+  },
+  {
+    "id": "p2017-f01",
+    "tournamentId": "t2017",
+    "combiId": "c061",
+    "stage": "first",
+    "order": 1,
+    "totalScore": 626,
+    "rank": 8
+  },
+  {
+    "id": "p2017-f02",
+    "tournamentId": "t2017",
+    "combiId": "c055",
+    "stage": "first",
+    "order": 2,
+    "totalScore": 618,
+    "rank": 9
+  },
+  {
+    "id": "p2017-f03",
+    "tournamentId": "t2017",
+    "combiId": "c057",
+    "stage": "first",
+    "order": 3,
+    "totalScore": 645,
+    "rank": 1
+  },
+  {
+    "id": "p2017-f04",
+    "tournamentId": "t2017",
+    "combiId": "c049",
+    "stage": "first",
+    "order": 4,
+    "totalScore": 640,
+    "rank": 4
+  },
+  {
+    "id": "p2017-f05",
+    "tournamentId": "t2017",
+    "combiId": "c059",
+    "stage": "first",
+    "order": 5,
+    "totalScore": 640,
+    "rank": 4
+  },
+  {
+    "id": "p2017-f06",
+    "tournamentId": "t2017",
+    "combiId": "c062",
+    "stage": "first",
+    "order": 6,
+    "totalScore": 607,
+    "rank": 10
+  },
+  {
+    "id": "p2017-f07",
+    "tournamentId": "t2017",
+    "combiId": "c060",
+    "stage": "first",
+    "order": 7,
+    "totalScore": 628,
+    "rank": 7
+  },
+  {
+    "id": "p2017-f08",
+    "tournamentId": "t2017",
+    "combiId": "c058",
+    "stage": "first",
+    "order": 8,
+    "totalScore": 650,
+    "rank": 3
+  },
+  {
+    "id": "p2017-f09",
+    "tournamentId": "t2017",
+    "combiId": "c050",
+    "stage": "first",
+    "order": 9,
+    "totalScore": 653,
+    "rank": 2
+  },
+  {
+    "id": "p2017-f10",
+    "tournamentId": "t2017",
+    "combiId": "c046",
+    "stage": "first",
+    "order": 10,
+    "totalScore": 636,
+    "rank": 6
+  },
+  {
+    "id": "p2017-n01",
+    "tournamentId": "t2017",
+    "combiId": "c057",
+    "stage": "final",
+    "order": 1,
+    "totalVotes": 4,
+    "rank": 1
+  },
+  {
+    "id": "p2017-n02",
+    "tournamentId": "t2017",
+    "combiId": "c058",
+    "stage": "final",
+    "order": 2,
+    "totalVotes": 0,
+    "rank": 3
+  },
+  {
+    "id": "p2017-n03",
+    "tournamentId": "t2017",
+    "combiId": "c050",
+    "stage": "final",
+    "order": 3,
+    "totalVotes": 3,
+    "rank": 2
+  },
+  {
+    "id": "p2018-f01",
+    "tournamentId": "t2018",
+    "combiId": "c066",
+    "stage": "first",
+    "order": 1,
+    "totalScore": 606,
+    "rank": 9
+  },
+  {
+    "id": "p2018-f02",
+    "tournamentId": "t2018",
+    "combiId": "c049",
+    "stage": "first",
+    "order": 2,
+    "totalScore": 617,
+    "rank": 7
+  },
+  {
+    "id": "p2018-f03",
+    "tournamentId": "t2018",
+    "combiId": "c059",
+    "stage": "first",
+    "order": 3,
+    "totalScore": 636,
+    "rank": 5
+  },
+  {
+    "id": "p2018-f04",
+    "tournamentId": "t2018",
+    "combiId": "c046",
+    "stage": "first",
+    "order": 4,
+    "totalScore": 648,
+    "rank": 3
+  },
+  {
+    "id": "p2018-f05",
+    "tournamentId": "t2018",
+    "combiId": "c065",
+    "stage": "first",
+    "order": 5,
+    "totalScore": 614,
+    "rank": 8
+  },
+  {
+    "id": "p2018-f06",
+    "tournamentId": "t2018",
+    "combiId": "c061",
+    "stage": "first",
+    "order": 6,
+    "totalScore": 594,
+    "rank": 10
+  },
+  {
+    "id": "p2018-f07",
+    "tournamentId": "t2018",
+    "combiId": "c058",
+    "stage": "first",
+    "order": 7,
+    "totalScore": 638,
+    "rank": 4
+  },
+  {
+    "id": "p2018-f08",
+    "tournamentId": "t2018",
+    "combiId": "c064",
+    "stage": "first",
+    "order": 8,
+    "totalScore": 633,
+    "rank": 6
+  },
+  {
+    "id": "p2018-f09",
+    "tournamentId": "t2018",
+    "combiId": "c063",
+    "stage": "first",
+    "order": 9,
+    "totalScore": 662,
+    "rank": 1
+  },
+  {
+    "id": "p2018-f10",
+    "tournamentId": "t2018",
+    "combiId": "c050",
+    "stage": "first",
+    "order": 10,
+    "totalScore": 656,
+    "rank": 2
+  },
+  {
+    "id": "p2018-n01",
+    "tournamentId": "t2018",
+    "combiId": "c046",
+    "stage": "final",
+    "order": 1,
+    "totalVotes": 0,
+    "rank": 3
+  },
+  {
+    "id": "p2018-n02",
+    "tournamentId": "t2018",
+    "combiId": "c050",
+    "stage": "final",
+    "order": 2,
+    "totalVotes": 3,
+    "rank": 2
+  },
+  {
+    "id": "p2018-n03",
+    "tournamentId": "t2018",
+    "combiId": "c063",
+    "stage": "final",
+    "order": 3,
+    "totalVotes": 4,
+    "rank": 1
+  },
+  {
+    "id": "p2019-f01",
+    "tournamentId": "t2019",
+    "combiId": "c073",
+    "stage": "first",
+    "order": 1,
+    "totalScore": 616,
+    "rank": 10
+  },
+  {
+    "id": "p2019-f02",
+    "tournamentId": "t2019",
+    "combiId": "c059",
+    "stage": "first",
+    "order": 2,
+    "totalScore": 660,
+    "rank": 2
+  },
+  {
+    "id": "p2019-f03",
+    "tournamentId": "t2019",
+    "combiId": "c050",
+    "stage": "first",
+    "order": 3,
+    "totalScore": 652,
+    "rank": 4
+  },
+  {
+    "id": "p2019-f04",
+    "tournamentId": "t2019",
+    "combiId": "c071",
+    "stage": "first",
+    "order": 4,
+    "totalScore": 637,
+    "rank": 8
+  },
+  {
+    "id": "p2019-f05",
+    "tournamentId": "t2019",
+    "combiId": "c069",
+    "stage": "first",
+    "order": 5,
+    "totalScore": 639,
+    "rank": 6
+  },
+  {
+    "id": "p2019-f06",
+    "tournamentId": "t2019",
+    "combiId": "c066",
+    "stage": "first",
+    "order": 6,
+    "totalScore": 649,
+    "rank": 5
+  },
+  {
+    "id": "p2019-f07",
+    "tournamentId": "t2019",
+    "combiId": "c067",
+    "stage": "first",
+    "order": 7,
+    "totalScore": 681,
+    "rank": 1
+  },
+  {
+    "id": "p2019-f08",
+    "tournamentId": "t2019",
+    "combiId": "c070",
+    "stage": "first",
+    "order": 8,
+    "totalScore": 638,
+    "rank": 7
+  },
+  {
+    "id": "p2019-f09",
+    "tournamentId": "t2019",
+    "combiId": "c072",
+    "stage": "first",
+    "order": 9,
+    "totalScore": 632,
+    "rank": 9
+  },
+  {
+    "id": "p2019-f10",
+    "tournamentId": "t2019",
+    "combiId": "c068",
+    "stage": "first",
+    "order": 10,
+    "totalScore": 654,
+    "rank": 3
+  },
+  {
+    "id": "p2019-n01",
+    "tournamentId": "t2019",
+    "combiId": "c068",
+    "stage": "final",
+    "order": 1,
+    "totalVotes": 0,
+    "rank": 3
+  },
+  {
+    "id": "p2019-n02",
+    "tournamentId": "t2019",
+    "combiId": "c059",
+    "stage": "final",
+    "order": 2,
+    "totalVotes": 1,
+    "rank": 2
+  },
+  {
+    "id": "p2019-n03",
+    "tournamentId": "t2019",
+    "combiId": "c067",
+    "stage": "final",
+    "order": 3,
+    "totalVotes": 6,
+    "rank": 1
+  },
+  {
+    "id": "p2020-f01",
+    "tournamentId": "t2020",
+    "combiId": "c072",
+    "stage": "first",
+    "order": 1,
+    "totalScore": 625,
+    "rank": 7
+  },
+  {
+    "id": "p2020-f02",
+    "tournamentId": "t2020",
+    "combiId": "c077",
+    "stage": "first",
+    "order": 2,
+    "totalScore": 617,
+    "rank": 10
+  },
+  {
+    "id": "p2020-f03",
+    "tournamentId": "t2020",
+    "combiId": "c073",
+    "stage": "first",
+    "order": 3,
+    "totalScore": 642,
+    "rank": 5
+  },
+  {
+    "id": "p2020-f04",
+    "tournamentId": "t2020",
+    "combiId": "c066",
+    "stage": "first",
+    "order": 4,
+    "totalScore": 648,
+    "rank": 3
+  },
+  {
+    "id": "p2020-f05",
+    "tournamentId": "t2020",
+    "combiId": "c074",
+    "stage": "first",
+    "order": 5,
+    "totalScore": 658,
+    "rank": 2
+  },
+  {
+    "id": "p2020-f06",
+    "tournamentId": "t2020",
+    "combiId": "c062",
+    "stage": "first",
+    "order": 6,
+    "totalScore": 649,
+    "rank": 1
+  },
+  {
+    "id": "p2020-f07",
+    "tournamentId": "t2020",
+    "combiId": "c070",
+    "stage": "first",
+    "order": 7,
+    "totalScore": 642,
+    "rank": 5
+  },
+  {
+    "id": "p2020-f08",
+    "tournamentId": "t2020",
+    "combiId": "c054",
+    "stage": "first",
+    "order": 8,
+    "totalScore": 622,
+    "rank": 8
+  },
+  {
+    "id": "p2020-f09",
+    "tournamentId": "t2020",
+    "combiId": "c075",
+    "stage": "first",
+    "order": 9,
+    "totalScore": 643,
+    "rank": 4
+  },
+  {
+    "id": "p2020-f10",
+    "tournamentId": "t2020",
+    "combiId": "c076",
+    "stage": "first",
+    "order": 10,
+    "totalScore": 622,
+    "rank": 9
+  },
+  {
+    "id": "p2020-n01",
+    "tournamentId": "t2020",
+    "combiId": "c066",
+    "stage": "final",
+    "order": 1,
+    "totalVotes": 2,
+    "rank": 3
+  },
+  {
+    "id": "p2020-n02",
+    "tournamentId": "t2020",
+    "combiId": "c062",
+    "stage": "final",
+    "order": 2,
+    "totalVotes": 3,
+    "rank": 1
+  },
+  {
+    "id": "p2020-n03",
+    "tournamentId": "t2020",
+    "combiId": "c074",
+    "stage": "final",
+    "order": 3,
+    "totalVotes": 2,
+    "rank": 2
+  },
+  {
+    "id": "p2021-f01",
+    "tournamentId": "t2021",
+    "combiId": "c081",
+    "stage": "first",
+    "order": 1,
+    "totalScore": 637,
+    "rank": 8
+  },
+  {
+    "id": "p2021-f02",
+    "tournamentId": "t2021",
+    "combiId": "c082",
+    "stage": "first",
+    "order": 2,
+    "totalScore": 628,
+    "rank": 10
+  },
+  {
+    "id": "p2021-f03",
+    "tournamentId": "t2021",
+    "combiId": "c061",
+    "stage": "first",
+    "order": 3,
+    "totalScore": 638,
+    "rank": 6
+  },
+  {
+    "id": "p2021-f04",
+    "tournamentId": "t2021",
+    "combiId": "c042",
+    "stage": "first",
+    "order": 4,
+    "totalScore": 636,
+    "rank": 9
+  },
+  {
+    "id": "p2021-f05",
+    "tournamentId": "t2021",
+    "combiId": "c080",
+    "stage": "first",
+    "order": 5,
+    "totalScore": 638,
+    "rank": 6
+  },
+  {
+    "id": "p2021-f06",
+    "tournamentId": "t2021",
+    "combiId": "c070",
+    "stage": "first",
+    "order": 6,
+    "totalScore": 665,
+    "rank": 2
+  },
+  {
+    "id": "p2021-f07",
+    "tournamentId": "t2021",
+    "combiId": "c078",
+    "stage": "first",
+    "order": 7,
+    "totalScore": 649,
+    "rank": 4
+  },
+  {
+    "id": "p2021-f08",
+    "tournamentId": "t2021",
+    "combiId": "c075",
+    "stage": "first",
+    "order": 8,
+    "totalScore": 655,
+    "rank": 1
+  },
+  {
+    "id": "p2021-f09",
+    "tournamentId": "t2021",
+    "combiId": "c072",
+    "stage": "first",
+    "order": 9,
+    "totalScore": 655,
+    "rank": 3
+  },
+  {
+    "id": "p2021-f10",
+    "tournamentId": "t2021",
+    "combiId": "c079",
+    "stage": "first",
+    "order": 10,
+    "totalScore": 645,
+    "rank": 5
+  },
+  {
+    "id": "p2021-n01",
+    "tournamentId": "t2021",
+    "combiId": "c072",
+    "stage": "final",
+    "order": 1,
+    "totalVotes": 1,
+    "rank": 3
+  },
+  {
+    "id": "p2021-n02",
+    "tournamentId": "t2021",
+    "combiId": "c075",
+    "stage": "final",
+    "order": 2,
+    "totalVotes": 5,
+    "rank": 1
+  },
+  {
+    "id": "p2021-n03",
+    "tournamentId": "t2021",
+    "combiId": "c070",
+    "stage": "final",
+    "order": 3,
+    "totalVotes": 1,
+    "rank": 2
+  },
+  {
+    "id": "p2022-f01",
+    "tournamentId": "t2022",
+    "combiId": "c085",
+    "stage": "first",
+    "order": 1,
+    "totalScore": 634,
+    "rank": 8
+  },
+  {
+    "id": "p2022-f02",
+    "tournamentId": "t2022",
+    "combiId": "c080",
+    "stage": "first",
+    "order": 2,
+    "totalScore": 647,
+    "rank": 5
+  },
+  {
+    "id": "p2022-f03",
+    "tournamentId": "t2022",
+    "combiId": "c070",
+    "stage": "first",
+    "order": 3,
+    "totalScore": 639,
+    "rank": 7
+  },
+  {
+    "id": "p2022-f04",
+    "tournamentId": "t2022",
+    "combiId": "c078",
+    "stage": "first",
+    "order": 4,
+    "totalScore": 660,
+    "rank": 3
+  },
+  {
+    "id": "p2022-f05",
+    "tournamentId": "t2022",
+    "combiId": "c060",
+    "stage": "first",
+    "order": 5,
+    "totalScore": 667,
+    "rank": 2
+  },
+  {
+    "id": "p2022-f06",
+    "tournamentId": "t2022",
+    "combiId": "c083",
+    "stage": "first",
+    "order": 6,
+    "totalScore": 650,
+    "rank": 4
+  },
+  {
+    "id": "p2022-f07",
+    "tournamentId": "t2022",
+    "combiId": "c087",
+    "stage": "first",
+    "order": 7,
+    "totalScore": 616,
+    "rank": 10
+  },
+  {
+    "id": "p2022-f08",
+    "tournamentId": "t2022",
+    "combiId": "c084",
+    "stage": "first",
+    "order": 8,
+    "totalScore": 647,
+    "rank": 5
+  },
+  {
+    "id": "p2022-f09",
+    "tournamentId": "t2022",
+    "combiId": "c086",
+    "stage": "first",
+    "order": 9,
+    "totalScore": 620,
+    "rank": 9
+  },
+  {
+    "id": "p2022-f10",
+    "tournamentId": "t2022",
+    "combiId": "c076",
+    "stage": "first",
+    "order": 10,
+    "totalScore": 659,
+    "rank": 1
+  },
+  {
+    "id": "p2022-n01",
+    "tournamentId": "t2022",
+    "combiId": "c076",
+    "stage": "final",
+    "order": 1,
+    "totalVotes": 6,
+    "rank": 1
+  },
+  {
+    "id": "p2022-n02",
+    "tournamentId": "t2022",
+    "combiId": "c078",
+    "stage": "final",
+    "order": 2,
+    "totalVotes": 0,
+    "rank": 3
+  },
+  {
+    "id": "p2022-n03",
+    "tournamentId": "t2022",
+    "combiId": "c060",
+    "stage": "final",
+    "order": 3,
+    "totalVotes": 1,
+    "rank": 2
+  },
+  {
+    "id": "p2023-f01",
+    "tournamentId": "t2023",
+    "combiId": "c088",
+    "stage": "first",
+    "order": 1,
+    "totalScore": 648,
+    "rank": 1
+  },
+  {
+    "id": "p2023-f02",
+    "tournamentId": "t2023",
+    "combiId": "c092",
+    "stage": "first",
+    "order": 2,
+    "totalScore": 627,
+    "rank": 9
+  },
+  {
+    "id": "p2023-f03",
+    "tournamentId": "t2023",
+    "combiId": "c060",
+    "stage": "first",
+    "order": 3,
+    "totalScore": 659,
+    "rank": 3
+  },
+  {
+    "id": "p2023-f04",
+    "tournamentId": "t2023",
+    "combiId": "c085",
+    "stage": "first",
+    "order": 4,
+    "totalScore": 635,
+    "rank": 6
+  },
+  {
+    "id": "p2023-f05",
+    "tournamentId": "t2023",
+    "combiId": "c090",
+    "stage": "first",
+    "order": 5,
+    "totalScore": 645,
+    "rank": 4
+  },
+  {
+    "id": "p2023-f06",
+    "tournamentId": "t2023",
+    "combiId": "c089",
+    "stage": "first",
+    "order": 6,
+    "totalScore": 656,
+    "rank": 2
+  },
+  {
+    "id": "p2023-f07",
+    "tournamentId": "t2023",
+    "combiId": "c080",
+    "stage": "first",
+    "order": 7,
+    "totalScore": 643,
+    "rank": 5
+  },
+  {
+    "id": "p2023-f08",
+    "tournamentId": "t2023",
+    "combiId": "c091",
+    "stage": "first",
+    "order": 8,
+    "totalScore": 631,
+    "rank": 8
+  },
+  {
+    "id": "p2023-f09",
+    "tournamentId": "t2023",
+    "combiId": "c093",
+    "stage": "first",
+    "order": 9,
+    "totalScore": 620,
+    "rank": 10
+  },
+  {
+    "id": "p2023-f10",
+    "tournamentId": "t2023",
+    "combiId": "c081",
+    "stage": "first",
+    "order": 10,
+    "totalScore": 632,
+    "rank": 7
+  },
+  {
+    "id": "p2023-n01",
+    "tournamentId": "t2023",
+    "combiId": "c088",
+    "stage": "final",
+    "order": 1,
+    "totalVotes": 4,
+    "rank": 1
+  },
+  {
+    "id": "p2023-n02",
+    "tournamentId": "t2023",
+    "combiId": "c089",
+    "stage": "final",
+    "order": 2,
+    "totalVotes": 3,
+    "rank": 2
+  },
+  {
+    "id": "p2023-n03",
+    "tournamentId": "t2023",
+    "combiId": "c060",
+    "stage": "final",
+    "order": 3,
+    "totalVotes": 0,
+    "rank": 3
+  },
+  {
+    "id": "p2024-f01",
+    "tournamentId": "t2024",
+    "combiId": "c088",
+    "stage": "first",
+    "order": 1,
+    "totalScore": 850,
+    "rank": 1
+  },
+  {
+    "id": "p2024-f02",
+    "tournamentId": "t2024",
+    "combiId": "c089",
+    "stage": "first",
+    "order": 2,
+    "totalScore": 825,
+    "rank": 5
+  },
+  {
+    "id": "p2024-f03",
+    "tournamentId": "t2024",
+    "combiId": "c080",
+    "stage": "first",
+    "order": 3,
+    "totalScore": 849,
+    "rank": 3
+  },
+  {
+    "id": "p2024-f04",
+    "tournamentId": "t2024",
+    "combiId": "c090",
+    "stage": "first",
+    "order": 4,
+    "totalScore": 820,
+    "rank": 7
+  },
+  {
+    "id": "p2024-f05",
+    "tournamentId": "t2024",
+    "combiId": "c096",
+    "stage": "first",
+    "order": 5,
+    "totalScore": 820,
+    "rank": 7
+  },
+  {
+    "id": "p2024-f06",
+    "tournamentId": "t2024",
+    "combiId": "c097",
+    "stage": "first",
+    "order": 6,
+    "totalScore": 819,
+    "rank": 9
+  },
+  {
+    "id": "p2024-f07",
+    "tournamentId": "t2024",
+    "combiId": "c094",
+    "stage": "first",
+    "order": 7,
+    "totalScore": 861,
+    "rank": 2
+  },
+  {
+    "id": "p2024-f08",
+    "tournamentId": "t2024",
+    "combiId": "c098",
+    "stage": "first",
+    "order": 8,
+    "totalScore": 812,
+    "rank": 10
+  },
+  {
+    "id": "p2024-f09",
+    "tournamentId": "t2024",
+    "combiId": "c095",
+    "stage": "first",
+    "order": 9,
+    "totalScore": 848,
+    "rank": 4
+  },
+  {
+    "id": "p2024-f10",
+    "tournamentId": "t2024",
+    "combiId": "c064",
+    "stage": "first",
+    "order": 10,
+    "totalScore": 823,
+    "rank": 6
+  },
+  {
+    "id": "p2024-n01",
+    "tournamentId": "t2024",
+    "combiId": "c080",
+    "stage": "final",
+    "order": 1,
+    "totalVotes": 1,
+    "rank": 3
+  },
+  {
+    "id": "p2024-n02",
+    "tournamentId": "t2024",
+    "combiId": "c088",
+    "stage": "final",
+    "order": 2,
+    "totalVotes": 5,
+    "rank": 1
+  },
+  {
+    "id": "p2024-n03",
+    "tournamentId": "t2024",
+    "combiId": "c094",
+    "stage": "final",
+    "order": 3,
+    "totalVotes": 3,
+    "rank": 2
+  },
+  {
+    "id": "p2025-f01",
+    "tournamentId": "t2025",
+    "combiId": "c089",
+    "stage": "first",
+    "order": 1,
+    "totalScore": 843,
+    "rank": 5
+  },
+  {
+    "id": "p2025-f02",
+    "tournamentId": "t2025",
+    "combiId": "c103",
+    "stage": "first",
+    "order": 2,
+    "totalScore": 820,
+    "rank": 10
+  },
+  {
+    "id": "p2025-f03",
+    "tournamentId": "t2025",
+    "combiId": "c102",
+    "stage": "first",
+    "order": 3,
+    "totalScore": 830,
+    "rank": 7
+  },
+  {
+    "id": "p2025-f04",
+    "tournamentId": "t2025",
+    "combiId": "c095",
+    "stage": "first",
+    "order": 4,
+    "totalScore": 870,
+    "rank": 3
+  },
+  {
+    "id": "p2025-f05",
+    "tournamentId": "t2025",
+    "combiId": "c080",
+    "stage": "first",
+    "order": 5,
+    "totalScore": 844,
+    "rank": 4
+  },
+  {
+    "id": "p2025-f06",
+    "tournamentId": "t2025",
+    "combiId": "c084",
+    "stage": "first",
+    "order": 6,
+    "totalScore": 826,
+    "rank": 8
+  },
+  {
+    "id": "p2025-f07",
+    "tournamentId": "t2025",
+    "combiId": "c099",
+    "stage": "first",
+    "order": 7,
+    "totalScore": 861,
+    "rank": 1
+  },
+  {
+    "id": "p2025-f08",
+    "tournamentId": "t2025",
+    "combiId": "c100",
+    "stage": "first",
+    "order": 8,
+    "totalScore": 845,
+    "rank": 2
+  },
+  {
+    "id": "p2025-f09",
+    "tournamentId": "t2025",
+    "combiId": "c101",
+    "stage": "first",
+    "order": 9,
+    "totalScore": 839,
+    "rank": 6
+  },
+  {
+    "id": "p2025-f10",
+    "tournamentId": "t2025",
+    "combiId": "c098",
+    "stage": "first",
+    "order": 10,
+    "totalScore": 823,
+    "rank": 9
+  },
+  {
+    "id": "p2025-n01",
+    "tournamentId": "t2025",
+    "combiId": "c100",
+    "stage": "final",
+    "order": 1,
+    "totalVotes": 1,
+    "rank": 2
+  },
+  {
+    "id": "p2025-n02",
+    "tournamentId": "t2025",
+    "combiId": "c095",
+    "stage": "final",
+    "order": 2,
+    "totalVotes": 0,
+    "rank": 3
+  },
+  {
+    "id": "p2025-n03",
+    "tournamentId": "t2025",
+    "combiId": "c099",
+    "stage": "final",
+    "order": 3,
+    "totalVotes": 8,
+    "rank": 1
+  }
+]

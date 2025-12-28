@@ -1,0 +1,7167 @@
+[
+  {
+    "performanceId": "p2001-f01",
+    "judgeId": "j003",
+    "score": 91
+  },
+  {
+    "performanceId": "p2001-f01",
+    "judgeId": "j004",
+    "score": 90
+  },
+  {
+    "performanceId": "p2001-f01",
+    "judgeId": "j005",
+    "score": 90
+  },
+  {
+    "performanceId": "p2001-f01",
+    "judgeId": "j006",
+    "score": 90
+  },
+  {
+    "performanceId": "p2001-f01",
+    "judgeId": "j007",
+    "score": 85
+  },
+  {
+    "performanceId": "p2001-f01",
+    "judgeId": "j002",
+    "score": 70
+  },
+  {
+    "performanceId": "p2001-f01",
+    "judgeId": "j001",
+    "score": 80
+  },
+  {
+    "performanceId": "p2001-f02",
+    "judgeId": "j003",
+    "score": 90
+  },
+  {
+    "performanceId": "p2001-f02",
+    "judgeId": "j004",
+    "score": 80
+  },
+  {
+    "performanceId": "p2001-f02",
+    "judgeId": "j005",
+    "score": 80
+  },
+  {
+    "performanceId": "p2001-f02",
+    "judgeId": "j006",
+    "score": 82
+  },
+  {
+    "performanceId": "p2001-f02",
+    "judgeId": "j007",
+    "score": 82
+  },
+  {
+    "performanceId": "p2001-f02",
+    "judgeId": "j002",
+    "score": 55
+  },
+  {
+    "performanceId": "p2001-f02",
+    "judgeId": "j001",
+    "score": 66
+  },
+  {
+    "performanceId": "p2001-f03",
+    "judgeId": "j003",
+    "score": 80
+  },
+  {
+    "performanceId": "p2001-f03",
+    "judgeId": "j004",
+    "score": 75
+  },
+  {
+    "performanceId": "p2001-f03",
+    "judgeId": "j005",
+    "score": 75
+  },
+  {
+    "performanceId": "p2001-f03",
+    "judgeId": "j006",
+    "score": 68
+  },
+  {
+    "performanceId": "p2001-f03",
+    "judgeId": "j007",
+    "score": 75
+  },
+  {
+    "performanceId": "p2001-f03",
+    "judgeId": "j002",
+    "score": 50
+  },
+  {
+    "performanceId": "p2001-f03",
+    "judgeId": "j001",
+    "score": 60
+  },
+  {
+    "performanceId": "p2001-f04",
+    "judgeId": "j003",
+    "score": 88
+  },
+  {
+    "performanceId": "p2001-f04",
+    "judgeId": "j004",
+    "score": 85
+  },
+  {
+    "performanceId": "p2001-f04",
+    "judgeId": "j005",
+    "score": 80
+  },
+  {
+    "performanceId": "p2001-f04",
+    "judgeId": "j006",
+    "score": 92
+  },
+  {
+    "performanceId": "p2001-f04",
+    "judgeId": "j007",
+    "score": 84
+  },
+  {
+    "performanceId": "p2001-f04",
+    "judgeId": "j002",
+    "score": 65
+  },
+  {
+    "performanceId": "p2001-f04",
+    "judgeId": "j001",
+    "score": 74
+  },
+  {
+    "performanceId": "p2001-f05",
+    "judgeId": "j003",
+    "score": 77
+  },
+  {
+    "performanceId": "p2001-f05",
+    "judgeId": "j004",
+    "score": 80
+  },
+  {
+    "performanceId": "p2001-f05",
+    "judgeId": "j005",
+    "score": 75
+  },
+  {
+    "performanceId": "p2001-f05",
+    "judgeId": "j006",
+    "score": 82
+  },
+  {
+    "performanceId": "p2001-f05",
+    "judgeId": "j007",
+    "score": 73
+  },
+  {
+    "performanceId": "p2001-f05",
+    "judgeId": "j002",
+    "score": 60
+  },
+  {
+    "performanceId": "p2001-f05",
+    "judgeId": "j001",
+    "score": 50
+  },
+  {
+    "performanceId": "p2001-f06",
+    "judgeId": "j003",
+    "score": 95
+  },
+  {
+    "performanceId": "p2001-f06",
+    "judgeId": "j004",
+    "score": 75
+  },
+  {
+    "performanceId": "p2001-f06",
+    "judgeId": "j005",
+    "score": 70
+  },
+  {
+    "performanceId": "p2001-f06",
+    "judgeId": "j006",
+    "score": 76
+  },
+  {
+    "performanceId": "p2001-f06",
+    "judgeId": "j007",
+    "score": 83
+  },
+  {
+    "performanceId": "p2001-f06",
+    "judgeId": "j002",
+    "score": 55
+  },
+  {
+    "performanceId": "p2001-f06",
+    "judgeId": "j001",
+    "score": 74
+  },
+  {
+    "performanceId": "p2001-f07",
+    "judgeId": "j003",
+    "score": 79
+  },
+  {
+    "performanceId": "p2001-f07",
+    "judgeId": "j004",
+    "score": 75
+  },
+  {
+    "performanceId": "p2001-f07",
+    "judgeId": "j005",
+    "score": 65
+  },
+  {
+    "performanceId": "p2001-f07",
+    "judgeId": "j006",
+    "score": 90
+  },
+  {
+    "performanceId": "p2001-f07",
+    "judgeId": "j007",
+    "score": 83
+  },
+  {
+    "performanceId": "p2001-f07",
+    "judgeId": "j002",
+    "score": 75
+  },
+  {
+    "performanceId": "p2001-f07",
+    "judgeId": "j001",
+    "score": 75
+  },
+  {
+    "performanceId": "p2001-f08",
+    "judgeId": "j003",
+    "score": 95
+  },
+  {
+    "performanceId": "p2001-f08",
+    "judgeId": "j004",
+    "score": 80
+  },
+  {
+    "performanceId": "p2001-f08",
+    "judgeId": "j005",
+    "score": 80
+  },
+  {
+    "performanceId": "p2001-f08",
+    "judgeId": "j006",
+    "score": 88
+  },
+  {
+    "performanceId": "p2001-f08",
+    "judgeId": "j007",
+    "score": 84
+  },
+  {
+    "performanceId": "p2001-f08",
+    "judgeId": "j002",
+    "score": 70
+  },
+  {
+    "performanceId": "p2001-f08",
+    "judgeId": "j001",
+    "score": 78
+  },
+  {
+    "performanceId": "p2001-f09",
+    "judgeId": "j003",
+    "score": 75
+  },
+  {
+    "performanceId": "p2001-f09",
+    "judgeId": "j004",
+    "score": 85
+  },
+  {
+    "performanceId": "p2001-f09",
+    "judgeId": "j005",
+    "score": 65
+  },
+  {
+    "performanceId": "p2001-f09",
+    "judgeId": "j006",
+    "score": 82
+  },
+  {
+    "performanceId": "p2001-f09",
+    "judgeId": "j007",
+    "score": 84
+  },
+  {
+    "performanceId": "p2001-f09",
+    "judgeId": "j002",
+    "score": 65
+  },
+  {
+    "performanceId": "p2001-f09",
+    "judgeId": "j001",
+    "score": 64
+  },
+  {
+    "performanceId": "p2001-f10",
+    "judgeId": "j003",
+    "score": 95
+  },
+  {
+    "performanceId": "p2001-f10",
+    "judgeId": "j004",
+    "score": 90
+  },
+  {
+    "performanceId": "p2001-f10",
+    "judgeId": "j005",
+    "score": 70
+  },
+  {
+    "performanceId": "p2001-f10",
+    "judgeId": "j006",
+    "score": 92
+  },
+  {
+    "performanceId": "p2001-f10",
+    "judgeId": "j007",
+    "score": 85
+  },
+  {
+    "performanceId": "p2001-f10",
+    "judgeId": "j002",
+    "score": 60
+  },
+  {
+    "performanceId": "p2001-f10",
+    "judgeId": "j001",
+    "score": 75
+  },
+  {
+    "performanceId": "p2002-f01",
+    "judgeId": "j008",
+    "score": 70
+  },
+  {
+    "performanceId": "p2002-f01",
+    "judgeId": "j009",
+    "score": 85
+  },
+  {
+    "performanceId": "p2002-f01",
+    "judgeId": "j010",
+    "score": 86
+  },
+  {
+    "performanceId": "p2002-f01",
+    "judgeId": "j006",
+    "score": 81
+  },
+  {
+    "performanceId": "p2002-f01",
+    "judgeId": "j011",
+    "score": 83
+  },
+  {
+    "performanceId": "p2002-f01",
+    "judgeId": "j002",
+    "score": 65
+  },
+  {
+    "performanceId": "p2002-f01",
+    "judgeId": "j001",
+    "score": 75
+  },
+  {
+    "performanceId": "p2002-f02",
+    "judgeId": "j008",
+    "score": 80
+  },
+  {
+    "performanceId": "p2002-f02",
+    "judgeId": "j009",
+    "score": 95
+  },
+  {
+    "performanceId": "p2002-f02",
+    "judgeId": "j010",
+    "score": 96
+  },
+  {
+    "performanceId": "p2002-f02",
+    "judgeId": "j006",
+    "score": 90
+  },
+  {
+    "performanceId": "p2002-f02",
+    "judgeId": "j011",
+    "score": 92
+  },
+  {
+    "performanceId": "p2002-f02",
+    "judgeId": "j002",
+    "score": 70
+  },
+  {
+    "performanceId": "p2002-f02",
+    "judgeId": "j001",
+    "score": 89
+  },
+  {
+    "performanceId": "p2002-f03",
+    "judgeId": "j008",
+    "score": 70
+  },
+  {
+    "performanceId": "p2002-f03",
+    "judgeId": "j009",
+    "score": 84
+  },
+  {
+    "performanceId": "p2002-f03",
+    "judgeId": "j010",
+    "score": 81
+  },
+  {
+    "performanceId": "p2002-f03",
+    "judgeId": "j006",
+    "score": 78
+  },
+  {
+    "performanceId": "p2002-f03",
+    "judgeId": "j011",
+    "score": 78
+  },
+  {
+    "performanceId": "p2002-f03",
+    "judgeId": "j002",
+    "score": 60
+  },
+  {
+    "performanceId": "p2002-f03",
+    "judgeId": "j001",
+    "score": 83
+  },
+  {
+    "performanceId": "p2002-f04",
+    "judgeId": "j008",
+    "score": 70
+  },
+  {
+    "performanceId": "p2002-f04",
+    "judgeId": "j009",
+    "score": 90
+  },
+  {
+    "performanceId": "p2002-f04",
+    "judgeId": "j010",
+    "score": 79
+  },
+  {
+    "performanceId": "p2002-f04",
+    "judgeId": "j006",
+    "score": 82
+  },
+  {
+    "performanceId": "p2002-f04",
+    "judgeId": "j011",
+    "score": 77
+  },
+  {
+    "performanceId": "p2002-f04",
+    "judgeId": "j002",
+    "score": 65
+  },
+  {
+    "performanceId": "p2002-f04",
+    "judgeId": "j001",
+    "score": 76
+  },
+  {
+    "performanceId": "p2002-f05",
+    "judgeId": "j008",
+    "score": 70
+  },
+  {
+    "performanceId": "p2002-f05",
+    "judgeId": "j009",
+    "score": 97
+  },
+  {
+    "performanceId": "p2002-f05",
+    "judgeId": "j010",
+    "score": 94
+  },
+  {
+    "performanceId": "p2002-f05",
+    "judgeId": "j006",
+    "score": 95
+  },
+  {
+    "performanceId": "p2002-f05",
+    "judgeId": "j011",
+    "score": 91
+  },
+  {
+    "performanceId": "p2002-f05",
+    "judgeId": "j002",
+    "score": 85
+  },
+  {
+    "performanceId": "p2002-f05",
+    "judgeId": "j001",
+    "score": 89
+  },
+  {
+    "performanceId": "p2002-f06",
+    "judgeId": "j008",
+    "score": 70
+  },
+  {
+    "performanceId": "p2002-f06",
+    "judgeId": "j009",
+    "score": 83
+  },
+  {
+    "performanceId": "p2002-f06",
+    "judgeId": "j010",
+    "score": 84
+  },
+  {
+    "performanceId": "p2002-f06",
+    "judgeId": "j006",
+    "score": 84
+  },
+  {
+    "performanceId": "p2002-f06",
+    "judgeId": "j011",
+    "score": 80
+  },
+  {
+    "performanceId": "p2002-f06",
+    "judgeId": "j002",
+    "score": 80
+  },
+  {
+    "performanceId": "p2002-f06",
+    "judgeId": "j001",
+    "score": 86
+  },
+  {
+    "performanceId": "p2002-f07",
+    "judgeId": "j008",
+    "score": 80
+  },
+  {
+    "performanceId": "p2002-f07",
+    "judgeId": "j009",
+    "score": 82
+  },
+  {
+    "performanceId": "p2002-f07",
+    "judgeId": "j010",
+    "score": 85
+  },
+  {
+    "performanceId": "p2002-f07",
+    "judgeId": "j006",
+    "score": 79
+  },
+  {
+    "performanceId": "p2002-f07",
+    "judgeId": "j011",
+    "score": 79
+  },
+  {
+    "performanceId": "p2002-f07",
+    "judgeId": "j002",
+    "score": 80
+  },
+  {
+    "performanceId": "p2002-f07",
+    "judgeId": "j001",
+    "score": 76
+  },
+  {
+    "performanceId": "p2002-f08",
+    "judgeId": "j008",
+    "score": 70
+  },
+  {
+    "performanceId": "p2002-f08",
+    "judgeId": "j009",
+    "score": 83
+  },
+  {
+    "performanceId": "p2002-f08",
+    "judgeId": "j010",
+    "score": 83
+  },
+  {
+    "performanceId": "p2002-f08",
+    "judgeId": "j006",
+    "score": 78
+  },
+  {
+    "performanceId": "p2002-f08",
+    "judgeId": "j011",
+    "score": 78
+  },
+  {
+    "performanceId": "p2002-f08",
+    "judgeId": "j002",
+    "score": 60
+  },
+  {
+    "performanceId": "p2002-f08",
+    "judgeId": "j001",
+    "score": 73
+  },
+  {
+    "performanceId": "p2002-f09",
+    "judgeId": "j008",
+    "score": 50
+  },
+  {
+    "performanceId": "p2002-f09",
+    "judgeId": "j009",
+    "score": 85
+  },
+  {
+    "performanceId": "p2002-f09",
+    "judgeId": "j010",
+    "score": 86
+  },
+  {
+    "performanceId": "p2002-f09",
+    "judgeId": "j006",
+    "score": 86
+  },
+  {
+    "performanceId": "p2002-f09",
+    "judgeId": "j011",
+    "score": 80
+  },
+  {
+    "performanceId": "p2002-f09",
+    "judgeId": "j002",
+    "score": 75
+  },
+  {
+    "performanceId": "p2002-f09",
+    "judgeId": "j001",
+    "score": 73
+  },
+  {
+    "performanceId": "p2003-f01",
+    "judgeId": "j009",
+    "score": 80
+  },
+  {
+    "performanceId": "p2003-f01",
+    "judgeId": "j011",
+    "score": 79
+  },
+  {
+    "performanceId": "p2003-f01",
+    "judgeId": "j006",
+    "score": 84
+  },
+  {
+    "performanceId": "p2003-f01",
+    "judgeId": "j010",
+    "score": 75
+  },
+  {
+    "performanceId": "p2003-f01",
+    "judgeId": "j012",
+    "score": 82
+  },
+  {
+    "performanceId": "p2003-f01",
+    "judgeId": "j002",
+    "score": 70
+  },
+  {
+    "performanceId": "p2003-f01",
+    "judgeId": "j001",
+    "score": 82
+  },
+  {
+    "performanceId": "p2003-f02",
+    "judgeId": "j009",
+    "score": 82
+  },
+  {
+    "performanceId": "p2003-f02",
+    "judgeId": "j011",
+    "score": 75
+  },
+  {
+    "performanceId": "p2003-f02",
+    "judgeId": "j006",
+    "score": 78
+  },
+  {
+    "performanceId": "p2003-f02",
+    "judgeId": "j010",
+    "score": 84
+  },
+  {
+    "performanceId": "p2003-f02",
+    "judgeId": "j012",
+    "score": 76
+  },
+  {
+    "performanceId": "p2003-f02",
+    "judgeId": "j002",
+    "score": 75
+  },
+  {
+    "performanceId": "p2003-f02",
+    "judgeId": "j001",
+    "score": 84
+  },
+  {
+    "performanceId": "p2003-f03",
+    "judgeId": "j009",
+    "score": 79
+  },
+  {
+    "performanceId": "p2003-f03",
+    "judgeId": "j011",
+    "score": 82
+  },
+  {
+    "performanceId": "p2003-f03",
+    "judgeId": "j006",
+    "score": 86
+  },
+  {
+    "performanceId": "p2003-f03",
+    "judgeId": "j010",
+    "score": 85
+  },
+  {
+    "performanceId": "p2003-f03",
+    "judgeId": "j012",
+    "score": 81
+  },
+  {
+    "performanceId": "p2003-f03",
+    "judgeId": "j002",
+    "score": 74
+  },
+  {
+    "performanceId": "p2003-f03",
+    "judgeId": "j001",
+    "score": 85
+  },
+  {
+    "performanceId": "p2003-f04",
+    "judgeId": "j009",
+    "score": 95
+  },
+  {
+    "performanceId": "p2003-f04",
+    "judgeId": "j011",
+    "score": 90
+  },
+  {
+    "performanceId": "p2003-f04",
+    "judgeId": "j006",
+    "score": 92
+  },
+  {
+    "performanceId": "p2003-f04",
+    "judgeId": "j010",
+    "score": 95
+  },
+  {
+    "performanceId": "p2003-f04",
+    "judgeId": "j012",
+    "score": 90
+  },
+  {
+    "performanceId": "p2003-f04",
+    "judgeId": "j002",
+    "score": 95
+  },
+  {
+    "performanceId": "p2003-f04",
+    "judgeId": "j001",
+    "score": 99
+  },
+  {
+    "performanceId": "p2003-f05",
+    "judgeId": "j009",
+    "score": 86
+  },
+  {
+    "performanceId": "p2003-f05",
+    "judgeId": "j011",
+    "score": 83
+  },
+  {
+    "performanceId": "p2003-f05",
+    "judgeId": "j006",
+    "score": 86
+  },
+  {
+    "performanceId": "p2003-f05",
+    "judgeId": "j010",
+    "score": 95
+  },
+  {
+    "performanceId": "p2003-f05",
+    "judgeId": "j012",
+    "score": 87
+  },
+  {
+    "performanceId": "p2003-f05",
+    "judgeId": "j002",
+    "score": 80
+  },
+  {
+    "performanceId": "p2003-f05",
+    "judgeId": "j001",
+    "score": 91
+  },
+  {
+    "performanceId": "p2003-f06",
+    "judgeId": "j009",
+    "score": 81
+  },
+  {
+    "performanceId": "p2003-f06",
+    "judgeId": "j011",
+    "score": 76
+  },
+  {
+    "performanceId": "p2003-f06",
+    "judgeId": "j006",
+    "score": 83
+  },
+  {
+    "performanceId": "p2003-f06",
+    "judgeId": "j010",
+    "score": 90
+  },
+  {
+    "performanceId": "p2003-f06",
+    "judgeId": "j012",
+    "score": 84
+  },
+  {
+    "performanceId": "p2003-f06",
+    "judgeId": "j002",
+    "score": 70
+  },
+  {
+    "performanceId": "p2003-f06",
+    "judgeId": "j001",
+    "score": 80
+  },
+  {
+    "performanceId": "p2003-f07",
+    "judgeId": "j009",
+    "score": 98
+  },
+  {
+    "performanceId": "p2003-f07",
+    "judgeId": "j011",
+    "score": 89
+  },
+  {
+    "performanceId": "p2003-f07",
+    "judgeId": "j006",
+    "score": 95
+  },
+  {
+    "performanceId": "p2003-f07",
+    "judgeId": "j010",
+    "score": 97
+  },
+  {
+    "performanceId": "p2003-f07",
+    "judgeId": "j012",
+    "score": 89
+  },
+  {
+    "performanceId": "p2003-f07",
+    "judgeId": "j002",
+    "score": 97
+  },
+  {
+    "performanceId": "p2003-f07",
+    "judgeId": "j001",
+    "score": 98
+  },
+  {
+    "performanceId": "p2003-f08",
+    "judgeId": "j009",
+    "score": 84
+  },
+  {
+    "performanceId": "p2003-f08",
+    "judgeId": "j011",
+    "score": 83
+  },
+  {
+    "performanceId": "p2003-f08",
+    "judgeId": "j006",
+    "score": 85
+  },
+  {
+    "performanceId": "p2003-f08",
+    "judgeId": "j010",
+    "score": 93
+  },
+  {
+    "performanceId": "p2003-f08",
+    "judgeId": "j012",
+    "score": 81
+  },
+  {
+    "performanceId": "p2003-f08",
+    "judgeId": "j002",
+    "score": 85
+  },
+  {
+    "performanceId": "p2003-f08",
+    "judgeId": "j001",
+    "score": 90
+  },
+  {
+    "performanceId": "p2003-f09",
+    "judgeId": "j009",
+    "score": 86
+  },
+  {
+    "performanceId": "p2003-f09",
+    "judgeId": "j011",
+    "score": 87
+  },
+  {
+    "performanceId": "p2003-f09",
+    "judgeId": "j006",
+    "score": 92
+  },
+  {
+    "performanceId": "p2003-f09",
+    "judgeId": "j010",
+    "score": 90
+  },
+  {
+    "performanceId": "p2003-f09",
+    "judgeId": "j012",
+    "score": 85
+  },
+  {
+    "performanceId": "p2003-f09",
+    "judgeId": "j002",
+    "score": 84
+  },
+  {
+    "performanceId": "p2003-f09",
+    "judgeId": "j001",
+    "score": 92
+  },
+  {
+    "performanceId": "p2004-f01",
+    "judgeId": "j009",
+    "score": 93
+  },
+  {
+    "performanceId": "p2004-f01",
+    "judgeId": "j006",
+    "score": 82
+  },
+  {
+    "performanceId": "p2004-f01",
+    "judgeId": "j005",
+    "score": 82
+  },
+  {
+    "performanceId": "p2004-f01",
+    "judgeId": "j010",
+    "score": 78
+  },
+  {
+    "performanceId": "p2004-f01",
+    "judgeId": "j011",
+    "score": 81
+  },
+  {
+    "performanceId": "p2004-f01",
+    "judgeId": "j012",
+    "score": 83
+  },
+  {
+    "performanceId": "p2004-f01",
+    "judgeId": "j003",
+    "score": 83
+  },
+  {
+    "performanceId": "p2004-f02",
+    "judgeId": "j009",
+    "score": 95
+  },
+  {
+    "performanceId": "p2004-f02",
+    "judgeId": "j006",
+    "score": 90
+  },
+  {
+    "performanceId": "p2004-f02",
+    "judgeId": "j005",
+    "score": 85
+  },
+  {
+    "performanceId": "p2004-f02",
+    "judgeId": "j010",
+    "score": 91
+  },
+  {
+    "performanceId": "p2004-f02",
+    "judgeId": "j011",
+    "score": 82
+  },
+  {
+    "performanceId": "p2004-f02",
+    "judgeId": "j012",
+    "score": 86
+  },
+  {
+    "performanceId": "p2004-f02",
+    "judgeId": "j003",
+    "score": 86
+  },
+  {
+    "performanceId": "p2004-f03",
+    "judgeId": "j009",
+    "score": 89
+  },
+  {
+    "performanceId": "p2004-f03",
+    "judgeId": "j006",
+    "score": 86
+  },
+  {
+    "performanceId": "p2004-f03",
+    "judgeId": "j005",
+    "score": 87
+  },
+  {
+    "performanceId": "p2004-f03",
+    "judgeId": "j010",
+    "score": 83
+  },
+  {
+    "performanceId": "p2004-f03",
+    "judgeId": "j011",
+    "score": 76
+  },
+  {
+    "performanceId": "p2004-f03",
+    "judgeId": "j012",
+    "score": 80
+  },
+  {
+    "performanceId": "p2004-f03",
+    "judgeId": "j003",
+    "score": 82
+  },
+  {
+    "performanceId": "p2004-f04",
+    "judgeId": "j009",
+    "score": 88
+  },
+  {
+    "performanceId": "p2004-f04",
+    "judgeId": "j006",
+    "score": 88
+  },
+  {
+    "performanceId": "p2004-f04",
+    "judgeId": "j005",
+    "score": 84
+  },
+  {
+    "performanceId": "p2004-f04",
+    "judgeId": "j010",
+    "score": 84
+  },
+  {
+    "performanceId": "p2004-f04",
+    "judgeId": "j011",
+    "score": 79
+  },
+  {
+    "performanceId": "p2004-f04",
+    "judgeId": "j012",
+    "score": 84
+  },
+  {
+    "performanceId": "p2004-f04",
+    "judgeId": "j003",
+    "score": 80
+  },
+  {
+    "performanceId": "p2004-f05",
+    "judgeId": "j009",
+    "score": 94
+  },
+  {
+    "performanceId": "p2004-f05",
+    "judgeId": "j006",
+    "score": 95
+  },
+  {
+    "performanceId": "p2004-f05",
+    "judgeId": "j005",
+    "score": 90
+  },
+  {
+    "performanceId": "p2004-f05",
+    "judgeId": "j010",
+    "score": 92
+  },
+  {
+    "performanceId": "p2004-f05",
+    "judgeId": "j011",
+    "score": 86
+  },
+  {
+    "performanceId": "p2004-f05",
+    "judgeId": "j012",
+    "score": 92
+  },
+  {
+    "performanceId": "p2004-f05",
+    "judgeId": "j003",
+    "score": 90
+  },
+  {
+    "performanceId": "p2004-f06",
+    "judgeId": "j009",
+    "score": 90
+  },
+  {
+    "performanceId": "p2004-f06",
+    "judgeId": "j006",
+    "score": 89
+  },
+  {
+    "performanceId": "p2004-f06",
+    "judgeId": "j005",
+    "score": 88
+  },
+  {
+    "performanceId": "p2004-f06",
+    "judgeId": "j010",
+    "score": 81
+  },
+  {
+    "performanceId": "p2004-f06",
+    "judgeId": "j011",
+    "score": 83
+  },
+  {
+    "performanceId": "p2004-f06",
+    "judgeId": "j012",
+    "score": 85
+  },
+  {
+    "performanceId": "p2004-f06",
+    "judgeId": "j003",
+    "score": 87
+  },
+  {
+    "performanceId": "p2004-f07",
+    "judgeId": "j009",
+    "score": 95
+  },
+  {
+    "performanceId": "p2004-f07",
+    "judgeId": "j006",
+    "score": 89
+  },
+  {
+    "performanceId": "p2004-f07",
+    "judgeId": "j005",
+    "score": 85
+  },
+  {
+    "performanceId": "p2004-f07",
+    "judgeId": "j010",
+    "score": 91
+  },
+  {
+    "performanceId": "p2004-f07",
+    "judgeId": "j011",
+    "score": 82
+  },
+  {
+    "performanceId": "p2004-f07",
+    "judgeId": "j012",
+    "score": 89
+  },
+  {
+    "performanceId": "p2004-f07",
+    "judgeId": "j003",
+    "score": 84
+  },
+  {
+    "performanceId": "p2004-f08",
+    "judgeId": "j009",
+    "score": 97
+  },
+  {
+    "performanceId": "p2004-f08",
+    "judgeId": "j006",
+    "score": 96
+  },
+  {
+    "performanceId": "p2004-f08",
+    "judgeId": "j005",
+    "score": 95
+  },
+  {
+    "performanceId": "p2004-f08",
+    "judgeId": "j010",
+    "score": 97
+  },
+  {
+    "performanceId": "p2004-f08",
+    "judgeId": "j011",
+    "score": 95
+  },
+  {
+    "performanceId": "p2004-f08",
+    "judgeId": "j012",
+    "score": 96
+  },
+  {
+    "performanceId": "p2004-f08",
+    "judgeId": "j003",
+    "score": 97
+  },
+  {
+    "performanceId": "p2004-f09",
+    "judgeId": "j009",
+    "score": 96
+  },
+  {
+    "performanceId": "p2004-f09",
+    "judgeId": "j006",
+    "score": 92
+  },
+  {
+    "performanceId": "p2004-f09",
+    "judgeId": "j005",
+    "score": 88
+  },
+  {
+    "performanceId": "p2004-f09",
+    "judgeId": "j010",
+    "score": 92
+  },
+  {
+    "performanceId": "p2004-f09",
+    "judgeId": "j011",
+    "score": 89
+  },
+  {
+    "performanceId": "p2004-f09",
+    "judgeId": "j012",
+    "score": 88
+  },
+  {
+    "performanceId": "p2004-f09",
+    "judgeId": "j003",
+    "score": 89
+  },
+  {
+    "performanceId": "p2005-f01",
+    "judgeId": "j009",
+    "score": 95
+  },
+  {
+    "performanceId": "p2005-f01",
+    "judgeId": "j006",
+    "score": 92
+  },
+  {
+    "performanceId": "p2005-f01",
+    "judgeId": "j010",
+    "score": 91
+  },
+  {
+    "performanceId": "p2005-f01",
+    "judgeId": "j011",
+    "score": 85
+  },
+  {
+    "performanceId": "p2005-f01",
+    "judgeId": "j013",
+    "score": 90
+  },
+  {
+    "performanceId": "p2005-f01",
+    "judgeId": "j002",
+    "score": 95
+  },
+  {
+    "performanceId": "p2005-f01",
+    "judgeId": "j001",
+    "score": 85
+  },
+  {
+    "performanceId": "p2005-f02",
+    "judgeId": "j009",
+    "score": 90
+  },
+  {
+    "performanceId": "p2005-f02",
+    "judgeId": "j006",
+    "score": 86
+  },
+  {
+    "performanceId": "p2005-f02",
+    "judgeId": "j010",
+    "score": 81
+  },
+  {
+    "performanceId": "p2005-f02",
+    "judgeId": "j011",
+    "score": 82
+  },
+  {
+    "performanceId": "p2005-f02",
+    "judgeId": "j013",
+    "score": 80
+  },
+  {
+    "performanceId": "p2005-f02",
+    "judgeId": "j002",
+    "score": 70
+  },
+  {
+    "performanceId": "p2005-f02",
+    "judgeId": "j001",
+    "score": 75
+  },
+  {
+    "performanceId": "p2005-f03",
+    "judgeId": "j009",
+    "score": 88
+  },
+  {
+    "performanceId": "p2005-f03",
+    "judgeId": "j006",
+    "score": 80
+  },
+  {
+    "performanceId": "p2005-f03",
+    "judgeId": "j010",
+    "score": 79
+  },
+  {
+    "performanceId": "p2005-f03",
+    "judgeId": "j011",
+    "score": 79
+  },
+  {
+    "performanceId": "p2005-f03",
+    "judgeId": "j013",
+    "score": 79
+  },
+  {
+    "performanceId": "p2005-f03",
+    "judgeId": "j002",
+    "score": 75
+  },
+  {
+    "performanceId": "p2005-f03",
+    "judgeId": "j001",
+    "score": 72
+  },
+  {
+    "performanceId": "p2005-f04",
+    "judgeId": "j009",
+    "score": 91
+  },
+  {
+    "performanceId": "p2005-f04",
+    "judgeId": "j006",
+    "score": 95
+  },
+  {
+    "performanceId": "p2005-f04",
+    "judgeId": "j010",
+    "score": 86
+  },
+  {
+    "performanceId": "p2005-f04",
+    "judgeId": "j011",
+    "score": 84
+  },
+  {
+    "performanceId": "p2005-f04",
+    "judgeId": "j013",
+    "score": 86
+  },
+  {
+    "performanceId": "p2005-f04",
+    "judgeId": "j002",
+    "score": 95
+  },
+  {
+    "performanceId": "p2005-f04",
+    "judgeId": "j001",
+    "score": 85
+  },
+  {
+    "performanceId": "p2005-f05",
+    "judgeId": "j009",
+    "score": 96
+  },
+  {
+    "performanceId": "p2005-f05",
+    "judgeId": "j006",
+    "score": 94
+  },
+  {
+    "performanceId": "p2005-f05",
+    "judgeId": "j010",
+    "score": 96
+  },
+  {
+    "performanceId": "p2005-f05",
+    "judgeId": "j011",
+    "score": 90
+  },
+  {
+    "performanceId": "p2005-f05",
+    "judgeId": "j013",
+    "score": 93
+  },
+  {
+    "performanceId": "p2005-f05",
+    "judgeId": "j002",
+    "score": 95
+  },
+  {
+    "performanceId": "p2005-f05",
+    "judgeId": "j001",
+    "score": 95
+  },
+  {
+    "performanceId": "p2005-f06",
+    "judgeId": "j009",
+    "score": 89
+  },
+  {
+    "performanceId": "p2005-f06",
+    "judgeId": "j006",
+    "score": 91
+  },
+  {
+    "performanceId": "p2005-f06",
+    "judgeId": "j010",
+    "score": 95
+  },
+  {
+    "performanceId": "p2005-f06",
+    "judgeId": "j011",
+    "score": 89
+  },
+  {
+    "performanceId": "p2005-f06",
+    "judgeId": "j013",
+    "score": 87
+  },
+  {
+    "performanceId": "p2005-f06",
+    "judgeId": "j002",
+    "score": 90
+  },
+  {
+    "performanceId": "p2005-f06",
+    "judgeId": "j001",
+    "score": 85
+  },
+  {
+    "performanceId": "p2005-f07",
+    "judgeId": "j009",
+    "score": 88
+  },
+  {
+    "performanceId": "p2005-f07",
+    "judgeId": "j006",
+    "score": 85
+  },
+  {
+    "performanceId": "p2005-f07",
+    "judgeId": "j010",
+    "score": 82
+  },
+  {
+    "performanceId": "p2005-f07",
+    "judgeId": "j011",
+    "score": 82
+  },
+  {
+    "performanceId": "p2005-f07",
+    "judgeId": "j013",
+    "score": 83
+  },
+  {
+    "performanceId": "p2005-f07",
+    "judgeId": "j002",
+    "score": 75
+  },
+  {
+    "performanceId": "p2005-f07",
+    "judgeId": "j001",
+    "score": 76
+  },
+  {
+    "performanceId": "p2005-f08",
+    "judgeId": "j009",
+    "score": 97
+  },
+  {
+    "performanceId": "p2005-f08",
+    "judgeId": "j006",
+    "score": 95
+  },
+  {
+    "performanceId": "p2005-f08",
+    "judgeId": "j010",
+    "score": 95
+  },
+  {
+    "performanceId": "p2005-f08",
+    "judgeId": "j011",
+    "score": 90
+  },
+  {
+    "performanceId": "p2005-f08",
+    "judgeId": "j013",
+    "score": 91
+  },
+  {
+    "performanceId": "p2005-f08",
+    "judgeId": "j002",
+    "score": 90
+  },
+  {
+    "performanceId": "p2005-f08",
+    "judgeId": "j001",
+    "score": 88
+  },
+  {
+    "performanceId": "p2005-f09",
+    "judgeId": "j009",
+    "score": 93
+  },
+  {
+    "performanceId": "p2005-f09",
+    "judgeId": "j006",
+    "score": 89
+  },
+  {
+    "performanceId": "p2005-f09",
+    "judgeId": "j010",
+    "score": 86
+  },
+  {
+    "performanceId": "p2005-f09",
+    "judgeId": "j011",
+    "score": 88
+  },
+  {
+    "performanceId": "p2005-f09",
+    "judgeId": "j013",
+    "score": 89
+  },
+  {
+    "performanceId": "p2005-f09",
+    "judgeId": "j002",
+    "score": 80
+  },
+  {
+    "performanceId": "p2005-f09",
+    "judgeId": "j001",
+    "score": 82
+  },
+  {
+    "performanceId": "p2006-f01",
+    "judgeId": "j009",
+    "score": 85
+  },
+  {
+    "performanceId": "p2006-f01",
+    "judgeId": "j011",
+    "score": 83
+  },
+  {
+    "performanceId": "p2006-f01",
+    "judgeId": "j010",
+    "score": 81
+  },
+  {
+    "performanceId": "p2006-f01",
+    "judgeId": "j013",
+    "score": 75
+  },
+  {
+    "performanceId": "p2006-f01",
+    "judgeId": "j012",
+    "score": 85
+  },
+  {
+    "performanceId": "p2006-f01",
+    "judgeId": "j002",
+    "score": 85
+  },
+  {
+    "performanceId": "p2006-f01",
+    "judgeId": "j001",
+    "score": 76
+  },
+  {
+    "performanceId": "p2006-f02",
+    "judgeId": "j009",
+    "score": 96
+  },
+  {
+    "performanceId": "p2006-f02",
+    "judgeId": "j011",
+    "score": 89
+  },
+  {
+    "performanceId": "p2006-f02",
+    "judgeId": "j010",
+    "score": 91
+  },
+  {
+    "performanceId": "p2006-f02",
+    "judgeId": "j013",
+    "score": 90
+  },
+  {
+    "performanceId": "p2006-f02",
+    "judgeId": "j012",
+    "score": 94
+  },
+  {
+    "performanceId": "p2006-f02",
+    "judgeId": "j002",
+    "score": 90
+  },
+  {
+    "performanceId": "p2006-f02",
+    "judgeId": "j001",
+    "score": 90
+  },
+  {
+    "performanceId": "p2006-f03",
+    "judgeId": "j009",
+    "score": 93
+  },
+  {
+    "performanceId": "p2006-f03",
+    "judgeId": "j011",
+    "score": 82
+  },
+  {
+    "performanceId": "p2006-f03",
+    "judgeId": "j010",
+    "score": 90
+  },
+  {
+    "performanceId": "p2006-f03",
+    "judgeId": "j013",
+    "score": 80
+  },
+  {
+    "performanceId": "p2006-f03",
+    "judgeId": "j012",
+    "score": 89
+  },
+  {
+    "performanceId": "p2006-f03",
+    "judgeId": "j002",
+    "score": 80
+  },
+  {
+    "performanceId": "p2006-f03",
+    "judgeId": "j001",
+    "score": 83
+  },
+  {
+    "performanceId": "p2006-f04",
+    "judgeId": "j009",
+    "score": 94
+  },
+  {
+    "performanceId": "p2006-f04",
+    "judgeId": "j011",
+    "score": 86
+  },
+  {
+    "performanceId": "p2006-f04",
+    "judgeId": "j010",
+    "score": 92
+  },
+  {
+    "performanceId": "p2006-f04",
+    "judgeId": "j013",
+    "score": 89
+  },
+  {
+    "performanceId": "p2006-f04",
+    "judgeId": "j012",
+    "score": 91
+  },
+  {
+    "performanceId": "p2006-f04",
+    "judgeId": "j002",
+    "score": 87
+  },
+  {
+    "performanceId": "p2006-f04",
+    "judgeId": "j001",
+    "score": 88
+  },
+  {
+    "performanceId": "p2006-f05",
+    "judgeId": "j009",
+    "score": 90
+  },
+  {
+    "performanceId": "p2006-f05",
+    "judgeId": "j011",
+    "score": 83
+  },
+  {
+    "performanceId": "p2006-f05",
+    "judgeId": "j010",
+    "score": 90
+  },
+  {
+    "performanceId": "p2006-f05",
+    "judgeId": "j013",
+    "score": 85
+  },
+  {
+    "performanceId": "p2006-f05",
+    "judgeId": "j012",
+    "score": 88
+  },
+  {
+    "performanceId": "p2006-f05",
+    "judgeId": "j002",
+    "score": 90
+  },
+  {
+    "performanceId": "p2006-f05",
+    "judgeId": "j001",
+    "score": 87
+  },
+  {
+    "performanceId": "p2006-f06",
+    "judgeId": "j009",
+    "score": 97
+  },
+  {
+    "performanceId": "p2006-f06",
+    "judgeId": "j011",
+    "score": 92
+  },
+  {
+    "performanceId": "p2006-f06",
+    "judgeId": "j010",
+    "score": 98
+  },
+  {
+    "performanceId": "p2006-f06",
+    "judgeId": "j013",
+    "score": 90
+  },
+  {
+    "performanceId": "p2006-f06",
+    "judgeId": "j012",
+    "score": 95
+  },
+  {
+    "performanceId": "p2006-f06",
+    "judgeId": "j002",
+    "score": 95
+  },
+  {
+    "performanceId": "p2006-f06",
+    "judgeId": "j001",
+    "score": 97
+  },
+  {
+    "performanceId": "p2006-f07",
+    "judgeId": "j009",
+    "score": 88
+  },
+  {
+    "performanceId": "p2006-f07",
+    "judgeId": "j011",
+    "score": 83
+  },
+  {
+    "performanceId": "p2006-f07",
+    "judgeId": "j010",
+    "score": 85
+  },
+  {
+    "performanceId": "p2006-f07",
+    "judgeId": "j013",
+    "score": 79
+  },
+  {
+    "performanceId": "p2006-f07",
+    "judgeId": "j012",
+    "score": 84
+  },
+  {
+    "performanceId": "p2006-f07",
+    "judgeId": "j002",
+    "score": 75
+  },
+  {
+    "performanceId": "p2006-f07",
+    "judgeId": "j001",
+    "score": 82
+  },
+  {
+    "performanceId": "p2006-f08",
+    "judgeId": "j009",
+    "score": 92
+  },
+  {
+    "performanceId": "p2006-f08",
+    "judgeId": "j011",
+    "score": 89
+  },
+  {
+    "performanceId": "p2006-f08",
+    "judgeId": "j010",
+    "score": 90
+  },
+  {
+    "performanceId": "p2006-f08",
+    "judgeId": "j013",
+    "score": 85
+  },
+  {
+    "performanceId": "p2006-f08",
+    "judgeId": "j012",
+    "score": 92
+  },
+  {
+    "performanceId": "p2006-f08",
+    "judgeId": "j002",
+    "score": 89
+  },
+  {
+    "performanceId": "p2006-f08",
+    "judgeId": "j001",
+    "score": 89
+  },
+  {
+    "performanceId": "p2006-f09",
+    "judgeId": "j009",
+    "score": 89
+  },
+  {
+    "performanceId": "p2006-f09",
+    "judgeId": "j011",
+    "score": 83
+  },
+  {
+    "performanceId": "p2006-f09",
+    "judgeId": "j010",
+    "score": 89
+  },
+  {
+    "performanceId": "p2006-f09",
+    "judgeId": "j013",
+    "score": 88
+  },
+  {
+    "performanceId": "p2006-f09",
+    "judgeId": "j012",
+    "score": 90
+  },
+  {
+    "performanceId": "p2006-f09",
+    "judgeId": "j002",
+    "score": 85
+  },
+  {
+    "performanceId": "p2006-f09",
+    "judgeId": "j001",
+    "score": 85
+  },
+  {
+    "performanceId": "p2007-f01",
+    "judgeId": "j009",
+    "score": 92
+  },
+  {
+    "performanceId": "p2007-f01",
+    "judgeId": "j011",
+    "score": 85
+  },
+  {
+    "performanceId": "p2007-f01",
+    "judgeId": "j014",
+    "score": 83
+  },
+  {
+    "performanceId": "p2007-f01",
+    "judgeId": "j006",
+    "score": 85
+  },
+  {
+    "performanceId": "p2007-f01",
+    "judgeId": "j015",
+    "score": 89
+  },
+  {
+    "performanceId": "p2007-f01",
+    "judgeId": "j002",
+    "score": 85
+  },
+  {
+    "performanceId": "p2007-f01",
+    "judgeId": "j001",
+    "score": 85
+  },
+  {
+    "performanceId": "p2007-f02",
+    "judgeId": "j009",
+    "score": 85
+  },
+  {
+    "performanceId": "p2007-f02",
+    "judgeId": "j011",
+    "score": 80
+  },
+  {
+    "performanceId": "p2007-f02",
+    "judgeId": "j014",
+    "score": 84
+  },
+  {
+    "performanceId": "p2007-f02",
+    "judgeId": "j006",
+    "score": 82
+  },
+  {
+    "performanceId": "p2007-f02",
+    "judgeId": "j015",
+    "score": 81
+  },
+  {
+    "performanceId": "p2007-f02",
+    "judgeId": "j002",
+    "score": 90
+  },
+  {
+    "performanceId": "p2007-f02",
+    "judgeId": "j001",
+    "score": 75
+  },
+  {
+    "performanceId": "p2007-f03",
+    "judgeId": "j009",
+    "score": 82
+  },
+  {
+    "performanceId": "p2007-f03",
+    "judgeId": "j011",
+    "score": 84
+  },
+  {
+    "performanceId": "p2007-f03",
+    "judgeId": "j014",
+    "score": 79
+  },
+  {
+    "performanceId": "p2007-f03",
+    "judgeId": "j006",
+    "score": 84
+  },
+  {
+    "performanceId": "p2007-f03",
+    "judgeId": "j015",
+    "score": 92
+  },
+  {
+    "performanceId": "p2007-f03",
+    "judgeId": "j002",
+    "score": 90
+  },
+  {
+    "performanceId": "p2007-f03",
+    "judgeId": "j001",
+    "score": 86
+  },
+  {
+    "performanceId": "p2007-f04",
+    "judgeId": "j009",
+    "score": 81
+  },
+  {
+    "performanceId": "p2007-f04",
+    "judgeId": "j011",
+    "score": 81
+  },
+  {
+    "performanceId": "p2007-f04",
+    "judgeId": "j014",
+    "score": 87
+  },
+  {
+    "performanceId": "p2007-f04",
+    "judgeId": "j006",
+    "score": 80
+  },
+  {
+    "performanceId": "p2007-f04",
+    "judgeId": "j015",
+    "score": 85
+  },
+  {
+    "performanceId": "p2007-f04",
+    "judgeId": "j002",
+    "score": 80
+  },
+  {
+    "performanceId": "p2007-f04",
+    "judgeId": "j001",
+    "score": 86
+  },
+  {
+    "performanceId": "p2007-f05",
+    "judgeId": "j009",
+    "score": 93
+  },
+  {
+    "performanceId": "p2007-f05",
+    "judgeId": "j011",
+    "score": 84
+  },
+  {
+    "performanceId": "p2007-f05",
+    "judgeId": "j014",
+    "score": 90
+  },
+  {
+    "performanceId": "p2007-f05",
+    "judgeId": "j006",
+    "score": 95
+  },
+  {
+    "performanceId": "p2007-f05",
+    "judgeId": "j015",
+    "score": 95
+  },
+  {
+    "performanceId": "p2007-f05",
+    "judgeId": "j002",
+    "score": 93
+  },
+  {
+    "performanceId": "p2007-f05",
+    "judgeId": "j001",
+    "score": 96
+  },
+  {
+    "performanceId": "p2007-f06",
+    "judgeId": "j009",
+    "score": 91
+  },
+  {
+    "performanceId": "p2007-f06",
+    "judgeId": "j011",
+    "score": 90
+  },
+  {
+    "performanceId": "p2007-f06",
+    "judgeId": "j014",
+    "score": 88
+  },
+  {
+    "performanceId": "p2007-f06",
+    "judgeId": "j006",
+    "score": 95
+  },
+  {
+    "performanceId": "p2007-f06",
+    "judgeId": "j015",
+    "score": 97
+  },
+  {
+    "performanceId": "p2007-f06",
+    "judgeId": "j002",
+    "score": 93
+  },
+  {
+    "performanceId": "p2007-f06",
+    "judgeId": "j001",
+    "score": 96
+  },
+  {
+    "performanceId": "p2007-f07",
+    "judgeId": "j009",
+    "score": 86
+  },
+  {
+    "performanceId": "p2007-f07",
+    "judgeId": "j011",
+    "score": 85
+  },
+  {
+    "performanceId": "p2007-f07",
+    "judgeId": "j014",
+    "score": 86
+  },
+  {
+    "performanceId": "p2007-f07",
+    "judgeId": "j006",
+    "score": 84
+  },
+  {
+    "performanceId": "p2007-f07",
+    "judgeId": "j015",
+    "score": 93
+  },
+  {
+    "performanceId": "p2007-f07",
+    "judgeId": "j002",
+    "score": 88
+  },
+  {
+    "performanceId": "p2007-f07",
+    "judgeId": "j001",
+    "score": 86
+  },
+  {
+    "performanceId": "p2007-f08",
+    "judgeId": "j009",
+    "score": 84
+  },
+  {
+    "performanceId": "p2007-f08",
+    "judgeId": "j011",
+    "score": 82
+  },
+  {
+    "performanceId": "p2007-f08",
+    "judgeId": "j014",
+    "score": 81
+  },
+  {
+    "performanceId": "p2007-f08",
+    "judgeId": "j006",
+    "score": 86
+  },
+  {
+    "performanceId": "p2007-f08",
+    "judgeId": "j015",
+    "score": 89
+  },
+  {
+    "performanceId": "p2007-f08",
+    "judgeId": "j002",
+    "score": 85
+  },
+  {
+    "performanceId": "p2007-f08",
+    "judgeId": "j001",
+    "score": 86
+  },
+  {
+    "performanceId": "p2007-f09",
+    "judgeId": "j009",
+    "score": 92
+  },
+  {
+    "performanceId": "p2007-f09",
+    "judgeId": "j011",
+    "score": 84
+  },
+  {
+    "performanceId": "p2007-f09",
+    "judgeId": "j014",
+    "score": 92
+  },
+  {
+    "performanceId": "p2007-f09",
+    "judgeId": "j006",
+    "score": 95
+  },
+  {
+    "performanceId": "p2007-f09",
+    "judgeId": "j015",
+    "score": 95
+  },
+  {
+    "performanceId": "p2007-f09",
+    "judgeId": "j002",
+    "score": 95
+  },
+  {
+    "performanceId": "p2007-f09",
+    "judgeId": "j001",
+    "score": 98
+  },
+  {
+    "performanceId": "p2008-f01",
+    "judgeId": "j009",
+    "score": 93
+  },
+  {
+    "performanceId": "p2008-f01",
+    "judgeId": "j011",
+    "score": 86
+  },
+  {
+    "performanceId": "p2008-f01",
+    "judgeId": "j014",
+    "score": 86
+  },
+  {
+    "performanceId": "p2008-f01",
+    "judgeId": "j013",
+    "score": 90
+  },
+  {
+    "performanceId": "p2008-f01",
+    "judgeId": "j015",
+    "score": 90
+  },
+  {
+    "performanceId": "p2008-f01",
+    "judgeId": "j002",
+    "score": 85
+  },
+  {
+    "performanceId": "p2008-f01",
+    "judgeId": "j001",
+    "score": 89
+  },
+  {
+    "performanceId": "p2008-f02",
+    "judgeId": "j009",
+    "score": 88
+  },
+  {
+    "performanceId": "p2008-f02",
+    "judgeId": "j011",
+    "score": 88
+  },
+  {
+    "performanceId": "p2008-f02",
+    "judgeId": "j014",
+    "score": 91
+  },
+  {
+    "performanceId": "p2008-f02",
+    "judgeId": "j013",
+    "score": 91
+  },
+  {
+    "performanceId": "p2008-f02",
+    "judgeId": "j015",
+    "score": 95
+  },
+  {
+    "performanceId": "p2008-f02",
+    "judgeId": "j002",
+    "score": 89
+  },
+  {
+    "performanceId": "p2008-f02",
+    "judgeId": "j001",
+    "score": 95
+  },
+  {
+    "performanceId": "p2008-f03",
+    "judgeId": "j009",
+    "score": 90
+  },
+  {
+    "performanceId": "p2008-f03",
+    "judgeId": "j011",
+    "score": 88
+  },
+  {
+    "performanceId": "p2008-f03",
+    "judgeId": "j014",
+    "score": 89
+  },
+  {
+    "performanceId": "p2008-f03",
+    "judgeId": "j013",
+    "score": 88
+  },
+  {
+    "performanceId": "p2008-f03",
+    "judgeId": "j015",
+    "score": 85
+  },
+  {
+    "performanceId": "p2008-f03",
+    "judgeId": "j002",
+    "score": 83
+  },
+  {
+    "performanceId": "p2008-f03",
+    "judgeId": "j001",
+    "score": 91
+  },
+  {
+    "performanceId": "p2008-f04",
+    "judgeId": "j009",
+    "score": 94
+  },
+  {
+    "performanceId": "p2008-f04",
+    "judgeId": "j011",
+    "score": 89
+  },
+  {
+    "performanceId": "p2008-f04",
+    "judgeId": "j014",
+    "score": 89
+  },
+  {
+    "performanceId": "p2008-f04",
+    "judgeId": "j013",
+    "score": 91
+  },
+  {
+    "performanceId": "p2008-f04",
+    "judgeId": "j015",
+    "score": 95
+  },
+  {
+    "performanceId": "p2008-f04",
+    "judgeId": "j002",
+    "score": 93
+  },
+  {
+    "performanceId": "p2008-f04",
+    "judgeId": "j001",
+    "score": 89
+  },
+  {
+    "performanceId": "p2008-f05",
+    "judgeId": "j009",
+    "score": 92
+  },
+  {
+    "performanceId": "p2008-f05",
+    "judgeId": "j011",
+    "score": 88
+  },
+  {
+    "performanceId": "p2008-f05",
+    "judgeId": "j014",
+    "score": 84
+  },
+  {
+    "performanceId": "p2008-f05",
+    "judgeId": "j013",
+    "score": 90
+  },
+  {
+    "performanceId": "p2008-f05",
+    "judgeId": "j015",
+    "score": 93
+  },
+  {
+    "performanceId": "p2008-f05",
+    "judgeId": "j002",
+    "score": 85
+  },
+  {
+    "performanceId": "p2008-f05",
+    "judgeId": "j001",
+    "score": 91
+  },
+  {
+    "performanceId": "p2008-f06",
+    "judgeId": "j009",
+    "score": 85
+  },
+  {
+    "performanceId": "p2008-f06",
+    "judgeId": "j011",
+    "score": 83
+  },
+  {
+    "performanceId": "p2008-f06",
+    "judgeId": "j014",
+    "score": 83
+  },
+  {
+    "performanceId": "p2008-f06",
+    "judgeId": "j013",
+    "score": 85
+  },
+  {
+    "performanceId": "p2008-f06",
+    "judgeId": "j015",
+    "score": 88
+  },
+  {
+    "performanceId": "p2008-f06",
+    "judgeId": "j002",
+    "score": 80
+  },
+  {
+    "performanceId": "p2008-f06",
+    "judgeId": "j001",
+    "score": 87
+  },
+  {
+    "performanceId": "p2008-f07",
+    "judgeId": "j009",
+    "score": 91
+  },
+  {
+    "performanceId": "p2008-f07",
+    "judgeId": "j011",
+    "score": 90
+  },
+  {
+    "performanceId": "p2008-f07",
+    "judgeId": "j014",
+    "score": 91
+  },
+  {
+    "performanceId": "p2008-f07",
+    "judgeId": "j013",
+    "score": 90
+  },
+  {
+    "performanceId": "p2008-f07",
+    "judgeId": "j015",
+    "score": 95
+  },
+  {
+    "performanceId": "p2008-f07",
+    "judgeId": "j002",
+    "score": 93
+  },
+  {
+    "performanceId": "p2008-f07",
+    "judgeId": "j001",
+    "score": 94
+  },
+  {
+    "performanceId": "p2008-f08",
+    "judgeId": "j009",
+    "score": 86
+  },
+  {
+    "performanceId": "p2008-f08",
+    "judgeId": "j011",
+    "score": 87
+  },
+  {
+    "performanceId": "p2008-f08",
+    "judgeId": "j014",
+    "score": 86
+  },
+  {
+    "performanceId": "p2008-f08",
+    "judgeId": "j013",
+    "score": 89
+  },
+  {
+    "performanceId": "p2008-f08",
+    "judgeId": "j015",
+    "score": 90
+  },
+  {
+    "performanceId": "p2008-f08",
+    "judgeId": "j002",
+    "score": 86
+  },
+  {
+    "performanceId": "p2008-f08",
+    "judgeId": "j001",
+    "score": 88
+  },
+  {
+    "performanceId": "p2008-f09",
+    "judgeId": "j009",
+    "score": 98
+  },
+  {
+    "performanceId": "p2008-f09",
+    "judgeId": "j011",
+    "score": 92
+  },
+  {
+    "performanceId": "p2008-f09",
+    "judgeId": "j014",
+    "score": 91
+  },
+  {
+    "performanceId": "p2008-f09",
+    "judgeId": "j013",
+    "score": 92
+  },
+  {
+    "performanceId": "p2008-f09",
+    "judgeId": "j015",
+    "score": 92
+  },
+  {
+    "performanceId": "p2008-f09",
+    "judgeId": "j002",
+    "score": 95
+  },
+  {
+    "performanceId": "p2008-f09",
+    "judgeId": "j001",
+    "score": 89
+  },
+  {
+    "performanceId": "p2009-f01",
+    "judgeId": "j009",
+    "score": 96
+  },
+  {
+    "performanceId": "p2009-f01",
+    "judgeId": "j013",
+    "score": 91
+  },
+  {
+    "performanceId": "p2009-f01",
+    "judgeId": "j014",
+    "score": 90
+  },
+  {
+    "performanceId": "p2009-f01",
+    "judgeId": "j016",
+    "score": 88
+  },
+  {
+    "performanceId": "p2009-f01",
+    "judgeId": "j015",
+    "score": 93
+  },
+  {
+    "performanceId": "p2009-f01",
+    "judgeId": "j002",
+    "score": 85
+  },
+  {
+    "performanceId": "p2009-f01",
+    "judgeId": "j001",
+    "score": 91
+  },
+  {
+    "performanceId": "p2009-f02",
+    "judgeId": "j009",
+    "score": 88
+  },
+  {
+    "performanceId": "p2009-f02",
+    "judgeId": "j013",
+    "score": 88
+  },
+  {
+    "performanceId": "p2009-f02",
+    "judgeId": "j014",
+    "score": 84
+  },
+  {
+    "performanceId": "p2009-f02",
+    "judgeId": "j016",
+    "score": 89
+  },
+  {
+    "performanceId": "p2009-f02",
+    "judgeId": "j015",
+    "score": 90
+  },
+  {
+    "performanceId": "p2009-f02",
+    "judgeId": "j002",
+    "score": 83
+  },
+  {
+    "performanceId": "p2009-f02",
+    "judgeId": "j001",
+    "score": 85
+  },
+  {
+    "performanceId": "p2009-f03",
+    "judgeId": "j009",
+    "score": 90
+  },
+  {
+    "performanceId": "p2009-f03",
+    "judgeId": "j013",
+    "score": 90
+  },
+  {
+    "performanceId": "p2009-f03",
+    "judgeId": "j014",
+    "score": 86
+  },
+  {
+    "performanceId": "p2009-f03",
+    "judgeId": "j016",
+    "score": 85
+  },
+  {
+    "performanceId": "p2009-f03",
+    "judgeId": "j015",
+    "score": 90
+  },
+  {
+    "performanceId": "p2009-f03",
+    "judgeId": "j002",
+    "score": 88
+  },
+  {
+    "performanceId": "p2009-f03",
+    "judgeId": "j001",
+    "score": 85
+  },
+  {
+    "performanceId": "p2009-f04",
+    "judgeId": "j009",
+    "score": 89
+  },
+  {
+    "performanceId": "p2009-f04",
+    "judgeId": "j013",
+    "score": 85
+  },
+  {
+    "performanceId": "p2009-f04",
+    "judgeId": "j014",
+    "score": 85
+  },
+  {
+    "performanceId": "p2009-f04",
+    "judgeId": "j016",
+    "score": 87
+  },
+  {
+    "performanceId": "p2009-f04",
+    "judgeId": "j015",
+    "score": 87
+  },
+  {
+    "performanceId": "p2009-f04",
+    "judgeId": "j002",
+    "score": 80
+  },
+  {
+    "performanceId": "p2009-f04",
+    "judgeId": "j001",
+    "score": 82
+  },
+  {
+    "performanceId": "p2009-f05",
+    "judgeId": "j009",
+    "score": 98
+  },
+  {
+    "performanceId": "p2009-f05",
+    "judgeId": "j013",
+    "score": 92
+  },
+  {
+    "performanceId": "p2009-f05",
+    "judgeId": "j014",
+    "score": 93
+  },
+  {
+    "performanceId": "p2009-f05",
+    "judgeId": "j016",
+    "score": 92
+  },
+  {
+    "performanceId": "p2009-f05",
+    "judgeId": "j015",
+    "score": 98
+  },
+  {
+    "performanceId": "p2009-f05",
+    "judgeId": "j002",
+    "score": 95
+  },
+  {
+    "performanceId": "p2009-f05",
+    "judgeId": "j001",
+    "score": 100
+  },
+  {
+    "performanceId": "p2009-f06",
+    "judgeId": "j009",
+    "score": 95
+  },
+  {
+    "performanceId": "p2009-f06",
+    "judgeId": "j013",
+    "score": 89
+  },
+  {
+    "performanceId": "p2009-f06",
+    "judgeId": "j014",
+    "score": 89
+  },
+  {
+    "performanceId": "p2009-f06",
+    "judgeId": "j016",
+    "score": 86
+  },
+  {
+    "performanceId": "p2009-f06",
+    "judgeId": "j015",
+    "score": 91
+  },
+  {
+    "performanceId": "p2009-f06",
+    "judgeId": "j002",
+    "score": 88
+  },
+  {
+    "performanceId": "p2009-f06",
+    "judgeId": "j001",
+    "score": 90
+  },
+  {
+    "performanceId": "p2009-f07",
+    "judgeId": "j009",
+    "score": 87
+  },
+  {
+    "performanceId": "p2009-f07",
+    "judgeId": "j013",
+    "score": 89
+  },
+  {
+    "performanceId": "p2009-f07",
+    "judgeId": "j014",
+    "score": 87
+  },
+  {
+    "performanceId": "p2009-f07",
+    "judgeId": "j016",
+    "score": 85
+  },
+  {
+    "performanceId": "p2009-f07",
+    "judgeId": "j015",
+    "score": 90
+  },
+  {
+    "performanceId": "p2009-f07",
+    "judgeId": "j002",
+    "score": 83
+  },
+  {
+    "performanceId": "p2009-f07",
+    "judgeId": "j001",
+    "score": 89
+  },
+  {
+    "performanceId": "p2009-f08",
+    "judgeId": "j009",
+    "score": 97
+  },
+  {
+    "performanceId": "p2009-f08",
+    "judgeId": "j013",
+    "score": 91
+  },
+  {
+    "performanceId": "p2009-f08",
+    "judgeId": "j014",
+    "score": 90
+  },
+  {
+    "performanceId": "p2009-f08",
+    "judgeId": "j016",
+    "score": 88
+  },
+  {
+    "performanceId": "p2009-f08",
+    "judgeId": "j015",
+    "score": 98
+  },
+  {
+    "performanceId": "p2009-f08",
+    "judgeId": "j002",
+    "score": 93
+  },
+  {
+    "performanceId": "p2009-f08",
+    "judgeId": "j001",
+    "score": 94
+  },
+  {
+    "performanceId": "p2009-f09",
+    "judgeId": "j009",
+    "score": 95
+  },
+  {
+    "performanceId": "p2009-f09",
+    "judgeId": "j013",
+    "score": 90
+  },
+  {
+    "performanceId": "p2009-f09",
+    "judgeId": "j014",
+    "score": 87
+  },
+  {
+    "performanceId": "p2009-f09",
+    "judgeId": "j016",
+    "score": 89
+  },
+  {
+    "performanceId": "p2009-f09",
+    "judgeId": "j015",
+    "score": 98
+  },
+  {
+    "performanceId": "p2009-f09",
+    "judgeId": "j002",
+    "score": 92
+  },
+  {
+    "performanceId": "p2009-f09",
+    "judgeId": "j001",
+    "score": 90
+  },
+  {
+    "performanceId": "p2010-f01",
+    "judgeId": "j009",
+    "score": 80
+  },
+  {
+    "performanceId": "p2010-f01",
+    "judgeId": "j017",
+    "score": 88
+  },
+  {
+    "performanceId": "p2010-f01",
+    "judgeId": "j013",
+    "score": 85
+  },
+  {
+    "performanceId": "p2010-f01",
+    "judgeId": "j011",
+    "score": 87
+  },
+  {
+    "performanceId": "p2010-f01",
+    "judgeId": "j012",
+    "score": 86
+  },
+  {
+    "performanceId": "p2010-f01",
+    "judgeId": "j002",
+    "score": 85
+  },
+  {
+    "performanceId": "p2010-f01",
+    "judgeId": "j001",
+    "score": 81
+  },
+  {
+    "performanceId": "p2010-f02",
+    "judgeId": "j009",
+    "score": 79
+  },
+  {
+    "performanceId": "p2010-f02",
+    "judgeId": "j017",
+    "score": 90
+  },
+  {
+    "performanceId": "p2010-f02",
+    "judgeId": "j013",
+    "score": 87
+  },
+  {
+    "performanceId": "p2010-f02",
+    "judgeId": "j011",
+    "score": 89
+  },
+  {
+    "performanceId": "p2010-f02",
+    "judgeId": "j012",
+    "score": 88
+  },
+  {
+    "performanceId": "p2010-f02",
+    "judgeId": "j002",
+    "score": 87
+  },
+  {
+    "performanceId": "p2010-f02",
+    "judgeId": "j001",
+    "score": 86
+  },
+  {
+    "performanceId": "p2010-f03",
+    "judgeId": "j009",
+    "score": 94
+  },
+  {
+    "performanceId": "p2010-f03",
+    "judgeId": "j017",
+    "score": 91
+  },
+  {
+    "performanceId": "p2010-f03",
+    "judgeId": "j013",
+    "score": 88
+  },
+  {
+    "performanceId": "p2010-f03",
+    "judgeId": "j011",
+    "score": 91
+  },
+  {
+    "performanceId": "p2010-f03",
+    "judgeId": "j012",
+    "score": 93
+  },
+  {
+    "performanceId": "p2010-f03",
+    "judgeId": "j002",
+    "score": 96
+  },
+  {
+    "performanceId": "p2010-f03",
+    "judgeId": "j001",
+    "score": 91
+  },
+  {
+    "performanceId": "p2010-f04",
+    "judgeId": "j009",
+    "score": 92
+  },
+  {
+    "performanceId": "p2010-f04",
+    "judgeId": "j017",
+    "score": 93
+  },
+  {
+    "performanceId": "p2010-f04",
+    "judgeId": "j013",
+    "score": 87
+  },
+  {
+    "performanceId": "p2010-f04",
+    "judgeId": "j011",
+    "score": 89
+  },
+  {
+    "performanceId": "p2010-f04",
+    "judgeId": "j012",
+    "score": 89
+  },
+  {
+    "performanceId": "p2010-f04",
+    "judgeId": "j002",
+    "score": 90
+  },
+  {
+    "performanceId": "p2010-f04",
+    "judgeId": "j001",
+    "score": 87
+  },
+  {
+    "performanceId": "p2010-f05",
+    "judgeId": "j009",
+    "score": 87
+  },
+  {
+    "performanceId": "p2010-f05",
+    "judgeId": "j017",
+    "score": 91
+  },
+  {
+    "performanceId": "p2010-f05",
+    "judgeId": "j013",
+    "score": 88
+  },
+  {
+    "performanceId": "p2010-f05",
+    "judgeId": "j011",
+    "score": 90
+  },
+  {
+    "performanceId": "p2010-f05",
+    "judgeId": "j012",
+    "score": 90
+  },
+  {
+    "performanceId": "p2010-f05",
+    "judgeId": "j002",
+    "score": 88
+  },
+  {
+    "performanceId": "p2010-f05",
+    "judgeId": "j001",
+    "score": 92
+  },
+  {
+    "performanceId": "p2010-f06",
+    "judgeId": "j009",
+    "score": 96
+  },
+  {
+    "performanceId": "p2010-f06",
+    "judgeId": "j017",
+    "score": 95
+  },
+  {
+    "performanceId": "p2010-f06",
+    "judgeId": "j013",
+    "score": 90
+  },
+  {
+    "performanceId": "p2010-f06",
+    "judgeId": "j011",
+    "score": 97
+  },
+  {
+    "performanceId": "p2010-f06",
+    "judgeId": "j012",
+    "score": 98
+  },
+  {
+    "performanceId": "p2010-f06",
+    "judgeId": "j002",
+    "score": 96
+  },
+  {
+    "performanceId": "p2010-f06",
+    "judgeId": "j001",
+    "score": 96
+  },
+  {
+    "performanceId": "p2010-f07",
+    "judgeId": "j009",
+    "score": 88
+  },
+  {
+    "performanceId": "p2010-f07",
+    "judgeId": "j017",
+    "score": 90
+  },
+  {
+    "performanceId": "p2010-f07",
+    "judgeId": "j013",
+    "score": 90
+  },
+  {
+    "performanceId": "p2010-f07",
+    "judgeId": "j011",
+    "score": 90
+  },
+  {
+    "performanceId": "p2010-f07",
+    "judgeId": "j012",
+    "score": 89
+  },
+  {
+    "performanceId": "p2010-f07",
+    "judgeId": "j002",
+    "score": 86
+  },
+  {
+    "performanceId": "p2010-f07",
+    "judgeId": "j001",
+    "score": 87
+  },
+  {
+    "performanceId": "p2010-f08",
+    "judgeId": "j009",
+    "score": 95
+  },
+  {
+    "performanceId": "p2010-f08",
+    "judgeId": "j017",
+    "score": 92
+  },
+  {
+    "performanceId": "p2010-f08",
+    "judgeId": "j013",
+    "score": 89
+  },
+  {
+    "performanceId": "p2010-f08",
+    "judgeId": "j011",
+    "score": 89
+  },
+  {
+    "performanceId": "p2010-f08",
+    "judgeId": "j012",
+    "score": 87
+  },
+  {
+    "performanceId": "p2010-f08",
+    "judgeId": "j002",
+    "score": 89
+  },
+  {
+    "performanceId": "p2010-f08",
+    "judgeId": "j001",
+    "score": 88
+  },
+  {
+    "performanceId": "p2010-f09",
+    "judgeId": "j009",
+    "score": 96
+  },
+  {
+    "performanceId": "p2010-f09",
+    "judgeId": "j017",
+    "score": 98
+  },
+  {
+    "performanceId": "p2010-f09",
+    "judgeId": "j013",
+    "score": 95
+  },
+  {
+    "performanceId": "p2010-f09",
+    "judgeId": "j011",
+    "score": 91
+  },
+  {
+    "performanceId": "p2010-f09",
+    "judgeId": "j012",
+    "score": 94
+  },
+  {
+    "performanceId": "p2010-f09",
+    "judgeId": "j002",
+    "score": 97
+  },
+  {
+    "performanceId": "p2010-f09",
+    "judgeId": "j001",
+    "score": 97
+  },
+  {
+    "performanceId": "p2015-f01",
+    "judgeId": "j018",
+    "score": 89
+  },
+  {
+    "performanceId": "p2015-f01",
+    "judgeId": "j022",
+    "score": 89
+  },
+  {
+    "performanceId": "p2015-f01",
+    "judgeId": "j023",
+    "score": 89
+  },
+  {
+    "performanceId": "p2015-f01",
+    "judgeId": "j024",
+    "score": 92
+  },
+  {
+    "performanceId": "p2015-f01",
+    "judgeId": "j025",
+    "score": 91
+  },
+  {
+    "performanceId": "p2015-f01",
+    "judgeId": "j026",
+    "score": 85
+  },
+  {
+    "performanceId": "p2015-f01",
+    "judgeId": "j027",
+    "score": 89
+  },
+  {
+    "performanceId": "p2015-f01",
+    "judgeId": "j028",
+    "score": 85
+  },
+  {
+    "performanceId": "p2015-f01",
+    "judgeId": "j020",
+    "score": 87
+  },
+  {
+    "performanceId": "p2015-f02",
+    "judgeId": "j018",
+    "score": 90
+  },
+  {
+    "performanceId": "p2015-f02",
+    "judgeId": "j022",
+    "score": 90
+  },
+  {
+    "performanceId": "p2015-f02",
+    "judgeId": "j023",
+    "score": 83
+  },
+  {
+    "performanceId": "p2015-f02",
+    "judgeId": "j024",
+    "score": 93
+  },
+  {
+    "performanceId": "p2015-f02",
+    "judgeId": "j025",
+    "score": 89
+  },
+  {
+    "performanceId": "p2015-f02",
+    "judgeId": "j026",
+    "score": 83
+  },
+  {
+    "performanceId": "p2015-f02",
+    "judgeId": "j027",
+    "score": 90
+  },
+  {
+    "performanceId": "p2015-f02",
+    "judgeId": "j028",
+    "score": 85
+  },
+  {
+    "performanceId": "p2015-f02",
+    "judgeId": "j020",
+    "score": 88
+  },
+  {
+    "performanceId": "p2015-f03",
+    "judgeId": "j018",
+    "score": 90
+  },
+  {
+    "performanceId": "p2015-f03",
+    "judgeId": "j022",
+    "score": 93
+  },
+  {
+    "performanceId": "p2015-f03",
+    "judgeId": "j023",
+    "score": 88
+  },
+  {
+    "performanceId": "p2015-f03",
+    "judgeId": "j024",
+    "score": 91
+  },
+  {
+    "performanceId": "p2015-f03",
+    "judgeId": "j025",
+    "score": 89
+  },
+  {
+    "performanceId": "p2015-f03",
+    "judgeId": "j026",
+    "score": 90
+  },
+  {
+    "performanceId": "p2015-f03",
+    "judgeId": "j027",
+    "score": 93
+  },
+  {
+    "performanceId": "p2015-f03",
+    "judgeId": "j028",
+    "score": 87
+  },
+  {
+    "performanceId": "p2015-f03",
+    "judgeId": "j020",
+    "score": 92
+  },
+  {
+    "performanceId": "p2015-f04",
+    "judgeId": "j018",
+    "score": 88
+  },
+  {
+    "performanceId": "p2015-f04",
+    "judgeId": "j022",
+    "score": 90
+  },
+  {
+    "performanceId": "p2015-f04",
+    "judgeId": "j023",
+    "score": 88
+  },
+  {
+    "performanceId": "p2015-f04",
+    "judgeId": "j024",
+    "score": 90
+  },
+  {
+    "performanceId": "p2015-f04",
+    "judgeId": "j025",
+    "score": 90
+  },
+  {
+    "performanceId": "p2015-f04",
+    "judgeId": "j026",
+    "score": 86
+  },
+  {
+    "performanceId": "p2015-f04",
+    "judgeId": "j027",
+    "score": 92
+  },
+  {
+    "performanceId": "p2015-f04",
+    "judgeId": "j028",
+    "score": 92
+  },
+  {
+    "performanceId": "p2015-f04",
+    "judgeId": "j020",
+    "score": 90
+  },
+  {
+    "performanceId": "p2015-f05",
+    "judgeId": "j018",
+    "score": 93
+  },
+  {
+    "performanceId": "p2015-f05",
+    "judgeId": "j022",
+    "score": 93
+  },
+  {
+    "performanceId": "p2015-f05",
+    "judgeId": "j023",
+    "score": 94
+  },
+  {
+    "performanceId": "p2015-f05",
+    "judgeId": "j024",
+    "score": 94
+  },
+  {
+    "performanceId": "p2015-f05",
+    "judgeId": "j025",
+    "score": 96
+  },
+  {
+    "performanceId": "p2015-f05",
+    "judgeId": "j026",
+    "score": 90
+  },
+  {
+    "performanceId": "p2015-f05",
+    "judgeId": "j027",
+    "score": 96
+  },
+  {
+    "performanceId": "p2015-f05",
+    "judgeId": "j028",
+    "score": 89
+  },
+  {
+    "performanceId": "p2015-f05",
+    "judgeId": "j020",
+    "score": 89
+  },
+  {
+    "performanceId": "p2015-f06",
+    "judgeId": "j018",
+    "score": 92
+  },
+  {
+    "performanceId": "p2015-f06",
+    "judgeId": "j022",
+    "score": 89
+  },
+  {
+    "performanceId": "p2015-f06",
+    "judgeId": "j023",
+    "score": 87
+  },
+  {
+    "performanceId": "p2015-f06",
+    "judgeId": "j024",
+    "score": 92
+  },
+  {
+    "performanceId": "p2015-f06",
+    "judgeId": "j025",
+    "score": 95
+  },
+  {
+    "performanceId": "p2015-f06",
+    "judgeId": "j026",
+    "score": 89
+  },
+  {
+    "performanceId": "p2015-f06",
+    "judgeId": "j027",
+    "score": 92
+  },
+  {
+    "performanceId": "p2015-f06",
+    "judgeId": "j028",
+    "score": 91
+  },
+  {
+    "performanceId": "p2015-f06",
+    "judgeId": "j020",
+    "score": 91
+  },
+  {
+    "performanceId": "p2015-f07",
+    "judgeId": "j018",
+    "score": 87
+  },
+  {
+    "performanceId": "p2015-f07",
+    "judgeId": "j022",
+    "score": 88
+  },
+  {
+    "performanceId": "p2015-f07",
+    "judgeId": "j023",
+    "score": 86
+  },
+  {
+    "performanceId": "p2015-f07",
+    "judgeId": "j024",
+    "score": 89
+  },
+  {
+    "performanceId": "p2015-f07",
+    "judgeId": "j025",
+    "score": 89
+  },
+  {
+    "performanceId": "p2015-f07",
+    "judgeId": "j026",
+    "score": 83
+  },
+  {
+    "performanceId": "p2015-f07",
+    "judgeId": "j027",
+    "score": 85
+  },
+  {
+    "performanceId": "p2015-f07",
+    "judgeId": "j028",
+    "score": 89
+  },
+  {
+    "performanceId": "p2015-f07",
+    "judgeId": "j020",
+    "score": 92
+  },
+  {
+    "performanceId": "p2015-f08",
+    "judgeId": "j018",
+    "score": 88
+  },
+  {
+    "performanceId": "p2015-f08",
+    "judgeId": "j022",
+    "score": 91
+  },
+  {
+    "performanceId": "p2015-f08",
+    "judgeId": "j023",
+    "score": 94
+  },
+  {
+    "performanceId": "p2015-f08",
+    "judgeId": "j024",
+    "score": 93
+  },
+  {
+    "performanceId": "p2015-f08",
+    "judgeId": "j025",
+    "score": 88
+  },
+  {
+    "performanceId": "p2015-f08",
+    "judgeId": "j026",
+    "score": 89
+  },
+  {
+    "performanceId": "p2015-f08",
+    "judgeId": "j027",
+    "score": 90
+  },
+  {
+    "performanceId": "p2015-f08",
+    "judgeId": "j028",
+    "score": 90
+  },
+  {
+    "performanceId": "p2015-f08",
+    "judgeId": "j020",
+    "score": 93
+  },
+  {
+    "performanceId": "p2015-f09",
+    "judgeId": "j018",
+    "score": 91
+  },
+  {
+    "performanceId": "p2015-f09",
+    "judgeId": "j022",
+    "score": 92
+  },
+  {
+    "performanceId": "p2015-f09",
+    "judgeId": "j023",
+    "score": 92
+  },
+  {
+    "performanceId": "p2015-f09",
+    "judgeId": "j024",
+    "score": 93
+  },
+  {
+    "performanceId": "p2015-f09",
+    "judgeId": "j025",
+    "score": 88
+  },
+  {
+    "performanceId": "p2015-f09",
+    "judgeId": "j026",
+    "score": 93
+  },
+  {
+    "performanceId": "p2015-f09",
+    "judgeId": "j027",
+    "score": 89
+  },
+  {
+    "performanceId": "p2015-f09",
+    "judgeId": "j028",
+    "score": 93
+  },
+  {
+    "performanceId": "p2015-f09",
+    "judgeId": "j020",
+    "score": 94
+  },
+  {
+    "performanceId": "p2016-f01",
+    "judgeId": "j014",
+    "score": 92
+  },
+  {
+    "performanceId": "p2016-f01",
+    "judgeId": "j020",
+    "score": 89
+  },
+  {
+    "performanceId": "p2016-f01",
+    "judgeId": "j019",
+    "score": 89
+  },
+  {
+    "performanceId": "p2016-f01",
+    "judgeId": "j002",
+    "score": 87
+  },
+  {
+    "performanceId": "p2016-f01",
+    "judgeId": "j015",
+    "score": 89
+  },
+  {
+    "performanceId": "p2016-f02",
+    "judgeId": "j014",
+    "score": 91
+  },
+  {
+    "performanceId": "p2016-f02",
+    "judgeId": "j020",
+    "score": 90
+  },
+  {
+    "performanceId": "p2016-f02",
+    "judgeId": "j019",
+    "score": 90
+  },
+  {
+    "performanceId": "p2016-f02",
+    "judgeId": "j002",
+    "score": 89
+  },
+  {
+    "performanceId": "p2016-f02",
+    "judgeId": "j015",
+    "score": 81
+  },
+  {
+    "performanceId": "p2016-f03",
+    "judgeId": "j014",
+    "score": 87
+  },
+  {
+    "performanceId": "p2016-f03",
+    "judgeId": "j020",
+    "score": 88
+  },
+  {
+    "performanceId": "p2016-f03",
+    "judgeId": "j019",
+    "score": 87
+  },
+  {
+    "performanceId": "p2016-f03",
+    "judgeId": "j002",
+    "score": 84
+  },
+  {
+    "performanceId": "p2016-f03",
+    "judgeId": "j015",
+    "score": 90
+  },
+  {
+    "performanceId": "p2016-f04",
+    "judgeId": "j014",
+    "score": 96
+  },
+  {
+    "performanceId": "p2016-f04",
+    "judgeId": "j020",
+    "score": 91
+  },
+  {
+    "performanceId": "p2016-f04",
+    "judgeId": "j019",
+    "score": 93
+  },
+  {
+    "performanceId": "p2016-f04",
+    "judgeId": "j002",
+    "score": 95
+  },
+  {
+    "performanceId": "p2016-f04",
+    "judgeId": "j015",
+    "score": 95
+  },
+  {
+    "performanceId": "p2016-f05",
+    "judgeId": "j014",
+    "score": 85
+  },
+  {
+    "performanceId": "p2016-f05",
+    "judgeId": "j020",
+    "score": 89
+  },
+  {
+    "performanceId": "p2016-f05",
+    "judgeId": "j019",
+    "score": 88
+  },
+  {
+    "performanceId": "p2016-f05",
+    "judgeId": "j002",
+    "score": 90
+  },
+  {
+    "performanceId": "p2016-f05",
+    "judgeId": "j015",
+    "score": 89
+  },
+  {
+    "performanceId": "p2016-f06",
+    "judgeId": "j014",
+    "score": 91
+  },
+  {
+    "performanceId": "p2016-f06",
+    "judgeId": "j020",
+    "score": 88
+  },
+  {
+    "performanceId": "p2016-f06",
+    "judgeId": "j019",
+    "score": 89
+  },
+  {
+    "performanceId": "p2016-f06",
+    "judgeId": "j002",
+    "score": 85
+  },
+  {
+    "performanceId": "p2016-f06",
+    "judgeId": "j015",
+    "score": 93
+  },
+  {
+    "performanceId": "p2016-f07",
+    "judgeId": "j014",
+    "score": 90
+  },
+  {
+    "performanceId": "p2016-f07",
+    "judgeId": "j020",
+    "score": 95
+  },
+  {
+    "performanceId": "p2016-f07",
+    "judgeId": "j019",
+    "score": 92
+  },
+  {
+    "performanceId": "p2016-f07",
+    "judgeId": "j002",
+    "score": 89
+  },
+  {
+    "performanceId": "p2016-f07",
+    "judgeId": "j015",
+    "score": 93
+  },
+  {
+    "performanceId": "p2016-f08",
+    "judgeId": "j014",
+    "score": 87
+  },
+  {
+    "performanceId": "p2016-f08",
+    "judgeId": "j020",
+    "score": 90
+  },
+  {
+    "performanceId": "p2016-f08",
+    "judgeId": "j019",
+    "score": 90
+  },
+  {
+    "performanceId": "p2016-f08",
+    "judgeId": "j002",
+    "score": 90
+  },
+  {
+    "performanceId": "p2016-f08",
+    "judgeId": "j015",
+    "score": 91
+  },
+  {
+    "performanceId": "p2016-f09",
+    "judgeId": "j014",
+    "score": 95
+  },
+  {
+    "performanceId": "p2016-f09",
+    "judgeId": "j020",
+    "score": 95
+  },
+  {
+    "performanceId": "p2016-f09",
+    "judgeId": "j019",
+    "score": 91
+  },
+  {
+    "performanceId": "p2016-f09",
+    "judgeId": "j002",
+    "score": 93
+  },
+  {
+    "performanceId": "p2016-f09",
+    "judgeId": "j015",
+    "score": 95
+  },
+  {
+    "performanceId": "p2017-f01",
+    "judgeId": "j014",
+    "score": 89
+  },
+  {
+    "performanceId": "p2017-f01",
+    "judgeId": "j013",
+    "score": 87
+  },
+  {
+    "performanceId": "p2017-f01",
+    "judgeId": "j020",
+    "score": 90
+  },
+  {
+    "performanceId": "p2017-f01",
+    "judgeId": "j005",
+    "score": 91
+  },
+  {
+    "performanceId": "p2017-f01",
+    "judgeId": "j019",
+    "score": 92
+  },
+  {
+    "performanceId": "p2017-f01",
+    "judgeId": "j002",
+    "score": 87
+  },
+  {
+    "performanceId": "p2017-f01",
+    "judgeId": "j015",
+    "score": 90
+  },
+  {
+    "performanceId": "p2017-f02",
+    "judgeId": "j014",
+    "score": 87
+  },
+  {
+    "performanceId": "p2017-f02",
+    "judgeId": "j013",
+    "score": 86
+  },
+  {
+    "performanceId": "p2017-f02",
+    "judgeId": "j020",
+    "score": 89
+  },
+  {
+    "performanceId": "p2017-f02",
+    "judgeId": "j005",
+    "score": 90
+  },
+  {
+    "performanceId": "p2017-f02",
+    "judgeId": "j019",
+    "score": 91
+  },
+  {
+    "performanceId": "p2017-f02",
+    "judgeId": "j002",
+    "score": 85
+  },
+  {
+    "performanceId": "p2017-f02",
+    "judgeId": "j015",
+    "score": 90
+  },
+  {
+    "performanceId": "p2017-f03",
+    "judgeId": "j014",
+    "score": 88
+  },
+  {
+    "performanceId": "p2017-f03",
+    "judgeId": "j013",
+    "score": 93
+  },
+  {
+    "performanceId": "p2017-f03",
+    "judgeId": "j020",
+    "score": 93
+  },
+  {
+    "performanceId": "p2017-f03",
+    "judgeId": "j005",
+    "score": 93
+  },
+  {
+    "performanceId": "p2017-f03",
+    "judgeId": "j019",
+    "score": 93
+  },
+  {
+    "performanceId": "p2017-f03",
+    "judgeId": "j002",
+    "score": 92
+  },
+  {
+    "performanceId": "p2017-f03",
+    "judgeId": "j015",
+    "score": 93
+  },
+  {
+    "performanceId": "p2017-f04",
+    "judgeId": "j014",
+    "score": 94
+  },
+  {
+    "performanceId": "p2017-f04",
+    "judgeId": "j013",
+    "score": 91
+  },
+  {
+    "performanceId": "p2017-f04",
+    "judgeId": "j020",
+    "score": 92
+  },
+  {
+    "performanceId": "p2017-f04",
+    "judgeId": "j005",
+    "score": 91
+  },
+  {
+    "performanceId": "p2017-f04",
+    "judgeId": "j019",
+    "score": 93
+  },
+  {
+    "performanceId": "p2017-f04",
+    "judgeId": "j002",
+    "score": 90
+  },
+  {
+    "performanceId": "p2017-f04",
+    "judgeId": "j015",
+    "score": 89
+  },
+  {
+    "performanceId": "p2017-f05",
+    "judgeId": "j014",
+    "score": 95
+  },
+  {
+    "performanceId": "p2017-f05",
+    "judgeId": "j013",
+    "score": 89
+  },
+  {
+    "performanceId": "p2017-f05",
+    "judgeId": "j020",
+    "score": 94
+  },
+  {
+    "performanceId": "p2017-f05",
+    "judgeId": "j005",
+    "score": 90
+  },
+  {
+    "performanceId": "p2017-f05",
+    "judgeId": "j019",
+    "score": 92
+  },
+  {
+    "performanceId": "p2017-f05",
+    "judgeId": "j002",
+    "score": 91
+  },
+  {
+    "performanceId": "p2017-f05",
+    "judgeId": "j015",
+    "score": 89
+  },
+  {
+    "performanceId": "p2017-f06",
+    "judgeId": "j014",
+    "score": 86
+  },
+  {
+    "performanceId": "p2017-f06",
+    "judgeId": "j013",
+    "score": 89
+  },
+  {
+    "performanceId": "p2017-f06",
+    "judgeId": "j020",
+    "score": 88
+  },
+  {
+    "performanceId": "p2017-f06",
+    "judgeId": "j005",
+    "score": 89
+  },
+  {
+    "performanceId": "p2017-f06",
+    "judgeId": "j019",
+    "score": 88
+  },
+  {
+    "performanceId": "p2017-f06",
+    "judgeId": "j002",
+    "score": 84
+  },
+  {
+    "performanceId": "p2017-f06",
+    "judgeId": "j015",
+    "score": 83
+  },
+  {
+    "performanceId": "p2017-f07",
+    "judgeId": "j014",
+    "score": 87
+  },
+  {
+    "performanceId": "p2017-f07",
+    "judgeId": "j013",
+    "score": 91
+  },
+  {
+    "performanceId": "p2017-f07",
+    "judgeId": "j020",
+    "score": 90
+  },
+  {
+    "performanceId": "p2017-f07",
+    "judgeId": "j005",
+    "score": 90
+  },
+  {
+    "performanceId": "p2017-f07",
+    "judgeId": "j019",
+    "score": 90
+  },
+  {
+    "performanceId": "p2017-f07",
+    "judgeId": "j002",
+    "score": 90
+  },
+  {
+    "performanceId": "p2017-f07",
+    "judgeId": "j015",
+    "score": 90
+  },
+  {
+    "performanceId": "p2017-f08",
+    "judgeId": "j014",
+    "score": 93
+  },
+  {
+    "performanceId": "p2017-f08",
+    "judgeId": "j013",
+    "score": 94
+  },
+  {
+    "performanceId": "p2017-f08",
+    "judgeId": "j020",
+    "score": 91
+  },
+  {
+    "performanceId": "p2017-f08",
+    "judgeId": "j005",
+    "score": 92
+  },
+  {
+    "performanceId": "p2017-f08",
+    "judgeId": "j019",
+    "score": 91
+  },
+  {
+    "performanceId": "p2017-f08",
+    "judgeId": "j002",
+    "score": 94
+  },
+  {
+    "performanceId": "p2017-f08",
+    "judgeId": "j015",
+    "score": 95
+  },
+  {
+    "performanceId": "p2017-f09",
+    "judgeId": "j014",
+    "score": 92
+  },
+  {
+    "performanceId": "p2017-f09",
+    "judgeId": "j013",
+    "score": 92
+  },
+  {
+    "performanceId": "p2017-f09",
+    "judgeId": "j020",
+    "score": 93
+  },
+  {
+    "performanceId": "p2017-f09",
+    "judgeId": "j005",
+    "score": 94
+  },
+  {
+    "performanceId": "p2017-f09",
+    "judgeId": "j019",
+    "score": 94
+  },
+  {
+    "performanceId": "p2017-f09",
+    "judgeId": "j002",
+    "score": 93
+  },
+  {
+    "performanceId": "p2017-f09",
+    "judgeId": "j015",
+    "score": 95
+  },
+  {
+    "performanceId": "p2017-f10",
+    "judgeId": "j014",
+    "score": 93
+  },
+  {
+    "performanceId": "p2017-f10",
+    "judgeId": "j013",
+    "score": 88
+  },
+  {
+    "performanceId": "p2017-f10",
+    "judgeId": "j020",
+    "score": 89
+  },
+  {
+    "performanceId": "p2017-f10",
+    "judgeId": "j005",
+    "score": 90
+  },
+  {
+    "performanceId": "p2017-f10",
+    "judgeId": "j019",
+    "score": 91
+  },
+  {
+    "performanceId": "p2017-f10",
+    "judgeId": "j002",
+    "score": 95
+  },
+  {
+    "performanceId": "p2017-f10",
+    "judgeId": "j015",
+    "score": 90
+  },
+  {
+    "performanceId": "p2018-f01",
+    "judgeId": "j014",
+    "score": 88
+  },
+  {
+    "performanceId": "p2018-f01",
+    "judgeId": "j020",
+    "score": 91
+  },
+  {
+    "performanceId": "p2018-f01",
+    "judgeId": "j031",
+    "score": 85
+  },
+  {
+    "performanceId": "p2018-f01",
+    "judgeId": "j030",
+    "score": 85
+  },
+  {
+    "performanceId": "p2018-f01",
+    "judgeId": "j024",
+    "score": 86
+  },
+  {
+    "performanceId": "p2018-f01",
+    "judgeId": "j002",
+    "score": 83
+  },
+  {
+    "performanceId": "p2018-f01",
+    "judgeId": "j015",
+    "score": 88
+  },
+  {
+    "performanceId": "p2018-f02",
+    "judgeId": "j014",
+    "score": 87
+  },
+  {
+    "performanceId": "p2018-f02",
+    "judgeId": "j020",
+    "score": 90
+  },
+  {
+    "performanceId": "p2018-f02",
+    "judgeId": "j031",
+    "score": 89
+  },
+  {
+    "performanceId": "p2018-f02",
+    "judgeId": "j030",
+    "score": 88
+  },
+  {
+    "performanceId": "p2018-f02",
+    "judgeId": "j024",
+    "score": 89
+  },
+  {
+    "performanceId": "p2018-f02",
+    "judgeId": "j002",
+    "score": 85
+  },
+  {
+    "performanceId": "p2018-f02",
+    "judgeId": "j015",
+    "score": 89
+  },
+  {
+    "performanceId": "p2018-f03",
+    "judgeId": "j014",
+    "score": 89
+  },
+  {
+    "performanceId": "p2018-f03",
+    "judgeId": "j020",
+    "score": 92
+  },
+  {
+    "performanceId": "p2018-f03",
+    "judgeId": "j031",
+    "score": 92
+  },
+  {
+    "performanceId": "p2018-f03",
+    "judgeId": "j030",
+    "score": 88
+  },
+  {
+    "performanceId": "p2018-f03",
+    "judgeId": "j024",
+    "score": 91
+  },
+  {
+    "performanceId": "p2018-f03",
+    "judgeId": "j002",
+    "score": 90
+  },
+  {
+    "performanceId": "p2018-f03",
+    "judgeId": "j015",
+    "score": 94
+  },
+  {
+    "performanceId": "p2018-f04",
+    "judgeId": "j014",
+    "score": 93
+  },
+  {
+    "performanceId": "p2018-f04",
+    "judgeId": "j020",
+    "score": 93
+  },
+  {
+    "performanceId": "p2018-f04",
+    "judgeId": "j031",
+    "score": 93
+  },
+  {
+    "performanceId": "p2018-f04",
+    "judgeId": "j030",
+    "score": 99
+  },
+  {
+    "performanceId": "p2018-f04",
+    "judgeId": "j024",
+    "score": 90
+  },
+  {
+    "performanceId": "p2018-f04",
+    "judgeId": "j002",
+    "score": 92
+  },
+  {
+    "performanceId": "p2018-f04",
+    "judgeId": "j015",
+    "score": 88
+  },
+  {
+    "performanceId": "p2018-f05",
+    "judgeId": "j014",
+    "score": 87
+  },
+  {
+    "performanceId": "p2018-f05",
+    "judgeId": "j020",
+    "score": 90
+  },
+  {
+    "performanceId": "p2018-f05",
+    "judgeId": "j031",
+    "score": 89
+  },
+  {
+    "performanceId": "p2018-f05",
+    "judgeId": "j030",
+    "score": 86
+  },
+  {
+    "performanceId": "p2018-f05",
+    "judgeId": "j024",
+    "score": 87
+  },
+  {
+    "performanceId": "p2018-f05",
+    "judgeId": "j002",
+    "score": 86
+  },
+  {
+    "performanceId": "p2018-f05",
+    "judgeId": "j015",
+    "score": 89
+  },
+  {
+    "performanceId": "p2018-f06",
+    "judgeId": "j014",
+    "score": 84
+  },
+  {
+    "performanceId": "p2018-f06",
+    "judgeId": "j020",
+    "score": 91
+  },
+  {
+    "performanceId": "p2018-f06",
+    "judgeId": "j031",
+    "score": 82
+  },
+  {
+    "performanceId": "p2018-f06",
+    "judgeId": "j030",
+    "score": 87
+  },
+  {
+    "performanceId": "p2018-f06",
+    "judgeId": "j024",
+    "score": 86
+  },
+  {
+    "performanceId": "p2018-f06",
+    "judgeId": "j002",
+    "score": 80
+  },
+  {
+    "performanceId": "p2018-f06",
+    "judgeId": "j015",
+    "score": 84
+  },
+  {
+    "performanceId": "p2018-f07",
+    "judgeId": "j014",
+    "score": 90
+  },
+  {
+    "performanceId": "p2018-f07",
+    "judgeId": "j020",
+    "score": 93
+  },
+  {
+    "performanceId": "p2018-f07",
+    "judgeId": "j031",
+    "score": 90
+  },
+  {
+    "performanceId": "p2018-f07",
+    "judgeId": "j030",
+    "score": 89
+  },
+  {
+    "performanceId": "p2018-f07",
+    "judgeId": "j024",
+    "score": 90
+  },
+  {
+    "performanceId": "p2018-f07",
+    "judgeId": "j002",
+    "score": 88
+  },
+  {
+    "performanceId": "p2018-f07",
+    "judgeId": "j015",
+    "score": 98
+  },
+  {
+    "performanceId": "p2018-f08",
+    "judgeId": "j014",
+    "score": 87
+  },
+  {
+    "performanceId": "p2018-f08",
+    "judgeId": "j020",
+    "score": 90
+  },
+  {
+    "performanceId": "p2018-f08",
+    "judgeId": "j031",
+    "score": 93
+  },
+  {
+    "performanceId": "p2018-f08",
+    "judgeId": "j030",
+    "score": 97
+  },
+  {
+    "performanceId": "p2018-f08",
+    "judgeId": "j024",
+    "score": 89
+  },
+  {
+    "performanceId": "p2018-f08",
+    "judgeId": "j002",
+    "score": 91
+  },
+  {
+    "performanceId": "p2018-f08",
+    "judgeId": "j015",
+    "score": 86
+  },
+  {
+    "performanceId": "p2018-f09",
+    "judgeId": "j014",
+    "score": 93
+  },
+  {
+    "performanceId": "p2018-f09",
+    "judgeId": "j020",
+    "score": 96
+  },
+  {
+    "performanceId": "p2018-f09",
+    "judgeId": "j031",
+    "score": 98
+  },
+  {
+    "performanceId": "p2018-f09",
+    "judgeId": "j030",
+    "score": 93
+  },
+  {
+    "performanceId": "p2018-f09",
+    "judgeId": "j024",
+    "score": 91
+  },
+  {
+    "performanceId": "p2018-f09",
+    "judgeId": "j002",
+    "score": 94
+  },
+  {
+    "performanceId": "p2018-f09",
+    "judgeId": "j015",
+    "score": 97
+  },
+  {
+    "performanceId": "p2018-f10",
+    "judgeId": "j014",
+    "score": 92
+  },
+  {
+    "performanceId": "p2018-f10",
+    "judgeId": "j020",
+    "score": 94
+  },
+  {
+    "performanceId": "p2018-f10",
+    "judgeId": "j031",
+    "score": 94
+  },
+  {
+    "performanceId": "p2018-f10",
+    "judgeId": "j030",
+    "score": 93
+  },
+  {
+    "performanceId": "p2018-f10",
+    "judgeId": "j024",
+    "score": 92
+  },
+  {
+    "performanceId": "p2018-f10",
+    "judgeId": "j002",
+    "score": 93
+  },
+  {
+    "performanceId": "p2018-f10",
+    "judgeId": "j015",
+    "score": 98
+  },
+  {
+    "performanceId": "p2019-f01",
+    "judgeId": "j014",
+    "score": 87
+  },
+  {
+    "performanceId": "p2019-f01",
+    "judgeId": "j031",
+    "score": 91
+  },
+  {
+    "performanceId": "p2019-f01",
+    "judgeId": "j030",
+    "score": 90
+  },
+  {
+    "performanceId": "p2019-f01",
+    "judgeId": "j024",
+    "score": 88
+  },
+  {
+    "performanceId": "p2019-f01",
+    "judgeId": "j020",
+    "score": 88
+  },
+  {
+    "performanceId": "p2019-f01",
+    "judgeId": "j002",
+    "score": 82
+  },
+  {
+    "performanceId": "p2019-f01",
+    "judgeId": "j015",
+    "score": 90
+  },
+  {
+    "performanceId": "p2019-f02",
+    "judgeId": "j014",
+    "score": 93
+  },
+  {
+    "performanceId": "p2019-f02",
+    "judgeId": "j031",
+    "score": 95
+  },
+  {
+    "performanceId": "p2019-f02",
+    "judgeId": "j030",
+    "score": 95
+  },
+  {
+    "performanceId": "p2019-f02",
+    "judgeId": "j024",
+    "score": 93
+  },
+  {
+    "performanceId": "p2019-f02",
+    "judgeId": "j020",
+    "score": 94
+  },
+  {
+    "performanceId": "p2019-f02",
+    "judgeId": "j002",
+    "score": 95
+  },
+  {
+    "performanceId": "p2019-f02",
+    "judgeId": "j015",
+    "score": 95
+  },
+  {
+    "performanceId": "p2019-f03",
+    "judgeId": "j014",
+    "score": 92
+  },
+  {
+    "performanceId": "p2019-f03",
+    "judgeId": "j031",
+    "score": 96
+  },
+  {
+    "performanceId": "p2019-f03",
+    "judgeId": "j030",
+    "score": 96
+  },
+  {
+    "performanceId": "p2019-f03",
+    "judgeId": "j024",
+    "score": 91
+  },
+  {
+    "performanceId": "p2019-f03",
+    "judgeId": "j020",
+    "score": 93
+  },
+  {
+    "performanceId": "p2019-f03",
+    "judgeId": "j002",
+    "score": 92
+  },
+  {
+    "performanceId": "p2019-f03",
+    "judgeId": "j015",
+    "score": 92
+  },
+  {
+    "performanceId": "p2019-f04",
+    "judgeId": "j014",
+    "score": 92
+  },
+  {
+    "performanceId": "p2019-f04",
+    "judgeId": "j031",
+    "score": 91
+  },
+  {
+    "performanceId": "p2019-f04",
+    "judgeId": "j030",
+    "score": 92
+  },
+  {
+    "performanceId": "p2019-f04",
+    "judgeId": "j024",
+    "score": 90
+  },
+  {
+    "performanceId": "p2019-f04",
+    "judgeId": "j020",
+    "score": 91
+  },
+  {
+    "performanceId": "p2019-f04",
+    "judgeId": "j002",
+    "score": 89
+  },
+  {
+    "performanceId": "p2019-f04",
+    "judgeId": "j015",
+    "score": 92
+  },
+  {
+    "performanceId": "p2019-f05",
+    "judgeId": "j014",
+    "score": 93
+  },
+  {
+    "performanceId": "p2019-f05",
+    "judgeId": "j031",
+    "score": 90
+  },
+  {
+    "performanceId": "p2019-f05",
+    "judgeId": "j030",
+    "score": 89
+  },
+  {
+    "performanceId": "p2019-f05",
+    "judgeId": "j024",
+    "score": 90
+  },
+  {
+    "performanceId": "p2019-f05",
+    "judgeId": "j020",
+    "score": 93
+  },
+  {
+    "performanceId": "p2019-f05",
+    "judgeId": "j002",
+    "score": 90
+  },
+  {
+    "performanceId": "p2019-f05",
+    "judgeId": "j015",
+    "score": 94
+  },
+  {
+    "performanceId": "p2019-f06",
+    "judgeId": "j014",
+    "score": 94
+  },
+  {
+    "performanceId": "p2019-f06",
+    "judgeId": "j031",
+    "score": 92
+  },
+  {
+    "performanceId": "p2019-f06",
+    "judgeId": "j030",
+    "score": 94
+  },
+  {
+    "performanceId": "p2019-f06",
+    "judgeId": "j024",
+    "score": 91
+  },
+  {
+    "performanceId": "p2019-f06",
+    "judgeId": "j020",
+    "score": 93
+  },
+  {
+    "performanceId": "p2019-f06",
+    "judgeId": "j002",
+    "score": 91
+  },
+  {
+    "performanceId": "p2019-f06",
+    "judgeId": "j015",
+    "score": 94
+  },
+  {
+    "performanceId": "p2019-f07",
+    "judgeId": "j014",
+    "score": 97
+  },
+  {
+    "performanceId": "p2019-f07",
+    "judgeId": "j031",
+    "score": 99
+  },
+  {
+    "performanceId": "p2019-f07",
+    "judgeId": "j030",
+    "score": 97
+  },
+  {
+    "performanceId": "p2019-f07",
+    "judgeId": "j024",
+    "score": 97
+  },
+  {
+    "performanceId": "p2019-f07",
+    "judgeId": "j020",
+    "score": 96
+  },
+  {
+    "performanceId": "p2019-f07",
+    "judgeId": "j002",
+    "score": 97
+  },
+  {
+    "performanceId": "p2019-f07",
+    "judgeId": "j015",
+    "score": 98
+  },
+  {
+    "performanceId": "p2019-f08",
+    "judgeId": "j014",
+    "score": 91
+  },
+  {
+    "performanceId": "p2019-f08",
+    "judgeId": "j031",
+    "score": 89
+  },
+  {
+    "performanceId": "p2019-f08",
+    "judgeId": "j030",
+    "score": 89
+  },
+  {
+    "performanceId": "p2019-f08",
+    "judgeId": "j024",
+    "score": 91
+  },
+  {
+    "performanceId": "p2019-f08",
+    "judgeId": "j020",
+    "score": 94
+  },
+  {
+    "performanceId": "p2019-f08",
+    "judgeId": "j002",
+    "score": 90
+  },
+  {
+    "performanceId": "p2019-f08",
+    "judgeId": "j015",
+    "score": 94
+  },
+  {
+    "performanceId": "p2019-f09",
+    "judgeId": "j014",
+    "score": 92
+  },
+  {
+    "performanceId": "p2019-f09",
+    "judgeId": "j031",
+    "score": 89
+  },
+  {
+    "performanceId": "p2019-f09",
+    "judgeId": "j030",
+    "score": 87
+  },
+  {
+    "performanceId": "p2019-f09",
+    "judgeId": "j024",
+    "score": 90
+  },
+  {
+    "performanceId": "p2019-f09",
+    "judgeId": "j020",
+    "score": 92
+  },
+  {
+    "performanceId": "p2019-f09",
+    "judgeId": "j002",
+    "score": 88
+  },
+  {
+    "performanceId": "p2019-f09",
+    "judgeId": "j015",
+    "score": 94
+  },
+  {
+    "performanceId": "p2019-f10",
+    "judgeId": "j014",
+    "score": 93
+  },
+  {
+    "performanceId": "p2019-f10",
+    "judgeId": "j031",
+    "score": 94
+  },
+  {
+    "performanceId": "p2019-f10",
+    "judgeId": "j030",
+    "score": 91
+  },
+  {
+    "performanceId": "p2019-f10",
+    "judgeId": "j024",
+    "score": 94
+  },
+  {
+    "performanceId": "p2019-f10",
+    "judgeId": "j020",
+    "score": 92
+  },
+  {
+    "performanceId": "p2019-f10",
+    "judgeId": "j002",
+    "score": 94
+  },
+  {
+    "performanceId": "p2019-f10",
+    "judgeId": "j015",
+    "score": 96
+  },
+  {
+    "performanceId": "p2020-f01",
+    "judgeId": "j014",
+    "score": 89
+  },
+  {
+    "performanceId": "p2020-f01",
+    "judgeId": "j024",
+    "score": 89
+  },
+  {
+    "performanceId": "p2020-f01",
+    "judgeId": "j031",
+    "score": 85
+  },
+  {
+    "performanceId": "p2020-f01",
+    "judgeId": "j030",
+    "score": 89
+  },
+  {
+    "performanceId": "p2020-f01",
+    "judgeId": "j020",
+    "score": 90
+  },
+  {
+    "performanceId": "p2020-f01",
+    "judgeId": "j002",
+    "score": 90
+  },
+  {
+    "performanceId": "p2020-f01",
+    "judgeId": "j015",
+    "score": 93
+  },
+  {
+    "performanceId": "p2020-f02",
+    "judgeId": "j014",
+    "score": 86
+  },
+  {
+    "performanceId": "p2020-f02",
+    "judgeId": "j024",
+    "score": 91
+  },
+  {
+    "performanceId": "p2020-f02",
+    "judgeId": "j031",
+    "score": 85
+  },
+  {
+    "performanceId": "p2020-f02",
+    "judgeId": "j030",
+    "score": 89
+  },
+  {
+    "performanceId": "p2020-f02",
+    "judgeId": "j020",
+    "score": 88
+  },
+  {
+    "performanceId": "p2020-f02",
+    "judgeId": "j002",
+    "score": 86
+  },
+  {
+    "performanceId": "p2020-f02",
+    "judgeId": "j015",
+    "score": 92
+  },
+  {
+    "performanceId": "p2020-f03",
+    "judgeId": "j014",
+    "score": 88
+  },
+  {
+    "performanceId": "p2020-f03",
+    "judgeId": "j024",
+    "score": 93
+  },
+  {
+    "performanceId": "p2020-f03",
+    "judgeId": "j031",
+    "score": 93
+  },
+  {
+    "performanceId": "p2020-f03",
+    "judgeId": "j030",
+    "score": 91
+  },
+  {
+    "performanceId": "p2020-f03",
+    "judgeId": "j020",
+    "score": 91
+  },
+  {
+    "performanceId": "p2020-f03",
+    "judgeId": "j002",
+    "score": 92
+  },
+  {
+    "performanceId": "p2020-f03",
+    "judgeId": "j015",
+    "score": 94
+  },
+  {
+    "performanceId": "p2020-f04",
+    "judgeId": "j014",
+    "score": 91
+  },
+  {
+    "performanceId": "p2020-f04",
+    "judgeId": "j024",
+    "score": 92
+  },
+  {
+    "performanceId": "p2020-f04",
+    "judgeId": "j031",
+    "score": 93
+  },
+  {
+    "performanceId": "p2020-f04",
+    "judgeId": "j030",
+    "score": 93
+  },
+  {
+    "performanceId": "p2020-f04",
+    "judgeId": "j020",
+    "score": 93
+  },
+  {
+    "performanceId": "p2020-f04",
+    "judgeId": "j002",
+    "score": 91
+  },
+  {
+    "performanceId": "p2020-f04",
+    "judgeId": "j015",
+    "score": 95
+  },
+  {
+    "performanceId": "p2020-f05",
+    "judgeId": "j014",
+    "score": 92
+  },
+  {
+    "performanceId": "p2020-f05",
+    "judgeId": "j024",
+    "score": 93
+  },
+  {
+    "performanceId": "p2020-f05",
+    "judgeId": "j031",
+    "score": 93
+  },
+  {
+    "performanceId": "p2020-f05",
+    "judgeId": "j030",
+    "score": 96
+  },
+  {
+    "performanceId": "p2020-f05",
+    "judgeId": "j020",
+    "score": 95
+  },
+  {
+    "performanceId": "p2020-f05",
+    "judgeId": "j002",
+    "score": 95
+  },
+  {
+    "performanceId": "p2020-f05",
+    "judgeId": "j015",
+    "score": 94
+  },
+  {
+    "performanceId": "p2020-f06",
+    "judgeId": "j014",
+    "score": 88
+  },
+  {
+    "performanceId": "p2020-f06",
+    "judgeId": "j024",
+    "score": 94
+  },
+  {
+    "performanceId": "p2020-f06",
+    "judgeId": "j031",
+    "score": 94
+  },
+  {
+    "performanceId": "p2020-f06",
+    "judgeId": "j030",
+    "score": 90
+  },
+  {
+    "performanceId": "p2020-f06",
+    "judgeId": "j020",
+    "score": 96
+  },
+  {
+    "performanceId": "p2020-f06",
+    "judgeId": "j002",
+    "score": 93
+  },
+  {
+    "performanceId": "p2020-f06",
+    "judgeId": "j015",
+    "score": 94
+  },
+  {
+    "performanceId": "p2020-f07",
+    "judgeId": "j014",
+    "score": 88
+  },
+  {
+    "performanceId": "p2020-f07",
+    "judgeId": "j024",
+    "score": 91
+  },
+  {
+    "performanceId": "p2020-f07",
+    "judgeId": "j031",
+    "score": 95
+  },
+  {
+    "performanceId": "p2020-f07",
+    "judgeId": "j030",
+    "score": 93
+  },
+  {
+    "performanceId": "p2020-f07",
+    "judgeId": "j020",
+    "score": 95
+  },
+  {
+    "performanceId": "p2020-f07",
+    "judgeId": "j002",
+    "score": 88
+  },
+  {
+    "performanceId": "p2020-f07",
+    "judgeId": "j015",
+    "score": 92
+  },
+  {
+    "performanceId": "p2020-f08",
+    "judgeId": "j014",
+    "score": 89
+  },
+  {
+    "performanceId": "p2020-f08",
+    "judgeId": "j024",
+    "score": 88
+  },
+  {
+    "performanceId": "p2020-f08",
+    "judgeId": "j031",
+    "score": 87
+  },
+  {
+    "performanceId": "p2020-f08",
+    "judgeId": "j030",
+    "score": 90
+  },
+  {
+    "performanceId": "p2020-f08",
+    "judgeId": "j020",
+    "score": 91
+  },
+  {
+    "performanceId": "p2020-f08",
+    "judgeId": "j002",
+    "score": 85
+  },
+  {
+    "performanceId": "p2020-f08",
+    "judgeId": "j015",
+    "score": 92
+  },
+  {
+    "performanceId": "p2020-f09",
+    "judgeId": "j014",
+    "score": 87
+  },
+  {
+    "performanceId": "p2020-f09",
+    "judgeId": "j024",
+    "score": 92
+  },
+  {
+    "performanceId": "p2020-f09",
+    "judgeId": "j031",
+    "score": 95
+  },
+  {
+    "performanceId": "p2020-f09",
+    "judgeId": "j030",
+    "score": 95
+  },
+  {
+    "performanceId": "p2020-f09",
+    "judgeId": "j020",
+    "score": 92
+  },
+  {
+    "performanceId": "p2020-f09",
+    "judgeId": "j002",
+    "score": 89
+  },
+  {
+    "performanceId": "p2020-f09",
+    "judgeId": "j015",
+    "score": 93
+  },
+  {
+    "performanceId": "p2020-f10",
+    "judgeId": "j014",
+    "score": 88
+  },
+  {
+    "performanceId": "p2020-f10",
+    "judgeId": "j024",
+    "score": 91
+  },
+  {
+    "performanceId": "p2020-f10",
+    "judgeId": "j031",
+    "score": 85
+  },
+  {
+    "performanceId": "p2020-f10",
+    "judgeId": "j030",
+    "score": 86
+  },
+  {
+    "performanceId": "p2020-f10",
+    "judgeId": "j020",
+    "score": 90
+  },
+  {
+    "performanceId": "p2020-f10",
+    "judgeId": "j002",
+    "score": 90
+  },
+  {
+    "performanceId": "p2020-f10",
+    "judgeId": "j015",
+    "score": 92
+  },
+  {
+    "performanceId": "p2021-f01",
+    "judgeId": "j014",
+    "score": 91
+  },
+  {
+    "performanceId": "p2021-f01",
+    "judgeId": "j024",
+    "score": 93
+  },
+  {
+    "performanceId": "p2021-f01",
+    "judgeId": "j031",
+    "score": 92
+  },
+  {
+    "performanceId": "p2021-f01",
+    "judgeId": "j030",
+    "score": 89
+  },
+  {
+    "performanceId": "p2021-f01",
+    "judgeId": "j020",
+    "score": 90
+  },
+  {
+    "performanceId": "p2021-f01",
+    "judgeId": "j002",
+    "score": 89
+  },
+  {
+    "performanceId": "p2021-f01",
+    "judgeId": "j015",
+    "score": 93
+  },
+  {
+    "performanceId": "p2021-f02",
+    "judgeId": "j014",
+    "score": 87
+  },
+  {
+    "performanceId": "p2021-f02",
+    "judgeId": "j024",
+    "score": 91
+  },
+  {
+    "performanceId": "p2021-f02",
+    "judgeId": "j031",
+    "score": 90
+  },
+  {
+    "performanceId": "p2021-f02",
+    "judgeId": "j030",
+    "score": 96
+  },
+  {
+    "performanceId": "p2021-f02",
+    "judgeId": "j020",
+    "score": 89
+  },
+  {
+    "performanceId": "p2021-f02",
+    "judgeId": "j002",
+    "score": 87
+  },
+  {
+    "performanceId": "p2021-f02",
+    "judgeId": "j015",
+    "score": 88
+  },
+  {
+    "performanceId": "p2021-f03",
+    "judgeId": "j014",
+    "score": 89
+  },
+  {
+    "performanceId": "p2021-f03",
+    "judgeId": "j024",
+    "score": 92
+  },
+  {
+    "performanceId": "p2021-f03",
+    "judgeId": "j031",
+    "score": 91
+  },
+  {
+    "performanceId": "p2021-f03",
+    "judgeId": "j030",
+    "score": 91
+  },
+  {
+    "performanceId": "p2021-f03",
+    "judgeId": "j020",
+    "score": 93
+  },
+  {
+    "performanceId": "p2021-f03",
+    "judgeId": "j002",
+    "score": 88
+  },
+  {
+    "performanceId": "p2021-f03",
+    "judgeId": "j015",
+    "score": 94
+  },
+  {
+    "performanceId": "p2021-f04",
+    "judgeId": "j014",
+    "score": 88
+  },
+  {
+    "performanceId": "p2021-f04",
+    "judgeId": "j024",
+    "score": 90
+  },
+  {
+    "performanceId": "p2021-f04",
+    "judgeId": "j031",
+    "score": 89
+  },
+  {
+    "performanceId": "p2021-f04",
+    "judgeId": "j030",
+    "score": 90
+  },
+  {
+    "performanceId": "p2021-f04",
+    "judgeId": "j020",
+    "score": 89
+  },
+  {
+    "performanceId": "p2021-f04",
+    "judgeId": "j002",
+    "score": 92
+  },
+  {
+    "performanceId": "p2021-f04",
+    "judgeId": "j015",
+    "score": 98
+  },
+  {
+    "performanceId": "p2021-f05",
+    "judgeId": "j014",
+    "score": 90
+  },
+  {
+    "performanceId": "p2021-f05",
+    "judgeId": "j024",
+    "score": 89
+  },
+  {
+    "performanceId": "p2021-f05",
+    "judgeId": "j031",
+    "score": 92
+  },
+  {
+    "performanceId": "p2021-f05",
+    "judgeId": "j030",
+    "score": 94
+  },
+  {
+    "performanceId": "p2021-f05",
+    "judgeId": "j020",
+    "score": 94
+  },
+  {
+    "performanceId": "p2021-f05",
+    "judgeId": "j002",
+    "score": 90
+  },
+  {
+    "performanceId": "p2021-f05",
+    "judgeId": "j015",
+    "score": 89
+  },
+  {
+    "performanceId": "p2021-f06",
+    "judgeId": "j014",
+    "score": 94
+  },
+  {
+    "performanceId": "p2021-f06",
+    "judgeId": "j024",
+    "score": 95
+  },
+  {
+    "performanceId": "p2021-f06",
+    "judgeId": "j031",
+    "score": 95
+  },
+  {
+    "performanceId": "p2021-f06",
+    "judgeId": "j030",
+    "score": 96
+  },
+  {
+    "performanceId": "p2021-f06",
+    "judgeId": "j020",
+    "score": 96
+  },
+  {
+    "performanceId": "p2021-f06",
+    "judgeId": "j002",
+    "score": 96
+  },
+  {
+    "performanceId": "p2021-f06",
+    "judgeId": "j015",
+    "score": 93
+  },
+  {
+    "performanceId": "p2021-f07",
+    "judgeId": "j014",
+    "score": 89
+  },
+  {
+    "performanceId": "p2021-f07",
+    "judgeId": "j024",
+    "score": 90
+  },
+  {
+    "performanceId": "p2021-f07",
+    "judgeId": "j031",
+    "score": 93
+  },
+  {
+    "performanceId": "p2021-f07",
+    "judgeId": "j030",
+    "score": 95
+  },
+  {
+    "performanceId": "p2021-f07",
+    "judgeId": "j020",
+    "score": 95
+  },
+  {
+    "performanceId": "p2021-f07",
+    "judgeId": "j002",
+    "score": 91
+  },
+  {
+    "performanceId": "p2021-f07",
+    "judgeId": "j015",
+    "score": 96
+  },
+  {
+    "performanceId": "p2021-f08",
+    "judgeId": "j014",
+    "score": 92
+  },
+  {
+    "performanceId": "p2021-f08",
+    "judgeId": "j024",
+    "score": 94
+  },
+  {
+    "performanceId": "p2021-f08",
+    "judgeId": "j031",
+    "score": 94
+  },
+  {
+    "performanceId": "p2021-f08",
+    "judgeId": "j030",
+    "score": 90
+  },
+  {
+    "performanceId": "p2021-f08",
+    "judgeId": "j020",
+    "score": 96
+  },
+  {
+    "performanceId": "p2021-f08",
+    "judgeId": "j002",
+    "score": 94
+  },
+  {
+    "performanceId": "p2021-f08",
+    "judgeId": "j015",
+    "score": 95
+  },
+  {
+    "performanceId": "p2021-f09",
+    "judgeId": "j014",
+    "score": 92
+  },
+  {
+    "performanceId": "p2021-f09",
+    "judgeId": "j024",
+    "score": 91
+  },
+  {
+    "performanceId": "p2021-f09",
+    "judgeId": "j031",
+    "score": 93
+  },
+  {
+    "performanceId": "p2021-f09",
+    "judgeId": "j030",
+    "score": 94
+  },
+  {
+    "performanceId": "p2021-f09",
+    "judgeId": "j020",
+    "score": 94
+  },
+  {
+    "performanceId": "p2021-f09",
+    "judgeId": "j002",
+    "score": 93
+  },
+  {
+    "performanceId": "p2021-f09",
+    "judgeId": "j015",
+    "score": 98
+  },
+  {
+    "performanceId": "p2021-f10",
+    "judgeId": "j014",
+    "score": 91
+  },
+  {
+    "performanceId": "p2021-f10",
+    "judgeId": "j024",
+    "score": 90
+  },
+  {
+    "performanceId": "p2021-f10",
+    "judgeId": "j031",
+    "score": 91
+  },
+  {
+    "performanceId": "p2021-f10",
+    "judgeId": "j030",
+    "score": 96
+  },
+  {
+    "performanceId": "p2021-f10",
+    "judgeId": "j020",
+    "score": 95
+  },
+  {
+    "performanceId": "p2021-f10",
+    "judgeId": "j002",
+    "score": 92
+  },
+  {
+    "performanceId": "p2021-f10",
+    "judgeId": "j015",
+    "score": 90
+  },
+  {
+    "performanceId": "p2022-f01",
+    "judgeId": "j032",
+    "score": 84
+  },
+  {
+    "performanceId": "p2022-f01",
+    "judgeId": "j019",
+    "score": 94
+  },
+  {
+    "performanceId": "p2022-f01",
+    "judgeId": "j031",
+    "score": 92
+  },
+  {
+    "performanceId": "p2022-f01",
+    "judgeId": "j024",
+    "score": 93
+  },
+  {
+    "performanceId": "p2022-f01",
+    "judgeId": "j030",
+    "score": 89
+  },
+  {
+    "performanceId": "p2022-f01",
+    "judgeId": "j020",
+    "score": 92
+  },
+  {
+    "performanceId": "p2022-f01",
+    "judgeId": "j002",
+    "score": 90
+  },
+  {
+    "performanceId": "p2022-f02",
+    "judgeId": "j032",
+    "score": 95
+  },
+  {
+    "performanceId": "p2022-f02",
+    "judgeId": "j019",
+    "score": 92
+  },
+  {
+    "performanceId": "p2022-f02",
+    "judgeId": "j031",
+    "score": 92
+  },
+  {
+    "performanceId": "p2022-f02",
+    "judgeId": "j024",
+    "score": 92
+  },
+  {
+    "performanceId": "p2022-f02",
+    "judgeId": "j030",
+    "score": 94
+  },
+  {
+    "performanceId": "p2022-f02",
+    "judgeId": "j020",
+    "score": 94
+  },
+  {
+    "performanceId": "p2022-f02",
+    "judgeId": "j002",
+    "score": 88
+  },
+  {
+    "performanceId": "p2022-f03",
+    "judgeId": "j032",
+    "score": 87
+  },
+  {
+    "performanceId": "p2022-f03",
+    "judgeId": "j019",
+    "score": 93
+  },
+  {
+    "performanceId": "p2022-f03",
+    "judgeId": "j031",
+    "score": 90
+  },
+  {
+    "performanceId": "p2022-f03",
+    "judgeId": "j024",
+    "score": 90
+  },
+  {
+    "performanceId": "p2022-f03",
+    "judgeId": "j030",
+    "score": 95
+  },
+  {
+    "performanceId": "p2022-f03",
+    "judgeId": "j020",
+    "score": 92
+  },
+  {
+    "performanceId": "p2022-f03",
+    "judgeId": "j002",
+    "score": 92
+  },
+  {
+    "performanceId": "p2022-f04",
+    "judgeId": "j032",
+    "score": 94
+  },
+  {
+    "performanceId": "p2022-f04",
+    "judgeId": "j019",
+    "score": 92
+  },
+  {
+    "performanceId": "p2022-f04",
+    "judgeId": "j031",
+    "score": 94
+  },
+  {
+    "performanceId": "p2022-f04",
+    "judgeId": "j024",
+    "score": 96
+  },
+  {
+    "performanceId": "p2022-f04",
+    "judgeId": "j030",
+    "score": 96
+  },
+  {
+    "performanceId": "p2022-f04",
+    "judgeId": "j020",
+    "score": 95
+  },
+  {
+    "performanceId": "p2022-f04",
+    "judgeId": "j002",
+    "score": 93
+  },
+  {
+    "performanceId": "p2022-f05",
+    "judgeId": "j032",
+    "score": 92
+  },
+  {
+    "performanceId": "p2022-f05",
+    "judgeId": "j019",
+    "score": 96
+  },
+  {
+    "performanceId": "p2022-f05",
+    "judgeId": "j031",
+    "score": 95
+  },
+  {
+    "performanceId": "p2022-f05",
+    "judgeId": "j024",
+    "score": 97
+  },
+  {
+    "performanceId": "p2022-f05",
+    "judgeId": "j030",
+    "score": 95
+  },
+  {
+    "performanceId": "p2022-f05",
+    "judgeId": "j020",
+    "score": 97
+  },
+  {
+    "performanceId": "p2022-f05",
+    "judgeId": "j002",
+    "score": 95
+  },
+  {
+    "performanceId": "p2022-f06",
+    "judgeId": "j032",
+    "score": 86
+  },
+  {
+    "performanceId": "p2022-f06",
+    "judgeId": "j019",
+    "score": 91
+  },
+  {
+    "performanceId": "p2022-f06",
+    "judgeId": "j031",
+    "score": 92
+  },
+  {
+    "performanceId": "p2022-f06",
+    "judgeId": "j024",
+    "score": 95
+  },
+  {
+    "performanceId": "p2022-f06",
+    "judgeId": "j030",
+    "score": 94
+  },
+  {
+    "performanceId": "p2022-f06",
+    "judgeId": "j020",
+    "score": 96
+  },
+  {
+    "performanceId": "p2022-f06",
+    "judgeId": "j002",
+    "score": 96
+  },
+  {
+    "performanceId": "p2022-f07",
+    "judgeId": "j032",
+    "score": 86
+  },
+  {
+    "performanceId": "p2022-f07",
+    "judgeId": "j019",
+    "score": 90
+  },
+  {
+    "performanceId": "p2022-f07",
+    "judgeId": "j031",
+    "score": 88
+  },
+  {
+    "performanceId": "p2022-f07",
+    "judgeId": "j024",
+    "score": 88
+  },
+  {
+    "performanceId": "p2022-f07",
+    "judgeId": "j030",
+    "score": 88
+  },
+  {
+    "performanceId": "p2022-f07",
+    "judgeId": "j020",
+    "score": 89
+  },
+  {
+    "performanceId": "p2022-f07",
+    "judgeId": "j002",
+    "score": 87
+  },
+  {
+    "performanceId": "p2022-f08",
+    "judgeId": "j032",
+    "score": 91
+  },
+  {
+    "performanceId": "p2022-f08",
+    "judgeId": "j019",
+    "score": 91
+  },
+  {
+    "performanceId": "p2022-f08",
+    "judgeId": "j031",
+    "score": 96
+  },
+  {
+    "performanceId": "p2022-f08",
+    "judgeId": "j024",
+    "score": 91
+  },
+  {
+    "performanceId": "p2022-f08",
+    "judgeId": "j030",
+    "score": 97
+  },
+  {
+    "performanceId": "p2022-f08",
+    "judgeId": "j020",
+    "score": 90
+  },
+  {
+    "performanceId": "p2022-f08",
+    "judgeId": "j002",
+    "score": 91
+  },
+  {
+    "performanceId": "p2022-f09",
+    "judgeId": "j032",
+    "score": 87
+  },
+  {
+    "performanceId": "p2022-f09",
+    "judgeId": "j019",
+    "score": 90
+  },
+  {
+    "performanceId": "p2022-f09",
+    "judgeId": "j031",
+    "score": 88
+  },
+  {
+    "performanceId": "p2022-f09",
+    "judgeId": "j024",
+    "score": 90
+  },
+  {
+    "performanceId": "p2022-f09",
+    "judgeId": "j030",
+    "score": 89
+  },
+  {
+    "performanceId": "p2022-f09",
+    "judgeId": "j020",
+    "score": 90
+  },
+  {
+    "performanceId": "p2022-f09",
+    "judgeId": "j002",
+    "score": 86
+  },
+  {
+    "performanceId": "p2022-f10",
+    "judgeId": "j032",
+    "score": 91
+  },
+  {
+    "performanceId": "p2022-f10",
+    "judgeId": "j019",
+    "score": 93
+  },
+  {
+    "performanceId": "p2022-f10",
+    "judgeId": "j031",
+    "score": 93
+  },
+  {
+    "performanceId": "p2022-f10",
+    "judgeId": "j024",
+    "score": 94
+  },
+  {
+    "performanceId": "p2022-f10",
+    "judgeId": "j030",
+    "score": 98
+  },
+  {
+    "performanceId": "p2022-f10",
+    "judgeId": "j020",
+    "score": 96
+  },
+  {
+    "performanceId": "p2022-f10",
+    "judgeId": "j002",
+    "score": 94
+  },
+  {
+    "performanceId": "p2023-f01",
+    "judgeId": "j032",
+    "score": 92
+  },
+  {
+    "performanceId": "p2023-f01",
+    "judgeId": "j019",
+    "score": 91
+  },
+  {
+    "performanceId": "p2023-f01",
+    "judgeId": "j024",
+    "score": 94
+  },
+  {
+    "performanceId": "p2023-f01",
+    "judgeId": "j031",
+    "score": 93
+  },
+  {
+    "performanceId": "p2023-f01",
+    "judgeId": "j033",
+    "score": 94
+  },
+  {
+    "performanceId": "p2023-f01",
+    "judgeId": "j020",
+    "score": 94
+  },
+  {
+    "performanceId": "p2023-f01",
+    "judgeId": "j002",
+    "score": 90
+  },
+  {
+    "performanceId": "p2023-f02",
+    "judgeId": "j032",
+    "score": 87
+  },
+  {
+    "performanceId": "p2023-f02",
+    "judgeId": "j019",
+    "score": 88
+  },
+  {
+    "performanceId": "p2023-f02",
+    "judgeId": "j024",
+    "score": 91
+  },
+  {
+    "performanceId": "p2023-f02",
+    "judgeId": "j031",
+    "score": 90
+  },
+  {
+    "performanceId": "p2023-f02",
+    "judgeId": "j033",
+    "score": 92
+  },
+  {
+    "performanceId": "p2023-f02",
+    "judgeId": "j020",
+    "score": 91
+  },
+  {
+    "performanceId": "p2023-f02",
+    "judgeId": "j002",
+    "score": 88
+  },
+  {
+    "performanceId": "p2023-f03",
+    "judgeId": "j032",
+    "score": 98
+  },
+  {
+    "performanceId": "p2023-f03",
+    "judgeId": "j019",
+    "score": 94
+  },
+  {
+    "performanceId": "p2023-f03",
+    "judgeId": "j024",
+    "score": 95
+  },
+  {
+    "performanceId": "p2023-f03",
+    "judgeId": "j031",
+    "score": 93
+  },
+  {
+    "performanceId": "p2023-f03",
+    "judgeId": "j033",
+    "score": 96
+  },
+  {
+    "performanceId": "p2023-f03",
+    "judgeId": "j020",
+    "score": 94
+  },
+  {
+    "performanceId": "p2023-f03",
+    "judgeId": "j002",
+    "score": 89
+  },
+  {
+    "performanceId": "p2023-f04",
+    "judgeId": "j032",
+    "score": 94
+  },
+  {
+    "performanceId": "p2023-f04",
+    "judgeId": "j019",
+    "score": 89
+  },
+  {
+    "performanceId": "p2023-f04",
+    "judgeId": "j024",
+    "score": 88
+  },
+  {
+    "performanceId": "p2023-f04",
+    "judgeId": "j031",
+    "score": 89
+  },
+  {
+    "performanceId": "p2023-f04",
+    "judgeId": "j033",
+    "score": 95
+  },
+  {
+    "performanceId": "p2023-f04",
+    "judgeId": "j020",
+    "score": 92
+  },
+  {
+    "performanceId": "p2023-f04",
+    "judgeId": "j002",
+    "score": 88
+  },
+  {
+    "performanceId": "p2023-f05",
+    "judgeId": "j032",
+    "score": 92
+  },
+  {
+    "performanceId": "p2023-f05",
+    "judgeId": "j019",
+    "score": 90
+  },
+  {
+    "performanceId": "p2023-f05",
+    "judgeId": "j024",
+    "score": 96
+  },
+  {
+    "performanceId": "p2023-f05",
+    "judgeId": "j031",
+    "score": 92
+  },
+  {
+    "performanceId": "p2023-f05",
+    "judgeId": "j033",
+    "score": 92
+  },
+  {
+    "performanceId": "p2023-f05",
+    "judgeId": "j020",
+    "score": 92
+  },
+  {
+    "performanceId": "p2023-f05",
+    "judgeId": "j002",
+    "score": 91
+  },
+  {
+    "performanceId": "p2023-f06",
+    "judgeId": "j032",
+    "score": 93
+  },
+  {
+    "performanceId": "p2023-f06",
+    "judgeId": "j019",
+    "score": 91
+  },
+  {
+    "performanceId": "p2023-f06",
+    "judgeId": "j024",
+    "score": 97
+  },
+  {
+    "performanceId": "p2023-f06",
+    "judgeId": "j031",
+    "score": 93
+  },
+  {
+    "performanceId": "p2023-f06",
+    "judgeId": "j033",
+    "score": 96
+  },
+  {
+    "performanceId": "p2023-f06",
+    "judgeId": "j020",
+    "score": 93
+  },
+  {
+    "performanceId": "p2023-f06",
+    "judgeId": "j002",
+    "score": 93
+  },
+  {
+    "performanceId": "p2023-f07",
+    "judgeId": "j032",
+    "score": 90
+  },
+  {
+    "performanceId": "p2023-f07",
+    "judgeId": "j019",
+    "score": 95
+  },
+  {
+    "performanceId": "p2023-f07",
+    "judgeId": "j024",
+    "score": 93
+  },
+  {
+    "performanceId": "p2023-f07",
+    "judgeId": "j031",
+    "score": 91
+  },
+  {
+    "performanceId": "p2023-f07",
+    "judgeId": "j033",
+    "score": 91
+  },
+  {
+    "performanceId": "p2023-f07",
+    "judgeId": "j020",
+    "score": 91
+  },
+  {
+    "performanceId": "p2023-f07",
+    "judgeId": "j002",
+    "score": 92
+  },
+  {
+    "performanceId": "p2023-f08",
+    "judgeId": "j032",
+    "score": 93
+  },
+  {
+    "performanceId": "p2023-f08",
+    "judgeId": "j019",
+    "score": 89
+  },
+  {
+    "performanceId": "p2023-f08",
+    "judgeId": "j024",
+    "score": 92
+  },
+  {
+    "performanceId": "p2023-f08",
+    "judgeId": "j031",
+    "score": 91
+  },
+  {
+    "performanceId": "p2023-f08",
+    "judgeId": "j033",
+    "score": 90
+  },
+  {
+    "performanceId": "p2023-f08",
+    "judgeId": "j020",
+    "score": 89
+  },
+  {
+    "performanceId": "p2023-f08",
+    "judgeId": "j002",
+    "score": 87
+  },
+  {
+    "performanceId": "p2023-f09",
+    "judgeId": "j032",
+    "score": 89
+  },
+  {
+    "performanceId": "p2023-f09",
+    "judgeId": "j019",
+    "score": 87
+  },
+  {
+    "performanceId": "p2023-f09",
+    "judgeId": "j024",
+    "score": 89
+  },
+  {
+    "performanceId": "p2023-f09",
+    "judgeId": "j031",
+    "score": 90
+  },
+  {
+    "performanceId": "p2023-f09",
+    "judgeId": "j033",
+    "score": 89
+  },
+  {
+    "performanceId": "p2023-f09",
+    "judgeId": "j020",
+    "score": 90
+  },
+  {
+    "performanceId": "p2023-f09",
+    "judgeId": "j002",
+    "score": 86
+  },
+  {
+    "performanceId": "p2023-f10",
+    "judgeId": "j032",
+    "score": 87
+  },
+  {
+    "performanceId": "p2023-f10",
+    "judgeId": "j019",
+    "score": 89
+  },
+  {
+    "performanceId": "p2023-f10",
+    "judgeId": "j024",
+    "score": 90
+  },
+  {
+    "performanceId": "p2023-f10",
+    "judgeId": "j031",
+    "score": 91
+  },
+  {
+    "performanceId": "p2023-f10",
+    "judgeId": "j033",
+    "score": 93
+  },
+  {
+    "performanceId": "p2023-f10",
+    "judgeId": "j020",
+    "score": 91
+  },
+  {
+    "performanceId": "p2023-f10",
+    "judgeId": "j002",
+    "score": 91
+  },
+  {
+    "performanceId": "p2024-f01",
+    "judgeId": "j019",
+    "score": 96
+  },
+  {
+    "performanceId": "p2024-f01",
+    "judgeId": "j031",
+    "score": 93
+  },
+  {
+    "performanceId": "p2024-f01",
+    "judgeId": "j018",
+    "score": 90
+  },
+  {
+    "performanceId": "p2024-f01",
+    "judgeId": "j034",
+    "score": 94
+  },
+  {
+    "performanceId": "p2024-f01",
+    "judgeId": "j023",
+    "score": 96
+  },
+  {
+    "performanceId": "p2024-f01",
+    "judgeId": "j035",
+    "score": 96
+  },
+  {
+    "performanceId": "p2024-f01",
+    "judgeId": "j036",
+    "score": 95
+  },
+  {
+    "performanceId": "p2024-f01",
+    "judgeId": "j033",
+    "score": 97
+  },
+  {
+    "performanceId": "p2024-f01",
+    "judgeId": "j020",
+    "score": 93
+  },
+  {
+    "performanceId": "p2024-f02",
+    "judgeId": "j019",
+    "score": 92
+  },
+  {
+    "performanceId": "p2024-f02",
+    "judgeId": "j031",
+    "score": 92
+  },
+  {
+    "performanceId": "p2024-f02",
+    "judgeId": "j018",
+    "score": 91
+  },
+  {
+    "performanceId": "p2024-f02",
+    "judgeId": "j034",
+    "score": 92
+  },
+  {
+    "performanceId": "p2024-f02",
+    "judgeId": "j023",
+    "score": 92
+  },
+  {
+    "performanceId": "p2024-f02",
+    "judgeId": "j035",
+    "score": 91
+  },
+  {
+    "performanceId": "p2024-f02",
+    "judgeId": "j036",
+    "score": 91
+  },
+  {
+    "performanceId": "p2024-f02",
+    "judgeId": "j033",
+    "score": 94
+  },
+  {
+    "performanceId": "p2024-f02",
+    "judgeId": "j020",
+    "score": 90
+  },
+  {
+    "performanceId": "p2024-f03",
+    "judgeId": "j019",
+    "score": 97
+  },
+  {
+    "performanceId": "p2024-f03",
+    "judgeId": "j031",
+    "score": 94
+  },
+  {
+    "performanceId": "p2024-f03",
+    "judgeId": "j018",
+    "score": 90
+  },
+  {
+    "performanceId": "p2024-f03",
+    "judgeId": "j034",
+    "score": 93
+  },
+  {
+    "performanceId": "p2024-f03",
+    "judgeId": "j023",
+    "score": 95
+  },
+  {
+    "performanceId": "p2024-f03",
+    "judgeId": "j035",
+    "score": 97
+  },
+  {
+    "performanceId": "p2024-f03",
+    "judgeId": "j036",
+    "score": 94
+  },
+  {
+    "performanceId": "p2024-f03",
+    "judgeId": "j033",
+    "score": 95
+  },
+  {
+    "performanceId": "p2024-f03",
+    "judgeId": "j020",
+    "score": 94
+  },
+  {
+    "performanceId": "p2024-f04",
+    "judgeId": "j019",
+    "score": 93
+  },
+  {
+    "performanceId": "p2024-f04",
+    "judgeId": "j031",
+    "score": 91
+  },
+  {
+    "performanceId": "p2024-f04",
+    "judgeId": "j018",
+    "score": 88
+  },
+  {
+    "performanceId": "p2024-f04",
+    "judgeId": "j034",
+    "score": 91
+  },
+  {
+    "performanceId": "p2024-f04",
+    "judgeId": "j023",
+    "score": 91
+  },
+  {
+    "performanceId": "p2024-f04",
+    "judgeId": "j035",
+    "score": 90
+  },
+  {
+    "performanceId": "p2024-f04",
+    "judgeId": "j036",
+    "score": 89
+  },
+  {
+    "performanceId": "p2024-f04",
+    "judgeId": "j033",
+    "score": 96
+  },
+  {
+    "performanceId": "p2024-f04",
+    "judgeId": "j020",
+    "score": 91
+  },
+  {
+    "performanceId": "p2024-f05",
+    "judgeId": "j019",
+    "score": 90
+  },
+  {
+    "performanceId": "p2024-f05",
+    "judgeId": "j031",
+    "score": 93
+  },
+  {
+    "performanceId": "p2024-f05",
+    "judgeId": "j018",
+    "score": 89
+  },
+  {
+    "performanceId": "p2024-f05",
+    "judgeId": "j034",
+    "score": 92
+  },
+  {
+    "performanceId": "p2024-f05",
+    "judgeId": "j023",
+    "score": 90
+  },
+  {
+    "performanceId": "p2024-f05",
+    "judgeId": "j035",
+    "score": 92
+  },
+  {
+    "performanceId": "p2024-f05",
+    "judgeId": "j036",
+    "score": 88
+  },
+  {
+    "performanceId": "p2024-f05",
+    "judgeId": "j033",
+    "score": 94
+  },
+  {
+    "performanceId": "p2024-f05",
+    "judgeId": "j020",
+    "score": 92
+  },
+  {
+    "performanceId": "p2024-f06",
+    "judgeId": "j019",
+    "score": 89
+  },
+  {
+    "performanceId": "p2024-f06",
+    "judgeId": "j031",
+    "score": 91
+  },
+  {
+    "performanceId": "p2024-f06",
+    "judgeId": "j018",
+    "score": 91
+  },
+  {
+    "performanceId": "p2024-f06",
+    "judgeId": "j034",
+    "score": 90
+  },
+  {
+    "performanceId": "p2024-f06",
+    "judgeId": "j023",
+    "score": 89
+  },
+  {
+    "performanceId": "p2024-f06",
+    "judgeId": "j035",
+    "score": 93
+  },
+  {
+    "performanceId": "p2024-f06",
+    "judgeId": "j036",
+    "score": 88
+  },
+  {
+    "performanceId": "p2024-f06",
+    "judgeId": "j033",
+    "score": 95
+  },
+  {
+    "performanceId": "p2024-f06",
+    "judgeId": "j020",
+    "score": 93
+  },
+  {
+    "performanceId": "p2024-f07",
+    "judgeId": "j019",
+    "score": 95
+  },
+  {
+    "performanceId": "p2024-f07",
+    "judgeId": "j031",
+    "score": 93
+  },
+  {
+    "performanceId": "p2024-f07",
+    "judgeId": "j018",
+    "score": 95
+  },
+  {
+    "performanceId": "p2024-f07",
+    "judgeId": "j034",
+    "score": 95
+  },
+  {
+    "performanceId": "p2024-f07",
+    "judgeId": "j023",
+    "score": 97
+  },
+  {
+    "performanceId": "p2024-f07",
+    "judgeId": "j035",
+    "score": 96
+  },
+  {
+    "performanceId": "p2024-f07",
+    "judgeId": "j036",
+    "score": 96
+  },
+  {
+    "performanceId": "p2024-f07",
+    "judgeId": "j033",
+    "score": 97
+  },
+  {
+    "performanceId": "p2024-f07",
+    "judgeId": "j020",
+    "score": 97
+  },
+  {
+    "performanceId": "p2024-f08",
+    "judgeId": "j019",
+    "score": 88
+  },
+  {
+    "performanceId": "p2024-f08",
+    "judgeId": "j031",
+    "score": 89
+  },
+  {
+    "performanceId": "p2024-f08",
+    "judgeId": "j018",
+    "score": 89
+  },
+  {
+    "performanceId": "p2024-f08",
+    "judgeId": "j034",
+    "score": 89
+  },
+  {
+    "performanceId": "p2024-f08",
+    "judgeId": "j023",
+    "score": 90
+  },
+  {
+    "performanceId": "p2024-f08",
+    "judgeId": "j035",
+    "score": 93
+  },
+  {
+    "performanceId": "p2024-f08",
+    "judgeId": "j036",
+    "score": 89
+  },
+  {
+    "performanceId": "p2024-f08",
+    "judgeId": "j033",
+    "score": 92
+  },
+  {
+    "performanceId": "p2024-f08",
+    "judgeId": "j020",
+    "score": 93
+  },
+  {
+    "performanceId": "p2024-f09",
+    "judgeId": "j019",
+    "score": 94
+  },
+  {
+    "performanceId": "p2024-f09",
+    "judgeId": "j031",
+    "score": 94
+  },
+  {
+    "performanceId": "p2024-f09",
+    "judgeId": "j018",
+    "score": 93
+  },
+  {
+    "performanceId": "p2024-f09",
+    "judgeId": "j034",
+    "score": 94
+  },
+  {
+    "performanceId": "p2024-f09",
+    "judgeId": "j023",
+    "score": 96
+  },
+  {
+    "performanceId": "p2024-f09",
+    "judgeId": "j035",
+    "score": 94
+  },
+  {
+    "performanceId": "p2024-f09",
+    "judgeId": "j036",
+    "score": 93
+  },
+  {
+    "performanceId": "p2024-f09",
+    "judgeId": "j033",
+    "score": 94
+  },
+  {
+    "performanceId": "p2024-f09",
+    "judgeId": "j020",
+    "score": 96
+  },
+  {
+    "performanceId": "p2024-f10",
+    "judgeId": "j019",
+    "score": 95
+  },
+  {
+    "performanceId": "p2024-f10",
+    "judgeId": "j031",
+    "score": 95
+  },
+  {
+    "performanceId": "p2024-f10",
+    "judgeId": "j018",
+    "score": 92
+  },
+  {
+    "performanceId": "p2024-f10",
+    "judgeId": "j034",
+    "score": 93
+  },
+  {
+    "performanceId": "p2024-f10",
+    "judgeId": "j023",
+    "score": 88
+  },
+  {
+    "performanceId": "p2024-f10",
+    "judgeId": "j035",
+    "score": 90
+  },
+  {
+    "performanceId": "p2024-f10",
+    "judgeId": "j036",
+    "score": 87
+  },
+  {
+    "performanceId": "p2024-f10",
+    "judgeId": "j033",
+    "score": 94
+  },
+  {
+    "performanceId": "p2024-f10",
+    "judgeId": "j020",
+    "score": 89
+  },
+  {
+    "performanceId": "p2025-f01",
+    "judgeId": "j019",
+    "score": 93
+  },
+  {
+    "performanceId": "p2025-f01",
+    "judgeId": "j037",
+    "score": 91
+  },
+  {
+    "performanceId": "p2025-f01",
+    "judgeId": "j031",
+    "score": 95
+  },
+  {
+    "performanceId": "p2025-f01",
+    "judgeId": "j035",
+    "score": 94
+  },
+  {
+    "performanceId": "p2025-f01",
+    "judgeId": "j038",
+    "score": 94
+  },
+  {
+    "performanceId": "p2025-f01",
+    "judgeId": "j018",
+    "score": 91
+  },
+  {
+    "performanceId": "p2025-f01",
+    "judgeId": "j036",
+    "score": 94
+  },
+  {
+    "performanceId": "p2025-f01",
+    "judgeId": "j033",
+    "score": 97
+  },
+  {
+    "performanceId": "p2025-f01",
+    "judgeId": "j020",
+    "score": 94
+  },
+  {
+    "performanceId": "p2025-f02",
+    "judgeId": "j019",
+    "score": 92
+  },
+  {
+    "performanceId": "p2025-f02",
+    "judgeId": "j037",
+    "score": 94
+  },
+  {
+    "performanceId": "p2025-f02",
+    "judgeId": "j031",
+    "score": 92
+  },
+  {
+    "performanceId": "p2025-f02",
+    "judgeId": "j035",
+    "score": 89
+  },
+  {
+    "performanceId": "p2025-f02",
+    "judgeId": "j038",
+    "score": 90
+  },
+  {
+    "performanceId": "p2025-f02",
+    "judgeId": "j018",
+    "score": 90
+  },
+  {
+    "performanceId": "p2025-f02",
+    "judgeId": "j036",
+    "score": 89
+  },
+  {
+    "performanceId": "p2025-f02",
+    "judgeId": "j033",
+    "score": 93
+  },
+  {
+    "performanceId": "p2025-f02",
+    "judgeId": "j020",
+    "score": 91
+  },
+  {
+    "performanceId": "p2025-f03",
+    "judgeId": "j019",
+    "score": 94
+  },
+  {
+    "performanceId": "p2025-f03",
+    "judgeId": "j037",
+    "score": 93
+  },
+  {
+    "performanceId": "p2025-f03",
+    "judgeId": "j031",
+    "score": 92
+  },
+  {
+    "performanceId": "p2025-f03",
+    "judgeId": "j035",
+    "score": 90
+  },
+  {
+    "performanceId": "p2025-f03",
+    "judgeId": "j038",
+    "score": 93
+  },
+  {
+    "performanceId": "p2025-f03",
+    "judgeId": "j018",
+    "score": 90
+  },
+  {
+    "performanceId": "p2025-f03",
+    "judgeId": "j036",
+    "score": 91
+  },
+  {
+    "performanceId": "p2025-f03",
+    "judgeId": "j033",
+    "score": 94
+  },
+  {
+    "performanceId": "p2025-f03",
+    "judgeId": "j020",
+    "score": 93
+  },
+  {
+    "performanceId": "p2025-f04",
+    "judgeId": "j019",
+    "score": 97
+  },
+  {
+    "performanceId": "p2025-f04",
+    "judgeId": "j037",
+    "score": 95
+  },
+  {
+    "performanceId": "p2025-f04",
+    "judgeId": "j031",
+    "score": 99
+  },
+  {
+    "performanceId": "p2025-f04",
+    "judgeId": "j035",
+    "score": 97
+  },
+  {
+    "performanceId": "p2025-f04",
+    "judgeId": "j038",
+    "score": 96
+  },
+  {
+    "performanceId": "p2025-f04",
+    "judgeId": "j018",
+    "score": 97
+  },
+  {
+    "performanceId": "p2025-f04",
+    "judgeId": "j036",
+    "score": 98
+  },
+  {
+    "performanceId": "p2025-f04",
+    "judgeId": "j033",
+    "score": 96
+  },
+  {
+    "performanceId": "p2025-f04",
+    "judgeId": "j020",
+    "score": 95
+  },
+  {
+    "performanceId": "p2025-f05",
+    "judgeId": "j019",
+    "score": 95
+  },
+  {
+    "performanceId": "p2025-f05",
+    "judgeId": "j037",
+    "score": 94
+  },
+  {
+    "performanceId": "p2025-f05",
+    "judgeId": "j031",
+    "score": 93
+  },
+  {
+    "performanceId": "p2025-f05",
+    "judgeId": "j035",
+    "score": 95
+  },
+  {
+    "performanceId": "p2025-f05",
+    "judgeId": "j038",
+    "score": 94
+  },
+  {
+    "performanceId": "p2025-f05",
+    "judgeId": "j018",
+    "score": 91
+  },
+  {
+    "performanceId": "p2025-f05",
+    "judgeId": "j036",
+    "score": 92
+  },
+  {
+    "performanceId": "p2025-f05",
+    "judgeId": "j033",
+    "score": 94
+  },
+  {
+    "performanceId": "p2025-f05",
+    "judgeId": "j020",
+    "score": 96
+  },
+  {
+    "performanceId": "p2025-f06",
+    "judgeId": "j019",
+    "score": 94
+  },
+  {
+    "performanceId": "p2025-f06",
+    "judgeId": "j037",
+    "score": 92
+  },
+  {
+    "performanceId": "p2025-f06",
+    "judgeId": "j031",
+    "score": 94
+  },
+  {
+    "performanceId": "p2025-f06",
+    "judgeId": "j035",
+    "score": 91
+  },
+  {
+    "performanceId": "p2025-f06",
+    "judgeId": "j038",
+    "score": 89
+  },
+  {
+    "performanceId": "p2025-f06",
+    "judgeId": "j018",
+    "score": 89
+  },
+  {
+    "performanceId": "p2025-f06",
+    "judgeId": "j036",
+    "score": 93
+  },
+  {
+    "performanceId": "p2025-f06",
+    "judgeId": "j033",
+    "score": 94
+  },
+  {
+    "performanceId": "p2025-f06",
+    "judgeId": "j020",
+    "score": 90
+  },
+  {
+    "performanceId": "p2025-f07",
+    "judgeId": "j019",
+    "score": 96
+  },
+  {
+    "performanceId": "p2025-f07",
+    "judgeId": "j037",
+    "score": 97
+  },
+  {
+    "performanceId": "p2025-f07",
+    "judgeId": "j031",
+    "score": 96
+  },
+  {
+    "performanceId": "p2025-f07",
+    "judgeId": "j035",
+    "score": 92
+  },
+  {
+    "performanceId": "p2025-f07",
+    "judgeId": "j038",
+    "score": 95
+  },
+  {
+    "performanceId": "p2025-f07",
+    "judgeId": "j018",
+    "score": 94
+  },
+  {
+    "performanceId": "p2025-f07",
+    "judgeId": "j036",
+    "score": 97
+  },
+  {
+    "performanceId": "p2025-f07",
+    "judgeId": "j033",
+    "score": 97
+  },
+  {
+    "performanceId": "p2025-f07",
+    "judgeId": "j020",
+    "score": 97
+  },
+  {
+    "performanceId": "p2025-f08",
+    "judgeId": "j019",
+    "score": 91
+  },
+  {
+    "performanceId": "p2025-f08",
+    "judgeId": "j037",
+    "score": 95
+  },
+  {
+    "performanceId": "p2025-f08",
+    "judgeId": "j031",
+    "score": 91
+  },
+  {
+    "performanceId": "p2025-f08",
+    "judgeId": "j035",
+    "score": 95
+  },
+  {
+    "performanceId": "p2025-f08",
+    "judgeId": "j038",
+    "score": 93
+  },
+  {
+    "performanceId": "p2025-f08",
+    "judgeId": "j018",
+    "score": 95
+  },
+  {
+    "performanceId": "p2025-f08",
+    "judgeId": "j036",
+    "score": 94
+  },
+  {
+    "performanceId": "p2025-f08",
+    "judgeId": "j033",
+    "score": 95
+  },
+  {
+    "performanceId": "p2025-f08",
+    "judgeId": "j020",
+    "score": 96
+  },
+  {
+    "performanceId": "p2025-f09",
+    "judgeId": "j019",
+    "score": 89
+  },
+  {
+    "performanceId": "p2025-f09",
+    "judgeId": "j037",
+    "score": 96
+  },
+  {
+    "performanceId": "p2025-f09",
+    "judgeId": "j031",
+    "score": 93
+  },
+  {
+    "performanceId": "p2025-f09",
+    "judgeId": "j035",
+    "score": 96
+  },
+  {
+    "performanceId": "p2025-f09",
+    "judgeId": "j038",
+    "score": 92
+  },
+  {
+    "performanceId": "p2025-f09",
+    "judgeId": "j018",
+    "score": 91
+  },
+  {
+    "performanceId": "p2025-f09",
+    "judgeId": "j036",
+    "score": 93
+  },
+  {
+    "performanceId": "p2025-f09",
+    "judgeId": "j033",
+    "score": 95
+  },
+  {
+    "performanceId": "p2025-f09",
+    "judgeId": "j020",
+    "score": 94
+  },
+  {
+    "performanceId": "p2025-f10",
+    "judgeId": "j019",
+    "score": 90
+  },
+  {
+    "performanceId": "p2025-f10",
+    "judgeId": "j037",
+    "score": 93
+  },
+  {
+    "performanceId": "p2025-f10",
+    "judgeId": "j031",
+    "score": 94
+  },
+  {
+    "performanceId": "p2025-f10",
+    "judgeId": "j035",
+    "score": 91
+  },
+  {
+    "performanceId": "p2025-f10",
+    "judgeId": "j038",
+    "score": 91
+  },
+  {
+    "performanceId": "p2025-f10",
+    "judgeId": "j018",
+    "score": 89
+  },
+  {
+    "performanceId": "p2025-f10",
+    "judgeId": "j036",
+    "score": 88
+  },
+  {
+    "performanceId": "p2025-f10",
+    "judgeId": "j033",
+    "score": 93
+  },
+  {
+    "performanceId": "p2025-f10",
+    "judgeId": "j020",
+    "score": 94
+  }
+]
