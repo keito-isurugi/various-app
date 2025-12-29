@@ -11,6 +11,7 @@ import {
 	Code,
 	Dumbbell,
 	GraduationCap,
+	Mic,
 	Rocket,
 	Ticket,
 } from "lucide-react";
@@ -78,6 +79,12 @@ export const SideNavigation: React.FC<SideNavigationProps> = ({
 			label: "ポケモン図鑑",
 			icon: MonsterBallIcon,
 			color: "from-red-500 to-rose-600",
+		},
+		{
+			href: "/m1",
+			label: "M-1グランプリ分析",
+			icon: Mic,
+			color: "from-red-600 to-red-400",
 		},
 	];
 

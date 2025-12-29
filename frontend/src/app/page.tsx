@@ -6,6 +6,7 @@ import {
 	Calendar,
 	Code,
 	Dumbbell,
+	Mic,
 	Rocket,
 	Ticket,
 } from "lucide-react";
@@ -47,6 +48,13 @@ const pageLinks = [
 		description: "全世代のポケモンデータ",
 		icon: MonsterBallIcon,
 		color: "from-red-500 to-rose-600",
+	},
+	{
+		href: "/m1",
+		title: "M-1グランプリ分析",
+		description: "歴代の採点データを分析",
+		icon: Mic,
+		color: "from-red-600 to-red-400",
 	},
 	// 学習カテゴリ（サイドメニューの学習カテゴリと同順）
 	{
