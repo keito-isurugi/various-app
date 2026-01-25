@@ -3,11 +3,11 @@ package main
 import (
 	"fmt"
 
-	"github.com/keito-isurugi/various-app/infrastructure/aws"
-	"github.com/keito-isurugi/various-app/infrastructure/postgresql"
-	"github.com/keito-isurugi/various-app/infrastructure/env"
-	"github.com/keito-isurugi/various-app/infrastructure/logger"
-	"github.com/keito-isurugi/various-app/server"
+	"github.com/keiai0/various-app/infrastructure/aws"
+	"github.com/keiai0/various-app/infrastructure/postgresql"
+	"github.com/keiai0/various-app/infrastructure/env"
+	"github.com/keiai0/various-app/infrastructure/logger"
+	"github.com/keiai0/various-app/server"
 )
 
 func main() {

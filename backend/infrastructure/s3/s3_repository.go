@@ -10,8 +10,8 @@ import (
 	"github.com/aws/aws-sdk-go/service/s3"
 	"github.com/aws/aws-sdk-go/service/s3/s3iface"
 
-	domain "github.com/keito-isurugi/various-app/domain/storage"
-	"github.com/keito-isurugi/various-app/infrastructure/env"
+	domain "github.com/keiai0/various-app/domain/storage"
+	"github.com/keiai0/various-app/infrastructure/env"
 )
 
 type s3Repository struct {

@@ -3,7 +3,7 @@ package tag
 import (
 	"github.com/labstack/echo/v4"
 
-	tagDomain "github.com/keito-isurugi/various-app/domain/tag"
+	tagDomain "github.com/keiai0/various-app/domain/tag"
 )
 
 type GetTagUseCase interface {

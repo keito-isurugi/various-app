@@ -3,8 +3,8 @@ package image
 import (
 	"github.com/labstack/echo/v4"
 
-	tagApp "github.com/keito-isurugi/various-app/application/tag"
-	imageDomain "github.com/keito-isurugi/various-app/domain/image"
+	tagApp "github.com/keiai0/various-app/application/tag"
+	imageDomain "github.com/keiai0/various-app/domain/image"
 )
 
 type ImageUseCaseDto struct {

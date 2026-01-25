@@ -1,4 +1,4 @@
-module github.com/keito-isurugi/various-app
+module github.com/keiai0/various-app
 
 go 1.23.4
 

@@ -1,7 +1,7 @@
 package image
 
 import (
-	tagDomain "github.com/keito-isurugi/various-app/domain/tag"
+	tagDomain "github.com/keiai0/various-app/domain/tag"
 	"time"
 )
 

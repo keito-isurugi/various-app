@@ -3,7 +3,7 @@ package image_tag
 import (
 	"github.com/labstack/echo/v4"
 
-	imageTagDomain "github.com/keito-isurugi/various-app/domain/image_tag"
+	imageTagDomain "github.com/keiai0/various-app/domain/image_tag"
 )
 
 type UpdateMultipleImageTagsUseCaseInputDto struct {

@@ -3,11 +3,11 @@ package repository
 import (
 	"context"
 	"fmt"
-	imageDomain "github.com/keito-isurugi/various-app/domain/image"
-	imageTagDomain "github.com/keito-isurugi/various-app/domain/image_tag"
+	imageDomain "github.com/keiai0/various-app/domain/image"
+	imageTagDomain "github.com/keiai0/various-app/domain/image_tag"
 
-	"github.com/keito-isurugi/various-app/domain/image"
-	"github.com/keito-isurugi/various-app/infrastructure/postgresql"
+	"github.com/keiai0/various-app/domain/image"
+	"github.com/keiai0/various-app/infrastructure/postgresql"
 )
 
 type imageRepository struct {
