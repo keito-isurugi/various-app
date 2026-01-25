@@ -266,5 +266,5 @@ MIT License - 詳細は [LICENSE](LICENSE) ファイルを参照
 
 ---
 
-**開発者**: [Kei Isurugi](https://github.com/keiai0)  
+**開発者**: [keiai0](https://github.com/keiai0)  
 **サイトURL**: [various-app.vercel.app](https://various-app.vercel.app)
