@@ -24,7 +24,7 @@ export default function PokemonShowPage() {
 	const handleNavigate = (direction: "prev" | "next") => {
 		const newId = direction === "prev" ? pokeId - 1 : pokeId + 1;
 		if (newId >= 1 && newId <= allPokemon.length) {
-			router.push(`/pokemon/${newId}`);
+			router.push(`/pokemon/pokedex/${newId}`);
 		}
 	};
 

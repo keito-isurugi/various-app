@@ -44,8 +44,8 @@ const pageLinks = [
 	},
 	{
 		href: "/pokemon",
-		title: "ポケモン図鑑",
-		description: "全世代のポケモンデータ",
+		title: "ポケモン",
+		description: "ポケモン図鑑・セレクトバグ解説など",
 		icon: MonsterBallIcon,
 		color: "from-red-500 to-rose-600",
 	},

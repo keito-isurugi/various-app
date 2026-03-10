@@ -1,140 +1,63 @@
-"use client";
-
-import Image from "next/image";
+import { BookOpen, Bug } from "lucide-react";
+import type { Metadata } from "next";
 import Link from "next/link";
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import "@/css/pokemon.css";
-import BallSpinner from "@/components/pokemon/BallSpinner";
-import PokeSlider from "@/components/pokemon/PokeSlider";
-import { usePokeInfoHooks } from "@/hooks/pokemon/usePokeInfoHooks";
-import pokemonJson from "@/lib/json/pokemon_999.json";
-import type { Pokemon } from "@/types/pokemon";
 
-const NUM_PER_PAGE = 64; // 1ページあたりの取得数
+export const metadata: Metadata = {
+	title: "ポケモン | Various App",
+	description: "ポケモン関連コンテンツの一覧",
+};
 
-export default function PokemonPage() {
-	const { generationName } = usePokeInfoHooks();
-	const [generation, setGeneration] = useState(999);
-	const [displayedPokemon, setDisplayedPokemon] = useState<Pokemon[]>([]);
-	const [hasMore, setHasMore] = useState(true);
-	const [isLoading, setIsLoading] = useState(true);
-	const loaderRef = useRef<HTMLDivElement>(null);
+const pokemonPages = [
+	{
+		href: "/pokemon/pokedex",
+		title: "ポケモン図鑑",
+		description: "全世代のポケモンを一覧で閲覧できます。",
+		icon: BookOpen,
+		color: "from-red-500 to-rose-600",
+	},
+	{
+		href: "/pokemon/select-bug",
+		title: "セレクトバグ ビジュアライザー",
+		description:
+			"初代ポケモンの「7番目バグ」がなぜレベル100を生み出すのか、メモリレベルで視覚的に体験できます。",
+		icon: Bug,
+		color: "from-green-500 to-emerald-600",
+	},
+];
 
-	const allPokemon = useMemo(() => pokemonJson as Pokemon[], []);
-
-	const filteredPokemon = useMemo(() => {
-		if (generation === 999) {
-			return allPokemon;
-		}
-		return allPokemon.filter((data) => data.generation === generation);
-	}, [allPokemon, generation]);
-
-	// 初期データの読み込みとフィルター変更時のリセット
-	useEffect(() => {
-		setIsLoading(true);
-		const initialData = filteredPokemon.slice(0, NUM_PER_PAGE);
-		setDisplayedPokemon(initialData);
-		setHasMore(filteredPokemon.length > NUM_PER_PAGE);
-		setIsLoading(false);
-	}, [filteredPokemon]);
-
-	// 追加データを読み込む
-	const loadMore = useCallback(() => {
-		if (!hasMore || isLoading) return;
-
-		const currentLength = displayedPokemon.length;
-		const nextData = filteredPokemon.slice(
-			currentLength,
-			currentLength + NUM_PER_PAGE,
-		);
-
-		if (nextData.length > 0) {
-			setDisplayedPokemon((prev) => [...prev, ...nextData]);
-			setHasMore(currentLength + nextData.length < filteredPokemon.length);
-		} else {
-			setHasMore(false);
-		}
-	}, [displayedPokemon.length, filteredPokemon, hasMore, isLoading]);
-
-	// Intersection Observerで無限スクロールを実装
-	useEffect(() => {
-		const observer = new IntersectionObserver(
-			(entries) => {
-				if (entries[0].isIntersecting && hasMore && !isLoading) {
-					loadMore();
-				}
-			},
-			{ threshold: 0.1 },
-		);
-
-		const currentLoader = loaderRef.current;
-		if (currentLoader) {
-			observer.observe(currentLoader);
-		}
-
-		return () => {
-			if (currentLoader) {
-				observer.unobserve(currentLoader);
-			}
-		};
-	}, [loadMore, hasMore, isLoading]);
-
-	const handleGenerationChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-		setGeneration(Number(e.target.value));
-	};
-
+export default function PokemonIndexPage() {
 	return (
-		<>
-			<PokeSlider />
-			<div className="px-1 md:px-5 lg:px-5">
-				<div className="mt-3 mb-3 flex gap-1 lg:gap-6 justify-between">
-					<p className="font-bold text-xm lg:text-3xl">ポケモン図鑑</p>
-					<select
-						id="generation"
-						className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-3 font-bold max-h-[50px]"
-						onChange={handleGenerationChange}
-						value={generation}
-					>
-						<option value={999}>全世代</option>
-						{[...Array(9)].map((_, i) => (
-							<option key={i + 1} value={i + 1}>
-								{generationName(i + 1)}
-							</option>
-						))}
-					</select>
-				</div>
+		<main className="min-h-screen bg-gray-50 dark:bg-gray-900 py-12 px-4">
+			<div className="max-w-3xl mx-auto">
+				<h1 className="text-3xl font-bold text-center text-gray-800 dark:text-gray-100 mb-8">
+					ポケモン
+				</h1>
 
-				{isLoading ? (
-					<BallSpinner />
-				) : (
-					<>
-						<div className="pokemon-grid">
-							{displayedPokemon.map((data) => (
-								<Link
-									href={`/pokemon/${data.no}`}
-									key={data.no}
-									className="rounded shadow-lg cursor-pointer pokemon-card block"
+				<div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+					{pokemonPages.map((page) => {
+						const Icon = page.icon;
+						return (
+							<Link
+								key={page.href}
+								href={page.href}
+								className="group block rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-6 shadow-sm hover:shadow-md transition-shadow"
+							>
+								<div
+									className={`w-12 h-12 rounded-lg bg-gradient-to-br ${page.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}
 								>
-									<div className="w-full mx-auto bg-gray-300">
-										<Image
-											src={data.img}
-											alt={data.name}
-											width={200}
-											height={200}
-											className="w-full h-auto"
-										/>
-									</div>
-									<div className="px-1 py-1 lg:px-2 lg:py-2">
-										<p className="font-bold text-xs lg:text-xl">{data.name}</p>
-									</div>
-								</Link>
-							))}
-						</div>
-						{/* ローダー（無限スクロール用のトリガー） */}
-						<div ref={loaderRef}>{hasMore && <BallSpinner />}</div>
-					</>
-				)}
+									<Icon className="h-6 w-6 text-white" />
+								</div>
+								<h2 className="text-lg font-bold text-gray-800 dark:text-gray-100 mb-2">
+									{page.title}
+								</h2>
+								<p className="text-sm text-gray-500 dark:text-gray-400">
+									{page.description}
+								</p>
+							</Link>
+						);
+					})}
+				</div>
 			</div>
-		</>
+		</main>
 	);
 }

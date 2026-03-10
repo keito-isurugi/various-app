@@ -76,7 +76,7 @@ export const SideNavigation: React.FC<SideNavigationProps> = ({
 		},
 		{
 			href: "/pokemon",
-			label: "ポケモン図鑑",
+			label: "ポケモン",
 			icon: MonsterBallIcon,
 			color: "from-red-500 to-rose-600",
 		},
